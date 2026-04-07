@@ -15,12 +15,12 @@ Do not create new files unless explicitly requested.
 Use this exact list style for each paper entry:
 
 ```markdown
-- **<Paper Title>** (YYYY.MM)
-   **Description**: <1-2 sentence summary based on abstract>
-   [[Paper](<arxiv_abs_url>)]
-   [[Project](<project_url>)]            # optional
-   [[Code](<github_url>)]                # optional
-   [[Hugging Face](<hf_url>)]]           # optional
+- **<Paper Title>** (YYYY.MM) \
+  **Description**: <1-2 sentence summary based on abstract> \
+  [[Paper](<arxiv_abs_url>)]
+  [[Project](<project_url>)]            # optional
+  [[Code](<github_url>)]                # optional
+  [[Hugging Face](<hf_url>)]]           # optional
 ```
 
 Rules:
@@ -32,6 +32,13 @@ Rules:
 - Keep `Description` concise in English, 1-2 sentences, focus on problem and core contribution.
 - Always include `Paper`.
 - `Project` / `Code` / `Hugging Face` are optional. If unavailable, omit those lines instead of writing `N/A`.
+
+## Markdown Layout Rules
+
+- Use 2 spaces indentation for all lines under one paper bullet item.
+- Use `\` at the end of the title line and `Description` line for forced line breaks.
+- Keep one blank line between two paper bullet items.
+- Do not leave trailing spaces at line ends.
 
 ## Workflow
 
