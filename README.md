@@ -20,7 +20,7 @@
   [[Paper](https://arxiv.org/abs/2603.15031)]
   [[Project](https://github.com/MoonshotAI/Attention-Residuals)]
 
-## LLMs
+# LLMs
 
 - **GLM-5: from Vibe Coding to Agentic Engineering** (2026.02) \
   **Description**: GLM-5 is a next-generation foundation model targeting long-horizon agentic engineering, with reduced training and inference cost and preserved long-context capability. It introduces asynchronous RL infrastructure and agent RL algorithms to improve post-training efficiency and real-world coding performance. \
@@ -35,7 +35,7 @@
   [[Code](https://github.com/zai-org/GLM-4.5)]
   [[Hugging Face](https://huggingface.co/zai-org/GLM-4.5)]]
 
-## Multimodal LLMs
+# Multimodal LLMs
 
 - **V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators** (2026.04) \
   **Description**: V-Reflection converts MLLMs from passive visual consumers to active interrogators through a think-then-look reflection mechanism that grounds each reasoning step in visual evidence. A two-stage distillation design improves fine-grained perception while keeping inference fully autoregressive and efficient. \
@@ -44,14 +44,14 @@
   [[Code](https://github.com/IDEA-Research/V-Reflection)]
   [[Hugging Face](https://huggingface.co/garlandchou/V-Reflection)]]
 
-## Embeddings
+# Embeddings
 
 
-## Reinforcement Learning
+# Reinforcement Learning
 
-## Agents Application
+# Agents Application
 
-## Auto-Prompt
+# Auto-Prompt
 
 - **Auto-Prompt Ensemble for LLM Judge** (2025.10) \
   **Description**: APE improves LLM-as-a-judge reliability by automatically discovering auxiliary evaluation dimensions from failure cases and ensembling them with confidence-aware selection. It boosts agreement with human-aligned benchmarks by using test-time computation more effectively. \
