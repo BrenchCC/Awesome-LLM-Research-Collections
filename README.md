@@ -13,6 +13,7 @@
   - [SFT](#sft)
 - [Reinforcement Learning](#reinforcement-learning)
   - [Reasoning RL](#reasoning-rl)
+  - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
 - [Agents Application](#agents-application)
   - [Memory](#memory)
@@ -119,6 +120,21 @@
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
   [[Paper](https://arxiv.org/abs/2501.12948)]
   [[Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-R1)]
+
+## Agentic RL
+- **Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration** (2026.02) \
+  **Description**: This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors. \
+  [[Paper](https://arxiv.org/abs/2602.03647)]
+
+- **Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning** (2025.03) \
+  **Description**: This paper introduces Search-R1, an RL framework where LLMs learn to autonomously generate search queries during step-by-step reasoning with real-time retrieval, improving their ability to acquire external knowledge and up-to-date information. \
+  [[Paper](https://arxiv.org/abs/2503.09516)]
+  [[Code](https://github.com/PeterGriffinJin/Search-R1)]
+
+- **Search-o1: Agentic Search-Enhanced Large Reasoning Models** (2025.01) \
+  **Description**: This paper introduces Search-o1, a framework that enhances large reasoning models with an agentic retrieval-augmented generation mechanism and a Reason-in-Documents module for refining retrieved documents, addressing knowledge insufficiency in extended reasoning processes. \
+  [[Paper](https://arxiv.org/abs/2501.05366)]
+  [[Code](https://github.com/sunnynexus/Search-o1)]
 
 ## VLA RL
 - **SRPO: Self-Referential Policy Optimization for Vision-Language-Action Models** (2025.11) \
