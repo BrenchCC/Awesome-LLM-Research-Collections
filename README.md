@@ -151,6 +151,10 @@
   **Description**: This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR. \
   [[Paper](https://arxiv.org/abs/2604.03128)]
 
+- **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
+  **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
+  [[Paper](https://arxiv.org/abs/2602.03279)]
+
 - **Reward Modeling from Natural Language Human Feedback** (2026.01) \
   **Description**: This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation. \
   [[Paper](https://arxiv.org/abs/2601.07349)]
