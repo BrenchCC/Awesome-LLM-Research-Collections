@@ -84,6 +84,13 @@
 # Multimodal LLMs
 
 ## Vision-Language
+- **Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding** (2026.04) \
+  **Description**: This paper introduces Video-MME-v2, an improved video understanding benchmark addressing the saturation issue in existing benchmarks where inflated leaderboard scores fail to reflect real-world model capabilities. \
+  [[Paper](https://arxiv.org/abs/2604.05015)]
+  [[Project](https://video-mme-v2.netlify.app/)]
+  [[Code](https://github.com/MME-Benchmarks/Video-MME-v2)]
+  [[Hugging Face](https://huggingface.co/datasets/MME-Benchmarks/Video-MME-v2)]
+
 - **V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators** (2026.04) \
   **Description**: V-Reflection converts MLLMs from passive visual consumers to active interrogators through a think-then-look reflection mechanism that grounds each reasoning step in visual evidence. A two-stage distillation design improves fine-grained perception while keeping inference fully autoregressive and efficient. \
   [[Paper](https://arxiv.org/abs/2604.03307)]
@@ -98,11 +105,36 @@
   [[Code](https://github.com/QwenLM/Qwen3-VL)]
   [[Hugging Face](https://huggingface.co/collections/Qwen/qwen3-vl)]]
 
+- **InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency** (2025.08) \
+  **Description**: This paper introduces InternVL 3.5, a new family of open-source multimodal models that significantly advances versatility, reasoning capability, and inference efficiency, featuring the Cascade Reinforcement Learning framework. \
+  [[Paper](https://arxiv.org/abs/2508.18265)]
+
 - **Qwen2.5-VL Technical Report** (2025.02) \
   **Description**: This technical report introduces Qwen2.5-VL, a flagship vision-language model with stronger visual recognition, precise localization, robust document parsing, and long-video understanding. It also improves agentic interaction with visual environments through better grounding and structured perception capabilities. \
   [[Paper](https://arxiv.org/abs/2502.13923)]
   [[Code](https://github.com/QwenLM/Qwen2.5-VL)]
   [[Hugging Face](https://huggingface.co/collections/Qwen/qwen25-vl-67ad1d2357b3028d1e9c4d56)]
+
+- **InternVL 2.5: Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling** (2024.12) \
+  **Description**: This paper introduces InternVL 2.5, an advanced multimodal LLM series that was the first open-source MLLMs to surpass 70% on the MMMU benchmark, achieving a 3.7-point improvement through Chain-of-Thought reasoning. \
+  [[Paper](https://arxiv.org/abs/2412.05271)]
+  [[Hugging Face](https://huggingface.co/spaces/OpenGVLab/InternVL)]
+
+- **LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models** (2024.07) \
+  **Description**: This paper introduces LLaVA-NeXT-Interleave, which simultaneously tackles Multi-image, Multi-frame (video), Multi-view (3D), and Multi-patch scenarios in large multimodal models, extending visual instruction tuning to multi-modal scenarios. \
+  [[Paper](https://arxiv.org/abs/2407.07895)]
+  [[Project](https://llava-vl.github.io/blog/2024-06-16-llava-next-interleave/)]
+  [[Code](https://github.com/LLaVA-VL/LLaVA-NeXT)]
+
+- **How Good is my Video LMM? Complex Video Reasoning and Robustness Evaluation Suite for Video-LMMs** (2024.05) \
+  **Description**: This paper introduces CVRR-ES, a benchmark that comprehensively assesses Video-LMMs across 11 diverse real-world video dimensions, evaluating 9 recent models and finding that most open-source Video-LMMs struggle with robustness and reasoning on complex videos. \
+  [[Paper](https://arxiv.org/abs/2405.03690)]
+  [[Project](https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/)]
+
+- **LLaVA: Visual Instruction Tuning** (2023.04) \
+  **Description**: This paper presents LLaVA, a large multimodal model trained end-to-end on machine-generated instruction tuning data, showing impressive multimodal chat abilities and achieving state-of-the-art results on Science QA. \
+  [[Paper](https://arxiv.org/abs/2304.08485)]
+  [[Project](https://llava-vl.github.io/)]
 
 # Embeddings
 
@@ -114,6 +146,14 @@
   [[Paper](https://arxiv.org/abs/2601.09195)]
 
 # Reinforcement Learning
+
+- **Self-Distilled RLVR** (2026.04) \
+  **Description**: This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR. \
+  [[Paper](https://arxiv.org/abs/2604.03128)]
+
+- **Reward Modeling from Natural Language Human Feedback** (2026.01) \
+  **Description**: This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation. \
+  [[Paper](https://arxiv.org/abs/2601.07349)]
 
 ## Reasoning RL
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
