@@ -170,6 +170,10 @@
   **Description**: This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors. \
   [[Paper](https://arxiv.org/abs/2602.03647)]
 
+- **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) \
+  **Description**: This paper introduces Arena-RL, a reinforcement learning framework that trains LLM-driven agents to play visual games via vision-language action models, focusing on policy improvement from interactive game feedback. It demonstrates that reward-driven optimization over game trajectories can significantly improve strategic decision-making and generalization across game environments. \
+  [[Paper](https://arxiv.org/abs/2601.06487)]
+  
 - **Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning** (2025.03) \
   **Description**: This paper introduces Search-R1, an RL framework where LLMs learn to autonomously generate search queries during step-by-step reasoning with real-time retrieval, improving their ability to acquire external knowledge and up-to-date information. \
   [[Paper](https://arxiv.org/abs/2503.09516)]
