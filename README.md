@@ -151,6 +151,11 @@
   **Description**: This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR. \
   [[Paper](https://arxiv.org/abs/2604.03128)]
 
+- **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
+  **Description**: This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters. \
+  [[Paper](https://arxiv.org/abs/2602.20945)]
+  [[Project](https://wutaiqiang.github.io/project/Art)]
+
 - **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
   **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
   [[Paper](https://arxiv.org/abs/2602.03279)]
@@ -192,10 +197,18 @@
 # Agents Application
 
 ## Memory
-
 - **Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs** (2025.10) \
   **Description**: This paper introduces BEAM, a benchmark of long, coherent conversations and probing questions for evaluating long-term memory in LLMs, and proposes LIGHT, a memory framework with episodic memory, working memory, and a scratchpad. Together, they expose long-context memory limitations and improve performance on long-horizon conversational reasoning tasks. \
   [[Paper](https://arxiv.org/abs/2510.27246)]]
+
+- **MLP Memory: A Retriever-Pretrained Memory for Large Language Models** (2025.08) \
+  **Description**: This paper introduces MLP Memory, a lightweight parametric module that learns to internalize retrieval patterns by pretraining an MLP to imitate a kNN retriever's behavior, bridging the gap between RAG and fine-tuning approaches. \
+  [[Paper](https://arxiv.org/abs/2508.01832)]
+
+- **MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent** (2025.07) \
+  **Description**: This paper introduces MemAgent, a multi-conversation RL-based memory agent that addresses the challenge of handling infinitely long documents with linear complexity without performance degradation during extrapolation. \
+  [[Paper](https://arxiv.org/abs/2507.02259)]
+  [[Project](https://memagent-sialab.github.io/)]
 
 # Auto-Prompt
 
