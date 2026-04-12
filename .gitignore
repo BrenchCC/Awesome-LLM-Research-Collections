@@ -426,3 +426,4 @@ AGENTS.md
 CLAUDE.md
 .omx
 .omc
+.claude/*.json

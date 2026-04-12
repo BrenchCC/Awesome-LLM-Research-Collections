@@ -28,6 +28,11 @@
 # LLMs
 
 ## Foundation Models
+- **The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook** (2026.04) \
+  **Description**: This survey argues that continuous latent space is becoming a native computational substrate for language-based models, addressing the inefficiencies of explicit token-level generation such as redundancy, discretization bottlenecks, and semantic loss. It further organizes the field through mechanism and ability perspectives, and outlines key open challenges for future research. \
+  [[Paper](https://arxiv.org/abs/2604.02029)]
+  [[Project](https://github.com/YU-deep/Awesome-Latent-Space)]
+
 - **GLM-5: from Vibe Coding to Agentic Engineering** (2026.02) \
   **Description**: GLM-5 is a next-generation foundation model targeting long-horizon agentic engineering, with reduced training and inference cost and preserved long-context capability. It introduces asynchronous RL infrastructure and agent RL algorithms to improve post-training efficiency and real-world coding performance. \
   [[Paper](https://arxiv.org/abs/2602.15763)]
