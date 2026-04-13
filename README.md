@@ -170,6 +170,17 @@
   [[Paper](https://arxiv.org/abs/2601.07349)]
 
 ## Reasoning RL
+- **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
+  **Description**: This paper presents MUPO, a reinforcement learning approach that addresses diversity collapse in GRPO-trained VLMs by incentivizing divergent thinking across multiple solutions, enabling deeper yet broader reasoning patterns. \
+  [[Paper](https://arxiv.org/abs/2604.00479)]
+  [[Project](https://xytian1008.github.io/MUPO/)]
+  [[Code](https://github.com/xytian1008/MUPO)]
+  [[Hugging Face](https://huggingface.co/xytian1008/MUPO-Thinker-7B)]
+
+- **FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization** (2026.03) \
+  **Description**: This paper presents FIPO, a reinforcement learning algorithm that overcomes reasoning bottlenecks in LLMs by addressing coarse-grained credit assignment in GRPO-style training, where outcome-based rewards fail to distinguish critical logical pivots from trivial tokens. \
+  [[Paper](https://arxiv.org/abs/2603.19835)]
+
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
   [[Paper](https://arxiv.org/abs/2501.12948)]
@@ -200,6 +211,10 @@
   [[Paper](https://arxiv.org/abs/2511.15605)]
 
 # Agents Application
+
+- **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
+  **Description**: This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts. \
+  [[Paper](https://arxiv.org/abs/2603.29919)]
 
 ## Memory
 - **Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs** (2025.10) \
