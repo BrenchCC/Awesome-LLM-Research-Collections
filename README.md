@@ -6,6 +6,7 @@
 - [Attention](#attention)
 - [LLMs](#llms)
   - [Foundation Models](#foundation-models)
+  - [Inference](#inference)
 - [Multimodal LLMs](#multimodal-llms)
   - [Vision-Language](#vision-language)
 - [Embeddings](#embeddings)
@@ -86,6 +87,11 @@
   [[Code](https://github.com/QwenLM/Qwen2)]
   [[Hugging Face](https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52)]
 
+## Inference
+- **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
+  **Description**: This paper presents a theoretical framework for optimal test-time computation in LLMs, proving that the optimal algorithm always generates a caterpillar tree structure, and introduces CaT which achieves better success rate than Tree-of-Thoughts with fewer token generations. \
+  [[Paper](https://arxiv.org/abs/2603.22784)]
+
 # Multimodal LLMs
 
 ## Vision-Language
@@ -146,6 +152,10 @@
 # Training
 
 ## SFT
+- **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
+  **Description**: This paper challenges the common claim that supervised fine-tuning (SFT) only memorizes while RL generalizes, finding cross-domain generalization from reasoning SFT with long chain-of-thought supervision depends jointly on optimization dynamics, training data, and base model capability. \
+  [[Paper](https://arxiv.org/abs/2604.06628)]
+
 - **ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection** (2026.01) \
   **Description**: This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines. \
   [[Paper](https://arxiv.org/abs/2601.09195)]
@@ -160,6 +170,12 @@
   **Description**: This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters. \
   [[Paper](https://arxiv.org/abs/2602.20945)]
   [[Project](https://wutaiqiang.github.io/project/Art)]
+
+- **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
+  **Description**: This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks. \
+  [[Paper](https://arxiv.org/abs/2603.19310)]
+  [[Code](https://github.com/ulab-uiuc/MemReward)]
+  [[Hugging Face](https://huggingface.co/datasets/ulab-ai/MemReward)]
 
 - **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
   **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
