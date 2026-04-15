@@ -177,6 +177,10 @@
   [[Code](https://github.com/ulab-uiuc/MemReward)]
   [[Hugging Face](https://huggingface.co/datasets/ulab-ai/MemReward)]
 
+- **Scaling Reward Modeling without Human Supervision** (2026.03) \
+  **Description**: This paper studies unsupervised reward model scaling by learning preferences over web-corpus document prefixes and suffixes without human annotations. It reports consistent RewardBench gains across model backbones and shows downstream improvements in best-of-N selection and policy optimization. \
+  [[Paper](https://arxiv.org/abs/2603.02225)]
+
 - **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
   **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
   [[Paper](https://arxiv.org/abs/2602.03279)]
