@@ -40,6 +40,37 @@ Rules:
 - Keep one blank line between two paper bullet items.
 - Do not leave trailing spaces at line ends.
 
+## LaTeX Usage Rules
+
+- Prefer plain English in `Description`; use LaTeX only when the formula is central to the contribution.
+- Use inline math only: `$...$`. Do not use display blocks (`$$...$$`) inside README paper bullets.
+- Keep formulas short and readable (ideally one formula per sentence, at most two per description).
+- For titles, keep the official arXiv wording. If title text includes math, preserve meaning and render with inline `$...$` when possible.
+- Normalize source delimiters when needed: convert `\(...\)` to `$...$`; avoid raw `\[...\]` blocks in entries.
+- Avoid custom macro systems (`\newcommand`, `\def`) in README text because rendering is inconsistent.
+- If rendering is risky, rewrite the expression in concise natural language instead of forcing complex LaTeX.
+
+Example:
+- `**Description**: We optimize $\\mathcal{L}_{\\text{pref}}$ with margin $\\gamma$ to improve reward discrimination. \`
+
+## How to Fetch and Read arXiv LaTeX
+
+Use this flow when title/abstract parsing is ambiguous, math-heavy, or formatting-sensitive.
+
+1. Start from the canonical abstract page: `https://arxiv.org/abs/<id>`.
+2. Open the `TeX Source` link on that page (under full-text links). Treat that URL as the source of truth.
+3. If source must be fetched directly, use the arXiv source endpoint pattern `https://arxiv.org/e-print/<id>` as fallback.
+4. Detect source package type:
+- multi-file paper: usually tar/gzip archive containing `.tex`, `.bib`, figures.
+- single-file submission: may be a single compressed TeX-like file.
+5. Read the source minimally:
+- identify the main TeX file (`\documentclass`, then `\begin{document}`).
+- extract `\title{...}` and abstract blocks (`\begin{abstract}...\end{abstract}` or equivalent).
+- follow one level of `\input{}` / `\include{}` only if title/abstract are externalized.
+6. Convert source text to README-ready prose:
+- preserve math meaning; simplify macro-heavy notation.
+- do not copy long LaTeX fragments; summarize in 1-2 concise English sentences.
+
 ## Workflow
 
 1. Read current `README.md` and identify existing top-level and second-level categories.
@@ -48,7 +79,7 @@ Rules:
 - Canonical arXiv abstract URL (`https://arxiv.org/abs/<id>`).
 - Title from the paper metadata (match the official arXiv title).
 - Submission date month for `YYYY.MM`.
-4. Generate `Description` from abstract (1-2 concise English sentences).
+4. Generate `Description` from abstract (1-2 concise English sentences), following `LaTeX Usage Rules` and `How to Fetch and Read arXiv LaTeX` when needed.
 5. Resolve `Project` URL first, then discover missing links from it.
 6. Collect companion links in this order:
 - `Project`: official project page (arXiv links first, then author/org pages).

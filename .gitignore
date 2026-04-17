@@ -422,8 +422,6 @@ marimo/_lsp/
 __marimo__/
 
 # Code Agent
-AGENTS.md
-CLAUDE.md
 .omx
 .omc
 .claude/*.json
