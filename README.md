@@ -109,6 +109,10 @@
   [[Code](https://github.com/IDEA-Research/V-Reflection)]
   [[Hugging Face](https://huggingface.co/garlandchou/V-Reflection)]]
 
+- **ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model** (2026.03) \
+  **Description**: This paper proposes a VLM-guided JEPA-style latent world modeling framework that combines dense-frame dynamics prediction with long-horizon semantic guidance through a dual-temporal design. It further introduces a hierarchical pyramid representation extraction module to transfer multi-layer VLM reasoning features into latent forecasting for more robust hand-manipulation trajectory prediction. \
+  [[Paper](https://arxiv.org/abs/2603.22281)]
+
 - **Qwen3-VL Technical Report** (2025.11) \
   **Description**: We introduce Qwen3-VL, the most capable vision-language model in the Qwen series to date, achieving superior performance across a broad range of multimodal benchmarks. It natively supports interleaved contexts of up to 256K tokens, seamlessly integrating text, images, and video. \
   [[Paper](https://arxiv.org/abs/2511.21631)]
