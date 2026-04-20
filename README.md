@@ -244,7 +244,15 @@
   **Description**: This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance. \
   [[Paper](https://arxiv.org/abs/2603.26499)]
 
+- **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
+  **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
+  [[Paper](https://arxiv.org/abs/2603.10808)]
+
 ## Memory
+- **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
+  **Description**: This paper presents a framework that extracts actionable learnings from LLM agent execution trajectories and retrieves them as contextual memory for future tasks. It combines trajectory intelligence extraction, decision attribution, contextual learning generation, and adaptive memory retrieval to improve AppWorld task completion, especially on complex scenarios. \
+  [[Paper](https://arxiv.org/abs/2603.10600)]
+
 - **Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs** (2025.10) \
   **Description**: This paper introduces BEAM, a benchmark of long, coherent conversations and probing questions for evaluating long-term memory in LLMs, and proposes LIGHT, a memory framework with episodic memory, working memory, and a scratchpad. Together, they expose long-context memory limitations and improve performance on long-horizon conversational reasoning tasks. \
   [[Paper](https://arxiv.org/abs/2510.27246)]]
