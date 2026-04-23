@@ -275,3 +275,8 @@
 - **Auto-Prompt Ensemble for LLM Judge** (2025.10) \
   **Description**: APE improves LLM-as-a-judge reliability by automatically discovering auxiliary evaluation dimensions from failure cases and ensembling them with confidence-aware selection. It boosts agreement with human-aligned benchmarks by using test-time computation more effectively. \
   [[Paper](https://arxiv.org/abs/2510.06538)]
+
+- **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
+  **Description**: GEPA introduces a prompt optimizer that uses natural language reflection to learn high-level rules from trial and error, outperforming GRPO by 6% on average with up to 35x fewer rollouts. It also beats MIPROv2 by over 10% and shows promising results as an inference-time search strategy for code optimization. \
+  [[Paper](https://arxiv.org/abs/2507.19457)]
+  [[Code](https://github.com/gepa-ai/gepa)]
