@@ -18,6 +18,7 @@
   - [VLA RL](#vla-rl)
 - [Agents Application](#agents-application)
   - [Memory](#memory)
+- [Vision](#vision)
 - [Auto-Prompt](#auto-prompt)
 
 # Attention
@@ -265,6 +266,13 @@
   **Description**: This paper introduces MemAgent, a multi-conversation RL-based memory agent that addresses the challenge of handling infinitely long documents with linear complexity without performance degradation during extrapolation. \
   [[Paper](https://arxiv.org/abs/2507.02259)]
   [[Project](https://memagent-sialab.github.io/)]
+
+# Vision
+
+- **DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection** (2022.03) \
+  **Description**: DINO improves DETR-like object detectors by introducing contrastive denoising training, mixed query selection for anchor initialization, and a look-forward-twice box prediction scheme, achieving state-of-the-art results on COCO with significantly reduced model and data requirements. \
+  [[Paper](https://arxiv.org/abs/2203.03605)]
+  [[Code](https://github.com/IDEA-Research/DINO)]
 
 # Auto-Prompt
 
