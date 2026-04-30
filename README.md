@@ -160,6 +160,8 @@
 - **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
   **Description**: This paper challenges the common claim that supervised fine-tuning (SFT) only memorizes while RL generalizes, finding cross-domain generalization from reasoning SFT with long chain-of-thought supervision depends jointly on optimization dynamics, training data, and base model capability. \
   [[Paper](https://arxiv.org/abs/2604.06628)]
+  [[Code](https://github.com/Nebularaid2000/rethink_sft_generalization)]
+  [[Hugging Face](https://huggingface.co/collections/jasonrqh/rethink-sft-generalization)]]
 
 - **ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection** (2026.01) \
   **Description**: This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines. \
@@ -236,6 +238,11 @@
   [[Paper](https://arxiv.org/abs/2511.15605)]
 
 # Agents Application
+
+- **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
+  **Description**: This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks. \
+  [[Paper](https://arxiv.org/abs/2512.03746)]
+  [[Code](https://github.com/ByteDance-BandAI/CodeVision)]
 
 - **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
   **Description**: This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts. \
