@@ -9,6 +9,7 @@
   - [Inference](#inference)
 - [Multimodal LLMs](#multimodal-llms)
   - [Vision-Language](#vision-language)
+  - [VLA](#vla)
 - [Embeddings](#embeddings)
 - [Training](#training)
   - [SFT](#sft)
@@ -151,6 +152,14 @@
   **Description**: This paper presents LLaVA, a large multimodal model trained end-to-end on machine-generated instruction tuning data, showing impressive multimodal chat abilities and achieving state-of-the-art results on Science QA. \
   [[Paper](https://arxiv.org/abs/2304.08485)]
   [[Project](https://llava-vl.github.io/)]
+
+## VLA
+- **Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation** (2026.04) \
+  **Description**: OneVL addresses real-time trajectory planning in VLA-based autonomous driving by compressing Chain-of-Thought reasoning into compact latent tokens supervised by both language reconstruction and future-frame prediction. Its three-stage training pipeline yields latent reasoning that surpasses explicit CoT while keeping answer-only inference latency. \
+  [[Paper](https://arxiv.org/abs/2604.18486)]
+  [[Project](https://xiaomi-embodied-intelligence.github.io/OneVL/)]
+  [[Code](https://github.com/xiaomi-research/onevl)]
+  [[Hugging Face](https://huggingface.co/collections/xiaomi-research/onevl-models)]
 
 # Embeddings
 
