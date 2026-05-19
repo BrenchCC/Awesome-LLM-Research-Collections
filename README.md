@@ -18,6 +18,8 @@
   - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
 - [Agents Application](#agents-application)
+  - [AI Research](#ai-research)
+  - [Agent Skills](#agent-skills)
   - [Memory](#memory)
 - [Vision](#vision)
 - [Auto-Prompt](#auto-prompt)
@@ -97,6 +99,13 @@
 # Multimodal LLMs
 
 ## Vision-Language
+- **Lance: Unified Multimodal Modeling by Multi-Task Synergy** (2026.05) \
+  **Description**: Lance introduces a lightweight native unified multimodal model for image and video understanding, generation, and editing without relying mainly on capacity scaling. It combines shared interleaved context modeling, decoupled capability pathways, dual-stream MoE, modality-aware rotary positional encoding, and staged multi-task training to improve both generation and understanding. \
+  [[Paper](https://arxiv.org/abs/2605.18678)]
+  [[Project](https://lance-project.github.io/)]
+  [[Code](https://github.com/bytedance/Lance)]
+  [[Hugging Face](https://huggingface.co/bytedance-research/Lance)]
+
 - **Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding** (2026.04) \
   **Description**: This paper introduces Video-MME-v2, an improved video understanding benchmark addressing the saturation issue in existing benchmarks where inflated leaderboard scores fail to reflect real-world model capabilities. \
   [[Paper](https://arxiv.org/abs/2604.05015)]
@@ -264,6 +273,20 @@
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
   [[Paper](https://arxiv.org/abs/2603.10808)]
+
+## AI Research
+- **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
+  **Description**: This survey analyzes AI-assisted research across creation, writing, validation, and dissemination, showing where automation is reliable and where autonomy still fails on novelty, experiments, and scientific judgment. It provides a lifecycle taxonomy, benchmark suite, tool inventory, design principles, and practitioner playbook for human-governed AI research workflows. \
+  [[Paper](https://arxiv.org/abs/2605.18661)]
+  [[Project](https://worldbench.github.io/awesome-ai-auto-research)]
+  [[Code](https://github.com/worldbench/awesome-ai-auto-research)]
+
+## Agent Skills
+- **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
+  **Description**: SkillsVote addresses noisy and hard-to-govern agent trajectories by treating Agent Skills as reusable experience artifacts with collection, recommendation, attribution, and evolution controls. It profiles large-scale open-source skill corpora, recommends structured skill context before execution, and admits only evidence-gated successful discoveries to improve frozen agents without model updates. \
+  [[Paper](https://arxiv.org/abs/2605.18401)]
+  [[Project](https://skills.vote/)]
+  [[Code](https://github.com/MemTensor/skills-vote)]
 
 ## Memory
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
