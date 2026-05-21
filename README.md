@@ -14,6 +14,7 @@
 - [Training](#training)
   - [SFT](#sft)
 - [Reinforcement Learning](#reinforcement-learning)
+  - [Video Generation RL](#video-generation-rl)
   - [Reasoning RL](#reasoning-rl)
   - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
@@ -213,6 +214,14 @@
 - **Reward Modeling from Natural Language Human Feedback** (2026.01) \
   **Description**: This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation. \
   [[Paper](https://arxiv.org/abs/2601.07349)]
+
+## Video Generation RL
+- **KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration** (2026.05) \
+  **Description**: KVPO aligns streaming autoregressive video generators with human preferences using an ODE-native online GRPO framework. It replaces noise-based exploration with causal-semantic routing of historical KV cache entries and optimizes a velocity-field surrogate policy based on Trajectory Velocity Energy. \
+  [[Paper](https://arxiv.org/abs/2605.14278)]
+  [[Project](https://richard-zhang-ai.github.io/KVPO-Project/)]
+  [[Code](https://github.com/Richard-Zhang-AI/KVPO)]
+  [[Hugging Face](https://huggingface.co/Richard-ZZZZZ/KVPO)]
 
 ## Reasoning RL
 - **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
