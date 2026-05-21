@@ -1,8 +1,19 @@
-name: Quarto GitHub Pages
+name: Publish Quarto Website
 
 on:
   push:
     branches: [main]
+    paths:
+      - "README.md"
+      - "README.zh-CN.md"
+      - "index.qmd"
+      - "papers/**/*.qmd"
+      - "zh/**/*.qmd"
+      - "_quarto.yml"
+      - "styles.css"
+      - "assets/**"
+      - "scripts/check_readme_qmd_sync.py"
+      - ".github/workflows/quarto-gh-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -12,39 +23,35 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Check README and QMD sync
-        run: python scripts/check_readme_qmd_sync.py
-
-      - name: Render Quarto website
-        run: quarto render
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-
-  deploy:
-    needs: build
+  build-deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Check README and QMD sync
+        run: python scripts/check_readme_qmd_sync.py
+
+      - name: Render site
+        run: quarto render --no-execute
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
