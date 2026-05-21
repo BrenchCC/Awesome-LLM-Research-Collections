@@ -1,0 +1,6 @@
+<svg fill="none" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <title>Paper</title>
+  <path d="M7 3h7l4 4v14H7z" stroke="#B77A25" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M14 3v5h4" stroke="#B77A25" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M9.5 12h5M9.5 16h5" stroke="#B77A25" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,194 @@
+---
+title: "多模态大模型"
+description: "连接视觉、视频、动作与语言推理的多模态理解和生成研究。"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../../papers/multimodal-llms.html">English</a></div>
+  <p class="eyebrow">研究分类</p>
+  <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>12</strong><span>论文</span></div>
+    <div><strong>34</strong><span>资源链接</span></div>
+    <div><strong>2026.05</strong><span>最新月份</span></div>
+  </div>
+  <nav class="section-nav" aria-label="子分类">
+    <a href="#vision-language">视觉语言</a>
+<a href="#vla">视觉-语言-动作</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="vision-language">
+  <div class="section-heading compact">
+    <p class="eyebrow">11 篇论文</p>
+    <h2>视觉语言</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="lance-unified-multimodal-modeling-by-multi-task-synergy">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Lance: Unified Multimodal Modeling by Multi-Task Synergy</h3>
+  <p>Lance 提出一种轻量级原生统一多模态模型，在不主要依赖容量扩展的情况下支持图像和视频理解、生成与编辑。它结合共享交错上下文建模、解耦能力路径、双流 MoE、模态感知 RoPE 和分阶段多任务训练，同时提升生成与理解能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.18678" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://lance-project.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/bytedance/Lance" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/bytedance-research/Lance" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</h3>
+  <p>该论文提出 Video-MME-v2，一个改进的视频理解基准，用于缓解现有基准分数饱和的问题。它指出膨胀的排行榜分数往往无法真实反映模型能力，并推动更全面的视频理解评测。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://video-mme-v2.netlify.app/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</h3>
+  <p>V-Reflection 通过“先思考、再观察”的反思机制，把 MLLM 从被动视觉消费者转变为主动提问者，并让每个推理步骤都扎根于视觉证据。两阶段蒸馏设计在保持自回归高效推理的同时提升细粒度感知。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.03307" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://idea-research.github.io/V-Reflection/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/IDEA-Research/V-Reflection" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/garlandchou/V-Reflection" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="thinkjepa-empowering-latent-world-models-with-large-vision-language-reasoning-model">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model</h3>
+  <p>该论文提出由 VLM 引导的 JEPA 式潜在世界模型框架，通过双时间尺度设计结合密集帧动态预测与长程语义引导。它还引入分层金字塔表征提取模块，将多层 VLM 推理特征迁移到潜在预测中，以提升手部操作轨迹预测的鲁棒性。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.22281" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="qwen3-vl-technical-report">
+  <div class="paper-meta">
+    <span>2025.11</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Qwen3-VL Technical Report</h3>
+  <p>该报告介绍 Qwen3-VL，这是 Qwen 系列迄今能力最强的视觉语言模型，在广泛多模态基准上取得更优表现。它原生支持最高 256K token 的交错上下文，可无缝融合文本、图像和视频。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2511.21631" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=99f0335c4ad9ff6153e517418d48535ab6d8afef&amp;from=research.latest-advancements-list" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3-vl" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="internvl3-5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency">
+  <div class="paper-meta">
+    <span>2025.08</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</h3>
+  <p>该论文提出 InternVL 3.5，一个新的开源多模态模型家族，在通用性、推理能力和推理效率上显著提升。其核心包括 Cascade Reinforcement Learning 框架，用于进一步增强多模态能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2508.18265" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="qwen2-5-vl-technical-report">
+  <div class="paper-meta">
+    <span>2025.02</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Qwen2.5-VL Technical Report</h3>
+  <p>该技术报告介绍 Qwen2.5-VL，一个旗舰视觉语言模型，具备更强的视觉识别、精确定位、文档解析和长视频理解能力。它还通过更好的 grounding 和结构化感知提升视觉环境中的智能体交互。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen2.5-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen25-vl-67ad1d2357b3028d1e9c4d56" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="internvl-2-5-expanding-performance-boundaries-of-open-source-multimodal-models-with-model-data-and-test-time-scaling">
+  <div class="paper-meta">
+    <span>2024.12</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>InternVL 2.5: Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling</h3>
+  <p>该论文介绍 InternVL 2.5，一个先进的多模态 LLM 系列，也是首个在 MMMU 基准上超过 70% 的开源 MLLM。它通过 Chain-of-Thought 推理带来 3.7 个百分点提升。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2412.05271" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://huggingface.co/spaces/OpenGVLab/InternVL" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="llava-next-interleave-tackling-multi-image-video-and-3d-in-large-multimodal-models">
+  <div class="paper-meta">
+    <span>2024.07</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models</h3>
+  <p>该论文提出 LLaVA-NeXT-Interleave，同时处理多图像、多帧视频、多视角 3D 和多 patch 场景。它将视觉指令微调扩展到更复杂的多模态输入设置。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2407.07895" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://llava-vl.github.io/blog/2024-06-16-llava-next-interleave/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/LLaVA-VL/LLaVA-NeXT" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="how-good-is-my-video-lmm-complex-video-reasoning-and-robustness-evaluation-suite-for-video-lmms">
+  <div class="paper-meta">
+    <span>2024.05</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>How Good is my Video LMM? Complex Video Reasoning and Robustness Evaluation Suite for Video-LMMs</h3>
+  <p>该论文提出 CVRR-ES，一个覆盖 11 类真实世界视频维度的视频 LMM 评测套件。它评估 9 个近期模型，并发现多数开源 Video-LMM 在复杂视频的鲁棒性和推理上仍然薄弱。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2405.03690" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="llava-visual-instruction-tuning">
+  <div class="paper-meta">
+    <span>2023.04</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>LLaVA: Visual Instruction Tuning</h3>
+  <p>该论文提出 LLaVA，一个使用机器生成指令微调数据端到端训练的大型多模态模型。它展现出强多模态对话能力，并在 Science QA 上取得当时最优结果。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2304.08485" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://llava-vl.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="vla">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>视觉-语言-动作</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="xiaomi-onevl-one-step-latent-reasoning-and-planning-with-vision-language-explanation">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>视觉-语言-动作</span>
+  </div>
+  <h3>Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation</h3>
+  <p>OneVL 面向 VLA 自动驾驶中的实时轨迹规划，将 Chain-of-Thought 推理压缩为由语言重建和未来帧预测共同监督的紧凑潜在 token。其三阶段训练流程让潜在推理在保持 answer-only 推理延迟的同时超过显式 CoT。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.18486" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://xiaomi-embodied-intelligence.github.io/OneVL/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/xiaomi-research/onevl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/xiaomi-research/onevl-models" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+```

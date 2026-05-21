@@ -1,0 +1,26 @@
+---
+title: "Embeddings"
+description: "Representation learning, retrieval, semantic matching, and embedding model research."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../zh/papers/embeddings.html">中文</a></div>
+  <p class="eyebrow">Research category</p>
+  <p class="category-summary">Representation learning, retrieval, semantic matching, and embedding model research.</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>0</strong><span>Papers</span></div>
+    <div><strong>0</strong><span>Resource links</span></div>
+    <div><strong>No papers yet</strong><span>Latest month</span></div>
+  </div>
+  <nav class="section-nav" aria-label="Subcategories">
+    <span class="empty-note">New papers will appear here after curation.</span>
+  </nav>
+</section>
+
+<section class="paper-section">
+  <p class="empty-state">No papers have been curated in this category yet.</p>
+</section>
+```

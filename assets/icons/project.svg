@@ -1,0 +1,6 @@
+<svg fill="none" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <title>Project</title>
+  <path d="M7 17L17 7" stroke="#245F8F" stroke-width="2" stroke-linecap="round"/>
+  <path d="M9 7h8v8" stroke="#245F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5 5h6M5 5v14h14v-6" stroke="#245F8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

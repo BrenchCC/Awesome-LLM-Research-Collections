@@ -1,18 +1,23 @@
 ---
 name: repo-readme-paper-curator
-description: Maintain this repository README.md by appending paper entries from one or multiple arXiv links using the existing or newly created category/subcategory structure and strict output format. Use when the user provides one or more arXiv URLs and wants title/date/description/paper/project/code/huggingface links organized into the correct README sections for this repository only.
+description: Maintain this repository bilingual paper catalog by appending entries from one or multiple arXiv links to README.md and README.zh-CN.md, then synchronizing English and Chinese Quarto website pages under papers/*.qmd and zh/papers/*.qmd. Use when the user provides arXiv URLs and wants title/date/English description/Chinese description/paper/project/code/huggingface links organized into the correct bilingual README sections and reflected on the Quarto site for this repository only.
 ---
 
 # Repo README Paper Curator
 
-Update only:
+Update together:
 `README.md`
+`README.zh-CN.md`
+`index.qmd`
+`papers/*.qmd`
+`zh/index.qmd`
+`zh/papers/*.qmd`
 
-Do not create new files unless explicitly requested.
+Also update `_quarto.yml` only when a new top-level category creates new English and Chinese category pages that must appear in website navigation.
 
 ## Required Output Format
 
-Use this exact list style for each paper entry:
+Use this exact English list style in `README.md`:
 
 ```markdown
 - **<Paper Title>** (YYYY.MM) \
@@ -23,14 +28,26 @@ Use this exact list style for each paper entry:
   [[Hugging Face](<hf_url>)]]           # optional
 ```
 
+Use this exact Chinese list style in `README.zh-CN.md`:
+
+```markdown
+- **<Paper Title>** (YYYY.MM) \
+  **描述**: <中文 1-2 句摘要，基于 abstract> \
+  [[论文](<arxiv_abs_url>)]
+  [[项目](<project_url>)]               # optional
+  [[代码](<github_url>)]                # optional
+  [[Hugging Face](<hf_url>)]]           # optional
+```
+
 Rules:
 - Keep field order exactly: `Paper`, `Project`, `Code`, `Hugging Face`.
-- Use the paper title as the display title.
+- Keep matching field order in Chinese: `论文`, `项目`, `代码`, `Hugging Face`.
+- Use the official paper title as the display title in both README files.
 - Use publication month from arXiv as `YYYY.MM`.
 - Keep existing repository style (headings and markdown layout) unchanged.
-- Always include `Description`, generated from the paper abstract.
-- Keep `Description` concise in English, 1-2 sentences, focus on problem and core contribution.
-- Always include `Paper`.
+- Always include English `Description` and Chinese `描述`, generated from the paper abstract.
+- Keep descriptions concise, 1-2 sentences, focus on problem and core contribution.
+- Always include `Paper` / `论文`.
 - `Project` / `Code` / `Hugging Face` are optional. If unavailable, omit those lines instead of writing `N/A`.
 
 ## Markdown Layout Rules
@@ -73,23 +90,41 @@ Use this flow when title/abstract parsing is ambiguous, math-heavy, or formattin
 
 ## Workflow
 
-1. Read current `README.md` and identify existing top-level and second-level categories.
+1. Read current `README.md` and `README.zh-CN.md`; identify matching top-level and second-level categories in both languages.
 2. Normalize input into a list of arXiv links (single or multiple).
 3. For each arXiv link, parse and extract:
 - Canonical arXiv abstract URL (`https://arxiv.org/abs/<id>`).
 - Title from the paper metadata (match the official arXiv title).
 - Submission date month for `YYYY.MM`.
-4. Generate `Description` from abstract (1-2 concise English sentences), following `LaTeX Usage Rules` and `How to Fetch and Read arXiv LaTeX` when needed.
+4. Generate English `Description` and Chinese `描述` from abstract (1-2 concise sentences each), following `LaTeX Usage Rules` and `How to Fetch and Read arXiv LaTeX` when needed.
 5. Resolve `Project` URL first, then discover missing links from it.
 6. Collect companion links in this order:
 - `Project`: official project page (arXiv links first, then author/org pages).
 - `Code`: GitHub repository URL (direct from arXiv/project page/footer/nav/buttons).
 - `Hugging Face`: model/dataset/space URL (from arXiv/project page/footer/nav/buttons).
 7. If `Code` or `Hugging Face` is missing, crawl the `Project` page and one hop of internal links likely named `resources`, `links`, `demo`, `github`, `model`, `weights`, `download`.
-8. Choose the best category/subcategory in `README.md`, preferring an existing second-level subcategory before falling back to a top-level section. Create a missing category or subcategory when no existing section fits.
-9. Insert each entry under the chosen subcategory when available; otherwise under the chosen top-level section, based on date ordering (newer first).
+8. Choose the best category/subcategory in `README.md`, then use the matching Chinese category/subcategory in `README.zh-CN.md`. Prefer existing second-level subcategories before falling back to top-level sections. Create missing paired English/Chinese categories or subcategories when no existing section fits.
+9. Insert each entry into both README files under the chosen subcategory when available; otherwise under the chosen top-level section, based on date ordering (newer first).
 10. If one of `Project` / `Code` / `Hugging Face` is unavailable after discovery, omit that line and keep only available fields.
-11. After all entries are inserted, update `# Contents` once so category directory remains consistent.
+11. After all entries are inserted, update English `# Contents` and Chinese `# 目录` once so both directories remain consistent.
+12. Regenerate bilingual Quarto pages from both README files:
+
+```bash
+python scripts/check_readme_qmd_sync.py --write
+```
+
+13. If a new top-level category was created, add the corresponding `papers/<category-slug>.qmd` and `zh/papers/<category-slug>.qmd` pages to `_quarto.yml` render/navigation as needed.
+14. Validate bilingual README/QMD sync:
+
+```bash
+python scripts/check_readme_qmd_sync.py
+```
+
+15. Render the Quarto website when the task includes website validation:
+
+```bash
+quarto render
+```
 
 ## Multi-Link Input Rules
 
@@ -102,13 +137,23 @@ Use this flow when title/abstract parsing is ambiguous, math-heavy, or formattin
 
 Prioritize existing sections in this README:
 - `Attention`
+- `注意力机制`
 - `LLMs`
+- `大语言模型`
 - `Multimodal LLMs`
+- `多模态大模型`
 - `Embeddings`
+- `嵌入模型`
 - `Training`
+- `训练`
 - `Reinforcement Learning`
+- `强化学习`
 - `Agents Application`
+- `智能体应用`
+- `Vision`
+- `视觉`
 - `Auto-Prompt`
+- `自动提示`
 
 ### Core Principle
 
@@ -347,17 +392,20 @@ Validation rules:
 
 ## Editing Constraints
 
-- Modify only `README.md`.
-- Preserve existing heading hierarchy.
+- Modify `README.md`, `README.zh-CN.md`, and the synchronized Quarto files generated from them.
+- Preserve existing heading hierarchy and qmd card layout.
 - Keep additions minimal and preserve existing style.
 - Do not rewrite unrelated content.
+- Do not commit or edit rendered `_site/` output.
 
 ## Contents Hygiene
 
 - Keep `# Contents` aligned with actual headings in README.
+- Keep `# 目录` aligned with actual headings in README.zh-CN.md.
 - Add new top-level category links when new categories are created.
 - Add second-level links in Contents only when the README currently follows that pattern for the same section.
 - Remove stale Contents links that no longer have matching headings.
+- Keep `_quarto.yml` navigation aligned with top-level category qmd pages.
 
 ## Time Ordering Rule
 

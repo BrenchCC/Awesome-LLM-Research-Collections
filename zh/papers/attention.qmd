@@ -1,0 +1,43 @@
+---
+title: "注意力机制"
+description: "围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../../papers/attention.html">English</a></div>
+  <p class="eyebrow">研究分类</p>
+  <p class="category-summary">围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>1</strong><span>论文</span></div>
+    <div><strong>2</strong><span>资源链接</span></div>
+    <div><strong>2026.03</strong><span>最新月份</span></div>
+  </div>
+  <nav class="section-nav" aria-label="子分类">
+    <a href="#featured">精选</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>精选</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="attention-residuals">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>注意力机制</span>
+  </div>
+  <h3>Attention Residuals</h3>
+  <p>该工作用对前序层输出的注意力替代固定残差累积，使模型能够根据输入动态聚合不同深度的信息，并缓解 PreNorm 带来的表征稀释问题。论文还提出 Block AttnRes，在更低显存与通信开销下支持可扩展训练。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.15031" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Attention-Residuals" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+  </div>
+</section>
+```

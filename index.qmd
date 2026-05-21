@@ -1,0 +1,158 @@
+---
+title: "Awesome LLM Research Collections"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="home-intro">
+  <div class="language-switch"><a href="zh/index.html">中文</a></div>
+  <p class="eyebrow">Curated LLM research map</p>
+  <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
+  <div class="stat-strip">
+    <div><strong>54</strong><span>Papers</span></div>
+    <div><strong>9</strong><span>Categories</span></div>
+    <div><strong>121</strong><span>Resource links</span></div>
+    <div><strong>2026.05</strong><span>Latest month</span></div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Browse</p>
+    <h2>Research Categories</h2>
+  </div>
+  <div class="category-grid">
+<a class="category-card" href="papers/attention.html">
+  <span class="category-count">1 paper</span>
+  <h3>Attention</h3>
+  <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
+  <div class="category-foot">
+    <span>2026.03</span>
+    <span>Direct collection</span>
+  </div>
+</a>
+<a class="category-card" href="papers/llms.html">
+  <span class="category-count">10 papers</span>
+  <h3>LLMs</h3>
+  <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
+  <div class="category-foot">
+    <span>2026.04</span>
+    <span>Foundation Models, Inference</span>
+  </div>
+</a>
+<a class="category-card" href="papers/multimodal-llms.html">
+  <span class="category-count">12 papers</span>
+  <h3>Multimodal LLMs</h3>
+  <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>VLA, Vision-Language</span>
+  </div>
+</a>
+<a class="category-card" href="papers/embeddings.html">
+  <span class="category-count">0 papers</span>
+  <h3>Embeddings</h3>
+  <p>Representation learning, retrieval, semantic matching, and embedding model research.</p>
+  <div class="category-foot">
+    <span>No papers yet</span>
+    <span>Direct collection</span>
+  </div>
+</a>
+<a class="category-card" href="papers/training.html">
+  <span class="category-count">2 papers</span>
+  <h3>Training</h3>
+  <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
+  <div class="category-foot">
+    <span>2026.04</span>
+    <span>SFT</span>
+  </div>
+</a>
+<a class="category-card" href="papers/reinforcement-learning.html">
+  <span class="category-count">15 papers</span>
+  <h3>Reinforcement Learning</h3>
+  <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>Agentic RL, Reasoning RL, VLA RL, Video Generation RL</span>
+  </div>
+</a>
+<a class="category-card" href="papers/agents-application.html">
+  <span class="category-count">10 papers</span>
+  <h3>Agents Application</h3>
+  <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>AI Research, Agent Skills, Memory</span>
+  </div>
+</a>
+<a class="category-card" href="papers/vision.html">
+  <span class="category-count">1 paper</span>
+  <h3>Vision</h3>
+  <p>Computer vision methods that are useful background for modern multimodal systems.</p>
+  <div class="category-foot">
+    <span>2022.03</span>
+    <span>Direct collection</span>
+  </div>
+</a>
+<a class="category-card" href="papers/auto-prompt.html">
+  <span class="category-count">3 papers</span>
+  <h3>Auto-Prompt</h3>
+  <p>Prompt optimization, evaluator prompting, prompt ensembles, and test-time prompt learning.</p>
+  <div class="category-foot">
+    <span>2025.12</span>
+    <span>Direct collection</span>
+  </div>
+</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Fresh index</p>
+    <h2>Recent Papers</h2>
+  </div>
+  <div class="recent-list">
+<a class="recent-row" href="papers/multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
+  <span>2026.05</span>
+  <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
+  <em>Multimodal LLMs</em>
+</a>
+<a class="recent-row" href="papers/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
+  <span>2026.05</span>
+  <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
+  <em>Reinforcement Learning</em>
+</a>
+<a class="recent-row" href="papers/agents-application.html#ai-for-auto-research-roadmap-user-guide">
+  <span>2026.05</span>
+  <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
+  <em>Agents Application</em>
+</a>
+<a class="recent-row" href="papers/agents-application.html#skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
+  <span>2026.05</span>
+  <strong>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</strong>
+  <em>Agents Application</em>
+</a>
+<a class="recent-row" href="papers/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
+  <span>2026.04</span>
+  <strong>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</strong>
+  <em>LLMs</em>
+</a>
+<a class="recent-row" href="papers/multimodal-llms.html#video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
+  <span>2026.04</span>
+  <strong>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</strong>
+  <em>Multimodal LLMs</em>
+</a>
+<a class="recent-row" href="papers/multimodal-llms.html#v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
+  <span>2026.04</span>
+  <strong>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</strong>
+  <em>Multimodal LLMs</em>
+</a>
+<a class="recent-row" href="papers/multimodal-llms.html#xiaomi-onevl-one-step-latent-reasoning-and-planning-with-vision-language-explanation">
+  <span>2026.04</span>
+  <strong>Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation</strong>
+  <em>Multimodal LLMs</em>
+</a>
+  </div>
+</section>
+```

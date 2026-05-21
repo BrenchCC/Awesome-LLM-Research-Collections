@@ -1,0 +1,244 @@
+---
+title: "Reinforcement Learning"
+description: "Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../zh/papers/reinforcement-learning.html">中文</a></div>
+  <p class="eyebrow">Research category</p>
+  <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>15</strong><span>Papers</span></div>
+    <div><strong>27</strong><span>Resource links</span></div>
+    <div><strong>2026.05</strong><span>Latest month</span></div>
+  </div>
+  <nav class="section-nav" aria-label="Subcategories">
+    <a href="#featured">Featured</a>
+<a href="#video-generation-rl">Video Generation RL</a>
+<a href="#reasoning-rl">Reasoning RL</a>
+<a href="#agentic-rl">Agentic RL</a>
+<a href="#vla-rl">VLA RL</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">6 papers</p>
+    <h2>Featured</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="self-distilled-rlvr">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>Self-Distilled RLVR</h3>
+  <p>This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
+  <p>This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+<article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels</h3>
+  <p>This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.19310" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/ulab-uiuc/MemReward" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/ulab-ai/MemReward" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="scaling-reward-modeling-without-human-supervision">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>Scaling Reward Modeling without Human Supervision</h3>
+  <p>This paper studies unsupervised reward model scaling by learning preferences over web-corpus document prefixes and suffixes without human annotations. It reports consistent RewardBench gains across model backbones and shows downstream improvements in best-of-N selection and policy optimization.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.02225" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
+  <p>This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="reward-modeling-from-natural-language-human-feedback">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>Reinforcement Learning</span>
+  </div>
+  <h3>Reward Modeling from Natural Language Human Feedback</h3>
+  <p>This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.07349" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="video-generation-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Video Generation RL</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Video Generation RL</span>
+  </div>
+  <h3>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</h3>
+  <p>KVPO aligns streaming autoregressive video generators with human preferences using an ODE-native online GRPO framework. It replaces noise-based exploration with causal-semantic routing of historical KV cache entries and optimizes a velocity-field surrogate policy based on Trajectory Velocity Energy.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.14278" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://richard-zhang-ai.github.io/KVPO-Project/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/Richard-Zhang-AI/KVPO" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/Richard-ZZZZZ/KVPO" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="reasoning-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">3 papers</p>
+    <h2>Reasoning RL</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="all-roads-lead-to-rome-incentivizing-divergent-thinking-in-vision-language-models">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models</h3>
+  <p>This paper presents MUPO, a reinforcement learning approach that addresses diversity collapse in GRPO-trained VLMs by incentivizing divergent thinking across multiple solutions, enabling deeper yet broader reasoning patterns.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.00479" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://xytian1008.github.io/MUPO/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/xytian1008/MUPO" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/xytian1008/MUPO-Thinker-7B" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="fipo-eliciting-deep-reasoning-with-future-kl-influenced-policy-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization</h3>
+  <p>This paper presents FIPO, a reinforcement learning algorithm that overcomes reasoning bottlenecks in LLMs by addressing coarse-grained credit assignment in GRPO-style training, where outcome-based rewards fail to distinguish critical logical pivots from trivial tokens.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.19835" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.01</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</h3>
+  <p>This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://huggingface.co/deepseek-ai/DeepSeek-R1" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agentic-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">4 papers</p>
+    <h2>Agentic RL</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="search-r2-enhancing-search-integrated-reasoning-via-actor-refiner-collaboration">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration</h3>
+  <p>This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03647" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="arena-rl-training-llms-as-game-players-with-vision-language-action-models">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>Arena-RL: Training LLMs as Game Players with Vision-Language Action Models</h3>
+  <p>This paper introduces Arena-RL, a reinforcement learning framework that trains LLM-driven agents to play visual games via vision-language action models, focusing on policy improvement from interactive game feedback. It demonstrates that reward-driven optimization over game trajectories can significantly improve strategic decision-making and generalization across game environments.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.06487" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="search-r1-training-llms-to-reason-and-leverage-search-engines-with-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.03</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning</h3>
+  <p>This paper introduces Search-R1, an RL framework where LLMs learn to autonomously generate search queries during step-by-step reasoning with real-time retrieval, improving their ability to acquire external knowledge and up-to-date information.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2503.09516" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/PeterGriffinJin/Search-R1" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="search-o1-agentic-search-enhanced-large-reasoning-models">
+  <div class="paper-meta">
+    <span>2025.01</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>Search-o1: Agentic Search-Enhanced Large Reasoning Models</h3>
+  <p>This paper introduces Search-o1, a framework that enhances large reasoning models with an agentic retrieval-augmented generation mechanism and a Reason-in-Documents module for refining retrieved documents, addressing knowledge insufficiency in extended reasoning processes.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2501.05366" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/sunnynexus/Search-o1" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="vla-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>VLA RL</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="srpo-self-referential-policy-optimization-for-vision-language-action-models">
+  <div class="paper-meta">
+    <span>2025.11</span>
+    <span>VLA RL</span>
+  </div>
+  <h3>SRPO: Self-Referential Policy Optimization for Vision-Language-Action Models</h3>
+  <p>This paper proposes SRPO, a reinforcement learning framework for vision-language-action models that replaces sparse binary rewards with progress-wise rewards derived from the model&#x27;s own successful trajectories. It uses latent world-model representations to measure behavioral progress robustly and achieves state-of-the-art manipulation success on LIBERO with far fewer RL steps.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2511.15605" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+  </div>
+</section>
+```

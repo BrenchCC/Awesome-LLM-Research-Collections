@@ -1,0 +1,244 @@
+---
+title: "强化学习"
+description: "奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../../papers/reinforcement-learning.html">English</a></div>
+  <p class="eyebrow">研究分类</p>
+  <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>15</strong><span>论文</span></div>
+    <div><strong>27</strong><span>资源链接</span></div>
+    <div><strong>2026.05</strong><span>最新月份</span></div>
+  </div>
+  <nav class="section-nav" aria-label="子分类">
+    <a href="#featured">精选</a>
+<a href="#video-generation-rl">视频生成强化学习</a>
+<a href="#reasoning-rl">推理强化学习</a>
+<a href="#agentic-rl">智能体强化学习</a>
+<a href="#vla-rl">视觉-语言-动作强化学习</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">6 篇论文</p>
+    <h2>精选</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="self-distilled-rlvr">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>强化学习</span>
+  </div>
+  <h3>Self-Distilled RLVR</h3>
+  <p>该论文提出 Self-Distilled RLVR，将 on-policy distillation 与 RLVR 结合，由更大的教师模型为每条采样轨迹提供细粒度密集信号。该方法缓解了标准 RLVR 信号稀疏的问题。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>强化学习</span>
+  </div>
+  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
+  <p>该论文研究 LLM 的高效推理，通过 RL 激励短而准确的推理轨迹。论文总结了训练阶段、奖励设计和优化策略，并在 0.6B 到 30B 模型上分析泛化规律。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>强化学习</span>
+  </div>
+  <h3>MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels</h3>
+  <p>该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.19310" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/ulab-uiuc/MemReward" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/ulab-ai/MemReward" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="scaling-reward-modeling-without-human-supervision">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>强化学习</span>
+  </div>
+  <h3>Scaling Reward Modeling without Human Supervision</h3>
+  <p>该论文研究无需人工标注的无监督奖励模型扩展，通过学习网页语料文档前缀与后缀之间的偏好来训练奖励模型。实验显示该方法在不同模型骨干上稳定提升 RewardBench，并改进 best-of-N 选择和策略优化。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.02225" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>强化学习</span>
+  </div>
+  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
+  <p>该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="reward-modeling-from-natural-language-human-feedback">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>强化学习</span>
+  </div>
+  <h3>Reward Modeling from Natural Language Human Feedback</h3>
+  <p>该论文将偏好数据上的 RLVR 用于训练生成式奖励模型，指出二分类任务会让 GRM 倾向于猜对结果而非给出可靠批判。论文提出方法缓解这一问题。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.07349" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="video-generation-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>视频生成强化学习</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>视频生成强化学习</span>
+  </div>
+  <h3>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</h3>
+  <p>KVPO 使用 ODE-native online GRPO 框架，将流式自回归视频生成器与人类偏好对齐。它用历史 KV 缓存的因果语义路由替代噪声探索，并基于 Trajectory Velocity Energy 优化速度场代理策略。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.14278" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://richard-zhang-ai.github.io/KVPO-Project/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/Richard-Zhang-AI/KVPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/Richard-ZZZZZ/KVPO" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="reasoning-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">3 篇论文</p>
+    <h2>推理强化学习</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="all-roads-lead-to-rome-incentivizing-divergent-thinking-in-vision-language-models">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models</h3>
+  <p>该论文提出 MUPO，一种强化学习方法，通过激励多解之间的发散思考来缓解 GRPO 训练 VLM 时的多样性坍塌。它让模型形成更深且更广的推理模式。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.00479" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://xytian1008.github.io/MUPO/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/xytian1008/MUPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/xytian1008/MUPO-Thinker-7B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="fipo-eliciting-deep-reasoning-with-future-kl-influenced-policy-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization</h3>
+  <p>该论文提出 FIPO，一种强化学习算法，用于解决 LLM 推理瓶颈中的粗粒度信用分配问题。它针对 GRPO 式训练中结果奖励无法区分关键逻辑转折与普通 token 的问题进行改进。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.19835" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.01</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</h3>
+  <p>该论文展示纯强化学习无需人工标注推理轨迹即可直接激发 LLM 的高级推理行为。所提出框架诱导自我反思、验证和自适应策略使用，并在数学、代码和 STEM 推理任务上取得强提升。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://huggingface.co/deepseek-ai/DeepSeek-R1" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agentic-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">4 篇论文</p>
+    <h2>智能体强化学习</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="search-r2-enhancing-search-integrated-reasoning-via-actor-refiner-collaboration">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration</h3>
+  <p>该论文提出 Actor-Refiner 协作机制，解决搜索增强推理 RL 中的多尺度信用分配问题。它缓解稀疏轨迹级奖励难以区分高质量推理与偶然猜对的问题，并减少冗余或误导性搜索行为。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03647" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="arena-rl-training-llms-as-game-players-with-vision-language-action-models">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Arena-RL: Training LLMs as Game Players with Vision-Language Action Models</h3>
+  <p>该论文提出 Arena-RL，一个通过视觉语言动作模型训练 LLM 驱动智能体玩视觉游戏的强化学习框架，重点从交互式游戏反馈中改进策略。实验表明，基于游戏轨迹的奖励优化能显著提升策略决策与跨游戏泛化。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.06487" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="search-r1-training-llms-to-reason-and-leverage-search-engines-with-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.03</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning</h3>
+  <p>该论文提出 Search-R1，一个让 LLM 在逐步推理中通过 RL 学会自主生成搜索查询并使用实时检索的框架。它提升了模型获取外部知识和最新信息的能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2503.09516" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/PeterGriffinJin/Search-R1" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="search-o1-agentic-search-enhanced-large-reasoning-models">
+  <div class="paper-meta">
+    <span>2025.01</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Search-o1: Agentic Search-Enhanced Large Reasoning Models</h3>
+  <p>该论文提出 Search-o1，一个用智能体式检索增强生成机制和 Reason-in-Documents 模块增强大推理模型的框架。它通过精炼检索文档来缓解长程推理中的知识不足。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2501.05366" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/sunnynexus/Search-o1" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="vla-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>视觉-语言-动作强化学习</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="srpo-self-referential-policy-optimization-for-vision-language-action-models">
+  <div class="paper-meta">
+    <span>2025.11</span>
+    <span>视觉-语言-动作强化学习</span>
+  </div>
+  <h3>SRPO: Self-Referential Policy Optimization for Vision-Language-Action Models</h3>
+  <p>该论文提出 SRPO，一个用于视觉语言动作模型的强化学习框架，用模型自身成功轨迹中的进展式奖励替代稀疏二元奖励。它利用潜在世界模型表征稳健衡量行为进展，并以更少 RL 步数在 LIBERO 上取得最优操作成功率。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2511.15605" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+  </div>
+</section>
+```

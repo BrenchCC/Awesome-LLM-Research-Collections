@@ -1,0 +1,174 @@
+---
+title: "智能体应用"
+description: "智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../../papers/agents-application.html">English</a></div>
+  <p class="eyebrow">研究分类</p>
+  <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>10</strong><span>论文</span></div>
+    <div><strong>16</strong><span>资源链接</span></div>
+    <div><strong>2026.05</strong><span>最新月份</span></div>
+  </div>
+  <nav class="section-nav" aria-label="子分类">
+    <a href="#featured">精选</a>
+<a href="#ai-research">AI 研究</a>
+<a href="#agent-skills">智能体技能</a>
+<a href="#memory">记忆</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">4 篇论文</p>
+    <h2>精选</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
+  <div class="paper-meta">
+    <span>2025.12</span>
+    <span>智能体应用</span>
+  </div>
+  <h3>Thinking with Programming Vision: Towards a Unified View for Thinking with Images</h3>
+  <p>该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2512.03746" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>智能体应用</span>
+  </div>
+  <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
+  <p>该论文提出 SkillReducer，一个两阶段优化框架，用于压缩 LLM 智能体技能这类预封装指令集。它在提升功能质量 2.8% 的同时，将技能描述和正文分别压缩 48% 和 39%，降低 token 成本与注意力稀释。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>智能体应用</span>
+  </div>
+  <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
+  <p>该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>智能体应用</span>
+  </div>
+  <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
+  <p>该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="ai-research">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>AI 研究</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="ai-for-auto-research-roadmap-user-guide">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>AI 研究</span>
+  </div>
+  <h3>AI for Auto-Research: Roadmap &amp; User Guide</h3>
+  <p>这篇综述从创造、写作、验证和传播等环节分析 AI 辅助科研，指出自动化在哪些地方可靠，以及自治系统在新颖性、实验和科学判断上仍会失败。它提供生命周期分类、基准套件、工具清单、设计原则和面向实践者的人类治理式 AI 研究工作流指南。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.18661" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://worldbench.github.io/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/worldbench/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agent-skills">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>智能体技能</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>智能体技能</span>
+  </div>
+  <h3>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</h3>
+  <p>SkillsVote 将 Agent Skills 视为可复用经验资产，通过收集、推荐、归因和演化治理来缓解智能体轨迹噪声与难治理问题。它分析大规模开源技能语料，在执行前推荐结构化技能上下文，并只接纳证据门控的成功发现，以在不更新模型的情况下改进冻结智能体。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.18401" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://skills.vote/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/MemTensor/skills-vote" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="memory">
+  <div class="section-heading compact">
+    <p class="eyebrow">4 篇论文</p>
+    <h2>记忆</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="trajectory-informed-memory-generation-for-self-improving-agent-systems">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>记忆</span>
+  </div>
+  <h3>Trajectory-Informed Memory Generation for Self-Improving Agent Systems</h3>
+  <p>该论文提出一个从 LLM 智能体执行轨迹中提取可行动经验，并在未来任务中作为上下文记忆检索的框架。它结合轨迹智能提取、决策归因、上下文学习生成和自适应记忆检索，尤其提升复杂 AppWorld 场景的任务完成率。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.10600" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="beyond-a-million-tokens-benchmarking-and-enhancing-long-term-memory-in-llms">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>记忆</span>
+  </div>
+  <h3>Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs</h3>
+  <p>该论文提出 BEAM，一个由长而连贯对话和探测问题组成的基准，用于评估 LLM 长期记忆；同时提出 LIGHT，一个包含情景记忆、工作记忆和草稿板的记忆框架。二者共同揭示长上下文记忆限制，并提升长程对话推理表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.27246" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="mlp-memory-a-retriever-pretrained-memory-for-large-language-models">
+  <div class="paper-meta">
+    <span>2025.08</span>
+    <span>记忆</span>
+  </div>
+  <h3>MLP Memory: A Retriever-Pretrained Memory for Large Language Models</h3>
+  <p>该论文提出 MLP Memory，一个轻量级参数模块，通过预训练 MLP 模仿 kNN 检索器行为来内化检索模式。该方法在 RAG 与微调之间架起桥梁。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2508.01832" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="memagent-reshaping-long-context-llm-with-multi-conv-rl-based-memory-agent">
+  <div class="paper-meta">
+    <span>2025.07</span>
+    <span>记忆</span>
+  </div>
+  <h3>MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent</h3>
+  <p>该论文提出 MemAgent，一个基于多轮对话 RL 的记忆智能体，用线性复杂度处理无限长文档。它旨在解决外推到超长上下文时性能退化的问题。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2507.02259" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://memagent-sialab.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+  </div>
+</section>
+```

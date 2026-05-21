@@ -74,6 +74,10 @@ instance/
 # Sphinx documentation
 docs/_build/
 
+# Quarto
+.quarto/
+_site/
+
 # PyBuilder
 .pybuilder/
 target/

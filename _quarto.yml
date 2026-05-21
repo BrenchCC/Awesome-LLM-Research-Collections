@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - papers/*.qmd
+    - zh/index.qmd
+    - zh/papers/*.qmd
+
+website:
+  title: "Awesome LLM Research Collections"
+  description: "A curated collection of LLM research papers, projects, code, and model resources."
+  site-url: "https://brenchcc.github.io/Awesome-LLM-Research-Collections/"
+  repo-url: "https://github.com/BrenchCC/Awesome-LLM-Research-Collections"
+  repo-actions: [source, issue]
+  page-navigation: true
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Papers
+        menu:
+          - href: papers/attention.qmd
+            text: Attention
+          - href: papers/llms.qmd
+            text: LLMs
+          - href: papers/multimodal-llms.qmd
+            text: Multimodal LLMs
+          - href: papers/embeddings.qmd
+            text: Embeddings
+          - href: papers/training.qmd
+            text: Training
+          - href: papers/reinforcement-learning.qmd
+            text: Reinforcement Learning
+          - href: papers/agents-application.qmd
+            text: Agents Application
+          - href: papers/vision.qmd
+            text: Vision
+          - href: papers/auto-prompt.qmd
+            text: Auto-Prompt
+    right:
+      - href: index.qmd
+        text: English
+      - href: zh/index.qmd
+        text: 中文
+      - icon: github
+        href: "https://github.com/BrenchCC/Awesome-LLM-Research-Collections"
+        aria-label: GitHub repository
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true

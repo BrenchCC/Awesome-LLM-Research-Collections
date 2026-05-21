@@ -1,0 +1,26 @@
+---
+title: "嵌入模型"
+description: "面向检索、语义匹配、表示学习和嵌入模型训练的研究。"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../../papers/embeddings.html">English</a></div>
+  <p class="eyebrow">研究分类</p>
+  <p class="category-summary">面向检索、语义匹配、表示学习和嵌入模型训练的研究。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>0</strong><span>论文</span></div>
+    <div><strong>0</strong><span>资源链接</span></div>
+    <div><strong>暂无论文</strong><span>最新月份</span></div>
+  </div>
+  <nav class="section-nav" aria-label="子分类">
+    <span class="empty-note">新论文会在整理后显示在这里。</span>
+  </nav>
+</section>
+
+<section class="paper-section">
+  <p class="empty-state">该分类暂未收录论文。</p>
+</section>
+```

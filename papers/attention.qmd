@@ -1,0 +1,43 @@
+---
+title: "Attention"
+description: "Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../zh/papers/attention.html">中文</a></div>
+  <p class="eyebrow">Research category</p>
+  <p class="category-summary">Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>1</strong><span>Papers</span></div>
+    <div><strong>2</strong><span>Resource links</span></div>
+    <div><strong>2026.03</strong><span>Latest month</span></div>
+  </div>
+  <nav class="section-nav" aria-label="Subcategories">
+    <a href="#featured">Featured</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Featured</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="attention-residuals">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Attention</span>
+  </div>
+  <h3>Attention Residuals</h3>
+  <p>This work replaces fixed residual accumulation with attention over previous layer outputs, enabling input-dependent depth-wise aggregation and reducing PreNorm-induced representation dilution. It also introduces Block AttnRes for scalable training with lower memory and communication overhead.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.15031" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Attention-Residuals" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+  </div>
+</section>
+```

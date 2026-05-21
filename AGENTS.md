@@ -1,36 +1,53 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is documentation-first. The main artifact is `README.md`, which stores curated LLM paper entries organized by topic (for example `LLMs`, `Multimodal LLMs`, `Reinforcement Learning`).
+This repository is documentation-first, bilingual, and website-enabled. The primary maintained content is the paired paper catalog in `README.md`, `README.zh-CN.md`, and the Quarto pages under `papers/` and `zh/papers/`.
 
-- `README.md`: primary content and taxonomy.
+- `README.md`: primary Markdown catalog and taxonomy.
+- `README.zh-CN.md`: Chinese catalog with the same papers, Chinese descriptions, and localized link labels.
+- `_quarto.yml`: Quarto website configuration and navigation.
+- `index.qmd`, `papers/*.qmd`: generated English website pages.
+- `zh/index.qmd`, `zh/papers/*.qmd`: generated Chinese website pages.
+- `assets/icons/`: local SVG resource icons for paper/project/code/model links.
+- `scripts/check_readme_qmd_sync.py`: bilingual sync checker and qmd regeneration helper.
 - `LICENSE`: project license.
 - `.codex/`, `.omc/`, `.omx/`: local tooling metadata; do not edit unless your change is tooling-related.
 
-When contributing papers, edit only the relevant section in `README.md` and keep `# Contents` aligned with heading changes.
+When contributing papers, update the matching sections in both README files, keep both contents lists aligned with heading changes, then regenerate and verify both language versions of the Quarto pages.
 
 ## Build, Test, and Development Commands
-There is no build pipeline for this repo. Use lightweight checks before committing:
+Use lightweight checks before committing:
 
 - `rg --files` - quick file inventory.
 - `rg -n "^#|^##|^- \\*\\*" README.md` - inspect heading and paper-entry structure.
-- `git diff -- README.md` - review only intended edits.
+- `python scripts/check_readme_qmd_sync.py --write` - regenerate English and Chinese qmd pages from both README files.
+- `python scripts/check_readme_qmd_sync.py` - verify all qmd pages match the bilingual README sources.
+- `quarto render` - render the website into `_site/`.
+- `git diff -- README.md README.zh-CN.md index.qmd papers zh` - review intended content edits.
 - `git log --oneline -n 10` - check recent commit style.
 
 ## Coding Style & Naming Conventions
-Markdown consistency is the core style requirement.
+Markdown and qmd consistency are the core style requirements.
 
 - Keep heading hierarchy stable (`#` for top sections, `##` for subsections).
 - Use existing paper entry format consistently: title, date `(YYYY.MM)`, concise description, and links.
+- Keep paper titles in official English wording in both README files.
+- Use `**Description**` and English link labels in `README.md`; use `**描述**` and Chinese link labels (`论文`, `项目`, `代码`) in `README.zh-CN.md`.
 - Preserve ordering rules within sections (newer papers first unless section policy says otherwise).
+- Keep Quarto pages synchronized with both README files by running the sync script after paper edits.
+- Keep README command snippets environment-agnostic (`python ...` / `pip ...`), not Conda-specific.
 - Avoid unrelated reformatting or whitespace-only churn.
 
 ## Testing Guidelines
 No automated test suite is configured. Treat review as content validation:
 
 - Verify links are canonical and point to paper/project/code roots.
-- Ensure the paper is placed in the best-matching category/subcategory.
-- Confirm `# Contents` matches actual headings after edits.
+- Ensure the paper is placed in the best-matching category/subcategory in both languages.
+- Confirm both `# Contents` / `# 目录` match actual headings after edits.
+- Confirm `python scripts/check_readme_qmd_sync.py` passes.
+- Confirm `quarto render` succeeds before pushing website changes.
+
+GitHub Pages deploys through `.github/workflows/quarto-gh-pages.yml` using GitHub Actions artifacts. Do not commit `_site/` or `.quarto/`.
 
 ## Commit & Pull Request Guidelines
 Follow Conventional Commits seen in project history:
@@ -42,6 +59,7 @@ For PRs, include:
 
 - What changed (sections touched).
 - Why the placement is correct (classification rationale).
-- Any taxonomy updates (new category/subcategory and `# Contents` updates).
+- Any taxonomy updates (new category/subcategory and bilingual contents updates).
+- Whether bilingual Quarto pages were regenerated and rendered successfully.
 
 Keep PRs focused and small; one paper batch per PR is preferred.

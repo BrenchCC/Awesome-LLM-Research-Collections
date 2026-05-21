@@ -1,0 +1,65 @@
+---
+title: "Auto-Prompt"
+description: "Prompt optimization, evaluator prompting, prompt ensembles, and test-time prompt learning."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../zh/papers/auto-prompt.html">中文</a></div>
+  <p class="eyebrow">Research category</p>
+  <p class="category-summary">Prompt optimization, evaluator prompting, prompt ensembles, and test-time prompt learning.</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>3</strong><span>Papers</span></div>
+    <div><strong>4</strong><span>Resource links</span></div>
+    <div><strong>2025.12</strong><span>Latest month</span></div>
+  </div>
+  <nav class="section-nav" aria-label="Subcategories">
+    <a href="#featured">Featured</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">3 papers</p>
+    <h2>Featured</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="becoming-experienced-judges-selective-test-time-learning-for-evaluators">
+  <div class="paper-meta">
+    <span>2025.12</span>
+    <span>Auto-Prompt</span>
+  </div>
+  <h3>Becoming Experienced Judges: Selective Test-Time Learning for Evaluators</h3>
+  <p>This paper introduces Learning While Evaluating (LWE), enabling LLM-as-a-judge systems to improve sequentially at inference time by updating an evolving meta-prompt with self-generated feedback. It further proposes Selective LWE, which updates only on self-inconsistent cases to improve evaluation quality with better cost efficiency.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2512.06751" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="auto-prompt-ensemble-for-llm-judge">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>Auto-Prompt</span>
+  </div>
+  <h3>Auto-Prompt Ensemble for LLM Judge</h3>
+  <p>APE improves LLM-as-a-judge reliability by automatically discovering auxiliary evaluation dimensions from failure cases and ensembling them with confidence-aware selection. It boosts agreement with human-aligned benchmarks by using test-time computation more effectively.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.06538" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="gepa-reflective-prompt-evolution-can-outperform-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.07</span>
+    <span>Auto-Prompt</span>
+  </div>
+  <h3>GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning</h3>
+  <p>GEPA introduces a prompt optimizer that uses natural language reflection to learn high-level rules from trial and error, outperforming GRPO by 6% on average with up to 35x fewer rollouts. It also beats MIPROv2 by over 10% and shows promising results as an inference-time search strategy for code optimization.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2507.19457" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
+```
