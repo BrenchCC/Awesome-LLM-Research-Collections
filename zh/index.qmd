@@ -8,7 +8,7 @@ toc: false
 <section class="home-intro">
   <div class="language-switch"><a href="../index.html">English</a></div>
   <p class="eyebrow">LLM 研究地图</p>
-  <p class="lede">这是仓库 README 的 Quarto 双语网站版本，便于快速浏览论文、项目、代码与模型资源。</p>
+  <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
     <div><strong>54</strong><span>论文</span></div>
     <div><strong>9</strong><span>分类</span></div>

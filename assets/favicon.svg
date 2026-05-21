@@ -1,0 +1,9 @@
+<svg role="img" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <title>Awesome LLM Research Collections</title>
+  <rect width="64" height="64" rx="14" fill="#101828"/>
+  <path d="M16 17h20l12 12v21H16z" fill="#ffffff"/>
+  <path d="M36 17v13h12" fill="#d8ecff"/>
+  <path d="M22 35h20M22 43h14" stroke="#B31B1B" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="46" cy="18" r="8" fill="#FFD21E"/>
+  <path d="M43 18h6M46 15v6" stroke="#101828" stroke-width="2" stroke-linecap="round"/>
+</svg>

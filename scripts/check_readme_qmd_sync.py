@@ -129,7 +129,7 @@ LABELS_EN = {
 
 LABELS_ZH = {
     "home_eyebrow": "LLM 研究地图",
-    "home_lede": "这是仓库 README 的 Quarto 双语网站版本，便于快速浏览论文、项目、代码与模型资源。",
+    "home_lede": "LLM 研究论文、项目、代码与模型资源精选合集。",
     "papers": "论文",
     "categories": "分类",
     "resource_links": "资源链接",

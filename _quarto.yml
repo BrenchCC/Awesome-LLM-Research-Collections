@@ -10,6 +10,7 @@ project:
 website:
   title: "Awesome LLM Research Collections"
   description: "A curated collection of LLM research papers, projects, code, and model resources."
+  favicon: assets/favicon.svg
   site-url: "https://brenchcc.github.io/Awesome-LLM-Research-Collections/"
   repo-url: "https://github.com/BrenchCC/Awesome-LLM-Research-Collections"
   repo-actions: [source, issue]
