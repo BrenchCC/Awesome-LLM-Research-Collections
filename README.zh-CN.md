@@ -9,6 +9,7 @@
 - [大语言模型](#大语言模型)
   - [基础模型](#基础模型)
   - [推理](#推理)
+  - [检测](#检测)
 - [多模态大模型](#多模态大模型)
   - [视觉语言](#视觉语言)
   - [视觉-语言-动作](#视觉-语言-动作)
@@ -98,6 +99,12 @@
 - **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
   **描述**: 该论文为 LLM 的最优测试时计算提出理论框架，证明最优算法总会生成一种“毛毛虫树”结构，并提出 CaT。该方法相比 Tree-of-Thoughts 用更少 token 生成取得更高成功率。 \
   [[论文](https://arxiv.org/abs/2603.22784)]
+
+## 检测
+- **Base Models Look Human To AI Detectors** (2026.05) \
+  **描述**: 该论文发现，商业 AI 文本检测器常把基础模型输出判为比指令微调模型输出更像人类文本，说明检测器可能更多捕捉指令微调痕迹和局部上下文，而非稳定的机器生成文本信号。论文提出 Humanization by Iterative Paraphrasing (HIP)，通过检测器无关的微调与迭代改写管线，在保持语义的同时提升检测规避效果。 \
+  [[论文](https://arxiv.org/abs/2605.19516)]
+  [[代码](https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing)]
 
 # 多模态大模型
 

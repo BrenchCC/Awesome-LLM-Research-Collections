@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>54</strong><span>Papers</span></div>
+    <div><strong>55</strong><span>Papers</span></div>
     <div><strong>9</strong><span>Categories</span></div>
-    <div><strong>121</strong><span>Resource links</span></div>
+    <div><strong>123</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,12 +33,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/llms.html">
-  <span class="category-count">10 papers</span>
+  <span class="category-count">11 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
-    <span>2026.04</span>
-    <span>Foundation Models, Inference</span>
+    <span>2026.05</span>
+    <span>Detection, Foundation Models, Inference</span>
   </div>
 </a>
 <a class="category-card" href="papers/multimodal-llms.html">
@@ -113,6 +113,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="papers/llms.html#base-models-look-human-to-ai-detectors">
+  <span>2026.05</span>
+  <strong>Base Models Look Human To AI Detectors</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="papers/multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
   <span>2026.05</span>
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
@@ -146,11 +151,6 @@ toc: false
 <a class="recent-row" href="papers/multimodal-llms.html#v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
   <span>2026.04</span>
   <strong>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="papers/multimodal-llms.html#xiaomi-onevl-one-step-latent-reasoning-and-planning-with-vision-language-explanation">
-  <span>2026.04</span>
-  <strong>Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>

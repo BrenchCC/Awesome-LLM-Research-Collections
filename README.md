@@ -9,6 +9,7 @@
 - [LLMs](#llms)
   - [Foundation Models](#foundation-models)
   - [Inference](#inference)
+  - [Detection](#detection)
 - [Multimodal LLMs](#multimodal-llms)
   - [Vision-Language](#vision-language)
   - [VLA](#vla)
@@ -98,6 +99,12 @@
 - **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
   **Description**: This paper presents a theoretical framework for optimal test-time computation in LLMs, proving that the optimal algorithm always generates a caterpillar tree structure, and introduces CaT which achieves better success rate than Tree-of-Thoughts with fewer token generations. \
   [[Paper](https://arxiv.org/abs/2603.22784)]
+
+## Detection
+- **Base Models Look Human To AI Detectors** (2026.05) \
+  **Description**: This paper finds that commercial AI-text detectors often label base-model outputs as more human than outputs from instruction-tuned counterparts, suggesting they track tuning artifacts and local context rather than invariant machine-text signals. It proposes Humanization by Iterative Paraphrasing (HIP), a detector-agnostic fine-tuning and iterative paraphrasing pipeline that improves semantic preservation while evading detectors. \
+  [[Paper](https://arxiv.org/abs/2605.19516)]
+  [[Code](https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing)]
 
 # Multimodal LLMs
 
