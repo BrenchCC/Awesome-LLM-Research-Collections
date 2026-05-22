@@ -39,6 +39,12 @@ git diff -- README.md README.zh-CN.md index.qmd papers zh
 git log --oneline -n 10
 ```
 
+## Local Tooling Configuration
+
+Before running Python commands, check `.codex/project.local.json` for a `conda_env` value. If it exists, use that environment with `conda run -n <conda_env> python ...` and do not ask for the environment name again. If the file is missing or the value is empty, ask for the Conda environment before executing Python.
+
+The local config file is intentionally git-ignored because it may contain machine-specific settings.
+
 ## Project Structure
 
 - `README.md`: Primary Markdown catalog and taxonomy

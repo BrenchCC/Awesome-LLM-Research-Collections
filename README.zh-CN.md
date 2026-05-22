@@ -250,6 +250,13 @@
   [[Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-R1)]
 
 ## 智能体强化学习
+- **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
+  **描述**: Spreadsheet-RL 是一个用于在真实 Microsoft Excel 环境中训练专用表格智能体的强化学习微调框架，面向提示式智能体难以处理的复杂多步工作流。它结合自动化起止表格数据构建、多轮 Spreadsheet Gym 沙盒工具环境，以及 Domain-Spreadsheet 基准，以提升真实表格自动化能力。 \
+  [[论文](https://arxiv.org/abs/2605.22642)]
+  [[项目](https://spreadsheet-rl.github.io/)]
+  [[代码](https://github.com/Spreadsheet-RL/Spreadsheet-RL)]
+  [[Hugging Face](https://huggingface.co/datasets/Spreadsheet-RL/Spreadsheet-RL)]
+
 - **Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration** (2026.02) \
   **描述**: 该论文提出 Actor-Refiner 协作机制，解决搜索增强推理 RL 中的多尺度信用分配问题。它缓解稀疏轨迹级奖励难以区分高质量推理与偶然猜对的问题，并减少冗余或误导性搜索行为。 \
   [[论文](https://arxiv.org/abs/2602.03647)]

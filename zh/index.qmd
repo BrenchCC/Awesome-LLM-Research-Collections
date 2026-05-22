@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>55</strong><span>论文</span></div>
+    <div><strong>56</strong><span>论文</span></div>
     <div><strong>9</strong><span>分类</span></div>
-    <div><strong>123</strong><span>资源链接</span></div>
+    <div><strong>127</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -69,7 +69,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/reinforcement-learning.html">
-  <span class="category-count">15 篇论文</span>
+  <span class="category-count">16 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -128,6 +128,11 @@ toc: false
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="papers/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
+  <span>2026.05</span>
+  <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="papers/agents-application.html#ai-for-auto-research-roadmap-user-guide">
   <span>2026.05</span>
   <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
@@ -146,11 +151,6 @@ toc: false
 <a class="recent-row" href="papers/multimodal-llms.html#video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
   <span>2026.04</span>
   <strong>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="papers/multimodal-llms.html#v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
-  <span>2026.04</span>
-  <strong>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</strong>
   <em>多模态大模型</em>
 </a>
   </div>

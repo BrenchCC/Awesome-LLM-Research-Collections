@@ -250,6 +250,13 @@
   [[Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-R1)]
 
 ## Agentic RL
+- **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
+  **Description**: Spreadsheet-RL is an RL fine-tuning framework for training specialized spreadsheet agents in a realistic Microsoft Excel environment, addressing complex multi-step workflows that prompting-based agents struggle with. It adds automated start-goal spreadsheet data collection, a multi-turn Spreadsheet Gym with sandboxed Excel tools, and a Domain-Spreadsheet benchmark to improve real-world spreadsheet automation. \
+  [[Paper](https://arxiv.org/abs/2605.22642)]
+  [[Project](https://spreadsheet-rl.github.io/)]
+  [[Code](https://github.com/Spreadsheet-RL/Spreadsheet-RL)]
+  [[Hugging Face](https://huggingface.co/datasets/Spreadsheet-RL/Spreadsheet-RL)]
+
 - **Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration** (2026.02) \
   **Description**: This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors. \
   [[Paper](https://arxiv.org/abs/2602.03647)]

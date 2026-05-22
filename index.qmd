@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>55</strong><span>Papers</span></div>
+    <div><strong>56</strong><span>Papers</span></div>
     <div><strong>9</strong><span>Categories</span></div>
-    <div><strong>123</strong><span>Resource links</span></div>
+    <div><strong>127</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -69,7 +69,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/reinforcement-learning.html">
-  <span class="category-count">15 papers</span>
+  <span class="category-count">16 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -128,6 +128,11 @@ toc: false
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="papers/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
+  <span>2026.05</span>
+  <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="papers/agents-application.html#ai-for-auto-research-roadmap-user-guide">
   <span>2026.05</span>
   <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
@@ -146,11 +151,6 @@ toc: false
 <a class="recent-row" href="papers/multimodal-llms.html#video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
   <span>2026.04</span>
   <strong>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="papers/multimodal-llms.html#v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
-  <span>2026.04</span>
-  <strong>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>
