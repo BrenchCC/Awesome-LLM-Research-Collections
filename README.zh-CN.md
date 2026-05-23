@@ -313,6 +313,12 @@
   [[项目](https://skills.vote/)]
   [[代码](https://github.com/MemTensor/skills-vote)]
 
+- **From Context to Skills: Can Language Models Learn from Context Skillfully?** (2026.04) \
+  **描述**: Ctx2Skill 面向长且密集上下文中的 context learning，解决人工标注技能成本高、自动构建技能缺少外部反馈的问题。它通过多智能体 self-play 与 Cross-time Replay 自动发现、细化并选择可复用自然语言技能，从而提升不同语言模型的上下文学习解题率。 \
+  [[论文](https://arxiv.org/abs/2604.27660)]
+  [[代码](https://github.com/S1s-Z/Ctx2Skill)]
+  [[Hugging Face](https://huggingface.co/datasets/ssz1111/Ctx2Skill)]
+
 ## 记忆
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **描述**: 该论文提出一个从 LLM 智能体执行轨迹中提取可行动经验，并在未来任务中作为上下文记忆检索的框架。它结合轨迹智能提取、决策归因、上下文学习生成和自适应记忆检索，尤其提升复杂 AppWorld 场景的任务完成率。 \

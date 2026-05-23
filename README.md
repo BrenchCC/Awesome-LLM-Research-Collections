@@ -313,6 +313,12 @@
   [[Project](https://skills.vote/)]
   [[Code](https://github.com/MemTensor/skills-vote)]
 
+- **From Context to Skills: Can Language Models Learn from Context Skillfully?** (2026.04) \
+  **Description**: Ctx2Skill addresses context learning for long, dense contexts where manual skill annotation is costly and automated skill construction lacks external feedback. It uses a multi-agent self-play loop with Cross-time Replay to autonomously discover, refine, and select reusable natural-language skills that improve solving rates across language models. \
+  [[Paper](https://arxiv.org/abs/2604.27660)]
+  [[Code](https://github.com/S1s-Z/Ctx2Skill)]
+  [[Hugging Face](https://huggingface.co/datasets/ssz1111/Ctx2Skill)]
+
 ## Memory
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **Description**: This paper presents a framework that extracts actionable learnings from LLM agent execution trajectories and retrieves them as contextual memory for future tasks. It combines trajectory intelligence extraction, decision attribution, contextual learning generation, and adaptive memory retrieval to improve AppWorld task completion, especially on complex scenarios. \
