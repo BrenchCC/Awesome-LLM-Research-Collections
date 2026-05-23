@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../../papers/auto-prompt.html">English</a></div>
+  <div class="language-switch"><a href="../en/auto-prompt.html">English</a></div>
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">提示词优化、评测器提示、提示集成和测试时提示学习。</p>
   <div class="stat-strip compact-strip">

@@ -3,9 +3,9 @@ project:
   output-dir: _site
   render:
     - index.qmd
-    - papers/*.qmd
+    - papers/en/*.qmd
+    - papers/zh/*.qmd
     - zh/index.qmd
-    - zh/papers/*.qmd
 
 website:
   title: "Awesome LLM Research Collections"
@@ -22,23 +22,23 @@ website:
         text: Home
       - text: Papers
         menu:
-          - href: papers/attention.qmd
+          - href: papers/en/attention.qmd
             text: Attention
-          - href: papers/llms.qmd
+          - href: papers/en/llms.qmd
             text: LLMs
-          - href: papers/multimodal-llms.qmd
+          - href: papers/en/multimodal-llms.qmd
             text: Multimodal LLMs
-          - href: papers/embeddings.qmd
+          - href: papers/en/embeddings.qmd
             text: Embeddings
-          - href: papers/training.qmd
+          - href: papers/en/training.qmd
             text: Training
-          - href: papers/reinforcement-learning.qmd
+          - href: papers/en/reinforcement-learning.qmd
             text: Reinforcement Learning
-          - href: papers/agents-application.qmd
+          - href: papers/en/agents-application.qmd
             text: Agents Application
-          - href: papers/vision.qmd
+          - href: papers/en/vision.qmd
             text: Vision
-          - href: papers/auto-prompt.qmd
+          - href: papers/en/auto-prompt.qmd
             text: Auto-Prompt
     right:
       - href: index.qmd

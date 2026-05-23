@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/papers/embeddings.html">中文</a></div>
+  <div class="language-switch"><a href="../zh/embeddings.html">中文</a></div>
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Representation learning, retrieval, semantic matching, and embedding model research.</p>
   <div class="stat-strip compact-strip">

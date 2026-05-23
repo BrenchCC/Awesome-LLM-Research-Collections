@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../../papers/embeddings.html">English</a></div>
+  <div class="language-switch"><a href="../en/embeddings.html">English</a></div>
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">面向检索、语义匹配、表示学习和嵌入模型训练的研究。</p>
   <div class="stat-strip compact-strip">

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This is a documentation-first bilingual repository containing curated collections of LLM research papers organized by topic. It is also a Quarto website deployed to GitHub Pages. The maintained catalog exists in `README.md`, `README.zh-CN.md`, and generated category pages under `papers/` and `zh/papers/`.
+This is a documentation-first bilingual repository containing curated collections of LLM research papers organized by topic. It is also a Quarto website deployed to GitHub Pages. The maintained catalog exists in `README.md`, `README.zh-CN.md`, and generated category pages under `papers/en/` and `papers/zh/`.
 - Attention
 - LLMs (Foundation Models, Inference)
 - Multimodal LLMs (Vision-Language)
@@ -50,8 +50,8 @@ The local config file is intentionally git-ignored because it may contain machin
 - `README.md`: Primary Markdown catalog and taxonomy
 - `README.zh-CN.md`: Chinese catalog with matching papers and localized descriptions
 - `_quarto.yml`: Quarto website configuration and navigation
-- `index.qmd`, `papers/*.qmd`: English website pages generated from README
-- `zh/index.qmd`, `zh/papers/*.qmd`: Chinese website pages generated from README.zh-CN
+- `index.qmd`, `papers/en/*.qmd`: English website pages generated from README
+- `zh/index.qmd`, `papers/zh/*.qmd`: Chinese website pages generated from README.zh-CN
 - `assets/icons/`: Local SVG icons for paper/project/code/model links
 - `scripts/check_readme_qmd_sync.py`: Bilingual QMD regeneration and sync checker
 - `.github/workflows/quarto-gh-pages.yml`: GitHub Pages artifact deployment workflow

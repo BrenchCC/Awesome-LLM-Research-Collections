@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/papers/llms.html">中文</a></div>
+  <div class="language-switch"><a href="../zh/llms.html">中文</a></div>
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
@@ -36,8 +36,8 @@ toc: false
   <h3>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</h3>
   <p>This survey argues that continuous latent space is becoming a native computational substrate for language-based models, addressing the inefficiencies of explicit token-level generation such as redundancy, discretization bottlenecks, and semantic loss. It further organizes the field through mechanism and ability perspectives, and outlines key open challenges for future research.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2604.02029" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/YU-deep/Awesome-Latent-Space" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://arxiv.org/abs/2604.02029" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/YU-deep/Awesome-Latent-Space" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
   </div>
 </article>
 <article class="paper-card" id="glm-5-from-vibe-coding-to-agentic-engineering">
@@ -48,10 +48,10 @@ toc: false
   <h3>GLM-5: from Vibe Coding to Agentic Engineering</h3>
   <p>GLM-5 is a next-generation foundation model targeting long-horizon agentic engineering, with reduced training and inference cost and preserved long-context capability. It introduces asynchronous RL infrastructure and agent RL algorithms to improve post-training efficiency and real-world coding performance.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.15763" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://z.ai/blog/glm-5" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/zai-org/GLM-5" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/zai-org/GLM-5" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2602.15763" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://z.ai/blog/glm-5" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/zai-org/GLM-5" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/zai-org/GLM-5" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="kimi-k2-5-visual-agentic-intelligence">
@@ -62,10 +62,10 @@ toc: false
   <h3>Kimi K2.5: Visual Agentic Intelligence</h3>
   <p>This paper introduces an open-source multimodal agentic model that jointly optimizes text and vision through unified pretraining, SFT, and reinforcement learning. It also proposes Agent Swarm, a parallel orchestration framework for decomposing and executing complex tasks with coordinated agents.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.02276" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://www.kimi.com/ai-models/kimi-k2-5" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-K2.5" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/moonshotai/Kimi-K2.5" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2602.02276" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.kimi.com/ai-models/kimi-k2-5" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-K2.5" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/moonshotai/Kimi-K2.5" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="glm-4-5-agentic-reasoning-and-coding-arc-foundation-models">
@@ -76,9 +76,9 @@ toc: false
   <h3>GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models</h3>
   <p>GLM-4.5 introduces an open-source MoE foundation model with hybrid reasoning modes (thinking/direct response) to better support agentic, reasoning, and coding tasks. It combines large-scale pretraining and RL-based post-training, and releases both full and compact variants with strong benchmark performance.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2508.06471" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/zai-org/GLM-4.5" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/zai-org/GLM-4.5" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2508.06471" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/zai-org/GLM-4.5" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/zai-org/GLM-4.5" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="kimi-k2-open-agentic-intelligence">
@@ -89,10 +89,10 @@ toc: false
   <h3>Kimi K2: Open Agentic Intelligence</h3>
   <p>Kimi K2 presents a trillion-parameter MoE language model focused on strong agentic, reasoning, and coding capabilities with stable large-scale training. The work introduces MuonClip with QK-clip to improve optimization stability and token efficiency during pretraining.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2507.20534" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://moonshotai.github.io/Kimi-K2/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-K2" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/moonshotai/Kimi-K2-Base" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2507.20534" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://moonshotai.github.io/Kimi-K2/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-K2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/moonshotai/Kimi-K2-Base" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="qwen3-technical-report">
@@ -103,10 +103,10 @@ toc: false
   <h3>Qwen3 Technical Report</h3>
   <p>This report presents the Qwen3 family spanning dense and MoE models across a wide parameter range, emphasizing stronger multilingual performance and efficiency. It unifies deliberative thinking and fast response modes in one framework and scales post-training to improve reasoning, coding, and agentic behavior.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2505.09388" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://qwen.ai/blog?id=qwen3" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/QwenLM/Qwen3" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2505.09388" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=qwen3" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="minimax-01-scaling-foundation-models-with-lightning-attention">
@@ -117,10 +117,10 @@ toc: false
   <h3>MiniMax-01: Scaling Foundation Models with Lightning Attention</h3>
   <p>MiniMax-01 introduces a long-context model family built around Lightning Attention and MoE to improve scaling efficiency and practical throughput. It combines optimized parallelization and communication-computation overlap to train large models with stronger long-context performance.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2501.08313" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://www.minimax.io/news/minimax-01-series-2" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/MiniMax-AI/MiniMax-01" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/MiniMaxAI/MiniMax-Text-01" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2501.08313" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.minimax.io/news/minimax-01-series-2" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MiniMax-AI/MiniMax-01" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/MiniMaxAI/MiniMax-Text-01" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="qwen2-5-math-technical-report-toward-mathematical-expert-model-via-self-improvement">
@@ -131,9 +131,9 @@ toc: false
   <h3>Qwen2.5-Math Technical Report: Toward Mathematical Expert Model via Self-Improvement</h3>
   <p>This paper presents Qwen2.5-Math, a family of math-specialized language models that applies self-improvement throughout pre-training, post-training, and inference. The approach strengthens mathematical reasoning and tool-augmented problem solving across multiple model sizes.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2409.12122" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/QwenLM/Qwen2.5-Math" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen25-math-66f7162f2be749b8a8e63c8a" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2409.12122" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen2.5-Math" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen25-math-66f7162f2be749b8a8e63c8a" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="qwen2-technical-report">
@@ -144,9 +144,9 @@ toc: false
   <h3>Qwen2 Technical Report</h3>
   <p>This report introduces the Qwen2 series of dense and mixture-of-experts language models, covering base and instruction-tuned variants across a broad parameter range. It emphasizes stronger multilingual, coding, math, and reasoning performance while remaining competitive with proprietary systems.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2407.10671" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/QwenLM/Qwen2" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2407.10671" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>
@@ -165,7 +165,7 @@ toc: false
   <h3>Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models</h3>
   <p>This paper presents a theoretical framework for optimal test-time computation in LLMs, proving that the optimal algorithm always generates a caterpillar tree structure, and introduces CaT which achieves better success rate than Tree-of-Thoughts with fewer token generations.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.22784" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.22784" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>
@@ -184,8 +184,8 @@ toc: false
   <h3>Base Models Look Human To AI Detectors</h3>
   <p>This paper finds that commercial AI-text detectors often label base-model outputs as more human than outputs from instruction-tuned counterparts, suggesting they track tuning artifacts and local context rather than invariant machine-text signals. It proposes Humanization by Iterative Paraphrasing (HIP), a detector-agnostic fine-tuning and iterative paraphrasing pipeline that improves semantic preservation while evading detectors.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2605.19516" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://arxiv.org/abs/2605.19516" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

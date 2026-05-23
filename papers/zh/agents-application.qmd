@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../../papers/agents-application.html">English</a></div>
+  <div class="language-switch"><a href="../en/agents-application.html">English</a></div>
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">

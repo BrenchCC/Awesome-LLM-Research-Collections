@@ -23,7 +23,7 @@ toc: false
     <h2>Research Categories</h2>
   </div>
   <div class="category-grid">
-<a class="category-card" href="papers/attention.html">
+<a class="category-card" href="papers/en/attention.html">
   <span class="category-count">1 paper</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
@@ -32,7 +32,7 @@ toc: false
     <span>Direct collection</span>
   </div>
 </a>
-<a class="category-card" href="papers/llms.html">
+<a class="category-card" href="papers/en/llms.html">
   <span class="category-count">11 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
@@ -41,7 +41,7 @@ toc: false
     <span>Detection, Foundation Models, Inference</span>
   </div>
 </a>
-<a class="category-card" href="papers/multimodal-llms.html">
+<a class="category-card" href="papers/en/multimodal-llms.html">
   <span class="category-count">12 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
@@ -50,7 +50,7 @@ toc: false
     <span>VLA, Vision-Language</span>
   </div>
 </a>
-<a class="category-card" href="papers/embeddings.html">
+<a class="category-card" href="papers/en/embeddings.html">
   <span class="category-count">0 papers</span>
   <h3>Embeddings</h3>
   <p>Representation learning, retrieval, semantic matching, and embedding model research.</p>
@@ -59,7 +59,7 @@ toc: false
     <span>Direct collection</span>
   </div>
 </a>
-<a class="category-card" href="papers/training.html">
+<a class="category-card" href="papers/en/training.html">
   <span class="category-count">2 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
@@ -68,7 +68,7 @@ toc: false
     <span>SFT</span>
   </div>
 </a>
-<a class="category-card" href="papers/reinforcement-learning.html">
+<a class="category-card" href="papers/en/reinforcement-learning.html">
   <span class="category-count">16 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
@@ -77,7 +77,7 @@ toc: false
     <span>Agentic RL, Reasoning RL, VLA RL, Video Generation RL</span>
   </div>
 </a>
-<a class="category-card" href="papers/agents-application.html">
+<a class="category-card" href="papers/en/agents-application.html">
   <span class="category-count">10 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
@@ -86,7 +86,7 @@ toc: false
     <span>AI Research, Agent Skills, Memory</span>
   </div>
 </a>
-<a class="category-card" href="papers/vision.html">
+<a class="category-card" href="papers/en/vision.html">
   <span class="category-count">1 paper</span>
   <h3>Vision</h3>
   <p>Computer vision methods that are useful background for modern multimodal systems.</p>
@@ -95,7 +95,7 @@ toc: false
     <span>Direct collection</span>
   </div>
 </a>
-<a class="category-card" href="papers/auto-prompt.html">
+<a class="category-card" href="papers/en/auto-prompt.html">
   <span class="category-count">3 papers</span>
   <h3>Auto-Prompt</h3>
   <p>Prompt optimization, evaluator prompting, prompt ensembles, and test-time prompt learning.</p>
@@ -113,42 +113,42 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
-<a class="recent-row" href="papers/llms.html#base-models-look-human-to-ai-detectors">
+<a class="recent-row" href="papers/en/llms.html#base-models-look-human-to-ai-detectors">
   <span>2026.05</span>
   <strong>Base Models Look Human To AI Detectors</strong>
   <em>LLMs</em>
 </a>
-<a class="recent-row" href="papers/multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
+<a class="recent-row" href="papers/en/multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
   <span>2026.05</span>
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
   <em>Multimodal LLMs</em>
 </a>
-<a class="recent-row" href="papers/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
+<a class="recent-row" href="papers/en/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
   <em>Reinforcement Learning</em>
 </a>
-<a class="recent-row" href="papers/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
+<a class="recent-row" href="papers/en/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
   <span>2026.05</span>
   <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
 </a>
-<a class="recent-row" href="papers/agents-application.html#ai-for-auto-research-roadmap-user-guide">
+<a class="recent-row" href="papers/en/agents-application.html#ai-for-auto-research-roadmap-user-guide">
   <span>2026.05</span>
   <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
   <em>Agents Application</em>
 </a>
-<a class="recent-row" href="papers/agents-application.html#skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
+<a class="recent-row" href="papers/en/agents-application.html#skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
   <span>2026.05</span>
   <strong>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</strong>
   <em>Agents Application</em>
 </a>
-<a class="recent-row" href="papers/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
+<a class="recent-row" href="papers/en/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
   <span>2026.04</span>
   <strong>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</strong>
   <em>LLMs</em>
 </a>
-<a class="recent-row" href="papers/multimodal-llms.html#video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
+<a class="recent-row" href="papers/en/multimodal-llms.html#video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
   <span>2026.04</span>
   <strong>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</strong>
   <em>Multimodal LLMs</em>

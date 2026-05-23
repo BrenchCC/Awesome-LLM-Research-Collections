@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/papers/multimodal-llms.html">中文</a></div>
+  <div class="language-switch"><a href="../zh/multimodal-llms.html">中文</a></div>
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
@@ -35,10 +35,10 @@ toc: false
   <h3>Lance: Unified Multimodal Modeling by Multi-Task Synergy</h3>
   <p>Lance introduces a lightweight native unified multimodal model for image and video understanding, generation, and editing without relying mainly on capacity scaling. It combines shared interleaved context modeling, decoupled capability pathways, dual-stream MoE, modality-aware rotary positional encoding, and staged multi-task training to improve both generation and understanding.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2605.18678" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://lance-project.github.io/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/bytedance/Lance" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/bytedance-research/Lance" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2605.18678" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://lance-project.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/bytedance/Lance" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/bytedance-research/Lance" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="video-mme-v2-towards-the-next-stage-in-benchmarks-for-comprehensive-video-understanding">
@@ -49,10 +49,10 @@ toc: false
   <h3>Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding</h3>
   <p>This paper introduces Video-MME-v2, an improved video understanding benchmark addressing the saturation issue in existing benchmarks where inflated leaderboard scores fail to reflect real-world model capabilities.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://video-mme-v2.netlify.app/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/datasets/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2604.05015" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://video-mme-v2.netlify.app/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/MME-Benchmarks/Video-MME-v2" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="v-reflection-transforming-mllms-from-passive-observers-to-active-interrogators">
@@ -63,10 +63,10 @@ toc: false
   <h3>V-Reflection: Transforming MLLMs from Passive Observers to Active Interrogators</h3>
   <p>V-Reflection converts MLLMs from passive visual consumers to active interrogators through a think-then-look reflection mechanism that grounds each reasoning step in visual evidence. A two-stage distillation design improves fine-grained perception while keeping inference fully autoregressive and efficient.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2604.03307" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://idea-research.github.io/V-Reflection/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/IDEA-Research/V-Reflection" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/garlandchou/V-Reflection" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2604.03307" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://idea-research.github.io/V-Reflection/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/IDEA-Research/V-Reflection" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/garlandchou/V-Reflection" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="thinkjepa-empowering-latent-world-models-with-large-vision-language-reasoning-model">
@@ -77,7 +77,7 @@ toc: false
   <h3>ThinkJEPA: Empowering Latent World Models with Large Vision-Language Reasoning Model</h3>
   <p>This paper proposes a VLM-guided JEPA-style latent world modeling framework that combines dense-frame dynamics prediction with long-horizon semantic guidance through a dual-temporal design. It further introduces a hierarchical pyramid representation extraction module to transfer multi-layer VLM reasoning features into latent forecasting for more robust hand-manipulation trajectory prediction.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.22281" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.22281" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="qwen3-vl-technical-report">
@@ -88,10 +88,10 @@ toc: false
   <h3>Qwen3-VL Technical Report</h3>
   <p>We introduce Qwen3-VL, the most capable vision-language model in the Qwen series to date, achieving superior performance across a broad range of multimodal benchmarks. It natively supports interleaved contexts of up to 256K tokens, seamlessly integrating text, images, and video.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2511.21631" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://qwen.ai/blog?id=99f0335c4ad9ff6153e517418d48535ab6d8afef&amp;from=research.latest-advancements-list" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3-vl" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2511.21631" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=99f0335c4ad9ff6153e517418d48535ab6d8afef&amp;from=research.latest-advancements-list" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3-vl" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="internvl3-5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency">
@@ -102,7 +102,7 @@ toc: false
   <h3>InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</h3>
   <p>This paper introduces InternVL 3.5, a new family of open-source multimodal models that significantly advances versatility, reasoning capability, and inference efficiency, featuring the Cascade Reinforcement Learning framework.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2508.18265" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2508.18265" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="qwen2-5-vl-technical-report">
@@ -113,9 +113,9 @@ toc: false
   <h3>Qwen2.5-VL Technical Report</h3>
   <p>This technical report introduces Qwen2.5-VL, a flagship vision-language model with stronger visual recognition, precise localization, robust document parsing, and long-video understanding. It also improves agentic interaction with visual environments through better grounding and structured perception capabilities.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/QwenLM/Qwen2.5-VL" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen25-vl-67ad1d2357b3028d1e9c4d56" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen2.5-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen25-vl-67ad1d2357b3028d1e9c4d56" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="internvl-2-5-expanding-performance-boundaries-of-open-source-multimodal-models-with-model-data-and-test-time-scaling">
@@ -126,8 +126,8 @@ toc: false
   <h3>InternVL 2.5: Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling</h3>
   <p>This paper introduces InternVL 2.5, an advanced multimodal LLM series that was the first open-source MLLMs to surpass 70% on the MMMU benchmark, achieving a 3.7-point improvement through Chain-of-Thought reasoning.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2412.05271" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://huggingface.co/spaces/OpenGVLab/InternVL" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2412.05271" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://huggingface.co/spaces/OpenGVLab/InternVL" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="llava-next-interleave-tackling-multi-image-video-and-3d-in-large-multimodal-models">
@@ -138,9 +138,9 @@ toc: false
   <h3>LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models</h3>
   <p>This paper introduces LLaVA-NeXT-Interleave, which simultaneously tackles Multi-image, Multi-frame (video), Multi-view (3D), and Multi-patch scenarios in large multimodal models, extending visual instruction tuning to multi-modal scenarios.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2407.07895" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://llava-vl.github.io/blog/2024-06-16-llava-next-interleave/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/LLaVA-VL/LLaVA-NeXT" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://arxiv.org/abs/2407.07895" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://llava-vl.github.io/blog/2024-06-16-llava-next-interleave/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/LLaVA-VL/LLaVA-NeXT" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="how-good-is-my-video-lmm-complex-video-reasoning-and-robustness-evaluation-suite-for-video-lmms">
@@ -151,8 +151,8 @@ toc: false
   <h3>How Good is my Video LMM? Complex Video Reasoning and Robustness Evaluation Suite for Video-LMMs</h3>
   <p>This paper introduces CVRR-ES, a benchmark that comprehensively assesses Video-LMMs across 11 diverse real-world video dimensions, evaluating 9 recent models and finding that most open-source Video-LMMs struggle with robustness and reasoning on complex videos.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2405.03690" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://arxiv.org/abs/2405.03690" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
   </div>
 </article>
 <article class="paper-card" id="llava-visual-instruction-tuning">
@@ -163,8 +163,8 @@ toc: false
   <h3>LLaVA: Visual Instruction Tuning</h3>
   <p>This paper presents LLaVA, a large multimodal model trained end-to-end on machine-generated instruction tuning data, showing impressive multimodal chat abilities and achieving state-of-the-art results on Science QA.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2304.08485" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://llava-vl.github.io/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://arxiv.org/abs/2304.08485" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://llava-vl.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
   </div>
 </article>
   </div>
@@ -183,10 +183,10 @@ toc: false
   <h3>Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation</h3>
   <p>OneVL addresses real-time trajectory planning in VLA-based autonomous driving by compressing Chain-of-Thought reasoning into compact latent tokens supervised by both language reconstruction and future-frame prediction. Its three-stage training pipeline yields latent reasoning that surpasses explicit CoT while keeping answer-only inference latency.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2604.18486" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://xiaomi-embodied-intelligence.github.io/OneVL/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/xiaomi-research/onevl" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
-<a class="resource-link" href="https://huggingface.co/collections/xiaomi-research/onevl-models" target="_blank" rel="noopener"><img src="../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+<a class="resource-link" href="https://arxiv.org/abs/2604.18486" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://xiaomi-embodied-intelligence.github.io/OneVL/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/xiaomi-research/onevl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/xiaomi-research/onevl-models" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

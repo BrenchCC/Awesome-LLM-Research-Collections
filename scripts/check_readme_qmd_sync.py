@@ -182,20 +182,20 @@ LANGUAGE_CONFIGS = {
         key = "en",
         readme_path = "README.md",
         index_path = "index.qmd",
-        papers_dir = "papers",
+        papers_dir = "papers/en",
         site_title = "Awesome LLM Research Collections",
         site_description = "A curated collection of LLM research papers, projects, code, and model resources.",
         description_label = "Description",
         skipped_headings = [README_TITLE_EN, "Contents"],
         category_descriptions = CATEGORY_DESCRIPTIONS_EN,
         labels = LABELS_EN,
-        asset_prefix = "../"
+        asset_prefix = "../../"
     ),
     "zh": LanguageConfig(
         key = "zh",
         readme_path = "README.zh-CN.md",
         index_path = "zh/index.qmd",
-        papers_dir = "zh/papers",
+        papers_dir = "papers/zh",
         site_title = README_TITLE_ZH,
         site_description = "LLM 论文、项目、代码与模型资源的中文精选合集。",
         description_label = "描述",
@@ -427,6 +427,19 @@ def render_paper_card(paper, prefix):
 </article>"""
 
 
+def category_index_href(category, config):
+    """Build a category URL from the language homepage.
+
+    Parameters:
+        category: Top-level category name.
+        config: Language-specific rendering configuration.
+    """
+    slug = slugify(category)
+    if config.key == "zh":
+        return f"../papers/zh/{slug}.html"
+    return f"papers/en/{slug}.html"
+
+
 def render_category_card(category, papers, config):
     """Render one homepage category card.
 
@@ -435,13 +448,13 @@ def render_category_card(category, papers, config):
         papers: Papers under the category.
         config: Language-specific rendering configuration.
     """
-    slug = slugify(category)
     description = config.category_descriptions.get(category, config.site_description)
     subcategories = sorted({paper.subcategory for paper in papers if paper.subcategory})
     subcategory_text = "、".join(subcategories) if config.key == "zh" else ", ".join(subcategories)
     subcategory_text = subcategory_text if subcategory_text else config.labels["direct_collection"]
     latest = max((paper.date for paper in papers), default = config.labels["no_papers"])
-    return f"""<a class="category-card" href="papers/{slug}.html">
+    href = category_index_href(category, config)
+    return f"""<a class="category-card" href="{href}">
   <span class="category-count">{paper_count_text(len(papers), config)}</span>
   <h3>{html.escape(category)}</h3>
   <p>{html.escape(description)}</p>
@@ -452,18 +465,19 @@ def render_category_card(category, papers, config):
 </a>"""
 
 
-def render_recent_item(paper):
+def render_recent_item(paper, config):
     """Render one recent-paper row.
 
     Parameters:
         paper: Parsed paper entry.
+        config: Language-specific rendering configuration.
     """
     category = html.escape(paper.category)
     title = html.escape(paper.title)
     date = html.escape(paper.date)
-    category_slug = slugify(paper.category)
     paper_slug = slugify(paper.title)
-    return f"""<a class="recent-row" href="papers/{category_slug}.html#{paper_slug}">
+    href = f"{category_index_href(paper.category, config)}#{paper_slug}"
+    return f"""<a class="recent-row" href="{href}">
   <span>{date}</span>
   <strong>{title}</strong>
   <em>{category}</em>
@@ -485,7 +499,7 @@ def generate_index(category_order, papers_by_category, config):
         render_category_card(category, papers_by_category.get(category, []), config)
         for category in category_order
     )
-    recent_rows = "\n".join(render_recent_item(paper) for paper in recent_papers)
+    recent_rows = "\n".join(render_recent_item(paper, config) for paper in recent_papers)
     resource_count = sum(len(paper.links) for paper in papers)
     switch = render_language_switch(config, config.labels["language_href"])
 
@@ -558,8 +572,8 @@ def category_language_href(category, config):
     """
     slug = slugify(category)
     if config.key == "zh":
-        return f"../../papers/{slug}.html"
-    return f"../zh/papers/{slug}.html"
+        return f"../en/{slug}.html"
+    return f"../zh/{slug}.html"
 
 
 def generate_category_page(category, papers, config):

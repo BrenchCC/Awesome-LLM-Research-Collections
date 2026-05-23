@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../../papers/vision.html">English</a></div>
+  <div class="language-switch"><a href="../en/vision.html">English</a></div>
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">对现代多模态系统有参考价值的计算机视觉方法。</p>
   <div class="stat-strip compact-strip">

@@ -7,7 +7,7 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/papers/agents-application.html">中文</a></div>
+  <div class="language-switch"><a href="../zh/agents-application.html">中文</a></div>
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
@@ -37,8 +37,8 @@ toc: false
   <h3>Thinking with Programming Vision: Towards a Unified View for Thinking with Images</h3>
   <p>This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2512.03746" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://arxiv.org/abs/2512.03746" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
@@ -49,7 +49,7 @@ toc: false
   <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
   <p>This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
@@ -60,7 +60,7 @@ toc: false
   <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
   <p>This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
@@ -71,7 +71,7 @@ toc: false
   <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
   <p>This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>
@@ -90,9 +90,9 @@ toc: false
   <h3>AI for Auto-Research: Roadmap &amp; User Guide</h3>
   <p>This survey analyzes AI-assisted research across creation, writing, validation, and dissemination, showing where automation is reliable and where autonomy still fails on novelty, experiments, and scientific judgment. It provides a lifecycle taxonomy, benchmark suite, tool inventory, design principles, and practitioner playbook for human-governed AI research workflows.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2605.18661" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://worldbench.github.io/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/worldbench/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://arxiv.org/abs/2605.18661" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://worldbench.github.io/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/worldbench/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>
@@ -111,9 +111,9 @@ toc: false
   <h3>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</h3>
   <p>SkillsVote addresses noisy and hard-to-govern agent trajectories by treating Agent Skills as reusable experience artifacts with collection, recommendation, attribution, and evolution controls. It profiles large-scale open-source skill corpora, recommends structured skill context before execution, and admits only evidence-gated successful discoveries to improve frozen agents without model updates.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2605.18401" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://skills.vote/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
-<a class="resource-link" href="https://github.com/MemTensor/skills-vote" target="_blank" rel="noopener"><img src="../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://arxiv.org/abs/2605.18401" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://skills.vote/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MemTensor/skills-vote" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>
@@ -132,7 +132,7 @@ toc: false
   <h3>Trajectory-Informed Memory Generation for Self-Improving Agent Systems</h3>
   <p>This paper presents a framework that extracts actionable learnings from LLM agent execution trajectories and retrieves them as contextual memory for future tasks. It combines trajectory intelligence extraction, decision attribution, contextual learning generation, and adaptive memory retrieval to improve AppWorld task completion, especially on complex scenarios.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.10600" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2603.10600" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="beyond-a-million-tokens-benchmarking-and-enhancing-long-term-memory-in-llms">
@@ -143,7 +143,7 @@ toc: false
   <h3>Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs</h3>
   <p>This paper introduces BEAM, a benchmark of long, coherent conversations and probing questions for evaluating long-term memory in LLMs, and proposes LIGHT, a memory framework with episodic memory, working memory, and a scratchpad. Together, they expose long-context memory limitations and improve performance on long-horizon conversational reasoning tasks.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2510.27246" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2510.27246" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="mlp-memory-a-retriever-pretrained-memory-for-large-language-models">
@@ -154,7 +154,7 @@ toc: false
   <h3>MLP Memory: A Retriever-Pretrained Memory for Large Language Models</h3>
   <p>This paper introduces MLP Memory, a lightweight parametric module that learns to internalize retrieval patterns by pretraining an MLP to imitate a kNN retriever&#x27;s behavior, bridging the gap between RAG and fine-tuning approaches.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2508.01832" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://arxiv.org/abs/2508.01832" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="memagent-reshaping-long-context-llm-with-multi-conv-rl-based-memory-agent">
@@ -165,8 +165,8 @@ toc: false
   <h3>MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent</h3>
   <p>This paper introduces MemAgent, a multi-conversation RL-based memory agent that addresses the challenge of handling infinitely long documents with linear complexity without performance degradation during extrapolation.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2507.02259" target="_blank" rel="noopener"><img src="../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://memagent-sialab.github.io/" target="_blank" rel="noopener"><img src="../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://arxiv.org/abs/2507.02259" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://memagent-sialab.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
   </div>
 </article>
   </div>

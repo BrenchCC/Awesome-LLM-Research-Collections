@@ -1,13 +1,13 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is documentation-first, bilingual, and website-enabled. The primary maintained content is the paired paper catalog in `README.md`, `README.zh-CN.md`, and the Quarto pages under `papers/` and `zh/papers/`.
+This repository is documentation-first, bilingual, and website-enabled. The primary maintained content is the paired paper catalog in `README.md`, `README.zh-CN.md`, and the Quarto paper pages under `papers/en/` and `papers/zh/`.
 
 - `README.md`: primary Markdown catalog and taxonomy.
 - `README.zh-CN.md`: Chinese catalog with the same papers, Chinese descriptions, and localized link labels.
 - `_quarto.yml`: Quarto website configuration and navigation.
-- `index.qmd`, `papers/*.qmd`: generated English website pages.
-- `zh/index.qmd`, `zh/papers/*.qmd`: generated Chinese website pages.
+- `index.qmd`, `papers/en/*.qmd`: generated English website pages.
+- `zh/index.qmd`, `papers/zh/*.qmd`: generated Chinese website pages.
 - `assets/icons/`: local SVG resource icons for paper/project/code/model links.
 - `scripts/check_readme_qmd_sync.py`: bilingual sync checker and qmd regeneration helper.
 - `LICENSE`: project license.

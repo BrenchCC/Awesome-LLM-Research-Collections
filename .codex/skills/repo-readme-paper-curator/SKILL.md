@@ -1,6 +1,6 @@
 ---
 name: repo-readme-paper-curator
-description: Maintain this repository bilingual paper catalog by appending entries from one or multiple arXiv links to README.md and README.zh-CN.md, then synchronizing English and Chinese Quarto website pages under papers/*.qmd and zh/papers/*.qmd. Use when the user provides arXiv URLs and wants title/date/English description/Chinese description/paper/project/code/huggingface links organized into the correct bilingual README sections and reflected on the Quarto site for this repository only.
+description: Maintain this repository bilingual paper catalog by appending entries from one or multiple arXiv links to README.md and README.zh-CN.md, then synchronizing English and Chinese Quarto website pages under papers/en/*.qmd and papers/zh/*.qmd. Use when the user provides arXiv URLs and wants title/date/English description/Chinese description/paper/project/code/huggingface links organized into the correct bilingual README sections and reflected on the Quarto site for this repository only.
 ---
 
 # Repo README Paper Curator
@@ -9,9 +9,9 @@ Update together:
 `README.md`
 `README.zh-CN.md`
 `index.qmd`
-`papers/*.qmd`
+`papers/en/*.qmd`
 `zh/index.qmd`
-`zh/papers/*.qmd`
+`papers/zh/*.qmd`
 
 Also update `_quarto.yml` only when a new top-level category creates new English and Chinese category pages that must appear in website navigation.
 
@@ -113,7 +113,7 @@ Use this flow when title/abstract parsing is ambiguous, math-heavy, or formattin
 python scripts/check_readme_qmd_sync.py --write
 ```
 
-13. If a new top-level category was created, add the corresponding `papers/<category-slug>.qmd` and `zh/papers/<category-slug>.qmd` pages to `_quarto.yml` render/navigation as needed.
+13. If a new top-level category was created, add the corresponding `papers/en/<category-slug>.qmd` and `papers/zh/<category-slug>.qmd` pages to `_quarto.yml` render/navigation as needed.
 14. Validate bilingual README/QMD sync:
 
 ```bash
