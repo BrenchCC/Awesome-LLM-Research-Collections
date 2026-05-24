@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>57</strong><span>论文</span></div>
+    <div><strong>58</strong><span>论文</span></div>
     <div><strong>9</strong><span>分类</span></div>
-    <div><strong>130</strong><span>资源链接</span></div>
+    <div><strong>132</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,12 +42,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/multimodal-llms.html">
-  <span class="category-count">12 篇论文</span>
+  <span class="category-count">13 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
     <span>2026.05</span>
-    <span>视觉-语言-动作、视觉语言</span>
+    <span>多模态推理、视觉-语言-动作、视觉语言</span>
   </div>
 </a>
 <a class="category-card" href="../papers/zh/embeddings.html">

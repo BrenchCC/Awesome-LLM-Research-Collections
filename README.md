@@ -12,6 +12,7 @@
   - [Detection](#detection)
 - [Multimodal LLMs](#multimodal-llms)
   - [Vision-Language](#vision-language)
+  - [Multimodal Reasoning](#multimodal-reasoning)
   - [VLA](#vla)
 - [Embeddings](#embeddings)
 - [Training](#training)
@@ -171,6 +172,12 @@
   **Description**: This paper presents LLaVA, a large multimodal model trained end-to-end on machine-generated instruction tuning data, showing impressive multimodal chat abilities and achieving state-of-the-art results on Science QA. \
   [[Paper](https://arxiv.org/abs/2304.08485)]
   [[Project](https://llava-vl.github.io/)]
+
+## Multimodal Reasoning
+- **Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey** (2025.03) \
+  **Description**: This survey addresses the lack of an up-to-date review of multimodal Chain-of-Thought reasoning in MLLMs across image, video, speech, audio, 3D, and structured data. It introduces foundational definitions, a comprehensive taxonomy, methodological analysis across applications, and open challenges for future multimodal reasoning research. \
+  [[Paper](https://arxiv.org/abs/2503.12605)]
+  [[Project](https://github.com/yaotingwangofficial/Awesome-MCoT)]
 
 ## VLA
 - **Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation** (2026.04) \

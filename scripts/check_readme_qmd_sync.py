@@ -39,6 +39,8 @@ CATEGORY_SLUGS = {
     "检测": "detection",
     "Vision-Language": "vision-language",
     "视觉语言": "vision-language",
+    "Multimodal Reasoning": "multimodal-reasoning",
+    "多模态推理": "multimodal-reasoning",
     "VLA": "vla",
     "视觉-语言-动作": "vla",
     "SFT": "sft",

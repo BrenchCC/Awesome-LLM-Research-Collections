@@ -12,6 +12,7 @@
   - [检测](#检测)
 - [多模态大模型](#多模态大模型)
   - [视觉语言](#视觉语言)
+  - [多模态推理](#多模态推理)
   - [视觉-语言-动作](#视觉-语言-动作)
 - [嵌入模型](#嵌入模型)
 - [训练](#训练)
@@ -171,6 +172,12 @@
   **描述**: 该论文提出 LLaVA，一个使用机器生成指令微调数据端到端训练的大型多模态模型。它展现出强多模态对话能力，并在 Science QA 上取得当时最优结果。 \
   [[论文](https://arxiv.org/abs/2304.08485)]
   [[项目](https://llava-vl.github.io/)]
+
+## 多模态推理
+- **Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey** (2025.03) \
+  **描述**: 这篇综述弥补了多模态大模型中多模态 Chain-of-Thought 推理缺少最新系统综述的问题，覆盖图像、视频、语音、音频、3D 和结构化数据。它给出基础定义、完整 taxonomy、跨应用方法分析，并总结未来多模态推理研究的开放挑战。 \
+  [[论文](https://arxiv.org/abs/2503.12605)]
+  [[项目](https://github.com/yaotingwangofficial/Awesome-MCoT)]
 
 ## 视觉-语言-动作
 - **Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation** (2026.04) \

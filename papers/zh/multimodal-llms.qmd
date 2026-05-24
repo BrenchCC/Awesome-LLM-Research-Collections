@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>12</strong><span>论文</span></div>
-    <div><strong>34</strong><span>资源链接</span></div>
+    <div><strong>13</strong><span>论文</span></div>
+    <div><strong>36</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#vision-language">视觉语言</a>
+<a href="#multimodal-reasoning">多模态推理</a>
 <a href="#vla">视觉-语言-动作</a>
   </nav>
 </section>
@@ -165,6 +166,26 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2304.08485" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://llava-vl.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="multimodal-reasoning">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>多模态推理</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="multimodal-chain-of-thought-reasoning-a-comprehensive-survey">
+  <div class="paper-meta">
+    <span>2025.03</span>
+    <span>多模态推理</span>
+  </div>
+  <h3>Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey</h3>
+  <p>这篇综述弥补了多模态大模型中多模态 Chain-of-Thought 推理缺少最新系统综述的问题，覆盖图像、视频、语音、音频、3D 和结构化数据。它给出基础定义、完整 taxonomy、跨应用方法分析，并总结未来多模态推理研究的开放挑战。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2503.12605" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/yaotingwangofficial/Awesome-MCoT" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
   </div>
 </article>
   </div>
