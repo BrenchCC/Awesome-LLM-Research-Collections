@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>11</strong><span>Papers</span></div>
-    <div><strong>34</strong><span>Resource links</span></div>
+    <div><strong>12</strong><span>Papers</span></div>
+    <div><strong>36</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -153,10 +153,22 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Inference</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="large-language-models-explore-by-latent-distilling">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>Inference</span>
+  </div>
+  <h3>Large Language Models Explore by Latent Distilling</h3>
+  <p>This paper proposes Exploratory Sampling (ESamp), a decoding method that addresses the shallow lexical variation of standard stochastic sampling by encouraging semantic exploration. It trains a lightweight Distiller at test time to predict deep-layer representations from shallow ones, then uses prediction error as a novelty signal to reweight candidate tokens and improve Pass@k efficiency.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.24927" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/LinesHogan/tLLM" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="caterpillar-of-thoughts-the-optimal-test-time-algorithm-for-large-language-models">
   <div class="paper-meta">
     <span>2026.03</span>

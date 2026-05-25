@@ -97,6 +97,11 @@
   [[Hugging Face](https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52)]
 
 ## 推理
+- **Large Language Models Explore by Latent Distilling** (2026.04) \
+  **描述**: 该论文提出 Exploratory Sampling (ESamp)，用于缓解标准随机采样主要产生词面变化、语义探索不足的问题。它在测试时训练轻量 Distiller 由浅层表征预测深层表征，并用预测误差作为新颖性信号重加权候选 token，从而提升推理模型的 Pass@k 效率。 \
+  [[论文](https://arxiv.org/abs/2604.24927)]
+  [[代码](https://github.com/LinesHogan/tLLM)]
+
 - **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
   **描述**: 该论文为 LLM 的最优测试时计算提出理论框架，证明最优算法总会生成一种“毛毛虫树”结构，并提出 CaT。该方法相比 Tree-of-Thoughts 用更少 token 生成取得更高成功率。 \
   [[论文](https://arxiv.org/abs/2603.22784)]

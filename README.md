@@ -97,6 +97,11 @@
   [[Hugging Face](https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52)]
 
 ## Inference
+- **Large Language Models Explore by Latent Distilling** (2026.04) \
+  **Description**: This paper proposes Exploratory Sampling (ESamp), a decoding method that addresses the shallow lexical variation of standard stochastic sampling by encouraging semantic exploration. It trains a lightweight Distiller at test time to predict deep-layer representations from shallow ones, then uses prediction error as a novelty signal to reweight candidate tokens and improve Pass@k efficiency. \
+  [[Paper](https://arxiv.org/abs/2604.24927)]
+  [[Code](https://github.com/LinesHogan/tLLM)]
+
 - **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
   **Description**: This paper presents a theoretical framework for optimal test-time computation in LLMs, proving that the optimal algorithm always generates a caterpillar tree structure, and introduces CaT which achieves better success rate than Tree-of-Thoughts with fewer token generations. \
   [[Paper](https://arxiv.org/abs/2603.22784)]
