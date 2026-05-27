@@ -16,23 +16,24 @@ toc: false
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#featured">Featured</a>
+    <a href="#tool-use">Tool Use</a>
 <a href="#ai-research">AI Research</a>
 <a href="#agent-skills">Agent Skills</a>
+<a href="#agent-development">Agent Development</a>
 <a href="#memory">Memory</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
-    <h2>Featured</h2>
+    <p class="eyebrow">1 paper</p>
+    <h2>Tool Use</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
   <div class="paper-meta">
     <span>2025.12</span>
-    <span>Agents Application</span>
+    <span>Tool Use</span>
   </div>
   <h3>Thinking with Programming Vision: Towards a Unified View for Thinking with Images</h3>
   <p>This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks.</p>
@@ -41,44 +42,11 @@ toc: false
 <a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
-<article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>Agents Application</span>
-  </div>
-  <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
-  <p>This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts.</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-  </div>
-</article>
-<article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>Agents Application</span>
-  </div>
-  <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
-  <p>This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance.</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-  </div>
-</article>
-<article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>Agents Application</span>
-  </div>
-  <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
-  <p>This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets.</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-  </div>
-</article>
   </div>
 </section>
 <section class="paper-section" id="ai-research">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>AI Research</h2>
   </div>
   <div class="paper-grid">
@@ -95,11 +63,22 @@ toc: false
 <a class="resource-link" href="https://github.com/worldbench/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
+<article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>AI Research</span>
+  </div>
+  <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
+  <p>This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
   </div>
 </section>
 <section class="paper-section" id="agent-skills">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>Agent Skills</h2>
   </div>
   <div class="paper-grid">
@@ -127,6 +106,36 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2604.27660" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/S1s-Z/Ctx2Skill" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/datasets/ssz1111/Ctx2Skill" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Agent Skills</span>
+  </div>
+  <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
+  <p>This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agent-development">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Agent Development</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
+  <p>This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>

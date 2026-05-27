@@ -1,35 +1,35 @@
 ---
-title: "训练"
-description: "可复用训练配方、监督微调、数据选择、蒸馏和优化实践。"
+title: "监督微调"
+description: "监督微调方法、数据配方、token 加权和推理泛化研究。"
 page-layout: full
 toc: false
 ---
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../en/training.html">English</a></div>
+  <div class="language-switch"><a href="../en/sft.html">English</a></div>
   <p class="eyebrow">研究分类</p>
-  <p class="category-summary">可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
+  <p class="category-summary">监督微调方法、数据配方、token 加权和推理泛化研究。</p>
   <div class="stat-strip compact-strip">
     <div><strong>2</strong><span>论文</span></div>
     <div><strong>4</strong><span>资源链接</span></div>
     <div><strong>2026.04</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#sft">监督微调</a>
+    <a href="#sft-methods">监督微调方法</a>
   </nav>
 </section>
 
-<section class="paper-section" id="sft">
+<section class="paper-section" id="sft-methods">
   <div class="section-heading compact">
     <p class="eyebrow">2 篇论文</p>
-    <h2>监督微调</h2>
+    <h2>监督微调方法</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="rethinking-generalization-in-reasoning-sft-a-conditional-analysis-on-optimization-data-and-model-capability">
   <div class="paper-meta">
     <span>2026.04</span>
-    <span>监督微调</span>
+    <span>监督微调方法</span>
   </div>
   <h3>Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability</h3>
   <p>该论文挑战“SFT 只会记忆而 RL 才能泛化”的常见说法，发现带长链式思维监督的推理 SFT 也能跨域泛化。其泛化效果取决于优化动态、训练数据和基础模型能力三者的共同作用。</p>
@@ -42,7 +42,7 @@ toc: false
 <article class="paper-card" id="profit-leveraging-high-value-signals-in-sft-via-probability-guided-token-selection">
   <div class="paper-meta">
     <span>2026.01</span>
-    <span>监督微调</span>
+    <span>监督微调方法</span>
   </div>
   <h3>ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection</h3>
   <p>该论文提出 ProFit，一种监督微调方法，通过 token 概率作为语义重要性代理并屏蔽低概率 token，缓解单参考答案过拟合。该方法让训练更聚焦核心逻辑内容，并在推理和数学任务上优于标准 SFT 基线。</p>

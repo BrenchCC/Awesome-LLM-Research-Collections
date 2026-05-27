@@ -16,20 +16,20 @@ toc: false
     <div><strong>2022.03</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#featured">Featured</a>
+    <a href="#object-detection">Object Detection</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="object-detection">
   <div class="section-heading compact">
     <p class="eyebrow">1 paper</p>
-    <h2>Featured</h2>
+    <h2>Object Detection</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="dino-detr-with-improved-denoising-anchor-boxes-for-end-to-end-object-detection">
   <div class="paper-meta">
     <span>2022.03</span>
-    <span>Vision</span>
+    <span>Object Detection</span>
   </div>
   <h3>DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection</h3>
   <p>DINO improves DETR-like object detectors by introducing contrastive denoising training, mixed query selection for anchor initialization, and a look-forward-twice box prediction scheme, achieving state-of-the-art results on COCO with significantly reduced model and data requirements.</p>

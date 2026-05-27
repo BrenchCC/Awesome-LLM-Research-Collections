@@ -16,23 +16,24 @@ toc: false
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#featured">精选</a>
+    <a href="#tool-use">工具调用</a>
 <a href="#ai-research">AI 研究</a>
 <a href="#agent-skills">智能体技能</a>
+<a href="#agent-development">智能体开发</a>
 <a href="#memory">记忆</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
-    <h2>精选</h2>
+    <p class="eyebrow">1 篇论文</p>
+    <h2>工具调用</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
   <div class="paper-meta">
     <span>2025.12</span>
-    <span>智能体应用</span>
+    <span>工具调用</span>
   </div>
   <h3>Thinking with Programming Vision: Towards a Unified View for Thinking with Images</h3>
   <p>该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。</p>
@@ -41,44 +42,11 @@ toc: false
 <a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
-<article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>智能体应用</span>
-  </div>
-  <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
-  <p>该论文提出 SkillReducer，一个两阶段优化框架，用于压缩 LLM 智能体技能这类预封装指令集。它在提升功能质量 2.8% 的同时，将技能描述和正文分别压缩 48% 和 39%，降低 token 成本与注意力稀释。</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-  </div>
-</article>
-<article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>智能体应用</span>
-  </div>
-  <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
-  <p>该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-  </div>
-</article>
-<article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
-  <div class="paper-meta">
-    <span>2026.03</span>
-    <span>智能体应用</span>
-  </div>
-  <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
-  <p>该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-  </div>
-</article>
   </div>
 </section>
 <section class="paper-section" id="ai-research">
   <div class="section-heading compact">
-    <p class="eyebrow">1 篇论文</p>
+    <p class="eyebrow">2 篇论文</p>
     <h2>AI 研究</h2>
   </div>
   <div class="paper-grid">
@@ -95,11 +63,22 @@ toc: false
 <a class="resource-link" href="https://github.com/worldbench/awesome-ai-auto-research" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
+<article class="paper-card" id="aira-2-overcoming-bottlenecks-in-ai-research-agents">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>AI 研究</span>
+  </div>
+  <h3>AIRA_2: Overcoming Bottlenecks in AI Research Agents</h3>
+  <p>该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.26499" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
   </div>
 </section>
 <section class="paper-section" id="agent-skills">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>智能体技能</h2>
   </div>
   <div class="paper-grid">
@@ -127,6 +106,36 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2604.27660" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/S1s-Z/Ctx2Skill" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/datasets/ssz1111/Ctx2Skill" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="skillreducer-optimizing-llm-agent-skills-for-token-efficiency">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>智能体技能</span>
+  </div>
+  <h3>SkillReducer: Optimizing LLM Agent Skills for Token Efficiency</h3>
+  <p>该论文提出 SkillReducer，一个两阶段优化框架，用于压缩 LLM 智能体技能这类预封装指令集。它在提升功能质量 2.8% 的同时，将技能描述和正文分别压缩 48% 和 39%，降低 token 成本与注意力稀释。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.29919" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agent-development">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>智能体开发</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization</h3>
+  <p>该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
   </div>

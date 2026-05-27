@@ -1,35 +1,35 @@
 ---
-title: "Training"
-description: "Reusable training recipes, SFT methods, data selection, distillation, and optimization practice."
+title: "SFT"
+description: "Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies."
 page-layout: full
 toc: false
 ---
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/training.html">中文</a></div>
+  <div class="language-switch"><a href="../zh/sft.html">中文</a></div>
   <p class="eyebrow">Research category</p>
-  <p class="category-summary">Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
+  <p class="category-summary">Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies.</p>
   <div class="stat-strip compact-strip">
     <div><strong>2</strong><span>Papers</span></div>
     <div><strong>4</strong><span>Resource links</span></div>
     <div><strong>2026.04</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#sft">SFT</a>
+    <a href="#sft-methods">SFT Methods</a>
   </nav>
 </section>
 
-<section class="paper-section" id="sft">
+<section class="paper-section" id="sft-methods">
   <div class="section-heading compact">
     <p class="eyebrow">2 papers</p>
-    <h2>SFT</h2>
+    <h2>SFT Methods</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="rethinking-generalization-in-reasoning-sft-a-conditional-analysis-on-optimization-data-and-model-capability">
   <div class="paper-meta">
     <span>2026.04</span>
-    <span>SFT</span>
+    <span>SFT Methods</span>
   </div>
   <h3>Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability</h3>
   <p>This paper challenges the common claim that supervised fine-tuning (SFT) only memorizes while RL generalizes, finding cross-domain generalization from reasoning SFT with long chain-of-thought supervision depends jointly on optimization dynamics, training data, and base model capability.</p>
@@ -42,7 +42,7 @@ toc: false
 <article class="paper-card" id="profit-leveraging-high-value-signals-in-sft-via-probability-guided-token-selection">
   <div class="paper-meta">
     <span>2026.01</span>
-    <span>SFT</span>
+    <span>SFT Methods</span>
   </div>
   <h3>ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection</h3>
   <p>This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines.</p>

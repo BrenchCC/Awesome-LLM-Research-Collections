@@ -16,20 +16,41 @@ toc: false
     <div><strong>2025.12</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#featured">精选</a>
+    <a href="#prompt-optimization">提示优化</a>
+<a href="#judge-prompting">评测器提示</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="prompt-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">3 篇论文</p>
-    <h2>精选</h2>
+    <p class="eyebrow">1 篇论文</p>
+    <h2>提示优化</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="gepa-reflective-prompt-evolution-can-outperform-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.07</span>
+    <span>提示优化</span>
+  </div>
+  <h3>GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning</h3>
+  <p>GEPA 提出一种提示优化器，通过自然语言反思从试错中学习高层规则，平均超过 GRPO 6%，并最多减少 35 倍 rollout。它还比 MIPROv2 高出 10% 以上，并在代码优化的推理时搜索中展现潜力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2507.19457" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="judge-prompting">
+  <div class="section-heading compact">
+    <p class="eyebrow">2 篇论文</p>
+    <h2>评测器提示</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="becoming-experienced-judges-selective-test-time-learning-for-evaluators">
   <div class="paper-meta">
     <span>2025.12</span>
-    <span>自动提示</span>
+    <span>评测器提示</span>
   </div>
   <h3>Becoming Experienced Judges: Selective Test-Time Learning for Evaluators</h3>
   <p>该论文提出 Learning While Evaluating，让 LLM-as-a-judge 系统在推理时通过自生成反馈更新元提示，从而按序列持续改进。它进一步提出 Selective LWE，只在自我不一致样本上更新，以更好的成本效率提升评测质量。</p>
@@ -40,24 +61,12 @@ toc: false
 <article class="paper-card" id="auto-prompt-ensemble-for-llm-judge">
   <div class="paper-meta">
     <span>2025.10</span>
-    <span>自动提示</span>
+    <span>评测器提示</span>
   </div>
   <h3>Auto-Prompt Ensemble for LLM Judge</h3>
   <p>APE 通过从失败案例中自动发现辅助评测维度，并结合置信度感知选择进行集成，提升 LLM-as-a-judge 的可靠性。它更有效地使用测试时计算，从而提高与人类对齐基准的一致性。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2510.06538" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-  </div>
-</article>
-<article class="paper-card" id="gepa-reflective-prompt-evolution-can-outperform-reinforcement-learning">
-  <div class="paper-meta">
-    <span>2025.07</span>
-    <span>自动提示</span>
-  </div>
-  <h3>GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning</h3>
-  <p>GEPA 提出一种提示优化器，通过自然语言反思从试错中学习高层规则，平均超过 GRPO 6%，并最多减少 35 倍 rollout。它还比 MIPROv2 高出 10% 以上，并在代码优化的推理时搜索中展现潜力。</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2507.19457" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-<a class="resource-link" href="https://github.com/gepa-ai/gepa" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

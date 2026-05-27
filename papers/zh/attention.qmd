@@ -16,20 +16,20 @@ toc: false
     <div><strong>2026.03</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#featured">精选</a>
+    <a href="#attention-architecture">注意力架构</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
     <p class="eyebrow">1 篇论文</p>
-    <h2>精选</h2>
+    <h2>注意力架构</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="attention-residuals">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>注意力机制</span>
+    <span>注意力架构</span>
   </div>
   <h3>Attention Residuals</h3>
   <p>该工作用对前序层输出的注意力替代固定残差累积，使模型能够根据输入动态聚合不同深度的信息，并缓解 PreNorm 带来的表征稀释问题。论文还提出 Block AttnRes，在更低显存与通信开销下支持可扩展训练。</p>

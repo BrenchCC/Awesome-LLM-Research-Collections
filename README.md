@@ -6,6 +6,7 @@
 
 # Contents
 - [Attention](#attention)
+  - [Attention Architecture](#attention-architecture)
 - [LLMs](#llms)
   - [Foundation Models](#foundation-models)
   - [Inference](#inference)
@@ -15,21 +16,30 @@
   - [Multimodal Reasoning](#multimodal-reasoning)
   - [VLA](#vla)
 - [Embeddings](#embeddings)
-- [Training](#training)
-  - [SFT](#sft)
+- [SFT](#sft)
+  - [SFT Methods](#sft-methods)
 - [Reinforcement Learning](#reinforcement-learning)
+  - [OPD](#opd)
+  - [Reward Modeling](#reward-modeling)
   - [Video Generation RL](#video-generation-rl)
   - [Reasoning RL](#reasoning-rl)
   - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
 - [Agents Application](#agents-application)
+  - [Tool Use](#tool-use)
   - [AI Research](#ai-research)
   - [Agent Skills](#agent-skills)
+  - [Agent Development](#agent-development)
   - [Memory](#memory)
 - [Vision](#vision)
+  - [Object Detection](#object-detection)
 - [Auto-Prompt](#auto-prompt)
+  - [Prompt Optimization](#prompt-optimization)
+  - [Judge Prompting](#judge-prompting)
 
 # Attention
+
+## Attention Architecture
 - **Attention Residuals** (2026.03) \
   **Description**: This work replaces fixed residual accumulation with attention over previous layer outputs, enabling input-dependent depth-wise aggregation and reducing PreNorm-induced representation dilution. It also introduces Block AttnRes for scalable training with lower memory and communication overhead. \
   [[Paper](https://arxiv.org/abs/2603.15031)]
@@ -194,9 +204,9 @@
 
 # Embeddings
 
-# Training
+# SFT
 
-## SFT
+## SFT Methods
 - **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
   **Description**: This paper challenges the common claim that supervised fine-tuning (SFT) only memorizes while RL generalizes, finding cross-domain generalization from reasoning SFT with long chain-of-thought supervision depends jointly on optimization dynamics, training data, and base model capability. \
   [[Paper](https://arxiv.org/abs/2604.06628)]
@@ -209,15 +219,18 @@
 
 # Reinforcement Learning
 
+## OPD
 - **Self-Distilled RLVR** (2026.04) \
   **Description**: This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR. \
   [[Paper](https://arxiv.org/abs/2604.03128)]
 
-- **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
-  **Description**: This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters. \
-  [[Paper](https://arxiv.org/abs/2602.20945)]
-  [[Project](https://wutaiqiang.github.io/project/Art)]
+- **Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation** (2026.02) \
+  **Description**: This paper shows that on-policy distillation is a special case of dense KL-constrained RL, then proposes G-OPD with a flexible reference model and reward scaling factor. Its reward extrapolation variant, ExOPD, improves over standard OPD and can let students surpass domain teachers when merging RL-trained experts. \
+  [[Paper](https://arxiv.org/abs/2602.12125)]
+  [[Code](https://github.com/RUCBM/G-OPD)]
+  [[Hugging Face](https://huggingface.co/datasets/Keven16/G-OPD-Training-Data)]
 
+## Reward Modeling
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **Description**: This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks. \
   [[Paper](https://arxiv.org/abs/2603.19310)]
@@ -227,10 +240,6 @@
 - **Scaling Reward Modeling without Human Supervision** (2026.03) \
   **Description**: This paper studies unsupervised reward model scaling by learning preferences over web-corpus document prefixes and suffixes without human annotations. It reports consistent RewardBench gains across model backbones and shows downstream improvements in best-of-N selection and policy optimization. \
   [[Paper](https://arxiv.org/abs/2603.02225)]
-
-- **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
-  **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
-  [[Paper](https://arxiv.org/abs/2602.03279)]
 
 - **Reward Modeling from Natural Language Human Feedback** (2026.01) \
   **Description**: This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation. \
@@ -252,9 +261,18 @@
   [[Code](https://github.com/xytian1008/MUPO)]
   [[Hugging Face](https://huggingface.co/xytian1008/MUPO-Thinker-7B)]
 
+- **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
+  **Description**: This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters. \
+  [[Paper](https://arxiv.org/abs/2602.20945)]
+  [[Project](https://wutaiqiang.github.io/project/Art)]
+
 - **FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization** (2026.03) \
   **Description**: This paper presents FIPO, a reinforcement learning algorithm that overcomes reasoning bottlenecks in LLMs by addressing coarse-grained credit assignment in GRPO-style training, where outcome-based rewards fail to distinguish critical logical pivots from trivial tokens. \
   [[Paper](https://arxiv.org/abs/2603.19835)]
+
+- **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
+  **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
+  [[Paper](https://arxiv.org/abs/2602.03279)]
 
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
@@ -294,22 +312,11 @@
 
 # Agents Application
 
+## Tool Use
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **Description**: This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks. \
   [[Paper](https://arxiv.org/abs/2512.03746)]
   [[Code](https://github.com/ByteDance-BandAI/CodeVision)]
-
-- **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
-  **Description**: This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts. \
-  [[Paper](https://arxiv.org/abs/2603.29919)]
-
-- **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
-  **Description**: This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance. \
-  [[Paper](https://arxiv.org/abs/2603.26499)]
-
-- **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
-  **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
-  [[Paper](https://arxiv.org/abs/2603.10808)]
 
 ## AI Research
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
@@ -317,6 +324,10 @@
   [[Paper](https://arxiv.org/abs/2605.18661)]
   [[Project](https://worldbench.github.io/awesome-ai-auto-research)]
   [[Code](https://github.com/worldbench/awesome-ai-auto-research)]
+
+- **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
+  **Description**: This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance. \
+  [[Paper](https://arxiv.org/abs/2603.26499)]
 
 ## Agent Skills
 - **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
@@ -330,6 +341,15 @@
   [[Paper](https://arxiv.org/abs/2604.27660)]
   [[Code](https://github.com/S1s-Z/Ctx2Skill)]
   [[Hugging Face](https://huggingface.co/datasets/ssz1111/Ctx2Skill)]
+
+- **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
+  **Description**: This paper presents SkillReducer, a two-stage optimization framework that compresses LLM agent skills (pre-packaged instruction sets) by 48% for descriptions and 39% for body while improving functional quality by 2.8%, reducing token costs and attention dilution in agent contexts. \
+  [[Paper](https://arxiv.org/abs/2603.29919)]
+
+## Agent Development
+- **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
+  **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
+  [[Paper](https://arxiv.org/abs/2603.10808)]
 
 ## Memory
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
@@ -351,6 +371,7 @@
 
 # Vision
 
+## Object Detection
 - **DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection** (2022.03) \
   **Description**: DINO improves DETR-like object detectors by introducing contrastive denoising training, mixed query selection for anchor initialization, and a look-forward-twice box prediction scheme, achieving state-of-the-art results on COCO with significantly reduced model and data requirements. \
   [[Paper](https://arxiv.org/abs/2203.03605)]
@@ -358,6 +379,13 @@
 
 # Auto-Prompt
 
+## Prompt Optimization
+- **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
+  **Description**: GEPA introduces a prompt optimizer that uses natural language reflection to learn high-level rules from trial and error, outperforming GRPO by 6% on average with up to 35x fewer rollouts. It also beats MIPROv2 by over 10% and shows promising results as an inference-time search strategy for code optimization. \
+  [[Paper](https://arxiv.org/abs/2507.19457)]
+  [[Code](https://github.com/gepa-ai/gepa)]
+
+## Judge Prompting
 - **Becoming Experienced Judges: Selective Test-Time Learning for Evaluators** (2025.12) \
   **Description**: This paper introduces Learning While Evaluating (LWE), enabling LLM-as-a-judge systems to improve sequentially at inference time by updating an evolving meta-prompt with self-generated feedback. It further proposes Selective LWE, which updates only on self-inconsistent cases to improve evaluation quality with better cost efficiency. \
   [[Paper](https://arxiv.org/abs/2512.06751)]
@@ -365,8 +393,3 @@
 - **Auto-Prompt Ensemble for LLM Judge** (2025.10) \
   **Description**: APE improves LLM-as-a-judge reliability by automatically discovering auxiliary evaluation dimensions from failure cases and ensembling them with confidence-aware selection. It boosts agreement with human-aligned benchmarks by using test-time computation more effectively. \
   [[Paper](https://arxiv.org/abs/2510.06538)]
-
-- **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
-  **Description**: GEPA introduces a prompt optimizer that uses natural language reflection to learn high-level rules from trial and error, outperforming GRPO by 6% on average with up to 35x fewer rollouts. It also beats MIPROv2 by over 10% and shows promising results as an inference-time search strategy for code optimization. \
-  [[Paper](https://arxiv.org/abs/2507.19457)]
-  [[Code](https://github.com/gepa-ai/gepa)]

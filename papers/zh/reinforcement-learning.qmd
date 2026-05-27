@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>论文</span></div>
-    <div><strong>31</strong><span>资源链接</span></div>
+    <div><strong>17</strong><span>论文</span></div>
+    <div><strong>34</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#featured">精选</a>
+    <a href="#opd">OPD</a>
+<a href="#reward-modeling">奖励建模</a>
 <a href="#video-generation-rl">视频生成强化学习</a>
 <a href="#reasoning-rl">推理强化学习</a>
 <a href="#agentic-rl">智能体强化学习</a>
@@ -24,16 +25,16 @@ toc: false
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
-    <h2>精选</h2>
+    <p class="eyebrow">2 篇论文</p>
+    <h2>OPD</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="self-distilled-rlvr">
   <div class="paper-meta">
     <span>2026.04</span>
-    <span>强化学习</span>
+    <span>OPD</span>
   </div>
   <h3>Self-Distilled RLVR</h3>
   <p>该论文提出 Self-Distilled RLVR，将 on-policy distillation 与 RLVR 结合，由更大的教师模型为每条采样轨迹提供细粒度密集信号。该方法缓解了标准 RLVR 信号稀疏的问题。</p>
@@ -41,22 +42,31 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
-<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+<article class="paper-card" id="learning-beyond-teacher-generalized-on-policy-distillation-with-reward-extrapolation">
   <div class="paper-meta">
-    <span>2026.03</span>
-    <span>强化学习</span>
+    <span>2026.02</span>
+    <span>OPD</span>
   </div>
-  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
-  <p>该论文研究 LLM 的高效推理，通过 RL 激励短而准确的推理轨迹。论文总结了训练阶段、奖励设计和优化策略，并在 0.6B 到 30B 模型上分析泛化规律。</p>
+  <h3>Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation</h3>
+  <p>该论文证明 on-policy distillation 是 dense KL-constrained RL 的一个特例，并提出带灵活参考模型和奖励缩放因子的 G-OPD。其 reward extrapolation 版本 ExOPD 相比标准 OPD 更强，并能在融合 RL 训练的领域专家时让学生模型超越教师边界。</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://arxiv.org/abs/2602.12125" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/RUCBM/G-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
+  </div>
+</section>
+<section class="paper-section" id="reward-modeling">
+  <div class="section-heading compact">
+    <p class="eyebrow">3 篇论文</p>
+    <h2>奖励建模</h2>
+  </div>
+  <div class="paper-grid">
 <article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>强化学习</span>
+    <span>奖励建模</span>
   </div>
   <h3>MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels</h3>
   <p>该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。</p>
@@ -69,7 +79,7 @@ toc: false
 <article class="paper-card" id="scaling-reward-modeling-without-human-supervision">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>强化学习</span>
+    <span>奖励建模</span>
   </div>
   <h3>Scaling Reward Modeling without Human Supervision</h3>
   <p>该论文研究无需人工标注的无监督奖励模型扩展，通过学习网页语料文档前缀与后缀之间的偏好来训练奖励模型。实验显示该方法在不同模型骨干上稳定提升 RewardBench，并改进 best-of-N 选择和策略优化。</p>
@@ -77,21 +87,10 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2603.02225" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
-<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
-  <div class="paper-meta">
-    <span>2026.02</span>
-    <span>强化学习</span>
-  </div>
-  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
-  <p>该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
-  </div>
-</article>
 <article class="paper-card" id="reward-modeling-from-natural-language-human-feedback">
   <div class="paper-meta">
     <span>2026.01</span>
-    <span>强化学习</span>
+    <span>奖励建模</span>
   </div>
   <h3>Reward Modeling from Natural Language Human Feedback</h3>
   <p>该论文将偏好数据上的 RLVR 用于训练生成式奖励模型，指出二分类任务会让 GRM 倾向于猜对结果而非给出可靠批判。论文提出方法缓解这一问题。</p>
@@ -125,7 +124,7 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">3 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>推理强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -143,6 +142,18 @@ toc: false
 <a class="resource-link" href="https://huggingface.co/xytian1008/MUPO-Thinker-7B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
+<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
+  <p>该论文研究 LLM 的高效推理，通过 RL 激励短而准确的推理轨迹。论文总结了训练阶段、奖励设计和优化策略，并在 0.6B 到 30B 模型上分析泛化规律。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
 <article class="paper-card" id="fipo-eliciting-deep-reasoning-with-future-kl-influenced-policy-optimization">
   <div class="paper-meta">
     <span>2026.03</span>
@@ -152,6 +163,17 @@ toc: false
   <p>该论文提出 FIPO，一种强化学习算法，用于解决 LLM 推理瓶颈中的粗粒度信用分配问题。它针对 GRPO 式训练中结果奖励无法区分关键逻辑转折与普通 token 的问题进行改进。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.19835" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
+  <p>该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">

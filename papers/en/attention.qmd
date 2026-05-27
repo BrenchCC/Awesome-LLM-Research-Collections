@@ -16,20 +16,20 @@ toc: false
     <div><strong>2026.03</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#featured">Featured</a>
+    <a href="#attention-architecture">Attention Architecture</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
     <p class="eyebrow">1 paper</p>
-    <h2>Featured</h2>
+    <h2>Attention Architecture</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="attention-residuals">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>Attention</span>
+    <span>Attention Architecture</span>
   </div>
   <h3>Attention Residuals</h3>
   <p>This work replaces fixed residual accumulation with attention over previous layer outputs, enabling input-dependent depth-wise aggregation and reducing PreNorm-induced representation dilution. It also introduces Block AttnRes for scalable training with lower memory and communication overhead.</p>

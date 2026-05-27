@@ -16,20 +16,20 @@ toc: false
     <div><strong>2022.03</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#featured">精选</a>
+    <a href="#object-detection">目标检测</a>
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="object-detection">
   <div class="section-heading compact">
     <p class="eyebrow">1 篇论文</p>
-    <h2>精选</h2>
+    <h2>目标检测</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="dino-detr-with-improved-denoising-anchor-boxes-for-end-to-end-object-detection">
   <div class="paper-meta">
     <span>2022.03</span>
-    <span>视觉</span>
+    <span>目标检测</span>
   </div>
   <h3>DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection</h3>
   <p>DINO 通过对比去噪训练、用于锚点初始化的混合 query 选择，以及 look-forward-twice 框预测方案改进 DETR 类目标检测器。它在显著降低模型和数据需求的同时，在 COCO 上取得当时最优结果。</p>

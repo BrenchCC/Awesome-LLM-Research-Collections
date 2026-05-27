@@ -6,6 +6,7 @@
 
 # 目录
 - [注意力机制](#注意力机制)
+  - [注意力架构](#注意力架构)
 - [大语言模型](#大语言模型)
   - [基础模型](#基础模型)
   - [推理](#推理)
@@ -15,21 +16,30 @@
   - [多模态推理](#多模态推理)
   - [视觉-语言-动作](#视觉-语言-动作)
 - [嵌入模型](#嵌入模型)
-- [训练](#训练)
-  - [监督微调](#监督微调)
+- [监督微调](#监督微调)
+  - [监督微调方法](#监督微调方法)
 - [强化学习](#强化学习)
+  - [OPD](#opd)
+  - [奖励建模](#奖励建模)
   - [视频生成强化学习](#视频生成强化学习)
   - [推理强化学习](#推理强化学习)
   - [智能体强化学习](#智能体强化学习)
   - [视觉-语言-动作强化学习](#视觉-语言-动作强化学习)
 - [智能体应用](#智能体应用)
+  - [工具调用](#工具调用)
   - [AI 研究](#ai-研究)
   - [智能体技能](#智能体技能)
+  - [智能体开发](#智能体开发)
   - [记忆](#记忆)
 - [视觉](#视觉)
+  - [目标检测](#目标检测)
 - [自动提示](#自动提示)
+  - [提示优化](#提示优化)
+  - [评测器提示](#评测器提示)
 
 # 注意力机制
+
+## 注意力架构
 - **Attention Residuals** (2026.03) \
   **描述**: 该工作用对前序层输出的注意力替代固定残差累积，使模型能够根据输入动态聚合不同深度的信息，并缓解 PreNorm 带来的表征稀释问题。论文还提出 Block AttnRes，在更低显存与通信开销下支持可扩展训练。 \
   [[论文](https://arxiv.org/abs/2603.15031)]
@@ -194,9 +204,9 @@
 
 # 嵌入模型
 
-# 训练
+# 监督微调
 
-## 监督微调
+## 监督微调方法
 - **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
   **描述**: 该论文挑战“SFT 只会记忆而 RL 才能泛化”的常见说法，发现带长链式思维监督的推理 SFT 也能跨域泛化。其泛化效果取决于优化动态、训练数据和基础模型能力三者的共同作用。 \
   [[论文](https://arxiv.org/abs/2604.06628)]
@@ -209,15 +219,18 @@
 
 # 强化学习
 
+## OPD
 - **Self-Distilled RLVR** (2026.04) \
   **描述**: 该论文提出 Self-Distilled RLVR，将 on-policy distillation 与 RLVR 结合，由更大的教师模型为每条采样轨迹提供细粒度密集信号。该方法缓解了标准 RLVR 信号稀疏的问题。 \
   [[论文](https://arxiv.org/abs/2604.03128)]
 
-- **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
-  **描述**: 该论文研究 LLM 的高效推理，通过 RL 激励短而准确的推理轨迹。论文总结了训练阶段、奖励设计和优化策略，并在 0.6B 到 30B 模型上分析泛化规律。 \
-  [[论文](https://arxiv.org/abs/2602.20945)]
-  [[项目](https://wutaiqiang.github.io/project/Art)]
+- **Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation** (2026.02) \
+  **描述**: 该论文证明 on-policy distillation 是 dense KL-constrained RL 的一个特例，并提出带灵活参考模型和奖励缩放因子的 G-OPD。其 reward extrapolation 版本 ExOPD 相比标准 OPD 更强，并能在融合 RL 训练的领域专家时让学生模型超越教师边界。 \
+  [[论文](https://arxiv.org/abs/2602.12125)]
+  [[代码](https://github.com/RUCBM/G-OPD)]
+  [[Hugging Face](https://huggingface.co/datasets/Keven16/G-OPD-Training-Data)]
 
+## 奖励建模
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **描述**: 该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。 \
   [[论文](https://arxiv.org/abs/2603.19310)]
@@ -227,10 +240,6 @@
 - **Scaling Reward Modeling without Human Supervision** (2026.03) \
   **描述**: 该论文研究无需人工标注的无监督奖励模型扩展，通过学习网页语料文档前缀与后缀之间的偏好来训练奖励模型。实验显示该方法在不同模型骨干上稳定提升 RewardBench，并改进 best-of-N 选择和策略优化。 \
   [[论文](https://arxiv.org/abs/2603.02225)]
-
-- **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
-  **描述**: 该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。 \
-  [[论文](https://arxiv.org/abs/2602.03279)]
 
 - **Reward Modeling from Natural Language Human Feedback** (2026.01) \
   **描述**: 该论文将偏好数据上的 RLVR 用于训练生成式奖励模型，指出二分类任务会让 GRM 倾向于猜对结果而非给出可靠批判。论文提出方法缓解这一问题。 \
@@ -252,9 +261,18 @@
   [[代码](https://github.com/xytian1008/MUPO)]
   [[Hugging Face](https://huggingface.co/xytian1008/MUPO-Thinker-7B)]
 
+- **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
+  **描述**: 该论文研究 LLM 的高效推理，通过 RL 激励短而准确的推理轨迹。论文总结了训练阶段、奖励设计和优化策略，并在 0.6B 到 30B 模型上分析泛化规律。 \
+  [[论文](https://arxiv.org/abs/2602.20945)]
+  [[项目](https://wutaiqiang.github.io/project/Art)]
+
 - **FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization** (2026.03) \
   **描述**: 该论文提出 FIPO，一种强化学习算法，用于解决 LLM 推理瓶颈中的粗粒度信用分配问题。它针对 GRPO 式训练中结果奖励无法区分关键逻辑转折与普通 token 的问题进行改进。 \
   [[论文](https://arxiv.org/abs/2603.19835)]
+
+- **Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis** (2026.02) \
+  **描述**: 该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。 \
+  [[论文](https://arxiv.org/abs/2602.03279)]
 
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **描述**: 该论文展示纯强化学习无需人工标注推理轨迹即可直接激发 LLM 的高级推理行为。所提出框架诱导自我反思、验证和自适应策略使用，并在数学、代码和 STEM 推理任务上取得强提升。 \
@@ -294,22 +312,11 @@
 
 # 智能体应用
 
+## 工具调用
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **描述**: 该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。 \
   [[论文](https://arxiv.org/abs/2512.03746)]
   [[代码](https://github.com/ByteDance-BandAI/CodeVision)]
-
-- **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
-  **描述**: 该论文提出 SkillReducer，一个两阶段优化框架，用于压缩 LLM 智能体技能这类预封装指令集。它在提升功能质量 2.8% 的同时，将技能描述和正文分别压缩 48% 和 39%，降低 token 成本与注意力稀释。 \
-  [[论文](https://arxiv.org/abs/2603.29919)]
-
-- **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
-  **描述**: 该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。 \
-  [[论文](https://arxiv.org/abs/2603.26499)]
-
-- **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
-  **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
-  [[论文](https://arxiv.org/abs/2603.10808)]
 
 ## AI 研究
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
@@ -317,6 +324,10 @@
   [[论文](https://arxiv.org/abs/2605.18661)]
   [[项目](https://worldbench.github.io/awesome-ai-auto-research)]
   [[代码](https://github.com/worldbench/awesome-ai-auto-research)]
+
+- **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
+  **描述**: 该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。 \
+  [[论文](https://arxiv.org/abs/2603.26499)]
 
 ## 智能体技能
 - **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
@@ -330,6 +341,15 @@
   [[论文](https://arxiv.org/abs/2604.27660)]
   [[代码](https://github.com/S1s-Z/Ctx2Skill)]
   [[Hugging Face](https://huggingface.co/datasets/ssz1111/Ctx2Skill)]
+
+- **SkillReducer: Optimizing LLM Agent Skills for Token Efficiency** (2026.03) \
+  **描述**: 该论文提出 SkillReducer，一个两阶段优化框架，用于压缩 LLM 智能体技能这类预封装指令集。它在提升功能质量 2.8% 的同时，将技能描述和正文分别压缩 48% 和 39%，降低 token 成本与注意力稀释。 \
+  [[论文](https://arxiv.org/abs/2603.29919)]
+
+## 智能体开发
+- **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
+  **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
+  [[论文](https://arxiv.org/abs/2603.10808)]
 
 ## 记忆
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
@@ -351,6 +371,7 @@
 
 # 视觉
 
+## 目标检测
 - **DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection** (2022.03) \
   **描述**: DINO 通过对比去噪训练、用于锚点初始化的混合 query 选择，以及 look-forward-twice 框预测方案改进 DETR 类目标检测器。它在显著降低模型和数据需求的同时，在 COCO 上取得当时最优结果。 \
   [[论文](https://arxiv.org/abs/2203.03605)]
@@ -358,6 +379,13 @@
 
 # 自动提示
 
+## 提示优化
+- **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
+  **描述**: GEPA 提出一种提示优化器，通过自然语言反思从试错中学习高层规则，平均超过 GRPO 6%，并最多减少 35 倍 rollout。它还比 MIPROv2 高出 10% 以上，并在代码优化的推理时搜索中展现潜力。 \
+  [[论文](https://arxiv.org/abs/2507.19457)]
+  [[代码](https://github.com/gepa-ai/gepa)]
+
+## 评测器提示
 - **Becoming Experienced Judges: Selective Test-Time Learning for Evaluators** (2025.12) \
   **描述**: 该论文提出 Learning While Evaluating，让 LLM-as-a-judge 系统在推理时通过自生成反馈更新元提示，从而按序列持续改进。它进一步提出 Selective LWE，只在自我不一致样本上更新，以更好的成本效率提升评测质量。 \
   [[论文](https://arxiv.org/abs/2512.06751)]
@@ -365,8 +393,3 @@
 - **Auto-Prompt Ensemble for LLM Judge** (2025.10) \
   **描述**: APE 通过从失败案例中自动发现辅助评测维度，并结合置信度感知选择进行集成，提升 LLM-as-a-judge 的可靠性。它更有效地使用测试时计算，从而提高与人类对齐基准的一致性。 \
   [[论文](https://arxiv.org/abs/2510.06538)]
-
-- **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
-  **描述**: GEPA 提出一种提示优化器，通过自然语言反思从试错中学习高层规则，平均超过 GRPO 6%，并最多减少 35 倍 rollout。它还比 MIPROv2 高出 10% 以上，并在代码优化的推理时搜索中展现潜力。 \
-  [[论文](https://arxiv.org/abs/2507.19457)]
-  [[代码](https://github.com/gepa-ai/gepa)]

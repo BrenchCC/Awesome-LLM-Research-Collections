@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>Papers</span></div>
-    <div><strong>31</strong><span>Resource links</span></div>
+    <div><strong>17</strong><span>Papers</span></div>
+    <div><strong>34</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#featured">Featured</a>
+    <a href="#opd">OPD</a>
+<a href="#reward-modeling">Reward Modeling</a>
 <a href="#video-generation-rl">Video Generation RL</a>
 <a href="#reasoning-rl">Reasoning RL</a>
 <a href="#agentic-rl">Agentic RL</a>
@@ -24,16 +25,16 @@ toc: false
   </nav>
 </section>
 
-<section class="paper-section" id="featured">
+<section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
-    <h2>Featured</h2>
+    <p class="eyebrow">2 papers</p>
+    <h2>OPD</h2>
   </div>
   <div class="paper-grid">
 <article class="paper-card" id="self-distilled-rlvr">
   <div class="paper-meta">
     <span>2026.04</span>
-    <span>Reinforcement Learning</span>
+    <span>OPD</span>
   </div>
   <h3>Self-Distilled RLVR</h3>
   <p>This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR.</p>
@@ -41,22 +42,31 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
-<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+<article class="paper-card" id="learning-beyond-teacher-generalized-on-policy-distillation-with-reward-extrapolation">
   <div class="paper-meta">
-    <span>2026.03</span>
-    <span>Reinforcement Learning</span>
+    <span>2026.02</span>
+    <span>OPD</span>
   </div>
-  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
-  <p>This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters.</p>
+  <h3>Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation</h3>
+  <p>This paper shows that on-policy distillation is a special case of dense KL-constrained RL, then proposes G-OPD with a flexible reference model and reward scaling factor. Its reward extrapolation variant, ExOPD, improves over standard OPD and can let students surpass domain teachers when merging RL-trained experts.</p>
   <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://arxiv.org/abs/2602.12125" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/RUCBM/G-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
+  </div>
+</section>
+<section class="paper-section" id="reward-modeling">
+  <div class="section-heading compact">
+    <p class="eyebrow">3 papers</p>
+    <h2>Reward Modeling</h2>
+  </div>
+  <div class="paper-grid">
 <article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>Reinforcement Learning</span>
+    <span>Reward Modeling</span>
   </div>
   <h3>MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels</h3>
   <p>This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks.</p>
@@ -69,7 +79,7 @@ toc: false
 <article class="paper-card" id="scaling-reward-modeling-without-human-supervision">
   <div class="paper-meta">
     <span>2026.03</span>
-    <span>Reinforcement Learning</span>
+    <span>Reward Modeling</span>
   </div>
   <h3>Scaling Reward Modeling without Human Supervision</h3>
   <p>This paper studies unsupervised reward model scaling by learning preferences over web-corpus document prefixes and suffixes without human annotations. It reports consistent RewardBench gains across model backbones and shows downstream improvements in best-of-N selection and policy optimization.</p>
@@ -77,21 +87,10 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2603.02225" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
-<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
-  <div class="paper-meta">
-    <span>2026.02</span>
-    <span>Reinforcement Learning</span>
-  </div>
-  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
-  <p>This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories.</p>
-  <div class="paper-links">
-<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
-  </div>
-</article>
 <article class="paper-card" id="reward-modeling-from-natural-language-human-feedback">
   <div class="paper-meta">
     <span>2026.01</span>
-    <span>Reinforcement Learning</span>
+    <span>Reward Modeling</span>
   </div>
   <h3>Reward Modeling from Natural Language Human Feedback</h3>
   <p>This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation.</p>
@@ -125,7 +124,7 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">5 papers</p>
     <h2>Reasoning RL</h2>
   </div>
   <div class="paper-grid">
@@ -143,6 +142,18 @@ toc: false
 <a class="resource-link" href="https://huggingface.co/xytian1008/MUPO-Thinker-7B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
+<article class="paper-card" id="the-art-of-efficient-reasoning-data-reward-and-optimization">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>The Art of Efficient Reasoning: Data, Reward, and Optimization</h3>
+  <p>This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.20945" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://wutaiqiang.github.io/project/Art" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
 <article class="paper-card" id="fipo-eliciting-deep-reasoning-with-future-kl-influenced-policy-optimization">
   <div class="paper-meta">
     <span>2026.03</span>
@@ -152,6 +163,17 @@ toc: false
   <p>This paper presents FIPO, a reinforcement learning algorithm that overcomes reasoning bottlenecks in LLMs by addressing coarse-grained credit assignment in GRPO-style training, where outcome-based rewards fail to distinguish critical logical pivots from trivial tokens.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.19835" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="agentic-proposing-enhancing-large-language-model-reasoning-via-compositional-skill-synthesis">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis</h3>
+  <p>This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">
