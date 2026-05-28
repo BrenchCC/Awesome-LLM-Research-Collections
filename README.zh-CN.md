@@ -70,6 +70,12 @@
   [[代码](https://github.com/MoonshotAI/Kimi-K2.5)]
   [[Hugging Face](https://huggingface.co/moonshotai/Kimi-K2.5)]
 
+- **MiMo-V2-Flash Technical Report** (2026.01) \
+  **描述**: MiMo-V2-Flash 是一个 309B 总参数、15B 激活参数的 MoE 基础模型，通过混合滑动窗口/全局注意力、27T token 预训练和 256k 长上下文扩展，面向快速推理、代码和智能体任务。它提出 Multi-Teacher On-Policy Distillation 来扩展后训练，并将 multi-token prediction 复用为 speculative decoding 的草稿模型以提升解码速度。 \
+  [[论文](https://arxiv.org/abs/2601.02780)]
+  [[代码](https://github.com/xiaomimimo/MiMo-V2-Flash)]
+  [[Hugging Face](https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash)]
+
 - **GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models** (2025.08) \
   **描述**: GLM-4.5 提出开源 MoE 基础模型，并通过思考/直接回答两种混合推理模式更好支持智能体、推理和代码任务。它结合大规模预训练与 RL 后训练，发布全量和紧凑版本，并在多个基准上取得强表现。 \
   [[论文](https://arxiv.org/abs/2508.06471)]

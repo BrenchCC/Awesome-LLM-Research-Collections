@@ -70,6 +70,12 @@
   [[Code](https://github.com/MoonshotAI/Kimi-K2.5)]
   [[Hugging Face](https://huggingface.co/moonshotai/Kimi-K2.5)]
 
+- **MiMo-V2-Flash Technical Report** (2026.01) \
+  **Description**: MiMo-V2-Flash is a 309B-parameter MoE foundation model with 15B active parameters, built for fast reasoning, coding, and agentic workloads through hybrid sliding-window/global attention, 27T-token pretraining, and long-context extension to 256k. It introduces Multi-Teacher On-Policy Distillation for scalable post-training and repurposes multi-token prediction as a draft model for speculative decoding speedups. \
+  [[Paper](https://arxiv.org/abs/2601.02780)]
+  [[Code](https://github.com/xiaomimimo/MiMo-V2-Flash)]
+  [[Hugging Face](https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash)]
+
 - **GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models** (2025.08) \
   **Description**: GLM-4.5 introduces an open-source MoE foundation model with hybrid reasoning modes (thinking/direct response) to better support agentic, reasoning, and coding tasks. It combines large-scale pretraining and RL-based post-training, and releases both full and compact variants with strong benchmark performance. \
   [[Paper](https://arxiv.org/abs/2508.06471)]

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>60</strong><span>Papers</span></div>
+    <div><strong>61</strong><span>Papers</span></div>
     <div><strong>9</strong><span>Categories</span></div>
-    <div><strong>138</strong><span>Resource links</span></div>
+    <div><strong>141</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/llms.html">
-  <span class="category-count">12 papers</span>
+  <span class="category-count">13 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">

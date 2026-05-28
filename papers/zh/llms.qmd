@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>12</strong><span>论文</span></div>
-    <div><strong>36</strong><span>资源链接</span></div>
+    <div><strong>13</strong><span>论文</span></div>
+    <div><strong>39</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">9 篇论文</p>
+    <p class="eyebrow">10 篇论文</p>
     <h2>基础模型</h2>
   </div>
   <div class="paper-grid">
@@ -66,6 +66,19 @@ toc: false
 <a class="resource-link" href="https://www.kimi.com/ai-models/kimi-k2-5" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/MoonshotAI/Kimi-K2.5" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/moonshotai/Kimi-K2.5" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="mimo-v2-flash-technical-report">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>基础模型</span>
+  </div>
+  <h3>MiMo-V2-Flash Technical Report</h3>
+  <p>MiMo-V2-Flash 是一个 309B 总参数、15B 激活参数的 MoE 基础模型，通过混合滑动窗口/全局注意力、27T token 预训练和 256k 长上下文扩展，面向快速推理、代码和智能体任务。它提出 Multi-Teacher On-Policy Distillation 来扩展后训练，并将 multi-token prediction 复用为 speculative decoding 的草稿模型以提升解码速度。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.02780" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/xiaomimimo/MiMo-V2-Flash" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="glm-4-5-agentic-reasoning-and-coding-arc-foundation-models">
