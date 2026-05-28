@@ -341,11 +341,22 @@ def parse_readme(readme_path, config):
             continue
 
         link_match = re.match(r"^\s+\[\[([^\]]+)\]\(([^)]+)\)\]\]?\s*$", line)
-        if link_match:
+        icon_link_match = re.match(
+            r"^\s+\[!\[([^\]]+)\]\(assets/icons/[^)]+\)\]\(([^)]+)\)\s*$",
+            line
+        )
+        html_icon_link_match = re.match(
+            r'^\s+<a href="([^"]+)"><img src="assets/icons/[^"]+" alt="([^"]+)" width="\d+"></a>\s*$',
+            line
+        )
+        if link_match or icon_link_match or html_icon_link_match:
+            match = link_match or icon_link_match
+            label = match.group(1).strip() if match else html_icon_link_match.group(2).strip()
+            url = match.group(2).strip() if match else html_icon_link_match.group(1).strip()
             current_paper.links.append(
                 Link(
-                    label = link_match.group(1).strip(),
-                    url = link_match.group(2).strip()
+                    label = label,
+                    url = url
                 )
             )
 
