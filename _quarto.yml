@@ -44,12 +44,8 @@ website:
             text: Vision
           - href: papers/en/auto-prompt.qmd
             text: Auto-Prompt
-      - text: Notes
-        menu:
-          - href: notes/en/index.qmd
-            text: English Notes
-          - href: notes/zh/index.qmd
-            text: 中文笔记
+      - href: notes/en/index.qmd
+        text: Notes
     right:
       - href: index.qmd
         text: English
