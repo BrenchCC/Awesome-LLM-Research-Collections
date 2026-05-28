@@ -36,6 +36,9 @@
 - [Auto-Prompt](#auto-prompt)
   - [Prompt Optimization](#prompt-optimization)
   - [Judge Prompting](#judge-prompting)
+- [Notes](#notes)
+  - [Paper Readings](#paper-readings)
+  - [Technical Reflections](#technical-reflections)
 
 # Attention
 
@@ -393,3 +396,16 @@
 - **Auto-Prompt Ensemble for LLM Judge** (2025.10) \
   **Description**: APE improves LLM-as-a-judge reliability by automatically discovering auxiliary evaluation dimensions from failure cases and ensembling them with confidence-aware selection. It boosts agreement with human-aligned benchmarks by using test-time computation more effectively. \
   [[Paper](https://arxiv.org/abs/2510.06538)]
+
+# Notes
+
+## Paper Readings
+
+- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
+  **Description**: A reading note on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
+  [[Note](notes/en/opd/post-training-opd.qmd)]
+  [[中文](notes/zh/opd/post-training-opd.qmd)]
+
+## Technical Reflections
+
+No notes yet.

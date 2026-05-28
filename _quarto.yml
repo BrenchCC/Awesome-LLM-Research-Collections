@@ -5,6 +5,10 @@ project:
     - index.qmd
     - papers/en/*.qmd
     - papers/zh/*.qmd
+    - notes/en/*.qmd
+    - notes/en/*/*.qmd
+    - notes/zh/*.qmd
+    - notes/zh/*/*.qmd
     - zh/index.qmd
 
 website:
@@ -40,6 +44,12 @@ website:
             text: Vision
           - href: papers/en/auto-prompt.qmd
             text: Auto-Prompt
+      - text: Notes
+        menu:
+          - href: notes/en/index.qmd
+            text: English Notes
+          - href: notes/zh/index.qmd
+            text: 中文笔记
     right:
       - href: index.qmd
         text: English
