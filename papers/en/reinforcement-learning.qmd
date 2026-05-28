@@ -12,7 +12,7 @@ toc: false
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
     <div><strong>17</strong><span>Papers</span></div>
-    <div><strong>34</strong><span>Resource links</span></div>
+    <div><strong>35</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -37,9 +37,10 @@ toc: false
     <span>OPD</span>
   </div>
   <h3>Self-Distilled RLVR</h3>
-  <p>This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR.</p>
+  <p>This paper studies on-policy self-distillation for RLVR and shows that relying only on a privileged self-teacher can cause information leakage and unstable long-term training. It proposes RLSD, which uses self-distillation to estimate token-level update magnitudes while keeping RLVR&#x27;s environment feedback as the reliable update direction.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2604.03128" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://huggingface.co/datasets/iieycx/rlsd-train-MMFineReason-123K" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="learning-beyond-teacher-generalized-on-policy-distillation-with-reward-extrapolation">

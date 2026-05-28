@@ -4,7 +4,7 @@ date: 2026-05-28
 title: "OPD：后训练中的能力整合接口"
 description: "从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。"
 order: 1
-note_type: paper-reading
+note_type: technical-reflection
 topic: opd
 ---
 

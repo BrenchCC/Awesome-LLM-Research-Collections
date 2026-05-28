@@ -25,17 +25,7 @@ toc: false
     <p class="eyebrow">Browse</p>
     <h2>Paper Readings</h2>
   </div>
-  <div class="category-grid">
-<a class="category-card" href="opd/post-training-opd.html">
-  <span class="category-count">2026-05-28</span>
-  <h3>OPD: Capability Integration Interface in Post-training</h3>
-  <p>A reading note on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
-  <div class="category-foot">
-    <span>OPD</span>
-    <span>Paper Readings</span>
-  </div>
-</a>
-  </div>
+  <p class="empty-state">No notes yet.</p>
 </section>
 
 <section class="section-block" id="technical-reflections">
@@ -43,6 +33,16 @@ toc: false
     <p class="eyebrow">Browse</p>
     <h2>Technical Reflections</h2>
   </div>
-  <p class="empty-state">No notes yet.</p>
+  <div class="category-grid">
+<a class="category-card" href="opd/post-training-opd.html">
+  <span class="category-count">2026-05-28</span>
+  <h3>OPD: Capability Integration Interface in Post-training</h3>
+  <p>A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
+  <div class="category-foot">
+    <span>OPD</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+  </div>
 </section>
 ```

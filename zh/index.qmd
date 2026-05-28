@@ -12,7 +12,7 @@ toc: false
   <div class="stat-strip">
     <div><strong>60</strong><span>论文</span></div>
     <div><strong>9</strong><span>分类</span></div>
-    <div><strong>137</strong><span>资源链接</span></div>
+    <div><strong>138</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>

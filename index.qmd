@@ -12,7 +12,7 @@ toc: false
   <div class="stat-strip">
     <div><strong>60</strong><span>Papers</span></div>
     <div><strong>9</strong><span>Categories</span></div>
-    <div><strong>137</strong><span>Resource links</span></div>
+    <div><strong>138</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>

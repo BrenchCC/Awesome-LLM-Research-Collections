@@ -224,8 +224,9 @@
 
 ## OPD
 - **Self-Distilled RLVR** (2026.04) \
-  **Description**: This paper introduces Self-Distilled RLVR, combining on-policy distillation (OPD) with RLVR, where a larger teacher model provides dense fine-grained signals for each sampled trajectory, addressing the sparse signal limitation of standard RLVR. \
+  **Description**: This paper studies on-policy self-distillation for RLVR and shows that relying only on a privileged self-teacher can cause information leakage and unstable long-term training. It proposes RLSD, which uses self-distillation to estimate token-level update magnitudes while keeping RLVR's environment feedback as the reliable update direction. \
   [[Paper](https://arxiv.org/abs/2604.03128)]
+  [[Hugging Face](https://huggingface.co/datasets/iieycx/rlsd-train-MMFineReason-123K)]
 
 - **Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation** (2026.02) \
   **Description**: This paper shows that on-policy distillation is a special case of dense KL-constrained RL, then proposes G-OPD with a flexible reference model and reward scaling factor. Its reward extrapolation variant, ExOPD, improves over standard OPD and can let students surpass domain teachers when merging RL-trained experts. \
@@ -401,11 +402,11 @@
 
 ## Paper Readings
 
-- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
-  **Description**: A reading note on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
-  [[Note](notes/en/opd/post-training-opd.qmd)]
-  [[中文](notes/zh/opd/post-training-opd.qmd)]
+No notes yet.
 
 ## Technical Reflections
 
-No notes yet.
+- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
+  **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
+  [[Note](notes/en/opd/post-training-opd.qmd)]
+  [[中文](notes/zh/opd/post-training-opd.qmd)]

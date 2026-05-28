@@ -224,8 +224,9 @@
 
 ## OPD
 - **Self-Distilled RLVR** (2026.04) \
-  **描述**: 该论文提出 Self-Distilled RLVR，将 on-policy distillation 与 RLVR 结合，由更大的教师模型为每条采样轨迹提供细粒度密集信号。该方法缓解了标准 RLVR 信号稀疏的问题。 \
+  **描述**: 该论文研究 RLVR 中的 on-policy self-distillation，指出仅依赖带特权信息的自教师信号会造成信息泄漏和长期训练不稳定。论文提出 RLSD，用自蒸馏估计 token 级更新幅度，同时保留 RLVR 的环境反馈作为可靠更新方向。 \
   [[论文](https://arxiv.org/abs/2604.03128)]
+  [[Hugging Face](https://huggingface.co/datasets/iieycx/rlsd-train-MMFineReason-123K)]
 
 - **Learning beyond Teacher: Generalized On-Policy Distillation with Reward Extrapolation** (2026.02) \
   **描述**: 该论文证明 on-policy distillation 是 dense KL-constrained RL 的一个特例，并提出带灵活参考模型和奖励缩放因子的 G-OPD。其 reward extrapolation 版本 ExOPD 相比标准 OPD 更强，并能在融合 RL 训练的领域专家时让学生模型超越教师边界。 \
@@ -401,11 +402,11 @@
 
 ## 论文解读
 
+暂无笔记。
+
+## 技术思考
+
 - **OPD：后训练中的能力整合接口** (2026-05-28) \
   **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]
-
-## 技术思考
-
-暂无笔记。
