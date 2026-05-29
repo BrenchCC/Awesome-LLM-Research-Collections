@@ -255,6 +255,10 @@
   **描述**: 该论文将偏好数据上的 RLVR 用于训练生成式奖励模型，指出二分类任务会让 GRM 倾向于猜对结果而非给出可靠批判。论文提出方法缓解这一问题。 \
   <a href="https://arxiv.org/abs/2601.07349"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models** (2025.10) \
+  **描述**: 这篇综述梳理过程奖励模型如何在步骤或轨迹层面评估并引导大语言模型推理，而不只判断最终答案。论文围绕过程数据生成、PRM 构建，以及 PRM 在测试时扩展和强化学习中的使用闭环，覆盖数学、代码、多模态推理、机器人和智能体等应用。 \
+  <a href="https://arxiv.org/abs/2510.08049"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 ## 视频生成强化学习
 - **KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration** (2026.05) \
   **描述**: KVPO 使用 ODE-native online GRPO 框架，将流式自回归视频生成器与人类偏好对齐。它用历史 KV 缓存的因果语义路由替代噪声探索，并基于 Trajectory Velocity Energy 优化速度场代理策略。 \

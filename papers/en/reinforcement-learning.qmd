@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>Papers</span></div>
-    <div><strong>35</strong><span>Resource links</span></div>
+    <div><strong>18</strong><span>Papers</span></div>
+    <div><strong>36</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -60,7 +60,7 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">4 papers</p>
     <h2>Reward Modeling</h2>
   </div>
   <div class="paper-grid">
@@ -97,6 +97,17 @@ toc: false
   <p>This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2601.07349" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="a-survey-of-process-reward-models-from-outcome-signals-to-process-supervisions-for-large-language-models">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>Reward Modeling</span>
+  </div>
+  <h3>A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models</h3>
+  <p>This survey reviews Process Reward Models for evaluating and guiding LLM reasoning at the step or trajectory level rather than only judging final answers. It organizes the full loop of process data generation, PRM construction, and PRM use in test-time scaling and reinforcement learning across math, code, multimodal reasoning, robotics, and agents.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.08049" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>

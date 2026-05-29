@@ -255,6 +255,10 @@
   **Description**: This paper introduces RLVR on preference data for training Generative Reward Models, demonstrating that binary classification tasks make GRMs susceptible to guessing correct outcomes without sound critiques, and proposes a method to address this limitation. \
   <a href="https://arxiv.org/abs/2601.07349"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models** (2025.10) \
+  **Description**: This survey reviews Process Reward Models for evaluating and guiding LLM reasoning at the step or trajectory level rather than only judging final answers. It organizes the full loop of process data generation, PRM construction, and PRM use in test-time scaling and reinforcement learning across math, code, multimodal reasoning, robotics, and agents. \
+  <a href="https://arxiv.org/abs/2510.08049"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 ## Video Generation RL
 - **KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration** (2026.05) \
   **Description**: KVPO aligns streaming autoregressive video generators with human preferences using an ODE-native online GRPO framework. It replaces noise-based exploration with causal-semantic routing of historical KV cache entries and optimizes a velocity-field surrogate policy based on Trajectory Velocity Energy. \
