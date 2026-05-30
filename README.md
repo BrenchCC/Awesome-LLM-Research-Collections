@@ -18,6 +18,8 @@
 - [Embeddings](#embeddings)
 - [SFT](#sft)
   - [SFT Methods](#sft-methods)
+- [Training](#training)
+  - [Distillation](#distillation)
 - [Reinforcement Learning](#reinforcement-learning)
   - [OPD](#opd)
   - [Reward Modeling](#reward-modeling)
@@ -225,6 +227,15 @@
 - **ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection** (2026.01) \
   **Description**: This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines. \
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
+# Training
+
+## Distillation
+- **Knowledge Distillation of Large Language Models** (2023.06) \
+  **Description**: This paper studies white-box knowledge distillation for generative LLMs and proposes MiniLLM, replacing the standard forward KLD objective with reverse KLD to avoid overestimating low-probability teacher regions. The method derives an effective optimization procedure and improves instruction-following quality, calibration, exposure bias, and long-text generation across model families from 120M to 13B parameters. \
+  <a href="https://arxiv.org/abs/2306.08543"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/microsoft/LMOps/tree/main/minillm"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/MiniLLM"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # Reinforcement Learning
 

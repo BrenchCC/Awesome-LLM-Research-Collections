@@ -36,6 +36,8 @@ website:
             text: Embeddings
           - href: papers/en/sft.qmd
             text: SFT
+          - href: papers/en/training.qmd
+            text: Training
           - href: papers/en/reinforcement-learning.qmd
             text: Reinforcement Learning
           - href: papers/en/agents-application.qmd

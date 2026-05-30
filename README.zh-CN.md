@@ -18,6 +18,8 @@
 - [嵌入模型](#嵌入模型)
 - [监督微调](#监督微调)
   - [监督微调方法](#监督微调方法)
+- [训练](#训练)
+  - [蒸馏](#蒸馏)
 - [强化学习](#强化学习)
   - [OPD](#opd)
   - [奖励建模](#奖励建模)
@@ -225,6 +227,15 @@
 - **ProFit: Leveraging High-Value Signals in SFT via Probability-Guided Token Selection** (2026.01) \
   **描述**: 该论文提出 ProFit，一种监督微调方法，通过 token 概率作为语义重要性代理并屏蔽低概率 token，缓解单参考答案过拟合。该方法让训练更聚焦核心逻辑内容，并在推理和数学任务上优于标准 SFT 基线。 \
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
+# 训练
+
+## 蒸馏
+- **Knowledge Distillation of Large Language Models** (2023.06) \
+  **描述**: 该论文研究面向生成式大语言模型的白盒知识蒸馏，并提出 MiniLLM，用反向 KLD 替代标准前向 KLD，以避免学生模型高估教师分布中的低概率区域。论文推导了有效优化方法，并在 120M 到 13B 参数的不同模型族上提升指令跟随质量、校准性、曝光偏差和长文本生成表现。 \
+  <a href="https://arxiv.org/abs/2306.08543"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/microsoft/LMOps/tree/main/minillm"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/MiniLLM"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 强化学习
 
