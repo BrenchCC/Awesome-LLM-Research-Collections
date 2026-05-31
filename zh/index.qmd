@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>63</strong><span>论文</span></div>
+    <div><strong>64</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>145</strong><span>资源链接</span></div>
+    <div><strong>147</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -24,11 +24,11 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="../papers/zh/attention.html">
-  <span class="category-count">1 篇论文</span>
+  <span class="category-count">2 篇论文</span>
   <h3>注意力机制</h3>
   <p>围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="category-foot">
-    <span>2026.03</span>
+    <span>2026.05</span>
     <span>注意力架构</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="../papers/zh/attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
+  <span>2026.05</span>
+  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
+  <em>注意力机制</em>
+</a>
 <a class="recent-row" href="../papers/zh/llms.html#base-models-look-human-to-ai-detectors">
   <span>2026.05</span>
   <strong>Base Models Look Human To AI Detectors</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="../papers/zh/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
   <span>2026.04</span>
   <strong>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="../papers/zh/llms.html#large-language-models-explore-by-latent-distilling">
-  <span>2026.04</span>
-  <strong>Large Language Models Explore by Latent Distilling</strong>
   <em>大语言模型</em>
 </a>
   </div>

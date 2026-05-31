@@ -45,6 +45,11 @@
 # 注意力机制
 
 ## 注意力架构
+- **GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding** (2026.05) \
+  **描述**: 该论文提出 Group-Query Latent Attention，对 MLA 做最小修改，使同一组训练权重同时暴露 MQA-absorb 和 GQA 两条解码路径。运行时可根据目标硬件选择路径，无需重新训练或自定义 kernel，从而兼顾 H100 式压缩解码、面向 H20 的 GQA 加 MTP，以及最高 8 路零冗余张量并行。 \
+  <a href="https://arxiv.org/abs/2605.15250"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MuLabPKU/TransArch/tree/main/GQLA_preprint"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Attention Residuals** (2026.03) \
   **描述**: 该工作用对前序层输出的注意力替代固定残差累积，使模型能够根据输入动态聚合不同深度的信息，并缓解 PreNorm 带来的表征稀释问题。论文还提出 Block AttnRes，在更低显存与通信开销下支持可扩展训练。 \
   <a href="https://arxiv.org/abs/2603.15031"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

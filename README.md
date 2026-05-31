@@ -45,6 +45,11 @@
 # Attention
 
 ## Attention Architecture
+- **GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding** (2026.05) \
+  **Description**: This paper proposes Group-Query Latent Attention, a minimal MLA modification that exposes both MQA-absorb and GQA decoding paths from the same trained weights. The runtime can select the path that matches target hardware without retraining or custom kernels, enabling H100-style compressed decoding, H20-oriented GQA plus MTP, and up to 8-way zero-redundancy tensor parallelism. \
+  <a href="https://arxiv.org/abs/2605.15250"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/MuLabPKU/TransArch/tree/main/GQLA_preprint"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Attention Residuals** (2026.03) \
   **Description**: This work replaces fixed residual accumulation with attention over previous layer outputs, enabling input-dependent depth-wise aggregation and reducing PreNorm-induced representation dilution. It also introduces Block AttnRes for scalable training with lower memory and communication overhead. \
   <a href="https://arxiv.org/abs/2603.15031"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>63</strong><span>Papers</span></div>
+    <div><strong>64</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>145</strong><span>Resource links</span></div>
+    <div><strong>147</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -24,11 +24,11 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="papers/en/attention.html">
-  <span class="category-count">1 paper</span>
+  <span class="category-count">2 papers</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="category-foot">
-    <span>2026.03</span>
+    <span>2026.05</span>
     <span>Attention Architecture</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="papers/en/attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
+  <span>2026.05</span>
+  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
+  <em>Attention</em>
+</a>
 <a class="recent-row" href="papers/en/llms.html#base-models-look-human-to-ai-detectors">
   <span>2026.05</span>
   <strong>Base Models Look Human To AI Detectors</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="papers/en/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
   <span>2026.04</span>
   <strong>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</strong>
-  <em>LLMs</em>
-</a>
-<a class="recent-row" href="papers/en/llms.html#large-language-models-explore-by-latent-distilling">
-  <span>2026.04</span>
-  <strong>Large Language Models Explore by Latent Distilling</strong>
   <em>LLMs</em>
 </a>
   </div>
