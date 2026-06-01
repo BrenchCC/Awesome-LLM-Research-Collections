@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>Papers</span></div>
-    <div><strong>39</strong><span>Resource links</span></div>
+    <div><strong>16</strong><span>Papers</span></div>
+    <div><strong>48</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">10 papers</p>
+    <p class="eyebrow">13 papers</p>
     <h2>Foundation Models</h2>
   </div>
   <div class="paper-grid">
@@ -79,6 +79,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2601.02780" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/xiaomimimo/MiMo-V2-Flash" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="deepseek-v3-2-pushing-the-frontier-of-open-large-language-models">
+  <div class="paper-meta">
+    <span>2025.12</span>
+    <span>Foundation Models</span>
+  </div>
+  <h3>DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models</h3>
+  <p>DeepSeek-V3.2 is an open large language model that combines efficient long-context computation with strong reasoning and agent performance. Its key ingredients include DeepSeek Sparse Attention, scalable RL post-training, and a large-scale agentic task synthesis pipeline for improving tool-use generalization and instruction-following robustness.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2512.02556" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://api-docs.deepseek.com/news/news251201" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="glm-4-5-agentic-reasoning-and-coding-arc-foundation-models">
@@ -136,6 +149,19 @@ toc: false
 <a class="resource-link" href="https://huggingface.co/MiniMaxAI/MiniMax-Text-01" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
+<article class="paper-card" id="deepseek-v3-technical-report">
+  <div class="paper-meta">
+    <span>2024.12</span>
+    <span>Foundation Models</span>
+  </div>
+  <h3>DeepSeek-V3 Technical Report</h3>
+  <p>DeepSeek-V3 is a 671B-parameter MoE language model with 37B activated parameters per token, built for efficient inference and cost-effective large-scale training. It extends MLA and DeepSeekMoE with auxiliary-loss-free load balancing and a multi-token prediction objective, achieving strong open-model performance with stable 14.8T-token pretraining and SFT/RL post-training.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/deepseek-ai/DeepSeek-V3" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/deepseek-ai/DeepSeek-V3" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="qwen2-5-math-technical-report-toward-mathematical-expert-model-via-self-improvement">
   <div class="paper-meta">
     <span>2024.09</span>
@@ -160,6 +186,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2407.10671" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/QwenLM/Qwen2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="deepseek-v2-a-strong-economical-and-efficient-mixture-of-experts-language-model">
+  <div class="paper-meta">
+    <span>2024.05</span>
+    <span>Foundation Models</span>
+  </div>
+  <h3>DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</h3>
+  <p>DeepSeek-V2 is a 236B-parameter MoE language model with 21B activated parameters per token and 128K context length, designed for economical training and efficient inference. It combines Multi-head Latent Attention for KV-cache compression with DeepSeekMoE sparse computation, reducing training cost and KV cache while improving throughput and open-model performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2405.04434" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/deepseek-ai/DeepSeek-V2" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/deepseek-ai/DeepSeek-V2" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

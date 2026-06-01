@@ -83,6 +83,12 @@
   <a href="https://github.com/xiaomimimo/MiMo-V2-Flash"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models** (2025.12) \
+  **Description**: DeepSeek-V3.2 is an open large language model that combines efficient long-context computation with strong reasoning and agent performance. Its key ingredients include DeepSeek Sparse Attention, scalable RL post-training, and a large-scale agentic task synthesis pipeline for improving tool-use generalization and instruction-following robustness. \
+  <a href="https://arxiv.org/abs/2512.02556"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://api-docs.deepseek.com/news/news251201"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models** (2025.08) \
   **Description**: GLM-4.5 introduces an open-source MoE foundation model with hybrid reasoning modes (thinking/direct response) to better support agentic, reasoning, and coding tasks. It combines large-scale pretraining and RL-based post-training, and releases both full and compact variants with strong benchmark performance. \
   <a href="https://arxiv.org/abs/2508.06471"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -110,6 +116,12 @@
   <a href="https://github.com/MiniMax-AI/MiniMax-01"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/MiniMaxAI/MiniMax-Text-01"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **DeepSeek-V3 Technical Report** (2024.12) \
+  **Description**: DeepSeek-V3 is a 671B-parameter MoE language model with 37B activated parameters per token, built for efficient inference and cost-effective large-scale training. It extends MLA and DeepSeekMoE with auxiliary-loss-free load balancing and a multi-token prediction objective, achieving strong open-model performance with stable 14.8T-token pretraining and SFT/RL post-training. \
+  <a href="https://arxiv.org/abs/2412.19437"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/deepseek-ai/DeepSeek-V3"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Qwen2.5-Math Technical Report: Toward Mathematical Expert Model via Self-Improvement** (2024.09) \
   **Description**: This paper presents Qwen2.5-Math, a family of math-specialized language models that applies self-improvement throughout pre-training, post-training, and inference. The approach strengthens mathematical reasoning and tool-augmented problem solving across multiple model sizes. \
   <a href="https://arxiv.org/abs/2409.12122"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -121,6 +133,12 @@
   <a href="https://arxiv.org/abs/2407.10671"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/QwenLM/Qwen2"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model** (2024.05) \
+  **Description**: DeepSeek-V2 is a 236B-parameter MoE language model with 21B activated parameters per token and 128K context length, designed for economical training and efficient inference. It combines Multi-head Latent Attention for KV-cache compression with DeepSeekMoE sparse computation, reducing training cost and KV cache while improving throughput and open-model performance. \
+  <a href="https://arxiv.org/abs/2405.04434"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/deepseek-ai/DeepSeek-V2"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Inference
 - **Large Language Models Explore by Latent Distilling** (2026.04) \

@@ -83,6 +83,12 @@
   <a href="https://github.com/xiaomimimo/MiMo-V2-Flash"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models** (2025.12) \
+  **描述**: DeepSeek-V3.2 是一个开放大语言模型，将高效长上下文计算与强推理、智能体能力结合起来。其关键技术包括 DeepSeek Sparse Attention、可扩展 RL 后训练，以及用于提升工具调用泛化和指令跟随鲁棒性的大规模智能体任务合成管线。 \
+  <a href="https://arxiv.org/abs/2512.02556"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://api-docs.deepseek.com/news/news251201"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3.2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models** (2025.08) \
   **描述**: GLM-4.5 提出开源 MoE 基础模型，并通过思考/直接回答两种混合推理模式更好支持智能体、推理和代码任务。它结合大规模预训练与 RL 后训练，发布全量和紧凑版本，并在多个基准上取得强表现。 \
   <a href="https://arxiv.org/abs/2508.06471"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -110,6 +116,12 @@
   <a href="https://github.com/MiniMax-AI/MiniMax-01"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/MiniMaxAI/MiniMax-Text-01"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **DeepSeek-V3 Technical Report** (2024.12) \
+  **描述**: DeepSeek-V3 是一个 671B 总参数、每 token 激活 37B 参数的 MoE 语言模型，面向高效推理和低成本大规模训练。它在 MLA 与 DeepSeekMoE 基础上引入无辅助损失的负载均衡和 multi-token prediction 训练目标，并通过稳定的 14.8T token 预训练及 SFT/RL 后训练取得强开源模型表现。 \
+  <a href="https://arxiv.org/abs/2412.19437"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/deepseek-ai/DeepSeek-V3"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Qwen2.5-Math Technical Report: Toward Mathematical Expert Model via Self-Improvement** (2024.09) \
   **描述**: 该论文介绍 Qwen2.5-Math 数学专用模型家族，在预训练、后训练和推理阶段持续使用自我改进。该方法增强了多种规模模型的数学推理和工具辅助解题能力。 \
   <a href="https://arxiv.org/abs/2409.12122"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -121,6 +133,12 @@
   <a href="https://arxiv.org/abs/2407.10671"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/QwenLM/Qwen2"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/collections/Qwen/qwen2-6641dc1d5fbb1a48c8708a52"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model** (2024.05) \
+  **描述**: DeepSeek-V2 是一个 236B 总参数、每 token 激活 21B 参数并支持 128K 上下文的 MoE 语言模型，面向低成本训练和高效推理。它结合用于压缩 KV 缓存的 Multi-head Latent Attention 与 DeepSeekMoE 稀疏计算，在降低训练成本和 KV 缓存的同时提升吞吐与开源模型表现。 \
+  <a href="https://arxiv.org/abs/2405.04434"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/deepseek-ai/DeepSeek-V2"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 推理
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
