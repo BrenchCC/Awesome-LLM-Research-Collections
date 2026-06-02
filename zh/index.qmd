@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>67</strong><span>论文</span></div>
+    <div><strong>68</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>156</strong><span>资源链接</span></div>
+    <div><strong>157</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -69,12 +69,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/training.html">
-  <span class="category-count">1 篇论文</span>
+  <span class="category-count">2 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
-    <span>2023.06</span>
-    <span>蒸馏</span>
+    <span>2026.05</span>
+    <span>优化、蒸馏</span>
   </div>
 </a>
 <a class="category-card" href="../papers/zh/reinforcement-learning.html">
@@ -137,6 +137,11 @@ toc: false
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
   <em>多模态大模型</em>
 </a>
+<a class="recent-row" href="../papers/zh/training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
+  <span>2026.05</span>
+  <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
+  <em>训练</em>
+</a>
 <a class="recent-row" href="../papers/zh/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</strong>
   <em>智能体应用</em>
-</a>
-<a class="recent-row" href="../papers/zh/llms.html#the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
-  <span>2026.04</span>
-  <strong>The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook</strong>
-  <em>大语言模型</em>
 </a>
   </div>
 </section>

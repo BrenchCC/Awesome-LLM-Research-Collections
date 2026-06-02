@@ -49,6 +49,8 @@ CATEGORY_SLUGS = {
     "监督微调": "sft",
     "SFT Methods": "sft-methods",
     "监督微调方法": "sft-methods",
+    "Optimization": "optimization",
+    "优化": "optimization",
     "Distillation": "distillation",
     "蒸馏": "distillation",
     "Reward Modeling": "reward-modeling",

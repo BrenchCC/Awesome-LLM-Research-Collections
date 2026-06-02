@@ -19,6 +19,7 @@
 - [SFT](#sft)
   - [SFT Methods](#sft-methods)
 - [Training](#training)
+  - [Optimization](#optimization)
   - [Distillation](#distillation)
 - [Reinforcement Learning](#reinforcement-learning)
   - [OPD](#opd)
@@ -252,6 +253,11 @@
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 # Training
+
+## Optimization
+- **PowLU: An Activation Function for Stable Pre-Training of LLMs** (2026.05) \
+  **Description**: This paper identifies SwiGLU's near-quadratic amplification on large positive inputs as a source of outliers and numerical instability in low-precision large-scale LLM pre-training. It proposes Power Linear Unit (PowLU), a rational-power activation that preserves adaptive nonlinearity while stabilizing spike regions, with scaling-law and Ling-model experiments showing competitive performance and improved training scalability. \
+  <a href="https://arxiv.org/abs/2605.25704"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 ## Distillation
 - **Knowledge Distillation of Large Language Models** (2023.06) \

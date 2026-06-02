@@ -5,5 +5,5 @@ title: "GLM-5阅读笔记和思考"
 description: "GLM-5技术论文阅读笔记和思考"
 order: 1
 note_type: paper-reading
-topic: 
+topic: GLM-5-Reading-Notes
 ---
