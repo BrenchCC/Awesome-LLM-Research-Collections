@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>68</strong><span>论文</span></div>
+    <div><strong>69</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>157</strong><span>资源链接</span></div>
+    <div><strong>159</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/reinforcement-learning.html">
-  <span class="category-count">18 篇论文</span>
+  <span class="category-count">19 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
   <em>训练</em>
 </a>
+<a class="recent-row" href="../papers/zh/reinforcement-learning.html#anti-self-distillation-for-reasoning-rl-via-pointwise-mutual-information">
+  <span>2026.05</span>
+  <strong>Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="../papers/zh/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="../papers/zh/agents-application.html#ai-for-auto-research-roadmap-user-guide">
   <span>2026.05</span>
   <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="../papers/zh/agents-application.html#skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
-  <span>2026.05</span>
-  <strong>SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution</strong>
   <em>智能体应用</em>
 </a>
   </div>

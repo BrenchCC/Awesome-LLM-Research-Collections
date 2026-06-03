@@ -269,6 +269,11 @@
 # 强化学习
 
 ## OPD
+- **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
+  **描述**: 该论文分析 on-policy self-distillation 在数学推理中效果不稳定的原因，指出基于特权上下文的教师信号会通过点式互信息过度强化答案已暗示的 token，同时压低驱动多步搜索的思考 token。论文提出 AntiSD，用带熵门控的反向自蒸馏散度替代默认下降方向，在 2 到 10 倍更少训练步数内达到 GRPO 水平，并将最终准确率最高提升 11.5 个百分点。 \
+  <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/FloyedShen/AntiSD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Self-Distilled RLVR** (2026.04) \
   **描述**: 该论文研究 RLVR 中的 on-policy self-distillation，指出仅依赖带特权信息的自教师信号会造成信息泄漏和长期训练不稳定。论文提出 RLSD，用自蒸馏估计 token 级更新幅度，同时保留 RLVR 的环境反馈作为可靠更新方向。 \
   <a href="https://arxiv.org/abs/2604.03128"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

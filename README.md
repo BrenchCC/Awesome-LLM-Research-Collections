@@ -269,6 +269,11 @@
 # Reinforcement Learning
 
 ## OPD
+- **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
+  **Description**: This paper analyzes why on-policy self-distillation can hurt math reasoning, showing through pointwise mutual information that privileged context overemphasizes solution-implied tokens while suppressing deliberation tokens needed for search. It proposes AntiSD, which ascends rather than descends the self-distillation divergence with an entropy gate, reaching GRPO-level accuracy in 2 to 10x fewer steps and improving final accuracy by up to 11.5 points. \
+  <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/FloyedShen/AntiSD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Self-Distilled RLVR** (2026.04) \
   **Description**: This paper studies on-policy self-distillation for RLVR and shows that relying only on a privileged self-teacher can cause information leakage and unstable long-term training. It proposes RLSD, which uses self-distillation to estimate token-level update magnitudes while keeping RLVR's environment feedback as the reliable update direction. \
   <a href="https://arxiv.org/abs/2604.03128"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
