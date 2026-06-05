@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>69</strong><span>Papers</span></div>
+    <div><strong>70</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>159</strong><span>Resource links</span></div>
+    <div><strong>163</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/reinforcement-learning.html">
-  <span class="category-count">19 papers</span>
+  <span class="category-count">20 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -147,6 +147,11 @@ toc: false
   <strong>Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="papers/en/reinforcement-learning.html#draft-opd-adapting-speculative-draft-models-from-llms-via-on-policy-distillation">
+  <span>2026.05</span>
+  <strong>Draft-OPD: Adapting Speculative Draft Models from LLMs via On-Policy Distillation</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="papers/en/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="papers/en/agents-application.html#ai-for-auto-research-roadmap-user-guide">
-  <span>2026.05</span>
-  <strong>AI for Auto-Research: Roadmap &amp; User Guide</strong>
-  <em>Agents Application</em>
 </a>
   </div>
 </section>

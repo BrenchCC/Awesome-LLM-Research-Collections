@@ -274,6 +274,13 @@
   <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/FloyedShen/AntiSD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Draft-OPD: Adapting Speculative Draft Models from LLMs via On-Policy Distillation** (2026.05) \
+  **描述**: 该论文提出 Draft-OPD，通过 on-policy distillation 复用 RL 训练轨迹，将 RL 后训练 LLM 的能力适配到 speculative draft model，避免为 draft model 进行昂贵的在线生成。论文证明 RL 训练与 OPD 式蒸馏之间的等价关系，并在保持任务性能的同时将 speculative decoding 速度最高提升 2.14 倍。 \
+  <a href="https://arxiv.org/abs/2605.29343"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.haodilei.top/draft-opd/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/bingyang-lei/Draft-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/bingyang-lei/draft-opd"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Self-Distilled RLVR** (2026.04) \
   **描述**: 该论文研究 RLVR 中的 on-policy self-distillation，指出仅依赖带特权信息的自教师信号会造成信息泄漏和长期训练不稳定。论文提出 RLSD，用自蒸馏估计 token 级更新幅度，同时保留 RLVR 的环境反馈作为可靠更新方向。 \
   <a href="https://arxiv.org/abs/2604.03128"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

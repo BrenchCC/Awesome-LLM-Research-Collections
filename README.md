@@ -274,6 +274,13 @@
   <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/FloyedShen/AntiSD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Draft-OPD: Adapting Speculative Draft Models from LLMs via On-Policy Distillation** (2026.05) \
+  **Description**: This paper proposes Draft-OPD, which adapts speculative draft models from RL-trained LLM traces through on-policy distillation without requiring expensive online generation for the draft model. It proves an equivalence between RL training and OPD-style distillation, reuses collected RL experience, and improves speculative decoding speed by up to 2.14x while preserving task performance. \
+  <a href="https://arxiv.org/abs/2605.29343"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.haodilei.top/draft-opd/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/bingyang-lei/Draft-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/bingyang-lei/draft-opd"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Self-Distilled RLVR** (2026.04) \
   **Description**: This paper studies on-policy self-distillation for RLVR and shows that relying only on a privileged self-teacher can cause information leakage and unstable long-term training. It proposes RLSD, which uses self-distillation to estimate token-level update magnitudes while keeping RLVR's environment feedback as the reliable update direction. \
   <a href="https://arxiv.org/abs/2604.03128"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
