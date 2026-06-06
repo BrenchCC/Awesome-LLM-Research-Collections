@@ -242,6 +242,10 @@
 # 监督微调
 
 ## 监督微调方法
+- **Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning** (2026.05) \
+  **描述**: 该论文系统研究监督微调中的基于难度的数据选择，指出不存在普适最优的数据难度。论文用分布内泛化与外推之间的权衡解释数据规模相关的最优难度，并发现随着数据预算增加，最优训练样本会逐渐转向更难样本。 \
+  <a href="https://arxiv.org/abs/2605.12906"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
   **描述**: 该论文挑战“SFT 只会记忆而 RL 才能泛化”的常见说法，发现带长链式思维监督的推理 SFT 也能跨域泛化。其泛化效果取决于优化动态、训练数据和基础模型能力三者的共同作用。 \
   <a href="https://arxiv.org/abs/2604.06628"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>70</strong><span>Papers</span></div>
+    <div><strong>71</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>163</strong><span>Resource links</span></div>
+    <div><strong>164</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -60,11 +60,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/sft.html">
-  <span class="category-count">2 papers</span>
+  <span class="category-count">3 papers</span>
   <h3>SFT</h3>
   <p>Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies.</p>
   <div class="category-foot">
-    <span>2026.04</span>
+    <span>2026.05</span>
     <span>SFT Methods</span>
   </div>
 </a>
@@ -137,6 +137,11 @@ toc: false
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
   <em>Multimodal LLMs</em>
 </a>
+<a class="recent-row" href="papers/en/sft.html#data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
+  <span>2026.05</span>
+  <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
+  <em>SFT</em>
+</a>
 <a class="recent-row" href="papers/en/training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
   <span>2026.05</span>
   <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="papers/en/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="papers/en/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
-  <span>2026.05</span>
-  <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

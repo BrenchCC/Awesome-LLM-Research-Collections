@@ -242,6 +242,10 @@
 # SFT
 
 ## SFT Methods
+- **Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning** (2026.05) \
+  **Description**: This paper systematically studies difficulty-based data selection for supervised fine-tuning and shows that no single difficulty level is universally optimal. It explains the data-size-dependent optimum through a tradeoff between in-distribution generalization and extrapolation, with the best difficulty shifting toward harder examples as the data budget grows. \
+  <a href="https://arxiv.org/abs/2605.12906"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability** (2026.04) \
   **Description**: This paper challenges the common claim that supervised fine-tuning (SFT) only memorizes while RL generalizes, finding cross-domain generalization from reasoning SFT with long chain-of-thought supervision depends jointly on optimization dynamics, training data, and base model capability. \
   <a href="https://arxiv.org/abs/2604.06628"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

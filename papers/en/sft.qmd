@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>Papers</span></div>
-    <div><strong>4</strong><span>Resource links</span></div>
-    <div><strong>2026.04</strong><span>Latest month</span></div>
+    <div><strong>3</strong><span>Papers</span></div>
+    <div><strong>5</strong><span>Resource links</span></div>
+    <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#sft-methods">SFT Methods</a>
@@ -22,10 +22,21 @@ toc: false
 
 <section class="paper-section" id="sft-methods">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>SFT Methods</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>SFT Methods</span>
+  </div>
+  <h3>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</h3>
+  <p>This paper systematically studies difficulty-based data selection for supervised fine-tuning and shows that no single difficulty level is universally optimal. It explains the data-size-dependent optimum through a tradeoff between in-distribution generalization and extrapolation, with the best difficulty shifting toward harder examples as the data budget grows.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.12906" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="rethinking-generalization-in-reasoning-sft-a-conditional-analysis-on-optimization-data-and-model-capability">
   <div class="paper-meta">
     <span>2026.04</span>

@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">监督微调方法、数据配方、token 加权和推理泛化研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>论文</span></div>
-    <div><strong>4</strong><span>资源链接</span></div>
-    <div><strong>2026.04</strong><span>最新月份</span></div>
+    <div><strong>3</strong><span>论文</span></div>
+    <div><strong>5</strong><span>资源链接</span></div>
+    <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#sft-methods">监督微调方法</a>
@@ -22,10 +22,21 @@ toc: false
 
 <section class="paper-section" id="sft-methods">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>监督微调方法</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>监督微调方法</span>
+  </div>
+  <h3>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</h3>
+  <p>该论文系统研究监督微调中的基于难度的数据选择，指出不存在普适最优的数据难度。论文用分布内泛化与外推之间的权衡解释数据规模相关的最优难度，并发现随着数据预算增加，最优训练样本会逐渐转向更难样本。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.12906" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="rethinking-generalization-in-reasoning-sft-a-conditional-analysis-on-optimization-data-and-model-capability">
   <div class="paper-meta">
     <span>2026.04</span>

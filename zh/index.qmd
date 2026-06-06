@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>70</strong><span>论文</span></div>
+    <div><strong>71</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>163</strong><span>资源链接</span></div>
+    <div><strong>164</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -60,11 +60,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/sft.html">
-  <span class="category-count">2 篇论文</span>
+  <span class="category-count">3 篇论文</span>
   <h3>监督微调</h3>
   <p>监督微调方法、数据配方、token 加权和推理泛化研究。</p>
   <div class="category-foot">
-    <span>2026.04</span>
+    <span>2026.05</span>
     <span>监督微调方法</span>
   </div>
 </a>
@@ -137,6 +137,11 @@ toc: false
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
   <em>多模态大模型</em>
 </a>
+<a class="recent-row" href="../papers/zh/sft.html#data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
+  <span>2026.05</span>
+  <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
+  <em>监督微调</em>
+</a>
 <a class="recent-row" href="../papers/zh/training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
   <span>2026.05</span>
   <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="../papers/zh/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
   <span>2026.05</span>
   <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="../papers/zh/reinforcement-learning.html#spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
-  <span>2026.05</span>
-  <strong>Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning</strong>
   <em>强化学习</em>
 </a>
   </div>
