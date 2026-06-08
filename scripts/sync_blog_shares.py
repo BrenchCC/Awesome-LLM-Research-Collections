@@ -52,13 +52,11 @@ class LanguageConfig:
     browse_label: str
     section_label: str
     readme_heading: str
-    legacy_readme_headings: List[str]
     readme_description_label: str
     readme_empty_label: str
     readme_blog_label: str
     readme_github_label: str
     contents_lines: List[str]
-    legacy_contents_lines: List[str]
     card_type_label: str
 
 
@@ -76,16 +74,12 @@ LANGUAGE_CONFIGS = {
         browse_label = "Browse",
         section_label = "Latest Blogs",
         readme_heading = "# Blogs",
-        legacy_readme_headings = ["# Blog Shares"],
         readme_description_label = "Description",
         readme_empty_label = "No blogs yet.",
         readme_blog_label = "Blog",
         readme_github_label = "GitHub",
         contents_lines = [
             "- [Blogs](#blogs)",
-        ],
-        legacy_contents_lines = [
-            "- [Blog Shares](#blog-shares)",
         ],
         card_type_label = "Blog"
     ),
@@ -102,16 +96,12 @@ LANGUAGE_CONFIGS = {
         browse_label = "浏览",
         section_label = "最新博客",
         readme_heading = "# 博客",
-        legacy_readme_headings = ["# 博客分享"],
         readme_description_label = "描述",
         readme_empty_label = "暂无博客。",
         readme_blog_label = "博客",
         readme_github_label = "GitHub",
         contents_lines = [
             "- [博客](#博客)",
-        ],
-        legacy_contents_lines = [
-            "- [博客分享](#博客分享)",
         ],
         card_type_label = "博客"
     ),
@@ -124,12 +114,12 @@ def parse_args():
     No parameters.
     """
     parser = argparse.ArgumentParser(
-        description = "Generate and check bilingual blog-share README sections and Quarto indexes."
+        description = "Generate and check bilingual blogs README sections and Quarto indexes."
     )
     parser.add_argument(
         "--write",
         action = "store_true",
-        help = "Write generated blog-share files instead of only checking them."
+        help = "Write generated blogs files instead of only checking them."
     )
     return parser.parse_args()
 
@@ -329,7 +319,7 @@ def update_contents_section(content, config):
         raise ValueError(f"{config.readme_path} has no content after {contents_heading}")
 
     old_block = lines[start_index + 1:end_index]
-    remove_set = set(config.contents_lines + config.legacy_contents_lines)
+    remove_set = set(config.contents_lines)
     new_block = [line for line in old_block if line not in remove_set]
     while new_block and new_block[-1] == "":
         new_block.pop()
@@ -349,15 +339,9 @@ def replace_readme_section(content, blog_section, config):
         config: Language-specific rendering configuration.
     """
     lines = content.splitlines()
-    start_index = None
-    for heading in [config.readme_heading] + config.legacy_readme_headings:
-        try:
-            start_index = lines.index(heading)
-            break
-        except ValueError:
-            continue
-
-    if start_index is None:
+    try:
+        start_index = lines.index(config.readme_heading)
+    except ValueError:
         prefix = "\n".join(lines).rstrip()
         return prefix + "\n\n" + blog_section
 
@@ -564,14 +548,14 @@ def main():
     )
 
     if args.write:
-        logger.info("Wrote %d generated blog-share files", len(files))
+        logger.info("Wrote %d generated blogs files", len(files))
         return 0
 
     if out_of_sync:
-        logger.error("Blog-share files are out of sync: %s", ", ".join(out_of_sync))
+        logger.error("Blogs files are out of sync: %s", ", ".join(out_of_sync))
         return 1
 
-    logger.info("Blog-share files are in sync")
+    logger.info("Blogs files are in sync")
     return 0
 
 

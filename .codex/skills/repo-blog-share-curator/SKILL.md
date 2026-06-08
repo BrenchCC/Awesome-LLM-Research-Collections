@@ -48,7 +48,7 @@ Rules:
 python scripts/sync_blog_shares.py --write
 ```
 
-5. Validate generated blog-share content:
+5. Validate generated blog content:
 
 ```bash
 python scripts/sync_blog_shares.py
