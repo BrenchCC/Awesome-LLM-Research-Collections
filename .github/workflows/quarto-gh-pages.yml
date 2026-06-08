@@ -44,7 +44,7 @@ jobs:
       - name: Check README and QMD sync
         run: python scripts/check_readme_qmd_sync.py
 
-      - name: Check blog-share sync
+      - name: Check blogs sync
         run: python scripts/sync_blog_shares.py
 
       - name: Render site

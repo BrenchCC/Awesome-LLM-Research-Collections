@@ -1,9 +1,9 @@
 ---
 name: repo-blog-share-curator
-description: Maintain this repository's bilingual Blog Shares section by adding or updating entries in data/blog_shares.json, then generating README.md, README.zh-CN.md, blogs/en/index.qmd, and blogs/zh/index.qmd. Use when the user provides technical blog posts, essays, announcements, or research writeups to share alongside the Awesome LLM Research Collections site.
+description: Maintain this repository's bilingual Blogs section by adding or updating entries in data/blog_shares.json, then generating README.md, README.zh-CN.md, blogs/en/index.qmd, and blogs/zh/index.qmd. Use when the user provides technical blog posts, essays, announcements, or research writeups to share alongside the Awesome LLM Research Collections site.
 ---
 
-# Repo Blog Share Curator
+# Repo Blogs Curator
 
 Update together:
 `data/blog_shares.json`
@@ -68,6 +68,6 @@ quarto render
 
 ## Output Expectations
 
-- Keep Blog Shares separate from papers and notes.
-- Do not hand-edit generated Blog Shares sections after running the sync script.
+- Keep Blogs separate from papers and notes.
+- Do not hand-edit generated Blogs sections after running the sync script.
 - Mention missing dates, ambiguous canonical URLs, unavailable GitHub links, or failed render clearly.

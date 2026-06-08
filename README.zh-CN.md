@@ -42,7 +42,7 @@
 - [笔记](#笔记)
   - [论文解读](#论文解读)
   - [技术思考](#技术思考)
-- [博客分享](#博客分享)
+- [博客](#博客)
 
 # 注意力机制
 
@@ -509,7 +509,7 @@
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]
 
-# 博客分享
+# 博客
 
 - **When AI builds itself** (2026-06-04) \
   **描述**: Anthropic Institute 结合公开基准和 Anthropic 内部数据，讨论 AI 已在加速 AI 研发，并分析递归自我改进的可能路径、风险以及提前建设监督与协调机制的必要性。 \

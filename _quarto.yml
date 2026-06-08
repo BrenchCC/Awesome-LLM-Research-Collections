@@ -51,7 +51,7 @@ website:
       - href: notes/en/index.qmd
         text: Notes
       - href: blogs/en/index.qmd
-        text: Blog Shares
+        text: Blogs
     right:
       - href: index.qmd
         text: English

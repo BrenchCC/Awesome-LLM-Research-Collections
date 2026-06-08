@@ -52,11 +52,13 @@ class LanguageConfig:
     browse_label: str
     section_label: str
     readme_heading: str
+    legacy_readme_headings: List[str]
     readme_description_label: str
     readme_empty_label: str
     readme_blog_label: str
     readme_github_label: str
     contents_lines: List[str]
+    legacy_contents_lines: List[str]
     card_type_label: str
 
 
@@ -65,45 +67,53 @@ LANGUAGE_CONFIGS = {
         key = "en",
         readme_path = Path("README.md"),
         index_path = Path("blogs/en/index.qmd"),
-        site_title = "Blog Shares",
-        hero_eyebrow = "Curated blog shares",
+        site_title = "Blogs",
+        hero_eyebrow = "Curated blogs",
         hero_summary = "Selected technical blog posts and long-form essays worth tracking alongside the paper catalog.",
         latest_label = "Latest date",
-        entries_label = "Blog shares",
+        entries_label = "Blogs",
         source_label = "Sources",
         browse_label = "Browse",
-        section_label = "Latest Blog Shares",
-        readme_heading = "# Blog Shares",
+        section_label = "Latest Blogs",
+        readme_heading = "# Blogs",
+        legacy_readme_headings = ["# Blog Shares"],
         readme_description_label = "Description",
-        readme_empty_label = "No blog shares yet.",
+        readme_empty_label = "No blogs yet.",
         readme_blog_label = "Blog",
         readme_github_label = "GitHub",
         contents_lines = [
+            "- [Blogs](#blogs)",
+        ],
+        legacy_contents_lines = [
             "- [Blog Shares](#blog-shares)",
         ],
-        card_type_label = "Blog Share"
+        card_type_label = "Blog"
     ),
     "zh": LanguageConfig(
         key = "zh",
         readme_path = Path("README.zh-CN.md"),
         index_path = Path("blogs/zh/index.qmd"),
-        site_title = "博客分享",
-        hero_eyebrow = "博客分享",
+        site_title = "博客",
+        hero_eyebrow = "博客",
         hero_summary = "与论文目录并行整理的技术博客、长文和研究分享。",
         latest_label = "最新日期",
-        entries_label = "博客分享",
+        entries_label = "博客",
         source_label = "来源",
         browse_label = "浏览",
-        section_label = "最新博客分享",
-        readme_heading = "# 博客分享",
+        section_label = "最新博客",
+        readme_heading = "# 博客",
+        legacy_readme_headings = ["# 博客分享"],
         readme_description_label = "描述",
-        readme_empty_label = "暂无博客分享。",
+        readme_empty_label = "暂无博客。",
         readme_blog_label = "博客",
         readme_github_label = "GitHub",
         contents_lines = [
+            "- [博客](#博客)",
+        ],
+        legacy_contents_lines = [
             "- [博客分享](#博客分享)",
         ],
-        card_type_label = "博客分享"
+        card_type_label = "博客"
     ),
 }
 
@@ -319,7 +329,7 @@ def update_contents_section(content, config):
         raise ValueError(f"{config.readme_path} has no content after {contents_heading}")
 
     old_block = lines[start_index + 1:end_index]
-    remove_set = set(config.contents_lines)
+    remove_set = set(config.contents_lines + config.legacy_contents_lines)
     new_block = [line for line in old_block if line not in remove_set]
     while new_block and new_block[-1] == "":
         new_block.pop()
@@ -339,9 +349,15 @@ def replace_readme_section(content, blog_section, config):
         config: Language-specific rendering configuration.
     """
     lines = content.splitlines()
-    try:
-        start_index = lines.index(config.readme_heading)
-    except ValueError:
+    start_index = None
+    for heading in [config.readme_heading] + config.legacy_readme_headings:
+        try:
+            start_index = lines.index(heading)
+            break
+        except ValueError:
+            continue
+
+    if start_index is None:
         prefix = "\n".join(lines).rstrip()
         return prefix + "\n\n" + blog_section
 

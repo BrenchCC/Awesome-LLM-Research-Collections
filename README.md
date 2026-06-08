@@ -42,7 +42,7 @@
 - [Notes](#notes)
   - [Paper Readings](#paper-readings)
   - [Technical Reflections](#technical-reflections)
-- [Blog Shares](#blog-shares)
+- [Blogs](#blogs)
 
 # Attention
 
@@ -509,7 +509,7 @@ No notes yet.
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]
 
-# Blog Shares
+# Blogs
 
 - **When AI builds itself** (2026-06-04) \
   **Description**: Anthropic Institute uses public benchmarks and internal Anthropic data to argue that AI is already accelerating AI development, then discusses recursive self-improvement, future scenarios, and the need for stronger oversight and coordination. \
