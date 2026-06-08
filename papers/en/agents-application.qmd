@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>11</strong><span>Papers</span></div>
-    <div><strong>19</strong><span>Resource links</span></div>
+    <div><strong>12</strong><span>Papers</span></div>
+    <div><strong>21</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -123,7 +123,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
@@ -136,6 +136,18 @@ toc: false
   <p>This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.10808" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="controlled-self-evolution-for-algorithmic-code-optimization">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Controlled Self-Evolution for Algorithmic Code Optimization</h3>
+  <p>This paper proposes EvoControl, a controlled self-evolution framework for algorithmic code optimization that balances correctness with exploration across generate-verify-refine cycles. It uses staged self-evolution, genetic-style population search, and evolutionary memory to improve code quality on challenging algorithmic benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.07348" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/QuantaAlpha/EvoControl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

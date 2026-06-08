@@ -421,6 +421,11 @@
   **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **Controlled Self-Evolution for Algorithmic Code Optimization** (2026.01) \
+  **描述**: 该论文提出 EvoControl，一个面向算法代码优化的受控自进化框架，在 generate-verify-refine 循环中平衡正确性与探索。它结合分阶段自进化、类遗传种群搜索和进化记忆，在高难算法基准上提升代码质量。 \
+  <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 记忆
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **描述**: 该论文提出一个从 LLM 智能体执行轨迹中提取可行动经验，并在未来任务中作为上下文记忆检索的框架。它结合轨迹智能提取、决策归因、上下文学习生成和自适应记忆检索，尤其提升复杂 AppWorld 场景的任务完成率。 \

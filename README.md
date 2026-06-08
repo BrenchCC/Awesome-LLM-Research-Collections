@@ -421,6 +421,11 @@
   **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Controlled Self-Evolution for Algorithmic Code Optimization** (2026.01) \
+  **Description**: This paper proposes EvoControl, a controlled self-evolution framework for algorithmic code optimization that balances correctness with exploration across generate-verify-refine cycles. It uses staged self-evolution, genetic-style population search, and evolutionary memory to improve code quality on challenging algorithmic benchmarks. \
+  <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Memory
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **Description**: This paper presents a framework that extracts actionable learnings from LLM agent execution trajectories and retrieves them as contextual memory for future tasks. It combines trajectory intelligence extraction, decision attribution, contextual learning generation, and adaptive memory retrieval to improve AppWorld task completion, especially on complex scenarios. \
