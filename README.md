@@ -401,6 +401,12 @@
   <a href="https://worldbench.github.io/awesome-ai-auto-research"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/worldbench/awesome-ai-auto-research"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Crafter: A Multi-Agent Harness for Editable Scientific Figure Generation from Diverse Inputs** (2026.05) \
+  **Description**: This paper proposes Crafter, a multi-agent harness for generating publication-style scientific figures across multiple figure types and input conditions, and CraftEditor for converting raster outputs into editable SVGs. It also introduces CraftBench, a human-annotated benchmark for scientific figure generation, and shows gains over standalone generators and agentic baselines. \
+  <a href="https://arxiv.org/abs/2605.30611"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/HaozheZhao/Crafter"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/BleachNick/CraftBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
   **Description**: This paper introduces AIRA_2, an AI research agent architecture that addresses limited experiment throughput, noisy validation-based selection, and static single-turn operators. It combines asynchronous multi-GPU workers, Hidden Consistent Evaluation, and interactive ReAct agents to improve long-horizon research task performance. \
   <a href="https://arxiv.org/abs/2603.26499"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

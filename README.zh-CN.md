@@ -401,6 +401,12 @@
   <a href="https://worldbench.github.io/awesome-ai-auto-research"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/worldbench/awesome-ai-auto-research"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Crafter: A Multi-Agent Harness for Editable Scientific Figure Generation from Diverse Inputs** (2026.05) \
+  **描述**: 该论文提出 Crafter，一个面向多种图类型和输入条件的多智能体科学图生成 harness，并提出 CraftEditor 将栅格输出转换为可编辑 SVG。论文还构建带人工质量标注的 CraftBench 基准，并展示其相较独立生成器和 agentic baseline 的优势。 \
+  <a href="https://arxiv.org/abs/2605.30611"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/HaozheZhao/Crafter"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/BleachNick/CraftBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **AIRA_2: Overcoming Bottlenecks in AI Research Agents** (2026.03) \
   **描述**: 该论文提出 AIRA_2，一种 AI 研究智能体架构，用于解决实验吞吐有限、基于噪声验证的选择不稳定以及单轮静态算子等瓶颈。它结合异步多 GPU worker、Hidden Consistent Evaluation 和交互式 ReAct 智能体，提升长程研究任务表现。 \
   <a href="https://arxiv.org/abs/2603.26499"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
