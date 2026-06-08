@@ -238,6 +238,12 @@
   <a href="https://huggingface.co/collections/xiaomi-research/onevl-models"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 嵌入模型
+- **Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models** (2025.06) \
+  **描述**: 该论文提出 Qwen3 Embedding，一个基于 Qwen3 基础模型构建的文本嵌入与重排序模型系列，结合多阶段训练、模型合并和 LLM 合成的多语言数据。该系列覆盖 0.6B、4B 和 8B 规模，并在多语言嵌入、检索、重排序、代码检索和跨语言检索基准上取得领先表现。 \
+  <a href="https://arxiv.org/abs/2506.05176"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://qwenlm.github.io/blog/qwen3-embedding/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen3-Embedding"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/Qwen/qwen3-embedding"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 监督微调
 

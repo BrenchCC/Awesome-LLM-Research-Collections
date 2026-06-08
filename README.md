@@ -238,6 +238,12 @@
   <a href="https://huggingface.co/collections/xiaomi-research/onevl-models"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # Embeddings
+- **Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models** (2025.06) \
+  **Description**: This paper introduces Qwen3 Embedding, a family of text embedding and reranking models built on Qwen3 foundation models with a multi-stage training pipeline, model merging, and LLM-synthesized multilingual data. The series covers 0.6B, 4B, and 8B sizes and achieves state-of-the-art results across multilingual embedding, retrieval, reranking, code retrieval, and cross-lingual benchmarks. \
+  <a href="https://arxiv.org/abs/2506.05176"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://qwenlm.github.io/blog/qwen3-embedding/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen3-Embedding"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/Qwen/qwen3-embedding"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # SFT
 

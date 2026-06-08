@@ -11,16 +11,35 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">面向检索、语义匹配、表示学习和嵌入模型训练的研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>0</strong><span>论文</span></div>
-    <div><strong>0</strong><span>资源链接</span></div>
-    <div><strong>暂无论文</strong><span>最新月份</span></div>
+    <div><strong>1</strong><span>论文</span></div>
+    <div><strong>4</strong><span>资源链接</span></div>
+    <div><strong>2025.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <span class="empty-note">新论文会在整理后显示在这里。</span>
+    <a href="#featured">精选</a>
   </nav>
 </section>
 
-<section class="paper-section">
-  <p class="empty-state">该分类暂未收录论文。</p>
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>精选</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="qwen3-embedding-advancing-text-embedding-and-reranking-through-foundation-models">
+  <div class="paper-meta">
+    <span>2025.06</span>
+    <span>嵌入模型</span>
+  </div>
+  <h3>Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models</h3>
+  <p>该论文提出 Qwen3 Embedding，一个基于 Qwen3 基础模型构建的文本嵌入与重排序模型系列，结合多阶段训练、模型合并和 LLM 合成的多语言数据。该系列覆盖 0.6B、4B 和 8B 规模，并在多语言嵌入、检索、重排序、代码检索和跨语言检索基准上取得领先表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2506.05176" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://qwenlm.github.io/blog/qwen3-embedding/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3-Embedding" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3-embedding" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
 </section>
 ```
