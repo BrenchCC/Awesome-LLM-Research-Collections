@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This is a documentation-first bilingual repository containing curated collections of LLM research papers organized by topic. It is also a Quarto website deployed to GitHub Pages. The maintained catalog exists in `README.md`, `README.zh-CN.md`, and generated category pages under `papers/en/` and `papers/zh/`.
+This is a documentation-first bilingual repository containing curated collections of LLM research papers organized by topic, notes, and curated blog shares. It is also a Quarto website deployed to GitHub Pages. The maintained paper catalog exists in `README.md`, `README.zh-CN.md`, and generated category pages under `papers/en/` and `papers/zh/`.
 - Attention
 - LLMs (Foundation Models, Inference)
 - Multimodal LLMs (Vision-Language)
@@ -29,11 +29,15 @@ rg -n "^#|^##|^- \\*\\*" README.md
 python scripts/check_readme_qmd_sync.py --write
 python scripts/check_readme_qmd_sync.py
 
+# Regenerate and verify bilingual blog-share pages
+python scripts/sync_blog_shares.py --write
+python scripts/sync_blog_shares.py
+
 # Render the site locally
 quarto render
 
 # Review only intended content edits
-git diff -- README.md README.zh-CN.md index.qmd papers zh
+git diff -- README.md README.zh-CN.md index.qmd papers zh blogs data _quarto.yml scripts
 
 # Check recent commit style
 git log --oneline -n 10
@@ -52,12 +56,15 @@ The local config file is intentionally git-ignored because it may contain machin
 - `_quarto.yml`: Quarto website configuration and navigation
 - `index.qmd`, `papers/en/*.qmd`: English website pages generated from README
 - `zh/index.qmd`, `papers/zh/*.qmd`: Chinese website pages generated from README.zh-CN
+- `data/blog_shares.json`: Source data for curated blog shares
+- `blogs/en/index.qmd`, `blogs/zh/index.qmd`: Generated bilingual blog-share index pages
 - `assets/icons/`: Local SVG icons for paper/project/code/model links
 - `scripts/check_readme_qmd_sync.py`: Bilingual QMD regeneration and sync checker
+- `scripts/sync_blog_shares.py`: Blog-share README section and Quarto page generator/checker
 - `.github/workflows/quarto-gh-pages.yml`: GitHub Pages artifact deployment workflow
 - `LICENSE`: Project license
 - `AGENTS.md`: Repository guidelines and contributor instructions
-- `.codex/`, `.omc/`, `.omx/`: Local tooling metadata; do not edit unless change is tooling-related
+- `.codex/`, `.claude/`, `.omc/`, `.omx/`: Local tooling metadata; do not edit unless change is tooling-related
 
 ## Adding Papers
 
@@ -94,6 +101,33 @@ quarto render
 
 Do not commit `_site/` or `.quarto/`.
 
+## Adding Blog Shares
+
+When adding technical blog posts or essays, edit `data/blog_shares.json` instead of hand-editing generated README sections or `blogs/` pages. Use these exact fields:
+
+```json
+{
+  "slug": "stable-lowercase-slug",
+  "date": "YYYY-MM-DD",
+  "title_en": "Official or English title",
+  "title_zh": "Localized Chinese title, or official title when better left untranslated",
+  "description_en": "One concise English summary.",
+  "description_zh": "一句简洁中文简介。",
+  "blog_url": "https://example.com/post",
+  "github_url": ""
+}
+```
+
+`blog_url` is required. `github_url` is optional; leave it empty when the blog has no official linked GitHub repository. Generated output sorts by date descending.
+
+After editing blog data, run:
+
+```bash
+python scripts/sync_blog_shares.py --write
+python scripts/sync_blog_shares.py
+quarto render
+```
+
 ## Commit Style
 
 Follow Conventional Commits:
@@ -107,8 +141,11 @@ No automated tests. Verify manually:
 - Paper is placed in the best-matching category/subcategory in both languages
 - `# Contents` and `# 目录` match actual headings after edits
 - QMD pages match README via `python scripts/check_readme_qmd_sync.py`
+- Blog-share README sections and pages match `data/blog_shares.json` via `python scripts/sync_blog_shares.py`
 - Quarto renders successfully via `quarto render`
 
 ## This is a README Curator Repository
 
 This repository uses the `repo-readme-paper-curator` skill for managing paper entries. When adding papers, use that skill for consistent bilingual README placement and Quarto page synchronization.
+
+This repository uses the `repo-blog-share-curator` skill for managing curated blog shares. When adding blog posts, use that skill for consistent bilingual blog data, README sections, and Quarto page synchronization.

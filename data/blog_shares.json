@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "when-ai-builds-itself",
+    "date": "2026-06-04",
+    "title_en": "When AI builds itself",
+    "title_zh": "When AI builds itself",
+    "description_en": "Anthropic Institute uses public benchmarks and internal Anthropic data to argue that AI is already accelerating AI development, then discusses recursive self-improvement, future scenarios, and the need for stronger oversight and coordination.",
+    "description_zh": "Anthropic Institute 结合公开基准和 Anthropic 内部数据，讨论 AI 已在加速 AI 研发，并分析递归自我改进的可能路径、风险以及提前建设监督与协调机制的必要性。",
+    "blog_url": "https://www.anthropic.com/institute/recursive-self-improvement",
+    "github_url": ""
+  }
+]

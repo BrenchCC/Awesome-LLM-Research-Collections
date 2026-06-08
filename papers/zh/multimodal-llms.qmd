@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>论文</span></div>
-    <div><strong>36</strong><span>资源链接</span></div>
+    <div><strong>14</strong><span>论文</span></div>
+    <div><strong>40</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">11 篇论文</p>
+    <p class="eyebrow">12 篇论文</p>
     <h2>视觉语言</h2>
   </div>
   <div class="paper-grid">
@@ -129,6 +129,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2412.05271" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://huggingface.co/spaces/OpenGVLab/InternVL" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="qwen2-vl-enhancing-vision-language-model-s-perception-of-the-world-at-any-resolution">
+  <div class="paper-meta">
+    <span>2024.09</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Qwen2-VL: Enhancing Vision-Language Model&#x27;s Perception of the World at Any Resolution</h3>
+  <p>该论文提出 Qwen2-VL，一个视觉语言模型系列，通过 Naive Dynamic Resolution 处理任意分辨率图像，并用 M-RoPE 融合文本、图像和视频的位置表示。论文将模型扩展到 2B、8B 和 72B 参数并扩大多模态数据，在图像、视频、多语言 OCR、文档理解和视觉智能体交互任务上取得有竞争力的表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2409.12191" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://qwenlm.github.io/blog/qwen2-vl/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen2-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen2-vl" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="llava-next-interleave-tackling-multi-image-video-and-3d-in-large-multimodal-models">

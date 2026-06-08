@@ -42,6 +42,7 @@
 - [Notes](#notes)
   - [Paper Readings](#paper-readings)
   - [Technical Reflections](#technical-reflections)
+- [Blog Shares](#blog-shares)
 
 # Attention
 
@@ -59,6 +60,13 @@
 # LLMs
 
 ## Foundation Models
+- **The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence** (2026.05) \
+  **Description**: This technical report presents the MiniMax-M2 series, MoE language models with a small active-parameter footprint designed for real-world agentic deployment. It combines agent-driven verifiable data pipelines, the Forge agent-native RL system, and early self-evolution in M2.7 to improve coding, deep-search, office-task, and reasoning performance. \
+  <a href="https://arxiv.org/abs/2605.26494"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.minimax.io/blog/minimax-m27"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/MiniMax-AI/MiniMax-M2.7"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.7"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook** (2026.04) \
   **Description**: This survey argues that continuous latent space is becoming a native computational substrate for language-based models, addressing the inefficiencies of explicit token-level generation such as redundancy, discretization bottlenecks, and semantic loss. It further organizes the field through mechanism and ability perspectives, and outlines key open challenges for future research. \
   <a href="https://arxiv.org/abs/2604.02029"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -206,6 +214,13 @@
   **Description**: This paper introduces InternVL 2.5, an advanced multimodal LLM series that was the first open-source MLLMs to surpass 70% on the MMMU benchmark, achieving a 3.7-point improvement through Chain-of-Thought reasoning. \
   <a href="https://arxiv.org/abs/2412.05271"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://huggingface.co/spaces/OpenGVLab/InternVL"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution** (2024.09) \
+  **Description**: This paper introduces Qwen2-VL, a vision-language model series that uses Naive Dynamic Resolution to process images at arbitrary resolutions and M-RoPE to fuse text, image, and video positional information. Scaling the model to 2B, 8B, and 72B parameters with larger multimodal data yields competitive image, video, multilingual OCR, document understanding, and agentic visual interaction performance. \
+  <a href="https://arxiv.org/abs/2409.12191"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://qwenlm.github.io/blog/qwen2-vl/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen2-VL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/Qwen/qwen2-vl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models** (2024.07) \
   **Description**: This paper introduces LLaVA-NeXT-Interleave, which simultaneously tackles Multi-image, Multi-frame (video), Multi-view (3D), and Multi-patch scenarios in large multimodal models, extending visual instruction tuning to multi-modal scenarios. \
@@ -493,3 +508,9 @@ No notes yet.
   **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]
+
+# Blog Shares
+
+- **When AI builds itself** (2026-06-04) \
+  **Description**: Anthropic Institute uses public benchmarks and internal Anthropic data to argue that AI is already accelerating AI development, then discusses recursive self-improvement, future scenarios, and the need for stronger oversight and coordination. \
+  [[Blog](https://www.anthropic.com/institute/recursive-self-improvement)]

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>Papers</span></div>
-    <div><strong>48</strong><span>Resource links</span></div>
+    <div><strong>17</strong><span>Papers</span></div>
+    <div><strong>52</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -24,10 +24,24 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">13 papers</p>
+    <p class="eyebrow">14 papers</p>
     <h2>Foundation Models</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Foundation Models</span>
+  </div>
+  <h3>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</h3>
+  <p>This technical report presents the MiniMax-M2 series, MoE language models with a small active-parameter footprint designed for real-world agentic deployment. It combines agent-driven verifiable data pipelines, the Forge agent-native RL system, and early self-evolution in M2.7 to improve coding, deep-search, office-task, and reasoning performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.26494" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.minimax.io/blog/minimax-m27" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MiniMax-AI/MiniMax-M2.7" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/MiniMaxAI/MiniMax-M2.7" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="the-latent-space-foundation-evolution-mechanism-ability-and-outlook">
   <div class="paper-meta">
     <span>2026.04</span>

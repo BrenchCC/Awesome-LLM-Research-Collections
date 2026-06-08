@@ -9,6 +9,8 @@ project:
     - notes/en/*/*.qmd
     - notes/zh/*.qmd
     - notes/zh/*/*.qmd
+    - blogs/en/*.qmd
+    - blogs/zh/*.qmd
     - zh/index.qmd
 
 website:
@@ -48,6 +50,8 @@ website:
             text: Auto-Prompt
       - href: notes/en/index.qmd
         text: Notes
+      - href: blogs/en/index.qmd
+        text: Blog Shares
     right:
       - href: index.qmd
         text: English
@@ -61,6 +65,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    include-after-body: assets/language-switch.html
     toc: true
     smooth-scroll: true
     link-external-icon: true

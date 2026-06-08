@@ -8,11 +8,14 @@ on:
       - "README.zh-CN.md"
       - "index.qmd"
       - "papers/**/*.qmd"
+      - "blogs/**/*.qmd"
       - "zh/**/*.qmd"
       - "_quarto.yml"
       - "styles.css"
       - "assets/**"
+      - "data/blog_shares.json"
       - "scripts/check_readme_qmd_sync.py"
+      - "scripts/sync_blog_shares.py"
       - ".github/workflows/quarto-gh-pages.yml"
   workflow_dispatch:
 
@@ -40,6 +43,9 @@ jobs:
 
       - name: Check README and QMD sync
         run: python scripts/check_readme_qmd_sync.py
+
+      - name: Check blog-share sync
+        run: python scripts/sync_blog_shares.py
 
       - name: Render site
         run: quarto render --no-execute

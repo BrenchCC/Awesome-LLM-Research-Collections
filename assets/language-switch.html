@@ -1,0 +1,79 @@
+<script>
+(() => {
+  const brandLink = document.querySelector(".navbar-brand");
+  const rootUrl = new URL(brandLink ? brandLink.getAttribute("href") : "index.html", window.location.href);
+  const rootPath = rootUrl.pathname.replace(/index\.html$/, "");
+
+  function currentRelativePath() {
+    let path = window.location.pathname;
+    if (path.startsWith(rootPath)) {
+      path = path.slice(rootPath.length);
+    }
+    path = path.replace(/^\/+/, "");
+    return path || "index.html";
+  }
+
+  function targetPath(relativePath, targetLanguage) {
+    if (targetLanguage === "zh") {
+      if (relativePath === "index.html" || relativePath === "") {
+        return "zh/index.html";
+      }
+      if (relativePath === "zh/index.html") {
+        return relativePath;
+      }
+      if (relativePath.startsWith("papers/en/")) {
+        return relativePath.replace("papers/en/", "papers/zh/");
+      }
+      if (relativePath.startsWith("notes/en/")) {
+        return relativePath.replace("notes/en/", "notes/zh/");
+      }
+      if (relativePath.startsWith("blogs/en/")) {
+        return relativePath.replace("blogs/en/", "blogs/zh/");
+      }
+      if (
+        relativePath.startsWith("papers/zh/")
+        || relativePath.startsWith("notes/zh/")
+        || relativePath.startsWith("blogs/zh/")
+      ) {
+        return relativePath;
+      }
+      return "zh/index.html";
+    }
+
+    if (relativePath === "zh/index.html") {
+      return "index.html";
+    }
+    if (relativePath.startsWith("papers/zh/")) {
+      return relativePath.replace("papers/zh/", "papers/en/");
+    }
+    if (relativePath.startsWith("notes/zh/")) {
+      return relativePath.replace("notes/zh/", "notes/en/");
+    }
+    if (relativePath.startsWith("blogs/zh/")) {
+      return relativePath.replace("blogs/zh/", "blogs/en/");
+    }
+    if (
+      relativePath.startsWith("papers/en/")
+      || relativePath.startsWith("notes/en/")
+      || relativePath.startsWith("blogs/en/")
+    ) {
+      return relativePath;
+    }
+    return "index.html";
+  }
+
+  function updateLanguageLink(label, targetLanguage) {
+    const links = Array.from(document.querySelectorAll(".navbar-nav .nav-link"));
+    const link = links.find((candidate) => candidate.textContent.trim() === label);
+    if (!link) {
+      return;
+    }
+
+    const target = targetPath(currentRelativePath(), targetLanguage);
+    link.setAttribute("href", new URL(target, rootUrl).href);
+  }
+
+  updateLanguageLink("English", "en");
+  updateLanguageLink("中文", "zh");
+})();
+</script>

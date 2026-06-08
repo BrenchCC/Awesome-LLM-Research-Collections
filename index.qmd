@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>74</strong><span>Papers</span></div>
+    <div><strong>76</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>173</strong><span>Resource links</span></div>
+    <div><strong>181</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/llms.html">
-  <span class="category-count">16 papers</span>
+  <span class="category-count">17 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/multimodal-llms.html">
-  <span class="category-count">13 papers</span>
+  <span class="category-count">14 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="papers/en/llms.html#the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
+  <span>2026.05</span>
+  <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="papers/en/llms.html#base-models-look-human-to-ai-detectors">
   <span>2026.05</span>
   <strong>Base Models Look Human To AI Detectors</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="papers/en/reinforcement-learning.html#draft-opd-adapting-speculative-draft-models-from-llms-via-on-policy-distillation">
   <span>2026.05</span>
   <strong>Draft-OPD: Adapting Speculative Draft Models from LLMs via On-Policy Distillation</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="papers/en/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
-  <span>2026.05</span>
-  <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

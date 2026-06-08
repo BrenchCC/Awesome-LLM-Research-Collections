@@ -42,6 +42,7 @@
 - [笔记](#笔记)
   - [论文解读](#论文解读)
   - [技术思考](#技术思考)
+- [博客分享](#博客分享)
 
 # 注意力机制
 
@@ -59,6 +60,13 @@
 # 大语言模型
 
 ## 基础模型
+- **The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence** (2026.05) \
+  **描述**: 该技术报告介绍 MiniMax-M2 系列，一组以较小激活参数规模面向真实智能体部署的 MoE 语言模型。它结合智能体驱动的可验证数据管线、Forge 智能体原生 RL 系统，以及 M2.7 中的早期自演进机制，提升代码、深度搜索、办公任务和推理表现。 \
+  <a href="https://arxiv.org/abs/2605.26494"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.minimax.io/blog/minimax-m27"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/MiniMax-AI/MiniMax-M2.7"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.7"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook** (2026.04) \
   **描述**: 这篇综述认为连续潜在空间正在成为语言模型的原生计算基底，可缓解显式 token 生成中的冗余、离散化瓶颈和语义损失。论文从机制和能力两个视角梳理该领域，并总结未来关键挑战。 \
   <a href="https://arxiv.org/abs/2604.02029"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -206,6 +214,13 @@
   **描述**: 该论文介绍 InternVL 2.5，一个先进的多模态 LLM 系列，也是首个在 MMMU 基准上超过 70% 的开源 MLLM。它通过 Chain-of-Thought 推理带来 3.7 个百分点提升。 \
   <a href="https://arxiv.org/abs/2412.05271"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://huggingface.co/spaces/OpenGVLab/InternVL"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution** (2024.09) \
+  **描述**: 该论文提出 Qwen2-VL，一个视觉语言模型系列，通过 Naive Dynamic Resolution 处理任意分辨率图像，并用 M-RoPE 融合文本、图像和视频的位置表示。论文将模型扩展到 2B、8B 和 72B 参数并扩大多模态数据，在图像、视频、多语言 OCR、文档理解和视觉智能体交互任务上取得有竞争力的表现。 \
+  <a href="https://arxiv.org/abs/2409.12191"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://qwenlm.github.io/blog/qwen2-vl/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen2-VL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/Qwen/qwen2-vl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models** (2024.07) \
   **描述**: 该论文提出 LLaVA-NeXT-Interleave，同时处理多图像、多帧视频、多视角 3D 和多 patch 场景。它将视觉指令微调扩展到更复杂的多模态输入设置。 \
@@ -493,3 +508,9 @@
   **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]
+
+# 博客分享
+
+- **When AI builds itself** (2026-06-04) \
+  **描述**: Anthropic Institute 结合公开基准和 Anthropic 内部数据，讨论 AI 已在加速 AI 研发，并分析递归自我改进的可能路径、风险以及提前建设监督与协调机制的必要性。 \
+  [[博客](https://www.anthropic.com/institute/recursive-self-improvement)]

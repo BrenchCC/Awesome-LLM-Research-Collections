@@ -1,0 +1,37 @@
+---
+title: "博客分享"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <p class="eyebrow">博客分享</p>
+  <p class="category-summary">与论文目录并行整理的技术博客、长文和研究分享。</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>1</strong><span>博客分享</span></div>
+    <div><strong>1</strong><span>来源</span></div>
+    <div><strong>2026-06-04</strong><span>最新日期</span></div>
+  </div>
+</section>
+
+<section class="paper-section">
+  <div class="section-heading compact">
+    <p class="eyebrow">浏览</p>
+    <h2>最新博客分享</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="when-ai-builds-itself">
+  <div class="paper-meta">
+    <span>2026-06-04</span>
+    <span>博客分享</span>
+  </div>
+  <h3>When AI builds itself</h3>
+  <p>Anthropic Institute 结合公开基准和 Anthropic 内部数据，讨论 AI 已在加速 AI 研发，并分析递归自我改进的可能路径、风险以及提前建设监督与协调机制的必要性。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />博客</a>
+  </div>
+</article>
+  </div>
+</section>
+```

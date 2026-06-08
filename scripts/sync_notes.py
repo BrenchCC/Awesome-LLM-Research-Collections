@@ -47,8 +47,6 @@ class LanguageConfig:
     site_title: str
     hero_eyebrow: str
     hero_summary: str
-    language_href: str
-    language_label: str
     notes_label: str
     topics_label: str
     latest_label: str
@@ -72,8 +70,6 @@ LANGUAGE_CONFIGS = {
         site_title = "Notes",
         hero_eyebrow = "Research notes",
         hero_summary = "Bilingual notes for paper readings and technical reflections around LLM research and engineering.",
-        language_href = "../zh/index.html",
-        language_label = "中文",
         notes_label = "Notes",
         topics_label = "Topics",
         latest_label = "Latest date",
@@ -102,8 +98,6 @@ LANGUAGE_CONFIGS = {
         site_title = "笔记",
         hero_eyebrow = "研究笔记",
         hero_summary = "围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。",
-        language_href = "../en/index.html",
-        language_label = "English",
         notes_label = "笔记",
         topics_label = "主题",
         latest_label = "最新日期",
@@ -289,19 +283,6 @@ def note_href(note):
     return note.relative_path.with_suffix(".html").as_posix()
 
 
-def render_language_switch(config):
-    """Render a language switch for a notes index page.
-
-    Parameters:
-        config: Language-specific notes configuration.
-    """
-    return (
-        '<div class="language-switch">'
-        f'<a href="{html.escape(config.language_href, quote = True)}">{html.escape(config.language_label)}</a>'
-        '</div>'
-    )
-
-
 def render_note_card(note, config):
     """Render one note card for a notes index page.
 
@@ -379,7 +360,6 @@ toc: false
 
 ```{{=html}}
 <section class="category-hero">
-  {render_language_switch(config)}
   <p class="eyebrow">{html.escape(config.hero_eyebrow)}</p>
   <p class="category-summary">{html.escape(config.hero_summary)}</p>
   <div class="stat-strip compact-strip">

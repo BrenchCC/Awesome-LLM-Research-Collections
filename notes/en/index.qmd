@@ -6,7 +6,6 @@ toc: false
 
 ```{=html}
 <section class="category-hero">
-  <div class="language-switch"><a href="../zh/index.html">中文</a></div>
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">

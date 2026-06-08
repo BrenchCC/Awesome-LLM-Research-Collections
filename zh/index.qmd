@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>74</strong><span>论文</span></div>
+    <div><strong>76</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>173</strong><span>资源链接</span></div>
+    <div><strong>181</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/llms.html">
-  <span class="category-count">16 篇论文</span>
+  <span class="category-count">17 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/multimodal-llms.html">
-  <span class="category-count">13 篇论文</span>
+  <span class="category-count">14 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
   <em>注意力机制</em>
 </a>
+<a class="recent-row" href="../papers/zh/llms.html#the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
+  <span>2026.05</span>
+  <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="../papers/zh/llms.html#base-models-look-human-to-ai-detectors">
   <span>2026.05</span>
   <strong>Base Models Look Human To AI Detectors</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="../papers/zh/reinforcement-learning.html#draft-opd-adapting-speculative-draft-models-from-llms-via-on-policy-distillation">
   <span>2026.05</span>
   <strong>Draft-OPD: Adapting Speculative Draft Models from LLMs via On-Policy Distillation</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="../papers/zh/reinforcement-learning.html#kvpo-ode-native-grpo-for-autoregressive-video-alignment-via-kv-semantic-exploration">
-  <span>2026.05</span>
-  <strong>KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration</strong>
   <em>强化学习</em>
 </a>
   </div>
