@@ -306,6 +306,10 @@
   <a href="https://github.com/bingyang-lei/Draft-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/bingyang-lei/draft-opd"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **OmniOPD: Logit-Free On-Policy Distillation via Speculative Verification** (2026.05) \
+  **Description**: This paper introduces OmniOPD, a logit-free on-policy distillation framework that replaces brittle token-level logit matching with Monte Carlo chunk rollouts scored by semantic similarity, enabling black-box teachers. A peak-entropy scheduler focuses verification on uncertain reasoning forks, while Bayesian smoothing and a base-model KL anchor stabilize training; it outperforms standard OPD by up to 28.64% on math. \
+  <a href="https://arxiv.org/abs/2606.01476"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Self-Distilled RLVR** (2026.04) \
   **Description**: This paper studies on-policy self-distillation for RLVR and shows that relying only on a privileged self-teacher can cause information leakage and unstable long-term training. It proposes RLSD, which uses self-distillation to estimate token-level update magnitudes while keeping RLVR's environment feedback as the reliable update direction. \
   <a href="https://arxiv.org/abs/2604.03128"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>20</strong><span>论文</span></div>
-    <div><strong>42</strong><span>资源链接</span></div>
+    <div><strong>21</strong><span>论文</span></div>
+    <div><strong>43</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -27,7 +27,7 @@ toc: false
 
 <section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>OPD</h2>
   </div>
   <div class="paper-grid">
@@ -55,6 +55,17 @@ toc: false
 <a class="resource-link" href="https://www.haodilei.top/draft-opd/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/bingyang-lei/Draft-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/collections/bingyang-lei/draft-opd" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="omniopd-logit-free-on-policy-distillation-via-speculative-verification">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>OPD</span>
+  </div>
+  <h3>OmniOPD: Logit-Free On-Policy Distillation via Speculative Verification</h3>
+  <p>该论文提出 OmniOPD，一种无 logits 的在策略蒸馏框架，以基于语义相似度评分的 Monte Carlo 分块 rollout 替代脆弱的 token 级 logit matching，从而支持黑盒教师。其 peak-entropy 调度器聚焦高不确定性推理分叉，并结合贝叶斯平滑与基础模型 KL 锚点稳定训练，在数学任务上相较标准 OPD 最高提升 28.64%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.01476" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="self-distilled-rlvr">
