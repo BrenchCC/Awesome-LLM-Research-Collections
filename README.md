@@ -356,6 +356,11 @@
   <a href="https://github.com/xytian1008/MUPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/xytian1008/MUPO-Thinker-7B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **VL-Calibration: Decoupled Confidence Calibration for Large Vision-Language Models Reasoning** (2026.04) \
+  **Description**: This paper introduces VL-Calibration, a reinforcement learning framework that separates visual and reasoning confidence in large vision-language models to address confidently incorrect predictions. It estimates visual certainty from image-perturbation grounding and token entropy, then applies token-level advantage reweighting to improve calibration and visual reasoning accuracy. \
+  <a href="https://arxiv.org/abs/2604.09529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/Mr-Loevan/VL-Calibration"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **The Art of Efficient Reasoning: Data, Reward, and Optimization** (2026.03) \
   **Description**: This paper studies efficient reasoning in LLMs, using RL to incentivize short accurate trajectories, with findings on training stages, rewards, and generalization across models from 0.6B to 30B parameters. \
   <a href="https://arxiv.org/abs/2602.20945"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
