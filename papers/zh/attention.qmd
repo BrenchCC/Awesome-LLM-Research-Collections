@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>论文</span></div>
-    <div><strong>4</strong><span>资源链接</span></div>
-    <div><strong>2026.05</strong><span>最新月份</span></div>
+    <div><strong>3</strong><span>论文</span></div>
+    <div><strong>7</strong><span>资源链接</span></div>
+    <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#attention-architecture">注意力架构</a>
@@ -22,10 +22,23 @@ toc: false
 
 <section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>注意力架构</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>注意力架构</span>
+  </div>
+  <h3>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</h3>
+  <p>该论文提出 Lookahead Sparse Attention，使用独立训练的神经记忆索引器预测未来上下文需求，仅在 GPU 上保留查询关键的 KV 分块。FlashMemory 将物理 KV 缓存占用平均压缩至完整上下文注意力的 13.5%，同时保持或略微提升长上下文准确率。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.09079" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/libertywing/FlashMemory-Deepseek-V4" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/libertywing/FlashMemory-Deepseek-V4" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
   <div class="paper-meta">
     <span>2026.05</span>

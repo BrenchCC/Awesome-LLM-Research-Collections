@@ -47,6 +47,12 @@
 # 注意力机制
 
 ## 注意力架构
+- **FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention** (2026.06) \
+  **描述**: 该论文提出 Lookahead Sparse Attention，使用独立训练的神经记忆索引器预测未来上下文需求，仅在 GPU 上保留查询关键的 KV 分块。FlashMemory 将物理 KV 缓存占用平均压缩至完整上下文注意力的 13.5%，同时保持或略微提升长上下文准确率。 \
+  <a href="https://arxiv.org/abs/2606.09079"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding** (2026.05) \
   **描述**: 该论文提出 Group-Query Latent Attention，对 MLA 做最小修改，使同一组训练权重同时暴露 MQA-absorb 和 GQA 两条解码路径。运行时可根据目标硬件选择路径，无需重新训练或自定义 kernel，从而兼顾 H100 式压缩解码、面向 H20 的 GQA 加 MTP，以及最高 8 路零冗余张量并行。 \
   <a href="https://arxiv.org/abs/2605.15250"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -91,6 +97,11 @@
   <a href="https://arxiv.org/abs/2601.02780"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/xiaomimimo/MiMo-V2-Flash"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **Conditional Memory via Scalable Lookup: A New Axis of Sparsity for Large Language Models** (2026.01) \
+  **描述**: 该论文提出与 MoE 条件计算互补的条件记忆稀疏轴，并以 Engram 实现静态知识的常数时间查找。论文通过缩放定律指导神经计算与记忆容量分配，使 Engram 在参数量和 FLOPs 对齐时提升知识、推理、代码、数学及长上下文检索表现。 \
+  <a href="https://arxiv.org/abs/2601.07372"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/deepseek-ai/Engram"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models** (2025.12) \
   **描述**: DeepSeek-V3.2 是一个开放大语言模型，将高效长上下文计算与强推理、智能体能力结合起来。其关键技术包括 DeepSeek Sparse Attention、可扩展 RL 后训练，以及用于提升工具调用泛化和指令跟随鲁棒性的大规模智能体任务合成管线。 \
