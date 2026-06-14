@@ -311,6 +311,11 @@
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/Tencent-Hunyuan/UniRL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Constraint-Infused Policy Optimization: Principles and Practices for Harnessing Advanced LLM Reasoning** (2026.05) \
+  **Description**: This paper formulates LLM reinforcement learning as constrained policy optimization, unifying existing algorithms through different constraint choices and exposing the roles of clipping, KL regularization, and trust regions. It derives Constraint-Infused Policy Optimization (CIPO), which improves reasoning performance and training stability across diverse tasks and model families. \
+  <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
   **Description**: This paper analyzes why on-policy self-distillation can hurt math reasoning, showing through pointwise mutual information that privileged context overemphasizes solution-implied tokens while suppressing deliberation tokens needed for search. It proposes AntiSD, which ascends rather than descends the self-distillation divergence with an entropy gate, reaching GRPO-level accuracy in 2 to 10x fewer steps and improving final accuracy by up to 11.5 points. \

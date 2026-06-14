@@ -311,6 +311,11 @@
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/Tencent-Hunyuan/UniRL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Constraint-Infused Policy Optimization: Principles and Practices for Harnessing Advanced LLM Reasoning** (2026.05) \
+  **描述**: 该论文将大语言模型强化学习表述为约束策略优化，通过不同约束选择统一现有算法，并揭示裁剪、KL 正则化与信赖域的作用。论文据此推导 Constraint-Infused Policy Optimization (CIPO)，在多种任务和模型族上提升推理性能与训练稳定性。 \
+  <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
   **描述**: 该论文分析 on-policy self-distillation 在数学推理中效果不稳定的原因，指出基于特权上下文的教师信号会通过点式互信息过度强化答案已暗示的 token，同时压低驱动多步搜索的思考 token。论文提出 AntiSD，用带熵门控的反向自蒸馏散度替代默认下降方向，在 2 到 10 倍更少训练步数内达到 GRPO 水平，并将最终准确率最高提升 11.5 个百分点。 \
