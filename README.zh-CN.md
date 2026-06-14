@@ -22,6 +22,7 @@
   - [优化](#优化)
   - [蒸馏](#蒸馏)
 - [强化学习](#强化学习)
+  - [策略优化](#策略优化)
   - [OPD](#opd)
   - [奖励建模](#奖励建模)
   - [视频生成强化学习](#视频生成强化学习)
@@ -303,6 +304,12 @@
   <a href="https://huggingface.co/MiniLLM"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 强化学习
+
+## 策略优化
+- **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
+  **描述**: 该论文提出 Divergence Regularized Policy Optimization (DRPO)，以平滑的优势加权二次正则项替代 DPPO 的硬散度掩码，同时保留其信赖域几何结构。DRPO 通过有界连续梯度权重和越界后的纠正信号，提高 LLM 强化学习训练的稳定性与效率。 \
+  <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/Tencent-Hunyuan/UniRL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \

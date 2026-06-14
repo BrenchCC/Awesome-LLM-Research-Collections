@@ -53,6 +53,8 @@ CATEGORY_SLUGS = {
     "优化": "optimization",
     "Distillation": "distillation",
     "蒸馏": "distillation",
+    "Policy Optimization": "policy-optimization",
+    "策略优化": "policy-optimization",
     "Reward Modeling": "reward-modeling",
     "奖励建模": "reward-modeling",
     "Video Generation RL": "video-generation-rl",

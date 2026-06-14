@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>80</strong><span>Papers</span></div>
+    <div><strong>81</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>189</strong><span>Resource links</span></div>
+    <div><strong>191</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,12 +78,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/reinforcement-learning.html">
-  <span class="category-count">22 papers</span>
+  <span class="category-count">23 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
-    <span>2026.05</span>
-    <span>Agentic RL, OPD, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
+    <span>2026.06</span>
+    <span>Agentic RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
   </div>
 </a>
 <a class="category-card" href="papers/en/agents-application.html">
@@ -127,6 +127,11 @@ toc: false
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="papers/en/reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
+  <span>2026.06</span>
+  <strong>Rethinking the Divergence Regularization in LLM RL</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="papers/en/attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
   <span>2026.05</span>
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
   <em>Training</em>
-</a>
-<a class="recent-row" href="papers/en/reinforcement-learning.html#anti-self-distillation-for-reasoning-rl-via-pointwise-mutual-information">
-  <span>2026.05</span>
-  <strong>Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information</strong>
-  <em>Reinforcement Learning</em>
 </a>
   </div>
 </section>

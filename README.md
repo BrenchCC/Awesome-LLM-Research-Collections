@@ -22,6 +22,7 @@
   - [Optimization](#optimization)
   - [Distillation](#distillation)
 - [Reinforcement Learning](#reinforcement-learning)
+  - [Policy Optimization](#policy-optimization)
   - [OPD](#opd)
   - [Reward Modeling](#reward-modeling)
   - [Video Generation RL](#video-generation-rl)
@@ -303,6 +304,12 @@
   <a href="https://huggingface.co/MiniLLM"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # Reinforcement Learning
+
+## Policy Optimization
+- **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
+  **Description**: This paper proposes Divergence Regularized Policy Optimization (DRPO), replacing DPPO's hard divergence mask with a smooth advantage-weighted quadratic regularizer that preserves its trust-region geometry. DRPO provides bounded continuous gradient weights and corrective signals beyond the trust-region boundary, improving LLM RL training stability and efficiency. \
+  <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/Tencent-Hunyuan/UniRL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
