@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>Notes</span></div>
-    <div><strong>1</strong><span>Topics</span></div>
-    <div><strong>2026-05-28</strong><span>Latest date</span></div>
+    <div><strong>2</strong><span>Notes</span></div>
+    <div><strong>2</strong><span>Topics</span></div>
+    <div><strong>2026-06-15</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -24,7 +24,17 @@ toc: false
     <p class="eyebrow">Browse</p>
     <h2>Paper Readings</h2>
   </div>
-  <p class="empty-state">No notes yet.</p>
+  <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/CapRL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning</h3>
+  <p>CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models.</p>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+  </div>
 </section>
 
 <section class="section-block" id="technical-reflections">

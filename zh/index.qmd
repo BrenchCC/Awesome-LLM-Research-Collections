@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">LLM 研究地图</p>
   <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
   <div class="stat-strip">
-    <div><strong>82</strong><span>论文</span></div>
+    <div><strong>83</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>193</strong><span>资源链接</span></div>
+    <div><strong>196</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,12 +78,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="../papers/zh/reinforcement-learning.html">
-  <span class="category-count">24 篇论文</span>
+  <span class="category-count">25 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
     <span>2026.06</span>
-    <span>OPD、奖励建模、推理强化学习、智能体强化学习、策略优化、视觉-语言-动作强化学习、视频生成强化学习</span>
+    <span>OPD、多模态强化学习、奖励建模、推理强化学习、智能体强化学习、策略优化、视觉-语言-动作强化学习、视频生成强化学习</span>
   </div>
 </a>
 <a class="category-card" href="../papers/zh/agents-application.html">

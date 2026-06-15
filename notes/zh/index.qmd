@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>笔记</span></div>
-    <div><strong>1</strong><span>主题</span></div>
-    <div><strong>2026-05-28</strong><span>最新日期</span></div>
+    <div><strong>2</strong><span>笔记</span></div>
+    <div><strong>2</strong><span>主题</span></div>
+    <div><strong>2026-06-15</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -24,7 +24,17 @@ toc: false
     <p class="eyebrow">浏览</p>
     <h2>论文解读</h2>
   </div>
-  <p class="empty-state">暂无笔记。</p>
+  <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/CapRL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>CapRL：用强化学习激发视觉语言模型的描述能力</h3>
+  <p>CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。</p>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
+  </div>
 </section>
 
 <section class="section-block" id="技术思考">

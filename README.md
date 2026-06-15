@@ -26,6 +26,7 @@
   - [OPD](#opd)
   - [Reward Modeling](#reward-modeling)
   - [Video Generation RL](#video-generation-rl)
+  - [Multimodal RL](#multimodal-rl)
   - [Reasoning RL](#reasoning-rl)
   - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
@@ -40,10 +41,10 @@
 - [Auto-Prompt](#auto-prompt)
   - [Prompt Optimization](#prompt-optimization)
   - [Judge Prompting](#judge-prompting)
+- [Blogs](#blogs)
 - [Notes](#notes)
   - [Paper Readings](#paper-readings)
   - [Technical Reflections](#technical-reflections)
-- [Blogs](#blogs)
 
 # Attention
 
@@ -371,6 +372,13 @@
   <a href="https://github.com/Richard-Zhang-AI/KVPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/Richard-ZZZZZ/KVPO"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+## Multimodal RL
+- **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
+  **Description**: This paper introduces CapRL, the first RLVR framework for open-ended image captioning, which rewards captions by whether a vision-free language model can answer image questions using only the generated description. The resulting CapRL-3B model produces more informative and diverse captions, while its generated caption data improves large vision-language model pretraining across 12 benchmarks. \
+  <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/InternLM/CapRL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 ## Reasoning RL
 - **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
   **Description**: This paper presents MUPO, a reinforcement learning approach that addresses diversity collapse in GRPO-trained VLMs by incentivizing divergent thinking across multiple solutions, enabling deeper yet broader reasoning patterns. \
@@ -532,7 +540,10 @@
 
 ## Paper Readings
 
-No notes yet.
+- **CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning** (2026-06-15) \
+  **Description**: CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models. \
+  [[Note](notes/en/reinforcement-learning/CapRL.qmd)]
+  [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
 

@@ -59,6 +59,8 @@ CATEGORY_SLUGS = {
     "奖励建模": "reward-modeling",
     "Video Generation RL": "video-generation-rl",
     "视频生成强化学习": "video-generation-rl",
+    "Multimodal RL": "multimodal-rl",
+    "多模态强化学习": "multimodal-rl",
     "Reasoning RL": "reasoning-rl",
     "推理强化学习": "reasoning-rl",
     "Agentic RL": "agentic-rl",

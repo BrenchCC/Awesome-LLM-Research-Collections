@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>24</strong><span>Papers</span></div>
-    <div><strong>49</strong><span>Resource links</span></div>
+    <div><strong>25</strong><span>Papers</span></div>
+    <div><strong>52</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -20,6 +20,7 @@ toc: false
 <a href="#opd">OPD</a>
 <a href="#reward-modeling">Reward Modeling</a>
 <a href="#video-generation-rl">Video Generation RL</a>
+<a href="#multimodal-rl">Multimodal RL</a>
 <a href="#reasoning-rl">Reasoning RL</a>
 <a href="#agentic-rl">Agentic RL</a>
 <a href="#vla-rl">VLA RL</a>
@@ -200,6 +201,27 @@ toc: false
 <a class="resource-link" href="https://richard-zhang-ai.github.io/KVPO-Project/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/Richard-Zhang-AI/KVPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/Richard-ZZZZZ/KVPO" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="multimodal-rl">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Multimodal RL</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="caprl-stimulating-dense-image-caption-capabilities-via-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2025.09</span>
+    <span>Multimodal RL</span>
+  </div>
+  <h3>CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning</h3>
+  <p>This paper introduces CapRL, the first RLVR framework for open-ended image captioning, which rewards captions by whether a vision-free language model can answer image questions using only the generated description. The resulting CapRL-3B model produces more informative and diverse captions, while its generated caption data improves large vision-language model pretraining across 12 benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2509.22647" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/InternLM/CapRL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/internlm/CapRL-3B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

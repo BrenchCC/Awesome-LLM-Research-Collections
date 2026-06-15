@@ -26,6 +26,7 @@
   - [OPD](#opd)
   - [奖励建模](#奖励建模)
   - [视频生成强化学习](#视频生成强化学习)
+  - [多模态强化学习](#多模态强化学习)
   - [推理强化学习](#推理强化学习)
   - [智能体强化学习](#智能体强化学习)
   - [视觉-语言-动作强化学习](#视觉-语言-动作强化学习)
@@ -40,10 +41,10 @@
 - [自动提示](#自动提示)
   - [提示优化](#提示优化)
   - [评测器提示](#评测器提示)
+- [博客](#博客)
 - [笔记](#笔记)
   - [论文解读](#论文解读)
   - [技术思考](#技术思考)
-- [博客](#博客)
 
 # 注意力机制
 
@@ -371,6 +372,13 @@
   <a href="https://github.com/Richard-Zhang-AI/KVPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/Richard-ZZZZZ/KVPO"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+## 多模态强化学习
+- **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
+  **描述**: 该论文提出 CapRL，首次将 RLVR 应用于开放式图像描述，通过检验无视觉语言模型能否仅依据生成描述回答图像问题来构造奖励。训练得到的 CapRL-3B 能生成信息更丰富且更多样的描述，其生成的描述数据还在 12 个基准上提升了大视觉语言模型的预训练效果。 \
+  <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/InternLM/CapRL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 ## 推理强化学习
 - **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
   **描述**: 该论文提出 MUPO，一种强化学习方法，通过激励多解之间的发散思考来缓解 GRPO 训练 VLM 时的多样性坍塌。它让模型形成更深且更广的推理模式。 \
@@ -532,7 +540,10 @@
 
 ## 论文解读
 
-暂无笔记。
+- **CapRL：用强化学习激发视觉语言模型的描述能力** (2026-06-15) \
+  **描述**: CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。 \
+  [[笔记](notes/zh/reinforcement-learning/CapRL.qmd)]
+  [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
 

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Curated LLM research map</p>
   <p class="lede">A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.</p>
   <div class="stat-strip">
-    <div><strong>82</strong><span>Papers</span></div>
+    <div><strong>83</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>193</strong><span>Resource links</span></div>
+    <div><strong>196</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,12 +78,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="papers/en/reinforcement-learning.html">
-  <span class="category-count">24 papers</span>
+  <span class="category-count">25 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
     <span>2026.06</span>
-    <span>Agentic RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
+    <span>Agentic RL, Multimodal RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
   </div>
 </a>
 <a class="category-card" href="papers/en/agents-application.html">
