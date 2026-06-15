@@ -41,10 +41,10 @@
 - [Auto-Prompt](#auto-prompt)
   - [Prompt Optimization](#prompt-optimization)
   - [Judge Prompting](#judge-prompting)
-- [Blogs](#blogs)
 - [Notes](#notes)
   - [Paper Readings](#paper-readings)
   - [Technical Reflections](#technical-reflections)
+- [Blogs](#blogs)
 
 # Attention
 

@@ -484,7 +484,13 @@ def update_contents_section(content, config):
     new_block = [line for line in old_block if line not in remove_set]
     while new_block and new_block[-1] == "":
         new_block.pop()
-    new_block.extend(config.contents_lines)
+
+    blogs_line = "- [Blogs](#blogs)" if config.key == "en" else "- [博客](#博客)"
+    try:
+        blogs_index = new_block.index(blogs_line)
+    except ValueError:
+        blogs_index = len(new_block)
+    new_block[blogs_index:blogs_index] = config.contents_lines
     new_block.append("")
 
     updated = lines[:start_index + 1] + new_block + lines[end_index:]
