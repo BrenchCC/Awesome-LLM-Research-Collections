@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>Papers</span></div>
-    <div><strong>40</strong><span>Resource links</span></div>
+    <div><strong>15</strong><span>Papers</span></div>
+    <div><strong>43</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">12 papers</p>
+    <p class="eyebrow">13 papers</p>
     <h2>Vision-Language</h2>
   </div>
   <div class="paper-grid">
@@ -168,6 +168,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2405.03690" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+<article class="paper-card" id="qwen-vl-a-versatile-vision-language-model-for-understanding-localization-text-reading-and-beyond">
+  <div class="paper-meta">
+    <span>2023.08</span>
+    <span>Vision-Language</span>
+  </div>
+  <h3>Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond</h3>
+  <p>This paper introduces Qwen-VL, a vision-language model series built on Qwen-LM with a visual receptor, multimodal interface, three-stage training pipeline, and multilingual multimodal corpus. By aligning image-caption-box tuples, Qwen-VL supports visual understanding, grounding, and text reading while achieving strong results across visual-centric benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2308.12966" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/Qwen/Qwen-VL" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="llava-visual-instruction-tuning">

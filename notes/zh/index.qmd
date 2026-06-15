@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>3</strong><span>笔记</span></div>
+    <div><strong>4</strong><span>笔记</span></div>
     <div><strong>3</strong><span>主题</span></div>
-    <div><strong>2026-06-15</strong><span>最新日期</span></div>
+    <div><strong>2026-06-16</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -77,6 +77,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>OPD</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/PPO-DPO-GRPO.html">
+  <span class="category-count">2026-06-16</span>
+  <h3>PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程</h3>
+  <p>从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">PPO</span>
+    <span class="note-tag">DPO</span>
+    <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
     <span>技术思考</span>
   </div>
 </a>

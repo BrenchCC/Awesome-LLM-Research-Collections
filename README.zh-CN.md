@@ -246,6 +246,12 @@
   <a href="https://arxiv.org/abs/2405.03690"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond** (2023.08) \
+  **描述**: 该论文提出 Qwen-VL，一个基于 Qwen-LM 构建的视觉语言模型系列，结合视觉接收器、多模态输入输出接口、三阶段训练流程和多语言多模态语料。通过对齐图像、描述和边界框三元组，Qwen-VL 获得视觉理解、定位和图中文字识别能力，并在多项视觉基准上取得强劲表现。 \
+  <a href="https://arxiv.org/abs/2308.12966"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen-VL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen-VL"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LLaVA: Visual Instruction Tuning** (2023.04) \
   **描述**: 该论文提出 LLaVA，一个使用机器生成指令微调数据端到端训练的大型多模态模型。它展现出强多模态对话能力，并在 Science QA 上取得当时最优结果。 \
   <a href="https://arxiv.org/abs/2304.08485"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -316,6 +322,17 @@
   **描述**: 该论文将大语言模型强化学习表述为约束策略优化，通过不同约束选择统一现有算法，并揭示裁剪、KL 正则化与信赖域的作用。论文据此推导 Constraint-Infused Policy Optimization (CIPO)，在多种任务和模型族上提升推理性能与训练稳定性。 \
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **Direct Preference Optimization: Your Language Model is Secretly a Reward Model** (2023.05) \
+  **描述**: 该论文提出 Direct Preference Optimization (DPO)，重新参数化 RLHF 奖励模型，使最优策略能够通过简单的分类损失直接从偏好数据中学习。DPO 无需单独拟合奖励模型或执行在线强化学习，以更简单稳定的训练达到或超过基于 PPO 的 RLHF。 \
+  <a href="https://arxiv.org/abs/2305.18290"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/eric-mitchell/direct-preference-optimization"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **Proximal Policy Optimization Algorithms** (2017.07) \
+  **描述**: 该论文提出 Proximal Policy Optimization (PPO)，一类在环境采样与代理目标上的多轮小批量优化之间交替进行的策略梯度方法。PPO 保留信赖域方法的关键优势，同时更易实现，并在样本效率、性能与运行时间之间取得良好平衡。 \
+  <a href="https://arxiv.org/abs/1707.06347"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://openai.com/index/openai-baselines-ppo/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/openai/baselines"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
@@ -409,6 +426,12 @@
   **描述**: 该论文展示纯强化学习无需人工标注推理轨迹即可直接激发 LLM 的高级推理行为。所提出框架诱导自我反思、验证和自适应策略使用，并在数学、代码和 STEM 推理任务上取得强提升。 \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models** (2024.02) \
+  **描述**: 该论文提出 DeepSeekMath 7B，将精心设计的网页级数学数据筛选流程与 Group Relative Policy Optimization (GRPO) 相结合；GRPO 是 PPO 的一种变体。该方法在降低 PPO 显存占用的同时增强数学推理能力，无需外部工具或投票即可在竞赛级 MATH 基准上取得强劲表现。 \
+  <a href="https://arxiv.org/abs/2402.03300"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/deepseek-ai/deepseek-math"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/deepseek-math-7b-rl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 智能体强化学习
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
@@ -556,6 +579,11 @@
   **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]
+
+- **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
+  **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \
+  [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
+  [[English](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
 # 博客
 

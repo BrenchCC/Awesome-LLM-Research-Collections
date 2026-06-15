@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>论文</span></div>
-    <div><strong>40</strong><span>资源链接</span></div>
+    <div><strong>15</strong><span>论文</span></div>
+    <div><strong>43</strong><span>资源链接</span></div>
     <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">12 篇论文</p>
+    <p class="eyebrow">13 篇论文</p>
     <h2>视觉语言</h2>
   </div>
   <div class="paper-grid">
@@ -168,6 +168,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2405.03690" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="qwen-vl-a-versatile-vision-language-model-for-understanding-localization-text-reading-and-beyond">
+  <div class="paper-meta">
+    <span>2023.08</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond</h3>
+  <p>该论文提出 Qwen-VL，一个基于 Qwen-LM 构建的视觉语言模型系列，结合视觉接收器、多模态输入输出接口、三阶段训练流程和多语言多模态语料。通过对齐图像、描述和边界框三元组，Qwen-VL 获得视觉理解、定位和图中文字识别能力，并在多项视觉基准上取得强劲表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2308.12966" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen-VL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/Qwen/Qwen-VL" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="llava-visual-instruction-tuning">

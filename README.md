@@ -246,6 +246,12 @@
   <a href="https://arxiv.org/abs/2405.03690"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://mbzuai-oryx.github.io/CVRR-Evaluation-Suite/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond** (2023.08) \
+  **Description**: This paper introduces Qwen-VL, a vision-language model series built on Qwen-LM with a visual receptor, multimodal interface, three-stage training pipeline, and multilingual multimodal corpus. By aligning image-caption-box tuples, Qwen-VL supports visual understanding, grounding, and text reading while achieving strong results across visual-centric benchmarks. \
+  <a href="https://arxiv.org/abs/2308.12966"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen-VL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen-VL"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LLaVA: Visual Instruction Tuning** (2023.04) \
   **Description**: This paper presents LLaVA, a large multimodal model trained end-to-end on machine-generated instruction tuning data, showing impressive multimodal chat abilities and achieving state-of-the-art results on Science QA. \
   <a href="https://arxiv.org/abs/2304.08485"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -316,6 +322,17 @@
   **Description**: This paper formulates LLM reinforcement learning as constrained policy optimization, unifying existing algorithms through different constraint choices and exposing the roles of clipping, KL regularization, and trust regions. It derives Constraint-Infused Policy Optimization (CIPO), which improves reasoning performance and training stability across diverse tasks and model families. \
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+- **Direct Preference Optimization: Your Language Model is Secretly a Reward Model** (2023.05) \
+  **Description**: This paper introduces Direct Preference Optimization (DPO), which reparameterizes the RLHF reward model so the optimal policy can be learned directly from preference data with a simple classification loss. DPO removes separate reward-model fitting and online reinforcement learning while matching or improving PPO-based RLHF with simpler, more stable training. \
+  <a href="https://arxiv.org/abs/2305.18290"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/eric-mitchell/direct-preference-optimization"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+- **Proximal Policy Optimization Algorithms** (2017.07) \
+  **Description**: This paper introduces Proximal Policy Optimization (PPO), a family of policy-gradient methods that alternates environment sampling with multiple minibatch epochs on a surrogate objective. PPO retains key trust-region benefits while being simpler to implement and empirically balancing sample efficiency, performance, and wall-clock time. \
+  <a href="https://arxiv.org/abs/1707.06347"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://openai.com/index/openai-baselines-ppo/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/openai/baselines"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## OPD
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
@@ -409,6 +426,12 @@
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+- **DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models** (2024.02) \
+  **Description**: This paper introduces DeepSeekMath 7B, combining a carefully engineered web-scale math data selection pipeline with Group Relative Policy Optimization (GRPO), a PPO variant. The approach improves mathematical reasoning while reducing PPO's memory usage, reaching strong competition-level MATH performance without external tools or voting. \
+  <a href="https://arxiv.org/abs/2402.03300"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/deepseek-ai/deepseek-math"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/deepseek-ai/deepseek-math-7b-rl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Agentic RL
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
@@ -556,6 +579,11 @@
   **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]
+
+- **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
+  **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \
+  [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
+  [[中文](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
 # Blogs
 
