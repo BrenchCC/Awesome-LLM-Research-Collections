@@ -20,6 +20,22 @@ When contributing papers, update the matching sections in both README files, kee
 
 When contributing blogs, update `data/blog_shares.json`, then regenerate and verify the generated README blog sections and `blogs/` index pages.
 
+## Shared Generated README Safety
+`README.md` and `README.zh-CN.md` are shared generated surfaces. Paper, Notes, and Blogs workflows all read or write portions of them.
+
+- Generators must preserve sections and Contents entries owned by other generators.
+- Keep `Notes` / `笔记` immediately before `Blogs` / `博客` in `# Contents` / `# 目录`.
+- Generator writes must be idempotent: running the same generator twice must produce no second diff.
+- After any generator writes either README, rerun all shared README checks in CI order:
+
+```bash
+python scripts/check_readme_qmd_sync.py
+python scripts/sync_blog_shares.py
+quarto render --no-execute
+```
+
+- If either checker reports README drift, run that generator with `--write`, then restart the full check sequence. Do not stop after the first generator passes.
+
 ## Build, Test, and Development Commands
 Use lightweight checks before committing:
 
@@ -61,7 +77,8 @@ No automated test suite is configured. Treat review as content validation:
 - Confirm both `# Contents` / `# 目录` match actual headings after edits.
 - Confirm `python scripts/check_readme_qmd_sync.py` passes.
 - Confirm `python scripts/sync_blog_shares.py` passes after blog edits.
-- Confirm `quarto render` succeeds before pushing website changes.
+- Confirm both shared README checks pass after any Notes, Blogs, paper catalog, Contents, or generator change.
+- Confirm `quarto render --no-execute` succeeds before pushing website changes.
 
 GitHub Pages deploys through `.github/workflows/quarto-gh-pages.yml` using GitHub Actions artifacts. Do not commit `_site/` or `.quarto/`.
 

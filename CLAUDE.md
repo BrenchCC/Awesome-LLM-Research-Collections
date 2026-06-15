@@ -49,6 +49,23 @@ Before running Python commands, check `.codex/project.local.json` for a `conda_e
 
 The local config file is intentionally git-ignored because it may contain machine-specific settings.
 
+## Shared Generated README Safety
+
+`README.md` and `README.zh-CN.md` are shared generated surfaces. Paper, Notes, and Blogs workflows all read or write portions of them.
+
+- Generators must preserve sections and Contents entries owned by other generators.
+- Keep `Notes` / `笔记` immediately before `Blogs` / `博客` in `# Contents` / `# 目录`.
+- Generator writes must be idempotent: running the same generator twice must produce no second diff.
+- After any generator writes either README, run the full CI-equivalent sequence:
+
+```bash
+python scripts/check_readme_qmd_sync.py
+python scripts/sync_blog_shares.py
+quarto render --no-execute
+```
+
+If either checker reports README drift, run that generator with `--write`, then restart the full sequence. Do not consider the task complete after validating only the generator that was directly edited.
+
 ## Project Structure
 
 - `README.md`: Primary Markdown catalog and taxonomy
@@ -142,7 +159,8 @@ No automated tests. Verify manually:
 - `# Contents` and `# 目录` match actual headings after edits
 - QMD pages match README via `python scripts/check_readme_qmd_sync.py`
 - Blog README sections and pages match `data/blog_shares.json` via `python scripts/sync_blog_shares.py`
-- Quarto renders successfully via `quarto render`
+- Both shared README checks pass after any Notes, Blogs, paper catalog, Contents, or generator change
+- Quarto renders successfully via `quarto render --no-execute`
 
 ## This is a README Curator Repository
 

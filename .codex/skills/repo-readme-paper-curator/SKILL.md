@@ -15,6 +15,22 @@ Update together:
 
 Also update `_quarto.yml` only when a new top-level category creates new English and Chinese category pages that must appear in website navigation.
 
+## Shared README Stability
+
+`README.md` and `README.zh-CN.md` are also modified by the Notes and Blogs generators.
+
+- Preserve generated Notes and Blogs sections and their Contents entries.
+- Keep Notes immediately before Blogs in both Contents lists.
+- After writing either README, run the complete CI-equivalent validation sequence:
+
+```bash
+python scripts/check_readme_qmd_sync.py
+python scripts/sync_blog_shares.py
+quarto render --no-execute
+```
+
+- If a checker reports drift, run its `--write` command and restart the full sequence.
+
 ## Required Output Format
 
 Use this exact English list style in `README.md`:

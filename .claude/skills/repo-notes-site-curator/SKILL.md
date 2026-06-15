@@ -16,6 +16,21 @@ Update together:
 
 Also update `_quarto.yml` only when the notes render paths or navigation structure need to change.
 
+## Shared README Stability
+
+`README.md` and `README.zh-CN.md` are shared generated surfaces maintained by the paper, notes, and blogs workflows.
+
+- Keep `# Contents` / `# 目录` ordering stable. Notes entries must remain immediately before Blogs entries.
+- When changing a generator, ensure repeated runs are idempotent and do not reorder headings owned by another generator.
+- After any command writes either README, run every shared README checker in CI order:
+
+```bash
+python scripts/check_readme_qmd_sync.py
+python scripts/sync_blog_shares.py
+```
+
+- If a checker reports README drift, run its `--write` command, then rerun all shared README checkers from the beginning.
+
 ## Note Structure
 
 Use matching bilingual paths:
@@ -87,10 +102,16 @@ python scripts/sync_notes.py
 python scripts/check_readme_qmd_sync.py
 ```
 
-10. Render the website when requested or when navigation/render configuration changed:
+10. Validate that the Blogs generator still accepts the shared README files:
 
 ```bash
-quarto render
+python scripts/sync_blog_shares.py
+```
+
+11. Render the website when requested or when navigation/render configuration changed:
+
+```bash
+quarto render --no-execute
 ```
 
 ## Output Expectations
