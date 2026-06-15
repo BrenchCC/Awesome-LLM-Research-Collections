@@ -545,6 +545,11 @@
   [[笔记](notes/zh/reinforcement-learning/CapRL.qmd)]
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
+- **从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进** (2026-06-15) \
+  **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
+  [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+  [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
 ## 技术思考
 
 - **OPD：后训练中的能力整合接口** (2026-05-28) \

@@ -9,8 +9,8 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>笔记</span></div>
-    <div><strong>2</strong><span>主题</span></div>
+    <div><strong>3</strong><span>笔记</span></div>
+    <div><strong>3</strong><span>主题</span></div>
     <div><strong>2026-06-15</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
@@ -38,6 +38,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进</h3>
+  <p>梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。</p>
+  <div class="note-tags">
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">Video Understanding</span>
+  </div>
+  <div class="category-foot">
+    <span>MLLMS</span>
     <span>论文解读</span>
   </div>
 </a>

@@ -9,8 +9,8 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>Notes</span></div>
-    <div><strong>2</strong><span>Topics</span></div>
+    <div><strong>3</strong><span>Notes</span></div>
+    <div><strong>3</strong><span>Topics</span></div>
     <div><strong>2026-06-15</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
@@ -38,6 +38,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training</h3>
+  <p>A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion.</p>
+  <div class="note-tags">
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">Video Understanding</span>
+  </div>
+  <div class="category-foot">
+    <span>MLLMS</span>
     <span>Paper Readings</span>
   </div>
 </a>

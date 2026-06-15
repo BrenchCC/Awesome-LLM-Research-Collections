@@ -545,6 +545,11 @@
   [[Note](notes/en/reinforcement-learning/CapRL.qmd)]
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
+- **From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training** (2026-06-15) \
+  **Description**: A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion. \
+  [[Note](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+  [[中文](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
 ## Technical Reflections
 
 - **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
