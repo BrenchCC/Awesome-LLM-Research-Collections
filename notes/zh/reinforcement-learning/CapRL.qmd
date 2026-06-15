@@ -6,6 +6,12 @@ date: 2026-06-15
 order: 1
 note_type: paper-reading
 topic: reinforcement-learning
+tags:
+  - CapRL
+  - Reinforcement Learning
+  - RLVR
+  - Vision-Language Model
+  - Image Captioning
 ---
 
 ::: {.callout-note title="论文信息"}

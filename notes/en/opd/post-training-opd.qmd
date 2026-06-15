@@ -6,6 +6,10 @@ description: "A technical reflection on how OPD becomes a capability integration
 order: 1
 note_type: technical-reflection
 topic: opd
+tags:
+  - OPD
+  - Reinforcement Learning
+  - Distillation
 ---
 
 Large model development often looks like a competition over model architectures and training algorithms. In the post-training trenches, however, the harder work is usually about data sources, stage handoff, and capability conflicts.

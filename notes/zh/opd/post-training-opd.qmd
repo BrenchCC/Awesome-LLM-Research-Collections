@@ -6,6 +6,10 @@ description: "从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD
 order: 1
 note_type: technical-reflection
 topic: opd
+tags:
+  - OPD
+  - Reinforcement Learning
+  - Distillation
 ---
 
 大模型开发看起来是模型架构和训练算法的竞争，落到后训练现场，更多时候是在处理数据来源、阶段衔接和能力冲突。

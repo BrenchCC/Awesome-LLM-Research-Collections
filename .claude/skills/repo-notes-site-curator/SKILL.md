@@ -36,6 +36,8 @@ description: "<localized one-sentence summary>"
 order: 1
 note_type: paper-reading
 topic: <topic>
+tags:
+  - <tag>
 ---
 ```
 
@@ -43,7 +45,7 @@ Allowed `note_type` values:
 - `paper-reading`
 - `technical-reflection`
 
-Keep paired English and Chinese notes aligned on `date`, `author`, `order`, `note_type`, and `topic`. Titles and descriptions should be localized.
+Keep paired English and Chinese notes aligned on `date`, `author`, `order`, `note_type`, `topic`, and `tags`. Titles and descriptions should be localized.
 
 ## Bilingual Writing and Translation
 

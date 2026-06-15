@@ -16,6 +16,7 @@ REQUIRED_METADATA = [
     "order",
     "note_type",
     "topic",
+    "tags",
 ]
 
 NOTE_TYPE_ORDER = [
@@ -36,6 +37,7 @@ class Note:
     order: int
     note_type: str
     topic: str
+    tags: List[str]
 
 
 @dataclass
@@ -169,13 +171,24 @@ def parse_front_matter(path):
         raise ValueError(f"{path} has unterminated YAML front matter")
 
     metadata = {}
+    list_key = None
     for line in lines[1:end_index]:
         if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        if list_key and line.startswith("  - "):
+            metadata[list_key].append(strip_yaml_value(line[4:]))
             continue
         if ":" not in line:
             continue
         key, value = line.split(":", 1)
-        metadata[key.strip()] = strip_yaml_value(value)
+        key = key.strip()
+        value = strip_yaml_value(value)
+        if value:
+            metadata[key] = value
+            list_key = None
+        else:
+            metadata[key] = []
+            list_key = key
 
     missing = [key for key in REQUIRED_METADATA if key not in metadata]
     if missing:
@@ -189,6 +202,9 @@ def parse_front_matter(path):
         metadata["order"] = int(metadata["order"])
     except ValueError as error:
         raise ValueError(f"{path} has non-integer order: {metadata['order']}") from error
+
+    if not metadata["tags"]:
+        raise ValueError(f"{path} has no tags")
 
     return metadata
 
@@ -219,7 +235,8 @@ def scan_notes(config):
                 author = metadata["author"],
                 order = metadata["order"],
                 note_type = metadata["note_type"],
-                topic = metadata["topic"]
+                topic = metadata["topic"],
+                tags = metadata["tags"]
             )
         )
 
@@ -266,7 +283,7 @@ def validate_bilingual_pairs(notes_by_language):
 
     for relative_path, en_note in en_notes.items():
         zh_note = zh_notes[relative_path]
-        comparable_fields = ["date", "author", "order", "note_type", "topic"]
+        comparable_fields = ["date", "author", "order", "note_type", "topic", "tags"]
         for field in comparable_fields:
             if getattr(en_note, field) != getattr(zh_note, field):
                 raise ValueError(
@@ -296,10 +313,17 @@ def render_note_card(note, config):
     topic = html.escape(note.topic.upper())
     section = html.escape(config.section_labels[note.note_type])
     date = html.escape(note.date)
+    tags = "\n".join(
+        f'    <span class="note-tag">{html.escape(tag)}</span>'
+        for tag in note.tags
+    )
     return f"""<a class="category-card" href="{href}">
   <span class="category-count">{date}</span>
   <h3>{title}</h3>
   <p>{description}</p>
+  <div class="note-tags">
+{tags}
+  </div>
   <div class="category-foot">
     <span>{topic}</span>
     <span>{section}</span>

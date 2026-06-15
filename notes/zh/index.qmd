@@ -29,6 +29,13 @@ toc: false
   <span class="category-count">2026-06-15</span>
   <h3>CapRL：用强化学习激发视觉语言模型的描述能力</h3>
   <p>CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。</p>
+  <div class="note-tags">
+    <span class="note-tag">CapRL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">RLVR</span>
+    <span class="note-tag">Vision-Language Model</span>
+    <span class="note-tag">Image Captioning</span>
+  </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>
     <span>论文解读</span>
@@ -47,6 +54,11 @@ toc: false
   <span class="category-count">2026-05-28</span>
   <h3>OPD：后训练中的能力整合接口</h3>
   <p>从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。</p>
+  <div class="note-tags">
+    <span class="note-tag">OPD</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Distillation</span>
+  </div>
   <div class="category-foot">
     <span>OPD</span>
     <span>技术思考</span>

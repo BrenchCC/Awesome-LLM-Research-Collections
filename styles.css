@@ -222,6 +222,22 @@ a {
   font-weight: 800;
 }
 
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.15rem 0 0.85rem;
+}
+
+.note-tag {
+  padding: 0.18rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(31, 122, 100, 0.1);
+  color: var(--arc-green);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
 .category-foot {
   display: flex;
   gap: 0.65rem;

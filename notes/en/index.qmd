@@ -29,6 +29,13 @@ toc: false
   <span class="category-count">2026-06-15</span>
   <h3>CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning</h3>
   <p>CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models.</p>
+  <div class="note-tags">
+    <span class="note-tag">CapRL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">RLVR</span>
+    <span class="note-tag">Vision-Language Model</span>
+    <span class="note-tag">Image Captioning</span>
+  </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>
     <span>Paper Readings</span>
@@ -47,6 +54,11 @@ toc: false
   <span class="category-count">2026-05-28</span>
   <h3>OPD: Capability Integration Interface in Post-training</h3>
   <p>A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
+  <div class="note-tags">
+    <span class="note-tag">OPD</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Distillation</span>
+  </div>
   <div class="category-foot">
     <span>OPD</span>
     <span>Technical Reflections</span>
