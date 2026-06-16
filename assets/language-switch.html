@@ -1,16 +1,40 @@
 <script>
 (() => {
+  const STORAGE_KEY = "awesome-llm-language";
   const brandLink = document.querySelector(".navbar-brand");
   const rootUrl = new URL(brandLink ? brandLink.getAttribute("href") : "index.html", window.location.href);
   const rootPath = rootUrl.pathname.replace(/index\.html$/, "");
 
-  function currentRelativePath() {
-    let path = window.location.pathname;
+  function normalizeRelativePath(path) {
+    path = path.replace(/^\/+/, "");
+    if (!path || path.endsWith("/")) {
+      return `${path}index.html`;
+    }
+    return path;
+  }
+
+  function relativePathFromUrl(url) {
+    let path = url.pathname;
     if (path.startsWith(rootPath)) {
       path = path.slice(rootPath.length);
     }
-    path = path.replace(/^\/+/, "");
-    return path || "index.html";
+    return normalizeRelativePath(path);
+  }
+
+  function currentRelativePath() {
+    return relativePathFromUrl(window.location);
+  }
+
+  function currentLanguage(relativePath) {
+    if (
+      relativePath === "zh/index.html"
+      || relativePath.startsWith("papers/zh/")
+      || relativePath.startsWith("notes/zh/")
+      || relativePath.startsWith("blogs/zh/")
+    ) {
+      return "zh";
+    }
+    return "en";
   }
 
   function targetPath(relativePath, targetLanguage) {
@@ -62,18 +86,176 @@
     return "index.html";
   }
 
-  function updateLanguageLink(label, targetLanguage) {
+  function targetUrl(relativePath, targetLanguage, preserveLocationParts) {
+    const url = new URL(targetPath(relativePath, targetLanguage), rootUrl);
+    if (preserveLocationParts) {
+      url.search = window.location.search;
+      url.hash = window.location.hash;
+    }
+    return url;
+  }
+
+  function savedLanguage() {
+    try {
+      const language = localStorage.getItem(STORAGE_KEY);
+      return ["en", "zh"].includes(language) ? language : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveLanguage(language) {
+    try {
+      localStorage.setItem(STORAGE_KEY, language);
+    } catch (error) {
+      return;
+    }
+  }
+
+  const relativePath = currentRelativePath();
+  const pageLanguage = currentLanguage(relativePath);
+  const storedLanguage = savedLanguage();
+  const preferredLanguage = storedLanguage || pageLanguage;
+
+  if (storedLanguage && storedLanguage !== pageLanguage) {
+    const redirectUrl = targetUrl(relativePath, storedLanguage, true);
+    if (redirectUrl.href !== window.location.href) {
+      window.location.replace(redirectUrl.href);
+      return;
+    }
+  }
+
+  const htmlLanguage = preferredLanguage === "zh" ? "zh-CN" : "en";
+  document.documentElement.dataset.language = preferredLanguage;
+  document.documentElement.lang = htmlLanguage;
+  document.documentElement.setAttribute("xml:lang", htmlLanguage);
+
+  function makeToggleOption(label, targetLanguage, compact) {
+    const link = document.createElement("a");
+    link.className = "language-toggle-option";
+    link.href = targetUrl(relativePath, targetLanguage, true).href;
+    link.textContent = compact && targetLanguage === "en" ? "EN" : label;
+    link.dataset.languageTarget = targetLanguage;
+    link.setAttribute("aria-pressed", String(targetLanguage === preferredLanguage));
+    if (targetLanguage === preferredLanguage) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "true");
+    }
+    link.addEventListener("click", (event) => {
+      saveLanguage(targetLanguage);
+      if (targetLanguage === pageLanguage) {
+        event.preventDefault();
+      }
+    });
+    return link;
+  }
+
+  function makeToggle(compact = false) {
+    const toggle = document.createElement("div");
+    toggle.className = "language-toggle";
+    toggle.setAttribute("role", "group");
+    toggle.setAttribute("aria-label", "Language");
+    toggle.append(
+      makeToggleOption("English", "en", compact),
+      makeToggleOption("中文", "zh", compact)
+    );
+    return toggle;
+  }
+
+  function findLanguageNavbarLink(label) {
     const links = Array.from(document.querySelectorAll(".navbar-nav .nav-link"));
-    const link = links.find((candidate) => candidate.textContent.trim() === label);
-    if (!link) {
+    return links.find((candidate) => candidate.textContent.trim() === label);
+  }
+
+  function replaceNavbarLanguageLinks() {
+    const englishLink = findLanguageNavbarLink("English");
+    const chineseLink = findLanguageNavbarLink("中文");
+    if (!englishLink || !chineseLink) {
       return;
     }
 
-    const target = targetPath(currentRelativePath(), targetLanguage);
-    link.setAttribute("href", new URL(target, rootUrl).href);
+    const englishItem = englishLink.closest(".nav-item");
+    const chineseItem = chineseLink.closest(".nav-item");
+    if (!englishItem || !chineseItem || !englishItem.parentElement) {
+      return;
+    }
+
+    const toggleItem = document.createElement("li");
+    toggleItem.className = "nav-item language-toggle-nav";
+    toggleItem.append(makeToggle(true));
+    englishItem.parentElement.insertBefore(toggleItem, englishItem);
+    englishItem.remove();
+    chineseItem.remove();
   }
 
-  updateLanguageLink("English", "en");
-  updateLanguageLink("中文", "zh");
+  function replaceInlineLanguageSwitches() {
+    document.querySelectorAll(".language-switch").forEach((container) => {
+      container.replaceChildren(makeToggle());
+    });
+  }
+
+  function shouldRewriteNavbarLink(link) {
+    if (link.dataset.languageTarget) {
+      return false;
+    }
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) {
+      return false;
+    }
+
+    const url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin) {
+      return false;
+    }
+
+    return url.pathname.startsWith(rootPath);
+  }
+
+  function updateNavbarLinks() {
+    document.querySelectorAll(".navbar a[href]").forEach((link) => {
+      if (!shouldRewriteNavbarLink(link)) {
+        return;
+      }
+
+      const linkUrl = new URL(link.getAttribute("href"), window.location.href);
+      const linkRelativePath = relativePathFromUrl(linkUrl);
+      link.setAttribute("href", targetUrl(linkRelativePath, preferredLanguage, false).href);
+    });
+  }
+
+  function localizeNavbarLabels() {
+    if (preferredLanguage !== "zh") {
+      return;
+    }
+
+    const labels = new Map([
+      ["Home", "首页"],
+      ["Papers", "论文"],
+      ["Attention", "注意力机制"],
+      ["LLMs", "大语言模型"],
+      ["Multimodal LLMs", "多模态大模型"],
+      ["Embeddings", "嵌入模型"],
+      ["SFT", "监督微调"],
+      ["Training", "训练"],
+      ["Reinforcement Learning", "强化学习"],
+      ["Agents Application", "智能体应用"],
+      ["Vision", "视觉"],
+      ["Auto-Prompt", "自动提示"],
+      ["Notes", "笔记"],
+      ["Blogs", "博客"],
+    ]);
+
+    document.querySelectorAll(".navbar .menu-text, .navbar .dropdown-text").forEach((element) => {
+      const text = element.textContent.trim();
+      if (labels.has(text)) {
+        element.textContent = labels.get(text);
+      }
+    });
+  }
+
+  replaceNavbarLanguageLinks();
+  replaceInlineLanguageSwitches();
+  updateNavbarLinks();
+  localizeNavbarLabels();
 })();
 </script>
