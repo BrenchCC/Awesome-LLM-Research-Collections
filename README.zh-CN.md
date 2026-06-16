@@ -323,6 +323,13 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **DAPO: An Open-Source LLM Reinforcement Learning System at Scale** (2025.03) \
+  **描述**: 该论文提出 Decoupled Clip and Dynamic Sampling Policy Optimization (DAPO)，一个用于激发大语言模型推理能力的开源大规模强化学习系统。论文开放训练配方、代码、数据集和模型权重，基于 Qwen2.5-32B 在 AIME 2024 上达到 50 分，提升大规模 LLM 强化学习的可复现性。 \
+  <a href="https://arxiv.org/abs/2503.14476"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://dapo-sia.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/BytedTsinghua-SIA/DAPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Direct Preference Optimization: Your Language Model is Secretly a Reward Model** (2023.05) \
   **描述**: 该论文提出 Direct Preference Optimization (DPO)，重新参数化 RLHF 奖励模型，使最优策略能够通过简单的分类损失直接从偏好数据中学习。DPO 无需单独拟合奖励模型或执行在线强化学习，以更简单稳定的训练达到或超过基于 PPO 的 RLHF。 \
   <a href="https://arxiv.org/abs/2305.18290"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

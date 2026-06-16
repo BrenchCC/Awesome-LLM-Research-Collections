@@ -323,6 +323,13 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **DAPO: An Open-Source LLM Reinforcement Learning System at Scale** (2025.03) \
+  **Description**: This paper introduces Decoupled Clip and Dynamic Sampling Policy Optimization (DAPO), an open large-scale reinforcement learning system for eliciting LLM reasoning. It releases the training recipe, code, dataset, and model weights, reaching 50 points on AIME 2024 with Qwen2.5-32B and improving reproducibility for large-scale LLM RL. \
+  <a href="https://arxiv.org/abs/2503.14476"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://dapo-sia.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/BytedTsinghua-SIA/DAPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Direct Preference Optimization: Your Language Model is Secretly a Reward Model** (2023.05) \
   **Description**: This paper introduces Direct Preference Optimization (DPO), which reparameterizes the RLHF reward model so the optimal policy can be learned directly from preference data with a simple classification loss. DPO removes separate reward-model fitting and online reinforcement learning while matching or improving PPO-based RLHF with simpler, more stable training. \
   <a href="https://arxiv.org/abs/2305.18290"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
