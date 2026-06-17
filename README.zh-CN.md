@@ -65,6 +65,10 @@
   <a href="https://arxiv.org/abs/2603.15031"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/MoonshotAI/Attention-Residuals"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
+  **描述**: 该论文提出 multi-query attention，在不同注意力头之间共享 keys 和 values，以降低 Transformer 增量解码中的内存带宽开销。该变体显著提升解码速度，同时相较多头注意力基线仅带来轻微质量下降。 \
+  <a href="https://arxiv.org/abs/1911.02150"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 # 大语言模型
 
 ## 基础模型

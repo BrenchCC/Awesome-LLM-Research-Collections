@@ -65,6 +65,10 @@
   <a href="https://arxiv.org/abs/2603.15031"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/MoonshotAI/Attention-Residuals"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
+  **Description**: This paper introduces multi-query attention, sharing keys and values across attention heads to reduce the memory-bandwidth cost of incremental Transformer decoding. The variant speeds up decoding substantially while incurring only minor quality degradation relative to multi-head attention baselines. \
+  <a href="https://arxiv.org/abs/1911.02150"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 # LLMs
 
 ## Foundation Models

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>3</strong><span>Papers</span></div>
-    <div><strong>7</strong><span>Resource links</span></div>
+    <div><strong>4</strong><span>Papers</span></div>
+    <div><strong>8</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -22,7 +22,7 @@ toc: false
 
 <section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">4 papers</p>
     <h2>Attention Architecture</h2>
   </div>
   <div class="paper-grid">
@@ -61,6 +61,17 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.15031" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/MoonshotAI/Attention-Residuals" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+<article class="paper-card" id="fast-transformer-decoding-one-write-head-is-all-you-need">
+  <div class="paper-meta">
+    <span>2019.11</span>
+    <span>Attention Architecture</span>
+  </div>
+  <h3>Fast Transformer Decoding: One Write-Head is All You Need</h3>
+  <p>This paper introduces multi-query attention, sharing keys and values across attention heads to reduce the memory-bandwidth cost of incremental Transformer decoding. The variant speeds up decoding substantially while incurring only minor quality degradation relative to multi-head attention baselines.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/1911.02150" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>
