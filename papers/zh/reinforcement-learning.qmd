@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>30</strong><span>论文</span></div>
-    <div><strong>66</strong><span>资源链接</span></div>
+    <div><strong>31</strong><span>论文</span></div>
+    <div><strong>67</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -29,7 +29,7 @@ toc: false
 
 <section class="paper-section" id="policy-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>策略优化</h2>
   </div>
   <div class="paper-grid">
@@ -81,6 +81,17 @@ toc: false
 <a class="resource-link" href="https://dapo-sia.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/BytedTsinghua-SIA/DAPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="kto-model-alignment-as-prospect-theoretic-optimization">
+  <div class="paper-meta">
+    <span>2024.02</span>
+    <span>策略优化</span>
+  </div>
+  <h3>KTO: Model Alignment as Prospect Theoretic Optimization</h3>
+  <p>该论文将成功的大语言模型对齐损失归纳为带有 prospect theory 偏置的 human-aware losses，并提出 KTO，直接利用 desirable/undesirable 二元反馈优化生成效用。KTO 在 1B 到 30B 规模上达到或超过基于成对偏好的方法，也说明最佳对齐损失取决于具体场景中的归纳偏置。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2402.01306" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="direct-preference-optimization-your-language-model-is-secretly-a-reward-model">

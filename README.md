@@ -339,6 +339,10 @@
   <a href="https://github.com/BytedTsinghua-SIA/DAPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **KTO: Model Alignment as Prospect Theoretic Optimization** (2024.02) \
+  **Description**: This paper frames successful LLM alignment losses as human-aware losses that encode biases from prospect theory, then introduces KTO to optimize generation utility directly from binary desirable/undesirable feedback. KTO matches or exceeds preference-pair methods from 1B to 30B scales, highlighting how the best alignment loss depends on the setting's inductive biases. \
+  <a href="https://arxiv.org/abs/2402.01306"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Direct Preference Optimization: Your Language Model is Secretly a Reward Model** (2023.05) \
   **Description**: This paper introduces Direct Preference Optimization (DPO), which reparameterizes the RLHF reward model so the optimal policy can be learned directly from preference data with a simple classification loss. DPO removes separate reward-model fitting and online reinforcement learning while matching or improving PPO-based RLHF with simpler, more stable training. \
   <a href="https://arxiv.org/abs/2305.18290"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
