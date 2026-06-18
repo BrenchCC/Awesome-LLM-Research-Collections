@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>29</strong><span>Papers</span></div>
-    <div><strong>64</strong><span>Resource links</span></div>
+    <div><strong>30</strong><span>Papers</span></div>
+    <div><strong>66</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -29,7 +29,7 @@ toc: false
 
 <section class="paper-section" id="policy-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>Policy Optimization</h2>
   </div>
   <div class="paper-grid">
@@ -55,6 +55,18 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2605.16826" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/trestad/CIPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="group-sequence-policy-optimization">
+  <div class="paper-meta">
+    <span>2025.07</span>
+    <span>Policy Optimization</span>
+  </div>
+  <h3>Group Sequence Policy Optimization</h3>
+  <p>This paper introduces GSPO, a reinforcement learning algorithm for LLMs that replaces token-level importance ratios with sequence-level likelihood ratios and performs sequence-level clipping, rewarding, and optimization. GSPO improves training efficiency and performance over GRPO, stabilizes MoE RL training, and helps simplify large-scale RL infrastructure for Qwen3 models.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2507.18071" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=gspo" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
   </div>
 </article>
 <article class="paper-card" id="dapo-an-open-source-llm-reinforcement-learning-system-at-scale">

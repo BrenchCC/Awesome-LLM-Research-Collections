@@ -327,6 +327,11 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Group Sequence Policy Optimization** (2025.07) \
+  **描述**: 该论文提出 GSPO，一种用于大语言模型的强化学习算法，以序列级似然比替代 token 级重要性比率，并在序列级执行裁剪、奖励与优化。GSPO 相比 GRPO 提升训练效率和性能，稳定 MoE 强化学习训练，并有助于简化 Qwen3 模型的大规模强化学习基础设施。 \
+  <a href="https://arxiv.org/abs/2507.18071"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://qwen.ai/blog?id=gspo"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **DAPO: An Open-Source LLM Reinforcement Learning System at Scale** (2025.03) \
   **描述**: 该论文提出 Decoupled Clip and Dynamic Sampling Policy Optimization (DAPO)，一个用于激发大语言模型推理能力的开源大规模强化学习系统。论文开放训练配方、代码、数据集和模型权重，基于 Qwen2.5-32B 在 AIME 2024 上达到 50 分，提升大规模 LLM 强化学习的可复现性。 \
   <a href="https://arxiv.org/abs/2503.14476"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

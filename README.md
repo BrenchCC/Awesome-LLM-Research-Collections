@@ -327,6 +327,11 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Group Sequence Policy Optimization** (2025.07) \
+  **Description**: This paper introduces GSPO, a reinforcement learning algorithm for LLMs that replaces token-level importance ratios with sequence-level likelihood ratios and performs sequence-level clipping, rewarding, and optimization. GSPO improves training efficiency and performance over GRPO, stabilizes MoE RL training, and helps simplify large-scale RL infrastructure for Qwen3 models. \
+  <a href="https://arxiv.org/abs/2507.18071"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://qwen.ai/blog?id=gspo"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **DAPO: An Open-Source LLM Reinforcement Learning System at Scale** (2025.03) \
   **Description**: This paper introduces Decoupled Clip and Dynamic Sampling Policy Optimization (DAPO), an open large-scale reinforcement learning system for eliciting LLM reasoning. It releases the training recipe, code, dataset, and model weights, reaching 50 points on AIME 2024 with Qwen2.5-32B and improving reproducibility for large-scale LLM RL. \
   <a href="https://arxiv.org/abs/2503.14476"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
