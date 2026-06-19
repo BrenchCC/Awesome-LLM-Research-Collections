@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>4</strong><span>Notes</span></div>
+    <div><strong>5</strong><span>Notes</span></div>
     <div><strong>3</strong><span>Topics</span></div>
-    <div><strong>2026-06-16</strong><span>Latest date</span></div>
+    <div><strong>2026-06-18</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -54,6 +54,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>MLLMS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
+  <span class="category-count">2026-06-18</span>
+  <h3>Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning</h3>
+  <p>A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO&#x27;s Clip-Higher strategy, and covariance regularization.</p>
+  <div class="note-tags">
+    <span class="note-tag">Entropy Collapse</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">DAPO</span>
+    <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
     <span>Paper Readings</span>
   </div>
 </a>

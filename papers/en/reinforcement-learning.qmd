@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>31</strong><span>Papers</span></div>
-    <div><strong>67</strong><span>Resource links</span></div>
+    <div><strong>32</strong><span>Papers</span></div>
+    <div><strong>68</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -290,7 +290,7 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">7 papers</p>
+    <p class="eyebrow">8 papers</p>
     <h2>Reasoning RL</h2>
   </div>
   <div class="paper-grid">
@@ -352,6 +352,17 @@ toc: false
   <p>This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2602.03279" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="the-entropy-mechanism-of-reinforcement-learning-for-reasoning-language-models">
+  <div class="paper-meta">
+    <span>2025.05</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models</h3>
+  <p>This paper studies policy entropy collapse as a bottleneck in RL for reasoning language models, showing an empirical relationship between entropy and downstream performance that makes the performance ceiling predictable. It derives entropy dynamics from the covariance between action probability and logit updates, then proposes Clip-Cov and KL-Cov to preserve exploration and improve downstream performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2505.22617" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">

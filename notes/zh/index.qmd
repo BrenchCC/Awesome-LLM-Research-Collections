@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>4</strong><span>笔记</span></div>
+    <div><strong>5</strong><span>笔记</span></div>
     <div><strong>3</strong><span>主题</span></div>
-    <div><strong>2026-06-16</strong><span>最新日期</span></div>
+    <div><strong>2026-06-18</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -54,6 +54,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>MLLMS</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
+  <span class="category-count">2026-06-18</span>
+  <h3>Entropy Collapse：大模型 RL 训练中的策略熵消耗机制</h3>
+  <p>从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。</p>
+  <div class="note-tags">
+    <span class="note-tag">Entropy Collapse</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">DAPO</span>
+    <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
     <span>论文解读</span>
   </div>
 </a>

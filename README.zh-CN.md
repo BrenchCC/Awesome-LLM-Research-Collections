@@ -442,6 +442,10 @@
   **描述**: 该论文提出 Agentic Proposing，一个使用专门智能体和 Multi-Granularity Policy Optimization 动态选择、组合模块化推理技能的框架。该框架用于合成高精度训练轨迹，从而增强大语言模型推理能力。 \
   <a href="https://arxiv.org/abs/2602.03279"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models** (2025.05) \
+  **描述**: 该论文研究推理语言模型强化学习中的策略熵坍塌瓶颈，发现熵与下游性能之间存在经验关系，使性能上限可被预测。论文从动作概率与 logit 更新的协方差推导熵动态，并提出 Clip-Cov 和 KL-Cov 保持探索、提升下游表现。 \
+  <a href="https://arxiv.org/abs/2505.22617"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **描述**: 该论文展示纯强化学习无需人工标注推理轨迹即可直接激发 LLM 的高级推理行为。所提出框架诱导自我反思、验证和自适应策略使用，并在数学、代码和 STEM 推理任务上取得强提升。 \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -592,6 +596,11 @@
   **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
   [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
   [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
+- **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
+  **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
+  [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
+  [[English](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
 
 ## 技术思考
 

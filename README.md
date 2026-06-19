@@ -442,6 +442,10 @@
   **Description**: This paper introduces Agentic Proposing, a framework that uses a specialized agent with Multi-Granularity Policy Optimization (MGPO) to dynamically select and compose modular reasoning skills for synthesizing high-precision training trajectories. \
   <a href="https://arxiv.org/abs/2602.03279"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models** (2025.05) \
+  **Description**: This paper studies policy entropy collapse as a bottleneck in RL for reasoning language models, showing an empirical relationship between entropy and downstream performance that makes the performance ceiling predictable. It derives entropy dynamics from the covariance between action probability and logit updates, then proposes Clip-Cov and KL-Cov to preserve exploration and improve downstream performance. \
+  <a href="https://arxiv.org/abs/2505.22617"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -592,6 +596,11 @@
   **Description**: A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion. \
   [[Note](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
   [[中文](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
+- **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
+  **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
+  [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
+  [[中文](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
 
 ## Technical Reflections
 
