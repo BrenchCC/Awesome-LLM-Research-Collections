@@ -34,6 +34,13 @@ a {
   color: var(--arc-blue);
 }
 
+#quarto-document-content mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
 .navbar {
   border-bottom: 1px solid var(--arc-line);
   background: rgba(251, 250, 246, 0.94);

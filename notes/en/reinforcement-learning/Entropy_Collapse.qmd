@@ -73,25 +73,24 @@ This is why entropy collapse is more damaging for RL. Once the current policy ge
 [DAPO](https://arxiv.org/abs/2503.14476) uses the following objective:
 
 $$
+\begin{aligned}
 \mathcal{J}_{\mathrm{DAPO}}(\theta)
-=
-\mathbb{E}_{(q,a)\sim D,\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)}
-\left[
+&=
+\mathbb{E}_{\substack{
+(q,a)\sim D \\
+\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)
+}}
+\Bigg[
 \frac{1}{\sum_{i=1}^{G}|o_i|}
 \sum_{i=1}^{G}
 \sum_{t=1}^{|o_i|}
-\min
-\left(
+\min\left(
 r_{i,t}(\theta)\hat{A}_{i,t},
-\mathrm{clip}
-\left(
-r_{i,t}(\theta),
-1-\varepsilon_{\mathrm{low}},
-1+\varepsilon_{\mathrm{high}}
-\right)
+\bar{r}_{i,t}(\theta)
 \hat{A}_{i,t}
 \right)
-\right]
+\Bigg]
+\end{aligned}
 $$
 
 $$
@@ -131,9 +130,11 @@ R_i-\mathrm{mean}\left(\{R_i\}_{i=1}^{G}\right)
 }
 $$
 
-Clip-Higher applies asymmetric clipping to the token-level importance ratio:
+Here, $\bar{r}_{i,t}(\theta)$ is the importance ratio after Clip-Higher clipping:
 
 $$
+\bar{r}_{i,t}(\theta)
+=
 \mathrm{clip}
 \left(
 r_{i,t}(\theta),
@@ -145,24 +146,22 @@ $$
 For comparison, GRPO uses symmetric clipping:
 
 $$
+\begin{aligned}
 \mathcal{J}_{\mathrm{GRPO}}(\theta)
-=
-\mathbb{E}_{(q,a)\sim D,\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)}
-\left[
+&=
+\mathbb{E}_{\substack{
+(q,a)\sim D \\
+\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)
+}}
+\Bigg[
 \frac{1}{G}
 \sum_{i=1}^{G}
 \frac{1}{|o_i|}
 \sum_{t=1}^{|o_i|}
 \left(
-\min
-\left(
+\min\left(
 r_{i,t}(\theta)\hat{A}_{i,t},
-\mathrm{clip}
-\left(
-r_{i,t}(\theta),
-1-\varepsilon,
-1+\varepsilon
-\right)
+\tilde{r}_{i,t}(\theta)
 \hat{A}_{i,t}
 \right)
 -
@@ -173,7 +172,8 @@ r_{i,t}(\theta),
 \pi_{\mathrm{ref}}
 \right)
 \right)
-\right]
+\Bigg]
+\end{aligned}
 $$
 
 where
@@ -186,6 +186,17 @@ r_{i,t}(\theta)
 }{
 \pi_{\theta_{\mathrm{old}}}(o_{i,t}\mid q,o_{i,<t})
 }
+$$
+
+$$
+\tilde{r}_{i,t}(\theta)
+=
+\mathrm{clip}
+\left(
+r_{i,t}(\theta),
+1-\varepsilon,
+1+\varepsilon
+\right)
 $$
 
 The effect of Clip-Higher can be understood through the probability ratio $r_{i,t}(\theta)$ between the new and old policies for a given token. It relaxes the upper bound, allowing high-advantage tokens to receive larger probability increases, while keeping a lower-bound constraint to avoid unstable probability drops.

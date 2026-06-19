@@ -73,25 +73,24 @@ RL 的目标不同。策略 LLM $\theta$ 的解码过程可以看作随机策略
 [DAPO](https://arxiv.org/abs/2503.14476) 的目标函数如下：
 
 $$
+\begin{aligned}
 \mathcal{J}_{\mathrm{DAPO}}(\theta)
-=
-\mathbb{E}_{(q,a)\sim D,\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)}
-\left[
+&=
+\mathbb{E}_{\substack{
+(q,a)\sim D \\
+\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)
+}}
+\Bigg[
 \frac{1}{\sum_{i=1}^{G}|o_i|}
 \sum_{i=1}^{G}
 \sum_{t=1}^{|o_i|}
-\min
-\left(
+\min\left(
 r_{i,t}(\theta)\hat{A}_{i,t},
-\mathrm{clip}
-\left(
-r_{i,t}(\theta),
-1-\varepsilon_{\mathrm{low}},
-1+\varepsilon_{\mathrm{high}}
-\right)
+\bar{r}_{i,t}(\theta)
 \hat{A}_{i,t}
 \right)
-\right]
+\Bigg]
+\end{aligned}
 $$
 
 $$
@@ -131,9 +130,11 @@ R_i-\mathrm{mean}\left(\{R_i\}_{i=1}^{G}\right)
 }
 $$
 
-Clip-Higher 对 token 级重要性采样比率采用不对称截断：
+其中，$\bar{r}_{i,t}(\theta)$ 是经过 Clip-Higher 截断后的重要性采样比率：
 
 $$
+\bar{r}_{i,t}(\theta)
+=
 \mathrm{clip}
 \left(
 r_{i,t}(\theta),
@@ -145,24 +146,22 @@ $$
 作为参照，GRPO 使用对称 clip：
 
 $$
+\begin{aligned}
 \mathcal{J}_{\mathrm{GRPO}}(\theta)
-=
-\mathbb{E}_{(q,a)\sim D,\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)}
-\left[
+&=
+\mathbb{E}_{\substack{
+(q,a)\sim D \\
+\{o_i\}_{i=1}^{G}\sim \pi_{\theta_{\mathrm{old}}}(\cdot \mid q)
+}}
+\Bigg[
 \frac{1}{G}
 \sum_{i=1}^{G}
 \frac{1}{|o_i|}
 \sum_{t=1}^{|o_i|}
 \left(
-\min
-\left(
+\min\left(
 r_{i,t}(\theta)\hat{A}_{i,t},
-\mathrm{clip}
-\left(
-r_{i,t}(\theta),
-1-\varepsilon,
-1+\varepsilon
-\right)
+\tilde{r}_{i,t}(\theta)
 \hat{A}_{i,t}
 \right)
 -
@@ -173,7 +172,8 @@ r_{i,t}(\theta),
 \pi_{\mathrm{ref}}
 \right)
 \right)
-\right]
+\Bigg]
+\end{aligned}
 $$
 
 其中：
@@ -186,6 +186,17 @@ r_{i,t}(\theta)
 }{
 \pi_{\theta_{\mathrm{old}}}(o_{i,t}\mid q,o_{i,<t})
 }
+$$
+
+$$
+\tilde{r}_{i,t}(\theta)
+=
+\mathrm{clip}
+\left(
+r_{i,t}(\theta),
+1-\varepsilon,
+1+\varepsilon
+\right)
 $$
 
 Clip-Higher 的作用可以从某个 token 在新旧策略下的概率比值 $r_{i,t}(\theta)$ 理解。它放宽上界，允许高优势 token 获得更大的概率提升；同时保留下界约束，避免概率下降过猛导致训练不稳定。
