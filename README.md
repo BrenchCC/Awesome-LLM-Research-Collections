@@ -382,6 +382,12 @@
   <a href="https://github.com/RUCBM/G-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models** (2026.01) \
+  **Description**: This paper introduces On-Policy Self-Distillation (OPSD), where a single LLM acts as teacher and student under different contexts: the teacher sees privileged verified reasoning traces while the student samples from the question-only policy. By matching per-token distributions over the student's on-policy rollouts, OPSD provides dense supervision without an external teacher and achieves stronger token efficiency than GRPO and off-policy distillation on math reasoning. \
+  <a href="https://arxiv.org/abs/2601.18734"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://siyan-zhao.github.io/blog/2026/opsd/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/siyan-zhao/OPSD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Reward Modeling
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **Description**: This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks. \

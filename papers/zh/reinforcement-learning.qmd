@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>论文</span></div>
-    <div><strong>68</strong><span>资源链接</span></div>
+    <div><strong>33</strong><span>论文</span></div>
+    <div><strong>71</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -123,7 +123,7 @@ toc: false
 </section>
 <section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>OPD</h2>
   </div>
   <div class="paper-grid">
@@ -187,6 +187,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2602.12125" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/RUCBM/G-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="self-distilled-reasoner-on-policy-self-distillation-for-large-language-models">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>OPD</span>
+  </div>
+  <h3>Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models</h3>
+  <p>该论文提出 On-Policy Self-Distillation (OPSD)，让同一 LLM 在不同上下文下同时扮演教师和学生：教师可看到带特权的验证推理轨迹，学生只看到问题并从自身策略采样。通过在学生的 on-policy rollout 上匹配 token 级分布，OPSD 无需外部教师即可提供密集监督，并在数学推理上比 GRPO 和 off-policy 蒸馏更具 token 效率。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.18734" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://siyan-zhao.github.io/blog/2026/opsd/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/siyan-zhao/OPSD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

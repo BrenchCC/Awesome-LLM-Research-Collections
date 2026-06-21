@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>Papers</span></div>
-    <div><strong>68</strong><span>Resource links</span></div>
+    <div><strong>33</strong><span>Papers</span></div>
+    <div><strong>71</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -123,7 +123,7 @@ toc: false
 </section>
 <section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>OPD</h2>
   </div>
   <div class="paper-grid">
@@ -187,6 +187,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2602.12125" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/RUCBM/G-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="self-distilled-reasoner-on-policy-self-distillation-for-large-language-models">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>OPD</span>
+  </div>
+  <h3>Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models</h3>
+  <p>This paper introduces On-Policy Self-Distillation (OPSD), where a single LLM acts as teacher and student under different contexts: the teacher sees privileged verified reasoning traces while the student samples from the question-only policy. By matching per-token distributions over the student&#x27;s on-policy rollouts, OPSD provides dense supervision without an external teacher and achieves stronger token efficiency than GRPO and off-policy distillation on math reasoning.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.18734" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://siyan-zhao.github.io/blog/2026/opsd/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/siyan-zhao/OPSD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

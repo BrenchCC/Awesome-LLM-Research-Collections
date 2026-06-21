@@ -382,6 +382,12 @@
   <a href="https://github.com/RUCBM/G-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/Keven16/G-OPD-Training-Data"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models** (2026.01) \
+  **描述**: 该论文提出 On-Policy Self-Distillation (OPSD)，让同一 LLM 在不同上下文下同时扮演教师和学生：教师可看到带特权的验证推理轨迹，学生只看到问题并从自身策略采样。通过在学生的 on-policy rollout 上匹配 token 级分布，OPSD 无需外部教师即可提供密集监督，并在数学推理上比 GRPO 和 off-policy 蒸馏更具 token 效率。 \
+  <a href="https://arxiv.org/abs/2601.18734"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://siyan-zhao.github.io/blog/2026/opsd/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/siyan-zhao/OPSD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 奖励建模
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **描述**: 该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。 \
