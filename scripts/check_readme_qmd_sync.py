@@ -141,14 +141,14 @@ class LanguageConfig:
 
 LABELS_EN = {
     "home_title": "Awesome LLM Research Collections",
-    "home_eyebrow": "LLM research command deck",
-    "home_lede": "A bilingual research hub for moving between curated papers, technical notes, and long-form AI engineering shares.",
-    "home_collections": "Collections",
-    "home_collections_eyebrow": "Choose a surface",
+    "home_eyebrow": "LLM research notes",
+    "home_lede": "A shared knowledge index for LLM research, collecting paper entries, reading notes, and technical essays for sustained review and reference.",
+    "home_collections": "Shared Collections",
+    "home_collections_eyebrow": "Research sharing",
     "papers_title": "Papers",
     "papers_summary": "A topic-indexed catalog of LLM, multimodal, training, reinforcement learning, agent, and prompting research.",
     "notes_title": "Notes",
-    "notes_summary": "Bilingual paper readings and technical reflections that turn dense research into reusable engineering memory.",
+    "notes_summary": "Paper readings and technical reflections shared as reusable research notes.",
     "blogs_title": "Blog Shares",
     "blogs_summary": "Selected technical essays and research writeups worth tracking alongside the paper catalog.",
     "papers": "Papers",
@@ -185,14 +185,14 @@ LABELS_EN = {
 
 LABELS_ZH = {
     "home_title": "Awesome LLM 研究论文合集",
-    "home_eyebrow": "LLM 研究控制台",
-    "home_lede": "在论文目录、技术笔记与博客分享之间快速切换的双语研究入口。",
-    "home_collections": "三大板块",
-    "home_collections_eyebrow": "选择入口",
+    "home_eyebrow": "LLM 研究笔记",
+    "home_lede": "面向大模型研究的知识分享索引，系统整理论文条目、阅读笔记与技术札记，便于持续复盘、归档与查阅。",
+    "home_collections": "知识分类",
+    "home_collections_eyebrow": "内容分享",
     "papers_title": "论文",
     "papers_summary": "按主题整理的大模型、多模态、训练、强化学习、智能体与提示优化研究目录。",
     "notes_title": "笔记",
-    "notes_summary": "围绕论文阅读和工程实践沉淀的双语技术笔记。",
+    "notes_summary": "围绕论文阅读和工程实践沉淀的技术笔记与研究分享。",
     "blogs_title": "博客分享",
     "blogs_summary": "与论文目录并行追踪的技术长文、研究分享和工程观察。",
     "papers": "论文",
@@ -289,7 +289,7 @@ def parse_args():
     No parameters.
     """
     parser = argparse.ArgumentParser(
-        description = "Check or regenerate bilingual Quarto qmd pages from README paper entries."
+        description = "Check or regenerate localized Quarto qmd pages from README paper entries."
     )
     parser.add_argument(
         "--write",

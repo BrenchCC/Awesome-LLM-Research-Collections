@@ -7,9 +7,9 @@ toc: false
 ```{=html}
 <section class="home-intro home-hub">
   <div class="language-switch"><a href="../index.html">English</a></div>
-  <p class="eyebrow">LLM 研究控制台</p>
+  <p class="eyebrow">LLM 研究笔记</p>
   <h1 class="home-title">Awesome LLM 研究论文合集</h1>
-  <p class="lede">在论文目录、技术笔记与博客分享之间快速切换的双语研究入口。</p>
+  <p class="lede">面向大模型研究的知识分享索引，系统整理论文条目、阅读笔记与技术札记，便于持续复盘、归档与查阅。</p>
   <div class="stat-strip">
     <div><strong>94</strong><span>论文</span></div>
     <div><strong>5</strong><span>笔记</span></div>
@@ -20,8 +20,8 @@ toc: false
 
 <section class="section-block">
   <div class="section-heading">
-    <p class="eyebrow">选择入口</p>
-    <h2>三大板块</h2>
+    <p class="eyebrow">内容分享</p>
+    <h2>知识分类</h2>
   </div>
   <div class="collection-grid">
 <a class="collection-card collection-card-papers" href="../papers/zh/index.html">
@@ -37,7 +37,7 @@ toc: false
 <a class="collection-card collection-card-notes" href="../notes/zh/index.html">
   <span class="collection-kicker">NOTES</span>
   <h2>笔记</h2>
-  <p>围绕论文阅读和工程实践沉淀的双语技术笔记。</p>
+  <p>围绕论文阅读和工程实践沉淀的技术笔记与研究分享。</p>
   <div class="collection-metrics">
     <span><strong>5</strong>笔记</span>
     <span><strong>3</strong>主题</span>
