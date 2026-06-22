@@ -1,5 +1,6 @@
 import re
 import html
+import json
 import logging
 import argparse
 from pathlib import Path
@@ -117,6 +118,13 @@ class Paper:
 
 
 @dataclass
+class CollectionSummary:
+    count: int
+    secondary_count: int
+    latest: str
+
+
+@dataclass
 class LanguageConfig:
     key: str
     readme_path: str
@@ -132,13 +140,33 @@ class LanguageConfig:
 
 
 LABELS_EN = {
-    "home_eyebrow": "Curated LLM research map",
-    "home_lede": "A browsable Quarto edition of the repository README, organized for fast scanning across papers, projects, code, and model resources.",
+    "home_title": "Awesome LLM Research Collections",
+    "home_eyebrow": "LLM research command deck",
+    "home_lede": "A bilingual research hub for moving between curated papers, technical notes, and long-form AI engineering shares.",
+    "home_collections": "Collections",
+    "home_collections_eyebrow": "Choose a surface",
+    "papers_title": "Papers",
+    "papers_summary": "A topic-indexed catalog of LLM, multimodal, training, reinforcement learning, agent, and prompting research.",
+    "notes_title": "Notes",
+    "notes_summary": "Bilingual paper readings and technical reflections that turn dense research into reusable engineering memory.",
+    "blogs_title": "Blog Shares",
+    "blogs_summary": "Selected technical essays and research writeups worth tracking alongside the paper catalog.",
     "papers": "Papers",
+    "notes": "Notes",
+    "blogs": "Blog shares",
     "categories": "Categories",
+    "topics": "Topics",
+    "sources": "Sources",
     "resource_links": "Resource links",
     "latest_month": "Latest month",
+    "latest_paper": "Latest paper",
+    "latest_note": "Latest note",
+    "latest_blog": "Latest share",
+    "open_collection": "Open index",
     "browse": "Browse",
+    "paper_index_title": "Papers",
+    "paper_index_eyebrow": "Research atlas",
+    "paper_index_lede": "Browse the paper catalog by research category or jump into the newest curated entries.",
     "research_categories": "Research Categories",
     "recent_eyebrow": "Fresh index",
     "recent_papers": "Recent Papers",
@@ -156,13 +184,33 @@ LABELS_EN = {
 }
 
 LABELS_ZH = {
-    "home_eyebrow": "LLM 研究地图",
-    "home_lede": "LLM 研究论文、项目、代码与模型资源精选合集。",
+    "home_title": "Awesome LLM 研究论文合集",
+    "home_eyebrow": "LLM 研究控制台",
+    "home_lede": "在论文目录、技术笔记与博客分享之间快速切换的双语研究入口。",
+    "home_collections": "三大板块",
+    "home_collections_eyebrow": "选择入口",
+    "papers_title": "论文",
+    "papers_summary": "按主题整理的大模型、多模态、训练、强化学习、智能体与提示优化研究目录。",
+    "notes_title": "笔记",
+    "notes_summary": "围绕论文阅读和工程实践沉淀的双语技术笔记。",
+    "blogs_title": "博客分享",
+    "blogs_summary": "与论文目录并行追踪的技术长文、研究分享和工程观察。",
     "papers": "论文",
+    "notes": "笔记",
+    "blogs": "博客分享",
     "categories": "分类",
+    "topics": "主题",
+    "sources": "来源",
     "resource_links": "资源链接",
     "latest_month": "最新月份",
+    "latest_paper": "最新论文",
+    "latest_note": "最新笔记",
+    "latest_blog": "最新分享",
+    "open_collection": "进入索引",
     "browse": "浏览",
+    "paper_index_title": "论文",
+    "paper_index_eyebrow": "研究图谱",
+    "paper_index_lede": "按研究分类浏览论文目录，或快速查看近期收录条目。",
     "research_categories": "研究分类",
     "recent_eyebrow": "最新索引",
     "recent_papers": "近期论文",
@@ -440,6 +488,102 @@ def render_language_switch(config, href):
     )
 
 
+def parse_simple_front_matter(path):
+    """Parse simple key-value front matter from a qmd file.
+
+    Parameters:
+        path: QMD file path to inspect.
+    """
+    lines = path.read_text(encoding = "utf-8").splitlines()
+    if not lines or lines[0].strip() != "---":
+        return {}
+
+    metadata = {}
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+        metadata[key.strip()] = value
+
+    return metadata
+
+
+def note_summary(config):
+    """Summarize notes for the homepage.
+
+    Parameters:
+        config: Language-specific rendering configuration.
+    """
+    notes_dir = Path("notes") / config.key
+    if not notes_dir.exists():
+        return CollectionSummary(
+            count = 0,
+            secondary_count = 0,
+            latest = "N/A"
+        )
+
+    dates = []
+    topics = set()
+    for path in sorted(notes_dir.rglob("*.qmd")):
+        if path.name == "index.qmd":
+            continue
+        metadata = parse_simple_front_matter(path)
+        if metadata.get("date"):
+            dates.append(metadata["date"])
+        if metadata.get("topic"):
+            topics.add(metadata["topic"])
+
+    return CollectionSummary(
+        count = len(dates),
+        secondary_count = len(topics),
+        latest = max(dates, default = "N/A")
+    )
+
+
+def blog_summary():
+    """Summarize blog shares for the homepage.
+
+    No parameters.
+    """
+    path = Path("data/blog_shares.json")
+    if not path.exists():
+        return CollectionSummary(
+            count = 0,
+            secondary_count = 0,
+            latest = "N/A"
+        )
+
+    raw_items = json.loads(path.read_text(encoding = "utf-8"))
+    if not isinstance(raw_items, list):
+        return CollectionSummary(
+            count = 0,
+            secondary_count = 0,
+            latest = "N/A"
+        )
+
+    dates = [
+        item.get("date", "")
+        for item in raw_items
+        if isinstance(item, dict) and item.get("date")
+    ]
+    sources = {
+        item.get("blog_url", "")
+        for item in raw_items
+        if isinstance(item, dict) and item.get("blog_url")
+    }
+
+    return CollectionSummary(
+        count = len(raw_items),
+        secondary_count = len(sources),
+        latest = max(dates, default = "N/A")
+    )
+
+
 def render_paper_card(paper, prefix):
     """Render one paper card.
 
@@ -466,33 +610,41 @@ def render_paper_card(paper, prefix):
 </article>"""
 
 
-def category_index_href(category, config):
-    """Build a category URL from the language homepage.
+def category_index_href(category, config, context = "home"):
+    """Build a category URL from a generated index page.
 
     Parameters:
         category: Top-level category name.
         config: Language-specific rendering configuration.
+        context: Page context that owns the link.
     """
     slug = slugify(category)
+    if context == "papers":
+        return f"{slug}.html"
     if config.key == "zh":
         return f"../papers/zh/{slug}.html"
     return f"papers/en/{slug}.html"
 
 
-def render_category_card(category, papers, config):
+def render_category_card(category, papers, config, context = "home"):
     """Render one homepage category card.
 
     Parameters:
         category: Top-level category name.
         papers: Papers under the category.
         config: Language-specific rendering configuration.
+        context: Page context that owns the link.
     """
     description = config.category_descriptions.get(category, config.site_description)
     subcategories = sorted({paper.subcategory for paper in papers if paper.subcategory})
     subcategory_text = "、".join(subcategories) if config.key == "zh" else ", ".join(subcategories)
     subcategory_text = subcategory_text if subcategory_text else config.labels["direct_collection"]
     latest = max((paper.date for paper in papers), default = config.labels["no_papers"])
-    href = category_index_href(category, config)
+    href = category_index_href(
+        category = category,
+        config = config,
+        context = context
+    )
     return f"""<a class="category-card" href="{href}">
   <span class="category-count">{paper_count_text(len(papers), config)}</span>
   <h3>{html.escape(category)}</h3>
@@ -504,18 +656,22 @@ def render_category_card(category, papers, config):
 </a>"""
 
 
-def render_recent_item(paper, config):
+def render_recent_item(paper, config, context = "home"):
     """Render one recent-paper row.
 
     Parameters:
         paper: Parsed paper entry.
         config: Language-specific rendering configuration.
+        context: Page context that owns the link.
     """
     category = html.escape(paper.category)
     title = html.escape(paper.title)
     date = html.escape(paper.date)
     paper_slug = slugify(paper.title)
-    href = f"{category_index_href(paper.category, config)}#{paper_slug}"
+    href = (
+        f"{category_index_href(paper.category, config, context = context)}"
+        f"#{paper_slug}"
+    )
     return f"""<a class="recent-row" href="{href}">
   <span>{date}</span>
   <strong>{title}</strong>
@@ -523,7 +679,71 @@ def render_recent_item(paper, config):
 </a>"""
 
 
-def generate_index(category_order, papers_by_category, config):
+def collection_href(collection, config):
+    """Build a collection-card URL for the homepage.
+
+    Parameters:
+        collection: Collection key to link.
+        config: Language-specific rendering configuration.
+    """
+    hrefs = {
+        "papers": {
+            "en": "papers/en/index.html",
+            "zh": "../papers/zh/index.html",
+        },
+        "notes": {
+            "en": "notes/en/index.html",
+            "zh": "../notes/zh/index.html",
+        },
+        "blogs": {
+            "en": "blogs/en/index.html",
+            "zh": "../blogs/zh/index.html",
+        },
+    }
+    return hrefs[collection][config.key]
+
+
+def render_collection_metric(value, label):
+    """Render one collection-card metric.
+
+    Parameters:
+        value: Metric value to display.
+        label: Metric label to display.
+    """
+    return (
+        '<span>'
+        f'<strong>{html.escape(str(value))}</strong>'
+        f'{html.escape(label)}'
+        '</span>'
+    )
+
+
+def render_collection_card(collection, title, description, metrics, config):
+    """Render one homepage collection card.
+
+    Parameters:
+        collection: Collection key used for styling and links.
+        title: Localized card title.
+        description: Localized card description.
+        metrics: List of value-label metric tuples.
+        config: Language-specific rendering configuration.
+    """
+    metric_markup = "\n    ".join(
+        render_collection_metric(value, label)
+        for value, label in metrics
+    )
+    return f"""<a class="collection-card collection-card-{collection}" href="{collection_href(collection, config)}">
+  <span class="collection-kicker">{html.escape(collection.upper())}</span>
+  <h2>{html.escape(title)}</h2>
+  <p>{html.escape(description)}</p>
+  <div class="collection-metrics">
+    {metric_markup}
+  </div>
+  <span class="collection-action">{html.escape(config.labels["open_collection"])}</span>
+</a>"""
+
+
+def generate_home_index(category_order, papers_by_category, config):
     """Generate the Quarto homepage.
 
     Parameters:
@@ -534,13 +754,43 @@ def generate_index(category_order, papers_by_category, config):
     papers = all_papers(category_order, papers_by_category)
     recent_papers = sorted(papers, key = lambda paper: paper.date, reverse = True)[:8]
     latest_month = recent_papers[0].date if recent_papers else "N/A"
-    category_cards = "\n".join(
-        render_category_card(category, papers_by_category.get(category, []), config)
-        for category in category_order
-    )
-    recent_rows = "\n".join(render_recent_item(paper, config) for paper in recent_papers)
-    resource_count = sum(len(paper.links) for paper in papers)
+    notes = note_summary(config)
+    blogs = blog_summary()
     switch = render_language_switch(config, config.labels["language_href"])
+    collection_cards = "\n".join(
+        [
+            render_collection_card(
+                collection = "papers",
+                title = config.labels["papers_title"],
+                description = config.labels["papers_summary"],
+                metrics = [
+                    (len(papers), config.labels["papers"]),
+                    (len(category_order), config.labels["categories"]),
+                ],
+                config = config
+            ),
+            render_collection_card(
+                collection = "notes",
+                title = config.labels["notes_title"],
+                description = config.labels["notes_summary"],
+                metrics = [
+                    (notes.count, config.labels["notes"]),
+                    (notes.secondary_count, config.labels["topics"]),
+                ],
+                config = config
+            ),
+            render_collection_card(
+                collection = "blogs",
+                title = config.labels["blogs_title"],
+                description = config.labels["blogs_summary"],
+                metrics = [
+                    (blogs.count, config.labels["blogs"]),
+                    (blogs.latest, config.labels["latest_blog"]),
+                ],
+                config = config
+            ),
+        ]
+    )
 
     return f"""---
 title: {yaml_quote(config.site_title)}
@@ -549,10 +799,75 @@ toc: false
 ---
 
 ```{{=html}}
-<section class="home-intro">
+<section class="home-intro home-hub">
   {switch}
   <p class="eyebrow">{html.escape(config.labels["home_eyebrow"])}</p>
+  <h1 class="home-title">{html.escape(config.labels["home_title"])}</h1>
   <p class="lede">{html.escape(config.labels["home_lede"])}</p>
+  <div class="stat-strip">
+    <div><strong>{len(papers)}</strong><span>{html.escape(config.labels["papers"])}</span></div>
+    <div><strong>{notes.count}</strong><span>{html.escape(config.labels["notes"])}</span></div>
+    <div><strong>{blogs.count}</strong><span>{html.escape(config.labels["blogs"])}</span></div>
+    <div><strong>{latest_month}</strong><span>{html.escape(config.labels["latest_paper"])}</span></div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">{html.escape(config.labels["home_collections_eyebrow"])}</p>
+    <h2>{html.escape(config.labels["home_collections"])}</h2>
+  </div>
+  <div class="collection-grid">
+{collection_cards}
+  </div>
+</section>
+```
+"""
+
+
+def generate_papers_index(category_order, papers_by_category, config):
+    """Generate the paper overview page.
+
+    Parameters:
+        category_order: Ordered list of top-level category names.
+        papers_by_category: Mapping from category name to paper entries.
+        config: Language-specific rendering configuration.
+    """
+    papers = all_papers(category_order, papers_by_category)
+    recent_papers = sorted(papers, key = lambda paper: paper.date, reverse = True)[:8]
+    latest_month = recent_papers[0].date if recent_papers else "N/A"
+    resource_count = sum(len(paper.links) for paper in papers)
+    category_cards = "\n".join(
+        render_category_card(
+            category = category,
+            papers = papers_by_category.get(category, []),
+            config = config,
+            context = "papers"
+        )
+        for category in category_order
+    )
+    recent_rows = "\n".join(
+        render_recent_item(
+            paper = paper,
+            config = config,
+            context = "papers"
+        )
+        for paper in recent_papers
+    )
+    switch_href = "../zh/index.html" if config.key == "en" else "../en/index.html"
+    switch = render_language_switch(config, switch_href)
+
+    return f"""---
+title: {yaml_quote(config.labels["paper_index_title"])}
+page-layout: full
+toc: false
+---
+
+```{{=html}}
+<section class="category-hero papers-overview-hero">
+  {switch}
+  <p class="eyebrow">{html.escape(config.labels["paper_index_eyebrow"])}</p>
+  <p class="category-summary">{html.escape(config.labels["paper_index_lede"])}</p>
   <div class="stat-strip">
     <div><strong>{len(papers)}</strong><span>{html.escape(config.labels["papers"])}</span></div>
     <div><strong>{len(category_order)}</strong><span>{html.escape(config.labels["categories"])}</span></div>
@@ -693,7 +1008,18 @@ def expected_files_for_config(config):
     """
     readme_path = Path(config.readme_path)
     category_order, papers_by_category = parse_readme(readme_path, config)
-    files = {config.index_path: generate_index(category_order, papers_by_category, config)}
+    files = {
+        config.index_path: generate_home_index(
+            category_order = category_order,
+            papers_by_category = papers_by_category,
+            config = config
+        ),
+        f"{config.papers_dir}/index.qmd": generate_papers_index(
+            category_order = category_order,
+            papers_by_category = papers_by_category,
+            config = config
+        ),
+    }
     for category in category_order:
         files[f"{config.papers_dir}/{slugify(category)}.qmd"] = generate_category_page(
             category = category,

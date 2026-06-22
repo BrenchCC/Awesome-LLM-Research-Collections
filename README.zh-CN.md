@@ -388,6 +388,12 @@
   <a href="https://siyan-zhao.github.io/blog/2026/opsd/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/siyan-zhao/OPSD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Self-Distillation Enables Continual Learning** (2026.01) \
+  **描述**: 该论文提出 Self-Distillation Fine-Tuning (SDFT)，一种从专家示范中进行 on-policy self-distillation 的方法，通过让示范条件下的模型作为自身教师生成训练信号。该方法在学习新任务的同时显著减少灾难性遗忘，使单个模型无需显式奖励函数也能顺序积累技能与知识。 \
+  <a href="https://arxiv.org/abs/2601.19897"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://self-distillation.github.io/SDFT"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/idanshen/Self-Distillation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 奖励建模
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **描述**: 该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。 \

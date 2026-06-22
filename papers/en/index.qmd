@@ -1,0 +1,167 @@
+---
+title: "Papers"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero papers-overview-hero">
+  <div class="language-switch"><a href="../zh/index.html">中文</a></div>
+  <p class="eyebrow">Research atlas</p>
+  <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
+  <div class="stat-strip">
+    <div><strong>94</strong><span>Papers</span></div>
+    <div><strong>10</strong><span>Categories</span></div>
+    <div><strong>222</strong><span>Resource links</span></div>
+    <div><strong>2026.06</strong><span>Latest month</span></div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Browse</p>
+    <h2>Research Categories</h2>
+  </div>
+  <div class="category-grid">
+<a class="category-card" href="attention.html">
+  <span class="category-count">4 papers</span>
+  <h3>Attention</h3>
+  <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
+  <div class="category-foot">
+    <span>2026.06</span>
+    <span>Attention Architecture</span>
+  </div>
+</a>
+<a class="category-card" href="llms.html">
+  <span class="category-count">18 papers</span>
+  <h3>LLMs</h3>
+  <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>Detection, Foundation Models, Inference</span>
+  </div>
+</a>
+<a class="category-card" href="multimodal-llms.html">
+  <span class="category-count">15 papers</span>
+  <h3>Multimodal LLMs</h3>
+  <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>Multimodal Reasoning, VLA, Vision-Language</span>
+  </div>
+</a>
+<a class="category-card" href="embeddings.html">
+  <span class="category-count">1 paper</span>
+  <h3>Embeddings</h3>
+  <p>Representation learning, retrieval, semantic matching, and embedding model research.</p>
+  <div class="category-foot">
+    <span>2025.06</span>
+    <span>Direct collection</span>
+  </div>
+</a>
+<a class="category-card" href="sft.html">
+  <span class="category-count">3 papers</span>
+  <h3>SFT</h3>
+  <p>Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>SFT Methods</span>
+  </div>
+</a>
+<a class="category-card" href="training.html">
+  <span class="category-count">2 papers</span>
+  <h3>Training</h3>
+  <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>Distillation, Optimization</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning.html">
+  <span class="category-count">34 papers</span>
+  <h3>Reinforcement Learning</h3>
+  <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
+  <div class="category-foot">
+    <span>2026.06</span>
+    <span>Agentic RL, Multimodal RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
+  </div>
+</a>
+<a class="category-card" href="agents-application.html">
+  <span class="category-count">13 papers</span>
+  <h3>Agents Application</h3>
+  <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
+  <div class="category-foot">
+    <span>2026.05</span>
+    <span>AI Research, Agent Development, Agent Skills, Memory, Tool Use</span>
+  </div>
+</a>
+<a class="category-card" href="vision.html">
+  <span class="category-count">1 paper</span>
+  <h3>Vision</h3>
+  <p>Computer vision methods that are useful background for modern multimodal systems.</p>
+  <div class="category-foot">
+    <span>2022.03</span>
+    <span>Object Detection</span>
+  </div>
+</a>
+<a class="category-card" href="auto-prompt.html">
+  <span class="category-count">3 papers</span>
+  <h3>Auto-Prompt</h3>
+  <p>Prompt optimization, evaluator prompting, prompt ensembles, and test-time prompt learning.</p>
+  <div class="category-foot">
+    <span>2025.12</span>
+    <span>Judge Prompting, Prompt Optimization</span>
+  </div>
+</a>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <p class="eyebrow">Fresh index</p>
+    <h2>Recent Papers</h2>
+  </div>
+  <div class="recent-list">
+<a class="recent-row" href="attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
+  <span>2026.06</span>
+  <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
+  <em>Attention</em>
+</a>
+<a class="recent-row" href="reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
+  <span>2026.06</span>
+  <strong>Rethinking the Divergence Regularization in LLM RL</strong>
+  <em>Reinforcement Learning</em>
+</a>
+<a class="recent-row" href="attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
+  <span>2026.05</span>
+  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
+  <em>Attention</em>
+</a>
+<a class="recent-row" href="llms.html#the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
+  <span>2026.05</span>
+  <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
+  <em>LLMs</em>
+</a>
+<a class="recent-row" href="llms.html#base-models-look-human-to-ai-detectors">
+  <span>2026.05</span>
+  <strong>Base Models Look Human To AI Detectors</strong>
+  <em>LLMs</em>
+</a>
+<a class="recent-row" href="multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
+  <span>2026.05</span>
+  <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
+  <em>Multimodal LLMs</em>
+</a>
+<a class="recent-row" href="sft.html#data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
+  <span>2026.05</span>
+  <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
+  <em>SFT</em>
+</a>
+<a class="recent-row" href="training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
+  <span>2026.05</span>
+  <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
+  <em>Training</em>
+</a>
+  </div>
+</section>
+```

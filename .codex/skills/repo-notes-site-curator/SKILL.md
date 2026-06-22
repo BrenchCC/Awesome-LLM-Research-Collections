@@ -11,10 +11,14 @@ Update together:
 `notes/assets/`
 `README.md`
 `README.zh-CN.md`
+`index.qmd`
+`zh/index.qmd`
 `notes/en/index.qmd`
 `notes/zh/index.qmd`
 
 Also update `_quarto.yml` only when the notes render paths or navigation structure need to change.
+
+The generated homepage reads note counts and latest-note dates. Refresh it after notes generator writes.
 
 ## Shared README Stability
 
@@ -25,6 +29,7 @@ Also update `_quarto.yml` only when the notes render paths or navigation structu
 - After any command writes either README, run every shared README checker in CI order:
 
 ```bash
+python scripts/sync_notes.py
 python scripts/check_readme_qmd_sync.py
 python scripts/sync_blog_shares.py
 ```
@@ -90,25 +95,31 @@ Keep paired English and Chinese notes aligned on `date`, `author`, `order`, `not
 python scripts/sync_notes.py --write
 ```
 
-8. Validate generated notes content:
+8. Refresh generated homepage statistics:
+
+```bash
+python scripts/check_readme_qmd_sync.py --write
+```
+
+9. Validate generated notes content:
 
 ```bash
 python scripts/sync_notes.py
 ```
 
-9. Validate the paper catalog still ignores notes:
+10. Validate the paper catalog still ignores notes while keeping homepage stats current:
 
 ```bash
 python scripts/check_readme_qmd_sync.py
 ```
 
-10. Validate that the Blogs generator still accepts the shared README files:
+11. Validate that the Blogs generator still accepts the shared README files:
 
 ```bash
 python scripts/sync_blog_shares.py
 ```
 
-11. Render the website when requested or when navigation/render configuration changed:
+12. Render the website when requested or when navigation/render configuration changed:
 
 ```bash
 quarto render --no-execute

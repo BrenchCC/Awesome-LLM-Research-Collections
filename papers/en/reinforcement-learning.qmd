@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>33</strong><span>Papers</span></div>
-    <div><strong>71</strong><span>Resource links</span></div>
+    <div><strong>34</strong><span>Papers</span></div>
+    <div><strong>74</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -123,7 +123,7 @@ toc: false
 </section>
 <section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>OPD</h2>
   </div>
   <div class="paper-grid">
@@ -200,6 +200,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2601.18734" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://siyan-zhao.github.io/blog/2026/opsd/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/siyan-zhao/OPSD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="self-distillation-enables-continual-learning">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>OPD</span>
+  </div>
+  <h3>Self-Distillation Enables Continual Learning</h3>
+  <p>This paper introduces Self-Distillation Fine-Tuning (SDFT), an on-policy self-distillation method that learns from expert demonstrations by using a demonstration-conditioned model as its own teacher. It improves new-task acquisition while reducing catastrophic forgetting, enabling sequential accumulation of skills and knowledge without explicit reward functions.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.19897" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://self-distillation.github.io/SDFT" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/idanshen/Self-Distillation" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

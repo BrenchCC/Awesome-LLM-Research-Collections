@@ -9,10 +9,14 @@ Update together:
 `data/blog_shares.json`
 `README.md`
 `README.zh-CN.md`
+`index.qmd`
+`zh/index.qmd`
 `blogs/en/index.qmd`
 `blogs/zh/index.qmd`
 
 Also update `_quarto.yml` only when blog render paths or website navigation change.
+
+The generated homepage reads blog counts and latest-share dates. Refresh it after blog generator writes.
 
 ## Shared README Stability
 
@@ -23,6 +27,7 @@ Also update `_quarto.yml` only when blog render paths or website navigation chan
 - After any command writes either README, run every shared README checker in CI order:
 
 ```bash
+python scripts/sync_notes.py
 python scripts/check_readme_qmd_sync.py
 python scripts/sync_blog_shares.py
 ```
@@ -63,19 +68,25 @@ Rules:
 python scripts/sync_blog_shares.py --write
 ```
 
-5. Validate generated blog content:
+5. Refresh generated homepage statistics:
+
+```bash
+python scripts/check_readme_qmd_sync.py --write
+```
+
+6. Validate generated blog content:
 
 ```bash
 python scripts/sync_blog_shares.py
 ```
 
-6. Validate the paper catalog still ignores blog sections:
+7. Validate the paper catalog still ignores blog sections while keeping homepage stats current:
 
 ```bash
 python scripts/check_readme_qmd_sync.py
 ```
 
-7. Render the website when navigation, render paths, or generated pages changed:
+8. Render the website when navigation, render paths, or generated pages changed:
 
 ```bash
 quarto render --no-execute

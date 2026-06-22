@@ -9,11 +9,15 @@ Update together:
 `README.md`
 `README.zh-CN.md`
 `index.qmd`
+`papers/en/index.qmd`
 `papers/en/*.qmd`
 `zh/index.qmd`
+`papers/zh/index.qmd`
 `papers/zh/*.qmd`
 
 Also update `_quarto.yml` only when a new top-level category creates new English and Chinese category pages that must appear in website navigation.
+
+`index.qmd` and `zh/index.qmd` are generated homepage hubs for Papers, Notes, and Blogs. Paper category browsing and recent-paper lists belong in `papers/en/index.qmd` and `papers/zh/index.qmd`.
 
 ## Shared README Stability
 
@@ -25,6 +29,7 @@ Also update `_quarto.yml` only when a new top-level category creates new English
 
 ```bash
 python scripts/check_readme_qmd_sync.py
+python scripts/sync_notes.py
 python scripts/sync_blog_shares.py
 quarto render --no-execute
 ```
@@ -123,7 +128,7 @@ Use this flow when title/abstract parsing is ambiguous, math-heavy, or formattin
 9. Insert each entry into both README files under the chosen subcategory when available; otherwise under the chosen top-level section, based on date ordering (newer first).
 10. If one of `Project` / `Code` / `Hugging Face` is unavailable after discovery, omit that line and keep only available fields.
 11. After all entries are inserted, update English `# Contents` and Chinese `# 目录` once so both directories remain consistent.
-12. Regenerate bilingual Quarto pages from both README files:
+12. Regenerate bilingual homepage, paper overview, and paper category Quarto pages from both README files:
 
 ```bash
 python scripts/check_readme_qmd_sync.py --write
@@ -410,6 +415,8 @@ Validation rules:
 
 - Modify `README.md`, `README.zh-CN.md`, and the synchronized Quarto files generated from them.
 - Preserve existing heading hierarchy and qmd card layout.
+- Keep the homepage as a three-entry hub for Papers, Notes, and Blogs.
+- Keep paper category browsing and recent-paper lists on the generated paper overview pages.
 - Keep additions minimal and preserve existing style.
 - Do not rewrite unrelated content.
 - Do not commit or edit rendered `_site/` output.

@@ -5,162 +5,54 @@ toc: false
 ---
 
 ```{=html}
-<section class="home-intro">
+<section class="home-intro home-hub">
   <div class="language-switch"><a href="../index.html">English</a></div>
-  <p class="eyebrow">LLM 研究地图</p>
-  <p class="lede">LLM 研究论文、项目、代码与模型资源精选合集。</p>
+  <p class="eyebrow">LLM 研究控制台</p>
+  <h1 class="home-title">Awesome LLM 研究论文合集</h1>
+  <p class="lede">在论文目录、技术笔记与博客分享之间快速切换的双语研究入口。</p>
   <div class="stat-strip">
-    <div><strong>93</strong><span>论文</span></div>
-    <div><strong>10</strong><span>分类</span></div>
-    <div><strong>219</strong><span>资源链接</span></div>
-    <div><strong>2026.06</strong><span>最新月份</span></div>
+    <div><strong>94</strong><span>论文</span></div>
+    <div><strong>5</strong><span>笔记</span></div>
+    <div><strong>1</strong><span>博客分享</span></div>
+    <div><strong>2026.06</strong><span>最新论文</span></div>
   </div>
 </section>
 
 <section class="section-block">
   <div class="section-heading">
-    <p class="eyebrow">浏览</p>
-    <h2>研究分类</h2>
+    <p class="eyebrow">选择入口</p>
+    <h2>三大板块</h2>
   </div>
-  <div class="category-grid">
-<a class="category-card" href="../papers/zh/attention.html">
-  <span class="category-count">4 篇论文</span>
-  <h3>注意力机制</h3>
-  <p>围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
-  <div class="category-foot">
-    <span>2026.06</span>
-    <span>注意力架构</span>
+  <div class="collection-grid">
+<a class="collection-card collection-card-papers" href="../papers/zh/index.html">
+  <span class="collection-kicker">PAPERS</span>
+  <h2>论文</h2>
+  <p>按主题整理的大模型、多模态、训练、强化学习、智能体与提示优化研究目录。</p>
+  <div class="collection-metrics">
+    <span><strong>94</strong>论文</span>
+    <span><strong>10</strong>分类</span>
   </div>
+  <span class="collection-action">进入索引</span>
 </a>
-<a class="category-card" href="../papers/zh/llms.html">
-  <span class="category-count">18 篇论文</span>
-  <h3>大语言模型</h3>
-  <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
-  <div class="category-foot">
-    <span>2026.05</span>
-    <span>基础模型、推理、检测</span>
+<a class="collection-card collection-card-notes" href="../notes/zh/index.html">
+  <span class="collection-kicker">NOTES</span>
+  <h2>笔记</h2>
+  <p>围绕论文阅读和工程实践沉淀的双语技术笔记。</p>
+  <div class="collection-metrics">
+    <span><strong>5</strong>笔记</span>
+    <span><strong>3</strong>主题</span>
   </div>
+  <span class="collection-action">进入索引</span>
 </a>
-<a class="category-card" href="../papers/zh/multimodal-llms.html">
-  <span class="category-count">15 篇论文</span>
-  <h3>多模态大模型</h3>
-  <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
-  <div class="category-foot">
-    <span>2026.05</span>
-    <span>多模态推理、视觉-语言-动作、视觉语言</span>
+<a class="collection-card collection-card-blogs" href="../blogs/zh/index.html">
+  <span class="collection-kicker">BLOGS</span>
+  <h2>博客分享</h2>
+  <p>与论文目录并行追踪的技术长文、研究分享和工程观察。</p>
+  <div class="collection-metrics">
+    <span><strong>1</strong>博客分享</span>
+    <span><strong>2026-06-04</strong>最新分享</span>
   </div>
-</a>
-<a class="category-card" href="../papers/zh/embeddings.html">
-  <span class="category-count">1 篇论文</span>
-  <h3>嵌入模型</h3>
-  <p>面向检索、语义匹配、表示学习和嵌入模型训练的研究。</p>
-  <div class="category-foot">
-    <span>2025.06</span>
-    <span>直接收录</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/sft.html">
-  <span class="category-count">3 篇论文</span>
-  <h3>监督微调</h3>
-  <p>监督微调方法、数据配方、token 加权和推理泛化研究。</p>
-  <div class="category-foot">
-    <span>2026.05</span>
-    <span>监督微调方法</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/training.html">
-  <span class="category-count">2 篇论文</span>
-  <h3>训练</h3>
-  <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
-  <div class="category-foot">
-    <span>2026.05</span>
-    <span>优化、蒸馏</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/reinforcement-learning.html">
-  <span class="category-count">33 篇论文</span>
-  <h3>强化学习</h3>
-  <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
-  <div class="category-foot">
-    <span>2026.06</span>
-    <span>OPD、多模态强化学习、奖励建模、推理强化学习、智能体强化学习、策略优化、视觉-语言-动作强化学习、视频生成强化学习</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/agents-application.html">
-  <span class="category-count">13 篇论文</span>
-  <h3>智能体应用</h3>
-  <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
-  <div class="category-foot">
-    <span>2026.05</span>
-    <span>AI 研究、工具调用、智能体开发、智能体技能、记忆</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/vision.html">
-  <span class="category-count">1 篇论文</span>
-  <h3>视觉</h3>
-  <p>对现代多模态系统有参考价值的计算机视觉方法。</p>
-  <div class="category-foot">
-    <span>2022.03</span>
-    <span>目标检测</span>
-  </div>
-</a>
-<a class="category-card" href="../papers/zh/auto-prompt.html">
-  <span class="category-count">3 篇论文</span>
-  <h3>自动提示</h3>
-  <p>提示词优化、评测器提示、提示集成和测试时提示学习。</p>
-  <div class="category-foot">
-    <span>2025.12</span>
-    <span>提示优化、评测器提示</span>
-  </div>
-</a>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="section-heading">
-    <p class="eyebrow">最新索引</p>
-    <h2>近期论文</h2>
-  </div>
-  <div class="recent-list">
-<a class="recent-row" href="../papers/zh/attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
-  <span>2026.06</span>
-  <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
-  <em>注意力机制</em>
-</a>
-<a class="recent-row" href="../papers/zh/reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
-  <span>2026.06</span>
-  <strong>Rethinking the Divergence Regularization in LLM RL</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="../papers/zh/attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
-  <span>2026.05</span>
-  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
-  <em>注意力机制</em>
-</a>
-<a class="recent-row" href="../papers/zh/llms.html#the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
-  <span>2026.05</span>
-  <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="../papers/zh/llms.html#base-models-look-human-to-ai-detectors">
-  <span>2026.05</span>
-  <strong>Base Models Look Human To AI Detectors</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="../papers/zh/multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
-  <span>2026.05</span>
-  <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="../papers/zh/sft.html#data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
-  <span>2026.05</span>
-  <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
-  <em>监督微调</em>
-</a>
-<a class="recent-row" href="../papers/zh/training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
-  <span>2026.05</span>
-  <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
-  <em>训练</em>
+  <span class="collection-action">进入索引</span>
 </a>
   </div>
 </section>

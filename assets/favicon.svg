@@ -1,9 +1,24 @@
 <svg role="img" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <title>Awesome LLM Research Collections</title>
-  <rect width="64" height="64" rx="14" fill="#101828"/>
-  <path d="M16 17h20l12 12v21H16z" fill="#ffffff"/>
-  <path d="M36 17v13h12" fill="#d8ecff"/>
-  <path d="M22 35h20M22 43h14" stroke="#B31B1B" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="46" cy="18" r="8" fill="#FFD21E"/>
-  <path d="M43 18h6M46 15v6" stroke="#101828" stroke-width="2" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="paper" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef7f5"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="15" y1="16" x2="52" y2="49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f638f"/>
+      <stop offset="0.62" stop-color="#269d91"/>
+      <stop offset="1" stop-color="#a87825"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#paper)" stroke="#cddbd7" stroke-width="2"/>
+  <path d="M13 20h38M13 34h38M13 48h38M20 13v38M34 13v38M48 13v38" stroke="#dce8e5" stroke-width="1"/>
+  <path d="M16 49V17h21l12 12v20z" fill="#ffffff" stroke="#269d91" stroke-width="2"/>
+  <path d="M37 17v12h12" fill="#eef7f5" stroke="#a87825" stroke-width="2"/>
+  <path d="M23 28h9M23 36h19M23 43h13" stroke="#2f638f" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M16 18 28 9 48 15M49 29l8 8M18 49 9 56" fill="none" stroke="url(#signal)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="28" cy="9" r="3.2" fill="#269d91"/>
+  <circle cx="48" cy="15" r="3" fill="#a87825"/>
+  <circle cx="57" cy="37" r="3" fill="#2f638f"/>
+  <circle cx="9" cy="56" r="3" fill="#269d91"/>
 </svg>

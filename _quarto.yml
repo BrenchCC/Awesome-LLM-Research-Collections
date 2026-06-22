@@ -28,6 +28,8 @@ website:
         text: Home
       - text: Papers
         menu:
+          - href: papers/en/index.qmd
+            text: Overview
           - href: papers/en/attention.qmd
             text: Attention
           - href: papers/en/llms.qmd
