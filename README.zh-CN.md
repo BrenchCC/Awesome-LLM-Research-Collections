@@ -55,6 +55,12 @@
   <a href="https://github.com/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **MiniMax Sparse Attention** (2026.06) \
+  **描述**: 该论文提出 MiniMax Sparse Attention，一种基于 GQA 的分块稀疏注意力机制，通过轻量级 Index Branch 为每个 GQA 组选择 Top-k KV 分块，再执行精确稀疏注意力。其协同设计的 GPU kernel 将稀疏性转化为百万 token 上下文中的实际加速，同时保持接近 dense GQA 的模型效果。 \
+  <a href="https://arxiv.org/abs/2606.13392"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MiniMax-AI/MSA"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/MiniMaxAI/MiniMax-M3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding** (2026.05) \
   **描述**: 该论文提出 Group-Query Latent Attention，对 MLA 做最小修改，使同一组训练权重同时暴露 MQA-absorb 和 GQA 两条解码路径。运行时可根据目标硬件选择路径，无需重新训练或自定义 kernel，从而兼顾 H100 式压缩解码、面向 H20 的 GQA 加 MTP，以及最高 8 路零冗余张量并行。 \
   <a href="https://arxiv.org/abs/2605.15250"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

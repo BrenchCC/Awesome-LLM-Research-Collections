@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>94</strong><span>Papers</span></div>
+    <div><strong>95</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>222</strong><span>Resource links</span></div>
+    <div><strong>225</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -24,7 +24,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">4 papers</span>
+  <span class="category-count">5 papers</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="attention.html#minimax-sparse-attention">
+  <span>2026.06</span>
+  <strong>MiniMax Sparse Attention</strong>
+  <em>Attention</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
   <span>2026.06</span>
   <strong>Rethinking the Divergence Regularization in LLM RL</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
   <em>SFT</em>
-</a>
-<a class="recent-row" href="training.html#powlu-an-activation-function-for-stable-pre-training-of-llms">
-  <span>2026.05</span>
-  <strong>PowLU: An Activation Function for Stable Pre-Training of LLMs</strong>
-  <em>Training</em>
 </a>
   </div>
 </section>

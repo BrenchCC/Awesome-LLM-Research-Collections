@@ -55,6 +55,12 @@
   <a href="https://github.com/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/libertywing/FlashMemory-Deepseek-V4"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **MiniMax Sparse Attention** (2026.06) \
+  **Description**: This paper introduces MiniMax Sparse Attention, a blockwise sparse attention mechanism built on GQA that uses a lightweight Index Branch to select group-specific Top-k KV blocks before exact sparse attention. Co-designed GPU kernels turn the sparsity into large practical speedups at million-token context while maintaining performance close to dense GQA. \
+  <a href="https://arxiv.org/abs/2606.13392"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/MiniMax-AI/MSA"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/MiniMaxAI/MiniMax-M3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding** (2026.05) \
   **Description**: This paper proposes Group-Query Latent Attention, a minimal MLA modification that exposes both MQA-absorb and GQA decoding paths from the same trained weights. The runtime can select the path that matches target hardware without retraining or custom kernels, enabling H100-style compressed decoding, H20-oriented GQA plus MTP, and up to 8-way zero-redundancy tensor parallelism. \
   <a href="https://arxiv.org/abs/2605.15250"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
