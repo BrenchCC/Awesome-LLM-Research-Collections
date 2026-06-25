@@ -509,6 +509,10 @@
 # 智能体应用
 
 ## 工具调用
+- **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
+  **描述**: 该论文实证研究检索策略、智能体 harness 设计与工具结果呈现方式在 agentic search 中如何相互影响。在基于 LongMemEval、Chronos 和厂商 CLI harness 的实验中，grep 往往优于向量检索，但整体性能仍强烈受 harness 与工具调用风格影响。 \
+  <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **描述**: 该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。 \
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

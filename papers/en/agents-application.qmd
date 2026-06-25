@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>Papers</span></div>
-    <div><strong>24</strong><span>Resource links</span></div>
+    <div><strong>14</strong><span>Papers</span></div>
+    <div><strong>25</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -26,10 +26,21 @@ toc: false
 
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Tool Use</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="is-grep-all-you-need-how-agent-harnesses-reshape-agentic-search">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Tool Use</span>
+  </div>
+  <h3>Is Grep All You Need? How Agent Harnesses Reshape Agentic Search</h3>
+  <p>This paper empirically studies how retrieval strategy, agent harness design, and tool-result delivery interact in agentic search. Across LongMemEval experiments with Chronos and provider CLI harnesses, grep often outperforms vector retrieval, while overall performance remains strongly shaped by the harness and tool-calling style.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.15184" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
   <div class="paper-meta">
     <span>2025.12</span>

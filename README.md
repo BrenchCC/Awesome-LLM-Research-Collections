@@ -509,6 +509,10 @@
 # Agents Application
 
 ## Tool Use
+- **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
+  **Description**: This paper empirically studies how retrieval strategy, agent harness design, and tool-result delivery interact in agentic search. Across LongMemEval experiments with Chronos and provider CLI harnesses, grep often outperforms vector retrieval, while overall performance remains strongly shaped by the harness and tool-calling style. \
+  <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **Description**: This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks. \
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
