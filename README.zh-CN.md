@@ -490,7 +490,13 @@
 - **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) \
   **描述**: 该论文提出 Arena-RL，一个通过视觉语言动作模型训练 LLM 驱动智能体玩视觉游戏的强化学习框架，重点从交互式游戏反馈中改进策略。实验表明，基于游戏轨迹的奖励优化能显著提升策略决策与跨游戏泛化。 \
   <a href="https://arxiv.org/abs/2601.06487"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
-  
+
+- **Agentic Reinforced Policy Optimization** (2025.07) \
+  **描述**: 该论文提出 ARPO，一种面向多轮 LLM 智能体训练的智能体强化学习算法，用于平衡长程推理能力与逐步工具交互能力。它通过基于熵的自适应 rollout 采样和工具调用步骤上的优势归因，在计算推理、知识推理和深度搜索基准上优于轨迹级 RL 方法，并将工具调用预算约减半。 \
+  <a href="https://arxiv.org/abs/2507.19849"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/RUC-NLPIR/ARPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/dongguanting/arpo-688229ff8a6143fe5b4ad8ae"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning** (2025.03) \
   **描述**: 该论文提出 Search-R1，一个让 LLM 在逐步推理中通过 RL 学会自主生成搜索查询并使用实时检索的框架。它提升了模型获取外部知识和最新信息的能力。 \
   <a href="https://arxiv.org/abs/2503.09516"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

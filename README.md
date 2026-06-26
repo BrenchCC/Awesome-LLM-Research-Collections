@@ -490,7 +490,13 @@
 - **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) \
   **Description**: This paper introduces Arena-RL, a reinforcement learning framework that trains LLM-driven agents to play visual games via vision-language action models, focusing on policy improvement from interactive game feedback. It demonstrates that reward-driven optimization over game trajectories can significantly improve strategic decision-making and generalization across game environments. \
   <a href="https://arxiv.org/abs/2601.06487"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
-  
+
+- **Agentic Reinforced Policy Optimization** (2025.07) \
+  **Description**: This paper introduces ARPO, an agentic RL algorithm for training multi-turn LLM agents that must balance long-horizon reasoning with stepwise tool interactions. It uses entropy-adaptive rollout sampling and advantage attribution over tool-use steps, improving performance across computational reasoning, knowledge reasoning, and deep search benchmarks with roughly half the tool budget of prior trajectory-level RL methods. \
+  <a href="https://arxiv.org/abs/2507.19849"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/RUC-NLPIR/ARPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/dongguanting/arpo-688229ff8a6143fe5b4ad8ae"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning** (2025.03) \
   **Description**: This paper introduces Search-R1, an RL framework where LLMs learn to autonomously generate search queries during step-by-step reasoning with real-time retrieval, improving their ability to acquire external knowledge and up-to-date information. \
   <a href="https://arxiv.org/abs/2503.09516"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

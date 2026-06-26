@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>34</strong><span>论文</span></div>
-    <div><strong>74</strong><span>资源链接</span></div>
+    <div><strong>35</strong><span>论文</span></div>
+    <div><strong>77</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -420,7 +420,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -458,6 +458,19 @@ toc: false
   <p>该论文提出 Arena-RL，一个通过视觉语言动作模型训练 LLM 驱动智能体玩视觉游戏的强化学习框架，重点从交互式游戏反馈中改进策略。实验表明，基于游戏轨迹的奖励优化能显著提升策略决策与跨游戏泛化。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2601.06487" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="agentic-reinforced-policy-optimization">
+  <div class="paper-meta">
+    <span>2025.07</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Agentic Reinforced Policy Optimization</h3>
+  <p>该论文提出 ARPO，一种面向多轮 LLM 智能体训练的智能体强化学习算法，用于平衡长程推理能力与逐步工具交互能力。它通过基于熵的自适应 rollout 采样和工具调用步骤上的优势归因，在计算推理、知识推理和深度搜索基准上优于轨迹级 RL 方法，并将工具调用预算约减半。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2507.19849" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/RUC-NLPIR/ARPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/dongguanting/arpo-688229ff8a6143fe5b4ad8ae" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="search-r1-training-llms-to-reason-and-leverage-search-engines-with-reinforcement-learning">
