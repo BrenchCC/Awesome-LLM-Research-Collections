@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>97</strong><span>Papers</span></div>
+    <div><strong>98</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>229</strong><span>Resource links</span></div>
+    <div><strong>230</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">35 papers</span>
+  <span class="category-count">36 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -137,6 +137,11 @@ toc: false
   <strong>Rethinking the Divergence Regularization in LLM RL</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#poweropd-stabilizing-on-policy-distillation-with-bounded-power-transformation">
+  <span>2026.06</span>
+  <strong>PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
   <span>2026.05</span>
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
   <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="sft.html#data-difficulty-and-the-generalization-extrapolation-tradeoff-in-llm-fine-tuning">
-  <span>2026.05</span>
-  <strong>Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning</strong>
-  <em>SFT</em>
 </a>
   </div>
 </section>

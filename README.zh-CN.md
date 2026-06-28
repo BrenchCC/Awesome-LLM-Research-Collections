@@ -361,6 +361,10 @@
   <a href="https://github.com/openai/baselines"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## OPD
+- **PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation** (2026.06) \
+  **描述**: 该论文指出，基于采样 token 的 on-policy distillation 中，无界的 log-ratio 奖励会引发高方差梯度与训练不稳定。PowerOPD 使用由 Box-Cox 幂变换导出的有界、符号一致奖励族，在降低全词表 OPD 时间和显存开销的同时提升数学推理准确率。 \
+  <a href="https://arxiv.org/abs/2606.17199"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
   **描述**: 该论文分析 on-policy self-distillation 在数学推理中效果不稳定的原因，指出基于特权上下文的教师信号会通过点式互信息过度强化答案已暗示的 token，同时压低驱动多步搜索的思考 token。论文提出 AntiSD，用带熵门控的反向自蒸馏散度替代默认下降方向，在 2 到 10 倍更少训练步数内达到 GRPO 水平，并将最终准确率最高提升 11.5 个百分点。 \
   <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

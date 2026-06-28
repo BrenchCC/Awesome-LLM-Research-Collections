@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>35</strong><span>Papers</span></div>
-    <div><strong>77</strong><span>Resource links</span></div>
+    <div><strong>36</strong><span>Papers</span></div>
+    <div><strong>78</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -123,10 +123,21 @@ toc: false
 </section>
 <section class="paper-section" id="opd">
   <div class="section-heading compact">
-    <p class="eyebrow">7 papers</p>
+    <p class="eyebrow">8 papers</p>
     <h2>OPD</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="poweropd-stabilizing-on-policy-distillation-with-bounded-power-transformation">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>OPD</span>
+  </div>
+  <h3>PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation</h3>
+  <p>This paper identifies the unbounded log-ratio reward as the source of high-variance gradients and unstable training in sampled-token on-policy distillation. PowerOPD replaces it with a bounded, sign-consistent reward family derived from the Box-Cox power transformation, improving mathematical reasoning accuracy while reducing time and memory relative to full-vocabulary OPD.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.17199" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="anti-self-distillation-for-reasoning-rl-via-pointwise-mutual-information">
   <div class="paper-meta">
     <span>2026.05</span>

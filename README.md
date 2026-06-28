@@ -361,6 +361,10 @@
   <a href="https://github.com/openai/baselines"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## OPD
+- **PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation** (2026.06) \
+  **Description**: This paper identifies the unbounded log-ratio reward as the source of high-variance gradients and unstable training in sampled-token on-policy distillation. PowerOPD replaces it with a bounded, sign-consistent reward family derived from the Box-Cox power transformation, improving mathematical reasoning accuracy while reducing time and memory relative to full-vocabulary OPD. \
+  <a href="https://arxiv.org/abs/2606.17199"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Anti-Self-Distillation for Reasoning RL via Pointwise Mutual Information** (2026.05) \
   **Description**: This paper analyzes why on-policy self-distillation can hurt math reasoning, showing through pointwise mutual information that privileged context overemphasizes solution-implied tokens while suppressing deliberation tokens needed for search. It proposes AntiSD, which ascends rather than descends the self-distillation divergence with an entropy gate, reaching GRPO-level accuracy in 2 to 10x fewer steps and improving final accuracy by up to 11.5 points. \
   <a href="https://arxiv.org/abs/2605.11609"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
