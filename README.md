@@ -646,6 +646,11 @@
   [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
+- **From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings** (2026-06-29) \
+  **Description**: Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL. \
+  [[Note](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
+  [[中文](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
+
 # Blogs
 
 - **When AI builds itself** (2026-06-04) \

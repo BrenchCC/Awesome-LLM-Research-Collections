@@ -12,7 +12,7 @@ toc: false
   <p class="lede">A shared knowledge index for LLM research, collecting paper entries, reading notes, and technical essays for sustained review and reference.</p>
   <div class="stat-strip">
     <div><strong>98</strong><span>Papers</span></div>
-    <div><strong>5</strong><span>Notes</span></div>
+    <div><strong>6</strong><span>Notes</span></div>
     <div><strong>1</strong><span>Blog shares</span></div>
     <div><strong>2026.06</strong><span>Latest paper</span></div>
   </div>
@@ -39,7 +39,7 @@ toc: false
   <h2>Notes</h2>
   <p>Paper readings and technical reflections shared as reusable research notes.</p>
   <div class="collection-metrics">
-    <span><strong>5</strong>Notes</span>
+    <span><strong>6</strong>Notes</span>
     <span><strong>3</strong>Topics</span>
   </div>
   <span class="collection-action">Open index</span>

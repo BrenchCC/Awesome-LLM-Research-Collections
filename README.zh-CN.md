@@ -646,6 +646,11 @@
   [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[English](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
+- **从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配** (2026-06-29) \
+  **描述**: 从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。 \
+  [[笔记](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
+  [[English](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
+
 # 博客
 
 - **When AI builds itself** (2026-06-04) \

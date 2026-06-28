@@ -1,0 +1,285 @@
+---
+author: Brench
+date: 2026-06-29
+title: "从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配"
+description: "从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。"
+order: 2
+note_type: technical-reflection
+topic: mllms
+tags:
+  - VLM
+  - Qwen
+  - Multimodal Large Language Model
+  - Position Encoding
+---
+
+> **TL;DR：** RoPE 不向 token 特征中叠加位置向量，而是根据位置旋转 query 和 key。MRoPE 沿用同一套旋转，只把频率对分配给时间、高度和宽度三个坐标。Qwen2.5-VL 采用连续分块，不同坐标接触到的频段并不均衡；Qwen3-VL 改用 Interleaved-MRoPE，让三个坐标都能覆盖高频和低频。本文用一个 6 维向量说明这套机制。
+
+## 1. RoPE 与加性位置编码的区别
+
+BERT 一类模型使用加性位置编码：
+
+$$
+\boldsymbol{x}_m^{\text{input}}
+=
+\boldsymbol{x}_m^{\text{token}}
++
+\boldsymbol{p}_m.
+$$
+
+位置向量 $\boldsymbol{p}_m$ 与 token embedding 相加，结果作为 Transformer 的输入。RoPE 的处理位置不同：它通常作用于注意力中的 query 和 key，通过旋转把位置写入点积，不需要额外生成一个与 token 特征相加的位置向量。
+
+从数学上看，RoPE 把 $d$ 维向量划分为 $d/2$ 个二维子空间，并在每个子空间内施加旋转。相邻维度配对是一种便于推导的写法；具体实现也可能先重排维度，再完成等价的二维配对。无论内存布局如何，核心运算都是二维旋转。
+
+## 2. 1D-RoPE 的相对位置性质
+
+设位置 $m$ 上的 query 为 $\boldsymbol{q}_m$，位置 $n$ 上的 key 为 $\boldsymbol{k}_n$。RoPE 分别对二者施加位置相关的块对角旋转矩阵：
+
+$$
+\widetilde{\boldsymbol{q}}_m = \boldsymbol{R}_m \boldsymbol{q}_m,
+\qquad
+\widetilde{\boldsymbol{k}}_n = \boldsymbol{R}_n \boldsymbol{k}_n.
+$$
+
+其中，$\boldsymbol{R}_m$ 由多个 $2 \times 2$ 旋转块组成。第 $i$ 个块为
+
+$$
+\boldsymbol{R}(m\theta_i)
+=
+\begin{bmatrix}
+\cos(m\theta_i) & -\sin(m\theta_i) \\
+\sin(m\theta_i) & \cos(m\theta_i)
+\end{bmatrix}.
+$$
+
+旋转矩阵是正交矩阵，并满足
+
+$$
+\boldsymbol{R}_m^{\mathsf{T}}\boldsymbol{R}_n
+=
+\boldsymbol{R}_{n-m}.
+$$
+
+因此，旋转后的注意力点积可以写成
+
+$$
+\widetilde{\boldsymbol{q}}_m^{\mathsf{T}}
+\widetilde{\boldsymbol{k}}_n
+=
+\boldsymbol{q}_m^{\mathsf{T}}
+\boldsymbol{R}_{n-m}
+\boldsymbol{k}_n.
+$$
+
+点积中的位置项只依赖相对位移 $n-m$。这正是 RoPE 的关键性质：输入使用绝对位置生成旋转角，query-key 点积中呈现的却是相对位置关系。需要区分的是，RoPE 允许在训练长度之外继续计算位置角度，但这不等于模型天然具备可靠的长度外推能力；实际效果仍受训练位置分布、频率缩放和任务形式影响。
+
+## 3. 一个 6 维向量的完整计算
+
+### 3.1 频率表
+
+设每个注意力头的旋转维度为 $d = 6$，RoPE base 为 $10{,}000$。第 $i$ 个二维子空间的角频率为
+
+$$
+\theta_i
+=
+10{,}000^{-2i/d},
+\qquad
+i = 0, 1, \ldots, d/2-1.
+$$
+
+代入 $d = 6$ 可得：
+
+| 子空间 $i$ | 维度对 | $\theta_i$ | 周期 $T_i = 2\pi/\theta_i$ |
+| :-- | :-- | --: | --: |
+| 0 | $(0, 1)$ | $1$ | $6.28$ |
+| 1 | $(2, 3)$ | $0.0464$ | $135.37$ |
+| 2 | $(4, 5)$ | $0.00215$ | $2916.40$ |
+
+$i$ 越小，频率越高，相邻位置产生的角度差越大；$i$ 越大，频率越低，需要跨越更长的距离才能完成一次周期。可以把它们理解为不同量程的指针：高频负责区分局部位移，低频保留较长尺度的位置变化。
+
+### 3.2 划分二维子空间
+
+取一个 6 维特征向量：
+
+$$
+\boldsymbol{x}
+=
+[1, 0, 2, 1, 0, 3]^{\mathsf{T}}.
+$$
+
+将它划分为三个二维向量：
+
+$$
+\boldsymbol{v}_0 = [1, 0]^{\mathsf{T}},
+\qquad
+\boldsymbol{v}_1 = [2, 1]^{\mathsf{T}},
+\qquad
+\boldsymbol{v}_2 = [0, 3]^{\mathsf{T}}.
+$$
+
+这里的 6 维只是便于手算。真实模型通常具有更大的 `head_dim`，因而包含更多频率对。
+
+### 3.3 按位置计算旋转
+
+假设该 token 的位置为 $m = 1$，第 $i$ 个子空间的旋转角为
+
+$$
+\phi_i = m\theta_i.
+$$
+
+三个角度分别是 $1$、$0.0464$ 和 $0.00215$ rad。逐组旋转后：
+
+$$
+\boldsymbol{v}'_0
+=
+\boldsymbol{R}(1)\boldsymbol{v}_0
+\approx
+[0.5403, 0.8415]^{\mathsf{T}},
+$$
+
+$$
+\boldsymbol{v}'_1
+=
+\boldsymbol{R}(0.0464)\boldsymbol{v}_1
+\approx
+[1.9514, 1.0917]^{\mathsf{T}},
+$$
+
+$$
+\boldsymbol{v}'_2
+=
+\boldsymbol{R}(0.00215)\boldsymbol{v}_2
+\approx
+[-0.0065, 3.0000]^{\mathsf{T}}.
+$$
+
+最后将三个结果拼回原维度：
+
+$$
+\boldsymbol{x}'
+\approx
+[0.5403, 0.8415, 1.9514, 1.0917, -0.0065, 3.0000]^{\mathsf{T}}.
+$$
+
+整个过程没有增加向量维度，也没有执行位置向量加法。位置 $m$ 只改变各二维子空间的旋转角。
+
+## 4. 多频率设计解决了什么问题
+
+如果所有维度对都使用同一个高频，模型能敏感地区分相邻位置，但旋转很快越过多个周期。相隔很远的位置可能得到相近的相位，形成周期性混叠。反过来，如果所有维度对都使用低频，长距离变化更稳定，局部位置的角度差却太小。
+
+RoPE 同时布置多个频率，用不同周期覆盖不同距离尺度。高频更适合表示局部相对位移，低频在更长范围内缓慢变化。单个频率仍有周期性，但多个频率组合后的表示不容易在同一位置差上同时重合。
+
+这一点也是理解 MRoPE 的入口。多模态位置编码面对的主要问题不是如何发明新的旋转矩阵，而是如何把已有频率分配给多个坐标轴。
+
+## 5. 从一维位置到三维位置
+
+文本 token 只需要一个序列位置 $m$。视觉 token 则具有时间、高度和宽度坐标：
+
+| 模态 | 时间坐标 $t$ | 高度坐标 $h$ | 宽度坐标 $w$ |
+| :-- | :-- | :-- | :-- |
+| 文本 token | $m$ | $m$ | $m$ |
+| 图像 patch | 固定值 | 行索引 | 列索引 |
+| 视频 patch | 时间索引 | 行索引 | 列索引 |
+
+MRoPE 为每个频率对选择一个坐标轴。设第 $i$ 个频率对分配给轴 $a(i) \in \{t,h,w\}$，对应的位置值为 $p_{a(i)}$，则旋转角为
+
+$$
+\phi_i = p_{a(i)}\theta_i.
+$$
+
+后续计算与 1D-RoPE 完全相同：使用 $\phi_i$ 构造 $2 \times 2$ 旋转矩阵，分别旋转 query 和 key，再拼回原维度。
+
+对于文本 token，三个位置 ID 都设为 $m$：
+
+$$
+(t,h,w) = (m,m,m).
+$$
+
+无论某个频率对被分配给哪条轴，其旋转角都是 $m\theta_i$，因此文本部分退化为标准 1D-RoPE。视觉 token 的三个坐标不同，频率分配方式才会影响最终编码。
+
+用前面的 6 维向量做最小示例，可以把三个频率对依次分给 $t$、$h$、$w$：
+
+$$
+\phi_0=t\theta_0,
+\qquad
+\phi_1=h\theta_1,
+\qquad
+\phi_2=w\theta_2.
+$$
+
+这个例子足以解释运算，但不足以展示频谱是否均衡。真实模型拥有几十个频率对，分块或交错的差异才会显现。
+
+## 6. Qwen2.5-VL：连续分块的 MRoPE
+
+Qwen2.5-VL 的 `mrope_section` 描述时间、高度和宽度分别占用多少个频率对。以常见配置 `[16, 24, 24]` 为例，64 个频率对按连续区间分配：
+
+| 频率对索引 | 数量 | 使用的坐标 | 频率范围 |
+| :-- | --: | :-- | :-- |
+| $0 \le i < 16$ | 16 | $t$ | 较高频 |
+| $16 \le i < 40$ | 24 | $h$ | 中间频段 |
+| $40 \le i < 64$ | 24 | $w$ | 较低频 |
+
+这种布局容易实现，也保持了三个坐标轴的明确分区，但频率覆盖并不对称。由于 $\theta_i$ 随 $i$ 增大而降低，时间轴主要接触高频，宽度轴主要接触低频。
+
+这会产生两个直接约束。长视频中的时间位置较大，高频相位会经历更多周期，而时间轴缺少足够的低频分量来表达长尺度变化；宽度轴缺少高频分量，相邻列的角度差较小，不利于细粒度空间区分。这里讨论的是编码结构带来的频谱偏置，不应直接等同于特定 grounding 或视频 benchmark 上的性能损失。实际影响还取决于训练数据、视觉网格、位置 ID 构造和后续注意力计算。
+
+Qwen2.5-VL 还将视频时间位置与真实时间对齐，使不同采样率的视频能够保留时间间隔。该设计解决的是时间坐标如何取值；连续分块讨论的则是这些坐标使用哪些频率。二者属于不同层面。
+
+## 7. Qwen3-VL：Interleaved-MRoPE
+
+Qwen3-VL 保留相同的频率表和二维旋转，将轴分配从连续区间改为交错布局。其基本形态为
+
+```text
+T H W T H W T H W ...
+```
+
+而分块式布局更接近
+
+```text
+T T T ... H H H ... W W W ...
+```
+
+在默认的 `[24, 20, 20]` 配置中，前 60 个频率对按 `T-H-W` 交错，剩余 4 个频率对归时间轴。可以写成
+
+$$
+a(i)
+=
+\begin{cases}
+t, & i < 60 \text{ 且 } i \bmod 3 = 0, \\
+h, & i < 60 \text{ 且 } i \bmod 3 = 1, \\
+w, & i < 60 \text{ 且 } i \bmod 3 = 2, \\
+t, & 60 \le i < 64.
+\end{cases}
+$$
+
+因此，Interleaved-MRoPE 不是改变旋转矩阵，也不是扩展 query 或 key 的维度。它只改变「第 $i$ 个频率对读取哪一个位置坐标」这一映射。计算顺序可以概括为：
+
+1. 根据 `head_dim` 和 RoPE base 生成固定频率表 $\theta_i$。
+2. 为每个视觉 token 构造 $(t,h,w)$，为文本 token 构造 $(m,m,m)$。
+3. 根据交错规则为频率对选择坐标轴，计算 $\phi_i=p_{a(i)}\theta_i$。
+4. 使用 $\phi_i$ 旋转对应的 query 和 key 二维子空间。
+
+交错后，时间、高度和宽度都能在频率索引的前部、中部和后部出现，因而同时获得较高频与较低频。它直接修正的是分块 MRoPE 的频谱分配，而不是 RoPE 本身的周期性，也不能单独保证长视频理解或空间定位性能。Qwen3-VL 的结果还来自训练数据、视觉编码器、DeepStack 和显式文本时间戳等其他设计。
+
+## 8. 结论
+
+RoPE、MRoPE 与 Interleaved-MRoPE 可以放在同一条逻辑链中理解：
+
+$$
+\text{RoPE}
+\;\longrightarrow\;
+\text{为二维子空间选择旋转角}
+\;\longrightarrow\;
+\text{MRoPE 为不同子空间选择 }t/h/w
+\;\longrightarrow\;
+\text{Interleaved-MRoPE 调整 }t/h/w\text{ 的频率分布}.
+$$
+
+1D-RoPE 用序列位置 $m$ 计算全部频率对的角度；MRoPE 改用时间、高度和宽度坐标；Interleaved-MRoPE 再把三个坐标交错分配到频率表中。矩阵尺寸、向量维度和旋转形式始终不变，真正变化的是坐标与频率对之间的映射。
+
+## 参考文献
+
+1. Su, J. et al. [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864). arXiv:2104.09864, 2021.
+2. Bai, S. et al. [Qwen2.5-VL Technical Report](https://arxiv.org/abs/2502.13923). arXiv:2502.13923, 2025.
+3. Bai, S. et al. [Qwen3-VL Technical Report](https://arxiv.org/abs/2511.21631). arXiv:2511.21631, 2025.
+4. Qwen Team. [Qwen3-VL official repository](https://github.com/QwenLM/Qwen3-VL).

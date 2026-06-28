@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>5</strong><span>笔记</span></div>
+    <div><strong>6</strong><span>笔记</span></div>
     <div><strong>3</strong><span>主题</span></div>
-    <div><strong>2026-06-18</strong><span>最新日期</span></div>
+    <div><strong>2026-06-29</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -109,6 +109,21 @@ toc: false
   </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
+  <span class="category-count">2026-06-29</span>
+  <h3>从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配</h3>
+  <p>从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。</p>
+  <div class="note-tags">
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
+  </div>
+  <div class="category-foot">
+    <span>MLLMS</span>
     <span>技术思考</span>
   </div>
 </a>

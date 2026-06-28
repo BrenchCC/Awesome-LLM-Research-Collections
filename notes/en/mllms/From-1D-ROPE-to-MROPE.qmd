@@ -1,0 +1,285 @@
+---
+author: Brench
+date: 2026-06-29
+title: "From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings"
+description: "Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL."
+order: 2
+note_type: technical-reflection
+topic: mllms
+tags:
+  - VLM
+  - Qwen
+  - Multimodal Large Language Model
+  - Position Encoding
+---
+
+> **TL;DR:** RoPE does not add a position vector to token features. Instead, it rotates queries and keys according to their positions. MRoPE keeps the same rotation mechanism but assigns frequency pairs to the temporal, height, and width coordinates. Qwen2.5-VL uses contiguous blocks, giving each coordinate uneven access to the frequency spectrum. Qwen3-VL adopts Interleaved-MRoPE so that all three coordinates receive both high- and low-frequency components. This note develops the mechanism from a six-dimensional example.
+
+## 1. RoPE versus additive position embeddings
+
+Models such as BERT use additive position embeddings:
+
+$$
+\boldsymbol{x}_m^{\text{input}}
+=
+\boldsymbol{x}_m^{\text{token}}
++
+\boldsymbol{p}_m.
+$$
+
+The position vector $\boldsymbol{p}_m$ is added to the token embedding before the result enters the Transformer. RoPE operates elsewhere. It is usually applied to the queries and keys in attention, encoding position into their dot product through rotation rather than adding a separate position vector to the token features.
+
+Mathematically, RoPE partitions a $d$-dimensional vector into $d/2$ two-dimensional subspaces and rotates each subspace independently. Pairing adjacent dimensions is convenient for the derivation; an implementation may instead rearrange the dimensions before forming equivalent pairs. In either layout, the underlying operation remains a two-dimensional rotation.
+
+## 2. The relative-position property of 1D-RoPE
+
+Let $\boldsymbol{q}_m$ be the query at position $m$ and $\boldsymbol{k}_n$ the key at position $n$. RoPE applies position-dependent block-diagonal rotation matrices:
+
+$$
+\widetilde{\boldsymbol{q}}_m = \boldsymbol{R}_m \boldsymbol{q}_m,
+\qquad
+\widetilde{\boldsymbol{k}}_n = \boldsymbol{R}_n \boldsymbol{k}_n.
+$$
+
+The matrix $\boldsymbol{R}_m$ contains several $2 \times 2$ rotation blocks. Its $i$-th block is
+
+$$
+\boldsymbol{R}(m\theta_i)
+=
+\begin{bmatrix}
+\cos(m\theta_i) & -\sin(m\theta_i) \\
+\sin(m\theta_i) & \cos(m\theta_i)
+\end{bmatrix}.
+$$
+
+Rotation matrices are orthogonal and satisfy
+
+$$
+\boldsymbol{R}_m^{\mathsf{T}}\boldsymbol{R}_n
+=
+\boldsymbol{R}_{n-m}.
+$$
+
+The dot product after rotation is therefore
+
+$$
+\widetilde{\boldsymbol{q}}_m^{\mathsf{T}}
+\widetilde{\boldsymbol{k}}_n
+=
+\boldsymbol{q}_m^{\mathsf{T}}
+\boldsymbol{R}_{n-m}
+\boldsymbol{k}_n.
+$$
+
+The positional term in the dot product depends only on the relative displacement $n-m$. This is the defining property of RoPE: absolute positions determine the rotation angles, while the query-key dot product exposes relative position. RoPE can compute angles beyond the positions observed during training, but that does not give a model reliable length extrapolation by itself. Performance outside the training range still depends on the training position distribution, frequency scaling, and task.
+
+## 3. A complete six-dimensional example
+
+### 3.1 The frequency table
+
+Assume a rotary dimension of $d = 6$ per attention head and a RoPE base of $10{,}000$. The angular frequency of the $i$-th two-dimensional subspace is
+
+$$
+\theta_i
+=
+10{,}000^{-2i/d},
+\qquad
+i = 0, 1, \ldots, d/2-1.
+$$
+
+For $d = 6$, the values are:
+
+| Subspace $i$ | Dimension pair | $\theta_i$ | Period $T_i = 2\pi/\theta_i$ |
+| :-- | :-- | --: | --: |
+| 0 | $(0, 1)$ | $1$ | $6.28$ |
+| 1 | $(2, 3)$ | $0.0464$ | $135.37$ |
+| 2 | $(4, 5)$ | $0.00215$ | $2916.40$ |
+
+Smaller values of $i$ correspond to higher frequencies and larger angular differences between adjacent positions. Larger values of $i$ correspond to lower frequencies that require much longer distances to complete a cycle. These frequencies behave like indicators with different ranges: high-frequency components distinguish local offsets, while low-frequency components retain variation over longer distances.
+
+### 3.2 Partitioning the vector
+
+Consider the six-dimensional feature vector
+
+$$
+\boldsymbol{x}
+=
+[1, 0, 2, 1, 0, 3]^{\mathsf{T}}.
+$$
+
+Partition it into three two-dimensional vectors:
+
+$$
+\boldsymbol{v}_0 = [1, 0]^{\mathsf{T}},
+\qquad
+\boldsymbol{v}_1 = [2, 1]^{\mathsf{T}},
+\qquad
+\boldsymbol{v}_2 = [0, 3]^{\mathsf{T}}.
+$$
+
+Six dimensions keep the arithmetic readable. Real models usually have a much larger `head_dim` and therefore many more frequency pairs.
+
+### 3.3 Rotating by position
+
+Suppose the token is at position $m = 1$. The angle of subspace $i$ is
+
+$$
+\phi_i = m\theta_i.
+$$
+
+The three angles are $1$, $0.0464$, and $0.00215$ rad. Rotating each pair gives
+
+$$
+\boldsymbol{v}'_0
+=
+\boldsymbol{R}(1)\boldsymbol{v}_0
+\approx
+[0.5403, 0.8415]^{\mathsf{T}},
+$$
+
+$$
+\boldsymbol{v}'_1
+=
+\boldsymbol{R}(0.0464)\boldsymbol{v}_1
+\approx
+[1.9514, 1.0917]^{\mathsf{T}},
+$$
+
+$$
+\boldsymbol{v}'_2
+=
+\boldsymbol{R}(0.00215)\boldsymbol{v}_2
+\approx
+[-0.0065, 3.0000]^{\mathsf{T}}.
+$$
+
+Concatenating the rotated pairs restores the original dimensionality:
+
+$$
+\boldsymbol{x}'
+\approx
+[0.5403, 0.8415, 1.9514, 1.0917, -0.0065, 3.0000]^{\mathsf{T}}.
+$$
+
+The operation neither increases the vector dimension nor adds a position vector. Position $m$ changes only the rotation angle in each two-dimensional subspace.
+
+## 4. Why RoPE uses multiple frequencies
+
+If every dimension pair used the same high frequency, the representation would distinguish adjacent positions sharply, but its phase would pass through many cycles over long distances. Far-apart positions could acquire similar phases because of periodic aliasing. If every pair instead used a low frequency, the representation would change steadily over long ranges but barely distinguish nearby positions.
+
+RoPE covers several distance scales with multiple frequencies. High-frequency components are more responsive to local offsets, while low-frequency components change slowly over longer ranges. Each component remains periodic, but a combination of frequencies is less likely to coincide at the same displacement.
+
+This observation leads directly to MRoPE. The main multimodal design problem is not inventing another rotation matrix; it is deciding how to allocate the existing frequencies across multiple coordinate axes.
+
+## 5. From one-dimensional to three-dimensional positions
+
+A text token needs only a sequence position $m$. A visual token has temporal, height, and width coordinates:
+
+| Modality | Temporal coordinate $t$ | Height coordinate $h$ | Width coordinate $w$ |
+| :-- | :-- | :-- | :-- |
+| Text token | $m$ | $m$ | $m$ |
+| Image patch | Fixed value | Row index | Column index |
+| Video patch | Temporal index | Row index | Column index |
+
+MRoPE selects one coordinate axis for every frequency pair. Let frequency pair $i$ be assigned to $a(i) \in \{t,h,w\}$, with coordinate value $p_{a(i)}$. Its rotation angle becomes
+
+$$
+\phi_i = p_{a(i)}\theta_i.
+$$
+
+Everything after this selection is identical to 1D-RoPE: construct a $2 \times 2$ rotation matrix from $\phi_i$, rotate the corresponding query and key subspaces, and concatenate the results.
+
+For a text token, all three position IDs equal $m$:
+
+$$
+(t,h,w) = (m,m,m).
+$$
+
+Whichever axis a frequency pair reads, its angle is $m\theta_i$, so the text segment reduces to standard 1D-RoPE. The allocation matters for visual tokens because their three coordinates differ.
+
+In the minimal six-dimensional example, the three frequency pairs can be assigned to $t$, $h$, and $w$ respectively:
+
+$$
+\phi_0=t\theta_0,
+\qquad
+\phi_1=h\theta_1,
+\qquad
+\phi_2=w\theta_2.
+$$
+
+This example explains the operation but is too small to expose spectral imbalance. The distinction between blockwise and interleaved allocation becomes visible when a real model distributes dozens of frequency pairs.
+
+## 6. Qwen2.5-VL: blockwise MRoPE
+
+In Qwen2.5-VL, `mrope_section` specifies how many frequency pairs belong to the temporal, height, and width coordinates. With the common `[16, 24, 24]` configuration, 64 pairs are assigned as contiguous ranges:
+
+| Frequency-pair indices | Count | Coordinate | Frequency range |
+| :-- | --: | :-- | :-- |
+| $0 \le i < 16$ | 16 | $t$ | Higher frequencies |
+| $16 \le i < 40$ | 24 | $h$ | Middle frequencies |
+| $40 \le i < 64$ | 24 | $w$ | Lower frequencies |
+
+The layout is straightforward and keeps the three coordinates in explicit sections, but their spectral coverage is asymmetric. Because $\theta_i$ decreases as $i$ grows, the temporal axis receives mostly high-frequency components, while the width axis receives mostly low-frequency components.
+
+This structure imposes two direct constraints. Large temporal positions in long videos make the high-frequency phases pass through more cycles, while the temporal axis lacks enough low-frequency components to represent long-range variation. The width axis lacks high-frequency components, so adjacent columns produce smaller angular differences and offer less support for fine-grained spatial discrimination. These are structural biases in the encoding, not direct predictions of performance on a particular grounding or video benchmark. Their practical effect also depends on training data, the visual grid, position-ID construction, and downstream attention.
+
+Qwen2.5-VL also aligns video position IDs with physical time so that videos sampled at different rates retain their temporal intervals. This design determines the values of the temporal coordinates; blockwise allocation determines which frequencies those coordinates use. They address separate parts of the representation.
+
+## 7. Qwen3-VL: Interleaved-MRoPE
+
+Qwen3-VL keeps the same frequency table and two-dimensional rotations but replaces contiguous axis blocks with an interleaved layout. Its basic pattern is
+
+```text
+T H W T H W T H W ...
+```
+
+The blockwise layout is closer to
+
+```text
+T T T ... H H H ... W W W ...
+```
+
+Under the default `[24, 20, 20]` configuration, the first 60 frequency pairs follow the `T-H-W` pattern, and the final four pairs belong to the temporal axis. Formally,
+
+$$
+a(i)
+=
+\begin{cases}
+t, & i < 60 \text{ and } i \bmod 3 = 0, \\
+h, & i < 60 \text{ and } i \bmod 3 = 1, \\
+w, & i < 60 \text{ and } i \bmod 3 = 2, \\
+t, & 60 \le i < 64.
+\end{cases}
+$$
+
+Interleaved-MRoPE does not change the rotation matrix or expand the query and key dimensions. It changes only the mapping that determines which coordinate the $i$-th frequency pair reads. The computation proceeds as follows:
+
+1. Generate the fixed frequency table $\theta_i$ from `head_dim` and the RoPE base.
+2. Construct $(t,h,w)$ for every visual token and $(m,m,m)$ for every text token.
+3. Select an axis for each frequency pair according to the interleaving rule, then compute $\phi_i=p_{a(i)}\theta_i$.
+4. Rotate the corresponding two-dimensional query and key subspaces using $\phi_i$.
+
+After interleaving, the temporal, height, and width axes all appear in the early, middle, and late parts of the frequency table, giving each axis access to both higher and lower frequencies. This directly corrects the spectral allocation of blockwise MRoPE. It does not remove the periodicity of RoPE or guarantee long-video understanding and spatial localization on its own. Qwen3-VL also depends on its training data, visual encoder, DeepStack, and explicit textual timestamps.
+
+## 8. Conclusion
+
+RoPE, MRoPE, and Interleaved-MRoPE form one continuous design path:
+
+$$
+\text{RoPE}
+\;\longrightarrow\;
+\text{select a rotation angle for each 2D subspace}
+\;\longrightarrow\;
+\text{MRoPE assigns }t/h/w\text{ to different subspaces}
+\;\longrightarrow\;
+\text{Interleaved-MRoPE redistributes the }t/h/w\text{ frequencies}.
+$$
+
+1D-RoPE uses sequence position $m$ to compute the angle for every frequency pair. MRoPE replaces that single position with temporal, height, and width coordinates. Interleaved-MRoPE then distributes all three coordinates across the frequency table. The matrix size, vector dimension, and rotation itself remain unchanged. What changes is the mapping between coordinates and frequency pairs.
+
+## References
+
+1. Su, J. et al. [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864). arXiv:2104.09864, 2021.
+2. Bai, S. et al. [Qwen2.5-VL Technical Report](https://arxiv.org/abs/2502.13923). arXiv:2502.13923, 2025.
+3. Bai, S. et al. [Qwen3-VL Technical Report](https://arxiv.org/abs/2511.21631). arXiv:2511.21631, 2025.
+4. Qwen Team. [Qwen3-VL official repository](https://github.com/QwenLM/Qwen3-VL).
