@@ -641,6 +641,16 @@
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]
 
+- **Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization** (2026-06-30) \
+  **Description**: A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries. \
+  [[Note](notes/en/agents/agent-experience-learning.qmd)]
+  [[中文](notes/zh/agents/agent-experience-learning.qmd)]
+
+- **Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent** (2026-06-30) \
+  **Description**: A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments. \
+  [[Note](notes/en/llms/grpo-loss-analysis.qmd)]
+  [[中文](notes/zh/llms/grpo-loss-analysis.qmd)]
+
 - **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
   **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \
   [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]

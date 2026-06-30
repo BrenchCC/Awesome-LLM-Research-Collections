@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">Four representations of agent experience</title>
+  <desc id="desc">A comparison of textual experience, programmatic skills, managed skill libraries, and parametric internalization.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .title { font: 700 35px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 17px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .head { font: 700 20px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .tag { font: 700 12px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0.08em; }
+      .label { font: 700 14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .copy { font: 400 14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .axis { stroke: #64748b; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1440" height="820" rx="28" fill="url(#bg)"/>
+  <text x="70" y="70" class="title">Where Can an Agent Store Experience?</text>
+  <text x="70" y="103" class="subtitle">The categories overlap. The useful distinction is the representation, update rule, and cost paid at inference or training time.</text>
+
+  <line x1="120" y1="157" x2="1320" y2="157" class="axis"/>
+  <text x="120" y="142" class="copy">External and editable</text>
+  <text x="1190" y="142" class="copy">Internal and amortized</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="195" width="305" height="520" rx="22" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
+    <text x="96" y="230" class="tag" fill="#1d4ed8">TEXTUAL EXPERIENCE</text>
+    <text x="96" y="267" class="head">Reflection and workflow</text>
+    <text x="96" y="310" class="label">Stored as</text>
+    <text x="96" y="336" class="copy">lessons, preferences, plans,</text>
+    <text x="96" y="358" class="copy">successful or failed routines</text>
+    <text x="96" y="400" class="label">Updated by</text>
+    <text x="96" y="426" class="copy">reflection, summarization,</text>
+    <text x="96" y="448" class="copy">retrieval and rewriting</text>
+    <text x="96" y="490" class="label">Useful when</text>
+    <text x="96" y="516" class="copy">rules are easy to describe and</text>
+    <text x="96" y="538" class="copy">change faster than model weights</text>
+    <text x="96" y="580" class="label">Typical failure</text>
+    <text x="96" y="606" class="copy">retrieval misses, context bloat,</text>
+    <text x="96" y="628" class="copy">vague or contradictory advice</text>
+    <text x="96" y="678" class="copy">Reflexion · ExpeL · AWM</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="401" y="195" width="305" height="520" rx="22" fill="#f5f3ff" stroke="#a78bfa" stroke-width="2"/>
+    <text x="427" y="230" class="tag" fill="#6d28d9">PROGRAMMATIC SKILL</text>
+    <text x="427" y="267" class="head">Executable abstraction</text>
+    <text x="427" y="310" class="label">Stored as</text>
+    <text x="427" y="336" class="copy">functions, APIs, scripts, tests,</text>
+    <text x="427" y="358" class="copy">preconditions and dependencies</text>
+    <text x="427" y="400" class="label">Updated by</text>
+    <text x="427" y="426" class="copy">program synthesis, execution,</text>
+    <text x="427" y="448" class="copy">debugging and verification</text>
+    <text x="427" y="490" class="label">Useful when</text>
+    <text x="427" y="516" class="copy">the environment exposes stable</text>
+    <text x="427" y="538" class="copy">interfaces and deterministic tests</text>
+    <text x="427" y="580" class="label">Typical failure</text>
+    <text x="427" y="606" class="copy">API drift, unsafe execution,</text>
+    <text x="427" y="628" class="copy">overspecialized implementations</text>
+    <text x="427" y="678" class="copy">Voyager · ASI · SkillWeaver</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="732" y="195" width="305" height="520" rx="22" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+    <text x="758" y="230" class="tag" fill="#047857">MANAGED LIBRARY</text>
+    <text x="758" y="267" class="head">Versioned external policy</text>
+    <text x="758" y="310" class="label">Stored as</text>
+    <text x="758" y="336" class="copy">skill packages plus provenance,</text>
+    <text x="758" y="358" class="copy">versions, metrics and dependencies</text>
+    <text x="758" y="400" class="label">Updated by</text>
+    <text x="758" y="426" class="copy">add, merge, patch, validate,</text>
+    <text x="758" y="448" class="copy">retire and rollback operations</text>
+    <text x="758" y="490" class="label">Useful when</text>
+    <text x="758" y="516" class="copy">skills accumulate across task</text>
+    <text x="758" y="538" class="copy">streams and multiple executors</text>
+    <text x="758" y="580" class="label">Typical failure</text>
+    <text x="758" y="606" class="copy">delayed credit, conflicts, stale</text>
+    <text x="758" y="628" class="copy">versions and unbounded growth</text>
+    <text x="758" y="678" class="copy">CoEvoSkills · SkillOpt · SkillOS</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1063" y="195" width="307" height="520" rx="22" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+    <text x="1089" y="230" class="tag" fill="#c2410c">PARAMETRIC POLICY</text>
+    <text x="1089" y="267" class="head">Skill internalization</text>
+    <text x="1089" y="310" class="label">Stored as</text>
+    <text x="1089" y="336" class="copy">model weights that select, use,</text>
+    <text x="1089" y="358" class="copy">create or imitate skills</text>
+    <text x="1089" y="400" class="label">Updated by</text>
+    <text x="1089" y="426" class="copy">SFT, RL, curricula and explicit</text>
+    <text x="1089" y="448" class="copy">credit assignment</text>
+    <text x="1089" y="490" class="label">Useful when</text>
+    <text x="1089" y="516" class="copy">behavior is stable and runtime</text>
+    <text x="1089" y="538" class="copy">retrieval cost must be amortized</text>
+    <text x="1089" y="580" class="label">Typical failure</text>
+    <text x="1089" y="606" class="copy">training cost, forgetting, weak</text>
+    <text x="1089" y="628" class="copy">attribution and poor portability</text>
+    <text x="1089" y="678" class="copy">SAGE · SKILL0 · Skill1</text>
+  </g>
+
+  <rect x="70" y="750" width="1300" height="36" rx="18" fill="#e2e8f0"/>
+  <text x="92" y="774" class="copy">A practical system usually combines all four: external artifacts for fast edits, verifiers for evidence, and training only for behaviors stable enough to amortize.</text>
+</svg>

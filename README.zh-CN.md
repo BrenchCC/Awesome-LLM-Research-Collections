@@ -641,6 +641,16 @@
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]
 
+- **Agent 经验学习：从文本反思、程序技能到策略内化** (2026-06-30) \
+  **描述**: 梳理 LLM Agent 将任务轨迹沉淀为可检索经验、可执行技能和参数化能力的技术路线，并讨论技能库维护、评测方法与工程边界。 \
+  [[笔记](notes/zh/agents/agent-experience-learning.qmd)]
+  [[English](notes/en/agents/agent-experience-learning.qmd)]
+
+- **从代码拆解 GRPO Loss：各组成项、负值与目标上升** (2026-06-30) \
+  **描述**: 沿着最小 GRPO 实现拆解 importance ratio、clipping、KL penalty 与聚合过程，解释负 loss、目标上升和近零实验现象。 \
+  [[笔记](notes/zh/llms/grpo-loss-analysis.qmd)]
+  [[English](notes/en/llms/grpo-loss-analysis.qmd)]
+
 - **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
   **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \
   [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]

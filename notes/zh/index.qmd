@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>6</strong><span>笔记</span></div>
-    <div><strong>3</strong><span>主题</span></div>
-    <div><strong>2026-06-29</strong><span>最新日期</span></div>
+    <div><strong>8</strong><span>笔记</span></div>
+    <div><strong>5</strong><span>主题</span></div>
+    <div><strong>2026-06-30</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -93,6 +93,36 @@ toc: false
   </div>
   <div class="category-foot">
     <span>OPD</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="agents/agent-experience-learning.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>Agent 经验学习：从文本反思、程序技能到策略内化</h3>
+  <p>梳理 LLM Agent 将任务轨迹沉淀为可检索经验、可执行技能和参数化能力的技术路线，并讨论技能库维护、评测方法与工程边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent</span>
+    <span class="note-tag">Experience Learning</span>
+    <span class="note-tag">Skill Learning</span>
+    <span class="note-tag">Self-Evolving Agents</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="llms/grpo-loss-analysis.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>从代码拆解 GRPO Loss：各组成项、负值与目标上升</h3>
+  <p>沿着最小 GRPO 实现拆解 importance ratio、clipping、KL penalty 与聚合过程，解释负 loss、目标上升和近零实验现象。</p>
+  <div class="note-tags">
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Policy Optimization</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>技术思考</span>
   </div>
 </a>

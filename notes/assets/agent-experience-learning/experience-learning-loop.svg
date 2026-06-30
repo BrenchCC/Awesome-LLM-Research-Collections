@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agent experience accumulation loop</title>
+  <desc id="desc">A task trajectory is distilled into reusable artifacts, retrieved for later execution, evaluated by verifiers, and then maintained or internalized.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 35px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 17px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .label { font: 700 19px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .copy { font: 400 15px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 600 13px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; letter-spacing: 0.04em; }
+      .edge { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .feedback { stroke: #7c3aed; stroke-width: 3; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1440" height="760" rx="28" fill="url(#bg)"/>
+  <text x="70" y="72" class="title">Agent Experience Accumulation Loop</text>
+  <text x="70" y="105" class="subtitle">Experience becomes useful only after abstraction, retrieval, execution, verification, and maintenance.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="190" width="205" height="170" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="95" y="225" class="small">RAW EXPERIENCE</text>
+    <text x="95" y="264" class="label">Task trajectory</text>
+    <text x="95" y="296" class="copy">Observations · actions</text>
+    <text x="95" y="321" class="copy">tool outputs · feedback</text>
+    <text x="95" y="346" class="copy">success and failure</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="335" y="190" width="205" height="170" rx="22" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
+    <text x="360" y="225" class="small">ABSTRACTION</text>
+    <text x="360" y="264" class="label">Distill evidence</text>
+    <text x="360" y="296" class="copy">contrast trajectories</text>
+    <text x="360" y="321" class="copy">infer preconditions</text>
+    <text x="360" y="346" class="copy">attach provenance</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="600" y="150" width="240" height="250" rx="22" fill="#f5f3ff" stroke="#a78bfa" stroke-width="2"/>
+    <text x="625" y="185" class="small">REUSABLE ARTIFACT</text>
+    <rect x="625" y="210" width="190" height="45" rx="12" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="645" y="239" class="copy">Text memory / heuristic</text>
+    <rect x="625" y="270" width="190" height="45" rx="12" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="645" y="299" class="copy">Workflow / procedure</text>
+    <rect x="625" y="330" width="190" height="45" rx="12" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="645" y="359" class="copy">Executable skill / code</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="900" y="190" width="205" height="170" rx="22" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+    <text x="925" y="225" class="small">CONDITIONAL USE</text>
+    <text x="925" y="264" class="label">Retrieve and gate</text>
+    <text x="925" y="296" class="copy">task similarity</text>
+    <text x="925" y="321" class="copy">applicability · budget</text>
+    <text x="925" y="346" class="copy">dependencies · risk</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1165" y="190" width="205" height="170" rx="22" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+    <text x="1190" y="225" class="small">DEPLOYMENT</text>
+    <text x="1190" y="264" class="label">Execute</text>
+    <text x="1190" y="296" class="copy">reason · call tools</text>
+    <text x="1190" y="321" class="copy">compose skills</text>
+    <text x="1190" y="346" class="copy">recover from failure</text>
+  </g>
+
+  <path d="M275 275 H325" class="edge"/>
+  <path d="M540 275 H590" class="edge"/>
+  <path d="M840 275 H890" class="edge"/>
+  <path d="M1105 275 H1155" class="edge"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1010" y="500" width="285" height="145" rx="22" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <text x="1038" y="535" class="small">VERIFICATION</text>
+    <text x="1038" y="574" class="label">Measure marginal utility</text>
+    <text x="1038" y="607" class="copy">task reward · cost · safety · regression</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="505" y="500" width="390" height="145" rx="22" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="533" y="535" class="small">LIFECYCLE UPDATE</text>
+    <text x="533" y="574" class="label">Keep · merge · patch · retire · rollback</text>
+    <text x="533" y="607" class="copy">or internalize stable behavior into model parameters</text>
+  </g>
+
+  <path d="M1267 360 V490" class="edge"/>
+  <path d="M1010 572 H905" class="feedback"/>
+  <path d="M700 500 V410" class="feedback"/>
+  <path d="M505 572 H430 Q380 572 380 522 V375" class="feedback"/>
+
+  <rect x="70" y="680" width="1300" height="34" rx="17" fill="#e2e8f0"/>
+  <text x="92" y="703" class="copy">The hard part is not writing a skill once. It is assigning credit to the right artifact and preserving utility as tasks, tools, and policies change.</text>
+</svg>

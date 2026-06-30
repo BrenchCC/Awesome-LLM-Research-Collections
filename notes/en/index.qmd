@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>6</strong><span>Notes</span></div>
-    <div><strong>3</strong><span>Topics</span></div>
-    <div><strong>2026-06-29</strong><span>Latest date</span></div>
+    <div><strong>8</strong><span>Notes</span></div>
+    <div><strong>5</strong><span>Topics</span></div>
+    <div><strong>2026-06-30</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -93,6 +93,36 @@ toc: false
   </div>
   <div class="category-foot">
     <span>OPD</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+<a class="category-card" href="agents/agent-experience-learning.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization</h3>
+  <p>A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries.</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent</span>
+    <span class="note-tag">Experience Learning</span>
+    <span class="note-tag">Skill Learning</span>
+    <span class="note-tag">Self-Evolving Agents</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+<a class="category-card" href="llms/grpo-loss-analysis.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent</h3>
+  <p>A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments.</p>
+  <div class="note-tags">
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Policy Optimization</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>Technical Reflections</span>
   </div>
 </a>
