@@ -85,7 +85,7 @@ $$
 
 The following graph summarizes the data flow. The objective is the quantity to maximize; the loss is what the optimizer receives.
 
-```mermaid
+```{mermaid}
 flowchart TB
     accTitle: GRPO Objective and Loss Flow
     accDescr: Sampled responses produce group advantages and token log probabilities, which form the clipped surrogate and KL penalty before the objective is negated for gradient descent

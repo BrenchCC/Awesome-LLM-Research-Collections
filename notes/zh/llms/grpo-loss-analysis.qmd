@@ -85,7 +85,7 @@ $$
 
 计算图概括了代码中的数据关系。objective 是待最大化的量，loss 才是优化器接收的量。
 
-```mermaid
+```{mermaid}
 flowchart TB
     accTitle: GRPO Objective and Loss Flow
     accDescr: Sampled responses produce group advantages and token log probabilities, which form the clipped surrogate and KL penalty before the objective is negated for gradient descent
