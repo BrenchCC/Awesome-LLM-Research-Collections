@@ -333,6 +333,10 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Soft Adaptive Policy Optimization** (2025.11) \
+  **描述**: 该论文提出 Soft Adaptive Policy Optimization (SAPO)，以温度控制的软门控替代大语言模型群组强化学习中的硬裁剪，连续衰减离策略 token 更新。其目标兼具序列一致性与 token 自适应性，在文本模型和 Qwen3-VL 模型上提升训练稳定性、样本效率与推理表现。 \
+  <a href="https://arxiv.org/abs/2511.20347"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Group Sequence Policy Optimization** (2025.07) \
   **描述**: 该论文提出 GSPO，一种用于大语言模型的强化学习算法，以序列级似然比替代 token 级重要性比率，并在序列级执行裁剪、奖励与优化。GSPO 相比 GRPO 提升训练效率和性能，稳定 MoE 强化学习训练，并有助于简化 Qwen3 模型的大规模强化学习基础设施。 \
   <a href="https://arxiv.org/abs/2507.18071"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -633,6 +637,11 @@
   **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
   [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
   [[English](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
+
+- **SAPO：用连续软门控替代策略比率的硬截断** (2026-06-30) \
+  **描述**: 从代理目标、梯度权重、非对称温度与 Qwen3-VL 实验出发，分析 SAPO 如何在 token 级保留有效梯度，并在小步更新条件下近似序列级软信任域。 \
+  [[笔记](notes/zh/reinforcement-learning/SAPO.qmd)]
+  [[English](notes/en/reinforcement-learning/SAPO.qmd)]
 
 ## 技术思考
 

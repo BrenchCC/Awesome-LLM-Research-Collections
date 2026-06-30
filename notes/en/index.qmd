@@ -9,7 +9,7 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>8</strong><span>Notes</span></div>
+    <div><strong>9</strong><span>Notes</span></div>
     <div><strong>5</strong><span>Topics</span></div>
     <div><strong>2026-06-30</strong><span>Latest date</span></div>
   </div>
@@ -67,6 +67,23 @@ toc: false
     <span class="note-tag">Post-training</span>
     <span class="note-tag">DAPO</span>
     <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/SAPO.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate</h3>
+  <p>An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation.</p>
+  <div class="note-tags">
+    <span class="note-tag">SAPO</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Policy Optimization</span>
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">GSPO</span>
+    <span class="note-tag">Qwen3-VL</span>
   </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>

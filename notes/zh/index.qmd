@@ -9,7 +9,7 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>8</strong><span>笔记</span></div>
+    <div><strong>9</strong><span>笔记</span></div>
     <div><strong>5</strong><span>主题</span></div>
     <div><strong>2026-06-30</strong><span>最新日期</span></div>
   </div>
@@ -67,6 +67,23 @@ toc: false
     <span class="note-tag">Post-training</span>
     <span class="note-tag">DAPO</span>
     <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/SAPO.html">
+  <span class="category-count">2026-06-30</span>
+  <h3>SAPO：用连续软门控替代策略比率的硬截断</h3>
+  <p>从代理目标、梯度权重、非对称温度与 Qwen3-VL 实验出发，分析 SAPO 如何在 token 级保留有效梯度，并在小步更新条件下近似序列级软信任域。</p>
+  <div class="note-tags">
+    <span class="note-tag">SAPO</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Policy Optimization</span>
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">GSPO</span>
+    <span class="note-tag">Qwen3-VL</span>
   </div>
   <div class="category-foot">
     <span>REINFORCEMENT-LEARNING</span>

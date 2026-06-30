@@ -333,6 +333,10 @@
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Soft Adaptive Policy Optimization** (2025.11) \
+  **Description**: This paper introduces Soft Adaptive Policy Optimization (SAPO), replacing hard clipping in group-based LLM reinforcement learning with a temperature-controlled soft gate that continuously attenuates off-policy token updates. Its sequence-coherent, token-adaptive objective improves training stability, sample efficiency, and reasoning performance across text and Qwen3-VL models. \
+  <a href="https://arxiv.org/abs/2511.20347"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Group Sequence Policy Optimization** (2025.07) \
   **Description**: This paper introduces GSPO, a reinforcement learning algorithm for LLMs that replaces token-level importance ratios with sequence-level likelihood ratios and performs sequence-level clipping, rewarding, and optimization. GSPO improves training efficiency and performance over GRPO, stabilizes MoE RL training, and helps simplify large-scale RL infrastructure for Qwen3 models. \
   <a href="https://arxiv.org/abs/2507.18071"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -633,6 +637,11 @@
   **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
   [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
   [[中文](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
+
+- **SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate** (2026-06-30) \
+  **Description**: An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation. \
+  [[Note](notes/en/reinforcement-learning/SAPO.qmd)]
+  [[中文](notes/zh/reinforcement-learning/SAPO.qmd)]
 
 ## Technical Reflections
 
