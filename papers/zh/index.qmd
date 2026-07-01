@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>99</strong><span>论文</span></div>
+    <div><strong>102</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>231</strong><span>资源链接</span></div>
+    <div><strong>235</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">37 篇论文</span>
+  <span class="category-count">40 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -142,6 +142,16 @@ toc: false
   <strong>PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
+  <span>2026.06</span>
+  <strong>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</strong>
+  <em>强化学习</em>
+</a>
+<a class="recent-row" href="reinforcement-learning.html#opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
+  <span>2026.06</span>
+  <strong>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
   <span>2026.05</span>
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
@@ -151,16 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
   <em>大语言模型</em>
-</a>
-<a class="recent-row" href="llms.html#base-models-look-human-to-ai-detectors">
-  <span>2026.05</span>
-  <strong>Base Models Look Human To AI Detectors</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#lance-unified-multimodal-modeling-by-multi-task-synergy">
-  <span>2026.05</span>
-  <strong>Lance: Unified Multimodal Modeling by Multi-Task Synergy</strong>
-  <em>多模态大模型</em>
 </a>
   </div>
 </section>

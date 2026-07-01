@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Repository modules mapped to the joint DPO and SFT objective</title>
+  <desc id="desc">Data preparation, collation, model loading, trainer computation, and logging flow through the DPO Trainer with SFT Loss repository.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#647169"/></marker>
+    <style>
+      text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2823; }
+      .title { font-family: Georgia, serif; font-size: 36px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #637068; }
+      .head { font-size: 21px; font-weight: 700; }
+      .body { font-size: 16px; fill: #4f5b54; }
+      .code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 15px; fill: #365548; }
+      .inverse { fill: #ffffff; }
+      .edge { fill: none; stroke: #647169; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1400" height="760" rx="30" fill="#f6f7f3"/>
+  <text x="64" y="72" class="title">Repository path to the training objective</text>
+  <text x="64" y="108" class="subtitle">BrenchCC/DPO_Trainer_with_SFT_Loss at commit 948f3da</text>
+
+  <g transform="translate(55 165)">
+    <rect width="245" height="150" rx="18" fill="#ffffff" stroke="#aebcb4" stroke-width="2"/>
+    <text x="24" y="42" class="head">Arguments</text>
+    <text x="24" y="76" class="code">config/arguments.py</text>
+    <text x="24" y="108" class="body">dpo_beta</text>
+    <text x="24" y="134" class="body">sft_loss_weight</text>
+  </g>
+  <g transform="translate(385 165)">
+    <rect width="270" height="150" rx="18" fill="#e9f4ef" stroke="#72a68d" stroke-width="2"/>
+    <text x="24" y="42" class="head">Preference encoding</text>
+    <text x="24" y="76" class="code">data/datasets.py</text>
+    <text x="24" y="108" class="body">shared prompt + paired truncation</text>
+    <text x="24" y="134" class="body">chosen-only labels</text>
+  </g>
+  <g transform="translate(740 165)">
+    <rect width="270" height="150" rx="18" fill="#e9f0f7" stroke="#7595b2" stroke-width="2"/>
+    <text x="24" y="42" class="head">Dynamic collation</text>
+    <text x="24" y="76" class="code">DPODataCollator</text>
+    <text x="24" y="108" class="body">right padding + attention masks</text>
+    <text x="24" y="134" class="body">label padding = -100</text>
+  </g>
+  <g transform="translate(1095 165)">
+    <rect width="250" height="150" rx="18" fill="#f0eef7" stroke="#9280ae" stroke-width="2"/>
+    <text x="24" y="42" class="head">Model loading</text>
+    <text x="24" y="76" class="code">model_loader.py</text>
+    <text x="24" y="108" class="body">trainable policy</text>
+    <text x="24" y="134" class="body">frozen reference</text>
+  </g>
+
+  <g transform="translate(235 440)">
+    <rect width="410" height="205" rx="22" fill="#fffaf0" stroke="#c7a868" stroke-width="2.5"/>
+    <text x="28" y="48" class="head">Sequence-level preference branch</text>
+    <text x="28" y="84" class="code">compute_dpo_loss()</text>
+    <text x="28" y="122" class="body">response log-prob sums</text>
+    <text x="28" y="151" class="body">reference-adjusted chosen/rejected margin</text>
+    <text x="28" y="180" class="body">-log σ(βΔ)</text>
+  </g>
+  <g transform="translate(755 440)">
+    <rect width="410" height="205" rx="22" fill="#f3ebf5" stroke="#a374aa" stroke-width="2.5"/>
+    <text x="28" y="48" class="head">Token-level imitation branch</text>
+    <text x="28" y="84" class="code">compute_sft_loss()</text>
+    <text x="28" y="122" class="body">reuse chosen policy logits</text>
+    <text x="28" y="151" class="body">cross entropy over response + EOS</text>
+    <text x="28" y="180" class="body">prompt and padding ignored</text>
+  </g>
+
+  <path d="M300 240 H385" class="edge"/>
+  <path d="M655 240 H740" class="edge"/>
+  <path d="M1010 240 H1095" class="edge"/>
+  <path d="M840 315 C760 370 590 385 500 440" class="edge"/>
+  <path d="M1220 315 C1190 375 1050 390 980 440" class="edge"/>
+  <rect x="540" y="685" width="320" height="46" rx="23" fill="#2f6e59"/>
+  <text x="700" y="715" text-anchor="middle" font-size="19" font-weight="700" class="inverse">Ltotal = LDPO + λSFT LSFT</text>
+  <path d="M440 645 C485 690 530 704 540 707" class="edge"/>
+  <path d="M960 645 C915 690 870 704 860 707" class="edge"/>
+</svg>

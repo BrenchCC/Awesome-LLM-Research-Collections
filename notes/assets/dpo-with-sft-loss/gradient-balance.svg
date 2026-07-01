@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="700" viewBox="0 0 1300 700" role="img" aria-labelledby="title desc">
+  <title id="title">Gradient balance between preference separation and chosen imitation</title>
+  <desc id="desc">The DPO gradient widens a chosen-rejected margin while the SFT gradient raises the likelihood of chosen tokens. Their weighted sum determines the update.</desc>
+  <defs>
+    <marker id="green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#2f7d63"/></marker>
+    <marker id="orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#c56e35"/></marker>
+    <marker id="purple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#77528b"/></marker>
+    <style>
+      text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #202822; }
+      .title { font-family: Georgia, serif; font-size: 36px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #637068; }
+      .head { font-size: 23px; font-weight: 700; }
+      .body { font-size: 17px; fill: #4f5953; }
+      .formula { font-family: Georgia, serif; font-size: 18px; }
+    </style>
+  </defs>
+  <rect width="1300" height="700" rx="30" fill="#f7f7f3"/>
+  <text x="64" y="72" class="title">Two gradients, two different responsibilities</text>
+  <text x="64" y="108" class="subtitle">β scales the pairwise margin; λSFT scales chosen-token imitation</text>
+
+  <rect x="65" y="170" width="360" height="250" rx="22" fill="#fff7ef" stroke="#d59a72" stroke-width="2"/>
+  <text x="95" y="220" class="head">DPO branch</text>
+  <text x="95" y="260" class="formula">∇ LDPO ∝ -w(∇ log π+ - ∇ log π-)</text>
+  <text x="95" y="307" class="body">Depends on the relative margin.</text>
+  <text x="95" y="340" class="body">Chosen may fall if rejected falls faster.</text>
+  <line x1="130" y1="390" x2="345" y2="390" stroke="#c56e35" stroke-width="7" marker-end="url(#orange)"/>
+
+  <rect x="875" y="170" width="360" height="250" rx="22" fill="#eef7f2" stroke="#78aa93" stroke-width="2"/>
+  <text x="905" y="220" class="head">Chosen SFT branch</text>
+  <text x="905" y="260" class="formula">∇ LSFT = -∇ mean log π+</text>
+  <text x="905" y="307" class="body">Acts on absolute chosen likelihood.</text>
+  <text x="905" y="340" class="body">Copies chosen errors if data quality is poor.</text>
+  <line x1="910" y1="390" x2="1160" y2="390" stroke="#2f7d63" stroke-width="7" marker-end="url(#green)"/>
+
+  <circle cx="650" cy="310" r="112" fill="#f1ebf4" stroke="#9a7ca8" stroke-width="3"/>
+  <text x="650" y="286" text-anchor="middle" class="head">Joint update</text>
+  <text x="650" y="329" text-anchor="middle" class="formula">g = gDPO + λSFT gSFT</text>
+  <text x="650" y="366" text-anchor="middle" class="body">direction, not just scale</text>
+  <line x1="425" y1="290" x2="535" y2="305" stroke="#c56e35" stroke-width="6" marker-end="url(#orange)"/>
+  <line x1="875" y1="290" x2="765" y2="305" stroke="#2f7d63" stroke-width="6" marker-end="url(#green)"/>
+
+  <rect x="190" y="500" width="920" height="130" rx="22" fill="#ffffff" stroke="#cbd3ce" stroke-width="2"/>
+  <text x="235" y="548" class="head">What to measure</text>
+  <text x="235" y="585" class="body">Track gradient norms or cosine similarity per branch alongside chosen/rejected log-ratios.</text>
+  <text x="235" y="615" class="body">Total loss alone cannot reveal whether imitation overwhelms preference separation.</text>
+  <line x1="650" y1="422" x2="650" y2="490" stroke="#77528b" stroke-width="6" marker-end="url(#purple)"/>
+</svg>

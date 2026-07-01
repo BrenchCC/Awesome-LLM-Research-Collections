@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Token layout and masks for a DPO preference pair</title>
+  <desc id="desc">Chosen and rejected share one left-truncated prompt. Responses are right-truncated with EOS retained. SFT labels cover only the chosen response and EOS.</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #202622; }
+      .title { font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #626e67; }
+      .row-title { font-size: 20px; font-weight: 700; }
+      .token { font-size: 16px; font-weight: 600; }
+      .note { font-size: 15px; fill: #5f6a64; }
+      .inverse { fill: #ffffff; }
+      .inverse-soft { fill: #d8e3dd; }
+    </style>
+  </defs>
+  <rect width="1200" height="650" rx="28" fill="#f6f7f3"/>
+  <text x="62" y="68" class="title">Token alignment in a preference pair</text>
+  <text x="62" y="104" class="subtitle">shared prompt, separately truncated responses, chosen-only labels</text>
+
+  <text x="62" y="174" class="row-title">chosen sequence</text>
+  <rect x="250" y="138" width="155" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="405" y="138" width="170" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="575" y="138" width="165" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="740" y="138" width="270" height="58" rx="12" fill="#dff1e9" stroke="#61a382" stroke-width="2"/>
+  <rect x="1010" y="138" width="95" height="58" rx="12" fill="#c8e6d8" stroke="#61a382" stroke-width="2"/>
+  <text x="284" y="174" class="token">history</text>
+  <text x="447" y="174" class="token">user prompt</text>
+  <text x="601" y="174" class="token">assistant tag</text>
+  <text x="811" y="174" class="token">chosen response</text>
+  <text x="1038" y="174" class="token">EOS</text>
+
+  <text x="62" y="278" class="row-title">rejected sequence</text>
+  <rect x="250" y="242" width="155" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="405" y="242" width="170" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="575" y="242" width="165" height="58" rx="12" fill="#dfe9e3" stroke="#91aa9c"/>
+  <rect x="740" y="242" width="225" height="58" rx="12" fill="#f5dfda" stroke="#c67d69" stroke-width="2"/>
+  <rect x="965" y="242" width="95" height="58" rx="12" fill="#ecd0c8" stroke="#c67d69" stroke-width="2"/>
+  <text x="284" y="278" class="token">history</text>
+  <text x="447" y="278" class="token">user prompt</text>
+  <text x="601" y="278" class="token">assistant tag</text>
+  <text x="781" y="278" class="token">rejected response</text>
+  <text x="993" y="278" class="token">EOS</text>
+
+  <path d="M250 324 H740" stroke="#3c6653" stroke-width="3"/>
+  <path d="M250 318 V330 M740 318 V330" stroke="#3c6653" stroke-width="3"/>
+  <text x="388" y="355" class="note">identical prompt tokens and response start position</text>
+
+  <text x="62" y="432" class="row-title">SFT labels</text>
+  <rect x="250" y="396" width="490" height="58" rx="12" fill="#eceeec" stroke="#a6ada8"/>
+  <rect x="740" y="396" width="270" height="58" rx="12" fill="#dff1e9" stroke="#61a382" stroke-width="2"/>
+  <rect x="1010" y="396" width="95" height="58" rx="12" fill="#c8e6d8" stroke="#61a382" stroke-width="2"/>
+  <text x="434" y="432" class="token" fill="#727a75">-100</text>
+  <text x="804" y="432" class="token">chosen token ids</text>
+  <text x="1038" y="432" class="token">EOS</text>
+
+  <rect x="62" y="515" width="1043" height="87" rx="16" fill="#26352e"/>
+  <text x="90" y="550" font-size="17" class="inverse">Order: right-truncate each response while retaining EOS, then set the prompt budget using the longer response.</text>
+  <text x="90" y="580" font-size="17" class="inverse-soft">Left-truncate the prompt to preserve recent context; padding contributes to neither loss.</text>
+</svg>

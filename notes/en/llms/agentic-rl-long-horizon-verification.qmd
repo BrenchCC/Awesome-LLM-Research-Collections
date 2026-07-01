@@ -1,0 +1,259 @@
+---
+author: Brench
+date: 2026-07-01
+title: "Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL"
+description: "A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision."
+order: 1
+note_type: technical-reflection
+topic: llms
+tags:
+  - Agentic RL
+  - Long-Horizon Agents
+  - Value Modeling
+  - Reward Hacking
+  - Verification
+---
+
+## Abstract
+
+RLVR on short answers offers a clean abstraction: sample several responses to one prompt, score their terminal outcomes with a verifier, and update the policy using group-relative advantages. That abstraction starts to break in repository, terminal, and multi-agent tasks. A rollout can last for hours, its history may be split into uneven sub-trajectories by compaction, rewards remain sparse, and the verifier is exposed to sustained optimization pressure. A more capable model is also more likely to discover a verifier's loopholes.
+
+GLM-5.2, Qwen's *The Verification Horizon*, GenAC, and OPID intervene at different points in the same system. Agentic RL can no longer be summarized by substituting one policy loss for another. Training quality depends on four coupled systems: how trajectories are generated and retained, how terminal outcomes are attributed to intermediate decisions, how rewards are checked against user intent, and how much supervision can be extracted from each expensive rollout. The proposals in the [GLM-5.2 technical post](https://huggingface.co/blog/zai-org/glm-52-blog) and the three papers do not converge on one algorithm, but they point to the same shift: **the bottleneck is moving from obtaining verifiable answers to preserving trustworthy learning signals over long horizons.**[^glm][^verification][^genac][^opid]
+
+This note develops that causal chain, then uses two related papers to test two central claims: where critic-free optimization starts to fail as horizons grow, and why test pass rates systematically overstate real completion quality for long-running coding agents. The conclusion is not that PPO simply wins over GRPO. Different task horizons, trajectory representations, and verifier structures call for different estimators.
+
+## Long-horizon tasks change the unit of RL data
+
+In mathematics or short code generation, one answer is usually one comparable trajectory. A long-running agent instead reads the environment, invokes tools, edits files, executes tests, recovers from failure, and may delegate work to sub-agents. Once the context reaches the system limit, the runtime must compress history to keep the rollout alive.
+
+That creates four immediate consequences:
+
+1. Rollouts from the same prompt no longer produce the same number or length of training samples. One compaction path may yield two sub-trajectories and another may yield five.
+2. Terminal reward is separated from early actions by many state transitions, so sharing one advantage across the full trajectory obscures pivotal decisions.
+3. Rollouts are expensive, and requiring a fixed group of candidates per prompt can make group sampling the systems bottleneck.
+4. If a verifier inspects only the final artifact, a model can earn reward by reading protected artifacts, modifying tests, or retrieving an external solution.
+
+These are respectively problems of trajectory representation, credit assignment, sampling efficiency, and reward reliability. Collapsing them into a generic “long-context problem” hides the constraints that actually shape training.
+
+## GLM-5.2: fitting training to compacted trajectories
+
+### slime is more than a single trainer
+
+GLM-5.2 uses [slime](https://github.com/THUDM/slime) to connect training, inference, rollouts, and task orchestration. The official material lists white-box rollout, black-box rollout, compact trajectories, and sub-agent workflows; its post-training pipeline also uses parallel on-policy distillation to integrate more than ten expert models into the final policy. The important point is not the feature list. It is the engineering fact the list exposes: the minimum data unit in long-horizon RL is no longer a prompt-response pair, but an execution trace containing environment state, tool events, and compaction boundaries.[^glm][^slime]
+
+![GLM-5.2's official long-horizon evaluation. The chart reports results under these benchmark settings; it does not isolate the effects of PPO, context length, or anti-hacking.](../../assets/agentic-rl-long-horizon-verification/glm-long-horizon-evaluation.png){fig-alt="Official GLM-5.2 results on FrontierSWE, PostTrainBench, and SWE-Marathon"}
+
+The official evaluation reports clear gains over GLM-5.1 on FrontierSWE, PostTrainBench, and SWE-Marathon. It supports the claim that the overall system performs better on long tasks, but not that critic-based PPO independently caused the improvement. Architecture, 1M context, inference budget, training data, slime, and anti-hacking all changed together, and the release does not provide a component-wise ablation. Attributing the total score gain to a single algorithm would go beyond the evidence.
+
+### Why group-wise optimization conflicts with compact trajectories
+
+Suppose rollout $i$ for one prompt becomes $K_i$ sub-trajectories after compaction:
+
+$$
+\tau_i \longrightarrow
+\left\{
+\tau_{i,1},
+\tau_{i,2},
+\ldots,
+\tau_{i,K_i}
+\right\}.
+$$
+
+When both $K_i$ and the segment lengths vary, a fixed prompt-level group is no longer a natural training unit. Each sub-trajectory also retains a compacted state. It belongs to the same task, but cannot be aligned position by position with another rollout.
+
+GLM-5.2 therefore moves from group-wise optimization to critic-based PPO. A critic estimates token-level state values for a single rollout, and a method such as GAE forms the advantage:
+
+$$
+\delta_t
+=
+r_t
++
+\gamma V(s_{t+1})
+-
+V(s_t)
+$$
+
+$$
+\hat{A}_t
+=
+\sum_{l=0}^{T-t-1}
+(\gamma\lambda)^l
+\delta_{t+l}.
+$$
+
+This formulation does not require every prompt to yield a fixed number of equally long samples. All compacted sub-traces can enter training, while a token-level loss handles length imbalance. The claim still needs a boundary: token-level advantage is not automatically correct credit assignment. It merely changes the estimation granularity from a whole trajectory to a local state. Its quality ultimately depends on whether the critic can predict future return from a compressed context.
+
+### Anti-hacking is a runtime constraint, not post-hoc deletion
+
+Coding-agent verifiers often return only pass or fail. The GLM-5.2 post lists several shortcuts observed in practice: reading protected evaluation artifacts, copying from reference answers or upstream commits, downloading target source code, and composing commands such as `find` and `cat` to reveal hidden secrets. The policy receives high reward without improving at the intended task.
+
+GLM-5.2's anti-hack module first applies high-recall rules and then asks an LLM whether the suspicious operation actually crosses the boundary. Detection happens online at tool-call time. A risky call is intercepted and answered with invalid information, instead of terminating the complete rollout. This preserves the remaining trajectory and its learning signal, while making the hidden rule harder to infer from termination alone.
+
+My reading is that GLM-5.2's return from GRPO to critic-based PPO should not be framed as a reversal of algorithmic doctrine. Short STEM tasks make a group-relative baseline cheap and effective. Once trajectories grow, are rewritten by compaction, and receive sparse returns, a state-dependent baseline becomes useful again. Its costs are equally real: the critic consumes additional compute and memory, and distribution shift can produce advantages that are stable yet wrong.
+
+## Qwen: a reward function is not a verification system
+
+*The Verification Horizon: No Silver Bullet for Coding Agent Rewards* characterizes verifier quality along scalability, faithfulness, and robustness. Unit tests are cheap and stable but cover only part of a specification. LLM judges can handle semantics and open-ended tasks, but a stronger policy can exploit them. Human review is close to user intent but cannot support large-scale online training. Rather than offering one construction that achieves all three, the paper designs different verifiers for four task classes.[^verification]
+
+| Task | Main verifier | Problem addressed | Remaining boundary |
+| --- | --- | --- | --- |
+| SWE-style tasks | Executable tests + quality judge + trajectory monitor | Instruction-test mismatch and environmental shortcuts | Monitoring rules age; tests remain proxies for intent |
+| Frontend tasks | Rubric + interactive judge | Static screenshots miss dynamic behavior | High cost and limited action coverage |
+| Real-user tasks | Implicit user feedback + Span-KTO | Reward comes from the holder of intent | Feedback is biased, sparse, and product-distribution dependent |
+| Very long code tasks | Dynamic evaluator agent | Fixed tests cannot cover arbitrary implementations | The evaluator can avoid testing, overstep, or be too forgiving |
+
+![Co-evolution of the policy and verifier. A fixed verifier saturates or becomes exploitable as the policy continues to improve.](../../assets/agentic-rl-long-horizon-verification/qwen-verifier-coevolution.png){fig-alt="A policy outgrows a saturated verifier, while an upgraded verifier restores useful training signal"}
+
+### SWE: repair task quality before monitoring the solving process
+
+Qwen follows the SWE-Universe pipeline, deriving repair tasks and test patches from real GitHub pull requests and assigning binary outcomes through a unified script inside Docker. Executability is not the same as reliability. The task description may omit constraints buried in the PR discussion, while tests may check behavior the description never requested.
+
+The Agentic Quality Judge explores the repository, runs commands, and inspects tests to determine whether the instruction is clear and whether the unit tests align with it. Few-shot examples and access to the ground-truth patch improve the judge's precision and recall. The filtered data exposes an easily overlooked confounder: many zero-solve tasks are not intrinsically hard; their instructions are unclear or their tests are misaligned. Buying more rollouts for those samples only spends more compute on an incorrect reward.
+
+![SWE task-quality filtering preserves a large task pool while improving training curves. Low-quality tasks are especially common in the zero-solve bucket.](../../assets/agentic-rl-long-horizon-verification/qwen-task-quality.png){fig-alt="SWE task quality, dataset scale, and RL curves with and without quality filtering"}
+
+Task filtering alone is insufficient. The paper separates hacking-susceptible behavior into static-environment leakage and policy-dependent shortcut access. Repository history, visible tests, mutable verifiers, and unrestricted networks create the first class. The second appears when the policy actively searches for a patch, commit, or external repair. Environment hardening can address much of the former; the latter requires the full sequence of commands, network requests, git operations, and file edits.
+
+The trajectory monitor further splits successful runs into `Hacked Resolved` and `Clean Resolved`. Averaged over three SWE-Bench variants, monitoring reduces hacked-resolved rate from 28.57% to 0.56% and raises clean-resolved rate from 40.22% to 60.53%. This decomposition is more informative than a rise in total pass rate because it separates verifier acceptance from process compliance. One issue remains open: the rule library encodes known risk patterns, so the recall of the LLM monitor on genuinely novel hacks needs continuous adversarial evaluation.
+
+### Frontend: make the judge perform the interaction
+
+Frontend tasks lack stable unit tests, while a static LLM judge may reward a visually complete, verbose page whose controls do not work. The paper first decomposes 671 WebDev tasks into checklists averaging 25.9 rubric items across functionality, content, visual quality, layout, UX, and technical quality. Six scorer configurations produce within-family Kendall $\tau = 1.0$ and cross-family $\tau \geq 0.93$. A stricter prompt lowers absolute scores but barely changes the ranking.
+
+Stable ranking still cannot observe popovers, keyboard input, cross-page navigation, or state transitions. The Interactive Judge generates a complete action list, executes it with Playwright while recording page state, and finally scores the interaction trace and source code against the rubric. Planning all actions in one pass avoids a much more expensive step-by-step closed-loop judge.
+
+![The Interactive Judge turns page information, action planning, browser execution, and trace scoring into a reproducible pipeline.](../../assets/agentic-rl-long-horizon-verification/qwen-interactive-judge.png){fig-alt="Frontend Interactive Judge pipeline from preprocessing through action planning, Playwright execution, and scoring"}
+
+![With visual and hybrid static judges, training score rises without a matching test gain and response length keeps growing. The interactive judge keeps length stable and improves test score.](../../assets/agentic-rl-long-horizon-verification/qwen-frontend-rl.png){fig-alt="Frontend test score, training score, and response length under visual, hybrid, and interactive judges"}
+
+The curves are unusually diagnostic. With a visual judge or a screenshots-plus-code judge, training score rises while test score stalls or falls, and output length keeps increasing. The model has learned to pile on CSS and JavaScript for the static evaluator. Under the Interactive Judge, generated length stays roughly stable and test score improves. The lesson is not that every LLM judge is unreliable. The observation surface defines what the judge can reward; dynamic behavior is absent from a reward that sees only source code and fixed screenshots.
+
+### Real users: negative feedback should not simply be discarded
+
+The paper collects 125,528 trajectories and 535,737 turn-level annotations from interactions between professional programmers and a coding assistant. After excluding initial task-description turns, 76.6% of feedback is neutral, 20.0% negative, and only 3.5% positive. Users usually proceed to the next request when a result is correct and become explicit when something fails. Of negative feedback, 81.8% is high-confidence, concentrated in execution errors (56.6%) and requirement misunderstanding (21.1%).
+
+![Real-user feedback is mostly neutral. Negative feedback is less frequent but high-confidence, and concentrates on execution errors and misunderstood requirements.](../../assets/agentic-rl-long-horizon-verification/qwen-user-feedback.png){fig-alt="User-feedback polarity, polarity by confidence, and reasons for negative feedback"}
+
+Deleting failed trajectories also discards code structure, API usage, and language-modeling information. The RW-SFT ablation supports this point: setting the weight of negative tokens to zero drops the three-benchmark SWE average from 41.8% under ordinary SFT to 37.2%; mild downweighting to 0.8 reaches 44.4%. Span-KTO instead segments a dialogue at feedback boundaries, moves the policy toward or away from positive and negative spans, and retains cross-entropy learning on neutral spans. It outperforms SFT and RW-SFT on all five reported benchmarks, including a 13.3-point absolute gain on Aone-bench.
+
+![SFT, RW-SFT, and Span-KTO across five coding evaluations. Span-KTO achieves the highest reported result on each task.](../../assets/agentic-rl-long-horizon-verification/qwen-span-kto-results.png){fig-alt="SFT, reweighted SFT, and Span-KTO results on five coding benchmarks"}
+
+The important move is not treating the user as a stronger reward model. It is recognizing that feedback attaches to different portions of the process. A dialogue-level label is too coarse, while token-level sentiment inference is brittle. A span is closer to the behavioral unit that handled one request.
+
+### Very long tasks: evaluator agents need engineering constraints too
+
+When an agent builds a repository from scratch, fixed tests cannot anticipate every valid implementation. The paper asks an evaluator agent to decompose the requirement, write and execute tests, and produce both a unit-test pass score and a holistic quality score. The NL2Repo validation set contains 104 tasks with at most four candidates per task, and uses the original repository tests as an approximate reference.
+
+The metrics include Best-of-N accuracy, regret, Kendall $\tau$, Pearson and Spearman correlation, and threshold-conditioned unit-test score. The variety is practical. RL needs a continuous reward with stable ranking. RFT with many candidates values precision above a high threshold. With few candidates, an overly strict threshold can exhaust the data. An evaluator that works for one training objective is not automatically appropriate for another.
+
+Prompt iteration also yields a useful negative result. From v1 through v4, the workflow forces the evaluator to run tests, inspect global behavior, avoid repairing the candidate itself, and focus on entry points and core interfaces. Best-of-N accuracy rises from 57.9% to 67.4%. Adding an exhaustive list of prohibitions in v5 degrades most metrics. Rubric granularity has to match the evaluator's instruction-following capacity.
+
+![Dynamic-evaluator prompts improve from v1 to v4, while the over-specified v5 regresses.](../../assets/agentic-rl-long-horizon-verification/qwen-evaluator-iterations.png){fig-alt="Best-of-N, regret, Kendall, and correlation metrics for five NL2Repo evaluator prompts"}
+
+## GenAC: once critics return, value modeling becomes the bottleneck
+
+GLM-5.2 argues that long trajectories make critics useful again. GenAC asks the next question: can a conventional discriminative critic represent a complex value function well enough? The paper freezes the actor and trains scalar critics based on Qwen3 models from 0.6B to 14B. Increasing model size does not reliably lower MSE, and changing the random seed materially changes the result. The authors also construct language-generation MDPs for which exact value computation is P-complete, while fixed-depth transformers are bounded by TC$^0$. This theoretical result applies to a specific construction; it does not imply that every practical value function is unlearnable by a discriminative critic.[^genac]
+
+![A value-free method assigns one advantage to all tokens, a discriminative critic supplies differentiated but noisy estimates, and GenAC reasons before assigning segment-level values.](../../assets/agentic-rl-long-horizon-verification/genac-credit-assignment.png){fig-alt="Advantage estimation under value-free optimization, PPO with a discriminative critic, and a generative critic"}
+
+GenAC retains the language-modeling head, lets the critic generate an analysis, and then outputs an integer from 0 to 10 that is normalized into a value in $[0,1]$. In-context conditioning tells the critic the active actor's parameter count and smoothed training-set success rate. Value is not an intrinsic property of a task: the same state may be easy for a 14B policy and hard for a 0.6B policy, so the critic needs to know which policy it evaluates.
+
+![The GenAC ICC prompt supplies actor size, current average success rate, the problem, and a partial solution.](../../assets/agentic-rl-long-horizon-verification/genac-icc-prompt.png){fig-alt="In-context conditioning prompt for the GenAC generative critic"}
+
+Training has three stages. GPT-5-generated reasoning traces first provide SFT for format and basic reasoning, not accurate value distillation. The actor is then frozen while empirical returns and REINFORCE pretrain the critic. Finally, actor and critic alternate updates, with the actor using critic-derived advantages in PPO. The experiment starts from Qwen3-8B-Base, trains on DeepScaleR, and compares GRPO, RLOO, VC-PPO, and GenAC across six mathematics benchmarks. The paper reports value errors that decline with generative-critic scale, smaller variance across seeds, and RL gains that continue after the baselines plateau.
+
+The cost matters. The paper estimates roughly 2.1 times the per-iteration computation of standard PPO. Generative value estimation across many segments also adds substantial inference latency. The work shows that a stronger critic can improve credit assignment, but does not yet demonstrate that this implementation scales economically to very long coding trajectories.
+
+## OPID: dense trajectory supervision without a critic
+
+OPID takes another route. It does not retrieve prompts from an external skill memory. It extracts two levels of hindsight skill from completed rollouts of the current policy: episode-level skills summarize global workflows and failure-avoidance rules, while step-level skills describe local decisions at pivotal states. Critical positions receive the step skill; all other positions fall back to the episode skill.[^opid]
+
+![OPID extracts hierarchical skills from on-policy trajectories, routes them by critical state, and uses the probability shift on the same response to form a token-level skill advantage.](../../assets/agentic-rl-long-horizon-verification/opid-overview.png){fig-alt="OPID pipeline for rollouts, skill extraction, critical-first routing, self-distillation, and policy optimization"}
+
+For the same sampled token $y_t$, the old policy re-scores the response under the original history $h_t$ and the skill-augmented history $\hat{h}_t$:
+
+$$
+A_t^{\mathrm{skill}}
+=
+\log \pi_{\mathrm{old}}(y_t \mid \hat{h}_t)
+-
+\log \pi_{\mathrm{old}}(y_t \mid h_t).
+$$
+
+The final advantage combines episode outcome and the skill signal:
+
+$$
+A_t^{\mathrm{OPID}}
+=
+A_t^{\mathrm{episode}}
++
+\lambda_{\mathrm{skill}}
+A_t^{\mathrm{skill}}.
+$$
+
+This difference is not a true step reward from the environment. It measures whether the old policy, when given hindsight skill, assigns more probability to the sampled token. In other words, it is an on-policy self-distillation signal. It avoids an external skill library and better matches the current policy distribution, but a skill analyzer may still generalize an accidental success into a wrong rule and broadcast that bias densely across the trajectory.
+
+Across ALFWorld, WebShop, and Search-based QA, OPID generally outperforms outcome-only GRPO and several skill-distillation baselines. On ALFWorld, average episode length falls to 15–16 steps, versus a GRPO plateau at 17–18. With 60% of the training data, OPID scores 71.9, close to full-data GRPO at 75.0; with 80%, it reaches 78.9. The ablation also shows that more skill is not automatically better: directly stacking global and local skills trails critical-first routing by 6.8 points.
+
+## External evidence from two related papers
+
+### Learning Without Critics?: where critic-free baselines reach their limit
+
+*Learning Without Critics? Revisiting GRPO in Classical Reinforcement Learning Environments* controls the baseline, discount, and group size across CartPole, Acrobot, MountainCarContinuous, HalfCheetah, and Humanoid. Every critic-free baseline trails PPO except in short-horizon CartPole, with the largest gaps in long-horizon continuous control. GRPO generally prefers $\gamma = 0.99$, while HalfCheetah, which lacks early termination, performs better at $\gamma = 0.9$. Smaller groups also unexpectedly outperform larger ones.[^critics]
+
+The study does not use language models, compaction, tool calls, or a text action space, so it cannot prove that GLM-5.2 must use PPO. It provides mechanism-level corroboration: as episodes lengthen and early termination disappears, replacing a state-dependent value with group returns makes variance and credit assignment harder. The conclusion is consistent with GLM's engineering choice, but comes from a different evidence domain.
+
+### SpecBench: the gap between passing tests and satisfying a specification
+
+SpecBench divides 30 systems-programming tasks into natural-language specifications, visible validation tests, and held-out compositional tests. The visible suite checks isolated features. The hidden suite only composes features already present in the specification; it introduces no new requirements. The paper defines the difference as a reward-hacking gap:[^specbench]
+
+$$
+\Delta_{\mathrm{hack}}
+=
+s_{\mathrm{validation}}
+-
+s_{\mathrm{held\mbox{-}out}}.
+$$
+
+![SpecBench drives agent search with visible single-feature tests, then measures specification compliance with held-out compositional tests.](../../assets/agentic-rl-long-horizon-verification/specbench-framework.png){fig-alt="SpecBench task specification, visible validation suite, held-out compositional suite, and reward-hacking gap"}
+
+Reference implementations range from roughly 1.5K to 110K lines of code. The gap grows by about 28 percentage points for every tenfold increase in code size. Stronger models show a smaller gap, but do not eliminate it. Models of different capability achieve similar validation scores; their held-out scores diverge.
+
+![The SpecBench reward-hacking gap grows with reference implementation size. The fitted line reports roughly 28 additional points per tenfold increase.](../../assets/agentic-rl-long-horizon-verification/specbench-horizon-gap.png){fig-alt="Relationship between reward-hacking gap and reference implementation lines of code"}
+
+The most extreme example is a 2,900-line hash-table “C compiler.” It stores outputs for public inputs, earns 97% validation score, and scores 0 on the held-out suite. A SQL database takes a subtler route: it implements a separate handler for each feature and passes isolated tests, but fails when features have to share state. The first is explicit test exploitation; the second is a structural defect produced naturally by local optimization. A single pass rate hides both.
+
+![Two SpecBench failures: a compiler memorizes public inputs, while a SQL implementation passes isolated feature tests but cannot compose those features.](../../assets/agentic-rl-long-horizon-verification/specbench-failure-cases.png){fig-alt="Public-test memorization in a C compiler and feature isolation in a SQL database"}
+
+Held-out tests remain a finite proxy, so a small gap is not proof of complete correctness. Their value is that they make one quantity reproducible: under the same specification, how far does the optimization proxy diverge from composed use?
+
+## Synthesis: algorithm choice follows task structure
+
+Taken together, these works support a more practical decision table.
+
+| Training symptom | More suitable response | Cost or risk |
+| --- | --- | --- |
+| Compacted sub-trace counts and lengths vary for the same prompt | Single-rollout critic-based PPO | Critic cost; value error contaminates the advantage |
+| Terminal reward cannot locate pivotal steps | Token/segment values or OPID-style dense distillation | A local signal may only be a more precise misattribution |
+| Tests pass through process-level shortcuts | Environment hardening + trajectory monitor | Unknown hacks and monitor false positives |
+| Static judges are exploited through code length | Browser execution + interactive judge | Limited action coverage and high runtime cost |
+| User feedback is sparse and asymmetric | Span-level preference objective | Privacy, product-distribution bias, and annotation error |
+| A dynamic evaluator ranks well but filters poorly | Select metrics separately for RL, Best-of-N, and RFT | Independent calibration and continuous upgrades |
+
+I read this 2026 cluster as an expansion of the training interface, not a restoration of PPO as doctrine. The policy optimizer is only the final layer. The trajectory runtime determines which history the model sees. The credit estimator determines which actions receive reinforcement. The verifier determines what counts as success. The monitor determines which apparent successes are rejected. Change any one of them and the loss below is optimizing a different problem.
+
+Two cautions remain. First, many GLM-5.2 and Qwen results rely on internal models, data, and benchmarks, with no equal-budget external reproduction yet. Second, GenAC and OPID hand the density of supervision to a generative critic and a skill analyzer. Both can amplify a model's own bias, even if the signal is more granular than a terminal scalar. Future studies should report value calibration, monitor recall, held-out specification gap, trajectory length, and cost per effective sample—not only final success rate.
+
+## Conclusion
+
+Long-horizon Agentic RL exposes three constraints that are easy to overlook in short-answer training: the runtime rewrites trajectories, terminal rewards are hard to assign to intermediate decisions, and a fixed verifier degrades under optimization pressure. GLM-5.2 uses compaction-aware PPO and online anti-hacking for the first two layers. Qwen expands verification into task-quality filtering, behavior monitoring, real-user feedback, and dynamic evaluator agents. GenAC gives the value model more expressive power through generative reasoning. OPID distills skills from on-policy trajectories and supplements outcome reward with token-level supervision.
+
+These methods do not remove the constraints; they make them explicit. The next useful question is not “GRPO or PPO?” It is: how long is the task's effective horizon, what state did compaction discard, is the critic still calibrated after policy drift, what do the hidden verifier tests actually cover, and how much recall does the monitor retain against a novel policy? Without those answers, it is difficult to know which capability the policy loss is optimizing.
+
+[^glm]: Z.AI, [*GLM-5.2: Built for Long-Horizon Tasks*](https://huggingface.co/blog/zai-org/glm-52-blog), 2026.
+[^slime]: THUDM, [*slime: An LLM Post-Training Framework for RL Scaling*](https://github.com/THUDM/slime).
+[^verification]: Wang et al., [*The Verification Horizon: No Silver Bullet for Coding Agent Rewards*](https://arxiv.org/abs/2606.26300), 2026.
+[^genac]: Yang et al., [*Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning*](https://arxiv.org/abs/2604.10701), 2026.
+[^opid]: Wu et al., [*OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning*](https://arxiv.org/abs/2606.26790), 2026.
+[^critics]: de Oliveira et al., [*Learning Without Critics? Revisiting GRPO in Classical Reinforcement Learning Environments*](https://arxiv.org/abs/2511.03527), 2025.
+[^specbench]: Zhao et al., [*SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents*](https://arxiv.org/abs/2605.21384), 2026.

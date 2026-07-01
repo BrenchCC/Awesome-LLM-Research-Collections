@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>37</strong><span>论文</span></div>
-    <div><strong>79</strong><span>资源链接</span></div>
+    <div><strong>40</strong><span>论文</span></div>
+    <div><strong>83</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -241,10 +241,32 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>奖励建模</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>奖励建模</span>
+  </div>
+  <h3>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</h3>
+  <p>该论文将可靠验证视为编码智能体面临的新瓶颈，并从可扩展性、忠实性和鲁棒性三个维度评估奖励信号。通过测试、规则、用户反馈和自动化智能体验证器，论文表明针对性的验证设计能够抑制奖励劫持，并指出验证机制必须与能力不断增强的生成器协同演化。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.26300" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="bringing-value-models-back-generative-critics-for-value-modeling-in-llm-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>奖励建模</span>
+  </div>
+  <h3>Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning</h3>
+  <p>该论文重新审视 LLM 强化学习中的价值建模，指出单次预测式判别评论器受限于表达能力。论文提出 Generative Actor-Critic (GenAC)，让评论器先推理再估计价值，并通过上下文条件适配当前策略，从而提升价值逼近、排序可靠性、分布外泛化和下游强化学习性能。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.10701" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
   <div class="paper-meta">
     <span>2026.03</span>
@@ -442,10 +464,22 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</h3>
+  <p>该论文提出 OPID，从已完成的在策略轨迹中提取分层的回合级与步骤级技能，并将技能带来的概率变化转化为 token 级自蒸馏优势，与结果优势共同优化策略。其关键步骤优先路由提供稠密且匹配当前策略分布的后见监督，在具身、网页购物和搜索问答任务上提升智能体性能、样本效率与鲁棒性。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.26790" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/jinyangwu/OPID" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
   <div class="paper-meta">
     <span>2026.05</span>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Metrics needed to evaluate DPO with chosen SFT</title>
+  <desc id="desc">Optimization, likelihood, data, and generation metrics are separated because no single training loss validates model quality.</desc>
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #202822; }
+    .title { font-family: Georgia, serif; font-size: 36px; font-weight: 700; }
+    .subtitle { font-size: 18px; fill: #637068; }
+    .head { font-size: 23px; font-weight: 700; }
+    .item { font-size: 17px; fill: #455149; }
+    .warn { font-size: 18px; font-weight: 700; fill: #8a493b; }
+    .inverse { fill: #ffffff; }
+    .inverse-soft { fill: #dce7e1; }
+  </style>
+  <rect width="1400" height="760" rx="30" fill="#f7f7f3"/>
+  <text x="64" y="72" class="title">A metric stack for a falsifiable experiment</text>
+  <text x="64" y="108" class="subtitle">Teacher-forced fit, pair ranking, and generated behavior answer different questions</text>
+
+  <g transform="translate(55 165)">
+    <rect width="300" height="400" rx="22" fill="#fff8ee" stroke="#cfaa70" stroke-width="2"/>
+    <text x="30" y="52" class="head">Optimization</text>
+    <text x="30" y="102" class="item">• dpo_loss</text>
+    <text x="30" y="140" class="item">• sft_loss</text>
+    <text x="30" y="178" class="item">• total_loss</text>
+    <text x="30" y="216" class="item">• branch gradient norms</text>
+    <text x="30" y="254" class="item">• gradient cosine</text>
+    <text x="30" y="324" class="warn">Question</text>
+    <text x="30" y="360" class="item">Which signal drives the update?</text>
+  </g>
+  <g transform="translate(385 165)">
+    <rect width="300" height="400" rx="22" fill="#eef7f2" stroke="#76a98f" stroke-width="2"/>
+    <text x="30" y="52" class="head">Likelihood</text>
+    <text x="30" y="102" class="item">• chosen policy log-prob</text>
+    <text x="30" y="140" class="item">• rejected policy log-prob</text>
+    <text x="30" y="178" class="item">• chosen log-ratio</text>
+    <text x="30" y="216" class="item">• rejected log-ratio</text>
+    <text x="30" y="254" class="item">• pair margin / accuracy</text>
+    <text x="30" y="324" class="warn">Question</text>
+    <text x="30" y="360" class="item">Did the anchor prevent displacement?</text>
+  </g>
+  <g transform="translate(715 165)">
+    <rect width="300" height="400" rx="22" fill="#eef3f8" stroke="#7e9db8" stroke-width="2"/>
+    <text x="30" y="52" class="head">Data path</text>
+    <text x="30" y="102" class="item">• chosen/rejected lengths</text>
+    <text x="30" y="140" class="item">• truncation rates</text>
+    <text x="30" y="178" class="item">• edit distance</text>
+    <text x="30" y="216" class="item">• label-mask coverage</text>
+    <text x="30" y="254" class="item">• preference quality audit</text>
+    <text x="30" y="324" class="warn">Question</text>
+    <text x="30" y="360" class="item">What shortcut can the loss exploit?</text>
+  </g>
+  <g transform="translate(1045 165)">
+    <rect width="300" height="400" rx="22" fill="#f3eef6" stroke="#9a7fad" stroke-width="2"/>
+    <text x="30" y="52" class="head">Generation</text>
+    <text x="30" y="102" class="item">• held-out win rate</text>
+    <text x="30" y="140" class="item">• length-controlled win rate</text>
+    <text x="30" y="178" class="item">• response length</text>
+    <text x="30" y="216" class="item">• repetition / refusal</text>
+    <text x="30" y="254" class="item">• fixed-prompt outputs</text>
+    <text x="30" y="324" class="warn">Question</text>
+    <text x="30" y="360" class="item">Did generated behavior improve?</text>
+  </g>
+
+  <rect x="210" y="620" width="980" height="78" rx="20" fill="#354b40"/>
+  <text x="700" y="652" text-anchor="middle" font-size="20" font-weight="700" class="inverse">A passing implementation test is not a model-quality result.</text>
+  <text x="700" y="681" text-anchor="middle" font-size="17" class="inverse-soft">Require agreement between likelihood diagnostics and held-out generation.</text>
+</svg>

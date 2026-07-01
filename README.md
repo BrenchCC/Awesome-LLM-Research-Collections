@@ -409,6 +409,14 @@
   <a href="https://github.com/idanshen/Self-Distillation"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## Reward Modeling
+- **The Verification Horizon: No Silver Bullet for Coding Agent Rewards** (2026.06) \
+  **Description**: This paper frames reliable verification as the emerging bottleneck for coding agents and evaluates reward signals by scalability, faithfulness, and robustness. Through test, rubric, user-feedback, and automated-agent verifiers, it shows that targeted designs can curb reward hacking and argues that verification must co-evolve with increasingly capable generators. \
+  <a href="https://arxiv.org/abs/2606.26300"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
+- **Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning** (2026.04) \
+  **Description**: This paper revisits value modeling for LLM reinforcement learning and argues that one-shot discriminative critics are limited by their expressiveness. It introduces Generative Actor-Critic (GenAC), whose critic reasons before estimating value and uses in-context conditioning to track the current actor, improving value approximation, ranking reliability, out-of-distribution generalization, and downstream RL performance. \
+  <a href="https://arxiv.org/abs/2604.10701"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **Description**: This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks. \
   <a href="https://arxiv.org/abs/2603.19310"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -484,6 +492,11 @@
   <a href="https://huggingface.co/deepseek-ai/deepseek-math-7b-rl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Agentic RL
+- **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
+  **Description**: This paper proposes OPID, which extracts hierarchical episode- and step-level skills from completed on-policy trajectories and converts their effect into token-level self-distillation advantages alongside the outcome advantage. Its critical-first routing supplies dense, distribution-matched hindsight supervision, improving agent performance, sample efficiency, and robustness on embodied, web-shopping, and search-based tasks. \
+  <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/jinyangwu/OPID"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
   **Description**: Spreadsheet-RL is an RL fine-tuning framework for training specialized spreadsheet agents in a realistic Microsoft Excel environment, addressing complex multi-step workflows that prompting-based agents struggle with. It adds automated start-goal spreadsheet data collection, a multi-turn Spreadsheet Gym with sandboxed Excel tools, and a Domain-Spreadsheet benchmark to improve real-world spreadsheet automation. \
   <a href="https://arxiv.org/abs/2605.22642"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -659,6 +672,16 @@
   **Description**: A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments. \
   [[Note](notes/en/llms/grpo-loss-analysis.qmd)]
   [[中文](notes/zh/llms/grpo-loss-analysis.qmd)]
+
+- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-01) \
+  **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
+  [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+
+- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (2026-07-02) \
+  **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
+  [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
+  [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]
 
 - **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
   **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>37</strong><span>Papers</span></div>
-    <div><strong>79</strong><span>Resource links</span></div>
+    <div><strong>40</strong><span>Papers</span></div>
+    <div><strong>83</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -241,10 +241,32 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>Reward Modeling</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Reward Modeling</span>
+  </div>
+  <h3>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</h3>
+  <p>This paper frames reliable verification as the emerging bottleneck for coding agents and evaluates reward signals by scalability, faithfulness, and robustness. Through test, rubric, user-feedback, and automated-agent verifiers, it shows that targeted designs can curb reward hacking and argues that verification must co-evolve with increasingly capable generators.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.26300" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="bringing-value-models-back-generative-critics-for-value-modeling-in-llm-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>Reward Modeling</span>
+  </div>
+  <h3>Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning</h3>
+  <p>This paper revisits value modeling for LLM reinforcement learning and argues that one-shot discriminative critics are limited by their expressiveness. It introduces Generative Actor-Critic (GenAC), whose critic reasons before estimating value and uses in-context conditioning to track the current actor, improving value approximation, ranking reliability, out-of-distribution generalization, and downstream RL performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.10701" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
   <div class="paper-meta">
     <span>2026.03</span>
@@ -442,10 +464,22 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Agentic RL</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</h3>
+  <p>This paper proposes OPID, which extracts hierarchical episode- and step-level skills from completed on-policy trajectories and converts their effect into token-level self-distillation advantages alongside the outcome advantage. Its critical-first routing supplies dense, distribution-matched hindsight supervision, improving agent performance, sample efficiency, and robustness on embodied, web-shopping, and search-based tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.26790" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/jinyangwu/OPID" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="spreadsheet-rl-advancing-large-language-model-agents-on-realistic-spreadsheet-tasks-via-reinforcement-learning">
   <div class="paper-meta">
     <span>2026.05</span>

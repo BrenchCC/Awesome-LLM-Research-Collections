@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>9</strong><span>笔记</span></div>
-    <div><strong>5</strong><span>主题</span></div>
-    <div><strong>2026-06-30</strong><span>最新日期</span></div>
+    <div><strong>11</strong><span>笔记</span></div>
+    <div><strong>6</strong><span>主题</span></div>
+    <div><strong>2026-07-02</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -140,6 +140,38 @@ toc: false
   </div>
   <div class="category-foot">
     <span>LLMS</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
+  <span class="category-count">2026-07-01</span>
+  <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>
+  <p>结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+    <span class="note-tag">Value Modeling</span>
+    <span class="note-tag">Reward Hacking</span>
+    <span class="note-tag">Verification</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="training/dpo-with-sft-loss.html">
+  <span class="category-count">2026-07-02</span>
+  <h3>在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定</h3>
+  <p>围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。</p>
+  <div class="note-tags">
+    <span class="note-tag">DPO</span>
+    <span class="note-tag">SFT</span>
+    <span class="note-tag">Preference Optimization</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">RLHF</span>
+  </div>
+  <div class="category-foot">
+    <span>TRAINING</span>
     <span>技术思考</span>
   </div>
 </a>

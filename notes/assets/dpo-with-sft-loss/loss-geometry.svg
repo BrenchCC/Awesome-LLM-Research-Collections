@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Likelihood geometry of DPO and DPO with chosen SFT</title>
+  <desc id="desc">Pure DPO can lower both chosen and rejected likelihoods while widening their gap. The SFT term adds an absolute anchor for the chosen response.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8f7f3"/>
+      <stop offset="1" stop-color="#eef3ef"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#55615a"/>
+    </marker>
+    <style>
+      text { font-family: Inter, "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #202521; }
+      .title { font-family: Georgia, "Noto Serif CJK SC", serif; font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #59635d; }
+      .panel-title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 17px; }
+      .small { font-size: 15px; fill: #68726c; }
+      .inverse { fill: #ffffff; }
+      .axis { stroke: #89938d; stroke-width: 2; }
+      .grid { stroke: #dce2de; stroke-width: 1; stroke-dasharray: 5 7; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+  <text x="70" y="70" class="title">Relative preference constrains a gap; SFT adds an anchor</text>
+  <text x="70" y="105" class="subtitle">Mechanism sketch, not a training curve or benchmark result</text>
+
+  <rect x="60" y="145" width="520" height="450" rx="22" fill="#ffffff" stroke="#d9dfda"/>
+  <rect x="620" y="145" width="520" height="450" rx="22" fill="#ffffff" stroke="#d9dfda"/>
+
+  <text x="95" y="190" class="panel-title">Pure DPO</text>
+  <text x="655" y="190" class="panel-title">DPO + chosen SFT</text>
+
+  <line x1="115" y1="500" x2="535" y2="500" class="axis" marker-end="url(#arrow)"/>
+  <line x1="115" y1="500" x2="115" y2="230" class="axis" marker-end="url(#arrow)"/>
+  <line x1="675" y1="500" x2="1095" y2="500" class="axis" marker-end="url(#arrow)"/>
+  <line x1="675" y1="500" x2="675" y2="230" class="axis" marker-end="url(#arrow)"/>
+
+  <g>
+    <line x1="115" y1="420" x2="535" y2="420" class="grid"/>
+    <line x1="115" y1="340" x2="535" y2="340" class="grid"/>
+    <line x1="115" y1="260" x2="535" y2="260" class="grid"/>
+    <line x1="675" y1="420" x2="1095" y2="420" class="grid"/>
+    <line x1="675" y1="340" x2="1095" y2="340" class="grid"/>
+    <line x1="675" y1="260" x2="1095" y2="260" class="grid"/>
+  </g>
+
+  <text x="220" y="548" class="label">optimization steps</text>
+  <text x="780" y="548" class="label">optimization steps</text>
+  <text x="84" y="365" class="small" transform="rotate(-90 84 365)">response log probability</text>
+  <text x="644" y="365" class="small" transform="rotate(-90 644 365)">response log probability</text>
+
+  <path d="M145 285 C250 300, 355 350, 505 392" fill="none" stroke="#2c7a62" stroke-width="6" stroke-linecap="round"/>
+  <path d="M145 320 C260 360, 380 430, 505 472" fill="none" stroke="#c45b4c" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="505" cy="392" r="7" fill="#2c7a62"/>
+  <circle cx="505" cy="472" r="7" fill="#c45b4c"/>
+  <text x="395" y="372" class="label" fill="#2c7a62">chosen</text>
+  <text x="395" y="463" class="label" fill="#c45b4c">rejected</text>
+  <path d="M320 315 C350 330, 370 352, 390 378" fill="none" stroke="#55615a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="225" y="286" class="small">both curves may decrease</text>
+
+  <path d="M705 310 C820 302, 930 282, 1065 270" fill="none" stroke="#2c7a62" stroke-width="6" stroke-linecap="round"/>
+  <path d="M705 325 C820 365, 945 440, 1065 475" fill="none" stroke="#c45b4c" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1065" cy="270" r="7" fill="#2c7a62"/>
+  <circle cx="1065" cy="475" r="7" fill="#c45b4c"/>
+  <text x="965" y="253" class="label" fill="#2c7a62">chosen</text>
+  <text x="950" y="465" class="label" fill="#c45b4c">rejected</text>
+  <path d="M830 333 C845 306, 860 287, 895 279" fill="none" stroke="#55615a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="735" y="372" class="small">NLL pulls chosen toward the data-supported region</text>
+
+  <rect x="95" y="615" width="1010" height="42" rx="12" fill="#26332d"/>
+  <text x="120" y="643" font-size="17" class="inverse">DPO constrains margin Δ = rθ(chosen) - rθ(rejected); SFT also minimizes -log πθ(chosen | prompt)</text>
+</svg>

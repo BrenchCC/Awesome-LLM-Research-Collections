@@ -409,6 +409,14 @@
   <a href="https://github.com/idanshen/Self-Distillation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 奖励建模
+- **The Verification Horizon: No Silver Bullet for Coding Agent Rewards** (2026.06) \
+  **描述**: 该论文将可靠验证视为编码智能体面临的新瓶颈，并从可扩展性、忠实性和鲁棒性三个维度评估奖励信号。通过测试、规则、用户反馈和自动化智能体验证器，论文表明针对性的验证设计能够抑制奖励劫持，并指出验证机制必须与能力不断增强的生成器协同演化。 \
+  <a href="https://arxiv.org/abs/2606.26300"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
+- **Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning** (2026.04) \
+  **描述**: 该论文重新审视 LLM 强化学习中的价值建模，指出单次预测式判别评论器受限于表达能力。论文提出 Generative Actor-Critic (GenAC)，让评论器先推理再估计价值，并通过上下文条件适配当前策略，从而提升价值逼近、排序可靠性、分布外泛化和下游强化学习性能。 \
+  <a href="https://arxiv.org/abs/2604.10701"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **描述**: 该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。 \
   <a href="https://arxiv.org/abs/2603.19310"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -484,6 +492,11 @@
   <a href="https://huggingface.co/deepseek-ai/deepseek-math-7b-rl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 智能体强化学习
+- **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
+  **描述**: 该论文提出 OPID，从已完成的在策略轨迹中提取分层的回合级与步骤级技能，并将技能带来的概率变化转化为 token 级自蒸馏优势，与结果优势共同优化策略。其关键步骤优先路由提供稠密且匹配当前策略分布的后见监督，在具身、网页购物和搜索问答任务上提升智能体性能、样本效率与鲁棒性。 \
+  <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/jinyangwu/OPID"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
   **描述**: Spreadsheet-RL 是一个用于在真实 Microsoft Excel 环境中训练专用表格智能体的强化学习微调框架，面向提示式智能体难以处理的复杂多步工作流。它结合自动化起止表格数据构建、多轮 Spreadsheet Gym 沙盒工具环境，以及 Domain-Spreadsheet 基准，以提升真实表格自动化能力。 \
   <a href="https://arxiv.org/abs/2605.22642"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -659,6 +672,16 @@
   **描述**: 沿着最小 GRPO 实现拆解 importance ratio、clipping、KL penalty 与聚合过程，解释负 loss、目标上升和近零实验现象。 \
   [[笔记](notes/zh/llms/grpo-loss-analysis.qmd)]
   [[English](notes/en/llms/grpo-loss-analysis.qmd)]
+
+- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-01) \
+  **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
+  [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+
+- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (2026-07-02) \
+  **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
+  [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
+  [[English](notes/en/training/dpo-with-sft-loss.qmd)]
 
 - **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
   **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \
