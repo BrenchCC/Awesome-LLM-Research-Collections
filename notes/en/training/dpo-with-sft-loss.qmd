@@ -46,36 +46,36 @@ The repository includes 13 offline tests covering data validation, truncation, c
 
 Let $x$ be a prompt, $y^+$ the chosen response, and $y^-$ the rejected response. The policy and reference models are $\pi_\theta$ and $\pi_{\mathrm{ref}}$. Sequence log probability is the sum of conditional token log probabilities:
 
-```math
+$$
 \log \pi_\theta(y\mid x)
 =
 \sum_{t=1}^{|y|}
 \log \pi_\theta(y_t\mid x,y_{\lt t})
-```
+$$
 
 Define a reference-adjusted score:
 
-```math
+$$
 s_\theta(x,y)
 =
 \log \pi_\theta(y\mid x)
 -
 \log \pi_{\mathrm{ref}}(y\mid x)
-```
+$$
 
 The repository's sigmoid DPO margin and loss are:
 
-```math
+$$
 \Delta_\theta
 =
 s_\theta(x,y^+)-s_\theta(x,y^-)
-```
+$$
 
-```math
+$$
 \mathcal{L}_{\mathrm{DPO}}
 =
 -\log \sigma(\beta\Delta_\theta)
-```
+$$
 
 This matches the binary-classification objective derived from KL-regularized RLHF in the DPO paper.[^dpo] The implementation is in [`compute_dpo_loss()`](https://github.com/BrenchCC/DPO_Trainer_with_SFT_Loss/blob/948f3da28a9ed850ced66db9d15431035851a474/trainers/dpo_trainer.py#L129-L175).
 
@@ -99,34 +99,34 @@ Neither `dpo_accuracy` nor the preference margin reveals that destination. A cho
 
 Chosen-response SFT supervises chosen tokens and EOS, excluding prompt and padding:
 
-```math
+$$
 \mathcal{L}_{\mathrm{SFT}}
 =
 -\frac{1}{T_+}
 \sum_{t=1}^{T_+}
 \log \pi_\theta(y_t^+\mid x,y_{\lt t}^+)
-```
+$$
 
 The joint objective is:
 
-```math
+$$
 \mathcal{L}_{\mathrm{total}}
 =
 \mathcal{L}_{\mathrm{DPO}}
 +
 \lambda_{\mathrm{SFT}}\mathcal{L}_{\mathrm{SFT}}
-```
+$$
 
 The two terms do not duplicate one another:
 
-```math
+$$
 \nabla_\theta \mathcal{L}_{\mathrm{total}}
 =
 \nabla_\theta \mathcal{L}_{\mathrm{DPO}}
 +
 \lambda_{\mathrm{SFT}}
 \nabla_\theta \mathcal{L}_{\mathrm{SFT}}
-```
+$$
 
 DPO depends on a chosen-rejected difference; SFT directly raises the conditional probability of observed chosen tokens. Equal numerical defaults such as `dpo_beta = 0.1` and `sft_loss_weight = 0.1` do not give the coefficients equal scale or interpretation. One enters a sigmoid margin, while the other multiplies token-mean cross entropy.
 
@@ -289,11 +289,11 @@ The reference model is frozen and set to evaluation mode, yet its full weights r
 
 The repository sums response-token log probabilities without length normalization:
 
-```math
+$$
 \log \pi_\theta(y\mid x)
 =
 \sum_t \log p_t
-```
+$$
 
 Because token log probabilities are normally negative, longer responses naturally receive lower sequence scores. Reference adjustment removes part of the effect, but preference labels correlated with length can still create a verbosity shortcut.
 
@@ -332,11 +332,11 @@ The likelihood-displacement safety experiment sharpens the data-quality point. A
 
 A useful initial sweep compares more than $0$ and $0.1$:
 
-```math
+$$
 \lambda_{\mathrm{SFT}}
 \in
 \{0, 0.01, 0.05, 0.1, 0.25, 0.5\}
-```
+$$
 
 ![Controlled ablation plan for the SFT weight.](../../assets/dpo-with-sft-loss/experiment-grid.svg){fig-alt="Ablation matrix with six SFT weights and fixed model data optimization and evaluation settings"}
 

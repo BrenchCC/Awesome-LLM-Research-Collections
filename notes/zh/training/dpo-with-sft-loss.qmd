@@ -46,36 +46,36 @@ tags:
 
 设 prompt 为 $x$，chosen response 为 $y^+$，rejected response 为 $y^-$。策略模型和 reference model 分别记为 $\pi_\theta$ 与 $\pi_{\mathrm{ref}}$。response 的序列 log probability 是条件 token log probability 之和：
 
-```math
+$$
 \log \pi_\theta(y\mid x)
 =
 \sum_{t=1}^{|y|}
 \log \pi_\theta(y_t\mid x,y_{\lt t})
-```
+$$
 
 定义 reference-adjusted score：
 
-```math
+$$
 s_\theta(x,y)
 =
 \log \pi_\theta(y\mid x)
 -
 \log \pi_{\mathrm{ref}}(y\mid x)
-```
+$$
 
 仓库实现的 sigmoid DPO margin 与 loss 为：
 
-```math
+$$
 \Delta_\theta
 =
 s_\theta(x,y^+)-s_\theta(x,y^-)
-```
+$$
 
-```math
+$$
 \mathcal{L}_{\mathrm{DPO}}
 =
 -\log \sigma(\beta\Delta_\theta)
-```
+$$
 
 这与 DPO 原论文从 KL-regularized RLHF 推出的二分类目标一致。[^dpo] 代码对应位置是 [`compute_dpo_loss()`](https://github.com/BrenchCC/DPO_Trainer_with_SFT_Loss/blob/948f3da28a9ed850ced66db9d15431035851a474/trainers/dpo_trainer.py#L129-L175)。
 
@@ -99,34 +99,34 @@ chosen 与 rejected 同时下降时，概率质量必然流向 preference pair �
 
 chosen-response SFT 只监督 chosen response token 与 EOS，不计算 prompt 和 padding：
 
-```math
+$$
 \mathcal{L}_{\mathrm{SFT}}
 =
 -\frac{1}{T_+}
 \sum_{t=1}^{T_+}
 \log \pi_\theta(y_t^+\mid x,y_{\lt t}^+)
-```
+$$
 
 联合目标为：
 
-```math
+$$
 \mathcal{L}_{\mathrm{total}}
 =
 \mathcal{L}_{\mathrm{DPO}}
 +
 \lambda_{\mathrm{SFT}}\mathcal{L}_{\mathrm{SFT}}
-```
+$$
 
 两项对 chosen 的作用并不重复：
 
-```math
+$$
 \nabla_\theta \mathcal{L}_{\mathrm{total}}
 =
 \nabla_\theta \mathcal{L}_{\mathrm{DPO}}
 +
 \lambda_{\mathrm{SFT}}
 \nabla_\theta \mathcal{L}_{\mathrm{SFT}}
-```
+$$
 
 DPO 梯度取决于 chosen/rejected 的差值；SFT 梯度直接提高数据中 chosen token 的条件概率。`dpo_beta = 0.1` 与 `sft_loss_weight = 0.1` 即使数值相同，也不代表二者同量纲或同强度。前者进入 sigmoid 前的 margin，后者直接乘在 token-mean cross entropy 上。
 
@@ -291,11 +291,11 @@ reference model 设为 evaluation mode、关闭梯度并保持参数固定，但
 
 仓库使用 response token log probability 的总和，不做长度归一化：
 
-```math
+$$
 \log \pi_\theta(y\mid x)
 =
 \sum_t \log p_t
-```
+$$
 
 每个 token 的 log probability 通常为负，长 response 的序列分数天然更低。reference-adjusted ratio 会抵消一部分长度效应，但 preference label 与长度差若高度相关，模型仍可能学到 verbosity shortcut。
 
@@ -334,11 +334,11 @@ Likelihood displacement 的安全对齐实验进一步说明，只加 SFT 虽然
 
 合理的初始 sweep 不应只比较 $0$ 与 $0.1$：
 
-```math
+$$
 \lambda_{\mathrm{SFT}}
 \in
 \{0, 0.01, 0.05, 0.1, 0.25, 0.5\}
-```
+$$
 
 ![SFT loss weight 的受控消融设计。](../../assets/dpo-with-sft-loss/experiment-grid.svg){fig-alt="六个 SFT loss weight 下固定模型数据优化与评测配置的消融矩阵"}
 
