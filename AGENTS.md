@@ -78,6 +78,33 @@ Markdown and qmd consistency are the core style requirements.
 - Keep README command snippets environment-agnostic (`python ...` / `pip ...`), not Conda-specific.
 - Avoid unrelated reformatting or whitespace-only churn.
 
+### Math Rendering Is Target-Specific
+
+Do not reuse display-math delimiters mechanically between GitHub Markdown and Quarto source files. The two rendering targets require different syntax.
+
+- In Quarto `.qmd` files, write display formulas with `$$` delimiters:
+
+  ```markdown
+  $$
+  y = f(x)
+  $$
+  ```
+
+- Do not use fenced `math` blocks in `.qmd` files. Quarto renders ```` ```math ```` as `<pre class="math"><code>...</code></pre>`, which displays the LaTeX source as a code block instead of typesetting it.
+- In GitHub-targeted `.md` files such as `README.md` and `README.zh-CN.md`, continue to use fenced `math` blocks rather than multi-line `$$` blocks.
+- In formulas for either target, use `\mathrm{...}` instead of `\operatorname{...}`, and use `\lt` / `\gt` instead of raw `<` / `>` operators.
+- If one generator emits both `.md` and `.qmd`, it must generate target-specific math syntax rather than copying the same delimiters to both outputs.
+
+After changing formulas in `.qmd` files, render the site and inspect the generated HTML:
+
+```bash
+quarto render --no-execute
+rg -n '<pre class="math"' _site
+rg -n 'class="math display"' _site
+```
+
+The first scan must return no matches for intended display formulas. The second scan should find one rendered `math display` element per display formula. A successful Quarto command alone is insufficient: fenced `math` blocks can compile without warnings while still rendering incorrectly.
+
 ## Testing Guidelines
 No automated test suite is configured. Treat review as content validation:
 
