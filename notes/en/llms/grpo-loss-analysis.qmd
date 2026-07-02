@@ -555,6 +555,330 @@ A negative loss has no special meaning. It only indicates that the clipped surro
 
 The experiment offers a second, more concrete lesson. Standardized group advantages already sum to approximately zero. If every response is also assigned the same scalar ratio, policy terms cancel algebraically. The smaller the experiment, the more important it is to check that it still preserves the degrees of freedom behind the mechanism under study.
 
+## Appendix: Source Code
+
+The appendix reproduces both source artifacts used in this analysis. The code has been lightly reformatted and its comments normalized, without changing the computational logic. Notebook code cells are presented in execution order; the empty final cell is omitted.
+
+### Minimal GRPO implementation (`grpo_loss.py`)
+
+```python
+import torch
+import torch.nn.functional as F
+
+
+def grpo_kl(pi_logprob, pi_ref_logprob):
+    """Estimate the token-level KL divergence.
+
+    Args:
+        pi_logprob: Current-policy log probabilities for sampled tokens.
+        pi_ref_logprob: Reference-policy log probabilities for the same tokens.
+
+    Returns:
+        Per-token KL estimates with the same shape as the inputs.
+    """
+    # Let x = log(pi_ref / pi). Then exp(x) - x - 1 is non-negative.
+    return (
+        pi_ref_logprob.exp() / pi_logprob.exp()
+        - (pi_ref_logprob - pi_logprob)
+        - 1
+    )
+
+
+def grpo_loss(
+    pi_logprob,
+    pi_old_logprob,
+    pi_ref_logprob,
+    advantage,
+    input_len,
+    len_oi
+):
+    """Compute the normalized GRPO loss for one batch.
+
+    Args:
+        pi_logprob: Current-policy token log probabilities with shape
+            ``[batch, seq_len]``.
+        pi_old_logprob: Rollout-policy token log probabilities with shape
+            ``[batch, seq_len]``.
+        pi_ref_logprob: Reference-policy token log probabilities with shape
+            ``[batch, seq_len]``.
+        advantage: Group-relative sequence advantages with shape ``[batch]``.
+        input_len: Number of prompt tokens excluded from the loss.
+        len_oi: Effective response length used for normalization.
+
+    Returns:
+        A scalar tensor containing the normalized GRPO loss.
+    """
+    epsilon = 0.2
+    beta = 0.01
+
+    batch_size, sequence_length = pi_logprob.shape
+    # This minimal example assumes that every response has the same length.
+    len_oi = torch.tensor([len_oi] * batch_size, dtype = torch.long)
+
+    # Optimize generated response tokens, not prompt tokens.
+    mask = torch.zeros(batch_size, sequence_length)
+    mask[:, input_len:] = 1
+
+    ratio = torch.exp(pi_logprob - pi_old_logprob)
+    ratio_clip = torch.clamp(ratio, 1 - epsilon, 1 + epsilon)
+
+    # Broadcast one sequence-level advantage across its response tokens.
+    advantage = advantage.unsqueeze(dim = 1)
+    policy_gradient = torch.minimum(
+        ratio * advantage,
+        ratio_clip * advantage
+    )
+
+    kl = grpo_kl(pi_logprob, pi_ref_logprob)
+    objective = (policy_gradient - beta * kl) * mask
+
+    # Negate the objective for minimization and normalize by response length.
+    loss = (
+        (-1 / batch_size)
+        * (1 / len_oi.unsqueeze(dim = 1))
+        * objective
+    )
+    return loss.sum()
+
+
+if __name__ == "__main__":
+    # Verify the token-level KL estimator.
+    pi = torch.randn(3, 5)
+    pi_ref = torch.randn(3, 5)
+    pi_logprob = F.log_softmax(pi, dim = 1)
+    pi_ref_logprob = F.log_softmax(pi_ref, dim = 1)
+    print(grpo_kl(pi_logprob, pi_ref_logprob))
+
+    # Simulate vocabulary logits from the three policies.
+    pi_logits = torch.randn(3, 5, 32)
+    pi_ref_logits = torch.randn(3, 5, 32)
+    pi_old_logits = torch.randn(3, 5, 32)
+
+    pi_logprob = F.log_softmax(pi_logits, dim = -1)
+    pi_ref_logprob = F.log_softmax(pi_ref_logits, dim = -1)
+    pi_old_logprob = F.log_softmax(pi_old_logits, dim = -1)
+
+    # One prompt with three sampled responses.
+    token_ids = torch.tensor(
+        [
+            [11, 12, 13, 14, 15],
+            [11, 12, 13, 15, 16],
+            [11, 12, 13, 16, 17],
+        ]
+    )
+
+    # Select the log probability assigned to each sampled token.
+    pi_logprob = torch.gather(
+        pi_logprob,
+        dim = -1,
+        index = token_ids.unsqueeze(-1)
+    ).squeeze(-1)
+    pi_ref_logprob = torch.gather(
+        pi_ref_logprob,
+        dim = -1,
+        index = token_ids.unsqueeze(-1)
+    ).squeeze(-1)
+    pi_old_logprob = torch.gather(
+        pi_old_logprob,
+        dim = -1,
+        index = token_ids.unsqueeze(-1)
+    ).squeeze(-1)
+
+    loss = grpo_loss(
+        pi_logprob,
+        pi_old_logprob,
+        pi_ref_logprob,
+        torch.tensor([-1, 2, 1]),
+        3,
+        2
+    )
+    print(loss)
+```
+
+### Notebook experiments (`grpo_loss_analysis.ipynb`)
+
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+def grpo_kl(pi_logprob, pi_ref_logprob):
+    """Estimate the token-level KL divergence.
+
+    Args:
+        pi_logprob: Current-policy log probabilities.
+        pi_ref_logprob: Reference-policy log probabilities.
+
+    Returns:
+        Per-token KL estimates.
+    """
+    return (
+        pi_ref_logprob.exp() / pi_logprob.exp()
+        - (pi_ref_logprob - pi_logprob)
+        - 1
+    )
+
+
+def grpo_advantage(rewards):
+    """Standardize rewards within a response group.
+
+    Args:
+        rewards: Reward tensor for one response group.
+
+    Returns:
+        Standardized group-relative advantages.
+    """
+    epsilon = 0.00001
+    advantage = (rewards - rewards.mean()) / (rewards.std() + epsilon)
+    return advantage
+
+
+def minimal_grpo_loss(
+    pi_logprob,
+    pi_old_logprob,
+    pi_ref_logprob,
+    rewards,
+    is_debug = True
+):
+    """Compute the unclipped minimal GRPO loss used by the experiments.
+
+    Args:
+        pi_logprob: Current-policy log probability.
+        pi_old_logprob: Rollout-policy log probability.
+        pi_ref_logprob: Reference-policy log probability.
+        rewards: Rewards for one response group.
+        is_debug: Whether to print intermediate tensors.
+
+    Returns:
+        Per-response loss values.
+    """
+    beta = 0.01
+    kl = grpo_kl(pi_logprob, pi_ref_logprob)
+    advantage = grpo_advantage(rewards)
+    loss = -(
+        torch.exp(pi_logprob - pi_old_logprob) * advantage
+        - beta * kl
+    )
+    if is_debug:
+        print("[Rewards]    :", rewards)
+        print("[Advantage]  :", advantage)
+        print("[Loss]       :", loss)
+    return loss
+
+
+# Experiment 1: positive aggregate loss.
+pi_logprob = torch.tensor(0.5).log()
+pi_old_logprob = torch.tensor(0.5).log()
+pi_ref_logprob = torch.tensor(0.6).log()
+rewards_group = torch.tensor(
+    [1, 0, 0, 0, 0, 0, 0, 0],
+    dtype = torch.float32
+)
+loss = minimal_grpo_loss(
+    pi_logprob,
+    pi_old_logprob,
+    pi_ref_logprob,
+    rewards_group
+)
+loss.sum()
+
+# Experiment 2: negative aggregate loss.
+pi_logprob = torch.tensor(0.1).log()
+pi_old_logprob = torch.tensor(0.005).log()
+pi_ref_logprob = torch.tensor(0.1001).log()
+
+rewards_group = torch.tensor(
+    [1, 0, 0, 0, 0, 0, 0, 0],
+    dtype = torch.float32
+)
+loss = minimal_grpo_loss(
+    pi_logprob,
+    pi_old_logprob,
+    pi_ref_logprob,
+    rewards_group
+)
+print(loss.sum())
+
+rewards_group = torch.tensor(
+    [1, 1, 0, 0, 0, 0, 0, 0],
+    dtype = torch.float32
+)
+loss = minimal_grpo_loss(
+    pi_logprob,
+    pi_old_logprob,
+    pi_ref_logprob,
+    rewards_group
+)
+print(loss.sum())
+
+# Experiment 3: increase the reward sum while holding probabilities fixed.
+pi_logprob = torch.tensor(0.4).log()
+pi_old_logprob = torch.tensor(0.3).log()
+pi_ref_logprob = torch.tensor(0.401).log()
+reward_groups = [
+    [1, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1],
+]
+for reward_values in reward_groups:
+    rewards_group = torch.tensor(reward_values, dtype = torch.float32)
+    loss = minimal_grpo_loss(
+        pi_logprob,
+        pi_old_logprob,
+        pi_ref_logprob,
+        rewards_group
+    )
+    print("result:", rewards_group.sum().item(), loss.sum())
+
+# Experiment 4: move the current policy away from the reference policy.
+for probability in [0.4, 0.3, 0.1]:
+    pi_logprob = torch.tensor(probability).log()
+    pi_old_logprob = torch.tensor(probability).log()
+    pi_ref_logprob = torch.tensor(0.401).log()
+    rewards_group = torch.tensor(
+        [1, 1, 0, 0, 0, 0, 0, 0],
+        dtype = torch.float32
+    )
+    loss = minimal_grpo_loss(
+        pi_logprob,
+        pi_old_logprob,
+        pi_ref_logprob,
+        rewards_group
+    )
+    print("result:", rewards_group.sum().item(), loss.sum())
+
+# Experiment 5: plot aggregate loss as the number of positive rewards grows.
+pi_logprob = torch.tensor(0.1).log()
+pi_old_logprob = torch.tensor(0.005).log()
+pi_ref_logprob = torch.tensor(0.101).log()
+
+num_responses = 128
+rewards_group = torch.zeros(num_responses)
+loss_list = []
+for index in range(num_responses):
+    rewards_group[index] = 1.0
+    loss = minimal_grpo_loss(
+        pi_logprob,
+        pi_old_logprob,
+        pi_ref_logprob,
+        rewards_group,
+        is_debug = False
+    )
+    loss_list.append(loss.sum().item())
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize = (16, 6))
+plt.plot(loss_list)
+plt.title("GRPO loss with reward sum")
+plt.xlabel("Reward sum")
+plt.ylabel("Loss")
+plt.grid()
+plt.show()
+```
+
 ## References
 
 [^1]: Shao, Z., et al. (2024). "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models." _arXiv_. https://arxiv.org/abs/2402.03300
