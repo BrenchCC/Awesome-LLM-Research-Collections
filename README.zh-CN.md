@@ -349,6 +349,11 @@
   <a href="https://github.com/BytedTsinghua-SIA/DAPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Provably Mitigating Overoptimization in RLHF: Your SFT Loss is Implicitly an Adversarial Regularizer** (2024.05) \
+  **描述**: 该论文将 RLHF 过度优化归因于偏好学习中的分布偏移与不确定性，并提出 Regularized Preference Optimization (RPO)，将偏好优化目标与作为对抗正则项的 SFT 损失结合。RPO 具有有限样本理论保证，并在实验中相较 DPO 改善对齐效果、减少策略向非期望回答漂移。 \
+  <a href="https://arxiv.org/abs/2405.16436"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/YSLIU627/Regularized-Preference-Optimization"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **KTO: Model Alignment as Prospect Theoretic Optimization** (2024.02) \
   **描述**: 该论文将成功的大语言模型对齐损失归纳为带有 prospect theory 偏置的 human-aware losses，并提出 KTO，直接利用 desirable/undesirable 二元反馈优化生成效用。KTO 在 1B 到 30B 规模上达到或超过基于成对偏好的方法，也说明最佳对齐损失取决于具体场景中的归纳偏置。 \
   <a href="https://arxiv.org/abs/2402.01306"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

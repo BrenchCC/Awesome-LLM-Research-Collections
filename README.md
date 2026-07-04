@@ -349,6 +349,11 @@
   <a href="https://github.com/BytedTsinghua-SIA/DAPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/BytedTsinghua-SIA/DAPO-Qwen-32B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Provably Mitigating Overoptimization in RLHF: Your SFT Loss is Implicitly an Adversarial Regularizer** (2024.05) \
+  **Description**: This paper identifies RLHF overoptimization as a consequence of distribution shift and uncertainty in learned preferences, then introduces Regularized Preference Optimization (RPO), which combines a preference optimization objective with an SFT loss that acts as an adversarial regularizer. RPO provides finite-sample guarantees and empirically improves alignment over DPO while reducing drift toward undesired responses. \
+  <a href="https://arxiv.org/abs/2405.16436"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/YSLIU627/Regularized-Preference-Optimization"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **KTO: Model Alignment as Prospect Theoretic Optimization** (2024.02) \
   **Description**: This paper frames successful LLM alignment losses as human-aware losses that encode biases from prospect theory, then introduces KTO to optimize generation utility directly from binary desirable/undesirable feedback. KTO matches or exceeds preference-pair methods from 1B to 30B scales, highlighting how the best alignment loss depends on the setting's inductive biases. \
   <a href="https://arxiv.org/abs/2402.01306"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
