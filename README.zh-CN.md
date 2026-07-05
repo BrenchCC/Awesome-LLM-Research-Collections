@@ -422,6 +422,10 @@
   **描述**: 该论文重新审视 LLM 强化学习中的价值建模，指出单次预测式判别评论器受限于表达能力。论文提出 Generative Actor-Critic (GenAC)，让评论器先推理再估计价值，并通过上下文条件适配当前策略，从而提升价值逼近、排序可靠性、分布外泛化和下游强化学习性能。 \
   <a href="https://arxiv.org/abs/2604.10701"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **Reason Only When Needed: Efficient Generative Reward Modeling via Model-Internal Uncertainty** (2026.04) \
+  **描述**: 该论文提出 E-GRM，通过并行生成结果的收敛程度估计模型内部不确定性，仅在必要时触发思维链推理。框架还使用以回归-排序混合目标训练的轻量判别评分器，对推理路径提供细粒度奖励，在降低推理成本的同时提升答案准确率。 \
+  <a href="https://arxiv.org/abs/2604.10072"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **描述**: 该论文提出 MemReward，一个基于图经验记忆的奖励预测框架，在有限标签下让 3B 和 1.5B 模型分别达到 Oracle 表现的 97.3% 和 96.6%。它还在域外任务上超过 Oracle。 \
   <a href="https://arxiv.org/abs/2603.19310"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

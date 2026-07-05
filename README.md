@@ -422,6 +422,10 @@
   **Description**: This paper revisits value modeling for LLM reinforcement learning and argues that one-shot discriminative critics are limited by their expressiveness. It introduces Generative Actor-Critic (GenAC), whose critic reasons before estimating value and uses in-context conditioning to track the current actor, improving value approximation, ranking reliability, out-of-distribution generalization, and downstream RL performance. \
   <a href="https://arxiv.org/abs/2604.10701"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Reason Only When Needed: Efficient Generative Reward Modeling via Model-Internal Uncertainty** (2026.04) \
+  **Description**: This paper introduces E-GRM, which estimates uncertainty from the convergence of parallel model generations and triggers chain-of-thought reasoning only when needed. A lightweight discriminative scorer trained with a hybrid regression-ranking objective provides fine-grained reasoning-path rewards, reducing inference cost while improving accuracy. \
+  <a href="https://arxiv.org/abs/2604.10072"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **MemReward: Graph-Based Experience Memory for LLM Reward Prediction with Limited Labels** (2026.03) \
   **Description**: This paper introduces MemReward, a graph-based experience memory framework that achieves 97.3% of Oracle performance on 3B and 96.6% on 1.5B models for reward prediction with limited labels, surpassing Oracle in out-of-domain tasks. \
   <a href="https://arxiv.org/abs/2603.19310"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

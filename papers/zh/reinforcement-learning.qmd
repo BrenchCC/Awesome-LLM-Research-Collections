@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>41</strong><span>论文</span></div>
-    <div><strong>85</strong><span>资源链接</span></div>
+    <div><strong>42</strong><span>论文</span></div>
+    <div><strong>86</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -253,7 +253,7 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>奖励建模</h2>
   </div>
   <div class="paper-grid">
@@ -277,6 +277,17 @@ toc: false
   <p>该论文重新审视 LLM 强化学习中的价值建模，指出单次预测式判别评论器受限于表达能力。论文提出 Generative Actor-Critic (GenAC)，让评论器先推理再估计价值，并通过上下文条件适配当前策略，从而提升价值逼近、排序可靠性、分布外泛化和下游强化学习性能。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2604.10701" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="reason-only-when-needed-efficient-generative-reward-modeling-via-model-internal-uncertainty">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>奖励建模</span>
+  </div>
+  <h3>Reason Only When Needed: Efficient Generative Reward Modeling via Model-Internal Uncertainty</h3>
+  <p>该论文提出 E-GRM，通过并行生成结果的收敛程度估计模型内部不确定性，仅在必要时触发思维链推理。框架还使用以回归-排序混合目标训练的轻量判别评分器，对推理路径提供细粒度奖励，在降低推理成本的同时提升答案准确率。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.10072" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="memreward-graph-based-experience-memory-for-llm-reward-prediction-with-limited-labels">
