@@ -1,6 +1,6 @@
 ---
 author: Brench
-date: 2026-07-01
+date: 2026-07-06
 title: "长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化"
 description: "结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。"
 order: 1
