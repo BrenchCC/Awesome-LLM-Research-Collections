@@ -323,6 +323,10 @@
 # Reinforcement Learning
 
 ## Policy Optimization
+- **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
+  **Description**: This paper introduces layer contribution to measure how much of full-parameter RL improvement can be recovered by training each transformer layer independently. Across multiple models, RL algorithms, and tasks, it finds that gains consistently concentrate in a few middle layers and that single-layer training can match or surpass full-parameter training. \
+  <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
   **Description**: This paper proposes Divergence Regularized Policy Optimization (DRPO), replacing DPPO's hard divergence mask with a smooth advantage-weighted quadratic regularizer that preserves its trust-region geometry. DRPO provides bounded continuous gradient weights and corrective signals beyond the trust-region boundary, improving LLM RL training stability and efficiency. \
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -682,15 +686,15 @@
   [[Note](notes/en/llms/grpo-loss-analysis.qmd)]
   [[中文](notes/zh/llms/grpo-loss-analysis.qmd)]
 
-- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-01) \
-  **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
-  [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
-  [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
-
 - **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (2026-07-02) \
   **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
   [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
   [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]
+
+- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-06) \
+  **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
+  [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
 
 - **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
   **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \

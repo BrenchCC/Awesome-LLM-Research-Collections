@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>42</strong><span>Papers</span></div>
-    <div><strong>86</strong><span>Resource links</span></div>
-    <div><strong>2026.06</strong><span>Latest month</span></div>
+    <div><strong>43</strong><span>Papers</span></div>
+    <div><strong>87</strong><span>Resource links</span></div>
+    <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#policy-optimization">Policy Optimization</a>
@@ -29,10 +29,21 @@ toc: false
 
 <section class="paper-section" id="policy-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">9 papers</p>
+    <p class="eyebrow">10 papers</p>
     <h2>Policy Optimization</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="is-one-layer-enough-training-a-single-transformer-layer-can-match-full-parameter-rl-training">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>Policy Optimization</span>
+  </div>
+  <h3>Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training</h3>
+  <p>This paper introduces layer contribution to measure how much of full-parameter RL improvement can be recovered by training each transformer layer independently. Across multiple models, RL algorithms, and tasks, it finds that gains consistently concentrate in a few middle layers and that single-layer training can match or surpass full-parameter training.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.01232" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="rethinking-the-divergence-regularization-in-llm-rl">
   <div class="paper-meta">
     <span>2026.06</span>

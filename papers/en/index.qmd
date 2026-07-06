@@ -10,10 +10,10 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>104</strong><span>Papers</span></div>
+    <div><strong>105</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>238</strong><span>Resource links</span></div>
-    <div><strong>2026.06</strong><span>Latest month</span></div>
+    <div><strong>239</strong><span>Resource links</span></div>
+    <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
 
@@ -78,11 +78,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">42 papers</span>
+  <span class="category-count">43 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
-    <span>2026.06</span>
+    <span>2026.07</span>
     <span>Agentic RL, Multimodal RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="reinforcement-learning.html#is-one-layer-enough-training-a-single-transformer-layer-can-match-full-parameter-rl-training">
+  <span>2026.07</span>
+  <strong>Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
   <span>2026.06</span>
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.05</span>
   <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
   <em>Attention</em>
-</a>
-<a class="recent-row" href="llms.html#the-minimax-m2-series-mini-activations-unleashing-max-real-world-intelligence">
-  <span>2026.05</span>
-  <strong>The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence</strong>
-  <em>LLMs</em>
 </a>
   </div>
 </section>

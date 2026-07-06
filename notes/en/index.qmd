@@ -11,7 +11,7 @@ toc: false
   <div class="stat-strip compact-strip">
     <div><strong>11</strong><span>Notes</span></div>
     <div><strong>6</strong><span>Topics</span></div>
-    <div><strong>2026-07-02</strong><span>Latest date</span></div>
+    <div><strong>2026-07-06</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -143,22 +143,6 @@ toc: false
     <span>Technical Reflections</span>
   </div>
 </a>
-<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
-  <span class="category-count">2026-07-01</span>
-  <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>
-  <p>A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision.</p>
-  <div class="note-tags">
-    <span class="note-tag">Agentic RL</span>
-    <span class="note-tag">Long-Horizon Agents</span>
-    <span class="note-tag">Value Modeling</span>
-    <span class="note-tag">Reward Hacking</span>
-    <span class="note-tag">Verification</span>
-  </div>
-  <div class="category-foot">
-    <span>LLMS</span>
-    <span>Technical Reflections</span>
-  </div>
-</a>
 <a class="category-card" href="training/dpo-with-sft-loss.html">
   <span class="category-count">2026-07-02</span>
   <h3>Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor</h3>
@@ -172,6 +156,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>TRAINING</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
+  <span class="category-count">2026-07-06</span>
+  <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>
+  <p>A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision.</p>
+  <div class="note-tags">
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+    <span class="note-tag">Value Modeling</span>
+    <span class="note-tag">Reward Hacking</span>
+    <span class="note-tag">Verification</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>Technical Reflections</span>
   </div>
 </a>

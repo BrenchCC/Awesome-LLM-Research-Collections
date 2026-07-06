@@ -323,6 +323,10 @@
 # 强化学习
 
 ## 策略优化
+- **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
+  **描述**: 该论文提出层贡献度指标，用于衡量单独训练每个 Transformer 层能够恢复多少全参数强化学习增益。跨多种模型、强化学习算法和任务的实验表明，强化学习增益稳定集中在少数中间层，且单层训练可以达到甚至超过全参数训练。 \
+  <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
   **描述**: 该论文提出 Divergence Regularized Policy Optimization (DRPO)，以平滑的优势加权二次正则项替代 DPPO 的硬散度掩码，同时保留其信赖域几何结构。DRPO 通过有界连续梯度权重和越界后的纠正信号，提高 LLM 强化学习训练的稳定性与效率。 \
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -682,15 +686,15 @@
   [[笔记](notes/zh/llms/grpo-loss-analysis.qmd)]
   [[English](notes/en/llms/grpo-loss-analysis.qmd)]
 
-- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-01) \
-  **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
-  [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
-  [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
-
 - **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (2026-07-02) \
   **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
   [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
   [[English](notes/en/training/dpo-with-sft-loss.qmd)]
+
+- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-06) \
+  **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
+  [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
 
 - **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
   **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \

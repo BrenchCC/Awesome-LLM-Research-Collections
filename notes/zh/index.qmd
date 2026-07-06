@@ -11,7 +11,7 @@ toc: false
   <div class="stat-strip compact-strip">
     <div><strong>11</strong><span>笔记</span></div>
     <div><strong>6</strong><span>主题</span></div>
-    <div><strong>2026-07-02</strong><span>最新日期</span></div>
+    <div><strong>2026-07-06</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -143,22 +143,6 @@ toc: false
     <span>技术思考</span>
   </div>
 </a>
-<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
-  <span class="category-count">2026-07-01</span>
-  <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>
-  <p>结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。</p>
-  <div class="note-tags">
-    <span class="note-tag">Agentic RL</span>
-    <span class="note-tag">Long-Horizon Agents</span>
-    <span class="note-tag">Value Modeling</span>
-    <span class="note-tag">Reward Hacking</span>
-    <span class="note-tag">Verification</span>
-  </div>
-  <div class="category-foot">
-    <span>LLMS</span>
-    <span>技术思考</span>
-  </div>
-</a>
 <a class="category-card" href="training/dpo-with-sft-loss.html">
   <span class="category-count">2026-07-02</span>
   <h3>在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定</h3>
@@ -172,6 +156,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>TRAINING</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
+  <span class="category-count">2026-07-06</span>
+  <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>
+  <p>结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+    <span class="note-tag">Value Modeling</span>
+    <span class="note-tag">Reward Hacking</span>
+    <span class="note-tag">Verification</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>技术思考</span>
   </div>
 </a>
