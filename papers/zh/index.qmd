@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>105</strong><span>论文</span></div>
+    <div><strong>106</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>239</strong><span>资源链接</span></div>
+    <div><strong>242</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">15 篇论文</span>
+  <span class="category-count">16 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
-    <span>2026.05</span>
+    <span>2026.06</span>
     <span>多模态推理、视觉-语言-动作、视觉语言</span>
   </div>
 </a>
@@ -137,6 +137,11 @@ toc: false
   <strong>MiniMax Sparse Attention</strong>
   <em>注意力机制</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#la4vla-learning-to-act-without-seeing-via-language-action-pretraining">
+  <span>2026.06</span>
+  <strong>LA4VLA: Learning to Act without Seeing via Language-Action Pretraining</strong>
+  <em>多模态大模型</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
   <span>2026.06</span>
   <strong>Rethinking the Divergence Regularization in LLM RL</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.06</span>
   <strong>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</strong>
   <em>强化学习</em>
-</a>
-<a class="recent-row" href="attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
-  <span>2026.05</span>
-  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
-  <em>注意力机制</em>
 </a>
   </div>
 </section>

@@ -274,6 +274,12 @@
   <a href="https://github.com/yaotingwangofficial/Awesome-MCoT"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
 ## VLA
+- **LA4VLA: Learning to Act without Seeing via Language-Action Pretraining** (2026.06) \
+  **Description**: This paper proposes LA4VLA, a language-action pretraining framework that teaches VLA policies language-conditioned action priors without visual observations by decomposing demonstrations into atomic action segments with low-level descriptions. It builds the LA-33K dataset and shows that combining language-action and VLA supervision improves manipulation success in both simulation and real-world tasks. \
+  <a href="https://arxiv.org/abs/2606.27295"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/MINT-SJTU/LA4VLA"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/MINT-SJTU/LA-33K"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation** (2026.04) \
   **Description**: OneVL addresses real-time trajectory planning in VLA-based autonomous driving by compressing Chain-of-Thought reasoning into compact latent tokens supervised by both language reconstruction and future-frame prediction. Its three-stage training pipeline yields latent reasoning that surpasses explicit CoT while keeping answer-only inference latency. \
   <a href="https://arxiv.org/abs/2604.18486"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

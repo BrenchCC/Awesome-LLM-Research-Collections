@@ -274,6 +274,12 @@
   <a href="https://github.com/yaotingwangofficial/Awesome-MCoT"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
 ## 视觉-语言-动作
+- **LA4VLA: Learning to Act without Seeing via Language-Action Pretraining** (2026.06) \
+  **描述**: 该论文提出 LA4VLA，一种语言-动作预训练框架，通过把示范轨迹分解为原子动作片段并配对低层动作描述，使 VLA 策略在无视觉观测的情况下学习语言条件动作先验。论文构建 LA-33K 数据集，并表明结合语言-动作与 VLA 监督可以提升仿真和真实机器人任务中的操作成功率。 \
+  <a href="https://arxiv.org/abs/2606.27295"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MINT-SJTU/LA4VLA"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/MINT-SJTU/LA-33K"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation** (2026.04) \
   **描述**: OneVL 面向 VLA 自动驾驶中的实时轨迹规划，将 Chain-of-Thought 推理压缩为由语言重建和未来帧预测共同监督的紧凑潜在 token。其三阶段训练流程让潜在推理在保持 answer-only 推理延迟的同时超过显式 CoT。 \
   <a href="https://arxiv.org/abs/2604.18486"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

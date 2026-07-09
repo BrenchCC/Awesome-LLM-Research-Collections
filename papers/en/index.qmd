@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>105</strong><span>Papers</span></div>
+    <div><strong>106</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>239</strong><span>Resource links</span></div>
+    <div><strong>242</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">15 papers</span>
+  <span class="category-count">16 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
-    <span>2026.05</span>
+    <span>2026.06</span>
     <span>Multimodal Reasoning, VLA, Vision-Language</span>
   </div>
 </a>
@@ -137,6 +137,11 @@ toc: false
   <strong>MiniMax Sparse Attention</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#la4vla-learning-to-act-without-seeing-via-language-action-pretraining">
+  <span>2026.06</span>
+  <strong>LA4VLA: Learning to Act without Seeing via Language-Action Pretraining</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#rethinking-the-divergence-regularization-in-llm-rl">
   <span>2026.06</span>
   <strong>Rethinking the Divergence Regularization in LLM RL</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.06</span>
   <strong>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="attention.html#gqla-group-query-latent-attention-for-hardware-adaptive-large-language-model-decoding">
-  <span>2026.05</span>
-  <strong>GQLA: Group-Query Latent Attention for Hardware-Adaptive Large Language Model Decoding</strong>
-  <em>Attention</em>
 </a>
   </div>
 </section>
