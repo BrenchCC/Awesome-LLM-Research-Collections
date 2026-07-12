@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>106</strong><span>论文</span></div>
+    <div><strong>107</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>242</strong><span>资源链接</span></div>
+    <div><strong>243</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">43 篇论文</span>
+  <span class="category-count">44 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#turning-off-policy-tokens-on-policy-a-plug-in-approach-for-improving-llm-alignment">
+  <span>2026.07</span>
+  <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
   <span>2026.06</span>
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
   <span>2026.06</span>
   <strong>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
-  <span>2026.06</span>
-  <strong>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</strong>
   <em>强化学习</em>
 </a>
   </div>

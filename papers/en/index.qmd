@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>106</strong><span>Papers</span></div>
+    <div><strong>107</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>242</strong><span>Resource links</span></div>
+    <div><strong>243</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">43 papers</span>
+  <span class="category-count">44 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#turning-off-policy-tokens-on-policy-a-plug-in-approach-for-improving-llm-alignment">
+  <span>2026.07</span>
+  <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
   <span>2026.06</span>
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
   <span>2026.06</span>
   <strong>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
-  <span>2026.06</span>
-  <strong>OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

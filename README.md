@@ -333,6 +333,10 @@
   **Description**: This paper introduces layer contribution to measure how much of full-parameter RL improvement can be recovered by training each transformer layer independently. Across multiple models, RL algorithms, and tasks, it finds that gains consistently concentrate in a few middle layers and that single-layer training can match or surpass full-parameter training. \
   <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment** (2026.07) \
+  **Description**: This paper introduces Selective Importance Sampling (SIS), a plug-in correction for off-policy LLM reinforcement learning that uses token-level rejection tests to treat accepted tokens as on-policy while retaining standard importance sampling for rejected tokens. SIS reduces the gap between token- and sequence-level gradient estimators with negligible overhead, improving performance and robustness across dense and MoE models. \
+  <a href="https://arxiv.org/abs/2607.04728"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
   **Description**: This paper proposes Divergence Regularized Policy Optimization (DRPO), replacing DPPO's hard divergence mask with a smooth advantage-weighted quadratic regularizer that preserves its trust-region geometry. DRPO provides bounded continuous gradient weights and corrective signals beyond the trust-region boundary, improving LLM RL training stability and efficiency. \
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
