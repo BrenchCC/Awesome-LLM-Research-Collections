@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>107</strong><span>论文</span></div>
+    <div><strong>109</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>243</strong><span>资源链接</span></div>
+    <div><strong>248</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -51,7 +51,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="embeddings.html">
-  <span class="category-count">1 篇论文</span>
+  <span class="category-count">2 篇论文</span>
   <h3>嵌入模型</h3>
   <p>面向检索、语义匹配、表示学习和嵌入模型训练的研究。</p>
   <div class="category-foot">
@@ -87,11 +87,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">14 篇论文</span>
+  <span class="category-count">15 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
-    <span>2026.05</span>
+    <span>2026.07</span>
     <span>AI 研究、工具调用、智能体开发、智能体技能、记忆</span>
   </div>
 </a>
@@ -132,6 +132,11 @@ toc: false
   <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="agents-application.html#abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
+  <span>2026.07</span>
+  <strong>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="attention.html#flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
   <span>2026.06</span>
   <strong>FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#poweropd-stabilizing-on-policy-distillation-with-bounded-power-transformation">
   <span>2026.06</span>
   <strong>PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
-  <span>2026.06</span>
-  <strong>The Verification Horizon: No Silver Bullet for Coding Agent Rewards</strong>
   <em>强化学习</em>
 </a>
   </div>

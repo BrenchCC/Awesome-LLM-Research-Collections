@@ -295,6 +295,12 @@
   <a href="https://github.com/QwenLM/Qwen3-Embedding"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/collections/Qwen/qwen3-embedding"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **CoQuIR: A Comprehensive Benchmark for Code Quality-Aware Information Retrieval** (2025.05) \
+  **描述**: 该论文提出 CoQuIR，首个面向代码质量感知检索的大规模多语言基准，包含 42,725 个查询和 134,907 个代码片段，并从正确性、效率、安全性与可维护性四个维度进行标注。其两项质量中心指标及对 23 个检索器的评测揭示了显著的质量感知缺口，而对比训练可在不牺牲语义相关性的前提下提升质量感知检索能力。 \
+  <a href="https://arxiv.org/abs/2506.11066"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/TRUMANCFY/CoQuIR"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/CoQuIR"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 # 监督微调
 
 ## 监督微调方法
@@ -613,6 +619,11 @@
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 记忆
+- **ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory** (2026.07) \
+  **描述**: 该论文提出 ABot-AgentOS，一个位于机器人底层控制器之上的审慎式运行时层，统一协调规划、隔离式技能执行、验证、边云协同与持久多模态图记忆。它还提出 EmbodiedWorldBench 和防泄漏的自进化循环，将诊断出的记忆故障转化为受门控的运行时改进，以支持长时程具身任务。 \
+  <a href="https://arxiv.org/abs/2607.10350"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/amap-cvlab/ABot-AgentOS"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **描述**: 该论文提出一个从 LLM 智能体执行轨迹中提取可行动经验，并在未来任务中作为上下文记忆检索的框架。它结合轨迹智能提取、决策归因、上下文学习生成和自适应记忆检索，尤其提升复杂 AppWorld 场景的任务完成率。 \
   <a href="https://arxiv.org/abs/2603.10600"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

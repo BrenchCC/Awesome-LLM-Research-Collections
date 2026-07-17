@@ -295,6 +295,12 @@
   <a href="https://github.com/QwenLM/Qwen3-Embedding"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/Qwen/qwen3-embedding"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **CoQuIR: A Comprehensive Benchmark for Code Quality-Aware Information Retrieval** (2025.05) \
+  **Description**: This paper introduces CoQuIR, the first large-scale multilingual benchmark for quality-aware code retrieval, with 42,725 queries and 134,907 snippets annotated for correctness, efficiency, security, and maintainability. Its two quality-centric metrics and evaluation of 23 retrievers expose major quality-awareness gaps, while contrastive training improves quality-aware retrieval without sacrificing semantic relevance. \
+  <a href="https://arxiv.org/abs/2506.11066"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/TRUMANCFY/CoQuIR"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/CoQuIR"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 # SFT
 
 ## SFT Methods
@@ -613,6 +619,11 @@
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## Memory
+- **ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory** (2026.07) \
+  **Description**: This paper presents ABot-AgentOS, a deliberative runtime layer above robot controllers that coordinates planning, isolated skill execution, verification, edge-cloud collaboration, and persistent multimodal graph memory. It also introduces EmbodiedWorldBench and a leakage-resistant self-evolution loop that turns diagnosed memory failures into gated runtime improvements for long-horizon embodied tasks. \
+  <a href="https://arxiv.org/abs/2607.10350"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/amap-cvlab/ABot-AgentOS"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Trajectory-Informed Memory Generation for Self-Improving Agent Systems** (2026.03) \
   **Description**: This paper presents a framework that extracts actionable learnings from LLM agent execution trajectories and retrieves them as contextual memory for future tasks. It combines trajectory intelligence extraction, decision attribution, contextual learning generation, and adaptive memory retrieval to improve AppWorld task completion, especially on complex scenarios. \
   <a href="https://arxiv.org/abs/2603.10600"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

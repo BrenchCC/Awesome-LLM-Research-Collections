@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Representation learning, retrieval, semantic matching, and embedding model research.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>Papers</span></div>
-    <div><strong>4</strong><span>Resource links</span></div>
+    <div><strong>2</strong><span>Papers</span></div>
+    <div><strong>7</strong><span>Resource links</span></div>
     <div><strong>2025.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -22,7 +22,7 @@ toc: false
 
 <section class="paper-section" id="featured">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Featured</h2>
   </div>
   <div class="paper-grid">
@@ -38,6 +38,19 @@ toc: false
 <a class="resource-link" href="https://qwenlm.github.io/blog/qwen3-embedding/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/QwenLM/Qwen3-Embedding" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/collections/Qwen/qwen3-embedding" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="coquir-a-comprehensive-benchmark-for-code-quality-aware-information-retrieval">
+  <div class="paper-meta">
+    <span>2025.05</span>
+    <span>Embeddings</span>
+  </div>
+  <h3>CoQuIR: A Comprehensive Benchmark for Code Quality-Aware Information Retrieval</h3>
+  <p>This paper introduces CoQuIR, the first large-scale multilingual benchmark for quality-aware code retrieval, with 42,725 queries and 134,907 snippets annotated for correctness, efficiency, security, and maintainability. Its two quality-centric metrics and evaluation of 23 retrievers expose major quality-awareness gaps, while contrastive training improves quality-aware retrieval without sacrificing semantic relevance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2506.11066" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/TRUMANCFY/CoQuIR" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/CoQuIR" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

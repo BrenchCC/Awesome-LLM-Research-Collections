@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>论文</span></div>
-    <div><strong>25</strong><span>资源链接</span></div>
-    <div><strong>2026.05</strong><span>最新月份</span></div>
+    <div><strong>15</strong><span>论文</span></div>
+    <div><strong>27</strong><span>资源链接</span></div>
+    <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#tool-use">工具调用</a>
@@ -178,10 +178,22 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>记忆</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>记忆</span>
+  </div>
+  <h3>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</h3>
+  <p>该论文提出 ABot-AgentOS，一个位于机器人底层控制器之上的审慎式运行时层，统一协调规划、隔离式技能执行、验证、边云协同与持久多模态图记忆。它还提出 EmbodiedWorldBench 和防泄漏的自进化循环，将诊断出的记忆故障转化为受门控的运行时改进，以支持长时程具身任务。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.10350" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/amap-cvlab/ABot-AgentOS" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="trajectory-informed-memory-generation-for-self-improving-agent-systems">
   <div class="paper-meta">
     <span>2026.03</span>

@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>Papers</span></div>
-    <div><strong>25</strong><span>Resource links</span></div>
-    <div><strong>2026.05</strong><span>Latest month</span></div>
+    <div><strong>15</strong><span>Papers</span></div>
+    <div><strong>27</strong><span>Resource links</span></div>
+    <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#tool-use">Tool Use</a>
@@ -178,10 +178,22 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
+    <p class="eyebrow">5 papers</p>
     <h2>Memory</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>Memory</span>
+  </div>
+  <h3>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</h3>
+  <p>This paper presents ABot-AgentOS, a deliberative runtime layer above robot controllers that coordinates planning, isolated skill execution, verification, edge-cloud collaboration, and persistent multimodal graph memory. It also introduces EmbodiedWorldBench and a leakage-resistant self-evolution loop that turns diagnosed memory failures into gated runtime improvements for long-horizon embodied tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.10350" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/amap-cvlab/ABot-AgentOS" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="trajectory-informed-memory-generation-for-self-improving-agent-systems">
   <div class="paper-meta">
     <span>2026.03</span>
