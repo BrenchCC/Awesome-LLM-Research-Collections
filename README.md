@@ -2,7 +2,7 @@
 
 > Language: English | [中文](README.zh-CN.md)
 
-> Tool Recommend for read paper faster: [幻觉翻译](https://hjfy.top/)
+> A Tool Recommend for read paper faster: [幻觉翻译](https://hjfy.top/)
 
 # Contents
 - [Attention](#attention)
