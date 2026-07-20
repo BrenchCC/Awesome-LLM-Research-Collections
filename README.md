@@ -613,6 +613,12 @@
   <a href="https://arxiv.org/abs/2603.29919"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 ## Agent Development
+- **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
+  **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. \
+  <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://ruhan-wang.github.io/Harness-Handbook/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Ruhan-Wang/Harness_Handbook"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

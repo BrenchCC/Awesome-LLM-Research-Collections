@@ -613,6 +613,12 @@
   <a href="https://arxiv.org/abs/2603.29919"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 智能体开发
+- **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
+  **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
+  <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://ruhan-wang.github.io/Harness-Handbook/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Ruhan-Wang/Harness_Handbook"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
