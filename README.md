@@ -480,6 +480,10 @@
   <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Reasoning RL
+- **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
+  **Description**: This paper scales reinforcement learning with verifiable rewards from a base model to one trillion parameters through a stable pipeline combining clipped importance sampling, training-inference ratio correction, and mixed-precision control. The resulting model improves sample efficiency and reasoning quality while spontaneously developing structured, self-verifying, and adaptive reasoning behaviors. \
+  <a href="https://arxiv.org/abs/2607.12395"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
   **Description**: This paper presents MUPO, a reinforcement learning approach that addresses diversity collapse in GRPO-trained VLMs by incentivizing divergent thinking across multiple solutions, enabling deeper yet broader reasoning patterns. \
   <a href="https://arxiv.org/abs/2604.00479"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

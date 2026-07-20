@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>44</strong><span>Papers</span></div>
-    <div><strong>88</strong><span>Resource links</span></div>
+    <div><strong>45</strong><span>Papers</span></div>
+    <div><strong>89</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -405,10 +405,21 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">8 papers</p>
+    <p class="eyebrow">9 papers</p>
     <h2>Reasoning RL</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</h3>
+  <p>This paper scales reinforcement learning with verifiable rewards from a base model to one trillion parameters through a stable pipeline combining clipped importance sampling, training-inference ratio correction, and mixed-precision control. The resulting model improves sample efficiency and reasoning quality while spontaneously developing structured, self-verifying, and adaptive reasoning behaviors.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.12395" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="all-roads-lead-to-rome-incentivizing-divergent-thinking-in-vision-language-models">
   <div class="paper-meta">
     <span>2026.04</span>

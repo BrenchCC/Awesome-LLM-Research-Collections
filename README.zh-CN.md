@@ -480,6 +480,10 @@
   <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 推理强化学习
+- **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
+  **描述**: 该论文通过结合裁剪重要性采样、训练与推理比率校正及混合精度控制的稳定训练管线，将基于可验证奖励的强化学习从基础模型扩展至万亿参数规模。所得模型在提升样本效率与推理质量的同时，自发形成结构化、自验证和自适应推理行为。 \
+  <a href="https://arxiv.org/abs/2607.12395"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **All Roads Lead to Rome: Incentivizing Divergent Thinking in Vision-Language Models** (2026.04) \
   **描述**: 该论文提出 MUPO，一种强化学习方法，通过激励多解之间的发散思考来缓解 GRPO 训练 VLM 时的多样性坍塌。它让模型形成更深且更广的推理模式。 \
   <a href="https://arxiv.org/abs/2604.00479"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
