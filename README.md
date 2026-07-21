@@ -619,6 +619,12 @@
   <a href="https://ruhan-wang.github.io/Harness-Handbook/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/Ruhan-Wang/Harness_Handbook"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **LLM-as-a-Verifier: A General-Purpose Verification Framework** (2026.07) \
+  **Description**: This paper introduces LLM-as-a-Verifier, a training-free framework that derives continuous verification scores from scoring-token probability distributions and scales verification through finer score granularity, repeated evaluation, and criteria decomposition. It provides accurate, fine-grained feedback for selecting and tracking agent solutions across coding, robotics, and medicine. \
+  <a href="https://arxiv.org/abs/2607.05391"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://llm-as-a-verifier.com/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/llm-as-a-verifier/llm-as-a-verifier"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **Description**: This paper proposes Nurture-First Development, a paradigm for growing domain-expert agents through structured conversational interaction rather than fixed code-first or prompt-first construction. It formalizes a Knowledge Crystallization Cycle, Three-Layer Cognitive Architecture, Dual-Workspace Pattern, and Spiral Development Model for continuously converting tacit practitioner knowledge into reusable agent assets. \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

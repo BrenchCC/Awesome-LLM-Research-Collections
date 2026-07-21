@@ -619,6 +619,12 @@
   <a href="https://ruhan-wang.github.io/Harness-Handbook/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/Ruhan-Wang/Harness_Handbook"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **LLM-as-a-Verifier: A General-Purpose Verification Framework** (2026.07) \
+  **描述**: 该论文提出 LLM-as-a-Verifier，一个无需额外训练的通用验证框架，通过评分 token 的概率分布生成连续分数，并从评分粒度、重复评估和标准分解三个维度扩展验证。它可为代码、机器人和医疗等领域的智能体解答选择与进度跟踪提供准确、细粒度的反馈。 \
+  <a href="https://arxiv.org/abs/2607.05391"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://llm-as-a-verifier.com/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/llm-as-a-verifier/llm-as-a-verifier"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
   <a href="https://arxiv.org/abs/2603.10808"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>论文</span></div>
-    <div><strong>30</strong><span>资源链接</span></div>
+    <div><strong>17</strong><span>论文</span></div>
+    <div><strong>33</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -147,7 +147,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">3 篇论文</p>
+    <p class="eyebrow">4 篇论文</p>
     <h2>智能体开发</h2>
   </div>
   <div class="paper-grid">
@@ -162,6 +162,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2607.13285" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://ruhan-wang.github.io/Harness-Handbook/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/Ruhan-Wang/Harness_Handbook" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="llm-as-a-verifier-a-general-purpose-verification-framework">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>LLM-as-a-Verifier: A General-Purpose Verification Framework</h3>
+  <p>该论文提出 LLM-as-a-Verifier，一个无需额外训练的通用验证框架，通过评分 token 的概率分布生成连续分数，并从评分粒度、重复评估和标准分解三个维度扩展验证。它可为代码、机器人和医疗等领域的智能体解答选择与进度跟踪提供准确、细粒度的反馈。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.05391" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://llm-as-a-verifier.com/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/llm-as-a-verifier/llm-as-a-verifier" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="nurture-first-agent-development-building-domain-expert-ai-agents-through-conversational-knowledge-crystallization">

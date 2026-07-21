@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>111</strong><span>Papers</span></div>
+    <div><strong>112</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>252</strong><span>Resource links</span></div>
+    <div><strong>255</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">16 papers</span>
+  <span class="category-count">17 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable</strong>
   <em>Agents Application</em>
 </a>
+<a class="recent-row" href="agents-application.html#llm-as-a-verifier-a-general-purpose-verification-framework">
+  <span>2026.07</span>
+  <strong>LLM-as-a-Verifier: A General-Purpose Verification Framework</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="agents-application.html#abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
   <span>2026.07</span>
   <strong>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.06</span>
   <strong>MiniMax Sparse Attention</strong>
   <em>Attention</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#la4vla-learning-to-act-without-seeing-via-language-action-pretraining">
-  <span>2026.06</span>
-  <strong>LA4VLA: Learning to Act without Seeing via Language-Action Pretraining</strong>
-  <em>Multimodal LLMs</em>
 </a>
   </div>
 </section>

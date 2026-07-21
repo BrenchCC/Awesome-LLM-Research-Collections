@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>111</strong><span>论文</span></div>
+    <div><strong>112</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>252</strong><span>资源链接</span></div>
+    <div><strong>255</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">16 篇论文</span>
+  <span class="category-count">17 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable</strong>
   <em>智能体应用</em>
 </a>
+<a class="recent-row" href="agents-application.html#llm-as-a-verifier-a-general-purpose-verification-framework">
+  <span>2026.07</span>
+  <strong>LLM-as-a-Verifier: A General-Purpose Verification Framework</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="agents-application.html#abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
   <span>2026.07</span>
   <strong>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.06</span>
   <strong>MiniMax Sparse Attention</strong>
   <em>注意力机制</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#la4vla-learning-to-act-without-seeing-via-language-action-pretraining">
-  <span>2026.06</span>
-  <strong>LA4VLA: Learning to Act without Seeing via Language-Action Pretraining</strong>
-  <em>多模态大模型</em>
 </a>
   </div>
 </section>
