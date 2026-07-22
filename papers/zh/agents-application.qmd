@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>论文</span></div>
-    <div><strong>33</strong><span>资源链接</span></div>
+    <div><strong>18</strong><span>论文</span></div>
+    <div><strong>35</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#tool-use">工具调用</a>
+    <a href="#">计算机使用</a>
+<a href="#tool-use">工具调用</a>
 <a href="#ai-research">AI 研究</a>
 <a href="#agent-skills">智能体技能</a>
 <a href="#agent-development">智能体开发</a>
@@ -24,6 +25,26 @@ toc: false
   </nav>
 </section>
 
+<section class="paper-section" id="">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>计算机使用</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="learning-from-failure-inference-time-self-improvement-for-computer-use-agents">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>计算机使用</span>
+  </div>
+  <h3>Learning from Failure: Inference-Time Self-Improvement for Computer-Use Agents</h3>
+  <p>该论文提出面向 computer-use agents 的失败驱动推理时自改进循环，将失败轨迹转化为由 LLM 诊断生成的策略与代码补丁，而不是直接丢弃失败样本。在 OSWorld 上，该方法无需额外训练、仅增加适度推理开销，就将 OpenCUA-72B 的成功率从 42.3% 提升到 48.9%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.31270" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/snow10072740/Learning_from_Failure" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
     <p class="eyebrow">2 篇论文</p>

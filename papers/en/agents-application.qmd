@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>Papers</span></div>
-    <div><strong>33</strong><span>Resource links</span></div>
+    <div><strong>18</strong><span>Papers</span></div>
+    <div><strong>35</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#tool-use">Tool Use</a>
+    <a href="#computer-use">Computer Use</a>
+<a href="#tool-use">Tool Use</a>
 <a href="#ai-research">AI Research</a>
 <a href="#agent-skills">Agent Skills</a>
 <a href="#agent-development">Agent Development</a>
@@ -24,6 +25,26 @@ toc: false
   </nav>
 </section>
 
+<section class="paper-section" id="computer-use">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Computer Use</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="learning-from-failure-inference-time-self-improvement-for-computer-use-agents">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Computer Use</span>
+  </div>
+  <h3>Learning from Failure: Inference-Time Self-Improvement for Computer-Use Agents</h3>
+  <p>This paper proposes a failure-driven inference-time self-improvement loop for computer-use agents that turns failed trajectories into LLM-diagnosed strategy and code patches, rather than discarding them. On OSWorld, it upgrades OpenCUA-72B from 42.3% to 48.9% without additional training and only modest inference overhead.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.31270" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/snow10072740/Learning_from_Failure" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
     <p class="eyebrow">2 papers</p>

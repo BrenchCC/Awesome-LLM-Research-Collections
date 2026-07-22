@@ -31,6 +31,7 @@
   - [Agentic RL](#agentic-rl)
   - [VLA RL](#vla-rl)
 - [Agents Application](#agents-application)
+  - [Computer Use](#computer-use)
   - [Tool Use](#tool-use)
   - [AI Research](#ai-research)
   - [Agent Skills](#agent-skills)
@@ -567,6 +568,12 @@
   <a href="https://arxiv.org/abs/2511.15605"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 # Agents Application
+
+## Computer Use
+- **Learning from Failure: Inference-Time Self-Improvement for Computer-Use Agents** (2026.06) \
+  **Description**: This paper proposes a failure-driven inference-time self-improvement loop for computer-use agents that turns failed trajectories into LLM-diagnosed strategy and code patches, rather than discarding them. On OSWorld, it upgrades OpenCUA-72B from 42.3% to 48.9% without additional training and only modest inference overhead. \
+  <a href="https://arxiv.org/abs/2606.31270"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/snow10072740/Learning_from_Failure"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## Tool Use
 - **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \

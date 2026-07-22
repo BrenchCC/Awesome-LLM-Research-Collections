@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>112</strong><span>Papers</span></div>
+    <div><strong>113</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>255</strong><span>Resource links</span></div>
+    <div><strong>257</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,12 +87,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">17 papers</span>
+  <span class="category-count">18 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
     <span>2026.07</span>
-    <span>AI Research, Agent Development, Agent Skills, Memory, Tool Use</span>
+    <span>AI Research, Agent Development, Agent Skills, Computer Use, Memory, Tool Use</span>
   </div>
 </a>
 <a class="category-card" href="vision.html">

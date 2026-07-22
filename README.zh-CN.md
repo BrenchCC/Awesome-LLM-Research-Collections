@@ -31,6 +31,7 @@
   - [智能体强化学习](#智能体强化学习)
   - [视觉-语言-动作强化学习](#视觉-语言-动作强化学习)
 - [智能体应用](#智能体应用)
+  - [计算机使用](#计算机使用)
   - [工具调用](#工具调用)
   - [AI 研究](#ai-研究)
   - [智能体技能](#智能体技能)
@@ -567,6 +568,12 @@
   <a href="https://arxiv.org/abs/2511.15605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 # 智能体应用
+
+## 计算机使用
+- **Learning from Failure: Inference-Time Self-Improvement for Computer-Use Agents** (2026.06) \
+  **描述**: 该论文提出面向 computer-use agents 的失败驱动推理时自改进循环，将失败轨迹转化为由 LLM 诊断生成的策略与代码补丁，而不是直接丢弃失败样本。在 OSWorld 上，该方法无需额外训练、仅增加适度推理开销，就将 OpenCUA-72B 的成功率从 42.3% 提升到 48.9%。 \
+  <a href="https://arxiv.org/abs/2606.31270"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/snow10072740/Learning_from_Failure"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 工具调用
 - **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
