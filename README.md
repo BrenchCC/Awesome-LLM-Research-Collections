@@ -326,6 +326,10 @@
   **Description**: This paper identifies SwiGLU's near-quadratic amplification on large positive inputs as a source of outliers and numerical instability in low-precision large-scale LLM pre-training. It proposes Power Linear Unit (PowLU), a rational-power activation that preserves adaptive nonlinearity while stabilizing spike regions, with scaling-law and Ling-model experiments showing competitive performance and improved training scalability. \
   <a href="https://arxiv.org/abs/2605.25704"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Pre-training LLM without Learning Rate Decay Enhances Supervised Fine-Tuning** (2026.03) \
+  **Description**: This paper shows that Warmup-Stable-Only pre-training, which keeps the learning rate constant after warmup, consistently improves downstream SFT performance over decay-based schedules across 1B and 8B models. Its loss-landscape analysis attributes the gain to flatter minima that preserve model adaptability. \
+  [[Paper](https://arxiv.org/abs/2603.16127)]
+
 ## Distillation
 - **Knowledge Distillation of Large Language Models** (2023.06) \
   **Description**: This paper studies white-box knowledge distillation for generative LLMs and proposes MiniLLM, replacing the standard forward KLD objective with reverse KLD to avoid overestimating low-probability teacher regions. The method derives an effective optimization procedure and improves instruction-following quality, calibration, exposure bias, and long-text generation across model families from 120M to 13B parameters. \

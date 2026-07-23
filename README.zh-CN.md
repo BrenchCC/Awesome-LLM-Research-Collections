@@ -326,6 +326,10 @@
   **描述**: 该论文指出 SwiGLU 在大正输入下接近二次放大会扩大输出范围并加剧 outlier，从而在低精度大规模 LLM 预训练中带来数值不稳定。论文提出 Power Linear Unit (PowLU)，用有理幂函数在保持自适应非线性的同时稳定 spike 区域，并通过 scaling law 与 Ling 模型实验展示竞争性效果和更好的训练可扩展性。 \
   <a href="https://arxiv.org/abs/2605.25704"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **Pre-training LLM without Learning Rate Decay Enhances Supervised Fine-Tuning** (2026.03) \
+  **描述**: 该论文表明，预热后保持学习率恒定的 Warmup-Stable-Only 预训练策略，在 1B 和 8B 模型上均能稳定优于衰减式调度器的下游 SFT 表现。损失景观分析将这一增益归因于更平坦的极小值，它们能够保留模型的下游适应能力。 \
+  [[论文](https://arxiv.org/abs/2603.16127)]
+
 ## 蒸馏
 - **Knowledge Distillation of Large Language Models** (2023.06) \
   **描述**: 该论文研究面向生成式大语言模型的白盒知识蒸馏，并提出 MiniLLM，用反向 KLD 替代标准前向 KLD，以避免学生模型高估教师分布中的低概率区域。论文推导了有效优化方法，并在 120M 到 13B 参数的不同模型族上提升指令跟随质量、校准性、曝光偏差和长文本生成表现。 \
