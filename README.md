@@ -288,6 +288,13 @@
   <a href="https://github.com/xiaomi-research/onevl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/xiaomi-research/onevl-models"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos** (2026.01) \
+  **Description**: CLAP learns an executable latent action vocabulary from robot trajectories and contrastively aligns human video transitions with it, enabling VLA pretraining on abundant unlabeled human videos. It combines an autoregressive VLA with a rectified-flow action head and knowledge-matching regularization for efficient control and target-domain adaptation. \
+  <a href="https://arxiv.org/abs/2601.04061"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://lin-shan.com/CLAP/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/LinShan-Bin/OpenCLAP"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/LinShan/clap"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 # Embeddings
 - **Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models** (2025.06) \
   **Description**: This paper introduces Qwen3 Embedding, a family of text embedding and reranking models built on Qwen3 foundation models with a multi-stage training pipeline, model merging, and LLM-synthesized multilingual data. The series covers 0.6B, 4B, and 8B sizes and achieves state-of-the-art results across multilingual embedding, retrieval, reranking, code retrieval, and cross-lingual benchmarks. \
@@ -357,6 +364,11 @@
   **Description**: This paper formulates LLM reinforcement learning as constrained policy optimization, unifying existing algorithms through different constraint choices and exposing the roles of clipping, KL regularization, and trust regions. It derives Constraint-Infused Policy Optimization (CIPO), which improves reasoning performance and training stability across diverse tasks and model families. \
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+- **BandPO: Bridging Trust Regions and Ratio Clipping via Probability-Aware Bounds for LLM Reinforcement Learning** (2026.03) \
+  **Description**: BandPO projects trust regions defined by general divergence measures into dynamic, probability-aware clipping intervals, expanding the update margin for low-probability high-advantage actions. This principled replacement for fixed PPO-style clipping improves exploration and robustly mitigates entropy collapse across LLM reinforcement learning settings. \
+  <a href="https://arxiv.org/abs/2603.04918"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/OpenMOSS/BandPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 - **Soft Adaptive Policy Optimization** (2025.11) \
   **Description**: This paper introduces Soft Adaptive Policy Optimization (SAPO), replacing hard clipping in group-based LLM reinforcement learning with a temperature-controlled soft gate that continuously attenuates off-policy token updates. Its sequence-coherent, token-adaptive objective improves training stability, sample efficiency, and reasoning performance across text and Qwen3-VL models. \

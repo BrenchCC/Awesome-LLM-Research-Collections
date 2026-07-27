@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>论文</span></div>
-    <div><strong>46</strong><span>资源链接</span></div>
+    <div><strong>17</strong><span>论文</span></div>
+    <div><strong>50</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -219,7 +219,7 @@ toc: false
 </section>
 <section class="paper-section" id="vla">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>视觉-语言-动作</h2>
   </div>
   <div class="paper-grid">
@@ -248,6 +248,20 @@ toc: false
 <a class="resource-link" href="https://xiaomi-embodied-intelligence.github.io/OneVL/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/xiaomi-research/onevl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/collections/xiaomi-research/onevl-models" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="clap-contrastive-latent-action-pretraining-for-learning-vision-language-action-models-from-human-videos">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>视觉-语言-动作</span>
+  </div>
+  <h3>CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos</h3>
+  <p>CLAP 从机器人轨迹中学习可执行的潜在动作词表，并通过对比学习将人类视频中的视觉变化与之对齐，从而利用大量无标注人类视频预训练 VLA。该方法结合自回归 VLA、整流流动作头和知识匹配正则化，以实现高效控制和目标域适配。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.04061" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://lin-shan.com/CLAP/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/LinShan-Bin/OpenCLAP" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/LinShan/clap" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

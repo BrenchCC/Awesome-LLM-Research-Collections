@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>Papers</span></div>
-    <div><strong>46</strong><span>Resource links</span></div>
+    <div><strong>17</strong><span>Papers</span></div>
+    <div><strong>50</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -219,7 +219,7 @@ toc: false
 </section>
 <section class="paper-section" id="vla">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>VLA</h2>
   </div>
   <div class="paper-grid">
@@ -248,6 +248,20 @@ toc: false
 <a class="resource-link" href="https://xiaomi-embodied-intelligence.github.io/OneVL/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/xiaomi-research/onevl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/collections/xiaomi-research/onevl-models" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="clap-contrastive-latent-action-pretraining-for-learning-vision-language-action-models-from-human-videos">
+  <div class="paper-meta">
+    <span>2026.01</span>
+    <span>VLA</span>
+  </div>
+  <h3>CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos</h3>
+  <p>CLAP learns an executable latent action vocabulary from robot trajectories and contrastively aligns human video transitions with it, enabling VLA pretraining on abundant unlabeled human videos. It combines an autoregressive VLA with a rectified-flow action head and knowledge-matching regularization for efficient control and target-domain adaptation.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2601.04061" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://lin-shan.com/CLAP/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/LinShan-Bin/OpenCLAP" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/LinShan/clap" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

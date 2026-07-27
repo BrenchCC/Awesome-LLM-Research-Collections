@@ -288,6 +288,13 @@
   <a href="https://github.com/xiaomi-research/onevl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/collections/xiaomi-research/onevl-models"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **CLAP: Contrastive Latent Action Pretraining for Learning Vision-Language-Action Models from Human Videos** (2026.01) \
+  **描述**: CLAP 从机器人轨迹中学习可执行的潜在动作词表，并通过对比学习将人类视频中的视觉变化与之对齐，从而利用大量无标注人类视频预训练 VLA。该方法结合自回归 VLA、整流流动作头和知识匹配正则化，以实现高效控制和目标域适配。 \
+  <a href="https://arxiv.org/abs/2601.04061"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://lin-shan.com/CLAP/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/LinShan-Bin/OpenCLAP"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/LinShan/clap"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 # 嵌入模型
 - **Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models** (2025.06) \
   **描述**: 该论文提出 Qwen3 Embedding，一个基于 Qwen3 基础模型构建的文本嵌入与重排序模型系列，结合多阶段训练、模型合并和 LLM 合成的多语言数据。该系列覆盖 0.6B、4B 和 8B 规模，并在多语言嵌入、检索、重排序、代码检索和跨语言检索基准上取得领先表现。 \
@@ -357,6 +364,11 @@
   **描述**: 该论文将大语言模型强化学习表述为约束策略优化，通过不同约束选择统一现有算法，并揭示裁剪、KL 正则化与信赖域的作用。论文据此推导 Constraint-Infused Policy Optimization (CIPO)，在多种任务和模型族上提升推理性能与训练稳定性。 \
   <a href="https://arxiv.org/abs/2605.16826"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/trestad/CIPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **BandPO: Bridging Trust Regions and Ratio Clipping via Probability-Aware Bounds for LLM Reinforcement Learning** (2026.03) \
+  **描述**: BandPO 将由通用散度度量定义的信赖域投影为动态、概率感知的裁剪区间，为低概率且高优势的动作扩大更新空间。该方法以理论化的动态边界替代 PPO 式固定裁剪，在多种大语言模型强化学习设置中改善探索并稳定缓解熵坍缩。 \
+  <a href="https://arxiv.org/abs/2603.04918"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/OpenMOSS/BandPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **Soft Adaptive Policy Optimization** (2025.11) \
   **描述**: 该论文提出 Soft Adaptive Policy Optimization (SAPO)，以温度控制的软门控替代大语言模型群组强化学习中的硬裁剪，连续衰减离策略 token 更新。其目标兼具序列一致性与 token 自适应性，在文本模型和 Qwen3-VL 模型上提升训练稳定性、样本效率与推理表现。 \

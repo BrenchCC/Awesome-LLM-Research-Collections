@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>45</strong><span>论文</span></div>
-    <div><strong>89</strong><span>资源链接</span></div>
+    <div><strong>46</strong><span>论文</span></div>
+    <div><strong>91</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -29,7 +29,7 @@ toc: false
 
 <section class="paper-section" id="policy-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">11 篇论文</p>
+    <p class="eyebrow">12 篇论文</p>
     <h2>策略优化</h2>
   </div>
   <div class="paper-grid">
@@ -77,6 +77,18 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2605.16826" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/trestad/CIPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="bandpo-bridging-trust-regions-and-ratio-clipping-via-probability-aware-bounds-for-llm-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>策略优化</span>
+  </div>
+  <h3>BandPO: Bridging Trust Regions and Ratio Clipping via Probability-Aware Bounds for LLM Reinforcement Learning</h3>
+  <p>BandPO 将由通用散度度量定义的信赖域投影为动态、概率感知的裁剪区间，为低概率且高优势的动作扩大更新空间。该方法以理论化的动态边界替代 PPO 式固定裁剪，在多种大语言模型强化学习设置中改善探索并稳定缓解熵坍缩。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.04918" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/OpenMOSS/BandPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="soft-adaptive-policy-optimization">
