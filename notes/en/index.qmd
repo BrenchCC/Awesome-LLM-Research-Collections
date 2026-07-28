@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>11</strong><span>Notes</span></div>
+    <div><strong>12</strong><span>Notes</span></div>
     <div><strong>6</strong><span>Topics</span></div>
-    <div><strong>2026-07-06</strong><span>Latest date</span></div>
+    <div><strong>2026-07-28</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -54,6 +54,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>MLLMS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
+  <span class="category-count">2026-07-28</span>
+  <h3>From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations</h3>
+  <p>A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation.</p>
+  <div class="note-tags">
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">LLM</span>
+    <span class="note-tag">MoE</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Long Context</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>Paper Readings</span>
   </div>
 </a>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Fine-grained mixture of experts in Qwen1.5-MoE</title>
+  <desc id="desc">A Qwen-1.8B dense feed-forward network is upcycled into Qwen1.5-MoE. A router selects four of sixty routed experts for every token, while four shared experts always run, producing 14.3 billion total parameters and approximately 2.7 billion active parameters.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#334155" flood-opacity=".14"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="30" fill="url(#bg)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="84" font-size="48" font-weight="700" fill="#0f172a">Qwen1.5-MoE: Fine-Grained Capacity Without Dense Cost</text>
+    <text x="62" y="128" font-size="23" fill="#475569">Upcycling preserves the dense representation space, then learns expert specialization and routing.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="62" y="194" width="286" height="488" rx="24" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+    </g>
+    <text x="94" y="244" font-size="21" font-weight="700" fill="#2563eb">STARTING CHECKPOINT</text>
+    <rect x="94" y="284" width="222" height="118" rx="18" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
+    <text x="205" y="328" text-anchor="middle" font-size="26" font-weight="700" fill="#1e3a8a">Qwen-1.8B</text>
+    <text x="205" y="363" text-anchor="middle" font-size="20" fill="#475569">dense SwiGLU FFN</text>
+    <path d="M205 402 V480" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="94" y="500" width="222" height="124" rx="18" fill="#f0fdf4" stroke="#4ade80" stroke-width="2"/>
+    <text x="205" y="540" text-anchor="middle" font-size="23" font-weight="700" fill="#166534">Upcycle</text>
+    <text x="205" y="574" text-anchor="middle" font-size="18" fill="#475569">split one large FFN</text>
+    <text x="205" y="602" text-anchor="middle" font-size="18" fill="#475569">into finer experts</text>
+
+    <line x1="348" y1="438" x2="424" y2="438" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+
+    <g filter="url(#shadow)">
+      <rect x="442" y="194" width="310" height="488" rx="24" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+    </g>
+    <text x="474" y="244" font-size="21" font-weight="700" fill="#7c3aed">TOKEN ROUTER</text>
+    <circle cx="597" cy="345" r="89" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="597" y="332" text-anchor="middle" font-size="27" font-weight="700" fill="#4c1d95">Router</text>
+    <text x="597" y="366" text-anchor="middle" font-size="19" fill="#475569">scores 60 experts</text>
+    <rect x="490" y="488" width="214" height="118" rx="18" fill="#faf5ff" stroke="#c4b5fd"/>
+    <text x="597" y="529" text-anchor="middle" font-size="24" font-weight="700" fill="#6b21a8">Top-4 selection</text>
+    <text x="597" y="563" text-anchor="middle" font-size="18" fill="#475569">different tokens can</text>
+    <text x="597" y="590" text-anchor="middle" font-size="18" fill="#475569">choose different paths</text>
+    <path d="M597 434 V474" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <line x1="752" y1="438" x2="816" y2="438" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+
+    <g filter="url(#shadow)">
+      <rect x="834" y="178" width="704" height="520" rx="24" fill="#ffffff" stroke="#34d399" stroke-width="2.5"/>
+    </g>
+    <text x="868" y="230" font-size="21" font-weight="700" fill="#047857">SPARSE EXPERT COMPUTATION</text>
+    <text x="868" y="267" font-size="19" fill="#475569">Only highlighted routed experts execute for this token; shared experts always execute.</text>
+
+    <g font-size="19" font-weight="700" text-anchor="middle">
+      <rect x="870" y="310" width="112" height="78" rx="15" fill="#bbf7d0" stroke="#22c55e" stroke-width="2.5"/>
+      <text x="926" y="357" fill="#14532d">E07</text>
+      <rect x="1002" y="310" width="112" height="78" rx="15" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="1058" y="357" fill="#64748b">E18</text>
+      <rect x="1134" y="310" width="112" height="78" rx="15" fill="#bbf7d0" stroke="#22c55e" stroke-width="2.5"/>
+      <text x="1190" y="357" fill="#14532d">E26</text>
+      <rect x="1266" y="310" width="112" height="78" rx="15" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="1322" y="357" fill="#64748b">E41</text>
+      <rect x="1398" y="310" width="112" height="78" rx="15" fill="#bbf7d0" stroke="#22c55e" stroke-width="2.5"/>
+      <text x="1454" y="357" fill="#14532d">E55</text>
+      <rect x="936" y="418" width="112" height="78" rx="15" fill="#bbf7d0" stroke="#22c55e" stroke-width="2.5"/>
+      <text x="992" y="465" fill="#14532d">E59</text>
+      <rect x="1068" y="418" width="112" height="78" rx="15" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="1124" y="465" fill="#64748b">…</text>
+    </g>
+    <text x="870" y="540" font-size="20" font-weight="700" fill="#166534">4 selected of 60 routed experts</text>
+
+    <rect x="870" y="572" width="640" height="82" rx="17" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+    <text x="1190" y="607" text-anchor="middle" font-size="22" font-weight="700" fill="#075985">4 shared experts: always active</text>
+    <text x="1190" y="635" text-anchor="middle" font-size="18" fill="#475569">a common path for reusable transformations</text>
+
+    <rect x="62" y="746" width="1476" height="100" rx="20" fill="#dcfce7" stroke="#86efac"/>
+    <text x="98" y="788" font-size="25" font-weight="700" fill="#166534">14.3B total parameters</text>
+    <text x="410" y="788" font-size="25" font-weight="700" fill="#166534">≈2.7B active per token</text>
+    <text x="98" y="823" font-size="20" fill="#334155">Capacity follows all experts; token-level compute follows the selected routed experts plus the shared path.</text>
+  </g>
+</svg>

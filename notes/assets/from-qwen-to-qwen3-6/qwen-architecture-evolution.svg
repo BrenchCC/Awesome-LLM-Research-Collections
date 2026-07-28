@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Architectural evolution of the Qwen language-model backbone</title>
+  <desc id="desc">Four columns compare the architecture of Qwen and Qwen1.5, Qwen2 and Qwen2.5, Qwen3, and the Qwen3-Next to Qwen3.5 and Qwen3.6 branch across attention, feed-forward routing, normalization, context, and inference mechanisms.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.11"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .heading { font: 700 36px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subheading { font: 400 17px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .phase { font: 700 24px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .date { font: 700 13px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #6366f1; letter-spacing: 0.08em; }
+      .label { font: 700 15px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; letter-spacing: 0.04em; }
+      .copy { font: 400 15px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .strong { font: 700 16px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #312e81; }
+      .edge { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .blockText { font: 700 14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" rx="28" fill="url(#background)"/>
+  <text x="60" y="66" class="heading">Architecture: From a Dense Decoder to a Hybrid Multimodal Backbone</text>
+  <text x="60" y="98" class="subheading">The largest discontinuity arrives in Qwen3-Next; Qwen3.5 and Qwen3.6 inherit and scale that design.</text>
+
+  <path d="M 386 505 H 420" class="edge"/>
+  <path d="M 778 505 H 812" class="edge"/>
+  <path d="M 1170 505 H 1204" class="edge"/>
+
+  <g filter="url(#shadow)">
+    <rect x="30" y="135" width="356" height="735" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="58" y="175" class="date">2023 → EARLY 2024</text>
+    <text x="58" y="214" class="phase">Qwen / Qwen1.5</text>
+
+    <text x="58" y="257" class="label">ATTENTION</text>
+    <rect x="58" y="275" width="300" height="72" rx="14" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="78" y="307" class="strong">Dense causal self-attention</text>
+    <text x="78" y="332" class="copy">MHA in Qwen; QKV bias + RoPE</text>
+
+    <text x="58" y="385" class="label">FFN / ROUTING</text>
+    <rect x="58" y="403" width="300" height="104" rx="14" fill="#ecfdf5" stroke="#6ee7b7"/>
+    <text x="78" y="435" class="strong">SwiGLU dense FFN</text>
+    <text x="78" y="460" class="copy">Qwen1.5-MoE pilot:</text>
+    <text x="78" y="485" class="copy">60 routed / 4 active + 4 shared</text>
+
+    <text x="58" y="545" class="label">NORMALIZATION</text>
+    <rect x="58" y="563" width="300" height="72" rx="14" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="78" y="595" class="strong">Pre-RMSNorm</text>
+    <text x="78" y="620" class="copy">Stable LLaMA-like decoder stack</text>
+
+    <text x="58" y="673" class="label">SYSTEM CONSEQUENCE</text>
+    <text x="58" y="706" class="copy">KV cache still scales with all KV heads.</text>
+    <text x="58" y="732" class="copy">Qwen1.5 makes 32K support uniform</text>
+    <text x="58" y="758" class="copy">and moves implementations into</text>
+    <text x="58" y="784" class="copy">upstream Transformers.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="422" y="135" width="356" height="735" rx="24" fill="#ffffff" stroke="#a5b4fc" stroke-width="2"/>
+    <text x="450" y="175" class="date">MID 2024 → EARLY 2025</text>
+    <text x="450" y="214" class="phase">Qwen2 / Qwen2.5</text>
+
+    <text x="450" y="257" class="label">ATTENTION</text>
+    <rect x="450" y="275" width="300" height="104" rx="14" fill="#eef2ff" stroke="#818cf8"/>
+    <text x="470" y="307" class="strong">Grouped Query Attention</text>
+    <text x="470" y="332" class="copy">Fewer KV heads; QKV bias retained</text>
+    <text x="470" y="357" class="copy">DCA + YaRN for long context</text>
+
+    <text x="450" y="417" class="label">FFN / ROUTING</text>
+    <rect x="450" y="435" width="300" height="104" rx="14" fill="#ecfdf5" stroke="#34d399"/>
+    <text x="470" y="467" class="strong">Dense and fine-grained MoE</text>
+    <text x="470" y="492" class="copy">Qwen2 57B-A14B:</text>
+    <text x="470" y="517" class="copy">64 routed / 8 active + 8 shared</text>
+
+    <text x="450" y="577" class="label">BACKBONE CONTINUITY</text>
+    <rect x="450" y="595" width="300" height="72" rx="14" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="470" y="627" class="strong">Qwen2.5 keeps the backbone</text>
+    <text x="470" y="652" class="copy">Most gains come from data and training</text>
+
+    <text x="450" y="705" class="label">SYSTEM CONSEQUENCE</text>
+    <text x="450" y="738" class="copy">GQA cuts KV-cache bandwidth.</text>
+    <text x="450" y="764" class="copy">Context support reaches 128K;</text>
+    <text x="450" y="790" class="copy">Qwen2.5-1M adds a separate</text>
+    <text x="450" y="816" class="copy">long-context training recipe.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="814" y="135" width="356" height="735" rx="24" fill="#ffffff" stroke="#818cf8" stroke-width="2"/>
+    <text x="842" y="175" class="date">2025.04</text>
+    <text x="842" y="214" class="phase">Qwen3</text>
+
+    <text x="842" y="257" class="label">ATTENTION</text>
+    <rect x="842" y="275" width="300" height="104" rx="14" fill="#eef2ff" stroke="#6366f1"/>
+    <text x="862" y="307" class="strong">GQA + QK-Norm</text>
+    <text x="862" y="332" class="copy">QKV bias removed</text>
+    <text x="862" y="357" class="copy">Dense backbone otherwise familiar</text>
+
+    <text x="842" y="417" class="label">FFN / ROUTING</text>
+    <rect x="842" y="435" width="300" height="104" rx="14" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="862" y="467" class="strong">Fine-grained MoE at scale</text>
+    <text x="862" y="492" class="copy">128 total / 8 active experts</text>
+    <text x="862" y="517" class="copy">No shared experts; global balance</text>
+
+    <text x="842" y="577" class="label">MODEL FAMILY</text>
+    <rect x="842" y="595" width="300" height="72" rx="14" fill="#f5f3ff" stroke="#c4b5fd"/>
+    <text x="862" y="627" class="strong">Dense + MoE, one tokenizer</text>
+    <text x="862" y="652" class="copy">0.6B–235B; 119 languages</text>
+
+    <text x="842" y="705" class="label">SYSTEM CONSEQUENCE</text>
+    <text x="842" y="738" class="copy">The architecture changes modestly;</text>
+    <text x="842" y="764" class="copy">the larger shift is a model that</text>
+    <text x="842" y="790" class="copy">shares thinking and non-thinking</text>
+    <text x="842" y="816" class="copy">behavior in one checkpoint.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1206" y="135" width="364" height="735" rx="24" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+    <text x="1234" y="175" class="date">QWEN3-NEXT → QWEN3.5 / 3.6</text>
+    <text x="1234" y="214" class="phase">Hybrid Backbone</text>
+
+    <text x="1234" y="257" class="label">ATTENTION LAYOUT</text>
+    <g>
+      <rect x="1234" y="275" width="62" height="72" rx="12" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="1250" y="316" class="blockText">GDN</text>
+      <rect x="1304" y="275" width="62" height="72" rx="12" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="1320" y="316" class="blockText">GDN</text>
+      <rect x="1374" y="275" width="62" height="72" rx="12" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="1390" y="316" class="blockText">GDN</text>
+      <rect x="1444" y="275" width="98" height="72" rx="12" fill="#e0f2fe" stroke="#38bdf8"/>
+      <text x="1456" y="307" class="blockText">Gated</text>
+      <text x="1456" y="329" class="blockText">Attention</text>
+    </g>
+    <text x="1234" y="375" class="copy">3:1 linear/full-attention cycle</text>
+
+    <text x="1234" y="417" class="label">SPARSITY AND STABILITY</text>
+    <rect x="1234" y="435" width="308" height="128" rx="14" fill="#f5f3ff" stroke="#a78bfa"/>
+    <text x="1254" y="467" class="strong">Ultra-sparse MoE + MTP</text>
+    <text x="1254" y="492" class="copy">Qwen3-Next / 397B: 512, 10 + 1</text>
+    <text x="1254" y="517" class="copy">35B-A3B: 256, 8 + 1</text>
+    <text x="1254" y="542" class="copy">Zero-centered RMSNorm; output gating</text>
+
+    <text x="1234" y="601" class="label">MODALITY</text>
+    <rect x="1234" y="619" width="308" height="72" rx="14" fill="#ecfeff" stroke="#22d3ee"/>
+    <text x="1254" y="651" class="strong">Native vision-language foundation</text>
+    <text x="1254" y="676" class="copy">Early-fusion multimodal pre-training</text>
+
+    <text x="1234" y="729" class="label">QWEN3.6 CHECK</text>
+    <text x="1234" y="762" class="copy">Matched 35B-A3B model cards list</text>
+    <text x="1234" y="788" class="copy">the same 40-layer, 3:1 layout and</text>
+    <text x="1234" y="814" class="copy">256 / 8 + 1 expert configuration.</text>
+  </g>
+
+  <rect x="50" y="906" width="1500" height="48" rx="14" fill="#ede9fe"/>
+  <text x="75" y="936" class="strong">Reading rule: a new version number does not necessarily imply a new backbone; Qwen2.5 and Qwen3.6 are the clearest counterexamples.</text>
+</svg>

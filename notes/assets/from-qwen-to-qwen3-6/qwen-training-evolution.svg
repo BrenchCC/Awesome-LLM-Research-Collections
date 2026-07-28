@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Evolution of Qwen pre-training and post-training</title>
+  <desc id="desc">Rows compare Qwen generations by disclosed pre-training scale and post-training method, from supervised fine-tuning and PPO-based RLHF through DPO, online GRPO, four-stage reasoning training, distillation, asynchronous agent reinforcement learning, and Qwen3.6 coding-focused post-training.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .heading { font: 700 36px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subheading { font: 400 17px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .column { font: 700 16px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; letter-spacing: 0.08em; }
+      .model { font: 700 20px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .date { font: 600 13px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #6366f1; }
+      .scale { font: 700 19px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #312e81; }
+      .copy { font: 400 14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .step { font: 700 14px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .edge { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" rx="28" fill="url(#background)"/>
+  <text x="60" y="66" class="heading">Training: Scaling the Corpus, Then Scaling the Learning Signal</text>
+  <text x="60" y="98" class="subheading">Exact numbers are included only when the official report discloses them; later rows increasingly depend on richer environments rather than a single preference label.</text>
+
+  <text x="66" y="145" class="column">VERSION</text>
+  <text x="335" y="145" class="column">PRE-TRAINING</text>
+  <text x="720" y="145" class="column">POST-TRAINING SIGNAL</text>
+  <text x="1410" y="145" class="column">SHIFT</text>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="168" width="1504" height="102" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="72" y="203" class="model">Qwen</text>
+    <text x="72" y="228" class="date">2023</text>
+    <text x="335" y="205" class="scale">up to 3T tokens</text>
+    <text x="335" y="231" class="copy">text + code; 8K base context</text>
+    <rect x="720" y="190" width="118" height="48" rx="12" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="759" y="220" class="step">SFT</text>
+    <path d="M 838 214 H 864" class="edge"/>
+    <rect x="864" y="190" width="118" height="48" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="893" y="220" class="step">RM / PMP</text>
+    <path d="M 982 214 H 1008" class="edge"/>
+    <rect x="1008" y="190" width="142" height="48" rx="12" fill="#fef9c3" stroke="#fde047"/>
+    <text x="1034" y="220" class="step">PPO RLHF</text>
+    <text x="1375" y="207" class="scale">preference</text>
+    <text x="1375" y="232" class="copy">alignment</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="286" width="1504" height="102" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="72" y="321" class="model">Qwen1.5</text>
+    <text x="72" y="346" class="date">2024.02</text>
+    <text x="335" y="323" class="scale">3T for 72B</text>
+    <text x="335" y="349" class="copy">multilingual quality + stable 32K</text>
+    <rect x="720" y="308" width="118" height="48" rx="12" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="759" y="338" class="step">SFT</text>
+    <path d="M 838 332 H 864" class="edge"/>
+    <rect x="864" y="308" width="118" height="48" rx="12" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="905" y="338" class="step">DPO</text>
+    <text x="1375" y="325" class="scale">offline</text>
+    <text x="1375" y="350" class="copy">preference pairs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="404" width="1504" height="102" rx="18" fill="#ffffff" stroke="#a5b4fc"/>
+    <text x="72" y="439" class="model">Qwen2</text>
+    <text x="72" y="464" class="date">2024.06</text>
+    <text x="335" y="441" class="scale">7T for 72B</text>
+    <text x="335" y="467" class="copy">more code, math, and 27 added languages</text>
+    <rect x="720" y="426" width="118" height="48" rx="12" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="759" y="456" class="step">SFT</text>
+    <path d="M 838 450 H 864" class="edge"/>
+    <rect x="864" y="426" width="118" height="48" rx="12" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="905" y="456" class="step">DPO</text>
+    <text x="1375" y="443" class="scale">scale +</text>
+    <text x="1375" y="468" class="copy">data mixture</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="522" width="1504" height="102" rx="18" fill="#ffffff" stroke="#818cf8"/>
+    <text x="72" y="557" class="model">Qwen2.5</text>
+    <text x="72" y="582" class="date">2024.09</text>
+    <text x="335" y="559" class="scale">18T tokens</text>
+    <text x="335" y="585" class="copy">staged mixtures; knowledge, code, math</text>
+    <rect x="720" y="544" width="134" height="48" rx="12" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="744" y="574" class="step">&gt;1M SFT</text>
+    <path d="M 854 568 H 880" class="edge"/>
+    <rect x="880" y="544" width="134" height="48" rx="12" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="904" y="574" class="step">offline DPO</text>
+    <path d="M 1014 568 H 1040" class="edge"/>
+    <rect x="1040" y="544" width="142" height="48" rx="12" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="1066" y="574" class="step">online GRPO</text>
+    <text x="1375" y="561" class="scale">online</text>
+    <text x="1375" y="586" class="copy">reward feedback</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="640" width="1504" height="124" rx="18" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
+    <text x="72" y="678" class="model">Qwen3</text>
+    <text x="72" y="703" class="date">2025.04</text>
+    <text x="335" y="680" class="scale">≈36T tokens</text>
+    <text x="335" y="706" class="copy">30T general + 5T knowledge-heavy</text>
+    <text x="335" y="731" class="copy">+ long-context continuation</text>
+    <rect x="720" y="663" width="140" height="48" rx="12" fill="#ffedd5" stroke="#fb923c"/>
+    <text x="739" y="693" class="step">Long-CoT SFT</text>
+    <path d="M 860 687 H 884" class="edge"/>
+    <rect x="884" y="663" width="128" height="48" rx="12" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="905" y="693" class="step">Reasoning RL</text>
+    <path d="M 1012 687 H 1036" class="edge"/>
+    <rect x="1036" y="653" width="148" height="68" rx="12" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="1057" y="680" class="step">Mode fusion</text>
+    <text x="1062" y="703" class="step">+ general RL</text>
+    <path d="M 1184 687 H 1208" class="edge"/>
+    <rect x="1208" y="653" width="146" height="68" rx="12" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="1223" y="680" class="step">Strong-to-weak</text>
+    <text x="1241" y="703" class="step">distillation</text>
+    <text x="1375" y="681" class="scale">reasoning</text>
+    <text x="1375" y="706" class="copy">and controllability</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="780" width="1504" height="140" rx="18" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="72" y="818" class="model">Qwen3-Next → 3.5 → 3.6</text>
+    <text x="72" y="843" class="date">2025.09 → 2026.04</text>
+    <text x="335" y="820" class="scale">15T subset → undisclosed</text>
+    <text x="335" y="846" class="copy">Next validates efficiency; 3.5 adds</text>
+    <text x="335" y="871" class="copy">trillions of native multimodal tokens</text>
+    <rect x="720" y="804" width="172" height="72" rx="12" fill="#ecfeff" stroke="#22d3ee"/>
+    <text x="741" y="834" class="step">Multimodal SFT</text>
+    <text x="748" y="858" class="step">and reasoning</text>
+    <path d="M 892 840 H 918" class="edge"/>
+    <rect x="918" y="804" width="180" height="72" rx="12" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="940" y="834" class="step">Asynchronous RL</text>
+    <text x="939" y="858" class="step">million-agent envs</text>
+    <path d="M 1098 840 H 1124" class="edge"/>
+    <rect x="1124" y="804" width="208" height="72" rx="12" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="1150" y="834" class="step">Qwen3.6: coding</text>
+    <text x="1143" y="858" class="step">+ thinking preservation</text>
+    <text x="1375" y="821" class="scale">environment</text>
+    <text x="1375" y="846" class="copy">interaction and</text>
+    <text x="1375" y="871" class="copy">runtime behavior</text>
+  </g>
+
+  <text x="60" y="954" class="copy">“Undisclosed” means the cited official release does not provide a separately auditable token count for that generation.</text>
+</svg>

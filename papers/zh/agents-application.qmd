@@ -11,13 +11,14 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>18</strong><span>论文</span></div>
-    <div><strong>35</strong><span>资源链接</span></div>
+    <div><strong>19</strong><span>论文</span></div>
+    <div><strong>37</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#">计算机使用</a>
 <a href="#tool-use">工具调用</a>
+<a href="#data-agents">数据智能体</a>
 <a href="#ai-research">AI 研究</a>
 <a href="#agent-skills">智能体技能</a>
 <a href="#agent-development">智能体开发</a>
@@ -72,6 +73,26 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2512.03746" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="data-agents">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>数据智能体</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="data-agents-levels-state-of-the-art-and-open-problems">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>数据智能体</span>
+  </div>
+  <h3>Data Agents: Levels, State of the Art, and Open Problems</h3>
+  <p>数据智能体利用 LLM 与工具自动化数据管理、准备和分析，但概念使用不一致，模糊了能力与责任边界。该教程提出 L0-L5 自治层级与生命周期驱动的综述框架，梳理现有系统，并勾勒迈向主动式和生成式数据智能体的研究路线图。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.04261" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/HKUSTDial/awesome-data-agents" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

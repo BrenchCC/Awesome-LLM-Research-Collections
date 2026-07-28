@@ -33,6 +33,7 @@
 - [智能体应用](#智能体应用)
   - [计算机使用](#计算机使用)
   - [工具调用](#工具调用)
+  - [数据智能体](#数据智能体)
   - [AI 研究](#ai-研究)
   - [智能体技能](#智能体技能)
   - [智能体开发](#智能体开发)
@@ -601,6 +602,13 @@
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/ByteDance-BandAI/CodeVision"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+## 数据智能体
+
+- **Data Agents: Levels, State of the Art, and Open Problems** (2026.02) \
+  **描述**: 数据智能体利用 LLM 与工具自动化数据管理、准备和分析，但概念使用不一致，模糊了能力与责任边界。该教程提出 L0-L5 自治层级与生命周期驱动的综述框架，梳理现有系统，并勾勒迈向主动式和生成式数据智能体的研究路线图。 \
+  [[论文](https://arxiv.org/abs/2602.04261)]
+  [[代码](https://github.com/HKUSTDial/awesome-data-agents)]
+
 ## AI 研究
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
   **描述**: 这篇综述从创造、写作、验证和传播等环节分析 AI 辅助科研，指出自动化在哪些地方可靠，以及自治系统在新颖性、实验和科学判断上仍会失败。它提供生命周期分类、基准套件、工具清单、设计原则和面向实践者的人类治理式 AI 研究工作流指南。 \
@@ -718,6 +726,11 @@
   **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
   [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
   [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
+- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (2026-07-28) \
+  **描述**: 沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。 \
+  [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
+  [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
 
 - **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
   **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \

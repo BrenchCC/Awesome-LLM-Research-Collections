@@ -72,6 +72,8 @@ CATEGORY_SLUGS = {
     "AI 研究": "ai-research",
     "Tool Use": "tool-use",
     "工具调用": "tool-use",
+    "Data Agents": "data-agents",
+    "数据智能体": "data-agents",
     "Agent Skills": "agent-skills",
     "智能体技能": "agent-skills",
     "Agent Development": "agent-development",
@@ -347,7 +349,7 @@ def parse_readme(readme_path, config):
     current_paper = None
     lines = readme_path.read_text(encoding = "utf-8").splitlines()
     description_pattern = (
-        r"^\s+\*\*" + re.escape(config.description_label) + r"\*\*: (.+) \\\s*$"
+        r"^\s+\*\*" + re.escape(config.description_label) + r"\*\*: (.+?)(?: \\\s*)?\s*$"
     )
 
     for line in lines:
@@ -375,7 +377,10 @@ def parse_readme(readme_path, config):
             current_paper = None
             continue
 
-        title_match = re.match(r"^- \*\*(.+)\*\* \((\d{4}\.\d{2})\) \\\s*$", line)
+        title_match = re.match(
+            r"^- \*\*(.+)\*\* \((\d{4}\.\d{2})\)(?: \\\s*)?\s*$",
+            line
+        )
         if title_match:
             current_paper = Paper(
                 title = title_match.group(1).strip(),
@@ -405,10 +410,29 @@ def parse_readme(readme_path, config):
             r'^\s+<a href="([^"]+)"><img src="assets/icons/[^"]+" alt="([^"]+)" width="\d+"></a>\s*$',
             line
         )
-        if link_match or icon_link_match or html_icon_link_match:
+        bare_html_link_match = re.match(
+            r'^\s+<a href="([^"]+)"></a>\s*$',
+            line
+        )
+        if link_match or icon_link_match or html_icon_link_match or bare_html_link_match:
             match = link_match or icon_link_match
-            label = match.group(1).strip() if match else html_icon_link_match.group(2).strip()
-            url = match.group(2).strip() if match else html_icon_link_match.group(1).strip()
+            if match:
+                label = match.group(1).strip()
+                url = match.group(2).strip()
+            elif html_icon_link_match:
+                label = html_icon_link_match.group(2).strip()
+                url = html_icon_link_match.group(1).strip()
+            else:
+                url = bare_html_link_match.group(1).strip()
+                if "arxiv.org" in url:
+                    label = "论文" if config.key == "zh" else "Paper"
+                elif "github.com" in url:
+                    label = "代码" if config.key == "zh" else "Code"
+                elif "huggingface.co" in url:
+                    label = "Hugging Face"
+                else:
+                    label = "项目" if config.key == "zh" else "Project"
+
             current_paper.links.append(
                 Link(
                     label = label,

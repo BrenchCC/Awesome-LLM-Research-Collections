@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Matched Qwen3.5 and Qwen3.6 backbone comparison</title>
+  <desc id="desc">Qwen3.5-35B-A3B and Qwen3.6-35B-A3B share a published 40-layer hybrid backbone with ten cycles of three Gated DeltaNet layers and one Gated Attention layer, 256 experts with eight routed and one shared active expert, Multi-Token Prediction, and a native context of 262144 tokens. Their release emphasis differs in post-training.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#334155" flood-opacity=".14"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="30" fill="url(#bg)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="62" y="84" font-size="48" font-weight="700" fill="#0f172a">Qwen3.5 → Qwen3.6: Matched Backbone, New Training Target</text>
+    <text x="62" y="128" font-size="23" fill="#475569">A same-size model-card comparison separates architecture inheritance from post-training change.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="58" y="214" width="382" height="468" rx="24" fill="#ffffff" stroke="#22d3ee" stroke-width="2.5"/>
+      <rect x="472" y="174" width="656" height="548" rx="26" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+      <rect x="1160" y="214" width="382" height="468" rx="24" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+    </g>
+
+    <text x="94" y="269" font-size="25" font-weight="700" fill="#0e7490">Qwen3.5-35B-A3B</text>
+    <text x="94" y="310" font-size="20" font-weight="700" fill="#334155">RELEASE EMPHASIS</text>
+    <rect x="94" y="338" width="310" height="82" rx="16" fill="#ecfeff" stroke="#22d3ee"/>
+    <text x="249" y="372" text-anchor="middle" font-size="22" font-weight="700" fill="#155e75">Native multimodal</text>
+    <text x="249" y="400" text-anchor="middle" font-size="18" fill="#475569">early-fusion pre-training</text>
+    <rect x="94" y="448" width="310" height="82" rx="16" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="249" y="482" text-anchor="middle" font-size="22" font-weight="700" fill="#92400e">Asynchronous Agent RL</text>
+    <text x="249" y="510" text-anchor="middle" font-size="18" fill="#475569">large environment supply</text>
+    <rect x="94" y="558" width="310" height="76" rx="16" fill="#e0f2fe" stroke="#38bdf8"/>
+    <text x="249" y="591" text-anchor="middle" font-size="21" font-weight="700" fill="#075985">Native FP8 training</text>
+    <text x="249" y="617" text-anchor="middle" font-size="17" fill="#475569">model-side throughput</text>
+
+    <text x="800" y="229" text-anchor="middle" font-size="23" font-weight="700" fill="#7c3aed">SHARED PUBLISHED BACKBONE</text>
+    <rect x="512" y="264" width="576" height="92" rx="18" fill="#f5f3ff" stroke="#a78bfa" stroke-width="2"/>
+    <text x="800" y="301" text-anchor="middle" font-size="27" font-weight="700" fill="#4c1d95">40 layers · 10 hybrid cycles</text>
+    <text x="800" y="333" text-anchor="middle" font-size="19" fill="#475569">35B total · approximately 3B active</text>
+    <text x="512" y="404" font-size="20" font-weight="700" fill="#475569">ONE REPEATED CYCLE</text>
+    <g font-size="20" font-weight="700" text-anchor="middle">
+      <rect x="512" y="430" width="120" height="76" rx="15" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="572" y="476" fill="#4c1d95">GDN</text>
+      <rect x="650" y="430" width="120" height="76" rx="15" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="710" y="476" fill="#4c1d95">GDN</text>
+      <rect x="788" y="430" width="120" height="76" rx="15" fill="#ddd6fe" stroke="#8b5cf6"/>
+      <text x="848" y="476" fill="#4c1d95">GDN</text>
+      <rect x="926" y="430" width="162" height="76" rx="15" fill="#e0f2fe" stroke="#38bdf8"/>
+      <text x="1007" y="461" fill="#075985">Gated</text>
+      <text x="1007" y="486" fill="#075985">Attention</text>
+    </g>
+    <rect x="512" y="552" width="274" height="112" rx="17" fill="#ecfdf5" stroke="#34d399"/>
+    <text x="649" y="590" text-anchor="middle" font-size="22" font-weight="700" fill="#047857">256 experts</text>
+    <text x="649" y="620" text-anchor="middle" font-size="19" fill="#475569">8 routed + 1 shared</text>
+    <text x="649" y="648" text-anchor="middle" font-size="18" fill="#475569">active per token</text>
+    <rect x="814" y="552" width="274" height="112" rx="17" fill="#eef2ff" stroke="#818cf8"/>
+    <text x="951" y="590" text-anchor="middle" font-size="22" font-weight="700" fill="#3730a3">MTP enabled</text>
+    <text x="951" y="620" text-anchor="middle" font-size="19" fill="#475569">native context</text>
+    <text x="951" y="648" text-anchor="middle" font-size="19" font-weight="700" fill="#3730a3">262,144 tokens</text>
+
+    <text x="1196" y="269" font-size="25" font-weight="700" fill="#6d28d9">Qwen3.6-35B-A3B</text>
+    <text x="1196" y="310" font-size="20" font-weight="700" fill="#334155">RELEASE EMPHASIS</text>
+    <rect x="1196" y="338" width="310" height="82" rx="16" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="1351" y="372" text-anchor="middle" font-size="22" font-weight="700" fill="#5b21b6">Agentic Coding</text>
+    <text x="1351" y="400" text-anchor="middle" font-size="18" fill="#475569">repository + terminal trajectories</text>
+    <rect x="1196" y="448" width="310" height="82" rx="16" fill="#faf5ff" stroke="#c084fc"/>
+    <text x="1351" y="482" text-anchor="middle" font-size="22" font-weight="700" fill="#7e22ce">Thinking Preservation</text>
+    <text x="1351" y="510" text-anchor="middle" font-size="18" fill="#475569">retain prior reasoning behavior</text>
+    <rect x="1196" y="558" width="310" height="76" rx="16" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="1351" y="591" text-anchor="middle" font-size="21" font-weight="700" fill="#334155">Post-training change</text>
+    <text x="1351" y="617" text-anchor="middle" font-size="17" fill="#475569">not a new matched backbone</text>
+
+    <line x1="440" y1="448" x2="466" y2="448" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <line x1="1128" y1="448" x2="1154" y2="448" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="58" y="766" width="1484" height="84" rx="20" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="94" y="801" font-size="22" font-weight="700" fill="#4c1d95">Evidence boundary</text>
+    <text x="306" y="801" font-size="19" fill="#334155">Matching public fields refute a backbone rewrite; they do not prove every parameter or training mixture is identical.</text>
+    <text x="94" y="830" font-size="18" fill="#475569">The most defensible generational distinction is the optimized behavior distribution and environment-facing training objective.</text>
+  </g>
+</svg>

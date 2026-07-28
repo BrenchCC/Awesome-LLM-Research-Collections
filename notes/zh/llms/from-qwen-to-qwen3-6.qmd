@@ -1,0 +1,290 @@
+---
+author: Brench
+date: 2026-07-28
+title: "从 Qwen 到 Qwen3.6：七代模型的架构与训练演进"
+description: "沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。"
+order: 1
+note_type: paper-reading
+topic: llms
+tags:
+  - Qwen
+  - LLM
+  - MoE
+  - Post-training
+  - Long Context
+---
+
+## 摘要
+
+从 2023 年的 Qwen 到 2026 年的 Qwen3.6，版本号增长并不等于骨干网络每次都被重写。按公开主线计数，这一系列共有七代：Qwen、Qwen1.5、Qwen2、Qwen2.5、Qwen3、Qwen3.5 与 Qwen3.6。Qwen3-Next 不另计一代，因为官方把它定位为「下一代架构」的公开验证点；它在 Qwen3 与 Qwen3.5 之间引入 Gated DeltaNet、3:1 混合注意力、超稀疏 MoE、Zero-Centered RMSNorm 和 Multi-Token Prediction（MTP），这些设计随后成为 Qwen3.5/3.6 的骨架。[^qwen3next]
+
+七代主线可以压缩成两个阶段。Qwen 至 Qwen2.5 的重心是把一个稳定的 decoder-only Transformer 做大、做长、做稀疏：词表与多语数据扩展，MHA 改为 GQA，长上下文由 DCA 与 YaRN 支撑，细粒度 MoE 从小规模试验进入正式产品线；与此同时，预训练数据从最高约 3T tokens 扩展到 18T，后训练从 SFT—奖励模型—PPO 转向大规模 SFT、DPO 与在线强化学习。Qwen3 之后，问题变成如何在推理成本可控的条件下训练会思考、会调用工具、能处理图像与长轨迹的模型：QK-Norm、无 QKV bias 的骨干，四阶段 reasoning post-training，强到弱蒸馏，线性/全注意力混合，原生视觉语言预训练和异步 Agent RL 依次进入主线。[^qwen][^qwen2][^qwen25][^qwen3][^qwen35card]
+
+最需要避免的误读有两个。第一，训练 token 数、上下文窗口和专家数量不是同一条「规模」轴：它们分别影响知识覆盖、单次可见状态与每 token 计算量。第二，版本更新不必然意味着新架构。Qwen2.5 的主要增益来自数据和后训练，Qwen3.6-35B-A3B 与同尺寸 Qwen3.5 的公开骨干配置则逐项一致；Qwen3.6 的差异主要落在 agentic coding 与 thinking preservation 的后训练目标上。[^qwen25][^qwen35card][^qwen36card]
+
+## 1. 七代口径与证据边界
+
+### 1.1 为什么是七代，而不是八代
+
+本文以「带正式代际编号、形成公开主线模型族」为计数规则。结果是七个节点：
+
+1. **Qwen**：第一代通用基座与 Chat/RLHF 路线。
+2. **Qwen1.5**：面向 Qwen2 的过渡性产品代，但具备完整尺寸谱系、统一 32K 支持和正式 MoE 试验。
+3. **Qwen2**：GQA、长上下文机制与 dense/MoE 双路线定型。
+4. **Qwen2.5**：骨干延续，重点扩展数据、长上下文和后训练。
+5. **Qwen3**：统一 thinking/non-thinking 行为，重做 MoE 配置并系统化 reasoning post-training。
+6. **Qwen3.5**：采用 Qwen3-Next 验证过的混合骨干，转向原生视觉语言与 Agent 训练。
+7. **Qwen3.6**：保留同尺寸 Qwen3.5 骨干，强化编码智能体与思考保留。
+
+Qwen3-Next 的名字容易诱导出「第八代」结论，但官方说明本身给了反证：它被描述为通往 Qwen3.5 的 *next-generation architecture*，发布的 80B-A3B 模型用来验证长上下文吞吐、超稀疏 MoE 和训练稳定性，而不是替换 Qwen3 全尺寸产品族。将它画成桥接节点，既保留了真正的架构断点，也不把一次架构预演误算为完整代际。[^qwen3next]
+
+![Qwen 七代主线时间线。Qwen3-Next 以虚线桥接 Qwen3 和 Qwen3.5，不计为第八代。](../../assets/from-qwen-to-qwen3-6/qwen-seven-generation-timeline.svg){fig-alt="Qwen、Qwen1.5、Qwen2、Qwen2.5、Qwen3、Qwen3.5、Qwen3.6 七代时间线，以及作为架构桥梁的 Qwen3-Next"}
+
+### 1.2 信源分级与数字填写规则
+
+本文只用四类一手资料，并按可审计性排序：
+
+- **技术报告**用于确认架构、数据阶段、训练目标和作者给出的消融结论。
+- **官方模型卡及配置**用于核对层数、专家数、激活专家、上下文与推理开关。
+- **官方研究博客**用于补充未进入论文的系统设计、发布定位和工程测量。
+- **官方代码仓库**用于确认模型族、运行参数和实现入口，不用 README 中的宣传表格代替受控实验。
+
+数字只在官方明确给出时填写。「约 36T」表示报告披露了 30T 第一阶段、5T 知识强化阶段和后续长上下文续训，但没有把最后一段精确 token 数压成单一整数；「未公开」表示引用的正式材料没有提供可独立核对的该代总量，而不是训练没有发生。上下文长度也区分原生训练窗口、模型卡支持窗口和通过 YaRN 等方法扩展的窗口，三者不能互换。
+
+官方 benchmark 只用于局部核验，不承担跨代因果归因。模型尺寸、提示模板、是否 thinking、上下文配置与评测版本只要有一项不同，就不能把分数差直接解释成某个架构模块的收益。本文因此更关注报告中的配置、训练流程和同尺寸对照，而不是把发布表格拼成排行榜。
+
+还有一类常见证据需要排除：社区配置文件的字段名相同，不表示两个版本经过了相同训练；推理框架能加载某个 checkpoint，也不表示框架实现了官方训练时的全部算子；博客中的吞吐倍数若没有给出序列长度、batch、精度和并行策略，也不能移植到另一套集群。本文将「配置相同」用于否定骨干已重写，将「训练流程不同」用于解释能力方向变化，但不会由这两项直接推出 benchmark 分数。这样的证据边界看似保守，却能防止把部署兼容性、架构继承和训练效果混成同一个结论。
+
+| 主线代际 | 骨干变化 | 官方披露的代表性预训练量 | 后训练主线 | 更可信的主增益来源 |
+|---|---|---:|---|---|
+| Qwen | MHA、RoPE、RMSNorm、SwiGLU、QKV bias | 最高约 3T | SFT、RM/PMP、PPO | 通用基座与人类偏好对齐 |
+| Qwen1.5 | 骨干连续；MoE 首次正式验证 | 72B 回溯口径为 3T | SFT、DPO；部分路线保留 PPO | 32K、部署标准化、MoE 试验 |
+| Qwen2 | GQA、DCA+YaRN；dense/MoE 双路线 | 72B 为 7T | SFT、DPO | KV 成本、多语/代码/数学数据 |
+| Qwen2.5 | 基本延续 Qwen2 | 18T | 百万级 SFT、offline DPO、online GRPO | 数据质量、长上下文和后训练 |
+| Qwen3 | 去 QKV bias、加 QK-Norm；128/8 MoE | 约 36T | 四阶段 reasoning post-training、蒸馏 | 思考控制与推理能力 |
+| Qwen3.5 | 3:1 GDN/Attention、超稀疏 MoE、MTP、原生多模态 | 未公开可审计总量 | 多模态 SFT、异步 Agent RL | 推理效率、视觉语言与环境交互 |
+| Qwen3.6 | 同尺寸配置延续 Qwen3.5 | 未公开 | agentic coding、thinking preservation | 后训练与运行时行为 |
+
+## 2. Qwen：先建立稳定的 decoder-only 基线
+
+第一代 Qwen 的技术路线并不追求陌生结构，而是把已经被验证的 decoder-only Transformer 组件组合成可扩展基座。模型采用因果自注意力、RoPE、pre-RMSNorm 与 SwiGLU；注意力仍是 MHA，并在 Q、K、V 投影中保留 bias。分词器使用 byte-level BPE，把中文、多语文本和代码所需的词元统一进约 15.2 万规模的词表。较大的词表会增加 embedding 与输出头参数，却能减少中文被切成大量字节或碎片的情况，也能缩短同一内容对应的 token 序列。[^qwen]
+
+这个选择确立了此后数代的稳定部分：decoder-only、RoPE、RMSNorm、SwiGLU 没有因版本号增长而消失。真正变化的是注意力的 KV 组织、归一化细节、FFN 是否由专家路由替代，以及模型看到什么数据、接受什么学习信号。若只把七代差异理解成「Transformer 模块清单变长」，就会低估训练系统的作用。
+
+第一代报告披露的预训练规模随模型尺寸增长，最大模型达到约 3T tokens。数据由网页、书籍、代码等多种来源构成，经历质量过滤、去重与混合。这里的 3T 是训练 token 量，不等于 3T 个独立事实；重复度、领域比例、语言覆盖和阶段采样都会改变同样 token 预算的有效信息量。Qwen2.5 后来用一张示意图把 3T、7T、18T 与 Qwen1.5-72B、Qwen2-72B、Qwen2.5-72B 对齐，恰好说明 Qwen 系列的早期进步首先是一条数据工程曲线。[^qwen25]
+
+约 15.2 万词表还改变了训练预算的分配方式。对同一段中文，更少的 token 意味着固定长度序列能容纳更多语义内容，也减少自回归生成步数；代价是 embedding、输出投影和 softmax 的参数及访存增加。大词表并不自动提高多语能力，稀有词元若缺少足够训练频次，仍只得到噪声表示。它的价值来自与多语语料、代码数据和清洗规则一起设计，而不是词表数字本身。Qwen 后续数代继续复用分词体系，使旧数据管线、词元统计和 checkpoint 迁移更稳定，这也是架构连续性的一部分。
+
+数据清洗与混合则决定 3T token 的有效密度。网页去重可以避免模型反复记忆模板页，质量模型会提高知识文本和连贯长文比例，代码许可与自动生成内容过滤会改变代码能力上限。报告公开了来源类别和总体方法，却没有提供足以逐样本复现的语料清单；因此可以确认「多源、去重、质量过滤」这一过程，不能声称复现了原始数据集。对闭源训练语料，最合适的分析单位是公开管线与消融，而不是给每一种来源虚构精确百分比。
+
+后训练仍是当时典型的三段式 RLHF：先用指令与对话数据做 SFT，再训练偏好模型（报告中同时讨论 reward model 与 process-aware preference model），最后通过 PPO 更新 Chat 策略。该流程把「输出像一个助手」和「偏好分更高」分成两个目标，也暴露出成本：奖励模型、在线 rollout、reference policy 与 PPO 训练必须协同，稳定性和算力开销都高于纯监督学习。后续 DPO 的普及，本质上是在寻找更短的偏好优化路径。
+
+第一代 RLHF 的局限也为后续路线埋下问题。奖励模型只看到偏好数据能够表达的差异；如果标注者更喜欢简洁但没有核验事实，策略会学到风格代理而非正确性。PPO 通过 KL 约束避免一次更新偏离 SFT 模型过远，却不能保证奖励本身可靠。数学和代码任务后来转向可执行 verifier，正是因为终局答案或测试结果能提供比一般偏好更硬的信号。Qwen3.5 的 Agent RL 进一步把 verifier 放进环境，但也把奖励攻击和环境泄漏带回训练系统。七代后训练不是简单替换优化器，而是在不断修改「什么证据足以给策略奖励」。
+
+![第一代 Qwen 的基座与 RLHF 分层：BBPE 输入 decoder-only 骨干，再经 SFT、偏好模型和 PPO 形成 Chat-RLHF。该图依据 Qwen 技术报告整理。](../../assets/from-qwen-to-qwen3-6/qwen-foundation-rlhf.svg){fig-alt="Qwen 第一代训练结构图，展示约15.2万词表的BBPE、MHA与RoPE等骨干组件，以及SFT、奖励或过程偏好模型和PPO RLHF流程"}
+
+![第一代 Qwen 技术报告 Figure 1：预训练基座分化为 Chat、代码、数学、视觉语言和 RLHF 模型。图像由论文 PDF 矢量页以 300 DPI 以上裁切。](../../assets/from-qwen-to-qwen3-6/qwen-model-lineage.png){fig-alt="Qwen 技术报告中的模型谱系图，展示 Qwen 基座、Qwen-Chat、Qwen-RM、Qwen-Chat-RLHF、Code-Qwen、Math-Qwen-Chat 与 Qwen-VL"}
+
+这张谱系图还有一个容易被后见之明遮蔽的信息：第一代已经同时探索代码、数学、视觉语言和奖励模型，只是这些能力仍由不同分支承载。Qwen3.5 的「原生多模态」并不是 Qwen 第一次处理图像，而是把视觉语言训练从旁支模型改成共享主干的预训练起点。产品族是否包含视觉模型，与语言骨干是否原生接受多模态 token，是两种不同判断。
+
+## 3. Qwen1.5：部署标准化与细粒度 MoE 的第一次验证
+
+Qwen1.5 被官方称为 Qwen2 的 beta 版本，但它不只是改名。第一项变化是把 32K 上下文覆盖到从 0.5B 到 72B 的完整尺寸系列，第二项变化是直接进入 Hugging Face Transformers 主线，不再依赖 `trust_remote_code`。前者降低了小模型做文档、检索与 Agent 状态处理的门槛；后者减少自定义模型代码带来的部署差异，使量化、推理后端和训练工具更容易复用标准接口。[^qwen15]
+
+「原生进入 Transformers」对研究结论也有影响。自定义远程代码常把位置缩放、缓存布局、生成停止条件和 chat template 隐藏在仓库实现里，不同推理后端可能悄悄走不同路径。进入标准实现后，模型权重与执行语义更容易被固定版本复核，量化工具也能针对已知模块工作。它不会提高 checkpoint 本身的理论能力，却降低了用户把实现差异误认为模型差异的概率。Qwen1.5 因此是产品工程上的代际节点：训练架构变化有限，复现和部署表面却发生了实质变化。
+
+在后训练上，Qwen1.5-Instruct 的公开模型卡把 SFT 与 DPO 列为主要流程，官方发布说明也保留 PPO 路线。DPO 把偏好对的「chosen 应比 rejected 更可能」直接写进分类式目标，不需要单独训练奖励模型再做在线策略优化。它没有消除数据偏差：偏好对若只覆盖短回答或固定风格，模型仍会过拟合这些偏好；但在工程上，它显著缩短了第一代 RM—PPO 链条。
+
+Qwen1.5-MoE 是这一代更重要的架构试验。该模型共有 14.3B 参数，每个 token 约激活 2.7B；路由层包含 60 个 routed experts，每个 token 选 4 个，同时固定经过 4 个 shared experts。官方从 Qwen-1.8B dense checkpoint 出发做 upcycling，把原有 FFN 拆成更细的专家，再继续训练。[^qwen15moe]
+
+这里有三个机制值得分开看：
+
+1. **细粒度专家**：把一个大 FFN 切成多个较小专家，路由器可以组合更细的能力单元。
+2. **共享专家**：所有 token 都经过共享路径，让常识性或跨领域变换不必在 routed experts 中重复学习。
+3. **稀疏激活**：总参数决定容量上限，激活参数更接近单 token 的计算成本；二者不能用一个「14.3B」概括。
+
+这次试验没有立即把全系列变成 MoE。它更像一次受控验证：模型能否用接近 2.7B dense 模型的激活成本获得更大的参数容量，路由和负载均衡能否稳定训练。Qwen2 的 57B-A14B 延续「routed + shared」设计，证明这条试验线进入了正式架构。
+
+Upcycling 也解释了为什么 Qwen1.5-MoE 适合做桥接实验。若从随机初始化训练全部专家，dense 与 MoE 的差异会同时混入语料、训练长度和初始化；从 Qwen-1.8B 拆分 FFN，则可以复用已经收敛的注意力与表示空间，把继续训练集中在专家分化和路由学习上。代价是专家初始同质，需要靠数据和路由噪声逐渐专门化。官方结果支持这条路径能工作，但没有证明 upcycling 在所有总参数和数据阶段都优于从头训练。
+
+![Qwen1.5-MoE 的细粒度路由：从 Qwen-1.8B FFN upcycling，路由器在 60 个专家中选择 4 个，同时执行 4 个共享专家。](../../assets/from-qwen-to-qwen3-6/qwen-fine-grained-moe.svg){fig-alt="Qwen1.5-MoE路由示意图，展示Qwen-1.8B dense FFN的upcycling、60选4路由专家、4个共享专家，以及14.3B总参数和约2.7B激活参数"}
+
+## 4. Qwen2：GQA、长上下文与 dense/MoE 双路线定型
+
+Qwen2 对 dense 骨干最清晰的改动是从 MHA 转向 Grouped Query Attention（GQA）。MHA 为每个 query head 保存独立 K/V；GQA 让多个 query heads 共享较少的 K/V heads。自回归解码时，历史 token 的 K/V 必须常驻缓存，因此缓存容量和读取带宽更接近由 KV head 数决定，而不是只由 query head 数决定。GQA 不让注意力计算变成线性复杂度，但能直接减少 KV Cache，对长上下文和高并发服务都更实际。[^qwen2]
+
+这个改动在 prefill 与 decode 阶段的收益不同。prefill 一次处理整段输入，矩阵计算占比更高；decode 每步只生成一个 token，却要读取全部历史 K/V，因而更容易受显存带宽限制。GQA 对 decode 的缓存和带宽收益通常更直接，也让同一张卡容纳更多并发序列。它不会按 KV head 缩减比例等比提高端到端吞吐：embedding、FFN、通信、采样与调度仍然存在。把 GQA 写成「KV Cache 下降」比写成笼统的「推理加速」更准确。
+
+长上下文不是靠 GQA 单独完成。Qwen2 组合 Dual Chunk Attention（DCA）与 YaRN：DCA 区分块内、相邻块与更远位置的注意力关系，YaRN 调整 RoPE 的频率缩放，使模型能在超过原始训练长度时维持位置表示。应当把它们理解成训练/外推机制，而不是「模型天然理解任意长文本」的保证。长度增加后，检索精度、跨段推理、显存占用和首 token 延迟仍需分别测试；模型卡支持 128K 也不表示每个 checkpoint 都在 128K 全长样本上完成同等强度训练。
+
+DCA 与 YaRN 还对应两类不同误差。DCA 调整注意力如何组织远近 token，主要处理计算与局部/全局交互；YaRN 调整位置频率，主要处理模型遇到超训练长度位置时的表示外推。模型可以在位置编码上不崩溃，却仍因长文档训练不足而不会聚合证据；也可以在短段检索准确，却因全注意力缓存过大而无法经济部署。Qwen2 把两类方法同时引入，说明「支持长上下文」从一开始就是模型质量与系统成本的联合约束。
+
+![MHA 与 GQA 的 KV Cache 对比。图中 8 个 query heads 和 2 个 KV groups 仅用于解释共享机制，不代表某个 Qwen checkpoint 的实际 head 数。](../../assets/from-qwen-to-qwen3-6/qwen-gqa-kv-cache.svg){fig-alt="MHA与GQA并排对比图，MHA为每个query head缓存独立KV，GQA让多个query heads共享更少的KV groups，从而降低解码缓存和带宽压力"}
+
+Qwen2 保留 RoPE、RMSNorm、SwiGLU 和 QKV bias，并同时发布 dense 与 MoE。代表性的 Qwen2-57B-A14B 有 64 个 routed experts、每 token 激活 8 个，另有 8 个 shared experts。与 Qwen1.5-MoE 相比，总专家数略增，单 token 激活的 routed experts 翻倍；与后来的 Qwen3 相比，它仍然依赖共享专家。这个对照说明 MoE 的演进不是单调增加专家数，而是在专家粒度、共享路径、激活预算和负载均衡之间重新分配容量。[^qwen2]
+
+预训练量也不能用一个统一数字代表所有尺寸。技术报告列出的典型值包括：Qwen2-72B 约 7T tokens、Qwen2-57B-A14B 约 4.5T，而 0.5B 小模型达到约 12T。小模型训练 token 更多并不矛盾：在参数固定时继续增加数据，可以换取更好的单位参数能力；对小模型而言，训练成本仍可能低于一次更大模型的同量训练。Qwen2 还扩展了代码、数学和多语数据，新增 27 种语言，这些混合比例变化与 7T 的总量同样重要。[^qwen2]
+
+后训练以高质量指令数据 SFT 和偏好数据 DPO 为主。相较 Qwen 的 PPO RLHF，链路变短；相较 Qwen2.5，它还没有公开呈现百万级 SFT 与 online GRPO 的组合。Qwen2 因而是一个清晰分界点：骨干为推理部署降低 KV 成本，数据为代码、数学和多语能力扩容，DPO 为偏好对齐降低系统复杂度。
+
+![Qwen 架构继承关系：从 MHA dense decoder，经 GQA 与细粒度 MoE，到 QK-Norm 和 Qwen3-Next 的混合骨干。](../../assets/from-qwen-to-qwen3-6/qwen-architecture-evolution.svg){fig-alt="四列 Qwen 架构演进图，比较 Qwen和Qwen1.5、Qwen2和Qwen2.5、Qwen3、Qwen3-Next到Qwen3.5和Qwen3.6 的注意力、MoE、归一化及多模态变化"}
+
+## 5. Qwen2.5：骨干少改，数据和后训练成为主变量
+
+Qwen2.5 是理解「版本号不等于新骨干」的第一个关键样本。技术报告明确说它大体沿用 Qwen2 的 decoder-only Transformer：GQA、RoPE、RMSNorm、SwiGLU 与 QKV bias 都在。变化主要来自更大的训练集、更细的领域配比、更长的训练序列和更强的后训练，而不是注意力模块再次换代。[^qwen25]
+
+预训练数据从 Qwen2-72B 的 7T 扩展到 18T tokens，覆盖面更偏向高质量网页、代码、数学、合成数据与结构化知识。官方 Figure 1 用 Qwen1.5-72B、Qwen2-72B、Qwen2.5-72B 的 3T—7T—18T 关系说明数据扩张与多个任务分数同步上升。该图适合证明「三代 72B 的公开训练预算确实扩大」，不适合证明「多出来的 11T token 单独造成全部分数提升」：数据清洗、混合策略、训练超参数和后训练也同时变化。
+
+![Qwen2.5 技术报告 Figure 1：三代 72B 模型的 3T、7T、18T 数据扩张示意。图中 benchmark 仅用于原报告的局部比较。](../../assets/from-qwen-to-qwen3-6/qwen2-5-data-scaling.png){fig-alt="Qwen2.5 报告的数据扩张图，Qwen1.5-72B、Qwen2-72B、Qwen2.5-72B 分别对应 3T、7T、18T tokens"}
+
+长上下文训练也从「位置外推」转向「数据本身足够长」。Qwen2.5 把预训练序列长度分阶段扩到 32,768，并增加长文档与合成长序列；公开 checkpoint 通常支持 128K 上下文，后续 Qwen2.5-1M 则使用独立的长上下文续训和推理方案。这里应把 1M 看成专门变体，而不是把整个 Qwen2.5 家族都标成原生 1M。上下文窗口越大，训练数据能否提供跨几十万 token 的有效依赖，比单纯调整 RoPE 缩放更难。
+
+长序列课程还有一个容易忽略的成本：固定 token 预算下，增加单条样本长度会减少独立文档和任务的数量。若长样本只是把无关网页拼接起来，模型看到的长度增加了，跨段依赖却没有增加；若每条样本都由人工构造，数据成本又迅速上升。Qwen2.5 使用真实长文档与合成长序列混合，试图同时保留自然结构和可控依赖。评估时应区分「从长上下文找到一句话」「整合多处证据」「持续执行几十步」三种任务，它们共享窗口，却不共享难度。
+
+后训练规模出现了量级变化。报告披露超过 100 万条 SFT 样本，并区分指令遵循、数学、代码、长上下文、结构化输出与系统提示等类别。后续偏好优化不是单一算法：offline DPO 利用静态偏好对，online GRPO 则从当前策略采样并接收奖励反馈。静态数据稳定、便宜，但很快偏离正在变化的策略分布；在线样本更贴近当前错误，却增加 rollout、验证器和分布式训练成本。Qwen2.5 把两者串联，说明后训练开始从「一次对齐」转成持续提高特定能力的分阶段过程。[^qwen25]
+
+百万级 SFT 的价值不在于把相似问答复制到更大规模。不同任务需要不同输出约束：代码要可执行，数学要保留关键推导，JSON 要满足语法，系统提示要在多轮对话中维持优先级。把这些数据混在一个阶段会产生梯度竞争，训练顺序和采样权重因此成为配方的一部分。报告披露了类别与总体规模，没有公开全部数据和权重；可以据此判断后训练覆盖面扩大，不能从「一百万」单独推导样本平均质量。
+
+这一代的主要教训不是「18T 越多越好」，而是架构稳定会让训练变量更容易解释。Qwen2 到 Qwen2.5 的骨干连续，使数据量、数据混合、序列长度与后训练规模成为更可信的差异来源；反过来，也提醒读者不要把 Qwen2.5 的能力增益自动归因给一个并不存在的新注意力模块。
+
+## 6. Qwen3：把 reasoning 训练变成正式流水线
+
+Qwen3 对 dense 骨干的改动不大但有针对性：继续使用 GQA、RoPE、RMSNorm 和 SwiGLU，移除 QKV bias，并为 Q、K 加入 QK-Norm。QK-Norm 在注意力点积前约束 query/key 的尺度，减少 logits 随训练规模增大而失控的风险；移除 bias 则简化投影。两项修改都更接近训练稳定性工程，而不是新的注意力范式。[^qwen3]
+
+MoE 配置变化更明显。Qwen3 的代表性 MoE 使用 128 个 experts，每 token 选择 8 个，不再设置 shared experts，并用全局 batch 级负载均衡约束路由。与 Qwen2 的 64 routed、8 active、8 shared 相比，Qwen3 把固定共享容量重新分配给更多 routed experts。这样做增加专家组合空间，也把公共知识是否能被稳定路由的问题交给路由器和均衡策略。Qwen3-235B-A22B 与 Qwen3-30B-A3B 中的 `A` 表示激活参数量，不能把 235B 总参数直接当成每 token 的 dense 计算量。[^qwen3]
+
+预训练约 36T tokens，并被拆成有目标的阶段。第一阶段约 30T，建立通用、多语和基础能力；第二阶段约 5T，提升知识密度并增加 STEM、代码与推理数据；最后进入长上下文续训，把序列长度从 32K 扩到 128K。分阶段的意义在于后段 token 不再与前段等价：知识密集数据和长序列成本更高，采样目标也更明确。报告还把语言与方言覆盖扩到 119 种，说明 token 总量背后仍有语言配比这条隐藏轴。[^qwen3]
+
+Qwen3 真正的代际变化在后训练。旗舰模型经历四个阶段：
+
+1. **Long-CoT Cold Start**：用经过筛选的长思维链样本让基座先学会可用的推理格式，避免直接 RL 时探索空间过大。
+2. **Reasoning RL**：在数学、代码与逻辑任务上用可验证奖励继续优化，学习信号来自答案或执行结果，而不只是模仿教师文本。
+3. **Thinking Mode Fusion**：把长推理模型与非思考指令数据融合，使同一 checkpoint 能在 thinking 与 non-thinking 模式间切换。
+4. **General RL**：再处理指令遵循、格式、偏好和通用交互，修复纯 reasoning 优化可能带来的风格与可用性退化。
+
+四阶段的顺序提供了一条可解释的因果链。Cold Start 先把策略带到能稳定产生长推理的区域，降低纯 RL 从随机轨迹中发现有效格式的成本；Reasoning RL 再利用可验证结果扩大正确轨迹概率；Mode Fusion 把两种行为分布合并；General RL 最后校正用户可见行为。若交换顺序，例如先用通用偏好强烈压短回答，再要求模型探索长 CoT，后一个阶段需要克服更大的策略先验。报告没有声称该顺序对所有任务唯一最优，但它显示课程设计本身已经成为后训练算法的一部分。
+
+可验证奖励也不是绝对真值。数学答案解析器可能忽略等价形式，代码测试可能覆盖不足，逻辑题模板可能泄漏标签。Reasoning RL 提高的是在 verifier 定义下获得正确结果的概率；要把它解释成普遍推理能力，还需要跨模板、污染检查和人工审阅。Qwen3 的报告用多个基准支持整体效果，却不能把任一分数精确归因给 Cold Start、RL 或 Mode Fusion。本文据流程判断它们承担的功能，不从发布分数反推出未公开的阶段收益。
+
+![Qwen3 技术报告 Figure 1：旗舰模型四阶段后训练，以及旗舰模型到轻量模型的强到弱蒸馏。](../../assets/from-qwen-to-qwen3-6/qwen3-post-training-pipeline.png){fig-alt="Qwen3 后训练流程图，依次展示 Long-CoT Cold Start、Reasoning RL、Thinking Mode Fusion、General RL 和 Strong-to-Weak Distillation"}
+
+小模型没有逐一重跑同等规模的四阶段流程。官方以 32B 和 235B-A22B 旗舰模型为教师，把 logits、输出分布和推理轨迹蒸馏到 30B-A3B、14B、8B、4B、1.7B 与 0.6B。报告称这种 strong-to-weak 路线只需要直接训练小模型约十分之一的 GPU 小时；这是官方训练条件下的系统测量，不应外推成所有蒸馏任务的固定倍率。更重要的机制判断是：蒸馏把昂贵的探索集中到少数大模型，再把行为迁移给完整尺寸谱系，模型族训练由「每个尺寸独立优化」变成「旗舰探索、轻量继承」。[^qwen3]
+
+thinking/non-thinking 共存同样不是简单的提示词开关。若模型只接受长 CoT 强化，它可能对简单请求也过度推理，增加延迟并损害直接回答；若只做通用对齐，推理轨迹又容易被压短。Mode Fusion 和 General RL 处理的是两种数据分布之间的冲突。Qwen3 因此把「是否思考、思考多久」从产品端的两个模型，变成同一模型内需要训练的可控行为。
+
+## 7. Qwen3-Next：真正的架构断点，但不是第八代
+
+Qwen3-Next 首次把自注意力主干改成 3:1 的混合循环：连续三层 Gated DeltaNet（GDN）后接一层 Gated Attention。GDN 属于带门控的线性注意力/状态更新机制，长序列推理时不必像全注意力那样为每一层保存和读取完整 KV Cache；全注意力层则周期性恢复内容寻址与长距离精确交互。这个组合不是宣称线性注意力完全取代 softmax attention，而是把昂贵的全注意力集中在四分之一层。[^qwen3next]
+
+混合结构保留全注意力，是因为递归状态与显式 KV 记忆各有盲区。线性状态更新把历史压缩进固定形状状态，吞吐和内存更平滑，但压缩可能丢失需要逐 token 回看的细节；全注意力保留显式内容寻址，成本却随上下文增加。3:1 比例把两者做成周期性校正：GDN 负责大多数层的廉价状态传播，Gated Attention 提供高容量检索。这个比例是 Qwen3-Next 的具体工程选择，不应概括成所有混合模型的通用最优解。
+
+模型还加入 attention output gating、partial RoPE、Zero-Centered RMSNorm 和 MTP。output gating 控制注意力输出写回残差流的强度；partial RoPE 只对部分通道施加旋转位置编码，给内容通道保留更直接的表示空间；Zero-Centered RMSNorm 把缩放参数以零中心增量参数化，目标是提高大规模训练稳定性；MTP 让训练时一次预测后续多个 token，为主任务提供更密的局部监督，并为推测解码留下接口。四项设计服务的是稳定、吞吐和训练信号，不应被归为同一个「长上下文技巧」。
+
+MTP 的训练收益和推理收益也要分开。训练时，多个未来 token 提供额外预测目标，可能改善局部规划和表示；标准自回归推理仍可以只接受一个主 token，除非部署系统把附加预测头用于 speculative decoding。模型卡列出 MTP，只能确认模型具备该训练/实现结构，不能自动推出用户所用后端已经获得加速。类似地，Zero-Centered RMSNorm 是参数化与稳定性选择，若没有同数据消融，不能把最终能力提升单独归因给它。
+
+MoE 稀疏度也跃迁到 512 个 experts，每 token 激活 10 个 routed experts 与 1 个 shared expert。与 Qwen3 的 128/8 无共享结构相比，总专家数扩大四倍，单 token 只多走有限几个专家，并重新引入共享路径。80B-A3B 的命名直观体现了目标：总容量达到 80B，而每 token 激活约 3B。官方在超过 32K 上下文的场景报告相对 Qwen3-32B 超过十倍吞吐优势；该结论依赖指定硬件、batch、实现和模型尺寸，只能证明这套系统在给定条件下有效，不能写成算法级常数。[^qwen3next]
+
+训练上，Qwen3-Next 使用 Qwen3 约 36T 语料中的 15T 统一子集验证架构。它没有单独追求更大的语料数字，反而试图在可比数据上回答「混合注意力与超稀疏 MoE 能否稳定并提高效率」。这也是将它视作桥梁而非独立代际的第二个理由：发布目标是降低下一代骨干风险，Qwen3.5 才把该结构与原生多模态、全尺寸模型族和 Agent RL 组合起来。
+
+## 8. Qwen3.5：原生多模态、混合骨干与异步 Agent RL
+
+Qwen3.5 将 Qwen3-Next 的实验骨干变成主线。以 35B-A3B 为例，模型共有 40 层，按 10 个循环排列；每个循环是三层 Gated DeltaNet 加一层 Gated Attention，并在每层后接 MoE。MoE 有 256 个 experts，每 token 选择 8 个 routed experts，再经过 1 个 shared expert；模型卡同时列出 MTP 和 262,144 token 的原生上下文，并给出通过扩展配置达到约 1,010,000 token 的方式。更大的 397B-A17B 使用 60 层、512 个 experts 和 10 routed + 1 shared 配置，说明架构模板一致，稀疏容量随尺寸扩展。[^qwen35card][^qwen35large]
+
+「原生视觉语言」是这一代与早期 Qwen-VL 的实质区别。Qwen3.5 在预训练早期就把文本、图像与视频表示放进统一序列和共享骨干，而不是先训练纯语言模型，再外挂视觉编码器并只做后段对齐。早融合让语言层从一开始就学习视觉 token 与文字、动作、代码之间的条件关系，代价是数据管线、动态分辨率、序列打包和并行训练都更复杂。官方称优化后的多模态训练吞吐接近纯文本训练的 100%，这应读作其特定训练栈下的工程结果，而不是视觉 token 没有额外成本。[^qwen35card]
+
+原生多模态还会改变文本能力的训练竞争。图像和视频 token 占用序列位置及算力，如果采样比例过高，模型用于纯文本知识和代码的更新会减少；比例过低，视觉模块又可能只学到浅层对齐。早融合的难点不只是「加入图片」，而是让不同模态共享容量又不相互覆盖。动态分辨率、视频帧采样和跨模态 packing 决定一个 batch 中的有效 token 数，因而无法直接把多模态 token 与 Qwen3 的文本 token 总量相加比较。
+
+Qwen3.5 还把原生 FP8 训练、异步强化学习和大规模 Agent 环境纳入同一个系统。Agent rollout 的耗时差异远大于短文本生成：有的任务一次编译失败就结束，有的要浏览仓库、运行测试并反复修补。如果 trainer 等待一个同步 batch 中最慢的轨迹，GPU 会在环境侧长尾期间空转。异步 RL 让 rollout workers、环境与参数更新解耦，完成的轨迹可以持续进入训练队列。其难点转为策略陈旧度、奖励版本、轨迹可重放性和 off-policy 偏差，而不只是 PPO 或 GRPO 的公式选择。
+
+原生 FP8 与异步 RL 处理的是两种不同瓶颈。FP8 降低矩阵运算和通信成本，需要缩放、累积精度与异常值处理来维持训练稳定；异步调度减少 trainer 等待环境的空闲，需要给每条轨迹记录策略版本和环境版本。前者提高模型侧吞吐，后者提高系统侧利用率。把二者放进同一代并不意味着它们互相依赖，而是说明训练效率已经由数值格式、并行策略和环境调度共同决定。
+
+官方材料提到百万级 Agent 环境与可扩展 rollout 基础设施。这个数字描述的是环境/任务供给规模，不等于一次更新并行运行一百万条轨迹，也不等于一百万个彼此独立的真实软件仓库。可审计的结论是训练信号开始来自环境交互：代码是否通过测试、工具是否正确调用、网页或 GUI 状态是否达到目标。偏好标签仍然存在，但不再是唯一监督源。
+
+Qwen3.5 的公开 token 总量没有像 Qwen2.5 的 18T、Qwen3 的阶段预算那样提供一个可独立核对的单值。本文因此标记为「未公开」，而不是根据博客中的模态片段、样本数或训练吞吐反推。数字克制很重要：多模态 token 的定义、图像压缩率和视频采样方式都会改变「一万亿 token」实际代表的视觉信息量。
+
+## 9. Qwen3.6：同骨干上的编码 Agent 与思考保留
+
+判断 Qwen3.6 是否构成新的骨干架构，最可靠的方法不是读版本号，而是选择同尺寸模型卡逐字段对照。Qwen3.5-35B-A3B 与 Qwen3.6-35B-A3B 的公开配置一致：
+
+| 配置项 | Qwen3.5-35B-A3B | Qwen3.6-35B-A3B | 判断 |
+|---|---:|---:|---|
+| 总参数 / 激活参数 | 35B / 3B | 35B / 3B | 一致 |
+| 层数 | 40 | 40 | 一致 |
+| 注意力循环 | 10 ×（3 GDN + 1 Gated Attention） | 10 ×（3 GDN + 1 Gated Attention） | 一致 |
+| 专家总数 | 256 | 256 | 一致 |
+| routed / shared experts | 8 / 1 | 8 / 1 | 一致 |
+| Multi-Token Prediction | 有 | 有 | 一致 |
+| 原生上下文 | 262,144 | 262,144 | 一致 |
+
+![Qwen3.5-35B-A3B 与 Qwen3.6-35B-A3B 的同尺寸核对：公开骨干字段一致，版本重点从原生多模态与异步 Agent RL 转向 Agentic Coding 和 Thinking Preservation。](../../assets/from-qwen-to-qwen3-6/qwen35-qwen36-backbone-check.svg){fig-alt="Qwen3.5与Qwen3.6的35B-A3B同尺寸对照图，中间展示相同的40层、10个混合循环、256个专家、8路由加1共享专家、MTP与262144上下文，两侧展示不同后训练重点"}
+
+这张表不能证明两个模型的每个实现细节和参数都相同，但足以否定「Qwen3.6-35B-A3B 因为版本升级而使用全新骨干」的说法。官方 Qwen3.6 说明把改进集中在 Agentic Coding 与 Thinking Preservation：前者增加仓库级编码、终端、工具调用和长轨迹任务的后训练；后者试图在进一步优化直接回答、工具行为和编码能力时，避免 Qwen3.5 已有 reasoning 能力被覆盖。[^qwen35card][^qwen36repo][^qwen36card]
+
+同尺寸对照还应控制推理模式。Qwen3.6 的 coding 能力若使用专门系统提示、工具协议和 thinking 配置，而 Qwen3.5 使用普通对话模板，分数差会同时包含模板与后训练收益。模型卡中的公开 benchmark 可以证明官方设置下的整体结果，不能单独证明 Thinking Preservation 的有效幅度。更强的证据应是同骨干、同数据预算的消融或训练前后能力保持曲线；在这类材料未完整公开时，结论应停在「目标与配置可核对，单项贡献未隔离」。
+
+Thinking Preservation 指向后训练中的稳定性—可塑性冲突。策略在新任务上持续更新时，最容易获得奖励的短路径可能压制原有长推理分布；编码任务中的测试奖励也可能把模型推向试错型工具调用，损害无需工具的严谨推理。可行处理通常需要混合旧能力数据、保留 thinking 轨迹、设置能力特定奖励或教师约束。官方没有公开足以复现 Qwen3.6 全配方的全部比例，因此本文只把「保留思考能力」写成明确训练目标，不虚构具体 loss 权重。
+
+Agentic Coding 也不等于扩大代码语料。补全函数主要学习局部语法和库模式，仓库级 Agent 要先定位文件、形成修改计划、调用工具、观察测试，再依据环境反馈修正动作。训练样本的基本单位从代码片段变成带状态转移的轨迹，失败步骤同样包含信用分配信息。Qwen3.6 的版本意义落在这种行为分布上：骨干承担表示与长状态处理，后训练决定模型是否愿意读取环境、何时调用工具、如何保留中间推理并在失败后恢复。
+
+Qwen3.6 也包含 dense 版本。例如 27B 模型采用 64 层，按 16 个「3 GDN + 1 Gated Attention」循环排列，以 dense FFN 取代 MoE，并保留 MTP。它证明 Qwen3-Next 的关键遗产是混合序列骨干，不只是一种 MoE 配置。比较代际架构时必须匹配同尺寸、同 dense/MoE 类型；拿 Qwen3.6-27B dense 与 Qwen3.5-35B-A3B MoE 对照，会把模型类型差异误判为版本差异。[^qwen36dense]
+
+## 10. 五条演进轴：哪些变化真正跨代
+
+![Qwen 训练演进：数据扩张之后，学习信号从偏好对齐转向可验证推理、蒸馏和 Agent 环境交互。未公开数字不作推算。](../../assets/from-qwen-to-qwen3-6/qwen-training-evolution.svg){fig-alt="Qwen 训练演进图，展示从 3T、7T、18T 到约36T的预训练扩张，以及 SFT、PPO、DPO、GRPO、reasoning RL、蒸馏、异步Agent RL和Qwen3.6编码后训练"}
+
+### 10.1 注意力与 KV Cache：从减少 KV heads 到减少全注意力层
+
+Qwen/Qwen1.5 的 MHA 为每个 query head 保存 K/V，Qwen2/2.5/3 的 GQA 减少 KV heads，Qwen3-Next/3.5/3.6 又把全注意力限制在约四分之一层。两次变化解决不同层级的问题：GQA 优化每个 attention layer 的缓存，混合 GDN 优化需要完整 KV Cache 的层数。DCA、YaRN、partial RoPE 和长序列训练决定「能否扩到更长」，GQA/GDN 决定「扩长后成本是否可承受」。把这些机制放在一条因果链上，比罗列缩写更能解释架构演进。
+
+实际比较时至少要测 prefill 吞吐、decode 吞吐、首 token 延迟、峰值显存和长文档质量五项。混合 GDN 可能在超长 decode 上大幅减少缓存，却不一定在短 prompt、低 batch 的交互场景占优；更大的 MoE 通信也可能抵消注意力节省。官方给出的长上下文倍数回答的是一个特定工作点，部署者需要按自己的输入/输出长度分布重新测量。架构图中的箭头表示机制继承，不表示每一项指标都单调改善。
+
+### 10.2 MoE：总容量上升，激活预算受控
+
+MoE 路线从 Qwen1.5 的 60 routed / 4 active + 4 shared，发展到 Qwen2 的 64 / 8 + 8，再到 Qwen3 的 128 / 8 且无 shared，最后在 Qwen3-Next 与大尺寸 Qwen3.5 中达到 512 / 10 + 1。变化并非「专家越多越好」：shared experts 在 Qwen3 被移除，随后又以更窄的共享路径返回；负载均衡从局部路由工程变成全局 batch 约束；总参数越来越不能代表 token 计算成本。评估 MoE 至少要同时报告总参数、激活参数、专家总数、激活专家和共享专家。
+
+专家并行还把模型质量问题变成网络问题。路由后的 token 要通过 all-to-all 发送到持有对应专家的设备；专家越细、数量越多，越容易出现小消息、热点专家和跨节点通信。负载均衡损失能让 token 数更均匀，却可能迫使路由器选择次优专家；shared expert 则用固定计算换取公共路径与更可预测的负载。Qwen 各代在「无共享」与「有共享」之间往返，反映的正是模型专门化和系统可执行性之间的折中。
+
+### 10.3 数据与上下文：token 总量先扩张，随后转向结构化阶段
+
+3T、7T、18T、约 36T 描述了 Qwen1.5-72B 到 Qwen3 的公开扩张，但 Qwen3 已经把总量拆成通用、知识强化和长上下文阶段。进入 Qwen3.5 后，文本 token 与视觉/视频 token 的计量不再天然可比，公开材料也没有给出同口径总量。因而更稳妥的趋势不是「每代 token 翻倍」，而是训练数据从通用文本混合转为带领域、长度、模态和环境结构的课程。
+
+同一个 token 在不同阶段也有不同边际价值。早期通用数据建立语言和世界知识，中期高密度代码、数学与合成数据补足能力短板，后期长序列和高质量指令用于改变行为。若只报告总量，无法判断新增预算是扩大覆盖，还是让模型在少数领域反复训练。Qwen3 的阶段披露比单一总量更有解释力；Qwen3.5/3.6 的缺失项则应保留为空，而不是用训练时长、样本数或视觉 patch 数拼出伪精确总量。
+
+上下文同样从 8K/32K 的标准窗口，发展到 128K、262K 原生支持和约 1M 的扩展配置。但窗口数字只给出内存边界；长文档检索、跨段推理、位置外推和 Agent 状态保持是不同能力。技术报告若只披露 Needle-in-a-Haystack 一类检索测试，不能替代真实仓库或多文档推理评估。
+
+### 10.4 后训练：从人类偏好标量到可验证过程和环境反馈
+
+Qwen 的 RM/PMP + PPO 把人类偏好压成奖励，Qwen1.5/Qwen2 用 DPO 缩短链路，Qwen2.5 组合百万级 SFT、offline DPO 与 online GRPO，Qwen3 再把 Long-CoT、Reasoning RL、Mode Fusion、General RL 和蒸馏串成能力课程。Qwen3.5/3.6 的 Agent RL 把奖励源移到代码执行、工具调用和环境状态。学习信号越来越丰富，也越来越容易出现 verifier hacking、策略陈旧和奖励不可复现等系统问题。
+
+算法名称不是主线。真正变化的是监督单位：单条示范、偏好对、可验证答案、教师分布、完整环境轨迹。每换一种单位，数据生成、验证和分布式系统都要重做。只比较 PPO、DPO、GRPO 的 loss 形式，会遗漏后训练成本中更大的部分。
+
+相应的验收也要从单点分数变成能力保持矩阵。Reasoning RL 后既要看数学和代码，也要复测对话、格式与安全；Agent coding 后既要看测试通过，也要审查是否修改测试、泄漏答案或留下不可维护补丁；Thinking Preservation 则需要比较新任务增益与旧推理能力损失。后训练越接近环境，评测就越需要保存工具版本、容器状态、超时和重试规则，否则同名 benchmark 的结果也无法复核。
+
+### 10.5 原生多模态与 Agent 环境：模型输入和训练世界同时扩大
+
+第一代 Qwen 已有独立 Qwen-VL 分支，Qwen3.5 则让视觉语言 token 从预训练初期进入共享骨干；这改变的是表征学习位置。Agent RL 又把模型的输出从「一段文本」扩成对终端、浏览器、代码仓库或 GUI 的动作序列；这改变的是训练环境。两者结合后，模型能力不再只由语言困惑度和静态 benchmark 描述，吞吐、工具协议、环境确定性、轨迹存储和验证器都成为模型系统的一部分。
+
+这也改变了「模型版本」的边界。静态语言模型大致可以由权重、分词器和生成配置标识；原生多模态 Agent 还依赖视觉预处理、工具 schema、系统提示、沙箱、环境镜像和轨迹管理器。Qwen3.6 的权重升级若运行在不匹配的工具协议上，Agentic Coding 的训练收益可能无法出现。未来报告模型能力时，权重版本和环境版本需要同时给出，才能区分模型退化、工具故障与验证器变化。
+
+## 11. 结论：版本史背后是计算分配方式的变化
+
+七代 Qwen 的连续性比版本名暗示得更强。RoPE、RMSNorm、SwiGLU 和 decoder-only 主干维持了多个代际；Qwen2.5 与 Qwen3.6 更直接证明，数据和后训练可以构成一代产品的主要变化。真正的架构断点主要有三个：Qwen2 用 GQA 重组 KV Cache，Qwen3 用 QK-Norm 与新的 128/8 MoE 配置提高稳定性和稀疏容量，Qwen3-Next 再用 3:1 GDN/全注意力、超稀疏 MoE 与 MTP 改写长序列计算分配。Qwen3.5 把最后一个断点产品化，Qwen3.6 则在同骨干上继续训练 Agent 行为。
+
+训练演进也不是单纯的数据竞赛。早期扩张主要回答「模型能看到多少高质量 token」，Qwen3 之后更关心「昂贵学习信号怎样产生和迁移」：可验证推理负责探索，强到弱蒸馏摊薄旗舰训练成本，异步 Agent RL 从环境执行中获取反馈，thinking preservation 防止新能力覆盖旧能力。主线从扩大语料，转向组织课程、教师、验证器和运行环境。
+
+因此，对任何下一版 Qwen 的判断都应先问五个问题：KV Cache 的增长方式是否改变；MoE 的总容量与激活预算如何分配；数据是否给出可审计口径；后训练的监督单位是什么；多模态和 Agent 环境是否进入预训练或 RL 主循环。回答完这五项，再讨论「第几代」才有技术意义。
+
+## 参考资料
+
+[^qwen]: Qwen Team. [Qwen Technical Report](https://arxiv.org/abs/2309.16609), arXiv:2309.16609.
+[^qwen15]: Qwen Team. [Qwen1.5: A Leap Forward in Large Language Models](https://qwen.ai/blog?id=qwen1.5).
+[^qwen15moe]: Qwen Team. [Qwen1.5-MoE: Matching 7B Model Performance with 1/3 Activated Parameters](https://qwen.ai/blog?id=qwen-moe).
+[^qwen2]: Qwen Team. [Qwen2 Technical Report](https://arxiv.org/abs/2407.10671), arXiv:2407.10671.
+[^qwen25]: Qwen Team. [Qwen2.5 Technical Report](https://arxiv.org/abs/2412.15115), arXiv:2412.15115.
+[^qwen3]: Qwen Team. [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388), arXiv:2505.09388.
+[^qwen3next]: Qwen Team. [Qwen3-Next: Towards Ultimate Training & Inference Efficiency](https://qwen.ai/blog?from=research.latest-&id=4074cca80393150c248e508aa62983f9cb7d27cd).
+[^qwen35card]: Qwen Team. [Qwen3.5-35B-A3B Model Card](https://huggingface.co/Qwen/Qwen3.5-35B-A3B).
+[^qwen35large]: Qwen Team. [Qwen3.5-397B-A17B Model Card](https://huggingface.co/Qwen/Qwen3.5-397B-A17B).
+[^qwen36repo]: Qwen Team. [Qwen3.6 Official Repository](https://github.com/QwenLM/Qwen3.6).
+[^qwen36card]: Qwen Team. [Qwen3.6-35B-A3B Model Card](https://huggingface.co/Qwen/Qwen3.6-35B-A3B).
+[^qwen36dense]: Qwen Team. [Qwen3.6-27B Model Card](https://huggingface.co/Qwen/Qwen3.6-27B).

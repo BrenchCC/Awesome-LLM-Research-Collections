@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>11</strong><span>笔记</span></div>
+    <div><strong>12</strong><span>笔记</span></div>
     <div><strong>6</strong><span>主题</span></div>
-    <div><strong>2026-07-06</strong><span>最新日期</span></div>
+    <div><strong>2026-07-28</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -54,6 +54,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>MLLMS</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
+  <span class="category-count">2026-07-28</span>
+  <h3>从 Qwen 到 Qwen3.6：七代模型的架构与训练演进</h3>
+  <p>沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。</p>
+  <div class="note-tags">
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">LLM</span>
+    <span class="note-tag">MoE</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Long Context</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>论文解读</span>
   </div>
 </a>
