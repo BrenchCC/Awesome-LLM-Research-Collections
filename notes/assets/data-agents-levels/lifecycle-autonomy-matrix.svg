@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">Lifecycle and autonomy matrix for data agents</title>
+  <desc id="desc">A three-by-three matrix compares L1, L2, and Proto-L3 capabilities across data management, data preparation, and data analysis. Each cell distinguishes response, bounded execution, and orchestration.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#102a43" flood-opacity=".12"/>
+    </filter>
+    <style>
+      .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+      .head{font-size:30px;font-weight:800;fill:#102a43}
+      .row{font-size:28px;font-weight:800;fill:#243b53}
+      .celltitle{font-size:23px;font-weight:800;fill:#243b53}
+      .copy{font-size:19px;fill:#486581}
+      .tag{font-size:16px;font-weight:800;letter-spacing:.08em}
+    </style>
+  </defs>
+  <rect width="1600" height="960" rx="28" fill="#f7fafc"/>
+  <text x="64" y="72" class="sans" font-size="36" font-weight="800" fill="#102a43">DATA LIFECYCLE × AUTONOMY</text>
+  <text x="64" y="110" class="sans" font-size="21" fill="#627d98">The same level means different concrete actions in management, preparation, and analysis</text>
+
+  <g class="sans">
+    <rect x="330" y="150" width="360" height="86" rx="18" fill="#e6eef5"/>
+    <rect x="714" y="150" width="360" height="86" rx="18" fill="#d5f1f4"/>
+    <rect x="1098" y="150" width="438" height="86" rx="18" fill="#d9f2e3"/>
+    <text x="510" y="188" text-anchor="middle" class="head">L1 · RESPONDER</text>
+    <text x="510" y="218" text-anchor="middle" class="copy">suggests; no environment loop</text>
+    <text x="894" y="188" text-anchor="middle" class="head">L2 · EXECUTOR</text>
+    <text x="894" y="218" text-anchor="middle" class="copy">acts inside a prescribed loop</text>
+    <text x="1317" y="188" text-anchor="middle" class="head">PROTO-L3 · ORCHESTRATOR</text>
+    <text x="1317" y="218" text-anchor="middle" class="copy">assembles and revises a wider pipeline</text>
+  </g>
+
+  <g class="sans" filter="url(#shadow)">
+    <rect x="64" y="268" width="238" height="184" rx="22" fill="#edf7ee" stroke="#7bc47f" stroke-width="2"/>
+    <rect x="64" y="476" width="238" height="184" rx="22" fill="#fff6df" stroke="#e8ad3d" stroke-width="2"/>
+    <rect x="64" y="684" width="238" height="184" rx="22" fill="#f3ebfb" stroke="#9c7ac3" stroke-width="2"/>
+    <text x="183" y="333" text-anchor="middle" class="row">DATA</text><text x="183" y="371" text-anchor="middle" class="row">MANAGEMENT</text>
+    <text x="183" y="541" text-anchor="middle" class="row">DATA</text><text x="183" y="579" text-anchor="middle" class="row">PREPARATION</text>
+    <text x="183" y="749" text-anchor="middle" class="row">DATA</text><text x="183" y="787" text-anchor="middle" class="row">ANALYSIS</text>
+  </g>
+
+  <g class="sans" filter="url(#shadow)">
+    <rect x="330" y="268" width="360" height="184" rx="22" fill="#fff" stroke="#bcccdc" stroke-width="2"/>
+    <rect x="714" y="268" width="360" height="184" rx="22" fill="#fff" stroke="#74c3cc" stroke-width="2"/>
+    <rect x="1098" y="268" width="438" height="184" rx="22" fill="#fff" stroke="#74b98b" stroke-width="3"/>
+    <rect x="330" y="476" width="360" height="184" rx="22" fill="#fff" stroke="#bcccdc" stroke-width="2"/>
+    <rect x="714" y="476" width="360" height="184" rx="22" fill="#fff" stroke="#74c3cc" stroke-width="2"/>
+    <rect x="1098" y="476" width="438" height="184" rx="22" fill="#fff" stroke="#74b98b" stroke-width="3"/>
+    <rect x="330" y="684" width="360" height="184" rx="22" fill="#fff" stroke="#bcccdc" stroke-width="2"/>
+    <rect x="714" y="684" width="360" height="184" rx="22" fill="#fff" stroke="#74c3cc" stroke-width="2"/>
+    <rect x="1098" y="684" width="438" height="184" rx="22" fill="#fff" stroke="#74b98b" stroke-width="3"/>
+  </g>
+
+  <g class="sans">
+    <text x="362" y="309" class="celltitle">Recommend a change</text>
+    <text x="362" y="347" class="copy">SQL rewrite · tuning hint</text>
+    <text x="362" y="381" class="copy">Human validates and applies</text>
+    <rect x="362" y="405" width="112" height="28" rx="14" fill="#e6eef5"/><text x="418" y="425" text-anchor="middle" class="tag" fill="#486581">RESPOND</text>
+
+    <text x="746" y="309" class="celltitle">Run bounded experiments</text>
+    <text x="746" y="347" class="copy">Read telemetry · execute trial</text>
+    <text x="746" y="381" class="copy">Human owns the workflow</text>
+    <rect x="746" y="405" width="112" height="28" rx="14" fill="#d5f1f4"/><text x="802" y="425" text-anchor="middle" class="tag" fill="#177e89">EXECUTE</text>
+
+    <text x="1130" y="309" class="celltitle">Plan diagnosis and remediation</text>
+    <text x="1130" y="347" class="copy">Select signals · compare alternatives</text>
+    <text x="1130" y="381" class="copy">Escalate changes outside the envelope</text>
+    <rect x="1130" y="405" width="148" height="28" rx="14" fill="#d9f2e3"/><text x="1204" y="425" text-anchor="middle" class="tag" fill="#2f855a">ORCHESTRATE</text>
+
+    <text x="362" y="517" class="celltitle">Propose cleaning rules</text>
+    <text x="362" y="555" class="copy">Imputation · match candidate</text>
+    <text x="362" y="589" class="copy">No direct data mutation</text>
+    <rect x="362" y="613" width="112" height="28" rx="14" fill="#e6eef5"/><text x="418" y="633" text-anchor="middle" class="tag" fill="#486581">RESPOND</text>
+
+    <text x="746" y="517" class="celltitle">Apply known operators</text>
+    <text x="746" y="555" class="copy">Clean · integrate · profile</text>
+    <text x="746" y="589" class="copy">Adjust using execution feedback</text>
+    <rect x="746" y="613" width="112" height="28" rx="14" fill="#d5f1f4"/><text x="802" y="633" text-anchor="middle" class="tag" fill="#177e89">EXECUTE</text>
+
+    <text x="1130" y="517" class="celltitle">Compose an end-to-end pipeline</text>
+    <text x="1130" y="555" class="copy">Discover data · choose operators</text>
+    <text x="1130" y="589" class="copy">Replan when quality checks fail</text>
+    <rect x="1130" y="613" width="148" height="28" rx="14" fill="#d9f2e3"/><text x="1204" y="633" text-anchor="middle" class="tag" fill="#2f855a">ORCHESTRATE</text>
+
+    <text x="362" y="725" class="celltitle">Answer over curated input</text>
+    <text x="362" y="763" class="copy">NL2SQL · TableQA · report text</text>
+    <text x="362" y="797" class="copy">Stateless prompt-response</text>
+    <rect x="362" y="821" width="112" height="28" rx="14" fill="#e6eef5"/><text x="418" y="841" text-anchor="middle" class="tag" fill="#486581">RESPOND</text>
+
+    <text x="746" y="725" class="celltitle">Explore with tools and state</text>
+    <text x="746" y="763" class="copy">SQL · Python · retrieval · plots</text>
+    <text x="746" y="797" class="copy">Iterate inside an assigned task</text>
+    <rect x="746" y="821" width="112" height="28" rx="14" fill="#d5f1f4"/><text x="802" y="841" text-anchor="middle" class="tag" fill="#177e89">EXECUTE</text>
+
+    <text x="1130" y="725" class="celltitle">Own the analytical workflow</text>
+    <text x="1130" y="763" class="copy">Form plan · inspect · model · report</text>
+    <text x="1130" y="797" class="copy">Human reviews plan and outcome</text>
+    <rect x="1130" y="821" width="148" height="28" rx="14" fill="#d9f2e3"/><text x="1204" y="841" text-anchor="middle" class="tag" fill="#2f855a">ORCHESTRATE</text>
+  </g>
+  <text x="800" y="925" text-anchor="middle" class="sans" font-size="20" fill="#627d98">Proto-L3 denotes partial evidence of orchestration, not a claim of complete Level-3 responsibility.</text>
+</svg>

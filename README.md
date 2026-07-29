@@ -675,6 +675,11 @@
   [[Note](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
   [[中文](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
 
+- **Data Agents: Levels, State of the Art, and Open Problems** (2026-07-29) \
+  **Description**: A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation. \
+  [[Note](notes/en/agents/data-agents-levels.qmd)]
+  [[中文](notes/zh/agents/data-agents-levels.qmd)]
+
 - **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
   **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
   [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]

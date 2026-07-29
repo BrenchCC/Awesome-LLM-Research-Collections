@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Six-dimensional evaluation scorecard for data-agent autonomy</title>
+  <desc id="desc">Six cards define correctness, autonomy, robustness, adaptability, governance, and cost as separate evaluation dimensions. A vector notation emphasizes that one aggregate accuracy score is insufficient.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#102a43" flood-opacity=".13"/>
+    </filter>
+    <style>
+      .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+      .num{font-size:25px;font-weight:900;fill:#fff}
+      .head{font-size:27px;font-weight:850;fill:#102a43}
+      .question{font-size:19px;font-weight:700;fill:#334e68}
+      .metric{font-size:17px;fill:#627d98}
+      .label{font-size:17px;font-weight:800;letter-spacing:.08em}
+    </style>
+  </defs>
+  <rect width="1600" height="980" rx="28" fill="#f7fafc"/>
+  <text x="60" y="70" class="sans" font-size="36" font-weight="800" fill="#102a43">AUTONOMY EVALUATION IS A VECTOR, NOT ONE SCORE</text>
+  <text x="60" y="108" class="sans" font-size="21" fill="#627d98">Task accuracy remains necessary, but higher autonomy expands the evaluated system boundary</text>
+
+  <g class="sans" filter="url(#shadow)">
+    <rect x="60" y="160" width="468" height="274" rx="24" fill="#fff" stroke="#65a9cf" stroke-width="3"/>
+    <rect x="566" y="160" width="468" height="274" rx="24" fill="#fff" stroke="#74b98b" stroke-width="3"/>
+    <rect x="1072" y="160" width="468" height="274" rx="24" fill="#fff" stroke="#d87979" stroke-width="3"/>
+    <rect x="60" y="474" width="468" height="274" rx="24" fill="#fff" stroke="#9c7ac3" stroke-width="3"/>
+    <rect x="566" y="474" width="468" height="274" rx="24" fill="#fff" stroke="#e8ad3d" stroke-width="3"/>
+    <rect x="1072" y="474" width="468" height="274" rx="24" fill="#fff" stroke="#78909c" stroke-width="3"/>
+  </g>
+
+  <g class="sans">
+    <circle cx="112" cy="216" r="30" fill="#1f77b4"/><text x="112" y="225" text-anchor="middle" class="num">1</text>
+    <text x="158" y="225" class="head">CORRECTNESS</text>
+    <text x="92" y="278" class="question">Is the artifact technically valid?</text>
+    <text x="92" y="319" class="metric">• task success and semantic validity</text>
+    <text x="92" y="351" class="metric">• data quality and claim traceability</text>
+    <text x="92" y="383" class="metric">• downstream outcome, not syntax alone</text>
+
+    <circle cx="618" cy="216" r="30" fill="#2f855a"/><text x="618" y="225" text-anchor="middle" class="num">2</text>
+    <text x="664" y="225" class="head">AUTONOMY</text>
+    <text x="598" y="278" class="question">Which decisions did the agent own?</text>
+    <text x="598" y="319" class="metric">• task discovery and plan construction</text>
+    <text x="598" y="351" class="metric">• interventions per successful run</text>
+    <text x="598" y="383" class="metric">• responsibility at failure boundaries</text>
+
+    <circle cx="1124" cy="216" r="30" fill="#c53030"/><text x="1124" y="225" text-anchor="middle" class="num">3</text>
+    <text x="1170" y="225" class="head">ROBUSTNESS</text>
+    <text x="1104" y="278" class="question">Does it recover from perturbations?</text>
+    <text x="1104" y="319" class="metric">• tool errors and missing data</text>
+    <text x="1104" y="351" class="metric">• schema drift and adversarial inputs</text>
+    <text x="1104" y="383" class="metric">• safe degradation and recovery rate</text>
+
+    <circle cx="112" cy="530" r="30" fill="#7b61a8"/><text x="112" y="539" text-anchor="middle" class="num">4</text>
+    <text x="158" y="539" class="head">ADAPTABILITY</text>
+    <text x="92" y="592" class="question">Can it revise a failing strategy?</text>
+    <text x="92" y="633" class="metric">• replan quality after feedback</text>
+    <text x="92" y="665" class="metric">• transfer across data and workloads</text>
+    <text x="92" y="697" class="metric">• learning without regression</text>
+
+    <circle cx="618" cy="530" r="30" fill="#d69e2e"/><text x="618" y="539" text-anchor="middle" class="num">5</text>
+    <text x="664" y="539" class="head">GOVERNANCE</text>
+    <text x="598" y="592" class="question">Can every material action be controlled?</text>
+    <text x="598" y="633" class="metric">• least privilege and policy compliance</text>
+    <text x="598" y="665" class="metric">• provenance, audit, and explanation</text>
+    <text x="598" y="697" class="metric">• approval and rollback coverage</text>
+
+    <circle cx="1124" cy="530" r="30" fill="#546e7a"/><text x="1124" y="539" text-anchor="middle" class="num">6</text>
+    <text x="1170" y="539" class="head">COST</text>
+    <text x="1104" y="592" class="question">What resources buy that behavior?</text>
+    <text x="1104" y="633" class="metric">• tokens, latency, and tool calls</text>
+    <text x="1104" y="665" class="metric">• data scans and compute spend</text>
+    <text x="1104" y="697" class="metric">• human review and incident burden</text>
+  </g>
+
+  <rect x="60" y="790" width="1480" height="126" rx="24" fill="#102a43"/>
+  <text x="104" y="842" class="sans label" fill="#9fb3c8">REPORT THE VECTOR</text>
+  <text x="104" y="888" class="sans" font-size="38" font-weight="800" fill="#fff">E = ( C, A, R, D, G, K )</text>
+  <text x="1450" y="842" text-anchor="end" class="sans label" fill="#9fb3c8">KEEP RAW EVIDENCE</text>
+  <text x="1450" y="888" text-anchor="end" class="sans" font-size="18" fill="#d9e2ec">traces · snapshots · tool logs · approvals · failures</text>
+  <text x="800" y="956" text-anchor="middle" class="sans" font-size="20" fill="#627d98">A system can improve one dimension while regressing another; publish the trade-off instead of hiding it in a composite rank.</text>
+</svg>

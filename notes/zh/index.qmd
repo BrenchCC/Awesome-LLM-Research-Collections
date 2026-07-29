@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>12</strong><span>笔记</span></div>
+    <div><strong>13</strong><span>笔记</span></div>
     <div><strong>6</strong><span>主题</span></div>
-    <div><strong>2026-07-28</strong><span>最新日期</span></div>
+    <div><strong>2026-07-29</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -70,6 +70,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>LLMS</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="agents/data-agents-levels.html">
+  <span class="category-count">2026-07-29</span>
+  <h3>数据智能体：自治等级、研究现状与开放问题</h3>
+  <p>基于 L0–L5 自治分级和数据生命周期视角，梳理数据智能体从响应式助手、程序执行器到受监督编排器的能力边界，并分析责任、治理与评测缺口。</p>
+  <div class="note-tags">
+    <span class="note-tag">Data Agents</span>
+    <span class="note-tag">LLM Agents</span>
+    <span class="note-tag">Data Management</span>
+    <span class="note-tag">Autonomy</span>
+    <span class="note-tag">Data Governance</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
     <span>论文解读</span>
   </div>
 </a>

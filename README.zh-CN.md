@@ -732,6 +732,11 @@
   [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
   [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
 
+- **数据智能体：自治等级、研究现状与开放问题** (2026-07-29) \
+  **描述**: 基于 L0–L5 自治分级和数据生命周期视角，梳理数据智能体从响应式助手、程序执行器到受监督编排器的能力边界，并分析责任、治理与评测缺口。 \
+  [[笔记](notes/zh/agents/data-agents-levels.qmd)]
+  [[English](notes/en/agents/data-agents-levels.qmd)]
+
 - **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
   **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
   [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Four evolutionary leaps from L1 to L5 data agents</title>
+  <desc id="desc">A five-stage horizontal diagram showing the transitions from response to environment perception, workflow orchestration, proactive task discovery, and generative innovation. L4 and L5 are marked as research visions.</desc>
+  <defs>
+    <linearGradient id="header" x1="0" x2="1">
+      <stop offset="0" stop-color="#102a43"/>
+      <stop offset="1" stop-color="#1f77b4"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M1 1l10 5-10 5z" fill="#486581"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#102a43" flood-opacity=".14"/>
+    </filter>
+    <style>
+      .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+      .stage{fill:#fff;stroke:#bcccdc;stroke-width:2}
+      .vision{fill:#fff;stroke:#7b61a8;stroke-width:3;stroke-dasharray:12 9}
+      .level{font-size:30px;font-weight:800;fill:#102a43}
+      .role{font-size:27px;font-weight:700;fill:#243b53}
+      .copy{font-size:21px;fill:#486581}
+      .leap{font-size:20px;font-weight:800;fill:#334e68;letter-spacing:.04em}
+      .small{font-size:18px;font-weight:700;fill:#627d98;letter-spacing:.08em}
+    </style>
+  </defs>
+  <rect width="1600" height="900" rx="28" fill="#f7fafc"/>
+  <rect x="48" y="42" width="1504" height="112" rx="24" fill="url(#header)"/>
+  <text x="86" y="94" class="sans" font-size="34" font-weight="800" fill="#fff">EVOLUTIONARY LEAPS IN DATA-AGENT AUTONOMY</text>
+  <text x="86" y="130" class="sans" font-size="21" fill="#d9eafb">Capability changes only when control and responsibility move with it</text>
+
+  <text x="60" y="215" class="sans small">HUMAN CONTROL</text>
+  <rect x="258" y="195" width="1070" height="20" rx="10" fill="#d9e2ec"/>
+  <path d="M258 205h1070" stroke="url(#header)" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="258" cy="205" r="18" fill="#102a43"/>
+  <circle cx="1328" cy="205" r="18" fill="#1f77b4"/>
+  <text x="1360" y="215" class="sans small">AGENT CONTROL</text>
+
+  <g filter="url(#shadow)">
+    <rect class="stage" x="68" y="294" width="250" height="390" rx="24"/>
+    <rect class="stage" x="372" y="294" width="250" height="390" rx="24"/>
+    <rect class="stage" x="676" y="294" width="250" height="390" rx="24"/>
+    <rect class="vision" x="980" y="294" width="250" height="390" rx="24"/>
+    <rect class="vision" x="1284" y="294" width="250" height="390" rx="24"/>
+  </g>
+
+  <g class="sans">
+    <circle cx="120" cy="354" r="30" fill="#d9eafb"/><text x="120" y="365" text-anchor="middle" class="level">L1</text>
+    <text x="98" y="430" class="role">Respond</text>
+    <text x="98" y="478" class="copy">Prompt → answer</text>
+    <text x="98" y="514" class="copy">No live environment</text>
+    <text x="98" y="550" class="copy">Human executes</text>
+    <rect x="98" y="602" width="188" height="42" rx="21" fill="#e6eef5"/>
+    <text x="192" y="630" text-anchor="middle" class="small">ASSISTANCE</text>
+
+    <circle cx="424" cy="354" r="30" fill="#d5f1f4"/><text x="424" y="365" text-anchor="middle" class="level">L2</text>
+    <text x="402" y="430" class="role">Execute</text>
+    <text x="402" y="478" class="copy">Observe state</text>
+    <text x="402" y="514" class="copy">Call bounded tools</text>
+    <text x="402" y="550" class="copy">Follow human pipeline</text>
+    <rect x="402" y="602" width="188" height="42" rx="21" fill="#d5f1f4"/>
+    <text x="496" y="630" text-anchor="middle" class="small">PROCEDURAL</text>
+
+    <circle cx="728" cy="354" r="30" fill="#d9f2e3"/><text x="728" y="365" text-anchor="middle" class="level">L3</text>
+    <text x="706" y="430" class="role">Orchestrate</text>
+    <text x="706" y="478" class="copy">Interpret intent</text>
+    <text x="706" y="514" class="copy">Revise the pipeline</text>
+    <text x="706" y="550" class="copy">Human supervises</text>
+    <rect x="706" y="602" width="188" height="42" rx="21" fill="#d9f2e3"/>
+    <text x="800" y="630" text-anchor="middle" class="small">CONDITIONAL</text>
+
+    <circle cx="1032" cy="354" r="30" fill="#eee8f8"/><text x="1032" y="365" text-anchor="middle" class="level">L4</text>
+    <text x="1010" y="430" class="role">Discover</text>
+    <text x="1010" y="478" class="copy">Monitor continuously</text>
+    <text x="1010" y="514" class="copy">Find tasks proactively</text>
+    <text x="1010" y="550" class="copy">Operate without prompt</text>
+    <rect x="1010" y="602" width="188" height="42" rx="21" fill="#eee8f8"/>
+    <text x="1104" y="630" text-anchor="middle" class="small">VISION</text>
+
+    <circle cx="1336" cy="354" r="30" fill="#f5e8f1"/><text x="1336" y="365" text-anchor="middle" class="level">L5</text>
+    <text x="1314" y="430" class="role">Invent</text>
+    <text x="1314" y="478" class="copy">Form hypotheses</text>
+    <text x="1314" y="514" class="copy">Create new methods</text>
+    <text x="1314" y="550" class="copy">Test and refine them</text>
+    <rect x="1314" y="602" width="188" height="42" rx="21" fill="#f5e8f1"/>
+    <text x="1408" y="630" text-anchor="middle" class="small">VISION</text>
+  </g>
+
+  <g stroke="#486581" stroke-width="5" marker-end="url(#arrow)">
+    <path d="M318 490h48"/>
+    <path d="M622 490h48"/>
+    <path d="M926 490h48"/>
+    <path d="M1230 490h48"/>
+  </g>
+  <g class="sans leap" text-anchor="middle">
+    <text x="345" y="744">ENVIRONMENT</text><text x="345" y="772">PERCEPTION</text>
+    <text x="649" y="744">WORKFLOW</text><text x="649" y="772">ORCHESTRATION</text>
+    <text x="953" y="744">PROACTIVE TASK</text><text x="953" y="772">DISCOVERY</text>
+    <text x="1257" y="744">GENERATIVE</text><text x="1257" y="772">INNOVATION</text>
+  </g>
+  <path d="M70 828h1460" stroke="#bcccdc" stroke-width="2"/>
+  <text x="800" y="862" text-anchor="middle" class="sans" font-size="20" fill="#627d98">A tool call changes execution; an evolutionary leap changes who chooses the next task and who carries responsibility.</text>
+</svg>

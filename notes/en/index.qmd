@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>12</strong><span>Notes</span></div>
+    <div><strong>13</strong><span>Notes</span></div>
     <div><strong>6</strong><span>Topics</span></div>
-    <div><strong>2026-07-28</strong><span>Latest date</span></div>
+    <div><strong>2026-07-29</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -70,6 +70,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>LLMS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="agents/data-agents-levels.html">
+  <span class="category-count">2026-07-29</span>
+  <h3>Data Agents: Levels, State of the Art, and Open Problems</h3>
+  <p>A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation.</p>
+  <div class="note-tags">
+    <span class="note-tag">Data Agents</span>
+    <span class="note-tag">LLM Agents</span>
+    <span class="note-tag">Data Management</span>
+    <span class="note-tag">Autonomy</span>
+    <span class="note-tag">Data Governance</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
     <span>Paper Readings</span>
   </div>
 </a>
