@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>论文</span></div>
-    <div><strong>50</strong><span>资源链接</span></div>
-    <div><strong>2026.06</strong><span>最新月份</span></div>
+    <div><strong>18</strong><span>论文</span></div>
+    <div><strong>54</strong><span>资源链接</span></div>
+    <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#vision-language">视觉语言</a>
@@ -24,10 +24,24 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">13 篇论文</p>
+    <p class="eyebrow">14 篇论文</p>
     <h2>视觉语言</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="videochat3-fully-open-video-mllm-for-efficient-and-generalist-video-understanding">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</h3>
+  <p>VideoChat3 是一个完全开放的 4B 视频多模态大模型，通过 I3D-ViT 与自适应帧分辨率实现高效时空表征和流式感知。其可扩展数据合成管线构建了覆盖通用、长视频和流式场景的数据集，在降低计算开销的同时提升跨领域泛化能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://mcg-nju.github.io/VideoChat3/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/MCG-NJU/VideoChat3" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/MCG-NJU/videochat3" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="lance-unified-multimodal-modeling-by-multi-task-synergy">
   <div class="paper-meta">
     <span>2026.05</span>

@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>Papers</span></div>
-    <div><strong>50</strong><span>Resource links</span></div>
-    <div><strong>2026.06</strong><span>Latest month</span></div>
+    <div><strong>18</strong><span>Papers</span></div>
+    <div><strong>54</strong><span>Resource links</span></div>
+    <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#vision-language">Vision-Language</a>
@@ -24,10 +24,24 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">13 papers</p>
+    <p class="eyebrow">14 papers</p>
     <h2>Vision-Language</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="videochat3-fully-open-video-mllm-for-efficient-and-generalist-video-understanding">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>Vision-Language</span>
+  </div>
+  <h3>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</h3>
+  <p>VideoChat3 is a fully open 4B video-centric MLLM that combines I3D-ViT with adaptive frame resolution for efficient spatiotemporal and streaming perception. Its scalable data synthesis pipeline curates datasets for general, long-form, and streaming video, improving cross-domain generalization while reducing computation.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://mcg-nju.github.io/VideoChat3/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MCG-NJU/VideoChat3" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/MCG-NJU/videochat3" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="lance-unified-multimodal-modeling-by-multi-task-synergy">
   <div class="paper-meta">
     <span>2026.05</span>

@@ -193,6 +193,13 @@
 # 多模态大模型
 
 ## 视觉语言
+- **VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding** (2026.07) \
+  **描述**: VideoChat3 是一个完全开放的 4B 视频多模态大模型，通过 I3D-ViT 与自适应帧分辨率实现高效时空表征和流式感知。其可扩展数据合成管线构建了覆盖通用、长视频和流式场景的数据集，在降低计算开销的同时提升跨领域泛化能力。 \
+  [[论文](https://arxiv.org/abs/2607.14935)]
+  [[项目](https://mcg-nju.github.io/VideoChat3/)]
+  [[代码](https://github.com/MCG-NJU/VideoChat3)]
+  [[Hugging Face](https://huggingface.co/collections/MCG-NJU/videochat3)]
+
 - **Lance: Unified Multimodal Modeling by Multi-Task Synergy** (2026.05) \
   **描述**: Lance 提出一种轻量级原生统一多模态模型，在不主要依赖容量扩展的情况下支持图像和视频理解、生成与编辑。它结合共享交错上下文建模、解耦能力路径、双流 MoE、模态感知 RoPE 和分阶段多任务训练，同时提升生成与理解能力。 \
   <a href="https://arxiv.org/abs/2605.18678"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

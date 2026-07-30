@@ -182,6 +182,13 @@
 
 ## Vision-Language
 
+- **VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding** (2026.07) \
+  **Description**: VideoChat3 is a fully open 4B video-centric MLLM that combines I3D-ViT with adaptive frame resolution for efficient spatiotemporal and streaming perception. Its scalable data synthesis pipeline curates datasets for general, long-form, and streaming video, improving cross-domain generalization while reducing computation. \
+  [[Paper](https://arxiv.org/abs/2607.14935)]
+  [[Project](https://mcg-nju.github.io/VideoChat3/)]
+  [[Code](https://github.com/MCG-NJU/VideoChat3)]
+  [[Hugging Face](https://huggingface.co/collections/MCG-NJU/videochat3)]
+
 - **Lance: Unified Multimodal Modeling by Multi-Task Synergy** (2026.05) 
   **Description**: Lance introduces a lightweight native unified multimodal model for image and video understanding, generation, and editing without relying mainly on capacity scaling. It combines shared interleaved context modeling, decoupled capability pathways, dual-stream MoE, modality-aware rotary positional encoding, and staged multi-task training to improve both generation and understanding. 
   <a href="https://arxiv.org/abs/2605.18678"></a>
