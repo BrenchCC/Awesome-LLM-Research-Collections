@@ -80,6 +80,13 @@
 # 大语言模型
 
 ## 基础模型
+- **Kimi K3: Open Frontier Intelligence** (2026.07) \
+  **描述**: Kimi K3 是一个 2.8T 总参数、104B 激活参数的 MoE 基础模型，具备原生视觉能力和 100 万 token 上下文，并基于 Kimi Delta Attention、Attention Residuals 与 Stable LatentMoE 构建。其架构和训练改进相较 Kimi K2 将整体扩展效率提升约 2.5 倍，并在长程代码、智能体、推理和视觉任务上达到前沿水平。 \
+  [[论文](https://arxiv.org/abs/2607.24653)]
+  [[项目](https://www.kimi.com/blog/kimi-k3)]
+  [[代码](https://github.com/MoonshotAI/Kimi-K3)]
+  [[Hugging Face](https://huggingface.co/moonshotai/Kimi-K3)]
+
 - **The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence** (2026.05) \
   **描述**: 该技术报告介绍 MiniMax-M2 系列，一组以较小激活参数规模面向真实智能体部署的 MoE 语言模型。它结合智能体驱动的可验证数据管线、Forge 智能体原生 RL 系统，以及 M2.7 中的早期自演进机制，提升代码、深度搜索、办公任务和推理表现。 \
   <a href="https://arxiv.org/abs/2605.26494"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

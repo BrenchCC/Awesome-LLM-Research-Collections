@@ -81,6 +81,13 @@
 
 ## Foundation Models
 
+- **Kimi K3: Open Frontier Intelligence** (2026.07) \
+  **Description**: Kimi K3 is a 2.8T-parameter MoE foundation model with 104B activated parameters, native vision, and a 1-million-token context window, built on Kimi Delta Attention, Attention Residuals, and Stable LatentMoE. These architectural and training advances improve overall scaling efficiency by about 2.5× over Kimi K2 and support frontier-level long-horizon coding, agentic, reasoning, and vision performance. \
+  [[Paper](https://arxiv.org/abs/2607.24653)]
+  [[Project](https://www.kimi.com/blog/kimi-k3)]
+  [[Code](https://github.com/MoonshotAI/Kimi-K3)]
+  [[Hugging Face](https://huggingface.co/moonshotai/Kimi-K3)]
+
 - **The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence** (2026.05) 
   **Description**: This technical report presents the MiniMax-M2 series, MoE language models with a small active-parameter footprint designed for real-world agentic deployment. It combines agent-driven verifiable data pipelines, the Forge agent-native RL system, and early self-evolution in M2.7 to improve coding, deep-search, office-task, and reasoning performance. 
   <a href="https://arxiv.org/abs/2605.26494"></a>
