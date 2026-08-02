@@ -674,47 +674,52 @@
 
 ## Paper Readings
 
-- **CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning** (2026-06-15) \
-  **Description**: CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models. \
-  [[Note](notes/en/reinforcement-learning/CapRL.qmd)]
-  [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
-
-- **From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training** (2026-06-15) \
-  **Description**: A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion. \
-  [[Note](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
-  [[中文](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
-
-- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (2026-07-28) \
-  **Description**: A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation. \
-  [[Note](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
-  [[中文](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
+- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (2026-08-01) \
+  **Description**: A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations. \
+  [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
+  [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
 
 - **Data Agents: Levels, State of the Art, and Open Problems** (2026-07-29) \
   **Description**: A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation. \
   [[Note](notes/en/agents/data-agents-levels.qmd)]
   [[中文](notes/zh/agents/data-agents-levels.qmd)]
 
-- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (2026-08-01) \
-  **Description**: A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations. \
-  [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
-  [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
-
-- **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
-  **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
-  [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
-  [[中文](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
+- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (2026-07-28) \
+  **Description**: A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation. \
+  [[Note](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
+  [[中文](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
 
 - **SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate** (2026-06-30) \
   **Description**: An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation. \
   [[Note](notes/en/reinforcement-learning/SAPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/SAPO.qmd)]
 
+- **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
+  **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
+  [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
+  [[中文](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
+
+- **From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training** (2026-06-15) \
+  **Description**: A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion. \
+  [[Note](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+  [[中文](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
+- **CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning** (2026-06-15) \
+  **Description**: CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models. \
+  [[Note](notes/en/reinforcement-learning/CapRL.qmd)]
+  [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
+
 ## Technical Reflections
 
-- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
-  **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
-  [[Note](notes/en/opd/post-training-opd.qmd)]
-  [[中文](notes/zh/opd/post-training-opd.qmd)]
+- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-06) \
+  **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
+  [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+
+- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (2026-07-02) \
+  **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
+  [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
+  [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]
 
 - **Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization** (2026-06-30) \
   **Description**: A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries. \
@@ -726,25 +731,20 @@
   [[Note](notes/en/llms/grpo-loss-analysis.qmd)]
   [[中文](notes/zh/llms/grpo-loss-analysis.qmd)]
 
-- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (2026-07-02) \
-  **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
-  [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
-  [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]
-
-- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-06) \
-  **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
-  [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
-  [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+- **From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings** (2026-06-29) \
+  **Description**: Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL. \
+  [[Note](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
+  [[中文](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
 
 - **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
   **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \
   [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings** (2026-06-29) \
-  **Description**: Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL. \
-  [[Note](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
-  [[中文](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
+- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
+  **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
+  [[Note](notes/en/opd/post-training-opd.qmd)]
+  [[中文](notes/zh/opd/post-training-opd.qmd)]
 
 # Blogs
 

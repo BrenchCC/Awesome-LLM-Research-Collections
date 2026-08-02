@@ -25,48 +25,16 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
-<a class="category-card" href="reinforcement-learning/CapRL.html">
-  <span class="category-count">2026-06-15</span>
-  <h3>CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning</h3>
-  <p>CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models.</p>
+<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
+  <span class="category-count">2026-08-01</span>
+  <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
+  <p>A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations.</p>
   <div class="note-tags">
-    <span class="note-tag">CapRL</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">RLVR</span>
-    <span class="note-tag">Vision-Language Model</span>
-    <span class="note-tag">Image Captioning</span>
-  </div>
-  <div class="category-foot">
-    <span>REINFORCEMENT-LEARNING</span>
-    <span>Paper Readings</span>
-  </div>
-</a>
-<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
-  <span class="category-count">2026-06-15</span>
-  <h3>From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training</h3>
-  <p>A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion.</p>
-  <div class="note-tags">
-    <span class="note-tag">VLM</span>
-    <span class="note-tag">Qwen</span>
-    <span class="note-tag">Multimodal Large Language Model</span>
-    <span class="note-tag">Position Encoding</span>
-    <span class="note-tag">Video Understanding</span>
-  </div>
-  <div class="category-foot">
-    <span>MLLMS</span>
-    <span>Paper Readings</span>
-  </div>
-</a>
-<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
-  <span class="category-count">2026-07-28</span>
-  <h3>From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations</h3>
-  <p>A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation.</p>
-  <div class="note-tags">
-    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Kimi K3</span>
     <span class="note-tag">LLM</span>
-    <span class="note-tag">MoE</span>
-    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Mixture of Experts</span>
     <span class="note-tag">Long Context</span>
+    <span class="note-tag">Agentic RL</span>
   </div>
   <div class="category-foot">
     <span>LLMS</span>
@@ -89,35 +57,19 @@ toc: false
     <span>Paper Readings</span>
   </div>
 </a>
-<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
-  <span class="category-count">2026-08-01</span>
-  <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
-  <p>A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations.</p>
+<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
+  <span class="category-count">2026-07-28</span>
+  <h3>From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations</h3>
+  <p>A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation.</p>
   <div class="note-tags">
-    <span class="note-tag">Kimi K3</span>
+    <span class="note-tag">Qwen</span>
     <span class="note-tag">LLM</span>
-    <span class="note-tag">Mixture of Experts</span>
+    <span class="note-tag">MoE</span>
+    <span class="note-tag">Post-training</span>
     <span class="note-tag">Long Context</span>
-    <span class="note-tag">Agentic RL</span>
   </div>
   <div class="category-foot">
     <span>LLMS</span>
-    <span>Paper Readings</span>
-  </div>
-</a>
-<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
-  <span class="category-count">2026-06-18</span>
-  <h3>Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning</h3>
-  <p>A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO&#x27;s Clip-Higher strategy, and covariance regularization.</p>
-  <div class="note-tags">
-    <span class="note-tag">Entropy Collapse</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">Post-training</span>
-    <span class="note-tag">DAPO</span>
-    <span class="note-tag">GRPO</span>
-  </div>
-  <div class="category-foot">
-    <span>REINFORCEMENT-LEARNING</span>
     <span>Paper Readings</span>
   </div>
 </a>
@@ -138,6 +90,54 @@ toc: false
     <span>Paper Readings</span>
   </div>
 </a>
+<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
+  <span class="category-count">2026-06-18</span>
+  <h3>Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning</h3>
+  <p>A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO&#x27;s Clip-Higher strategy, and covariance regularization.</p>
+  <div class="note-tags">
+    <span class="note-tag">Entropy Collapse</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">DAPO</span>
+    <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training</h3>
+  <p>A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion.</p>
+  <div class="note-tags">
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">Video Understanding</span>
+  </div>
+  <div class="category-foot">
+    <span>MLLMS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/CapRL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning</h3>
+  <p>CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models.</p>
+  <div class="note-tags">
+    <span class="note-tag">CapRL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">RLVR</span>
+    <span class="note-tag">Vision-Language Model</span>
+    <span class="note-tag">Image Captioning</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
   </div>
 </section>
 
@@ -147,17 +147,35 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
-<a class="category-card" href="opd/post-training-opd.html">
-  <span class="category-count">2026-05-28</span>
-  <h3>OPD: Capability Integration Interface in Post-training</h3>
-  <p>A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
+<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
+  <span class="category-count">2026-07-06</span>
+  <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>
+  <p>A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision.</p>
   <div class="note-tags">
-    <span class="note-tag">OPD</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">Distillation</span>
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+    <span class="note-tag">Value Modeling</span>
+    <span class="note-tag">Reward Hacking</span>
+    <span class="note-tag">Verification</span>
   </div>
   <div class="category-foot">
-    <span>OPD</span>
+    <span>LLMS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+<a class="category-card" href="training/dpo-with-sft-loss.html">
+  <span class="category-count">2026-07-02</span>
+  <h3>Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor</h3>
+  <p>A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis.</p>
+  <div class="note-tags">
+    <span class="note-tag">DPO</span>
+    <span class="note-tag">SFT</span>
+    <span class="note-tag">Preference Optimization</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">RLHF</span>
+  </div>
+  <div class="category-foot">
+    <span>TRAINING</span>
     <span>Technical Reflections</span>
   </div>
 </a>
@@ -191,35 +209,18 @@ toc: false
     <span>Technical Reflections</span>
   </div>
 </a>
-<a class="category-card" href="training/dpo-with-sft-loss.html">
-  <span class="category-count">2026-07-02</span>
-  <h3>Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor</h3>
-  <p>A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis.</p>
+<a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
+  <span class="category-count">2026-06-29</span>
+  <h3>From 1D-RoPE to Qwen&#x27;s MRoPE: Frequency Allocation in Rotary Position Embeddings</h3>
+  <p>Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL.</p>
   <div class="note-tags">
-    <span class="note-tag">DPO</span>
-    <span class="note-tag">SFT</span>
-    <span class="note-tag">Preference Optimization</span>
-    <span class="note-tag">Post-training</span>
-    <span class="note-tag">RLHF</span>
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
   </div>
   <div class="category-foot">
-    <span>TRAINING</span>
-    <span>Technical Reflections</span>
-  </div>
-</a>
-<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
-  <span class="category-count">2026-07-06</span>
-  <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>
-  <p>A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision.</p>
-  <div class="note-tags">
-    <span class="note-tag">Agentic RL</span>
-    <span class="note-tag">Long-Horizon Agents</span>
-    <span class="note-tag">Value Modeling</span>
-    <span class="note-tag">Reward Hacking</span>
-    <span class="note-tag">Verification</span>
-  </div>
-  <div class="category-foot">
-    <span>LLMS</span>
+    <span>MLLMS</span>
     <span>Technical Reflections</span>
   </div>
 </a>
@@ -239,18 +240,17 @@ toc: false
     <span>Technical Reflections</span>
   </div>
 </a>
-<a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
-  <span class="category-count">2026-06-29</span>
-  <h3>From 1D-RoPE to Qwen&#x27;s MRoPE: Frequency Allocation in Rotary Position Embeddings</h3>
-  <p>Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL.</p>
+<a class="category-card" href="opd/post-training-opd.html">
+  <span class="category-count">2026-05-28</span>
+  <h3>OPD: Capability Integration Interface in Post-training</h3>
+  <p>A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
   <div class="note-tags">
-    <span class="note-tag">VLM</span>
-    <span class="note-tag">Qwen</span>
-    <span class="note-tag">Multimodal Large Language Model</span>
-    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">OPD</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Distillation</span>
   </div>
   <div class="category-foot">
-    <span>MLLMS</span>
+    <span>OPD</span>
     <span>Technical Reflections</span>
   </div>
 </a>

@@ -25,48 +25,16 @@ toc: false
     <h2>论文解读</h2>
   </div>
   <div class="category-grid">
-<a class="category-card" href="reinforcement-learning/CapRL.html">
-  <span class="category-count">2026-06-15</span>
-  <h3>CapRL：用强化学习激发视觉语言模型的描述能力</h3>
-  <p>CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。</p>
+<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
+  <span class="category-count">2026-08-01</span>
+  <h3>Kimi K3：架构、训练与百万 Token Agentic RL 技术解读</h3>
+  <p>从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。</p>
   <div class="note-tags">
-    <span class="note-tag">CapRL</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">RLVR</span>
-    <span class="note-tag">Vision-Language Model</span>
-    <span class="note-tag">Image Captioning</span>
-  </div>
-  <div class="category-foot">
-    <span>REINFORCEMENT-LEARNING</span>
-    <span>论文解读</span>
-  </div>
-</a>
-<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
-  <span class="category-count">2026-06-15</span>
-  <h3>从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进</h3>
-  <p>梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。</p>
-  <div class="note-tags">
-    <span class="note-tag">VLM</span>
-    <span class="note-tag">Qwen</span>
-    <span class="note-tag">Multimodal Large Language Model</span>
-    <span class="note-tag">Position Encoding</span>
-    <span class="note-tag">Video Understanding</span>
-  </div>
-  <div class="category-foot">
-    <span>MLLMS</span>
-    <span>论文解读</span>
-  </div>
-</a>
-<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
-  <span class="category-count">2026-07-28</span>
-  <h3>从 Qwen 到 Qwen3.6：七代模型的架构与训练演进</h3>
-  <p>沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。</p>
-  <div class="note-tags">
-    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Kimi K3</span>
     <span class="note-tag">LLM</span>
-    <span class="note-tag">MoE</span>
-    <span class="note-tag">Post-training</span>
+    <span class="note-tag">Mixture of Experts</span>
     <span class="note-tag">Long Context</span>
+    <span class="note-tag">Agentic RL</span>
   </div>
   <div class="category-foot">
     <span>LLMS</span>
@@ -89,35 +57,19 @@ toc: false
     <span>论文解读</span>
   </div>
 </a>
-<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
-  <span class="category-count">2026-08-01</span>
-  <h3>Kimi K3：架构、训练与百万 Token Agentic RL 技术解读</h3>
-  <p>从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。</p>
+<a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
+  <span class="category-count">2026-07-28</span>
+  <h3>从 Qwen 到 Qwen3.6：七代模型的架构与训练演进</h3>
+  <p>沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。</p>
   <div class="note-tags">
-    <span class="note-tag">Kimi K3</span>
+    <span class="note-tag">Qwen</span>
     <span class="note-tag">LLM</span>
-    <span class="note-tag">Mixture of Experts</span>
+    <span class="note-tag">MoE</span>
+    <span class="note-tag">Post-training</span>
     <span class="note-tag">Long Context</span>
-    <span class="note-tag">Agentic RL</span>
   </div>
   <div class="category-foot">
     <span>LLMS</span>
-    <span>论文解读</span>
-  </div>
-</a>
-<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
-  <span class="category-count">2026-06-18</span>
-  <h3>Entropy Collapse：大模型 RL 训练中的策略熵消耗机制</h3>
-  <p>从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。</p>
-  <div class="note-tags">
-    <span class="note-tag">Entropy Collapse</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">Post-training</span>
-    <span class="note-tag">DAPO</span>
-    <span class="note-tag">GRPO</span>
-  </div>
-  <div class="category-foot">
-    <span>REINFORCEMENT-LEARNING</span>
     <span>论文解读</span>
   </div>
 </a>
@@ -138,6 +90,54 @@ toc: false
     <span>论文解读</span>
   </div>
 </a>
+<a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
+  <span class="category-count">2026-06-18</span>
+  <h3>Entropy Collapse：大模型 RL 训练中的策略熵消耗机制</h3>
+  <p>从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。</p>
+  <div class="note-tags">
+    <span class="note-tag">Entropy Collapse</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">DAPO</span>
+    <span class="note-tag">GRPO</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进</h3>
+  <p>梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。</p>
+  <div class="note-tags">
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">Video Understanding</span>
+  </div>
+  <div class="category-foot">
+    <span>MLLMS</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/CapRL.html">
+  <span class="category-count">2026-06-15</span>
+  <h3>CapRL：用强化学习激发视觉语言模型的描述能力</h3>
+  <p>CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。</p>
+  <div class="note-tags">
+    <span class="note-tag">CapRL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">RLVR</span>
+    <span class="note-tag">Vision-Language Model</span>
+    <span class="note-tag">Image Captioning</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
   </div>
 </section>
 
@@ -147,17 +147,35 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
-<a class="category-card" href="opd/post-training-opd.html">
-  <span class="category-count">2026-05-28</span>
-  <h3>OPD：后训练中的能力整合接口</h3>
-  <p>从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。</p>
+<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
+  <span class="category-count">2026-07-06</span>
+  <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>
+  <p>结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。</p>
   <div class="note-tags">
-    <span class="note-tag">OPD</span>
-    <span class="note-tag">Reinforcement Learning</span>
-    <span class="note-tag">Distillation</span>
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+    <span class="note-tag">Value Modeling</span>
+    <span class="note-tag">Reward Hacking</span>
+    <span class="note-tag">Verification</span>
   </div>
   <div class="category-foot">
-    <span>OPD</span>
+    <span>LLMS</span>
+    <span>技术思考</span>
+  </div>
+</a>
+<a class="category-card" href="training/dpo-with-sft-loss.html">
+  <span class="category-count">2026-07-02</span>
+  <h3>在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定</h3>
+  <p>围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。</p>
+  <div class="note-tags">
+    <span class="note-tag">DPO</span>
+    <span class="note-tag">SFT</span>
+    <span class="note-tag">Preference Optimization</span>
+    <span class="note-tag">Post-training</span>
+    <span class="note-tag">RLHF</span>
+  </div>
+  <div class="category-foot">
+    <span>TRAINING</span>
     <span>技术思考</span>
   </div>
 </a>
@@ -191,35 +209,18 @@ toc: false
     <span>技术思考</span>
   </div>
 </a>
-<a class="category-card" href="training/dpo-with-sft-loss.html">
-  <span class="category-count">2026-07-02</span>
-  <h3>在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定</h3>
-  <p>围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。</p>
+<a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
+  <span class="category-count">2026-06-29</span>
+  <h3>从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配</h3>
+  <p>从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。</p>
   <div class="note-tags">
-    <span class="note-tag">DPO</span>
-    <span class="note-tag">SFT</span>
-    <span class="note-tag">Preference Optimization</span>
-    <span class="note-tag">Post-training</span>
-    <span class="note-tag">RLHF</span>
+    <span class="note-tag">VLM</span>
+    <span class="note-tag">Qwen</span>
+    <span class="note-tag">Multimodal Large Language Model</span>
+    <span class="note-tag">Position Encoding</span>
   </div>
   <div class="category-foot">
-    <span>TRAINING</span>
-    <span>技术思考</span>
-  </div>
-</a>
-<a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
-  <span class="category-count">2026-07-06</span>
-  <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>
-  <p>结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。</p>
-  <div class="note-tags">
-    <span class="note-tag">Agentic RL</span>
-    <span class="note-tag">Long-Horizon Agents</span>
-    <span class="note-tag">Value Modeling</span>
-    <span class="note-tag">Reward Hacking</span>
-    <span class="note-tag">Verification</span>
-  </div>
-  <div class="category-foot">
-    <span>LLMS</span>
+    <span>MLLMS</span>
     <span>技术思考</span>
   </div>
 </a>
@@ -239,18 +240,17 @@ toc: false
     <span>技术思考</span>
   </div>
 </a>
-<a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
-  <span class="category-count">2026-06-29</span>
-  <h3>从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配</h3>
-  <p>从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。</p>
+<a class="category-card" href="opd/post-training-opd.html">
+  <span class="category-count">2026-05-28</span>
+  <h3>OPD：后训练中的能力整合接口</h3>
+  <p>从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。</p>
   <div class="note-tags">
-    <span class="note-tag">VLM</span>
-    <span class="note-tag">Qwen</span>
-    <span class="note-tag">Multimodal Large Language Model</span>
-    <span class="note-tag">Position Encoding</span>
+    <span class="note-tag">OPD</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Distillation</span>
   </div>
   <div class="category-foot">
-    <span>MLLMS</span>
+    <span>OPD</span>
     <span>技术思考</span>
   </div>
 </a>

@@ -256,7 +256,8 @@ def grouped_notes(notes):
     for note_type in NOTE_TYPE_ORDER:
         groups[note_type] = sorted(
             groups[note_type],
-            key = lambda note: (note.order, note.date, note.title)
+            key = lambda note: note.date,
+            reverse = True
         )
 
     return groups

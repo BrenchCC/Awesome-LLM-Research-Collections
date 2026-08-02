@@ -731,47 +731,52 @@
 
 ## 论文解读
 
-- **CapRL：用强化学习激发视觉语言模型的描述能力** (2026-06-15) \
-  **描述**: CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。 \
-  [[笔记](notes/zh/reinforcement-learning/CapRL.qmd)]
-  [[English](notes/en/reinforcement-learning/CapRL.qmd)]
-
-- **从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进** (2026-06-15) \
-  **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
-  [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
-  [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
-
-- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (2026-07-28) \
-  **描述**: 沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。 \
-  [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
-  [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
+- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (2026-08-01) \
+  **描述**: 从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。 \
+  [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
+  [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
 
 - **数据智能体：自治等级、研究现状与开放问题** (2026-07-29) \
   **描述**: 基于 L0–L5 自治分级和数据生命周期视角，梳理数据智能体从响应式助手、程序执行器到受监督编排器的能力边界，并分析责任、治理与评测缺口。 \
   [[笔记](notes/zh/agents/data-agents-levels.qmd)]
   [[English](notes/en/agents/data-agents-levels.qmd)]
 
-- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (2026-08-01) \
-  **描述**: 从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。 \
-  [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
-  [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
-
-- **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
-  **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
-  [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
-  [[English](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
+- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (2026-07-28) \
+  **描述**: 沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。 \
+  [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
+  [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
 
 - **SAPO：用连续软门控替代策略比率的硬截断** (2026-06-30) \
   **描述**: 从代理目标、梯度权重、非对称温度与 Qwen3-VL 实验出发，分析 SAPO 如何在 token 级保留有效梯度，并在小步更新条件下近似序列级软信任域。 \
   [[笔记](notes/zh/reinforcement-learning/SAPO.qmd)]
   [[English](notes/en/reinforcement-learning/SAPO.qmd)]
 
+- **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
+  **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
+  [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
+  [[English](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
+
+- **从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进** (2026-06-15) \
+  **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
+  [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+  [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
+
+- **CapRL：用强化学习激发视觉语言模型的描述能力** (2026-06-15) \
+  **描述**: CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。 \
+  [[笔记](notes/zh/reinforcement-learning/CapRL.qmd)]
+  [[English](notes/en/reinforcement-learning/CapRL.qmd)]
+
 ## 技术思考
 
-- **OPD：后训练中的能力整合接口** (2026-05-28) \
-  **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
-  [[笔记](notes/zh/opd/post-training-opd.qmd)]
-  [[English](notes/en/opd/post-training-opd.qmd)]
+- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-06) \
+  **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
+  [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
+  [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+
+- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (2026-07-02) \
+  **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
+  [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
+  [[English](notes/en/training/dpo-with-sft-loss.qmd)]
 
 - **Agent 经验学习：从文本反思、程序技能到策略内化** (2026-06-30) \
   **描述**: 梳理 LLM Agent 将任务轨迹沉淀为可检索经验、可执行技能和参数化能力的技术路线，并讨论技能库维护、评测方法与工程边界。 \
@@ -783,25 +788,20 @@
   [[笔记](notes/zh/llms/grpo-loss-analysis.qmd)]
   [[English](notes/en/llms/grpo-loss-analysis.qmd)]
 
-- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (2026-07-02) \
-  **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
-  [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
-  [[English](notes/en/training/dpo-with-sft-loss.qmd)]
-
-- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-06) \
-  **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
-  [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
-  [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
+- **从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配** (2026-06-29) \
+  **描述**: 从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。 \
+  [[笔记](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
+  [[English](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
 
 - **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
   **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \
   [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[English](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配** (2026-06-29) \
-  **描述**: 从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。 \
-  [[笔记](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
-  [[English](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
+- **OPD：后训练中的能力整合接口** (2026-05-28) \
+  **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
+  [[笔记](notes/zh/opd/post-training-opd.qmd)]
+  [[English](notes/en/opd/post-training-opd.qmd)]
 
 # 博客
 
