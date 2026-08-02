@@ -751,6 +751,11 @@
   [[笔记](notes/zh/agents/data-agents-levels.qmd)]
   [[English](notes/en/agents/data-agents-levels.qmd)]
 
+- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (2026-08-01) \
+  **描述**: 从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。 \
+  [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
+  [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
+
 - **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
   **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
   [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]

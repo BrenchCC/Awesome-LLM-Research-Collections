@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>Notes</span></div>
+    <div><strong>14</strong><span>Notes</span></div>
     <div><strong>6</strong><span>Topics</span></div>
-    <div><strong>2026-07-29</strong><span>Latest date</span></div>
+    <div><strong>2026-08-01</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -86,6 +86,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>AGENTS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
+<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
+  <span class="category-count">2026-08-01</span>
+  <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
+  <p>A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations.</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi K3</span>
+    <span class="note-tag">LLM</span>
+    <span class="note-tag">Mixture of Experts</span>
+    <span class="note-tag">Long Context</span>
+    <span class="note-tag">Agentic RL</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>Paper Readings</span>
   </div>
 </a>

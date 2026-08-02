@@ -694,6 +694,11 @@
   [[Note](notes/en/agents/data-agents-levels.qmd)]
   [[中文](notes/zh/agents/data-agents-levels.qmd)]
 
+- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (2026-08-01) \
+  **Description**: A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations. \
+  [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
+  [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
+
 - **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
   **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
   [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]

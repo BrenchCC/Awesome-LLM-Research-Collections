@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kimi K3 context-length curriculum</title>
+  <desc id="desc">Training expands from 8K to 64K, then cools down at 256K and 1M with increasingly long data.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fafafa"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#0f172a">Context is trained as a curriculum, not a toggle</text>
+  <text x="60" y="106" font-family="Inter,Arial,sans-serif" font-size="18" fill="#475569">NoPE removes an extrapolation boundary; data and optimization must still teach long-range use</text>
+
+  <path d="M120 470 C255 470 265 390 390 390 S535 300 660 300 S805 195 1040 195" fill="none" stroke="url(#line)" stroke-width="14" stroke-linecap="round"/>
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <g>
+      <circle cx="150" cy="470" r="28" fill="#2563eb" stroke="#ffffff" stroke-width="7"/>
+      <rect x="70" y="510" width="160" height="90" rx="18" fill="#dbeafe"/>
+      <text x="150" y="549" font-size="26" font-weight="700" fill="#1e3a8a">8K</text>
+      <text x="150" y="577" font-size="16" fill="#334155">base pre-training</text>
+    </g>
+    <g>
+      <circle cx="410" cy="390" r="28" fill="#3b82f6" stroke="#ffffff" stroke-width="7"/>
+      <rect x="330" y="430" width="160" height="90" rx="18" fill="#dbeafe"/>
+      <text x="410" y="469" font-size="26" font-weight="700" fill="#1e3a8a">64K</text>
+      <text x="410" y="497" font-size="16" fill="#334155">long-data mix</text>
+    </g>
+    <g>
+      <circle cx="680" cy="300" r="28" fill="#7c3aed" stroke="#ffffff" stroke-width="7"/>
+      <rect x="590" y="340" width="180" height="90" rx="18" fill="#ede9fe"/>
+      <text x="680" y="379" font-size="26" font-weight="700" fill="#5b21b6">256K</text>
+      <text x="680" y="407" font-size="16" fill="#334155">cooldown stage</text>
+    </g>
+    <g>
+      <circle cx="1010" cy="195" r="32" fill="#6d28d9" stroke="#ffffff" stroke-width="7"/>
+      <rect x="910" y="235" width="200" height="90" rx="18" fill="#ede9fe"/>
+      <text x="1010" y="274" font-size="26" font-weight="700" fill="#5b21b6">1,048,576</text>
+      <text x="1010" y="302" font-size="16" fill="#334155">final max window</text>
+    </g>
+  </g>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="70" y="145" width="340" height="122" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="95" y="182" font-size="17" font-weight="700" fill="#475569">WHAT CHANGES WITH LENGTH</text>
+    <text x="95" y="218" font-size="20" fill="#0f172a">documents · trajectories · retrieval depth</text>
+    <text x="95" y="246" font-size="16" fill="#64748b">not just the sequence-length scalar</text>
+
+    <rect x="450" y="505" width="680" height="95" rx="20" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+    <text x="480" y="545" font-size="21" font-weight="700" fill="#9a3412">Effective context is task- and harness-dependent</text>
+    <text x="480" y="576" font-size="17" fill="#475569">A 1M maximum window does not prove uniform 1M-token utilization.</text>
+  </g>
+</svg>

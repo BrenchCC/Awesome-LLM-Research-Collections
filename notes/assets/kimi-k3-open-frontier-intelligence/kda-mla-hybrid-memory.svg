@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">KDA and MLA hybrid memory</title>
+  <desc id="desc">A 3-to-1 layer pattern combines fixed-size KDA recurrent state with length-growing MLA cache.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#edf5ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#0f172a">Hybrid attention: compute locally, recall globally</text>
+  <text x="60" y="106" font-family="Inter,Arial,sans-serif" font-size="18" fill="#475569">Repeated 3:1 across 93 layers; the final attention layer is global</text>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <text x="74" y="165" font-size="18" font-weight="700" fill="#475569">LAYER PATTERN</text>
+    <g font-size="21" font-weight="700" text-anchor="middle">
+      <rect x="70" y="190" width="170" height="76" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="155" y="237" fill="#1e3a8a">KDA</text>
+      <rect x="276" y="190" width="170" height="76" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="361" y="237" fill="#1e3a8a">KDA</text>
+      <rect x="482" y="190" width="170" height="76" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="567" y="237" fill="#1e3a8a">KDA</text>
+      <rect x="688" y="190" width="190" height="76" rx="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+      <text x="783" y="237" fill="#92400e">Gated MLA</text>
+      <rect x="914" y="190" width="170" height="76" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="999" y="237" fill="#1e3a8a">repeat</text>
+    </g>
+    <g fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M240 228 H270"/><path d="M446 228 H476"/><path d="M652 228 H682"/><path d="M878 228 H908"/>
+    </g>
+
+    <rect x="70" y="340" width="500" height="246" rx="24" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+    <text x="100" y="385" font-size="23" font-weight="700" fill="#1d4ed8">KDA recurrent state</text>
+    <text x="100" y="417" font-size="17" fill="#475569">one state is updated in place</text>
+    <g fill="#bfdbfe" stroke="#3b82f6" stroke-width="2">
+      <rect x="110" y="466" width="95" height="66" rx="12"/>
+      <rect x="270" y="466" width="95" height="66" rx="12"/>
+      <rect x="430" y="466" width="95" height="66" rx="12"/>
+    </g>
+    <g fill="#1e3a8a" font-size="21" font-weight="700" text-anchor="middle">
+      <text x="157" y="507">S₁</text><text x="317" y="507">S₂</text><text x="477" y="507">Sₜ</text>
+    </g>
+    <g fill="none" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M205 499 H260"/><path d="M365 499 H420"/>
+    </g>
+    <text x="100" y="562" font-size="18" font-weight="700" fill="#1d4ed8">state size ≈ independent of context length</text>
+
+    <rect x="630" y="340" width="500" height="246" rx="24" fill="#ffffff" stroke="#fcd34d" stroke-width="2"/>
+    <text x="660" y="385" font-size="23" font-weight="700" fill="#b45309">MLA latent cache</text>
+    <text x="660" y="417" font-size="17" fill="#475569">one compact latent remains per token</text>
+    <g fill="#fde68a" stroke="#f59e0b" stroke-width="2">
+      <rect x="665" y="466" width="60" height="66" rx="11"/>
+      <rect x="738" y="466" width="60" height="66" rx="11"/>
+      <rect x="811" y="466" width="60" height="66" rx="11"/>
+      <rect x="884" y="466" width="60" height="66" rx="11"/>
+      <rect x="957" y="466" width="60" height="66" rx="11"/>
+      <rect x="1030" y="466" width="60" height="66" rx="11"/>
+    </g>
+    <g fill="#78350f" font-size="18" font-weight="700" text-anchor="middle">
+      <text x="695" y="507">c₁</text><text x="768" y="507">c₂</text><text x="841" y="507">c₃</text><text x="914" y="507">…</text><text x="987" y="507">cₜ₋₁</text><text x="1060" y="507">cₜ</text>
+    </g>
+    <text x="660" y="562" font-size="18" font-weight="700" fill="#b45309">cache grows linearly with context length</text>
+  </g>
+</svg>

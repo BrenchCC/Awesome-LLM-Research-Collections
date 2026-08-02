@@ -1,0 +1,302 @@
+---
+author: Brench
+date: 2026-08-01
+title: "Kimi K3: Architecture, Training, and Million-Token Agentic RL"
+description: "A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations."
+order: 1
+note_type: paper-reading
+topic: llms
+tags:
+  - Kimi K3
+  - LLM
+  - Mixture of Experts
+  - Long Context
+  - Agentic RL
+---
+
+![The title, report subtitle, and author line of the Kimi K3 technical report.](../../assets/kimi-k3-open-frontier-intelligence/paper-title-authors.png){fig-alt="The Kimi K3 Open Frontier Intelligence technical report title and Kimi Team attribution"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), page 1; cropped from the vector PDF at 5× scale, approximately 360 DPI.*
+
+## Summary and Core Assessment
+
+The most memorable Kimi K3 figures are 2.8T total parameters, 104.2B active parameters, and a one-million-token context window. The report’s coherent technical story, however, is not simply that all three numbers grew. It redesigns information flow in four places. KDA supplies recurrent memory over long sequences while periodic Gated MLA layers preserve global retrieval. Block Attention Residuals let each layer select from earlier blocks. Stable LatentMoE compresses expert computation into a 3,584-dimensional latent space and expands the routed pool to 896 experts. MoonViT-V2 places image and text tokens under a shared next-token objective from the start of pre-training. All four changes address one engineering problem: preserve tractable training and serving while the model handles longer, deeper, sparser, and more interactive trajectories.
+
+My assessment has four parts. First, K3’s architectural value lies in coordination, not in one isolated module. The reported “2.5× scaling efficiency” belongs to the combined K3 architecture, data, and training recipe relative to K2. The paper does not contain the ablation needed to allocate that factor among KDA, AttnRes, and LatentMoE. Second, 1M is a trained and runnable maximum window, not proof that every task uses one million tokens effectively. The primary BrowseComp result uses 300K compaction, while a raw full-window run without context management scores slightly lower. Third, post-training does more than add a generic RL stage: it trains nine policies across three domains and three reasoning-effort levels, then distills them into one served model. Fourth, open weights make architectural study and deployment possible, but the training corpus, complete data pipeline, all environments, and cluster software were not released with the checkpoint. “Open weights” should not be rewritten as “fully open and reproducible.”
+
+This note does not call the Kimi K3 API, and it does not present published benchmarks as personal reproductions. It addresses questions supported by public evidence: how the mechanisms work, which bottleneck each mechanism targets, what the reported numbers measure, and where the claims remain bounded by the authors’ own evaluation.
+
+## 1. Evidence Boundary: Open Weights, Reproducibility, and Official Claims
+
+The primary evidence is the K3 technical report and official repository. The lineage of KDA is checked against [Kimi Linear](https://arxiv.org/abs/2510.26692), the depth mechanism against the original [Attention Residuals](https://arxiv.org/abs/2603.15031) report, and the structural motivation for LatentMoE against the [NVIDIA paper](https://arxiv.org/abs/2601.18089). Cache behavior and serving measurements come from the [vLLM engineering report](https://vllm-project.github.io/2026/07/27/k3.html). Artificial Analysis contributes a dated external snapshot rather than evidence for a durable model ranking.
+
+The official repository publishes model weights, configuration, and inference entry points, but the license is neither Apache-2.0 nor MIT. The [Kimi K3 License](https://github.com/MoonshotAI/Kimi-K3/blob/main/LICENSE) permits use, modification, distribution, fine-tuning, and derivative works, subject to additional conditions at commercial scale. An operator of a Model-as-a-Service business whose aggregate affiliate revenue exceeds US$20 million over any consecutive twelve months must reach a separate agreement before commercial use. Commercial products above 100 million monthly active users or US$20 million in monthly revenue must prominently display “Kimi K3,” with exceptions for internal use and official or certified channels. The precise description is therefore “open weights under a custom license,” not unrestricted open source.
+
+The reproducibility gap is larger. The report specifies an 8K→64K→256K→1M curriculum, MoonViT-V2, Per-Head Muon, Quantile Balancing, nine-policy RL, MOPD, MXFP4 QAT, and long-trajectory systems. It does not release the raw corpus, all filters, the complete synthetic task collection, reward environments, hardware topology, and execution logs needed to rebuild a 2.8T-parameter training run. External teams can test checkpoint behavior, rewrite kernels, measure serving, and run small-scale module experiments. None of those activities retroactively make the official end-to-end training reproducible.
+
+Evidence must also separate the existence of a mechanism from its contribution. A config and implementation can establish that the checkpoint contains 69 KDA and 24 MLA layers or that a backend executes the required operators. The same material cannot say how much the final score would change if KDA were removed. Small-scale ablations support directional judgments but do not establish proportional gains at 2.8T parameters. This note therefore treats configuration facts as direct facts, author experiments as reported results, and cross-experiment comparisons as interpretations rather than invented causal percentages.
+
+Zhihu and Tencent Cloud posts are useful for identifying recurring interpretations, not for establishing architecture. The [official Kimi Zhihu post](https://zhuanlan.zhihu.com/p/2061380200647205373) follows the release framing, a [Zhihu user test](https://www.zhihu.com/question/2061204677446964906/answer/2063674631316414638) provides task-level experience, and a [Tencent Cloud community article](https://cloud.tencent.com/developer/article/2714420?policyId=1004) gives a rapid overview. Secondary summaries often collapse “1M window” into “effective million-token reasoning” or assign the 2.5× figure to one new module. A stronger reading separates capacity, training, effective context, and evaluation protocol, then checks each against a first-party source.
+
+## 2. From K2 to K3: Capacity, Active Compute, and Multiaxial Information Flow
+
+K3 has 93 layers and retains a hidden width of 7,168. Sixty-nine layers use KDA and twenty-four use MLA. Each MoE path contains 896 routed experts, selects sixteen per token, and adds two full-width shared experts. Total parameters rise from K2’s 1.04T to 2.78T; active parameters rise from 32.6B to 104.2B. Both totals matter. The former describes expert capacity, and the latter is closer to per-token forward compute, but communication, routing, weight reads, and cache costs do not collapse into the active-parameter number.
+
+![The overall Kimi K3 architecture: Stable LatentMoE, KDA, 3:1 hybrid attention, Block AttnRes, and a native vision path.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-2-architecture.png){fig-alt="Figure 2 of the Kimi K3 report showing Stable LatentMoE, KDA, Gated MLA, Attention Residuals, and MoonViT-V2"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 2, page 3; 5× crop.*
+
+The paper organizes the design along sequence, depth, and width, with vision as a fourth input path into the shared backbone. This decomposition makes the division of labor clear. KDA and MLA determine how a token reads sequence history. AttnRes determines how a layer reads earlier layer outputs. LatentMoE determines which channel-wise expert transforms act on that token. MoonViT-V2 determines how images become tokens trained jointly with text. These are not four parallel models; all of them write into the same residual and prediction path.
+
+![A custom four-axis map of K3 information flow: sequence, depth, width, and modality converge on the same 2.8T MoE backbone.](../../assets/kimi-k3-open-frontier-intelligence/k3-information-flow-map.svg){fig-alt="Custom Kimi K3 information-flow map with three KDA plus one MLA for sequence, Block AttnRes for depth, Stable LatentMoE for width, and MoonViT-V2 for modality"}
+
+*Custom diagram based on §2 and Figure 2 of the [K3 report](https://arxiv.org/abs/2607.24653).*
+
+The decomposition also exposes the boundary of the scaling-law result. K3’s fitted curve is shifted by approximately 2.5× relative to K2, meaning that the authors’ full configuration reaches a given validation loss with fewer fitted training FLOPs. Architecture, data mixture, native vision training, optimizer, and stabilization methods all changed together. The curve is not a causal single-module experiment. The 2.5× figure can characterize the full K3 recipe; it cannot support the statement that “KDA alone made training 2.5× more efficient.”
+
+The four axes also have an order within a forward pass. MoonViT-V2 first encodes an image into visual tokens that share the embedding stream with text. KDA or MLA mixes sequence information. AttnRes selects depth history for the sublayer. Stable LatentMoE then performs sparse channel mixing. Implementation details interleave these operations through PreNorm, residual paths, and parallel schedules, but this order reveals a systems property: an upstream scale error reaches the 896-expert router, while distorted depth aggregation changes the inputs of the next sequence mixer. K3’s normalizations, smooth caps, and clipping rules sever different paths through which such errors could compound.
+
+## 3. The Sequence Axis: A 3:1 Mixture of KDA and Gated MLA
+
+KDA continues the delta-rule recurrence. For one attention head, $S_t$ is a matrix state updated at each token, $\alpha_t$ is a channel-wise retention factor, and $\beta_t$ controls write strength. The recurrence is:
+
+$$
+S_t = \left(I - \beta_t k_t k_t^{\top}\right)\mathrm{Diag}(\alpha_t)S_{t-1} + \beta_t k_t v_t^{\top},
+\qquad
+\widetilde{o}_t = S_t^{\top}q_t.
+$$
+
+The first term decays the old state by channel and uses $I-\beta_tk_tk_t^\top$ to erase content aligned with the current key. The second writes the new key–value association. Unlike full attention, KDA does not preserve head-specific K/V entries for every historical token; history is compressed into a fixed-shape state. During training it is recurrent across chunks and parallel within each chunk, containing cache growth on long sequences.
+
+K3 does not replace every layer with linear recurrence. Each block contains three KDA layers and one Gated MLA layer, and a final MLA layer guarantees global attention at the top of the backbone. The periodic full-attention layer has a clear role. The recurrent state provides inexpensive accumulation, while MLA retains content-addressable access to per-token latents, compensating for fixed-state losses in exact recall and rare-evidence retrieval. A 3:1 mixture does not mean that linear attention has superseded softmax. It places their cache curves and retrieval properties inside the same backbone.
+
+The chunkwise form also explains why KDA is not a slow token-by-token loop during training. An incoming state carries information from previous chunks. Within a chunk, cumulative decay, query–key interactions, and pseudo-values are expressed as matrix operations; the output sums a cross-chunk state read and causal intra-chunk interaction. Recurrence remains at chunk boundaries while most work within the chunk stays parallel. The difficult part is reciprocal cumulative decay: a run of near-zero retention factors can push scaling outside finite precision. Lower-bounded decay targets that numerical failure.
+
+![Lower-bounded decay in the K3 report: constraining log-decay lets diagonal tiles use Tensor Cores as well.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-3-kda-decay.png){fig-alt="Figure 3 of the Kimi K3 report comparing Kimi Linear negative-Softplus decay with K3 lower-bounded decay and the Tensor Core diagonal-tile path"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 3, page 5; 5× crop.*
+
+Lower-bounded decay is the central KDA engineering change. Kimi Linear uses an unbounded negative Softplus. K3 constrains per-step log-decay as follows:
+
+$$
+g_t^h = g_{\min}\,\mathrm{Sigmoid}\!\left(e^{A^h}z_t^h\right) \in (g_{\min},0)^{d_k},
+\qquad
+\alpha_t^h = \exp(g_t^h) \in (e^{g_{\min}},1)^{d_k},
+\qquad g_{\min}=-5.
+$$
+
+For a secondary tile of length sixteen, cumulative log-decay lies in $(-80,0)$ and reciprocal scaling remains below $e^{80}$, within BF16’s dynamic range. Diagonal tiles previously needed a position-pair special path; they can now use the same dense Tensor Core matrix multiplication as off-diagonal tiles. This is not merely a threshold trick intended to “remember longer.” It first bounds a numerical range, then exchanges that bound for a regular, batchable kernel.
+
+![A custom view of the 3 KDA + 1 Gated MLA memory pattern: KDA state is approximately length-independent while MLA latent cache grows per token.](../../assets/kimi-k3-open-frontier-intelligence/kda-mla-hybrid-memory.svg){fig-alt="Custom KDA and MLA hybrid-cache diagram showing the three-to-one layer pattern, fixed-shape recurrent state, and per-token MLA latent growth"}
+
+*Custom diagram based on §2.1 of the [K3 report](https://arxiv.org/abs/2607.24653) and the [vLLM K3 engineering report](https://vllm-project.github.io/2026/07/27/k3.html).*
+
+## 4. The Depth Axis: How Block AttnRes Rewrites the Residual Stream
+
+A standard PreNorm Transformer repeatedly adds outputs with unit weight. As depth grows, hidden-state magnitude and provenance accumulate together, diluting early contributions inside the sum. Attention Residuals replace addition across depth with attention across depth. Each layer learns one pseudo-query $w_l$, computes weights from RMS-normalized embeddings and earlier outputs, and forms the current input from their weighted sum.
+
+$$
+\phi(q,k)=\exp\!\left(q^{\top}\mathrm{RMSNorm}(k)\right),
+\qquad
+\alpha_{i\to l}=\frac{\phi(w_l,v_i)}{\sum_{j=0}^{l-1}\phi(w_l,v_j)},
+\qquad
+h_l=\sum_{i=0}^{l-1}\alpha_{i\to l}v_i.
+$$
+
+Unlike a sequence-attention query, the pseudo-query is a learned vector for the layer and is not derived from the current token. Keys and values are the representations of that token at different depths, so the attention weights remain token-dependent. Full AttnRes requires all layer outputs to remain accessible. Activation recomputation and pipeline parallelism turn its $O(Ld)$ storage and cross-stage communication into a practical obstacle.
+
+![Figure 1 from Attention Residuals: standard residuals, Full AttnRes, and Block AttnRes.](../../assets/kimi-k3-open-frontier-intelligence/attention-residuals-figure-1.png){fig-alt="Figure 1 from Attention Residuals comparing standard residual accumulation, Full AttnRes over all earlier layers, and summarized Block AttnRes"}
+
+*Source: [Attention Residuals](https://arxiv.org/abs/2603.15031), Figure 1, page 1; 5× crop.*
+
+Block AttnRes compresses depth history into block summaries. Ordinary residual accumulation remains inside a block, while only one representation survives for cross-block access. K3 uses eight blocks of twelve layers and counts the embedding as a ninth retrievable state. This loses layer-level retrieval granularity but reduces the representations that must stay live and cross pipeline stages from $L$ to $N$. It is useful to think of the mechanism as a block index over a depth cache rather than another sequence-attention layer: it changes where a layer obtains its input without changing token-level causal order.
+
+The pseudo-query has another useful property. It is decoupled from the layer’s forward result, allowing depth weights for a group of layers to be computed in a batch rather than waiting for each layer’s output in sequence. A partial sum for the current block joins completed block summaries as a temporary value. Block AttnRes therefore compresses long-term history while retaining fine-grained updates within the active block. The cost is explicit: if one early layer inside a completed block produced a unique feature, later blocks can retrieve only the summed summary rather than that layer alone.
+
+Scaling and ablation results in the AttnRes report show improved loss and gradient distributions in controlled small models and at Kimi Linear scale. K3 does not publish a sufficiently fine-grained, equal-budget ablation for every module at full scale. A block size of twelve is not a theoretical optimum either. Its value depends on pipeline partitioning, recomputation, and interconnect. A different training system may prefer a different block boundary.
+
+## 5. The Width Axis: Stable LatentMoE’s Stability Ledger
+
+LatentMoE projects a token from $d=7{,}168$ to $\ell=3{,}584$, performs routed expert computation and all-to-all exchange in the smaller space, and projects back to the backbone width. The NVIDIA paper motivates this design from serving constraints. Lower-dimensional expert computation reduces expert weight traffic and communication by roughly $d/\ell$, and that budget can be exchanged for more experts and a larger top-k. K3 uses 896 routed experts, top-16 selection, and two always-active full-width shared experts.
+
+![Stable LatentMoE uses SiTU-GLU to bound the product of gate and up branches.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-4-situ-glu.png){fig-alt="Figure 4 of the Kimi K3 report comparing the gate and up branches and scalar responses of GLU, SwiGLU, and SiTU-GLU"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 4, page 7; 5× crop.*
+
+![Standard MoE and the latent path in the original NVIDIA LatentMoE paper.](../../assets/kimi-k3-open-frontier-intelligence/nvidia-latentmoe-figure-1.png){fig-alt="Figure 1 from NVIDIA LatentMoE with standard routing at the model width and LatentMoE down-projecting into more low-dimensional experts before up-projection"}
+
+*Source: [LatentMoE](https://arxiv.org/abs/2601.18089), Figure 1, page 2; 5× crop from the NVIDIA paper PDF.*
+
+K3 stabilizes the basic LatentMoE path. Let $T_k(x)$ denote the selected experts and $p_i$ their routing weights. The routed path is aggregated and then normalized before up-projection:
+
+$$
+u=\sum_{i\in T_k(x)}p_i E_i^{\mathrm{routed}}(W_{\downarrow}x),
+\qquad
+y=\sum_{j=1}^{N_s}E_j^{\mathrm{shared}}(x)
++W_{\uparrow}\mathrm{RMSNorm}(u),
+\qquad N_s=2.
+$$
+
+RMSNorm between expert aggregation and up-projection isolates scale changes caused by different expert mixtures. SiTU-GLU separately applies tanh soft caps with $\beta_1=4$ and $\beta_2=25$ to the gate and up branches, bounding the absolute product at 100. The repairs target different risks: RMSNorm manages aggregate scale; SiTU-GLU limits per-expert activation explosions. Expanding the expert pool is only half of the capacity ledger. The other half is keeping 896 routes trainable under large batches, low precision, and expert parallelism.
+
+The latent dimension is not free compression. If $\ell$ falls below the task’s effective feature rank, the down-projection removes information before the experts can act on it. If $\ell$ is too large, communication and weight-read savings shrink. K3 chooses half the backbone width and exchanges the savings for more routed experts and top-16 combinations. The theoretical number of expert combinations grows rapidly, but only a much smaller subset is thoroughly exercised by data. LatentMoE should therefore be evaluated through validation loss, expert load, all-to-all time, and low-batch latency together, rather than through FLOPs alone.
+
+Quantile Balancing (QB) manages the load ledger. Earlier auxiliary-loss-free routing updates expert bias by the sign of load error and a fixed step. Small steps adapt slowly; large steps oscillate. QB obtains the Top-$(k+1)$ cutoff $\alpha_i^{(t)}$ for each token and directly chooses the expert-specific quantile that produces the target load $q=mk/n$:
+
+$$
+\widehat{b}_j^{(t+1)}
+\leftarrow
+-\mathrm{quantile}_{1-k/n}\!\left(s_{:,j}-\alpha^{(t)}\right),
+\qquad
+b^{(t+1)}
+\leftarrow
+\widehat{b}^{(t+1)}-\mathrm{mean}\!\left(\widehat{b}^{(t+1)}\right)\mathbf{1}.
+$$
+
+Training does not gather every margin for millions of tokens across 896 experts. Each rank accumulates a histogram, performs one integer all-reduce at the end of the step, and reads the global quantile. Bias affects dispatch in the next step but not final mixture weights, and it is frozen for inference. Load balance becomes a separate and interpretable routing calibration problem rather than an auxiliary loss that perturbs the main objective.
+
+Histogram error is controlled by bin width. The report uses a fixed number of bins per expert and updates the represented interval dynamically. Communication is independent of token count and grows only with experts and bins. This is far cheaper than gathering raw margins, although it assumes that the large-batch distribution does not change too abruptly. A domain shift creates an unavoidable one-step lag because the bias takes effect on the next batch. Mean centering removes a common offset that leaves Top-k unchanged, preventing all biases from drifting together, but it cannot solve a persistent domain preference for a small expert subset. Data mixture and capacity must handle that problem.
+
+![Quantile Balancing estimates an expert-specific quantile from imbalanced Top-k routing.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-5-quantile-balancing.png){fig-alt="Figure 5 of the Kimi K3 report showing Quantile Balancing for eight tokens and four experts, changing loads from 4 3 1 0 to 2 2 2 2"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 5, page 8; 5× crop.*
+
+## 6. Native Vision, Per-Head Muon, and the 2.5× Scaling Result
+
+“Native vision” means that text, image, and video tokens are jointly optimized under one next-token objective from the beginning of pre-training, rather than attaching a visual encoder to a completed language model for post-hoc alignment. MoonViT-V2 has 401M parameters, 27 layers, patch size 14, and twelve attention heads; a lightweight projector maps it into the shared 7,168-dimensional embedding. The report finds lower and less spiky vision-tower gradient norms for from-scratch MoonViT-V2 than for a SigLIP-initialized MoonViT-3D baseline, with comparable vision evaluations. This is a joint observation about the reported training trajectory and downstream tests, not evidence that pretrained visual encoders are generally unnecessary.
+
+![Vision-tower gradient norms for MoonViT-V2 and the SigLIP-initialized baseline.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-6-vision-gradients.png){fig-alt="Figure 6 of the Kimi K3 report comparing gradients of from-scratch MoonViT-V2 and SigLIP-initialized MoonViT-3D"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 6, page 9; 5× crop.*
+
+Per-Head Muon treats attention heads as separate matrices for Muon’s orthogonalized update instead of applying the operation to a complete attention projection. Different heads occupy different subspaces; coupling their scales inside one large matrix can make their updates interfere. K3 also retains K2’s weight clipping and uses a 1% linear warmup, cosine learning-rate schedule, and 0.1 weight decay. No evidence supports a story in which one optimizer solves stability alone. Per-Head Muon, lower-bounded decay, RMSNorm, SiTU-GLU, QB, and clipping collectively form the stability budget.
+
+The stronger native-vision claim concerns interaction, not a static VQA score. Web development and video editing place generated code, rendered screenshots, and subsequent revisions back into one context. A shared backbone removes a cross-model handoff, but the vision encoder’s resolution, frame sampling, and projector still compress information. Sharing a context does not preserve every pixel detail. The gradient plot supports training stability; it does not replace targeted evaluation of OCR, small objects, long-video temporal structure, and errors introduced by visual tools.
+
+![Fitted scaling-law curves for K2 and K3, with an approximately 2.5× aggregate scaling-efficiency label.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-7-scaling-law.png){fig-alt="Figure 7 of the Kimi K3 report showing fitted validation-loss curves against training FLOPs for K2 and K3 with a 2.5-times annotation"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 7, page 11; 5× crop.*
+
+![The K2 and K3 architecture table covering layers, parameters, experts, attention, context, and the vision tower.](../../assets/kimi-k3-open-frontier-intelligence/paper-table-1-k2-k3.png){fig-alt="Table 1 of the Kimi K3 report comparing 61 versus 93 layers, 1.04T versus 2.78T total parameters, 32.6B versus 104.2B active parameters, and other K2 and K3 settings"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Table 1, page 11; 5× crop.*
+
+Figure 7 needs Table 1 beside it. K3 increases total parameters by 167%, active parameters by 220%, and layers by 52%. It extends training context from 128K to 1M and adds native vision. The scaling curve compares training FLOPs required for the same validation loss, not equal serving latency, memory, or per-request cost. It supports the narrower statement that the K3 recipe is more efficient under the authors’ fitted setup. It does not imply that every K3 deployment is cheaper than K2.
+
+## 7. One-Million-Token Context: NoPE, Curriculum, and Effective Use
+
+K3 uses no explicit positional embedding. Causal recurrence, decay, and ShortConv in KDA, together with the causal mask in periodic MLA, encode order implicitly. Expanding the window does not require RoPE rescaling or interpolation. NoPE removes one positional extrapolation boundary; it does not teach the model to retrieve evidence from one million tokens. The report is explicit about the data problem. Natural long documents and videos contain duplicates, corruption, truncation, binaries, and invalid logs. The pipeline applies exact and fuzzy deduplication, perceptual video hashing, quality classification, and structural validation, then upsamples scarce long examples. It also permutes and concatenates multimodal documents and subtasks so that some samples can be solved only through evidence scattered across the full context.
+
+![A custom context curriculum for K3: pre-training moves from 8K to 64K, followed by 256K and 1M during cooldown.](../../assets/kimi-k3-open-frontier-intelligence/k3-context-curriculum.svg){fig-alt="Custom Kimi K3 context curriculum showing 8K, 64K, 256K, and 1048576 tokens while noting that effective context depends on data and task"}
+
+*Custom diagram based on §3.4 of the [K3 report](https://arxiv.org/abs/2607.24653).*
+
+The curriculum has four stages. Pre-training grows from 8K to 64K; cooldown introduces 256K and then 1M. Expensive ultra-long sequences occupy only a small late fraction of the budget. This is more economical than training at 1M throughout and lets optimization adapt gradually to long-range dependency. The tradeoff is that rare 1M examples receive fewer updates, so utilization may vary across positions, task classes, and modalities.
+
+Advertised, runnable, and effective context must remain separate. The primary BrowseComp score of 91.2 uses 300K compaction. Feeding raw trajectories into the full 1M window without context management yields 90.4. The gap is small but directly refutes the assumption that more retained tokens necessarily improve the score. Compaction loses information, yet it also removes irrelevant pages, repeated observations, and tool noise. In agentic search, compression policy is part of the reasoning system. A useful context evaluation varies evidence location, distractor density, cross-section composition, tool-log growth, and failure recovery; one needle-in-a-haystack run is not enough.
+
+A million tokens also increase the cost of mistakes. An irrelevant page capture, failed terminal dump, or duplicate screenshot keeps occupying later attention and cache unless it is compressed. A flawed plan formed at the hundred-thousand-token mark may be carried forward by recurrent state through many subsequent steps. Context management is therefore not merely a patch for shorter-window models; it performs noise removal and state correction. Reporting both raw 1M and compacted results is useful, but the paper still lacks detailed buckets by trajectory length, evidence distance, and compaction deletion error.
+
+## 8. Post-Training: Distilling Nine Expert Policies into One Model
+
+Post-training starts with an SFT cold start. Earlier domain-specific Kimi models synthesize long trajectories, which undergo multistage verification and human-in-the-loop annotation before serialization in an XTML chat format. RL then separates coding, general, and agentic domains. Each domain receives low, high, and max reasoning-effort policies, creating nine teachers. An effort level is more than a prompt label. Training estimates an initial per-problem token budget $b_0(x)$, overrides task reward when a trajectory exceeds $\tau b_0(x)$, and progressively reduces $\tau$ to obtain shorter policies.
+
+![As RL FLOPs increase, scores and average assistant steps change together across several task classes.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-8-rl-scaling.png){fig-alt="Figure 8 of the Kimi K3 report showing RL score and average-step curves for coding, tool use, web development, search, professional workflows, office work, chart understanding, and visual puzzles"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 8, page 13; 5× crop.*
+
+Figure 8 shows that scores and average tool-call steps generally rise with RL FLOPs across several tasks. It establishes that training drives longer interaction, but it does not prove that more steps cause the higher scores. Both change with training progress, and several curves are non-monotonic. Token budgets and verbosity controls suppress unproductive length. Non-verifiable tasks depend on an Agentic GRM whose judge must read the result, create a rubric, score each candidate, and record a scorepad. Once a learned judge participates, rubric quality and verbosity penalties can become proxy objectives of their own.
+
+![A custom post-training diagram: SFT branches into nine policies across three domains and three effort levels, then MOPD combines them.](../../assets/kimi-k3-open-frontier-intelligence/k3-post-training-mopd.svg){fig-alt="Custom Kimi K3 post-training diagram showing coding, general, and agent domains at low, high, and max effort after SFT, followed by MOPD into one model"}
+
+*Custom diagram based on §4.1 of the [K3 report](https://arxiv.org/abs/2607.24653).*
+
+MOPD evaluates student-generated on-policy tokens with a dense signal from the appropriate teacher. For domain $d$, effort $e$, and current token $y_t$, the reward is a clipped log-ratio between teacher and student probabilities:
+
+$$
+r_{\mathrm{opd}}^{d}\!\left(y_t\mid e,x,y_{\lt t}\right)
+=
+\mathrm{clip}\!\left(
+\mathrm{sg}\!\left[
+\log\frac{\pi_{\mathrm{teacher}}^{(d,e)}\!\left(y_t\mid x,y_{\lt t}\right)}
+{\pi_{\theta}\!\left(y_t\mid e,x,y_{\lt t}\right)}
+\right],
+-R_{\max},R_{\max}
+\right).
+$$
+
+$\mathrm{sg}$ stops gradients through the teacher signal, while clipping prevents extreme advantages where the student assigns very low probability. Unlike collecting complete teacher trajectories for offline cross-entropy, on-policy distillation rewards prefixes the student actually visits and composes naturally with partial rollout. The cost remains substantial: training must query the corresponding one of nine teachers and maintain policy versions, caches, and long-lived trajectory state. The report notes that a finer top-k distillation objective produced no clear gain. That negative result is informative; a more elaborate target did not automatically improve convergence.
+
+Nine policies also separate capability from budget. Coding, general, and agentic domains use different reward sources, while low, high, and max change available tokens. Training only a max policy and requesting brevity at inference may not teach early convergence within a hard budget. Effort-specific RL gives each teacher behavior adapted to its constraint. MOPD aims to preserve these distributions rather than average nine outputs. The paper does not provide a complete forgetting matrix across domains and effort levels, so whether the unified student loses specialist ceilings on some tail tasks remains open.
+
+Deployment constraints enter post-training early. Routed expert weights, which dominate parameter memory, use MXFP4, and activations use MXFP8. Attention projections, latent projections, shared experts, and routers remain at higher precision. QAT spans SFT and RL, and rollout shares the training quantization scheme to reduce train–inference mismatch. A pretrained MTP layer is fine-tuned as an EAGLE-3-style draft model. K3’s post-training target therefore combines capability, reasoning budget, and deployed numerical format rather than applying compression as an unrelated final step.
+
+## 9. Agentic Environments and Long-Trajectory Infrastructure
+
+Agentic RL quickly moves the bottleneck from the loss to the environment. K3 trains search, software engineering, GPU kernels, web development, office deliverables, vision-in-the-loop tasks, and persistent assistant workflows. Its knowledge-graph-guided synthesis process recursively expands concepts from coarse domains, jointly samples related keywords, retrieves public materials, and chooses a task type. The benefit is coverage control: compared with unconstrained task generation, the graph can expose rare concepts and reduce topic collapse. Risk shifts to graph expansion, source licensing, synthesizer bias, and verifier quality.
+
+![Knowledge-graph-guided task synthesis from concept sampling through material retrieval and task generation.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-9-task-synthesis.png){fig-alt="Figure 9 of the Kimi K3 report showing a hierarchical knowledge graph sampling keywords, retrieving papers blogs and code, and synthesizing coding knowledge or vision tasks"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 9, page 15; 5× crop.*
+
+Million-token rollouts require persistent runtime state. The report says AgentENV uses microVM isolation, with approximately 133 ms median checkpoint and 49 ms resume time. Memory overcommit reaches up to 6.5×, and training launched 51,219,741 sandboxes. This demonstrates a large operational system. It does not mean there were 51 million independent, high-quality tasks: a single environment may be retried, resumed, or reused by several trajectories.
+
+Partial rollout resumes unfinished work after a policy update instead of discarding every long trajectory. An external KV pool separates inference state from worker lifetime, and auto-throttling regulates concurrency as training and rollout pressure change. Without this separation, GPUs wait on browsers, compilers, and networks, while environment state is lost when a worker or model version changes. Algorithm papers often compress this into “asynchronous rollout.” K3 gives it several sections, which is one of the report’s most useful contributions for engineering teams.
+
+Persistent environments also create version-consistency problems. A restored sandbox must align files, processes, browser pages, and credentials with the matching prefix. Restoring KV against a different environment state produces a syntactically valid but unverifiable trajectory. When a partial rollout crosses a policy update, the system must decide whether a prefix generated by an older policy remains valid and how reward is assigned. The report gives the checkpointing, scheduling, and isolation design but not every failure rate or replay-consistency statistic. For a team building Agent RL, these missing measurements may determine reliability more than the choice between PPO and another policy objective.
+
+![Fine-grained prefix caching separates KDA checkpoints from MLA hash blocks.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-12-prefix-cache.png){fig-alt="Figure 12 of the Kimi K3 report showing a 6144-token physical block divided into twelve 512-token hash blocks and recovery from a KDA checkpoint at token 2560"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 12, page 23; 5× crop.*
+
+Hybrid attention turns prefix caching into a two-representation problem. MLA retains a latent per token and can reuse fine-grained hash boundaries. KDA holds one large recurrent state per sequence and layer, so checkpoints are affordable only at sparse boundaries. K3 divides a 6,144-token physical block into twelve 512-token hash blocks. A hit at token 2,560 reuses the first five MLA blocks and restores the KDA state at the same boundary before resuming prefill. An MLA prefix hit alone is insufficient when the corresponding recurrent state is absent.
+
+![vLLM’s explanation of the hybrid cache: fixed KDA state and per-token MLA latents share one logical prefix.](../../assets/kimi-k3-open-frontier-intelligence/vllm-hybrid-cache.png){fig-alt="vLLM K3 engineering diagram with an fp32 KDA recurrent state per sequence and layer on the left and a bf16 MLA latent cache growing to one million tokens on the right"}
+
+*Source: vLLM, [“Serving Kimi K3 at Frontier Scale”](https://vllm-project.github.io/2026/07/27/k3.html), original web image, accessed 2026-08-01.*
+
+On a specified setup of 16 GB300 NVL72 systems, vLLM reports approximately 118 tokens/s without speculative decoding and roughly 370 tokens/s with DSpark. This demonstrates that an open-weight implementation can reach high serving throughput and that the draft model matters substantially. It is not a single-GPU result and cannot be transferred to other hardware without the cluster scale, parallel plan, quantization, request shape, and software version. The cache diagram is more portable than one tokens-per-second figure because it explains why an existing paged KV allocator cannot handle recurrent state unchanged.
+
+## 10. Evidence Boundaries for Evaluation, Cost, and Engineering Cases
+
+The K3 report spans coding, agentic search, knowledge work, vision, mathematics, and general reasoning. Primary tables generally use max reasoning effort and temperature 1, while some models run under vendor-recommended agent harnesses. Models may differ in fallback behavior, context management, and safety filters. Cyberguard changes refusals on security tasks. Browsers, terminals, parsers, and timeouts change agent evaluations. Kimi Code Bench 2.0 and several professional-workflow suites are created or maintained by the model team. Combining these scores into one “intelligence ranking” obscures that the measurements do not share one harness.
+
+![Four score–cost plots: Kimi Code Bench 2.0, BrowseComp, GDPval-AA v2, and AA-Briefcase.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-13-score-cost.png){fig-alt="Figure 13 of the Kimi K3 report with per-task dollar cost against score or Elo on four evaluations, marking Kimi K3 with a star"}
+
+*Source: [Kimi K3 technical report](https://arxiv.org/abs/2607.24653), Figure 13, page 32; 5× crop. Cost uses API prices listed by the paper at evaluation time.*
+
+Figure 13 places scores beside per-task inference cost, which is more useful than ranking by score alone. The horizontal axis still uses API pricing and token consumption from the paper, not total hardware ownership cost. Harness-specific tool calls, compaction, and retries change expense, and prices change over time. K3 occupies a favorable score–cost region in several plots. The defensible claim is that it was competitive under that protocol and those prices, not that it is cheaper for every workload.
+
+Low, high, and max points for one model should not be read solely as “pay more for a better answer.” Reasoning effort changes generated length, tool steps, retries, and timeout rate, and cost distributions can have long tails. Mean cost per task hides a small number of runaway trajectories, whereas deployed agents care about P95 latency, human takeover after failure, and recoverable state. Plotting a score–cost curve is closer to the engineering question than a single leaderboard point. Per-task tokens, tool errors, and confidence intervals would make it stronger.
+
+The report’s GPU compiler, I–Love–Q, AI-ASIC research site, gravitational-wave analysis, and video-editing cases illustrate the upper shape of long-horizon behavior. They include two-hour runs, thousands of code lines or searches, and concurrent subagents. These are selected by the model team and lack a control group, failure distribution, and independently reproduced logs. Their evidence level is that of an engineering demonstration. They answer “can this system complete a task of this form?” rather than estimating one-shot success or labor savings for an ordinary user.
+
+![A dated Artificial Analysis snapshot of Kimi K3 showing intelligence, speed, price, and context-window fields.](../../assets/kimi-k3-open-frontier-intelligence/artificial-analysis-k3-snapshot.png){fig-alt="Screenshot of the Artificial Analysis Kimi K3 max page on August 1 2026 showing Intelligence Index 57, about 35.9 output tokens per second, 3 dollar input and 15 dollar output price, and a one-million-token context"}
+
+*Source: [Artificial Analysis Kimi K3 page](https://artificialanalysis.ai/models/kimi-k3/), 2× browser screenshot, accessed 2026-08-01. Rankings, speed, pricing, and sample counts are dynamic.*
+
+The snapshot records an Intelligence Index of 57, output speed of approximately 35.9 tokens/s, and listed input/output prices of US$3/US$15 per million tokens. The page also shows a 1M context and 2.8T/104B parameter figures. This is not the same experiment as the paper’s cost plot: provider, load, sampling, test version, and aggregation rules may differ. The purpose of the screenshot is to preserve what the platform displayed on the access date, not to assign K3 a permanent rank.
+
+## 11. Reading Judgment, Limitations, and Conclusion
+
+K3 is most persuasive when it connects model structure to system constraints in the same report. Lower-bounded decay maps a finite numerical range to a Tensor Core path. Block AttnRes maps block summaries to pipeline communication. LatentMoE maps low-dimensional experts to all-to-all and weight bandwidth. QB maps global load among nearly one thousand experts to a histogram all-reduce. Separating KDA checkpoints from MLA hash blocks maps the hybrid architecture to prefix caching. Many papers treat kernels, caches, and environments as implementation detail. K3 recognizes that these details determine whether the model can be trained at all.
+
+I remain cautious about three results. The 2.5× factor lacks a complete decomposition under equal data and equal active compute, so it is a systems-level result. The 1M claim lacks independent effective-context tests spanning task classes, evidence locations, and distractor ratios. The final value of nine-policy MOPD lacks enough comparisons among teachers, the student, offline distillation, and single-policy RL. Open weights make the first two easier to measure externally. The third depends on training environments and teacher policies and remains much harder to audit.
+
+Reading K3 only as a “3T-class open-weight model” reduces it to scale. A more precise technical position is that it tries to place million-token model training, million-token agent rollout, and million-token serving state inside one design. Architecture creates the possibility; curriculum data teaches use; RL spends the window on long tasks; caches and sandboxes keep systems cost from overwhelming training. If any link is missing, 1M may remain only a configuration field.
+
+That is the final reading judgment. K3 deserves study less for one composite leaderboard than for a set of interfaces that can be questioned and implemented independently. KDA’s numerical bound, AttnRes’s depth index, LatentMoE’s stability mechanisms, MOPD’s policy consolidation, and hybrid prefix caching are more concrete than the phrase “open frontier intelligence.” The evidence most likely to change this assessment will come from third-party long-context tasks, same-hardware serving measurements, small-scale training reproductions, and documented failure cases rather than another release table.
+
+## References
+
+- Kimi Team. [Kimi K3: Open Frontier Intelligence](https://arxiv.org/abs/2607.24653), 2026.
+- Moonshot AI. [Kimi K3 official repository](https://github.com/MoonshotAI/Kimi-K3), 2026.
+- Kimi Team. [Kimi Linear: An Expressive, Efficient Attention Architecture](https://arxiv.org/abs/2510.26692), 2025.
+- Kimi Team. [Attention Residuals](https://arxiv.org/abs/2603.15031), 2026.
+- Elango et al. [LatentMoE: Toward Optimal Accuracy per FLOP and Parameter in Mixture of Experts](https://arxiv.org/abs/2601.18089), 2026.
+- vLLM. [Serving Kimi K3 at Frontier Scale](https://vllm-project.github.io/2026/07/27/k3.html), 2026.
+- Artificial Analysis. [Kimi K3 (max) Intelligence, Performance & Price Analysis](https://artificialanalysis.ai/models/kimi-k3/), accessed 2026-08-01.
+- Moonshot AI. [Kimi K3 License](https://github.com/MoonshotAI/Kimi-K3/blob/main/LICENSE), 2026.
+- Kimi. [Official Kimi K3 Zhihu post](https://zhuanlan.zhihu.com/p/2061380200647205373), 2026.
+- Zhihu user evaluation. [Kimi K3 answer](https://www.zhihu.com/question/2061204677446964906/answer/2063674631316414638), 2026.
+- Tencent Cloud Developer Community. [Kimi K3 technical overview](https://cloud.tencent.com/developer/article/2714420?policyId=1004), 2026.

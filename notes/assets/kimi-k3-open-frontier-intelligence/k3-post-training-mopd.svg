@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Kimi K3 post-training and MOPD</title>
+  <desc id="desc">Supervised fine-tuning branches into nine policies across three domains and three effort levels, then distills into one model.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#0f172a">Nine specialist policies, one served model</text>
+  <text x="60" y="106" font-family="Inter,Arial,sans-serif" font-size="18" fill="#475569">MOPD preserves domain and effort diversity without shipping nine separate endpoints</text>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="60" y="255" width="170" height="120" rx="24" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="145" y="305" text-anchor="middle" font-size="27" font-weight="700" fill="#1e3a8a">SFT</text>
+    <text x="145" y="339" text-anchor="middle" font-size="16" fill="#334155">shared initialization</text>
+
+    <text x="335" y="166" font-size="16" font-weight="700" fill="#64748b">DOMAIN × EFFORT</text>
+    <g font-size="18" font-weight="700" text-anchor="middle">
+      <rect x="315" y="190" width="130" height="62" rx="15" fill="#dbeafe" stroke="#60a5fa"/><text x="380" y="228" fill="#1e3a8a">Code · low</text>
+      <rect x="465" y="190" width="130" height="62" rx="15" fill="#dbeafe" stroke="#60a5fa"/><text x="530" y="228" fill="#1e3a8a">Code · high</text>
+      <rect x="615" y="190" width="130" height="62" rx="15" fill="#dbeafe" stroke="#60a5fa"/><text x="680" y="228" fill="#1e3a8a">Code · max</text>
+      <rect x="315" y="286" width="130" height="62" rx="15" fill="#dcfce7" stroke="#4ade80"/><text x="380" y="324" fill="#166534">General · low</text>
+      <rect x="465" y="286" width="130" height="62" rx="15" fill="#dcfce7" stroke="#4ade80"/><text x="530" y="324" fill="#166534">General · high</text>
+      <rect x="615" y="286" width="130" height="62" rx="15" fill="#dcfce7" stroke="#4ade80"/><text x="680" y="324" fill="#166534">General · max</text>
+      <rect x="315" y="382" width="130" height="62" rx="15" fill="#ffedd5" stroke="#fb923c"/><text x="380" y="420" fill="#9a3412">Agent · low</text>
+      <rect x="465" y="382" width="130" height="62" rx="15" fill="#ffedd5" stroke="#fb923c"/><text x="530" y="420" fill="#9a3412">Agent · high</text>
+      <rect x="615" y="382" width="130" height="62" rx="15" fill="#ffedd5" stroke="#fb923c"/><text x="680" y="420" fill="#9a3412">Agent · max</text>
+    </g>
+
+    <rect x="820" y="242" width="145" height="145" rx="72" fill="#7c3aed"/>
+    <text x="892" y="307" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">MOPD</text>
+    <text x="892" y="338" text-anchor="middle" font-size="15" fill="#ede9fe">clipped log-ratio</text>
+
+    <rect x="1020" y="255" width="130" height="120" rx="24" fill="#111827"/>
+    <text x="1085" y="304" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Kimi K3</text>
+    <text x="1085" y="337" text-anchor="middle" font-size="16" fill="#cbd5e1">one policy</text>
+  </g>
+
+  <g fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M230 315 H295"/>
+    <path d="M745 221 C790 221 790 275 825 286"/>
+    <path d="M745 317 H815"/>
+    <path d="M745 413 C790 413 790 355 825 344"/>
+    <path d="M965 315 H1010"/>
+  </g>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="295" y="505" width="670" height="100" rx="20" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="325" y="545" font-size="20" font-weight="700" fill="#5b21b6">Distillation target: behavior distribution, not a single best trajectory</text>
+    <text x="325" y="576" font-size="17" fill="#475569">Clipping limits extreme teacher–student ratios while retaining multiple effort modes.</text>
+  </g>
+</svg>

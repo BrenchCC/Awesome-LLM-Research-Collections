@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>笔记</span></div>
+    <div><strong>14</strong><span>笔记</span></div>
     <div><strong>6</strong><span>主题</span></div>
-    <div><strong>2026-07-29</strong><span>最新日期</span></div>
+    <div><strong>2026-08-01</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -86,6 +86,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>AGENTS</span>
+    <span>论文解读</span>
+  </div>
+</a>
+<a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
+  <span class="category-count">2026-08-01</span>
+  <h3>Kimi K3：架构、训练与百万 Token Agentic RL 技术解读</h3>
+  <p>从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi K3</span>
+    <span class="note-tag">LLM</span>
+    <span class="note-tag">Mixture of Experts</span>
+    <span class="note-tag">Long Context</span>
+    <span class="note-tag">Agentic RL</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
     <span>论文解读</span>
   </div>
 </a>
