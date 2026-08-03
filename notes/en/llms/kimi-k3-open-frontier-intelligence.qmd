@@ -2,7 +2,7 @@
 author: Brench
 date: 2026-08-01
 title: "Kimi K3: Architecture, Training, and Million-Token Agentic RL"
-description: "A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations."
+description: "A plain-language explanation of Kimi K3's KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests."
 order: 1
 note_type: paper-reading
 topic: llms
@@ -20,9 +20,27 @@ tags:
 
 ## Summary and Core Assessment
 
-The most memorable Kimi K3 figures are 2.8T total parameters, 104.2B active parameters, and a one-million-token context window. The report’s coherent technical story, however, is not simply that all three numbers grew. It redesigns information flow in four places. KDA supplies recurrent memory over long sequences while periodic Gated MLA layers preserve global retrieval. Block Attention Residuals let each layer select from earlier blocks. Stable LatentMoE compresses expert computation into a 3,584-dimensional latent space and expands the routed pool to 896 experts. MoonViT-V2 places image and text tokens under a shared next-token objective from the start of pre-training. All four changes address one engineering problem: preserve tractable training and serving while the model handles longer, deeper, sparser, and more interactive trajectories.
+The headline Kimi K3 figures are 2.8T total parameters, 104.2B active parameters, and a one-million-token context window. The paper is not simply about making those numbers larger. K3 changes four information paths at once. KDA compresses long history into an updated recurrent state. Periodic Gated MLA layers still retrieve information directly from earlier tokens. Block AttnRes lets a layer choose which earlier blocks to read. Stable LatentMoE compresses features before routing them through a pool of 896 experts. MoonViT-V2 brings images, video, and text into the same model from the beginning of pre-training. The common goal is practical: the model must remain trainable and deployable while handling long inputs and complex tool-use trajectories.
 
-My assessment has four parts. First, K3’s architectural value lies in coordination, not in one isolated module. The reported “2.5× scaling efficiency” belongs to the combined K3 architecture, data, and training recipe relative to K2. The paper does not contain the ablation needed to allocate that factor among KDA, AttnRes, and LatentMoE. Second, 1M is a trained and runnable maximum window, not proof that every task uses one million tokens effectively. The primary BrowseComp result uses 300K compaction, while a raw full-window run without context management scores slightly lower. Third, post-training does more than add a generic RL stage: it trains nine policies across three domains and three reasoning-effort levels, then distills them into one served model. Fourth, open weights make architectural study and deployment possible, but the training corpus, complete data pipeline, all environments, and cluster software were not released with the checkpoint. “Open weights” should not be rewritten as “fully open and reproducible.”
+A short terminology guide makes the rest of the note easier to read:
+
+| Term | Plain meaning |
+|---|---|
+| token | The basic unit processed by the model for text, images, or video. A single character does not always map to one token. |
+| KDA | Kimi Delta Attention. It updates a fixed-size matrix memory instead of retaining key/value entries for every historical token. |
+| MLA | Multi-head Latent Attention. It caches compressed key/value information for each token and can still retrieve history by content. |
+| AttnRes | Attention Residuals. A layer weights earlier layer outputs instead of adding every earlier contribution with the same weight. |
+| MoE | Mixture of Experts. Each token uses only a small subset of experts, so total capacity can grow without activating every parameter. |
+| latent | A lower-dimensional internal feature representation, not a separate data type. |
+| rollout | One full attempt inside an RL environment, including reasoning, tool calls, observations, and follow-up actions. |
+| compaction | Context compression that summarizes or removes old pages, repeated logs, and tool noise. |
+
+My assessment has four parts:
+
+1. K3’s value lies in coordination, not one isolated module. The reported “2.5× scaling efficiency” belongs to the combined architecture, data, and training recipe. The paper does not contain the ablations needed to allocate that factor among KDA, AttnRes, and LatentMoE.
+2. 1M is a maximum window, not proof that every task uses one million tokens effectively. The primary BrowseComp result uses 300K compaction, while the raw full-window run scores slightly lower.
+3. Post-training does more than add generic RL. It trains nine policies across three domains and three reasoning budgets, then distills them into one served model.
+4. Open weights make study and deployment possible, but the corpus, complete data pipeline, environments, and cluster software were not released. “Open weights” should not be rewritten as “fully open and reproducible.”
 
 This note does not call the Kimi K3 API, and it does not present published benchmarks as personal reproductions. It addresses questions supported by public evidence: how the mechanisms work, which bottleneck each mechanism targets, what the reported numbers measure, and where the claims remain bounded by the authors’ own evaluation.
 
@@ -38,7 +56,7 @@ Evidence must also separate the existence of a mechanism from its contribution. 
 
 Zhihu and Tencent Cloud posts are useful for identifying recurring interpretations, not for establishing architecture. The [official Kimi Zhihu post](https://zhuanlan.zhihu.com/p/2061380200647205373) follows the release framing, a [Zhihu user test](https://www.zhihu.com/question/2061204677446964906/answer/2063674631316414638) provides task-level experience, and a [Tencent Cloud community article](https://cloud.tencent.com/developer/article/2714420?policyId=1004) gives a rapid overview. Secondary summaries often collapse “1M window” into “effective million-token reasoning” or assign the 2.5× figure to one new module. A stronger reading separates capacity, training, effective context, and evaluation protocol, then checks each against a first-party source.
 
-## 2. From K2 to K3: Capacity, Active Compute, and Multiaxial Information Flow
+## 2. From K2 to K3: Total Capacity and Per-Token Compute
 
 K3 has 93 layers and retains a hidden width of 7,168. Sixty-nine layers use KDA and twenty-four use MLA. Each MoE path contains 896 routed experts, selects sixteen per token, and adds two full-width shared experts. Total parameters rise from K2’s 1.04T to 2.78T; active parameters rise from 32.6B to 104.2B. Both totals matter. The former describes expert capacity, and the latter is closer to per-token forward compute, but communication, routing, weight reads, and cache costs do not collapse into the active-parameter number.
 
@@ -56,7 +74,7 @@ The decomposition also exposes the boundary of the scaling-law result. K3’s fi
 
 The four axes also have an order within a forward pass. MoonViT-V2 first encodes an image into visual tokens that share the embedding stream with text. KDA or MLA mixes sequence information. AttnRes selects depth history for the sublayer. Stable LatentMoE then performs sparse channel mixing. Implementation details interleave these operations through PreNorm, residual paths, and parallel schedules, but this order reveals a systems property: an upstream scale error reaches the 896-expert router, while distorted depth aggregation changes the inputs of the next sequence mixer. K3’s normalizations, smooth caps, and clipping rules sever different paths through which such errors could compound.
 
-## 3. The Sequence Axis: A 3:1 Mixture of KDA and Gated MLA
+## 3. KDA and Gated MLA: Why K3 Uses a 3:1 Mixture
 
 KDA continues the delta-rule recurrence. For one attention head, $S_t$ is a matrix state updated at each token, $\alpha_t$ is a channel-wise retention factor, and $\beta_t$ controls write strength. The recurrence is:
 
@@ -91,7 +109,7 @@ For a secondary tile of length sixteen, cumulative log-decay lies in $(-80,0)$ a
 
 *Custom diagram based on §2.1 of the [K3 report](https://arxiv.org/abs/2607.24653) and the [vLLM K3 engineering report](https://vllm-project.github.io/2026/07/27/k3.html).*
 
-## 4. The Depth Axis: How Block AttnRes Rewrites the Residual Stream
+## 4. Block AttnRes: Letting Deep Layers Select Earlier Information
 
 A standard PreNorm Transformer repeatedly adds outputs with unit weight. As depth grows, hidden-state magnitude and provenance accumulate together, diluting early contributions inside the sum. Attention Residuals replace addition across depth with attention across depth. Each layer learns one pseudo-query $w_l$, computes weights from RMS-normalized embeddings and earlier outputs, and forms the current input from their weighted sum.
 
@@ -115,7 +133,7 @@ The pseudo-query has another useful property. It is decoupled from the layer’s
 
 Scaling and ablation results in the AttnRes report show improved loss and gradient distributions in controlled small models and at Kimi Linear scale. K3 does not publish a sufficiently fine-grained, equal-budget ablation for every module at full scale. A block size of twelve is not a theoretical optimum either. Its value depends on pipeline partitioning, recomputation, and interconnect. A different training system may prefer a different block boundary.
 
-## 5. The Width Axis: Stable LatentMoE’s Stability Ledger
+## 5. Stable LatentMoE: Compress First, Then Route to Experts
 
 LatentMoE projects a token from $d=7{,}168$ to $\ell=3{,}584$, performs routed expert computation and all-to-all exchange in the smaller space, and projects back to the backbone width. The NVIDIA paper motivates this design from serving constraints. Lower-dimensional expert computation reduces expert weight traffic and communication by roughly $d/\ell$, and that budget can be exchanged for more experts and a larger top-k. K3 uses 896 routed experts, top-16 selection, and two always-active full-width shared experts.
 
@@ -183,7 +201,7 @@ The stronger native-vision claim concerns interaction, not a static VQA score. W
 
 Figure 7 needs Table 1 beside it. K3 increases total parameters by 167%, active parameters by 220%, and layers by 52%. It extends training context from 128K to 1M and adds native vision. The scaling curve compares training FLOPs required for the same validation loss, not equal serving latency, memory, or per-request cost. It supports the narrower statement that the K3 recipe is more efficient under the authors’ fitted setup. It does not imply that every K3 deployment is cheaper than K2.
 
-## 7. One-Million-Token Context: NoPE, Curriculum, and Effective Use
+## 7. One-Million-Token Context: A Long Window Is Not Automatically Useful
 
 K3 uses no explicit positional embedding. Causal recurrence, decay, and ShortConv in KDA, together with the causal mask in periodic MLA, encode order implicitly. Expanding the window does not require RoPE rescaling or interpolation. NoPE removes one positional extrapolation boundary; it does not teach the model to retrieve evidence from one million tokens. The report is explicit about the data problem. Natural long documents and videos contain duplicates, corruption, truncation, binaries, and invalid logs. The pipeline applies exact and fuzzy deduplication, perceptual video hashing, quality classification, and structural validation, then upsamples scarce long examples. It also permutes and concatenates multimodal documents and subtasks so that some samples can be solved only through evidence scattered across the full context.
 
@@ -197,7 +215,7 @@ Advertised, runnable, and effective context must remain separate. The primary Br
 
 A million tokens also increase the cost of mistakes. An irrelevant page capture, failed terminal dump, or duplicate screenshot keeps occupying later attention and cache unless it is compressed. A flawed plan formed at the hundred-thousand-token mark may be carried forward by recurrent state through many subsequent steps. Context management is therefore not merely a patch for shorter-window models; it performs noise removal and state correction. Reporting both raw 1M and compacted results is useful, but the paper still lacks detailed buckets by trajectory length, evidence distance, and compaction deletion error.
 
-## 8. Post-Training: Distilling Nine Expert Policies into One Model
+## 8. Post-Training: Combining Nine Policies into One Model
 
 Post-training starts with an SFT cold start. Earlier domain-specific Kimi models synthesize long trajectories, which undergo multistage verification and human-in-the-loop annotation before serialization in an XTML chat format. RL then separates coding, general, and agentic domains. Each domain receives low, high, and max reasoning-effort policies, creating nine teachers. An effort level is more than a prompt label. Training estimates an initial per-problem token budget $b_0(x)$, overrides task reward when a trajectory exceeds $\tau b_0(x)$, and progressively reduces $\tau$ to obtain shorter policies.
 
@@ -211,7 +229,7 @@ Figure 8 shows that scores and average tool-call steps generally rise with RL FL
 
 *Custom diagram based on §4.1 of the [K3 report](https://arxiv.org/abs/2607.24653).*
 
-MOPD evaluates student-generated on-policy tokens with a dense signal from the appropriate teacher. For domain $d$, effort $e$, and current token $y_t$, the reward is a clipped log-ratio between teacher and student probabilities:
+MOPD consolidates multiple teachers through on-policy distillation. The student first generates tokens from its current policy, so training covers prefixes that the student actually visits. The matching domain-and-effort teacher then provides a dense token-level signal. For domain $d$, effort $e$, and current token $y_t$, the reward is a clipped log-ratio between teacher and student probabilities:
 
 $$
 r_{\mathrm{opd}}^{d}\!\left(y_t\mid e,x,y_{\lt t}\right)
@@ -231,7 +249,7 @@ Nine policies also separate capability from budget. Coding, general, and agentic
 
 Deployment constraints enter post-training early. Routed expert weights, which dominate parameter memory, use MXFP4, and activations use MXFP8. Attention projections, latent projections, shared experts, and routers remain at higher precision. QAT spans SFT and RL, and rollout shares the training quantization scheme to reduce train–inference mismatch. A pretrained MTP layer is fine-tuned as an EAGLE-3-style draft model. K3’s post-training target therefore combines capability, reasoning budget, and deployed numerical format rather than applying compression as an unrelated final step.
 
-## 9. Agentic Environments and Long-Trajectory Infrastructure
+## 9. Agentic Environments: Saving and Resuming Very Long Trajectories
 
 Agentic RL quickly moves the bottleneck from the loss to the environment. K3 trains search, software engineering, GPU kernels, web development, office deliverables, vision-in-the-loop tasks, and persistent assistant workflows. Its knowledge-graph-guided synthesis process recursively expands concepts from coarse domains, jointly samples related keywords, retrieves public materials, and chooses a task type. The benefit is coverage control: compared with unconstrained task generation, the graph can expose rare concepts and reduce topic collapse. Risk shifts to graph expansion, source licensing, synthesizer bias, and verifier quality.
 
@@ -257,7 +275,7 @@ Hybrid attention turns prefix caching into a two-representation problem. MLA ret
 
 On a specified setup of 16 GB300 NVL72 systems, vLLM reports approximately 118 tokens/s without speculative decoding and roughly 370 tokens/s with DSpark. This demonstrates that an open-weight implementation can reach high serving throughput and that the draft model matters substantially. It is not a single-GPU result and cannot be transferred to other hardware without the cluster scale, parallel plan, quantization, request shape, and software version. The cache diagram is more portable than one tokens-per-second figure because it explains why an existing paged KV allocator cannot handle recurrent state unchanged.
 
-## 10. Evidence Boundaries for Evaluation, Cost, and Engineering Cases
+## 10. How to Read the Evaluations, Costs, and Engineering Cases
 
 The K3 report spans coding, agentic search, knowledge work, vision, mathematics, and general reasoning. Primary tables generally use max reasoning effort and temperature 1, while some models run under vendor-recommended agent harnesses. Models may differ in fallback behavior, context management, and safety filters. Cyberguard changes refusals on security tasks. Browsers, terminals, parsers, and timeouts change agent evaluations. Kimi Code Bench 2.0 and several professional-workflow suites are created or maintained by the model team. Combining these scores into one “intelligence ranking” obscures that the measurements do not share one harness.
 

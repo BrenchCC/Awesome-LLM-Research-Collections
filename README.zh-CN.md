@@ -73,6 +73,18 @@
   <a href="https://arxiv.org/abs/2603.15031"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/MoonshotAI/Attention-Residuals"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **Kimi Linear: An Expressive, Efficient Attention Architecture** (2025.10) \
+  **描述**: 该论文提出 Kimi Linear 混合架构，其 Kimi Delta Attention 模块结合细粒度门控与基于特化对角加低秩转移矩阵的高效分块算法。一个总参数 48B、激活参数 3B 的模型在相同训练方案下优于完整 MLA，同时将 KV 缓存占用最多降低 75%，并在 100 万 token 上下文中实现最高 6 倍解码吞吐。 \
+  [[论文](https://arxiv.org/abs/2510.26692)]
+  [[代码](https://github.com/MoonshotAI/Kimi-Linear)]
+  [[Hugging Face](https://huggingface.co/collections/moonshotai/kimi-linear-a3b)]
+
+- **RoFormer: Enhanced Transformer with Rotary Position Embedding** (2021.04) \
+  **描述**: 该论文提出旋转位置编码（RoPE），通过旋转矩阵编码绝对位置，同时使自注意力显式依赖相对位置。RoPE 支持灵活的序列长度、随相对距离增加而衰减的 token 依赖，并可为线性自注意力引入相对位置编码。 \
+  [[论文](https://arxiv.org/abs/2104.09864)]
+  [[代码](https://github.com/ZhuiyiTechnology/roformer)]
+  [[Hugging Face](https://huggingface.co/junnyu/roformer_chinese_base)]
+
 - **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
   **描述**: 该论文提出 multi-query attention，在不同注意力头之间共享 keys 和 values，以降低 Transformer 增量解码中的内存带宽开销。该变体显著提升解码速度，同时相较多头注意力基线仅带来轻微质量下降。 \
   <a href="https://arxiv.org/abs/1911.02150"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -731,8 +743,13 @@
 
 ## 论文解读
 
+- **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (2026-08-03) \
+  **描述**: 从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。 \
+  [[笔记](notes/zh/attention/kimi-linear-kda.qmd)]
+  [[English](notes/en/attention/kimi-linear-kda.qmd)]
+
 - **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (2026-08-01) \
-  **描述**: 从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。 \
+  **描述**: 用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。 \
   [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
 

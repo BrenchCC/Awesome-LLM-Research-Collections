@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>Notes</span></div>
-    <div><strong>6</strong><span>Topics</span></div>
-    <div><strong>2026-08-01</strong><span>Latest date</span></div>
+    <div><strong>15</strong><span>Notes</span></div>
+    <div><strong>7</strong><span>Topics</span></div>
+    <div><strong>2026-08-03</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -25,10 +25,26 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="attention/kimi-linear-kda.html">
+  <span class="category-count">2026-08-03</span>
+  <h3>Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention</h3>
+  <p>A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations.</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi Linear</span>
+    <span class="note-tag">Kimi Delta Attention</span>
+    <span class="note-tag">Linear Attention</span>
+    <span class="note-tag">Delta Rule</span>
+    <span class="note-tag">Long Context</span>
+  </div>
+  <div class="category-foot">
+    <span>ATTENTION</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
 <a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
   <span class="category-count">2026-08-01</span>
   <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
-  <p>A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations.</p>
+  <p>A plain-language explanation of Kimi K3&#x27;s KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests.</p>
   <div class="note-tags">
     <span class="note-tag">Kimi K3</span>
     <span class="note-tag">LLM</span>

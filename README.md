@@ -73,6 +73,19 @@
   **Description**: This work replaces fixed residual accumulation with attention over previous layer outputs, enabling input-dependent depth-wise aggregation and reducing PreNorm-induced representation dilution. It also introduces Block AttnRes for scalable training with lower memory and communication overhead. 
   <a href="https://arxiv.org/abs/2603.15031"></a>
   [[Project](https://github.com/MoonshotAI/Attention-Residuals)]
+
+- **Kimi Linear: An Expressive, Efficient Attention Architecture** (2025.10) \
+  **Description**: This paper introduces Kimi Linear, a hybrid architecture whose Kimi Delta Attention module combines fine-grained gating with an efficient chunkwise algorithm based on specialized diagonal-plus-low-rank transitions. A 48B-parameter model with 3B activated parameters outperforms full MLA under the same training recipe while reducing KV cache usage by up to 75% and delivering up to 6× decoding throughput at a 1M-token context. \
+  [[Paper](https://arxiv.org/abs/2510.26692)]
+  [[Code](https://github.com/MoonshotAI/Kimi-Linear)]
+  [[Hugging Face](https://huggingface.co/collections/moonshotai/kimi-linear-a3b)]
+
+- **RoFormer: Enhanced Transformer with Rotary Position Embedding** (2021.04) \
+  **Description**: This paper introduces Rotary Position Embedding (RoPE), which encodes absolute positions through rotations while making self-attention explicitly depend on relative positions. RoPE supports flexible sequence lengths, distance-aware dependency decay, and relative position encoding for linear self-attention. \
+  [[Paper](https://arxiv.org/abs/2104.09864)]
+  [[Code](https://github.com/ZhuiyiTechnology/roformer)]
+  [[Hugging Face](https://huggingface.co/junnyu/roformer_chinese_base)]
+
 - **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) 
   **Description**: This paper introduces multi-query attention, sharing keys and values across attention heads to reduce the memory-bandwidth cost of incremental Transformer decoding. The variant speeds up decoding substantially while incurring only minor quality degradation relative to multi-head attention baselines. 
   <a href="https://arxiv.org/abs/1911.02150"></a>
@@ -674,8 +687,13 @@
 
 ## Paper Readings
 
+- **Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention** (2026-08-03) \
+  **Description**: A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations. \
+  [[Note](notes/en/attention/kimi-linear-kda.qmd)]
+  [[中文](notes/zh/attention/kimi-linear-kda.qmd)]
+
 - **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (2026-08-01) \
-  **Description**: A four-axis reading of Kimi K3 covering sequence, depth, width, and modality, with evidence boundaries for its 1M context, nine-policy post-training, long-rollout infrastructure, and evaluations. \
+  **Description**: A plain-language explanation of Kimi K3's KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests. \
   [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
 

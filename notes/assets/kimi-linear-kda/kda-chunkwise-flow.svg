@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="960" viewBox="0 0 1800 960" role="img" aria-labelledby="title desc">
+  <title id="title">Chunkwise KDA prefill and recurrent decoding</title>
+  <desc id="desc">Chunks perform parallel local matrix operations while recurrent states connect chunks; decoding updates one token at a time.</desc>
+  <defs>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#334155"/></marker>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .head{font:700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .body{font:22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#334155}
+      .small{font:19px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#475569}
+      .mono{font:20px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#172554}
+    </style>
+  </defs>
+  <rect width="1800" height="960" fill="#f8fafc"/>
+  <text x="900" y="65" text-anchor="middle" class="title">Two execution modes, one recurrence</text>
+  <rect x="60" y="115" width="1680" height="510" rx="34" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="105" y="170" class="head">Prefill: parallel work inside chunks</text>
+  <text x="105" y="207" class="body">WY/UT transforms turn token recursion into batched matrix products.</text>
+
+  <g transform="translate(100 255)">
+    <g>
+      <rect width="430" height="245" rx="25" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+      <text x="215" y="48" text-anchor="middle" class="head">Chunk 1</text>
+      <rect x="32" y="82" width="88" height="70" rx="12" fill="#60a5fa"/><rect x="132" y="82" width="88" height="70" rx="12" fill="#60a5fa"/><rect x="232" y="82" width="88" height="70" rx="12" fill="#60a5fa"/><rect x="332" y="82" width="66" height="70" rx="12" fill="#93c5fd"/>
+      <text x="215" y="196" text-anchor="middle" class="mono">local GEMMs + triangular solve</text>
+    </g>
+    <g transform="translate(555)">
+      <rect width="430" height="245" rx="25" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+      <text x="215" y="48" text-anchor="middle" class="head">Chunk 2</text>
+      <rect x="32" y="82" width="88" height="70" rx="12" fill="#a78bfa"/><rect x="132" y="82" width="88" height="70" rx="12" fill="#a78bfa"/><rect x="232" y="82" width="88" height="70" rx="12" fill="#a78bfa"/><rect x="332" y="82" width="66" height="70" rx="12" fill="#c4b5fd"/>
+      <text x="215" y="196" text-anchor="middle" class="mono">local GEMMs + triangular solve</text>
+    </g>
+    <g transform="translate(1110)">
+      <rect width="430" height="245" rx="25" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+      <text x="215" y="48" text-anchor="middle" class="head">Chunk n</text>
+      <rect x="32" y="82" width="88" height="70" rx="12" fill="#4ade80"/><rect x="132" y="82" width="88" height="70" rx="12" fill="#4ade80"/><rect x="232" y="82" width="88" height="70" rx="12" fill="#4ade80"/><rect x="332" y="82" width="66" height="70" rx="12" fill="#86efac"/>
+      <text x="215" y="196" text-anchor="middle" class="mono">local GEMMs + triangular solve</text>
+    </g>
+    <path d="M430 123H555" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+    <text x="493" y="102" text-anchor="middle" class="small">state S₁</text>
+    <path d="M985 123H1110" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+    <text x="1048" y="102" text-anchor="middle" class="small">state …</text>
+  </g>
+  <text x="900" y="572" text-anchor="middle" class="body">Parallel within a chunk; only the compact state crosses chunk boundaries.</text>
+
+  <rect x="60" y="665" width="1680" height="235" rx="34" fill="#0f172a"/>
+  <text x="105" y="720" class="head" fill="#fff">Decode: fused recurrent kernel</text>
+  <text x="105" y="760" class="body" fill="#cbd5e1">One new token updates the fixed state, then produces one output. No secondary chunking is needed.</text>
+  <g transform="translate(270 800)">
+    <rect x="0" y="0" width="170" height="62" rx="18" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+    <text x="85" y="40" text-anchor="middle" class="mono" fill="#fff">Sₜ₋₁</text>
+    <path d="M180 31H300" stroke="#e2e8f0" stroke-width="5" marker-end="url(#arr)"/>
+    <rect x="310" y="0" width="420" height="62" rx="18" fill="#4f46e5"/>
+    <text x="520" y="40" text-anchor="middle" class="mono" fill="#fff">decay + erase + write</text>
+    <path d="M740 31H860" stroke="#e2e8f0" stroke-width="5" marker-end="url(#arr)"/>
+    <rect x="870" y="0" width="170" height="62" rx="18" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+    <text x="955" y="40" text-anchor="middle" class="mono" fill="#fff">Sₜ</text>
+    <path d="M1050 31H1170" stroke="#e2e8f0" stroke-width="5" marker-end="url(#arr)"/>
+    <rect x="1180" y="0" width="170" height="62" rx="18" fill="#0ea5e9"/>
+    <text x="1265" y="40" text-anchor="middle" class="mono" fill="#fff">oₜ</text>
+  </g>
+</svg>

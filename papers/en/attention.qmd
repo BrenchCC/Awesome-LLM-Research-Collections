@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>5</strong><span>Papers</span></div>
-    <div><strong>11</strong><span>Resource links</span></div>
+    <div><strong>7</strong><span>Papers</span></div>
+    <div><strong>17</strong><span>Resource links</span></div>
     <div><strong>2026.06</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -22,7 +22,7 @@ toc: false
 
 <section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Attention Architecture</h2>
   </div>
   <div class="paper-grid">
@@ -74,6 +74,32 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.15031" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/MoonshotAI/Attention-Residuals" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+<article class="paper-card" id="kimi-linear-an-expressive-efficient-attention-architecture">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>Attention Architecture</span>
+  </div>
+  <h3>Kimi Linear: An Expressive, Efficient Attention Architecture</h3>
+  <p>This paper introduces Kimi Linear, a hybrid architecture whose Kimi Delta Attention module combines fine-grained gating with an efficient chunkwise algorithm based on specialized diagonal-plus-low-rank transitions. A 48B-parameter model with 3B activated parameters outperforms full MLA under the same training recipe while reducing KV cache usage by up to 75% and delivering up to 6× decoding throughput at a 1M-token context.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.26692" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-Linear" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/moonshotai/kimi-linear-a3b" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="roformer-enhanced-transformer-with-rotary-position-embedding">
+  <div class="paper-meta">
+    <span>2021.04</span>
+    <span>Attention Architecture</span>
+  </div>
+  <h3>RoFormer: Enhanced Transformer with Rotary Position Embedding</h3>
+  <p>This paper introduces Rotary Position Embedding (RoPE), which encodes absolute positions through rotations while making self-attention explicitly depend on relative positions. RoPE supports flexible sequence lengths, distance-aware dependency decay, and relative position encoding for linear self-attention.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2104.09864" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/ZhuiyiTechnology/roformer" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/junnyu/roformer_chinese_base" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="fast-transformer-decoding-one-write-head-is-all-you-need">

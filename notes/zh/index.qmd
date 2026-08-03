@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>14</strong><span>笔记</span></div>
-    <div><strong>6</strong><span>主题</span></div>
-    <div><strong>2026-08-01</strong><span>最新日期</span></div>
+    <div><strong>15</strong><span>笔记</span></div>
+    <div><strong>7</strong><span>主题</span></div>
+    <div><strong>2026-08-03</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -25,10 +25,26 @@ toc: false
     <h2>论文解读</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="attention/kimi-linear-kda.html">
+  <span class="category-count">2026-08-03</span>
+  <h3>Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力</h3>
+  <p>从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi Linear</span>
+    <span class="note-tag">Kimi Delta Attention</span>
+    <span class="note-tag">Linear Attention</span>
+    <span class="note-tag">Delta Rule</span>
+    <span class="note-tag">Long Context</span>
+  </div>
+  <div class="category-foot">
+    <span>ATTENTION</span>
+    <span>论文解读</span>
+  </div>
+</a>
 <a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
   <span class="category-count">2026-08-01</span>
   <h3>Kimi K3：架构、训练与百万 Token Agentic RL 技术解读</h3>
-  <p>从序列、深度、宽度与模态四条信息流拆解 Kimi K3，并审视其 1M 上下文、九策略后训练、长轨迹基础设施和评测边界。</p>
+  <p>用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。</p>
   <div class="note-tags">
     <span class="note-tag">Kimi K3</span>
     <span class="note-tag">LLM</span>

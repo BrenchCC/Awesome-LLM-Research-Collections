@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1040" viewBox="0 0 1700 1040" role="img" aria-labelledby="title desc">
+  <title id="title">FlashKDA official H20 benchmark redrawn</title>
+  <desc id="desc">Latency and speedups reported by the official FlashKDA repository for fixed and variable length workloads.</desc>
+  <defs>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .sub{font:23px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#475569}
+      .head{font:700 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .body{font:22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#334155}
+      .num{font:22px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#0f172a}
+      .speed{font:700 22px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#4f46e5}
+      .axis{stroke:#94a3b8;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1700" height="1040" fill="#f8fafc"/>
+  <text x="850" y="68" text-anchor="middle" class="title">FlashKDA on NVIDIA H20: official latency results</text>
+  <text x="850" y="106" text-anchor="middle" class="sub">T = 8192, D = 128, BF16 forward; lower latency is better</text>
+
+  <rect x="70" y="150" width="1560" height="610" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <rect x="70" y="150" width="1560" height="74" rx="28" fill="#e2e8f0"/><rect x="70" y="195" width="1560" height="29" fill="#e2e8f0"/>
+  <text x="125" y="197" class="head">Heads</text><text x="320" y="197" class="head">Workload</text><text x="850" y="197" text-anchor="middle" class="head">Latency (ms)</text><text x="1460" y="197" text-anchor="middle" class="head">Speedup</text>
+  <path d="M250 150V760M670 150V760M1300 150V760" class="axis"/>
+  <path d="M70 224H1630M70 398H1630M70 572H1630" class="axis"/>
+
+  <text x="145" y="302" text-anchor="middle" class="head">H = 96</text>
+  <text x="285" y="270" class="body">fixed 8192</text><text x="285" y="313" class="body">mixed varlen</text><text x="285" y="356" class="body">8 × 1024</text>
+  <g transform="translate(705 248)">
+    <rect x="0" y="0" width="387" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="30" width="210" height="25" rx="8" fill="#6366f1"/>
+    <rect x="0" y="73" width="386" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="103" width="188" height="25" rx="8" fill="#6366f1"/>
+    <rect x="0" y="146" width="374" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="176" width="163" height="25" rx="8" fill="#6366f1"/>
+  </g>
+  <text x="990" y="270" class="num">4.8388 / 2.6220</text><text x="990" y="313" class="num">4.8291 / 2.3449</text><text x="990" y="356" class="num">4.6723 / 2.0432</text>
+  <text x="1460" y="270" text-anchor="middle" class="speed">1.85×</text><text x="1460" y="313" text-anchor="middle" class="speed">2.06×</text><text x="1460" y="356" text-anchor="middle" class="speed">2.29×</text>
+
+  <text x="145" y="496" text-anchor="middle" class="head">H = 64</text>
+  <text x="285" y="464" class="body">fixed 8192</text><text x="285" y="507" class="body">mixed varlen</text><text x="285" y="550" class="body">8 × 1024</text>
+  <g transform="translate(705 442)">
+    <rect x="0" y="0" width="253" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="30" width="130" height="25" rx="8" fill="#6366f1"/>
+    <rect x="0" y="73" width="260" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="103" width="136" height="25" rx="8" fill="#6366f1"/>
+    <rect x="0" y="146" width="257" height="25" rx="8" fill="#94a3b8"/><rect x="0" y="176" width="112" height="25" rx="8" fill="#6366f1"/>
+  </g>
+  <text x="990" y="464" class="num">3.1659 / 1.6217</text><text x="990" y="507" class="num">3.2551 / 1.7060</text><text x="990" y="550" class="num">3.2175 / 1.3951</text>
+  <text x="1460" y="464" text-anchor="middle" class="speed">1.95×</text><text x="1460" y="507" text-anchor="middle" class="speed">1.91×</text><text x="1460" y="550" text-anchor="middle" class="speed">2.31×</text>
+
+  <g transform="translate(730 650)"><rect width="30" height="22" rx="6" fill="#94a3b8"/><text x="42" y="19" class="body">FLA KDA</text><rect x="190" width="30" height="22" rx="6" fill="#6366f1"/><text x="232" y="19" class="body">FlashKDA</text></g>
+  <text x="850" y="720" text-anchor="middle" class="sub">Reported range: 1.85×–2.31× for these six workloads</text>
+
+  <rect x="120" y="805" width="1460" height="160" rx="26" fill="#0f172a"/>
+  <text x="850" y="855" text-anchor="middle" class="head" fill="#fff">Reading rule</text>
+  <text x="850" y="899" text-anchor="middle" class="body" fill="#cbd5e1">This is a kernel benchmark, not the paper's model-level TPOT or throughput measurement.</text>
+  <text x="850" y="937" text-anchor="middle" class="sub" fill="#94a3b8">Official MoonshotAI/FlashKDA H20 table, 2026-04-22 · redrawn 2026-08-03</text>
+</svg>

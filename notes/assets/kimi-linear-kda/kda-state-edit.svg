@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="980" viewBox="0 0 1700 980" role="img" aria-labelledby="title desc">
+  <title id="title">KDA state edit in three stages</title>
+  <desc id="desc">Channel-wise decay, key-directed erase, residual write, and query readout.</desc>
+  <defs>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#334155"/></marker>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .head{font:700 27px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .body{font:22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#334155}
+      .eq{font:21px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#172554}
+      .cell{stroke:#fff;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1700" height="980" fill="#f8fafc"/>
+  <text x="850" y="65" text-anchor="middle" class="title">One KDA step is a structured memory edit</text>
+  <text x="850" y="105" text-anchor="middle" class="body">decay every key channel → erase along the current key → write the new association</text>
+
+  <g transform="translate(60 170)">
+    <text x="180" y="0" text-anchor="middle" class="head">Previous state Sₜ₋₁</text>
+    <g transform="translate(30 40)">
+      <rect width="300" height="360" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+      <g stroke="#fff" stroke-width="3"><path d="M60 0V360M120 0V360M180 0V360M240 0V360"/><path d="M0 72H300M0 144H300M0 216H300M0 288H300"/></g>
+    </g>
+    <text x="180" y="455" text-anchor="middle" class="eq">dₖ × dᵥ matrix</text>
+  </g>
+
+  <path d="M425 365H515" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+  <g transform="translate(505 150)">
+    <rect width="350" height="500" rx="28" fill="#fff" stroke="#22c55e" stroke-width="4"/>
+    <text x="175" y="54" text-anchor="middle" class="head">1. Channel decay</text>
+    <text x="175" y="95" text-anchor="middle" class="eq">S̄ = Diag(αₜ)Sₜ₋₁</text>
+    <g transform="translate(60 135)">
+      <rect x="0" y="0" width="46" height="250" rx="10" fill="#15803d"/>
+      <rect x="55" y="0" width="46" height="250" rx="10" fill="#4ade80"/>
+      <rect x="110" y="0" width="46" height="250" rx="10" fill="#86efac"/>
+      <rect x="165" y="0" width="46" height="250" rx="10" fill="#dcfce7"/>
+      <text x="23" y="285" text-anchor="middle" class="body">α₁</text>
+      <text x="78" y="285" text-anchor="middle" class="body">α₂</text>
+      <text x="133" y="285" text-anchor="middle" class="body">α₃</text>
+      <text x="188" y="285" text-anchor="middle" class="body">α₄</text>
+    </g>
+    <text x="175" y="460" text-anchor="middle" class="body">Different lifetimes per channel</text>
+  </g>
+
+  <path d="M875 365H965" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+  <g transform="translate(955 150)">
+    <rect width="350" height="500" rx="28" fill="#fff" stroke="#f97316" stroke-width="4"/>
+    <text x="175" y="54" text-anchor="middle" class="head">2. Key-directed erase</text>
+    <text x="175" y="95" text-anchor="middle" class="eq">− βₜkₜkₜᵀS̄</text>
+    <g transform="translate(70 150)">
+      <rect width="210" height="210" rx="18" fill="#fed7aa"/>
+      <path d="M15 195L195 15" stroke="#ea580c" stroke-width="46" opacity=".8"/>
+      <path d="M20 30L190 200" stroke="#fb923c" stroke-width="10" opacity=".5"/>
+      <circle cx="105" cy="105" r="34" fill="#fff" stroke="#c2410c" stroke-width="5"/>
+      <text x="105" y="113" text-anchor="middle" class="eq">kₜ</text>
+    </g>
+    <text x="175" y="420" text-anchor="middle" class="body">Remove the value predicted</text>
+    <text x="175" y="455" text-anchor="middle" class="body">at the current key direction</text>
+  </g>
+
+  <path d="M1325 365H1415" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+  <g transform="translate(1390 150)">
+    <rect width="260" height="500" rx="28" fill="#fff" stroke="#6366f1" stroke-width="4"/>
+    <text x="130" y="54" text-anchor="middle" class="head">3. Write</text>
+    <text x="130" y="95" text-anchor="middle" class="eq">+ βₜkₜvₜᵀ</text>
+    <path d="M55 155H205V330H55Z" fill="#c7d2fe" stroke="#4f46e5" stroke-width="4"/>
+    <path d="M55 155L205 330M205 155L55 330" stroke="#818cf8" stroke-width="12" opacity=".7"/>
+    <text x="130" y="255" text-anchor="middle" class="head">new</text>
+    <text x="130" y="291" text-anchor="middle" class="head">association</text>
+    <text x="130" y="420" text-anchor="middle" class="body">Commit kₜ ↦ vₜ</text>
+  </g>
+
+  <path d="M1495 680V760H1050" stroke="#334155" stroke-width="5" marker-end="url(#arr)"/>
+  <rect x="590" y="735" width="470" height="150" rx="28" fill="#0f172a"/>
+  <text x="825" y="790" text-anchor="middle" class="head" fill="#fff">Read with qₜ</text>
+  <text x="825" y="837" text-anchor="middle" class="eq" fill="#e0e7ff">oₜ = Sₜᵀqₜ</text>
+  <text x="825" y="920" text-anchor="middle" class="body">βₜ is shared by erase and write; this coupling later becomes a design boundary.</text>
+</svg>

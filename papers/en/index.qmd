@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>119</strong><span>Papers</span></div>
+    <div><strong>121</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>274</strong><span>Resource links</span></div>
+    <div><strong>280</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -24,7 +24,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">5 papers</span>
+  <span class="category-count">7 papers</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="category-foot">

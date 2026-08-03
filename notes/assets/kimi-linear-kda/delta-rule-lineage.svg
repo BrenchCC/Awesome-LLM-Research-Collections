@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="920" viewBox="0 0 1800 920" role="img" aria-labelledby="title desc">
+  <title id="title">Lineage from linear attention to Kimi Delta Attention</title>
+  <desc id="desc">Four recurrent state updates showing accumulation, delta correction, scalar decay, and channel-wise decay.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#64748b"/></marker>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .name{font:700 28px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .eq{font:22px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#172554}
+      .body{font:22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#334155}
+      .tag{font:700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#fff}
+    </style>
+  </defs>
+  <rect width="1800" height="920" fill="#f8fafc"/>
+  <text x="900" y="70" text-anchor="middle" class="title">The recurrent lineage: accumulate → correct → forget → forget by channel</text>
+  <path d="M425 430H485M855 430H915M1285 430H1345" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+
+  <g transform="translate(45 145)">
+    <rect width="380" height="580" rx="30" fill="#fff" stroke="#94a3b8" stroke-width="3"/>
+    <rect width="380" height="74" rx="30" fill="#e2e8f0"/><rect y="44" width="380" height="30" fill="#e2e8f0"/>
+    <text x="190" y="49" text-anchor="middle" class="name">Linear Attention</text>
+    <text x="28" y="130" class="eq">Sₜ = Sₜ₋₁ + kₜvₜᵀ</text>
+    <text x="28" y="192" class="body">Write by outer-product</text>
+    <text x="28" y="229" class="body">addition.</text>
+    <rect x="28" y="280" width="324" height="56" rx="18" fill="#64748b"/>
+    <text x="190" y="316" text-anchor="middle" class="tag">NO EXPLICIT ERASE</text>
+    <text x="28" y="392" class="body">Colliding keys accumulate</text>
+    <text x="28" y="429" class="body">interference in the same</text>
+    <text x="28" y="466" class="body">finite state.</text>
+  </g>
+
+  <g transform="translate(475 145)">
+    <rect width="380" height="580" rx="30" fill="#fff" stroke="#0ea5e9" stroke-width="3"/>
+    <rect width="380" height="74" rx="30" fill="#bae6fd"/><rect y="44" width="380" height="30" fill="#bae6fd"/>
+    <text x="190" y="49" text-anchor="middle" class="name">DeltaNet</text>
+    <text x="24" y="130" class="eq">Sₜ = Sₜ₋₁</text>
+    <text x="24" y="168" class="eq">   + βₜkₜ(vₜ − Sₜ₋₁ᵀkₜ)ᵀ</text>
+    <text x="24" y="225" class="body">Read the old value, then</text>
+    <text x="24" y="262" class="body">write only the residual.</text>
+    <rect x="28" y="306" width="324" height="56" rx="18" fill="#0284c7"/>
+    <text x="190" y="342" text-anchor="middle" class="tag">DELTA CORRECTION βₜ</text>
+    <text x="24" y="418" class="body">A key-directed edit replaces</text>
+    <text x="24" y="455" class="body">blind accumulation.</text>
+  </g>
+
+  <g transform="translate(905 145)">
+    <rect width="380" height="580" rx="30" fill="#fff" stroke="#f59e0b" stroke-width="3"/>
+    <rect width="380" height="74" rx="30" fill="#fde68a"/><rect y="44" width="380" height="30" fill="#fde68a"/>
+    <text x="190" y="49" text-anchor="middle" class="name">Gated DeltaNet</text>
+    <text x="24" y="130" class="eq">Sₜ = αₜSₜ₋₁</text>
+    <text x="24" y="168" class="eq">   + βₜkₜ(vₜ − Sₜ₋₁ᵀkₜ)ᵀ</text>
+    <text x="24" y="225" class="body">A scalar αₜ controls the</text>
+    <text x="24" y="262" class="body">lifetime of the whole state.</text>
+    <rect x="28" y="306" width="324" height="56" rx="18" fill="#d97706"/>
+    <text x="190" y="342" text-anchor="middle" class="tag">HEAD-WISE DECAY αₜ</text>
+    <text x="24" y="418" class="body">Useful forgetting, but all</text>
+    <text x="24" y="455" class="body">key channels age together.</text>
+  </g>
+
+  <g transform="translate(1335 145)">
+    <rect width="420" height="580" rx="30" fill="#fff" stroke="#6366f1" stroke-width="5"/>
+    <rect width="420" height="74" rx="30" fill="#c7d2fe"/><rect y="44" width="420" height="30" fill="#c7d2fe"/>
+    <text x="210" y="49" text-anchor="middle" class="name">KDA</text>
+    <text x="22" y="130" class="eq">Sₜ = (I − βₜkₜkₜᵀ)</text>
+    <text x="22" y="168" class="eq">     Diag(αₜ)Sₜ₋₁ + βₜkₜvₜᵀ</text>
+    <text x="22" y="225" class="body">αₜ is a vector: each key</text>
+    <text x="22" y="262" class="body">channel gets its own clock.</text>
+    <rect x="28" y="306" width="364" height="56" rx="18" fill="#4f46e5"/>
+    <text x="210" y="342" text-anchor="middle" class="tag">CHANNEL-WISE DECAY αₜ</text>
+    <text x="22" y="418" class="body">More expressive forgetting</text>
+    <text x="22" y="455" class="body">while preserving a DPLR form</text>
+    <text x="22" y="492" class="body">that admits efficient kernels.</text>
+  </g>
+
+  <rect x="420" y="790" width="960" height="76" rx="25" fill="#0f172a"/>
+  <text x="900" y="838" text-anchor="middle" class="body" fill="#fff">The architectural step is small in notation but large in state-control granularity.</text>
+</svg>

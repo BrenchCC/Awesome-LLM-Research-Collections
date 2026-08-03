@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Softmax attention cache and KDA fixed-state memory</title>
+  <desc id="desc">A comparison of growing KV cache, fixed-size KDA state, and the three-to-one KDA-MLA hybrid.</desc>
+  <defs>
+    <linearGradient id="softmax" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="kda" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bfdbfe"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:#0f172a }
+      .head { font: 700 30px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:#0f172a }
+      .body { font: 24px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:#334155 }
+      .small { font: 21px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:#475569 }
+      .mono { font: 22px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#0f172a }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="800" y="72" text-anchor="middle" class="title">Sequence memory: growing cache vs. fixed recurrent state</text>
+
+  <rect x="70" y="125" width="700" height="610" rx="32" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="420" y="185" text-anchor="middle" class="head">Softmax / MLA path</text>
+  <text x="420" y="225" text-anchor="middle" class="body">Preserve token-wise keys and values</text>
+  <g transform="translate(125 285)">
+    <rect x="0" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <rect x="98" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <rect x="196" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <rect x="294" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <rect x="392" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <rect x="490" y="0" width="78" height="210" rx="12" fill="url(#softmax)"/>
+    <text x="39" y="250" text-anchor="middle" class="small">t₁</text>
+    <text x="137" y="250" text-anchor="middle" class="small">t₂</text>
+    <text x="235" y="250" text-anchor="middle" class="small">t₃</text>
+    <text x="333" y="250" text-anchor="middle" class="small">…</text>
+    <text x="431" y="250" text-anchor="middle" class="small">tₙ₋₁</text>
+    <text x="529" y="250" text-anchor="middle" class="small">tₙ</text>
+  </g>
+  <path d="M150 585 H650" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="420" y="635" text-anchor="middle" class="mono">memory ∝ sequence length T</text>
+  <text x="420" y="680" text-anchor="middle" class="small">Precise token access; cache grows during decoding</text>
+
+  <rect x="830" y="125" width="700" height="610" rx="32" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="1180" y="185" text-anchor="middle" class="head">KDA path</text>
+  <text x="1180" y="225" text-anchor="middle" class="body">Compress history into one matrix state per head</text>
+  <g transform="translate(1000 275)">
+    <rect x="0" y="0" width="360" height="300" rx="28" fill="url(#kda)" stroke="#3730a3" stroke-width="4"/>
+    <g stroke="#e0e7ff" stroke-width="2" opacity=".75">
+      <path d="M60 0V300M120 0V300M180 0V300M240 0V300M300 0V300"/>
+      <path d="M0 50H360M0 100H360M0 150H360M0 200H360M0 250H360"/>
+    </g>
+    <text x="180" y="142" text-anchor="middle" class="head" fill="#fff">Sₜ</text>
+    <text x="180" y="185" text-anchor="middle" class="body" fill="#eef2ff">dₖ × dᵥ</text>
+  </g>
+  <text x="1180" y="635" text-anchor="middle" class="mono">memory independent of T</text>
+  <text x="1180" y="680" text-anchor="middle" class="small">Fixed capacity; old content must be edited or forgotten</text>
+
+  <rect x="255" y="770" width="1090" height="84" rx="24" fill="#0f172a"/>
+  <text x="800" y="805" text-anchor="middle" class="body" fill="#fff">Kimi Linear uses a 3:1 KDA/MLA hybrid</text>
+  <text x="800" y="837" text-anchor="middle" class="small" fill="#cbd5e1">Most layers keep fixed states; residual MLA layers retain token-level recall</text>
+</svg>

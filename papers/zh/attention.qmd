@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>5</strong><span>论文</span></div>
-    <div><strong>11</strong><span>资源链接</span></div>
+    <div><strong>7</strong><span>论文</span></div>
+    <div><strong>17</strong><span>资源链接</span></div>
     <div><strong>2026.06</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -22,7 +22,7 @@ toc: false
 
 <section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>注意力架构</h2>
   </div>
   <div class="paper-grid">
@@ -74,6 +74,32 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.15031" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/MoonshotAI/Attention-Residuals" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="kimi-linear-an-expressive-efficient-attention-architecture">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>注意力架构</span>
+  </div>
+  <h3>Kimi Linear: An Expressive, Efficient Attention Architecture</h3>
+  <p>该论文提出 Kimi Linear 混合架构，其 Kimi Delta Attention 模块结合细粒度门控与基于特化对角加低秩转移矩阵的高效分块算法。一个总参数 48B、激活参数 3B 的模型在相同训练方案下优于完整 MLA，同时将 KV 缓存占用最多降低 75%，并在 100 万 token 上下文中实现最高 6 倍解码吞吐。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.26692" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/MoonshotAI/Kimi-Linear" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/collections/moonshotai/kimi-linear-a3b" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="roformer-enhanced-transformer-with-rotary-position-embedding">
+  <div class="paper-meta">
+    <span>2021.04</span>
+    <span>注意力架构</span>
+  </div>
+  <h3>RoFormer: Enhanced Transformer with Rotary Position Embedding</h3>
+  <p>该论文提出旋转位置编码（RoPE），通过旋转矩阵编码绝对位置，同时使自注意力显式依赖相对位置。RoPE 支持灵活的序列长度、随相对距离增加而衰减的 token 依赖，并可为线性自注意力引入相对位置编码。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2104.09864" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/ZhuiyiTechnology/roformer" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/junnyu/roformer_chinese_base" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="fast-transformer-decoding-one-write-head-is-all-you-need">
