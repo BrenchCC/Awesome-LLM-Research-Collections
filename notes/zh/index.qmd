@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>15</strong><span>笔记</span></div>
+    <div><strong>16</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-03</strong><span>最新日期</span></div>
+    <div><strong>2026-08-05</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -163,6 +163,21 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/skill-design-sharing.html">
+  <span class="category-count">2026-08-05</span>
+  <h3>把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计</h3>
+  <p>从职责切分、按需披露、Gate 校验、状态持久化与 Workflow 编排出发，讨论如何约束 Agent 的执行随机性并提升多步任务的可恢复性。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent</span>
+    <span class="note-tag">Skill Design</span>
+    <span class="note-tag">CLI</span>
+    <span class="note-tag">Workflow Engineering</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
   <span class="category-count">2026-07-06</span>
   <h3>长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化</h3>

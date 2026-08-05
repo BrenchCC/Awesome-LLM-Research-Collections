@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>15</strong><span>Notes</span></div>
+    <div><strong>16</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-08-03</strong><span>Latest date</span></div>
+    <div><strong>2026-08-05</strong><span>Latest date</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -163,6 +163,21 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/skill-design-sharing.html">
+  <span class="category-count">2026-08-05</span>
+  <h3>Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows</h3>
+  <p>An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration.</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent</span>
+    <span class="note-tag">Skill Design</span>
+    <span class="note-tag">CLI</span>
+    <span class="note-tag">Workflow Engineering</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
 <a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
   <span class="category-count">2026-07-06</span>
   <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>

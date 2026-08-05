@@ -1,0 +1,27 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "16px"
+    fontFamily: "PingFang SC, Helvetica, sans-serif"
+---
+flowchart TB
+    subgraph SKILL["一份塞满规则的 SKILL.md"]
+        direction TB
+        R1["规则1: 必须先问参数"]
+        R2["规则2: 不要直接调 API"]
+        R3["规则3: 错误要重试"]
+        R4["规则4: 注意字段名大小写"]
+        R5["规则5: 先查项目再创建角色"]
+        R6["...还有 195 条"]
+    end
+    SKILL --> AI["AI 的注意力<br/>（有限，且会随上下文衰减）"]
+    AI --> OUT1["前几条记得清楚"]
+    AI --> OUT2["中间的开始混淆"]
+    AI --> OUT3["后面的直接忽略"]
+
+    style SKILL fill:#fff5f5,stroke:#e53e3e,stroke-width:2px
+    style AI fill:#fffaf0,stroke:#dd6b20,stroke-width:2px
+    style OUT1 fill:#f0fff4,stroke:#38a169
+    style OUT2 fill:#fffff0,stroke:#d69e2e
+    style OUT3 fill:#fff5f5,stroke:#e53e3e

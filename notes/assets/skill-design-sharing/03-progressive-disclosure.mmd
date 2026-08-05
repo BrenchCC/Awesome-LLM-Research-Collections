@@ -1,0 +1,27 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "15px"
+    fontFamily: "PingFang SC, Helvetica, sans-serif"
+---
+flowchart TB
+    subgraph 传统["❌ 传统做法：一次性灌入"]
+        direction TB
+        T0["SKILL.md 里写满<br/>5 个步骤的全部细节"]
+        T0 --> TA["AI 上下文<br/>━━━━━━━━━━<br/>Step1 + Step2 + Step3<br/>+ Step4 + Step5"]
+        TA --> TB["执行后半段时<br/>前面的细节互相干扰<br/>容易跳步、串字段"]
+    end
+
+    subgraph 我们的方式["✅ 我们的做法：CLI 控节奏"]
+        direction TB
+        N0["SKILL.md 只写入口<br/>步骤拆成 5 个文件"]
+        N0 --> NA["第 1 轮上下文<br/>━━━━━━━━━━<br/>只看到 Step1 指引"]
+        NA -->|--advance| NB["第 2 轮上下文<br/>━━━━━━━━━━<br/>只看到 Step3 指引<br/>+ Step2 自动执行结果摘要"]
+        NB -->|--advance| NC["第 3 轮上下文<br/>━━━━━━━━━━<br/>只看到 Step5 指引<br/>+ 前序结果摘要"]
+    end
+
+    style 传统 fill:#fff5f5,stroke:#e53e3e,stroke-width:2px
+    style 我们的方式 fill:#f0fff4,stroke:#38a169,stroke-width:2px
+    style TB fill:#fed7d7
+    style NC fill:#c6f6d5

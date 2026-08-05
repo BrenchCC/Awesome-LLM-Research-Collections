@@ -66,6 +66,22 @@ K3 has 93 layers and retains a hidden width of 7,168. Sixty-nine layers use KDA 
 
 The paper organizes the design along sequence, depth, and width, with vision as a fourth input path into the shared backbone. This decomposition makes the division of labor clear. KDA and MLA determine how a token reads sequence history. AttnRes determines how a layer reads earlier layer outputs. LatentMoE determines which channel-wise expert transforms act on that token. MoonViT-V2 determines how images become tokens trained jointly with text. These are not four parallel models; all of them write into the same residual and prediction path.
 
+Figure 2 is easy to misread because it overlays four information paths. Black lines show sequential computation and ordinary residual flow within the current module. The wine-red lines on the right carry the embedding and completed block outputs across depth. A circled $w$ is the learned pseudo-query of the current module, and the red $\alpha$ values are its Softmax weights over those depth sources. The $\alpha$ inside the KDA detail at lower left is entirely different: it is a channel-wise retention factor used to update state along the token sequence.
+
+The `3×` and `1×` labels on the right do not reduce the entire 93-layer backbone to four layers. They define one repeated unit: three “KDA + Stable LatentMoE” pairs followed by one “Gated MLA + Stable LatentMoE” pair. The reported 69 KDA and 24 Gated MLA layers reconstruct exactly as
+
+$$
+23\times
+\left(
+3\,\mathrm{KDA}+1\,\mathrm{Gated\ MLA}
+\right)
++1\,\mathrm{Gated\ MLA}
+=69\,\mathrm{KDA}+24\,\mathrm{Gated\ MLA}
+=93\ \text{layers}.
+$$
+
+The extra Gated MLA is not followed by another 3:1 unit. It ensures that the last sequence-mixing operation at the top of the backbone is global token-to-token attention. Here, 93 counts attention layers, each paired with a channel-mixing sublayer; Figure 2 shows Stable LatentMoE on the main repeated path.
+
 ![A custom four-axis map of K3 information flow: sequence, depth, width, and modality converge on the same 2.8T MoE backbone.](../../assets/kimi-k3-open-frontier-intelligence/k3-information-flow-map.svg){fig-alt="Custom Kimi K3 information-flow map with three KDA plus one MLA for sequence, Block AttnRes for depth, Stable LatentMoE for width, and MoonViT-V2 for modality"}
 
 *Custom diagram based on §2 and Figure 2 of the [K3 report](https://arxiv.org/abs/2607.24653).*
@@ -76,7 +92,30 @@ The four axes also have an order within a forward pass. MoonViT-V2 first encodes
 
 ## 3. KDA and Gated MLA: Why K3 Uses a 3:1 Mixture
 
-KDA continues the delta-rule recurrence. For one attention head, $S_t$ is a matrix state updated at each token, $\alpha_t$ is a channel-wise retention factor, and $\beta_t$ controls write strength. The recurrence is:
+This section focuses on the input, state edit, and output of one KDA layer inside K3. The recurrence lineage, WY/UT derivation, ablations, and public implementations are covered in the companion note, [Kimi Linear and KDA](../attention/kimi-linear-kda.qmd).
+
+### 3.1 From indefinite accumulation to address-directed rewriting
+
+The simplest linear-attention recurrence adds every key–value outer product to a fixed-size state:
+
+$$
+S_t=S_{t-1}+k_tv_t^{\top},
+\qquad
+o_t=S_t^{\top}q_t.
+$$
+
+It does not retain K/V entries for every historical token, but similar keys repeatedly write into the same direction. New content can only accumulate; it cannot explicitly replace an old association. The delta rule instead treats the state as an online associative map from key space to value space. It asks what the old state predicts at the current key and writes only the prediction error:
+
+$$
+\widehat{v}_t=S_{t-1}^{\top}k_t,
+\qquad
+S_t
+=
+S_{t-1}
++\beta_tk_t\left(v_t-\widehat{v}_t\right)^{\top}.
+$$
+
+If the old state already maps $k_t$ close to $v_t$, the update is small. If the prediction is wrong, the update rewrites the association along the $k_t$ direction. KDA adds per-key-channel forgetting before this edit. For one attention head, $S_t\in\mathbb{R}^{d_k\times d_v}$, and the full recurrence is
 
 $$
 S_t = \left(I - \beta_t k_t k_t^{\top}\right)\mathrm{Diag}(\alpha_t)S_{t-1} + \beta_t k_t v_t^{\top},
@@ -84,11 +123,143 @@ S_t = \left(I - \beta_t k_t k_t^{\top}\right)\mathrm{Diag}(\alpha_t)S_{t-1} + \b
 \widetilde{o}_t = S_t^{\top}q_t.
 $$
 
-The first term decays the old state by channel and uses $I-\beta_tk_tk_t^\top$ to erase content aligned with the current key. The second writes the new key–value association. Unlike full attention, KDA does not preserve head-specific K/V entries for every historical token; history is compressed into a fixed-shape state. During training it is recurrent across chunks and parallel within each chunk, containing cache growth on long sequences.
+Because $\mathrm{Diag}(\alpha_t)$ multiplies the state on the left, it scales rows of $S_{t-1}$—memory associated with key channels—not columns in value space. KDA's key change from Gated DeltaNet is replacing one head-wide scalar decay with $\alpha_t\in(0,1)^{d_k}$, allowing different key directions within one head to learn different time scales. Fixed shape means that state memory does not grow with sequence length; it does not mean history is preserved losslessly. Similar keys can still collide, and old content can be decayed or overwritten.
 
-K3 does not replace every layer with linear recurrence. Each block contains three KDA layers and one Gated MLA layer, and a final MLA layer guarantees global attention at the top of the backbone. The periodic full-attention layer has a clear role. The recurrent state provides inexpensive accumulation, while MLA retains content-addressable access to per-token latents, compensating for fixed-state losses in exact recall and rare-evidence retrieval. A 3:1 mixture does not mean that linear attention has superseded softmax. It places their cache curves and retrieval properties inside the same backbone.
+### 3.2 Inputs, state, and outputs for one token
 
-The chunkwise form also explains why KDA is not a slow token-by-token loop during training. An incoming state carries information from previous chunks. Within a chunk, cumulative decay, query–key interactions, and pseudo-values are expressed as matrix operations; the output sums a cross-chunk state read and causal intra-chunk interaction. Recurrence remains at chunk boundaries while most work within the chunk stays parallel. The difficult part is reciprocal cumulative decay: a run of near-zero retention factors can push scaling outside finite precision. Lower-bounded decay targets that numerical failure.
+During decoding, a KDA layer does more than map one token input to one token output. It reads and updates the recurrent state of every head together with the layer's short-convolution cache for its q/k/v paths:
+
+$$
+\left(
+x_t,\,
+S_{t-1},\,
+C_{t-1}^{\mathrm{conv}}
+\right)
+\xrightarrow{\mathrm{KDA}}
+\left(
+y_t,\,
+S_t,\,
+C_t^{\mathrm{conv}}
+\right).
+$$
+
+$x_t\in\mathbb{R}^{d}$ is the hidden representation assembled by AttnRes for the current KDA sublayer. $S_{t-1}$ retains compressed long-range associations, and $C_{t-1}^{\mathrm{conv}}$ holds the few recent tokens needed by ShortConv. The visible output $y_t\in\mathbb{R}^{d}$ returns to the backbone residual stream. The updated $S_t$ and convolution cache remain internal for the next token rather than being passed directly to the following MoE.
+
+The five input branches in the lower-left detail of Figure 2 produce $q$, $k$, $v$, $\alpha$, and $\beta$. For head $h$, they are parameterized from the current hidden state $x_t$ as
+
+$$
+q_t^h,k_t^h
+=
+\mathrm{L2Norm}\!\left(
+\mathrm{Swish}\!\left(
+\mathrm{ShortConv}\!\left(W_{q/k}^h x_t\right)
+\right)
+\right),
+\qquad
+v_t^h
+=
+\mathrm{Swish}\!\left(
+\mathrm{ShortConv}\!\left(W_v^h x_t\right)
+\right),
+$$
+
+$$
+\beta_t^h=\mathrm{Sigmoid}\!\left(W_\beta^h x_t\right),
+\qquad
+z_t^h=W_{\alpha\uparrow}^hW_{\alpha\downarrow}x_t+b_\alpha^h.
+$$
+
+The formula abbreviates convolution as a function of the current $x_t$. During decoding, ShortConv also reads $C_{t-1}^{\mathrm{conv}}$, so $q$, $k$, and $v$ have a small local receptive field. L2Norm controls the scale of $q$ and $k$, leaving their directions to act primarily as read and edit addresses rather than allowing key norm to become another implicit write-strength control. The decay logit $z_t^h$ is not itself the retention factor; the lower-bounded mapping below converts it into $\alpha_t^h$.
+
+Rearranging the recurrence exposes the exact order of one state edit and read:
+
+$$
+\overline{S}_t
+=
+\mathrm{Diag}(\alpha_t)S_{t-1},
+\qquad
+\widehat{v}_t
+=
+\overline{S}_t^{\top}k_t,
+$$
+
+$$
+S_t
+=
+\overline{S}_t
++\beta_tk_t\left(v_t-\widehat{v}_t\right)^{\top},
+\qquad
+\widetilde{o}_t
+=
+S_t^{\top}q_t.
+$$
+
+The old state is first decayed by key channel. The key $k_t$ then reads the old prediction at the edit address. The error $v_t-\widehat{v}_t$ is written back, and $q_t$ finally reads from the updated state. Because the read follows the update, $\widetilde{o}_t$ includes information written by the current token. The scalar $\beta_t$ controls the strength of one edit, coupling erasure of the old prediction and writing of the error rather than providing two independent gates.
+
+![Channel-wise decay, directed erasure, association writing, and query readout in one KDA state edit.](../../assets/kimi-linear-kda/kda-state-edit.svg){fig-alt="Single-token KDA input-output flow: alpha decays key channels, beta and the key perform a directed state edit, and the query reads the updated state"}
+
+*Diagram reused from the companion [Kimi Linear and KDA note](../attention/kimi-linear-kda.qmd); redrawn from the KDA recurrence in Kimi Linear.*
+
+The signals have distinct contracts:
+
+| Signal | Intuitive role | Where it acts |
+|---|---|---|
+| $q_t$ | Read address | Retrieves a value representation from the updated $S_t$. |
+| $k_t$ | Edit address | Selects the key direction where erasure and rewriting occur. |
+| $v_t$ | Target content | Specifies the value that should be stored at the current address. |
+| $\alpha_t$ | Memory lifetime | Decays rows of the old state by key channel. |
+| $\beta_t$ | Edit strength | Scales both directed erasure and error writing. |
+| $\mathrm{Sigmoid}(W_gx_t)$ | Output exposure gate | Selects which readout channels enter the backbone residual stream. |
+
+K3 replaces Kimi Linear's low-rank output gate with an input-dependent full-rank channel gate:
+
+$$
+y_t
+=
+W_o\!\left[
+\mathrm{Sigmoid}\!\left(W_gx_t\right)
+\odot
+\mathrm{RMSNorm}\!\left(\widetilde{o}_t\right)
+\right].
+$$
+
+RMSNorm first stabilizes the recurrent readouts, the current token then selects exposed channels, and $W_o$ maps the multi-head result back to model width. The three controls are not interchangeable: $\alpha_t$ determines memory lifetime, $\beta_t$ determines state-edit strength, and the output gate determines how much of the readout is visible to the residual stream.
+
+Placed back into the full Figure 2 path, AttnRes first assembles $x_t$ from the embedding, completed blocks, and the current block's partial sum. KDA emits the visible $y_t$ while advancing its hidden state to $S_t$, and $y_t$ is added to the current AttnRes block's partial sum. The subsequent Stable LatentMoE sublayer performs its own AttnRes input selection before channel mixing. The recurrent $S_t$ is never passed to the MoE as a 7,168-dimensional token representation.
+
+### 3.3 Recurrent decoding, chunked prefill, and periodic global retrieval
+
+K3 does not replace every layer with linear recurrence. Each repeated unit contains three KDA layers and one Gated MLA layer, and a final MLA layer guarantees global attention at the top of the backbone. MLA compresses each token's key–value representation to $c_t=W_cx_t$. Inference caches $c_t$ and reconstructs head-specific content keys and values through learned up-projections. Its cache still grows linearly with token count, but it preserves direct, global content-addressable access to earlier positions. Gated MLA uses the same kind of input-dependent full-rank channel gate:
+
+$$
+y_t
+=
+W_o\!\left[
+\mathrm{Sigmoid}\!\left(W_gx_t\right)
+\odot
+\widetilde{o}_t
+\right].
+$$
+
+Every MLA layer uses NoPE, so its queries and keys receive no explicit positional encoding. The paper assigns position-sensitive and recency-aware sequence mixing to the intervening KDA layers and unrestricted global content interaction to MLA. The 3:1 mixture is therefore a cache-cost versus exact-retrieval tradeoff, not evidence that linear attention has superseded Softmax attention.
+
+During decoding, KDA follows the recurrent interface above one token at a time. A layer retains only the fixed-shape $S_t$ and a small convolution cache across the sequence. Training and long-prompt prefill do not execute one million serial iterations; WY/UT organizes the same update as parallel work within chunks and state transfer between chunks:
+
+$$
+\left(
+X_{[c]},\,
+S_{[c]}^{\mathrm{in}}
+\right)
+\longrightarrow
+\left(
+Y_{[c]},\,
+S_{[c]}^{\mathrm{out}}
+\right),
+\qquad
+S_{[c+1]}^{\mathrm{in}}=S_{[c]}^{\mathrm{out}}.
+$$
+
+Multiple tokens inside one chunk become matrix operations, while recurrent state crosses only chunk boundaries. Both execution paths implement the same causal state update, although their floating-point association differs and low-precision outputs need not be bit-identical. K3's difficulty is reciprocal cumulative decay: a run of near-zero retention factors can push the chunk algorithm's scaling outside finite precision. Lower-bounded decay targets that numerical failure.
 
 ![Lower-bounded decay in the K3 report: constraining log-decay lets diagonal tiles use Tensor Cores as well.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-3-kda-decay.png){fig-alt="Figure 3 of the Kimi K3 report comparing Kimi Linear negative-Softplus decay with K3 lower-bounded decay and the Tensor Core diagonal-tile path"}
 
@@ -114,6 +285,13 @@ For a secondary tile of length sixteen, cumulative log-decay lies in $(-80,0)$ a
 A standard PreNorm Transformer repeatedly adds outputs with unit weight. As depth grows, hidden-state magnitude and provenance accumulate together, diluting early contributions inside the sum. Attention Residuals replace addition across depth with attention across depth. Each layer learns one pseudo-query $w_l$, computes weights from RMS-normalized embeddings and earlier outputs, and forms the current input from their weighted sum.
 
 $$
+h_l=h_{l-1}+f_l(h_{l-1})
+=h_0+\sum_{i=1}^{l}f_i(h_{i-1}).
+$$
+
+This expansion makes the default weighting explicit: every historical contribution enters the standard residual stream with coefficient one. AttnRes instead treats network depth as a retrievable dimension:
+
+$$
 \phi(q,k)=\exp\!\left(q^{\top}\mathrm{RMSNorm}(k)\right),
 \qquad
 \alpha_{i\to l}=\frac{\phi(w_l,v_i)}{\sum_{j=0}^{l-1}\phi(w_l,v_j)},
@@ -127,7 +305,7 @@ Unlike a sequence-attention query, the pseudo-query is a learned vector for the 
 
 *Source: [Attention Residuals](https://arxiv.org/abs/2603.15031), Figure 1, page 1; 5× crop.*
 
-Block AttnRes compresses depth history into block summaries. Ordinary residual accumulation remains inside a block, while only one representation survives for cross-block access. K3 uses eight blocks of twelve layers and counts the embedding as a ninth retrievable state. This loses layer-level retrieval granularity but reduces the representations that must stay live and cross pipeline stages from $L$ to $N$. It is useful to think of the mechanism as a block index over a depth cache rather than another sequence-attention layer: it changes where a layer obtains its input without changing token-level causal order.
+Block AttnRes compresses depth history into block summaries. Ordinary residual accumulation remains inside a block, while only one representation survives for cross-block access. K3 caps a block at twelve layers and forms eight backbone blocks: seven complete twelve-layer blocks and one partial nine-layer block. The input embedding is a ninth depth source. The red paths in Figure 2 are precisely the choices among the embedding, completed blocks, and the current block's partial sum. This loses layer-level retrieval granularity but reduces the representations that must stay live and cross pipeline stages from $L$ to $N$. It is useful to think of the mechanism as a block index over a depth cache rather than another sequence-attention layer: it changes where a layer obtains its input without changing token-level causal order.
 
 The pseudo-query has another useful property. It is decoupled from the layer’s forward result, allowing depth weights for a group of layers to be computed in a batch rather than waiting for each layer’s output in sequence. A partial sum for the current block joins completed block summaries as a temporary value. Block AttnRes therefore compresses long-term history while retaining fine-grained updates within the active block. The cost is explicit: if one early layer inside a completed block produced a unique feature, later blocks can retrieve only the summed summary rather than that layer alone.
 
@@ -135,7 +313,9 @@ Scaling and ablation results in the AttnRes report show improved loss and gradie
 
 ## 5. Stable LatentMoE: Compress First, Then Route to Experts
 
-LatentMoE projects a token from $d=7{,}168$ to $\ell=3{,}584$, performs routed expert computation and all-to-all exchange in the smaller space, and projects back to the backbone width. The NVIDIA paper motivates this design from serving constraints. Lower-dimensional expert computation reduces expert weight traffic and communication by roughly $d/\ell$, and that budget can be exchanged for more experts and a larger top-k. K3 uses 896 routed experts, top-16 selection, and two always-active full-width shared experts.
+LatentMoE projects a token from $d=7{,}168$ to $\ell=3{,}584$, performs routed expert computation and all-to-all exchange in the smaller space, and projects back to the backbone width. The NVIDIA paper motivates this design from serving constraints. Lower-dimensional expert computation reduces expert weight traffic and communication by roughly $d/\ell$, and that budget can be exchanged for more experts and a larger top-k. K3 uses 896 routed experts and top-16 selection, a routed selection rate of $16/896\approx1.79\%$. Two always-active full-width shared experts remain outside this ratio, so 1.79% is not the activation fraction of the complete layer.
+
+The two branches at the upper left of Figure 2 should not be collapsed. The router scores the full hidden state $x$. A separate Linear performs $z=W_\downarrow x$, and the selected routed experts receive the 3,584-dimensional $z$. The two shared experts operate directly on the full 7,168-dimensional $x$. The routed path is aggregated, normalized, and projected upward before it is added to the shared path.
 
 ![Stable LatentMoE uses SiTU-GLU to bound the product of gate and up branches.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-4-situ-glu.png){fig-alt="Figure 4 of the Kimi K3 report comparing the gate and up branches and scalar responses of GLU, SwiGLU, and SiTU-GLU"}
 
@@ -156,6 +336,24 @@ y=\sum_{j=1}^{N_s}E_j^{\mathrm{shared}}(x)
 $$
 
 RMSNorm between expert aggregation and up-projection isolates scale changes caused by different expert mixtures. SiTU-GLU separately applies tanh soft caps with $\beta_1=4$ and $\beta_2=25$ to the gate and up branches, bounding the absolute product at 100. The repairs target different risks: RMSNorm manages aggregate scale; SiTU-GLU limits per-expert activation explosions. Expanding the expert pool is only half of the capacity ledger. The other half is keeping 896 routes trainable under large batches, low precision, and expert parallelism.
+
+$$
+\mathrm{SiTU\text{-}GLU}(x)
+=
+\left[
+\beta_1\tanh\!\left(\frac{W_gx}{\beta_1}\right)
+\odot
+\mathrm{Sigmoid}(W_gx)
+\right]
+\odot
+\left[
+\beta_2\tanh\!\left(\frac{W_ux}{\beta_2}\right)
+\right],
+\qquad
+(\beta_1,\beta_2)=(4,25).
+$$
+
+Near the origin it preserves the characteristic response of SwiGLU. At large magnitude, the two linear factors approach $\beta_1$ and $\beta_2$, bounding the scalar product by $\beta_1\beta_2=100$. This is a smooth asymptotic cap rather than a hard threshold.
 
 The latent dimension is not free compression. If $\ell$ falls below the task’s effective feature rank, the down-projection removes information before the experts can act on it. If $\ell$ is too large, communication and weight-read savings shrink. K3 chooses half the backbone width and exchanges the savings for more routed experts and top-16 combinations. The theoretical number of expert combinations grows rapidly, but only a much smaller subset is thoroughly exercised by data. LatentMoE should therefore be evaluated through validation loss, expert load, all-to-all time, and low-batch latency together, rather than through FLOPs alone.
 
@@ -181,7 +379,7 @@ Histogram error is controlled by bin width. The report uses a fixed number of bi
 
 ## 6. Native Vision, Per-Head Muon, and the 2.5× Scaling Result
 
-“Native vision” means that text, image, and video tokens are jointly optimized under one next-token objective from the beginning of pre-training, rather than attaching a visual encoder to a completed language model for post-hoc alignment. MoonViT-V2 has 401M parameters, 27 layers, patch size 14, and twelve attention heads; a lightweight projector maps it into the shared 7,168-dimensional embedding. The report finds lower and less spiky vision-tower gradient norms for from-scratch MoonViT-V2 than for a SigLIP-initialized MoonViT-3D baseline, with comparable vision evaluations. This is a joint observation about the reported training trajectory and downstream tests, not evidence that pretrained visual encoders are generally unnecessary.
+“Native vision” means that text, image, and video tokens are jointly optimized under one next-token objective from the beginning of pre-training, rather than attaching a visual encoder to a completed language model for post-hoc alignment. MoonViT-V2 has 401M parameters, 27 layers, patch size 14, and twelve attention heads; a lightweight MLP projector maps it into the shared 7,168-dimensional embedding. Images and videos share encoder parameters. Video attention is factorized into intra-frame spatial and inter-frame temporal passes, followed by temporal pooling. Before the projector, a $2\times2$ pixel shuffle reduces visual-token count by a factor of four, keeping inputs up to $3584\times3584$ pixels affordable within the long context. The report finds lower and less spiky vision-tower gradient norms for from-scratch MoonViT-V2 than for a SigLIP-initialized MoonViT-3D baseline, with comparable vision evaluations. This is a joint observation about the reported training trajectory and downstream tests, not evidence that pretrained visual encoders are generally unnecessary.
 
 ![Vision-tower gradient norms for MoonViT-V2 and the SigLIP-initialized baseline.](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-6-vision-gradients.png){fig-alt="Figure 6 of the Kimi K3 report comparing gradients of from-scratch MoonViT-V2 and SigLIP-initialized MoonViT-3D"}
 

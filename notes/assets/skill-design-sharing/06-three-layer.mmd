@@ -1,0 +1,31 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "16px"
+    fontFamily: "PingFang SC, Helvetica, sans-serif"
+---
+flowchart TB
+    subgraph L1["① 表现层 · Agent"]
+        direction LR
+        L1A["理解意图"] ~~~ L1B["收集信息"] ~~~ L1C["判断选择"] ~~~ L1D["友好表达"]
+    end
+
+    subgraph L2["② 控制层 · Workflow Engine（CLI 内）"]
+        direction LR
+        L2A["状态机推进"] ~~~ L2B["门禁校验"] ~~~ L2C["模板解析"] ~~~ L2D["按需披露"]
+    end
+
+    subgraph L3["③ 执行层 · 原子工具调用"]
+        direction LR
+        L3A["MCP 协议"] ~~~ L3B["文件读写"] ~~~ L3C["错误处理"] ~~~ L3D["状态持久化"]
+    end
+
+    L1 -->|"JSON: gate-data"| L2
+    L2 -->|"JSON: 当前步骤指引"| L1
+    L2 -->|"CLI 命令 + 参数"| L3
+    L3 -->|"JSON: 执行结果"| L2
+
+    style L1 fill:#ebf8ff,stroke:#2c5282,stroke-width:2px
+    style L2 fill:#fefcbf,stroke:#975a16,stroke-width:2px
+    style L3 fill:#f0fff4,stroke:#22543d,stroke-width:2px

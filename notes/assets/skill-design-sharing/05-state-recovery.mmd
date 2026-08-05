@@ -1,0 +1,29 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "15px"
+    fontFamily: "PingFang SC, Helvetica, sans-serif"
+---
+sequenceDiagram
+    autonumber
+    participant U as 用户
+    participant A as AI Agent<br/>(无记忆)
+    participant S as state 文件<br/>(磁盘持久化)
+
+    U->>A: 帮我做权限配置
+    A->>S: --start
+    S-->>A: 第1步指引
+    A->>U: 请填写项目名/域名
+    U-->>A: my-app / my-app.example.com
+    A->>S: --advance gate-data
+    S-->>S: 写入 gates + 自动执行 step2 + 写入 results
+    S-->>A: 第3步指引
+
+    Note over A,U: ⚡ 此时网络断开 / 关闭 IDE / 第二天再开
+
+    U->>A: 我们昨天做到哪了？
+    Note over A: AI 自己什么都不记得
+    A->>S: --current
+    S-->>A: 你在第3步<br/>已完成: 项目 my-app(id=12345)<br/>等待: 角色信息
+    A->>U: 您的项目已创建好<br/>现在需要您提供角色信息

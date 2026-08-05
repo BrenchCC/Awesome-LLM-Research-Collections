@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="740" viewBox="0 0 1500 740" role="img" aria-labelledby="title desc">
+  <title id="title">Control plane and data flow</title>
+  <desc id="desc">Natural language stays with the agent while structured data crosses the CLI control and execution layers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1500" height="740" rx="30" fill="url(#bg)"/>
+  <text x="72" y="72" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" fill="#0f172a">Natural Language Stops at the Boundary; Structured Data Enters Execution</text>
+  <text x="72" y="110" font-family="Inter, Arial, sans-serif" font-size="19" fill="#475569">Uncertainty remains in intent and expression; deterministic components own workflow state and API parameters.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="72" y="178" width="270" height="390" rx="24" fill="#ffffff"/>
+    <rect x="408" y="178" width="302" height="390" rx="24" fill="#eff6ff"/>
+    <rect x="776" y="178" width="302" height="390" rx="24" fill="#fffbeb"/>
+    <rect x="1144" y="178" width="284" height="390" rx="24" fill="#ecfdf5"/>
+  </g>
+
+  <text x="207" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">User</text>
+  <text x="207" y="278" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">“Create an access policy”</text>
+  <rect x="112" y="322" width="190" height="76" rx="38" fill="#e2e8f0"/>
+  <text x="207" y="354" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#334155">Natural language</text>
+  <text x="207" y="380" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#334155">Goals and constraints</text>
+
+  <text x="559" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">Agent · presentation layer</text>
+  <text x="449" y="286" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Intent matching</text>
+  <text x="449" y="326" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Field collection</text>
+  <text x="449" y="366" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Option selection</text>
+  <text x="449" y="406" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Result communication</text>
+  <rect x="449" y="458" width="220" height="64" rx="14" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="559" y="485" text-anchor="middle" font-family="SFMono-Regular, Menlo, monospace" font-size="16" fill="#1e40af">gate-data JSON</text>
+  <text x="559" y="509" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#475569">Only cross-layer input</text>
+
+  <text x="927" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#92400e">CLI · control layer</text>
+  <text x="817" y="286" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Discover and indexing</text>
+  <text x="817" y="326" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Gate validation</text>
+  <text x="817" y="366" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">State-machine advance</text>
+  <text x="817" y="406" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Template resolution</text>
+  <rect x="817" y="458" width="220" height="64" rx="14" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="927" y="485" text-anchor="middle" font-family="SFMono-Regular, Menlo, monospace" font-size="16" fill="#92400e">tool args JSON</text>
+  <text x="927" y="509" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#475569">Generated after validation</text>
+
+  <text x="1286" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#065f46">Tools and MCP backends</text>
+  <text x="1185" y="286" font-family="PingFang SC, Inter, sans-serif" font-size="17" fill="#334155">HTTP / JSON-RPC</text>
+  <text x="1185" y="326" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Authentication and retry</text>
+  <text x="1185" y="366" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">File I/O</text>
+  <text x="1185" y="406" font-family="Inter, Arial, sans-serif" font-size="17" fill="#334155">Atomic operations</text>
+  <rect x="1185" y="458" width="202" height="64" rx="14" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="1286" y="485" text-anchor="middle" font-family="SFMono-Regular, Menlo, monospace" font-size="16" fill="#065f46">result JSON</text>
+  <text x="1286" y="509" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#475569">Written to state</text>
+
+  <path d="M342 372 H390" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M710 372 H758" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1078 372 H1126" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="72" y="618" width="1356" height="64" rx="16" fill="#0f172a"/>
+  <text x="750" y="658" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#e2e8f0">Auditable boundary: every cross-layer message has a schema, state record, or protocol constraint</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="860" viewBox="0 0 1500 860" role="img" aria-labelledby="title desc">
+  <title id="title">Discover command terminal example</title>
+  <desc id="desc">A terminal-style rendering of discover, metadata query, and workflow start commands.</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="1" stop-color="#09111e"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#020617" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1500" height="860" rx="30" fill="#e8edf4"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="54" width="1360" height="742" rx="24" fill="url(#screen)"/>
+  </g>
+  <rect x="70" y="54" width="1360" height="66" rx="24" fill="#1e293b"/>
+  <rect x="70" y="96" width="1360" height="24" fill="#1e293b"/>
+  <circle cx="112" cy="87" r="10" fill="#fb7185"/>
+  <circle cx="146" cy="87" r="10" fill="#fbbf24"/>
+  <circle cx="180" cy="87" r="10" fill="#4ade80"/>
+  <text x="750" y="94" text-anchor="middle" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#cbd5e1">pangu-cli · discover session</text>
+
+  <text x="108" y="170" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#38bdf8">$</text>
+  <text x="136" y="170" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#f8fafc">bash pangu-cli.sh discover</text>
+  <text x="108" y="216" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#86efac">{"status":"ok","total":5,"added_count":2,"removed_count":0,</text>
+  <text x="108" y="248" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#86efac"> "added":["tool_a","tool_b"],"removed":[],"workflow_count":1}</text>
+
+  <line x1="108" y1="286" x2="1390" y2="286" stroke="#334155"/>
+  <text x="108" y="334" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#38bdf8">$</text>
+  <text x="136" y="334" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#f8fafc">bash pangu-cli.sh create_project --meta-json --required-only</text>
+  <text x="108" y="380" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#fcd34d">{"required":["project_name","host","admins"],</text>
+  <text x="108" y="412" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#fcd34d"> "ignored":["id","insert_time","update_time","update_admin"]}</text>
+
+  <line x1="108" y1="450" x2="1390" y2="450" stroke="#334155"/>
+  <text x="108" y="498" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#38bdf8">$</text>
+  <text x="136" y="498" font-family="SFMono-Regular, Menlo, monospace" font-size="20" fill="#f8fafc">bash pangu-cli.sh workflow create-permission-set --start</text>
+  <text x="108" y="544" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#c4b5fd">{"status":"waiting_for_input","step":"collect-project-info",</text>
+  <text x="108" y="576" font-family="SFMono-Regular, Menlo, monospace" font-size="18" fill="#c4b5fd"> "required":["project_name","host","admins"]}</text>
+
+  <line x1="108" y1="614" x2="1390" y2="614" stroke="#334155"/>
+  <rect x="108" y="654" width="496" height="66" rx="12" fill="#11243a" stroke="#1d4ed8"/>
+  <text x="132" y="682" font-family="PingFang SC, Inter, sans-serif" font-size="17" font-weight="650" fill="#7dd3fc">stdout 契约</text>
+  <text x="132" y="707" font-family="PingFang SC, Inter, sans-serif" font-size="16" fill="#cbd5e1">每条命令只返回一份结构化结果</text>
+  <rect x="626" y="654" width="764" height="66" rx="12" fill="#11241c" stroke="#15803d"/>
+  <text x="650" y="682" font-family="PingFang SC, Inter, sans-serif" font-size="17" font-weight="650" fill="#86efac">上下文预算</text>
+  <text x="650" y="707" font-family="PingFang SC, Inter, sans-serif" font-size="16" fill="#cbd5e1">索引常驻，schema 与步骤内容只在被请求时进入上下文</text>
+</svg>

@@ -785,6 +785,11 @@
 
 ## 技术思考
 
+- **把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计** (2026-08-05) \
+  **描述**: 从职责切分、按需披露、Gate 校验、状态持久化与 Workflow 编排出发，讨论如何约束 Agent 的执行随机性并提升多步任务的可恢复性。 \
+  [[笔记](notes/zh/agents/skill-design-sharing.qmd)]
+  [[English](notes/en/agents/skill-design-sharing.qmd)]
+
 - **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-06) \
   **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
   [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]

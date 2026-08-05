@@ -1,0 +1,26 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "16px"
+    fontFamily: "PingFang SC, Helvetica, sans-serif"
+---
+flowchart LR
+    User(["用户自然语言"]) --> AI
+
+    subgraph 思考层["AI 负责『思考』"]
+        AI["理解意图<br/>收集参数<br/>判断选择<br/>组织表达"]
+    end
+
+    subgraph 执行层["CLI 负责『执行』"]
+        CLI["调用 API<br/>校验数据<br/>读写文件<br/>管理状态"]
+    end
+
+    AI -->|"结构化 JSON 参数"| CLI
+    CLI -->|"结构化 JSON 结果"| AI
+    AI --> Reply(["翻译回自然语言"])
+
+    style 思考层 fill:#ebf8ff,stroke:#3182ce,stroke-width:2px
+    style 执行层 fill:#f0fff4,stroke:#38a169,stroke-width:2px
+    style AI fill:#bee3f8,stroke:#2c5282
+    style CLI fill:#c6f6d5,stroke:#22543d

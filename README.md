@@ -729,6 +729,11 @@
 
 ## Technical Reflections
 
+- **Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows** (2026-08-05) \
+  **Description**: An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration. \
+  [[Note](notes/en/agents/skill-design-sharing.qmd)]
+  [[中文](notes/zh/agents/skill-design-sharing.qmd)]
+
 - **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-06) \
   **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
   [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
