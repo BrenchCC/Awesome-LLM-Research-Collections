@@ -72,6 +72,8 @@ CATEGORY_SLUGS = {
     "AI 研究": "ai-research",
     "Tool Use": "tool-use",
     "工具调用": "tool-use",
+    "Web Agents": "web-agents",
+    "网络智能体": "web-agents",
     "Data Agents": "data-agents",
     "数据智能体": "data-agents",
     "Agent Skills": "agent-skills",

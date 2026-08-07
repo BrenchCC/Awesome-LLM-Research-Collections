@@ -36,6 +36,7 @@
 - [Agents Application](#agents-application)
   - [Computer Use](#computer-use)
   - [Tool Use](#tool-use)
+  - [Web Agents](#web-agents)
   - [Data Agents](#data-agents)
   - [AI Research](#ai-research)
   - [Agent Skills](#agent-skills)
@@ -576,6 +577,15 @@
   **Description**: This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks. 
   <a href="https://arxiv.org/abs/2512.03746"></a>
   <a href="https://github.com/ByteDance-BandAI/CodeVision"></a>
+
+## Web Agents
+
+- **Tongyi DeepResearch Technical Report** (2025.10) \
+  **Description**: Tongyi DeepResearch is a 30.5B-parameter agentic language model with 3.3B parameters activated per token, built for long-horizon information-seeking tasks through agentic mid-training and post-training. A fully automatic data synthesis pipeline and stage-specific environments enable scalable, stable interactions across training stages. \
+  [[Paper](https://arxiv.org/abs/2510.24701)]
+  [[Project](https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/)]
+  [[Code](https://github.com/Alibaba-NLP/DeepResearch)]
+  [[Hugging Face](https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B)]
 
 ## Data Agents
 

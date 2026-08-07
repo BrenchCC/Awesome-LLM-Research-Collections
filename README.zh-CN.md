@@ -33,6 +33,7 @@
 - [智能体应用](#智能体应用)
   - [计算机使用](#计算机使用)
   - [工具调用](#工具调用)
+  - [网络智能体](#网络智能体)
   - [数据智能体](#数据智能体)
   - [AI 研究](#ai-研究)
   - [智能体技能](#智能体技能)
@@ -627,6 +628,15 @@
   **描述**: 该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。 \
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/ByteDance-BandAI/CodeVision"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+## 网络智能体
+
+- **Tongyi DeepResearch Technical Report** (2025.10) \
+  **描述**: Tongyi DeepResearch 是一个面向长时程信息检索任务的智能体语言模型，总参数量为 30.5B、每个 token 激活 3.3B 参数，并通过智能体中期训练与后训练构建。其全自动数据合成管线和分阶段定制环境支持各训练阶段可扩展且稳定的交互。 \
+  [[论文](https://arxiv.org/abs/2510.24701)]
+  [[项目](https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/)]
+  [[代码](https://github.com/Alibaba-NLP/DeepResearch)]
+  [[Hugging Face](https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B)]
 
 ## 数据智能体
 

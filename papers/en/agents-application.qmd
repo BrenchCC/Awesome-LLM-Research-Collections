@@ -11,13 +11,14 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>19</strong><span>Papers</span></div>
-    <div><strong>37</strong><span>Resource links</span></div>
+    <div><strong>20</strong><span>Papers</span></div>
+    <div><strong>41</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#computer-use">Computer Use</a>
 <a href="#tool-use">Tool Use</a>
+<a href="#web-agents">Web Agents</a>
 <a href="#data-agents">Data Agents</a>
 <a href="#ai-research">AI Research</a>
 <a href="#agent-skills">Agent Skills</a>
@@ -73,6 +74,28 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2512.03746" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/ByteDance-BandAI/CodeVision" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="web-agents">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Web Agents</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="tongyi-deepresearch-technical-report">
+  <div class="paper-meta">
+    <span>2025.10</span>
+    <span>Web Agents</span>
+  </div>
+  <h3>Tongyi DeepResearch Technical Report</h3>
+  <p>Tongyi DeepResearch is a 30.5B-parameter agentic language model with 3.3B parameters activated per token, built for long-horizon information-seeking tasks through agentic mid-training and post-training. A fully automatic data synthesis pipeline and stage-specific environments enable scalable, stable interactions across training stages.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2510.24701" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/Alibaba-NLP/DeepResearch" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>
