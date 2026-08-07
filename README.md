@@ -527,6 +527,12 @@
   **Description**: This paper proposes OPID, which extracts hierarchical episode- and step-level skills from completed on-policy trajectories and converts their effect into token-level self-distillation advantages alongside the outcome advantage. Its critical-first routing supplies dense, distribution-matched hindsight supervision, improving agent performance, sample efficiency, and robustness on embodied, web-shopping, and search-based tasks. 
   <a href="https://arxiv.org/abs/2606.26790"></a>
   <a href="https://github.com/jinyangwu/OPID"></a>
+
+- **Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning** (2026.06) \
+  **Description**: This paper proposes Group-Graph Policy Optimization (G2PO), which converts sampled interaction trajectories into a global state-transition graph to reduce variance in state-value estimation for long-horizon agentic reinforcement learning. Its group-aggregation values and edge-centric advantages provide fine-grained credit assignment under sparse, delayed rewards, improving success rates by up to 22.2% over GRPO. \
+  [[Paper](https://arxiv.org/abs/2606.22995)]
+  [[Code](https://github.com/Nala-YN/G2PO)]
+
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) 
   **Description**: Spreadsheet-RL is an RL fine-tuning framework for training specialized spreadsheet agents in a realistic Microsoft Excel environment, addressing complex multi-step workflows that prompting-based agents struggle with. It adds automated start-goal spreadsheet data collection, a multi-turn Spreadsheet Gym with sandboxed Excel tools, and a Domain-Spreadsheet benchmark to improve real-world spreadsheet automation. 
   <a href="https://arxiv.org/abs/2605.22642"></a>

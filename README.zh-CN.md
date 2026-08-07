@@ -575,6 +575,11 @@
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/jinyangwu/OPID"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning** (2026.06) \
+  **描述**: 该论文提出面向长程智能体强化学习的 Group-Graph Policy Optimization (G2PO)，将采样得到的交互轨迹转换为全局状态转移图，以降低状态价值估计方差。其群组聚合价值估计与边中心优势估计在稀疏、延迟奖励下实现细粒度信用分配，相比 GRPO 将成功率最高提升 22.2%。 \
+  [[论文](https://arxiv.org/abs/2606.22995)]
+  [[代码](https://github.com/Nala-YN/G2PO)]
+
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
   **描述**: Spreadsheet-RL 是一个用于在真实 Microsoft Excel 环境中训练专用表格智能体的强化学习微调框架，面向提示式智能体难以处理的复杂多步工作流。它结合自动化起止表格数据构建、多轮 Spreadsheet Gym 沙盒工具环境，以及 Domain-Spreadsheet 基准，以提升真实表格自动化能力。 \
   <a href="https://arxiv.org/abs/2605.22642"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
