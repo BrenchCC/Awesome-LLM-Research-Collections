@@ -19,6 +19,7 @@
 - [监督微调](#监督微调)
   - [监督微调方法](#监督微调方法)
 - [训练](#训练)
+  - [数据准备](#数据准备)
   - [优化](#优化)
   - [蒸馏](#蒸馏)
 - [强化学习](#强化学习)
@@ -355,6 +356,14 @@
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 # 训练
+
+## 数据准备
+- **DataPrep-Bench: Benchmarking LLMs as Training Data Preparators** (2026.05) \
+  **描述**: DataPrep-Bench 是首个统一、以下游效果为依据的基准，用于评估大语言模型、智能体和数据工作流构建监督训练数据及预测候选数据集下游效用的能力。论文还提出技能驱动的数据构建智能体和分布对齐分数，后者在多数测试领域优于已有的质量、多样性与启发式评估方法。 \
+  [[论文](https://arxiv.org/abs/2607.20465)]
+  [[项目](https://datapreparationbench.github.io/)]
+  [[代码](https://github.com/OpenDCAI/Data-Preparation-Bench)]
+  [[Hugging Face](https://huggingface.co/datasets/lhpku20010120/Data-Prep-Bench)]
 
 ## 优化
 - **PowLU: An Activation Function for Stable Pre-Training of LLMs** (2026.05) \

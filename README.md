@@ -22,6 +22,7 @@
 - [SFT](#sft)
   - [SFT Methods](#sft-methods)
 - [Training](#training)
+  - [Data Preparation](#data-preparation)
   - [Optimization](#optimization)
   - [Distillation](#distillation)
 - [Reinforcement Learning](#reinforcement-learning)
@@ -332,6 +333,15 @@
   <a href="https://arxiv.org/abs/2601.09195"></a>
 
 # Training
+
+## Data Preparation
+
+- **DataPrep-Bench: Benchmarking LLMs as Training Data Preparators** (2026.05) \
+  **Description**: DataPrep-Bench is the first unified, downstream-grounded benchmark for evaluating how LLMs, agents, and data-centric workflows construct supervised training data and predict candidate datasets' downstream utility. It also introduces a skill-guided construction agent and the Distributional Alignment Score, which outperforms existing quality, diversity, and heuristic evaluators across most tested domains. \
+  [[Paper](https://arxiv.org/abs/2607.20465)]
+  [[Project](https://datapreparationbench.github.io/)]
+  [[Code](https://github.com/OpenDCAI/Data-Preparation-Bench)]
+  [[Hugging Face](https://huggingface.co/datasets/lhpku20010120/Data-Prep-Bench)]
 
 ## Optimization
 

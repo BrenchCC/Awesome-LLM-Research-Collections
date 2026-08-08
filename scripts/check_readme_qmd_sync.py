@@ -50,6 +50,8 @@ CATEGORY_SLUGS = {
     "监督微调": "sft",
     "SFT Methods": "sft-methods",
     "监督微调方法": "sft-methods",
+    "Data Preparation": "data-preparation",
+    "数据准备": "data-preparation",
     "Optimization": "optimization",
     "优化": "optimization",
     "Distillation": "distillation",
