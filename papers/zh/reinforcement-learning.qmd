@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>47</strong><span>论文</span></div>
-    <div><strong>93</strong><span>资源链接</span></div>
+    <div><strong>48</strong><span>论文</span></div>
+    <div><strong>95</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -29,7 +29,7 @@ toc: false
 
 <section class="paper-section" id="policy-optimization">
   <div class="section-heading compact">
-    <p class="eyebrow">12 篇论文</p>
+    <p class="eyebrow">13 篇论文</p>
     <h2>策略优化</h2>
   </div>
   <div class="paper-grid">
@@ -53,6 +53,18 @@ toc: false
   <p>该论文提出 Selective Importance Sampling (SIS)，通过 token 级拒绝检验将接受的离策略 token 视为在策略样本，并对拒绝的 token 保留标准重要性采样修正。SIS 以可忽略的额外开销缩小 token 级与序列级梯度估计器之间的差距，在稠密和 MoE 模型上提升性能及离策略训练鲁棒性。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2607.04728" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>策略优化</span>
+  </div>
+  <h3>SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning</h3>
+  <p>该论文提出 SERPO，一种面向开放式生成的测试时强化学习框架，无需标注反馈、外部奖励模型或更强评测器，即可协同演化回答证据、查询特定的评分准则与策略参数。其概率化准则评分将判定 token 的似然转化为奖励，使策略及其自生成评测标准在闭环中持续改进。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.26873" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/chiefovoavicii/SERPO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="rethinking-the-divergence-regularization-in-llm-rl">

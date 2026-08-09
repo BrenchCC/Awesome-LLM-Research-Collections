@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>124</strong><span>Papers</span></div>
+    <div><strong>125</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>290</strong><span>Resource links</span></div>
+    <div><strong>292</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">47 papers</span>
+  <span class="category-count">48 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning">
+  <span>2026.07</span>
+  <strong>SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
   <span>2026.07</span>
   <strong>Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#llm-as-a-verifier-a-general-purpose-verification-framework">
   <span>2026.07</span>
   <strong>LLM-as-a-Verifier: A General-Purpose Verification Framework</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
-  <span>2026.07</span>
-  <strong>ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory</strong>
   <em>Agents Application</em>
 </a>
   </div>

@@ -370,6 +370,12 @@
 - **Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment** (2026.07) 
   **Description**: This paper introduces Selective Importance Sampling (SIS), a plug-in correction for off-policy LLM reinforcement learning that uses token-level rejection tests to treat accepted tokens as on-policy while retaining standard importance sampling for rejected tokens. SIS reduces the gap between token- and sequence-level gradient estimators with negligible overhead, improving performance and robustness across dense and MoE models. 
   <a href="https://arxiv.org/abs/2607.04728"></a>
+
+- **SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning** (2026.07) \
+  **Description**: This paper introduces SERPO, a test-time reinforcement learning framework for open-ended generation that co-evolves response evidence, query-specific rubrics, and policy parameters without labeled feedback, external reward models, or stronger judges. Probabilistic criterion scoring turns verdict-token likelihoods into rewards, enabling the actor and its self-generated evaluation criteria to improve in a closed loop. \
+  [[Paper](https://arxiv.org/abs/2607.26873)]
+  [[Code](https://github.com/chiefovoavicii/SERPO)]
+
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) 
   **Description**: This paper proposes Divergence Regularized Policy Optimization (DRPO), replacing DPPO's hard divergence mask with a smooth advantage-weighted quadratic regularizer that preserves its trust-region geometry. DRPO provides bounded continuous gradient weights and corrective signals beyond the trust-region boundary, improving LLM RL training stability and efficiency. 
   <a href="https://arxiv.org/abs/2606.09821"></a>

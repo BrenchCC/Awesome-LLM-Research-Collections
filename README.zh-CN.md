@@ -392,6 +392,11 @@
   **描述**: 该论文提出 Selective Importance Sampling (SIS)，通过 token 级拒绝检验将接受的离策略 token 视为在策略样本，并对拒绝的 token 保留标准重要性采样修正。SIS 以可忽略的额外开销缩小 token 级与序列级梯度估计器之间的差距，在稠密和 MoE 模型上提升性能及离策略训练鲁棒性。 \
   <a href="https://arxiv.org/abs/2607.04728"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning** (2026.07) \
+  **描述**: 该论文提出 SERPO，一种面向开放式生成的测试时强化学习框架，无需标注反馈、外部奖励模型或更强评测器，即可协同演化回答证据、查询特定的评分准则与策略参数。其概率化准则评分将判定 token 的似然转化为奖励，使策略及其自生成评测标准在闭环中持续改进。 \
+  [[论文](https://arxiv.org/abs/2607.26873)]
+  [[代码](https://github.com/chiefovoavicii/SERPO)]
+
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
   **描述**: 该论文提出 Divergence Regularized Policy Optimization (DRPO)，以平滑的优势加权二次正则项替代 DPPO 的硬散度掩码，同时保留其信赖域几何结构。DRPO 通过有界连续梯度权重和越界后的纠正信号，提高 LLM 强化学习训练的稳定性与效率。 \
   <a href="https://arxiv.org/abs/2606.09821"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
