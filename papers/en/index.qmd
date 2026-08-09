@@ -10,10 +10,10 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>125</strong><span>Papers</span></div>
+    <div><strong>128</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>292</strong><span>Resource links</span></div>
-    <div><strong>2026.07</strong><span>Latest month</span></div>
+    <div><strong>300</strong><span>Resource links</span></div>
+    <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
 
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">48 papers</span>
+  <span class="category-count">49 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -87,21 +87,21 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">20 papers</span>
+  <span class="category-count">21 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
-    <span>2026.07</span>
+    <span>2026.08</span>
     <span>AI Research, Agent Development, Agent Skills, Computer Use, Data Agents, Memory, Tool Use, Web Agents</span>
   </div>
 </a>
 <a class="category-card" href="vision.html">
-  <span class="category-count">1 paper</span>
+  <span class="category-count">2 papers</span>
   <h3>Vision</h3>
   <p>Computer vision methods that are useful background for modern multimodal systems.</p>
   <div class="category-foot">
-    <span>2022.03</span>
-    <span>Object Detection</span>
+    <span>2026.05</span>
+    <span>Object Detection, Semantic Correspondence</span>
   </div>
 </a>
 <a class="category-card" href="auto-prompt.html">
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
+  <span>2026.08</span>
+  <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="llms.html#kimi-k3-open-frontier-intelligence">
   <span>2026.07</span>
   <strong>Kimi K3: Open Frontier Intelligence</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">
   <span>2026.07</span>
   <strong>Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#llm-as-a-verifier-a-general-purpose-verification-framework">
-  <span>2026.07</span>
-  <strong>LLM-as-a-Verifier: A General-Purpose Verification Framework</strong>
   <em>Agents Application</em>
 </a>
   </div>

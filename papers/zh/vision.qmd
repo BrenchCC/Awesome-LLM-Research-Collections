@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">对现代多模态系统有参考价值的计算机视觉方法。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>论文</span></div>
-    <div><strong>2</strong><span>资源链接</span></div>
-    <div><strong>2022.03</strong><span>最新月份</span></div>
+    <div><strong>2</strong><span>论文</span></div>
+    <div><strong>6</strong><span>资源链接</span></div>
+    <div><strong>2026.05</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#object-detection">目标检测</a>
+<a href="#semantic-correspondence">语义对应</a>
   </nav>
 </section>
 
@@ -36,6 +37,28 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2203.03605" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/IDEA-Research/DINO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="semantic-correspondence">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>语义对应</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="soco-benchmarking-semantic-object-correspondence-in-vision-foundation-models">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>语义对应</span>
+  </div>
+  <h3>SOCO: Benchmarking Semantic Object Correspondence in Vision Foundation Models</h3>
+  <p>SOCO 提出一个由分类体系驱动的语义对象对应基准，覆盖 100 个类别、超过一百万个对应点对，并提供一致且具有功能意义的关键点标注。评测揭示了视觉基础模型在跨类别迁移和对象部件几何理解上的不足，同时表明对应性能能够有力预测稠密下游任务表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.31597" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://genintel.github.io/SOCO/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/GenIntel/OmniProbe" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/GenIntelLab/SOCO" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>48</strong><span>Papers</span></div>
-    <div><strong>95</strong><span>Resource links</span></div>
+    <div><strong>49</strong><span>Papers</span></div>
+    <div><strong>98</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -544,7 +544,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">8 papers</p>
+    <p class="eyebrow">9 papers</p>
     <h2>Agentic RL</h2>
   </div>
   <div class="paper-grid">
@@ -595,6 +595,19 @@ toc: false
   <p>This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2602.03647" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="skillrl-evolving-agents-via-recursive-skill-augmented-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning</h3>
+  <p>SkillRL distills raw agent trajectories into a hierarchical SkillBank, retrieves general and task-specific heuristics adaptively, and recursively evolves the skill library alongside the policy during reinforcement learning. This reduces token overhead while improving generalization and performance across embodied, web-shopping, and search-augmented tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.08234" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/aiming-lab/SkillRL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="arena-rl-training-llms-as-game-players-with-vision-language-action-models">

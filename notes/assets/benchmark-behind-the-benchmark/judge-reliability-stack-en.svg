@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Four layers from judge stability to trustworthy evaluation</title>
+  <desc id="desc">Evidence coverage, repeatability, human calibration, and comparison reporting jointly determine evaluation trustworthiness. A timeline shows Browser Use moving from binary verdicts to continuous scores aggregated by a three-judge median.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .title { font-size: 38px; font-weight: 800; fill: #0f172a; }
+      .subtitle { font-size: 20px; fill: #475569; }
+      .step { font-size: 18px; font-weight: 800; letter-spacing: .08em; }
+      .head { font-size: 27px; font-weight: 800; fill: #0f172a; }
+      .copy { font-size: 18px; fill: #334155; }
+      .small { font-size: 16px; fill: #64748b; }
+      .timeline { font-size: 21px; font-weight: 750; fill: #0f172a; }
+      .edge { stroke: #64748b; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" rx="30" fill="url(#bg)"/>
+  <text x="70" y="78" class="sans title">A Stable Judge Is Only the Start of a Trustworthy Benchmark</text>
+  <text x="70" y="118" class="sans subtitle">Reducing random variation improves consistency; evidence, calibration, and reporting determine whether the result tracks real capability.</text>
+
+  <g class="sans" filter="url(#shadow)">
+    <rect x="70" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="445" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+    <rect x="820" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#22c55e" stroke-width="3"/>
+    <rect x="1195" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+  </g>
+
+  <g class="sans">
+    <text x="100" y="250" class="step" fill="#0284c7">01 EVIDENCE</text>
+    <text x="100" y="292" class="head">What can</text>
+    <text x="100" y="324" class="head">the judge see?</text>
+    <text x="100" y="366" class="copy">Traces, screenshots, page text</text>
+    <text x="100" y="398" class="copy">artifacts and environment state</text>
+    <text x="100" y="444" class="small">Missing evidence makes a true</text>
+    <text x="100" y="471" class="small">result indistinguishable from a guess.</text>
+
+    <text x="475" y="250" class="step" fill="#7c3aed">02 REPEATABILITY</text>
+    <text x="475" y="292" class="head">Does one trace</text>
+    <text x="475" y="324" class="head">keep its score?</text>
+    <text x="475" y="366" class="copy">Continuous scores · reruns</text>
+    <text x="475" y="398" class="copy">median of three judgments</text>
+    <text x="475" y="444" class="small">Lower variance means stability,</text>
+    <text x="475" y="471" class="small">not that the judgment is correct.</text>
+
+    <text x="850" y="250" class="step" fill="#16a34a">03 VALIDITY</text>
+    <text x="850" y="292" class="head">Does it match</text>
+    <text x="850" y="324" class="head">expert judgment?</text>
+    <text x="850" y="366" class="copy">Human labels · explicit rubrics</text>
+    <text x="850" y="398" class="copy">spot checks and failure updates</text>
+    <text x="850" y="444" class="small">Repeated sampling does not cancel</text>
+    <text x="850" y="471" class="small">systematic bias.</text>
+
+    <text x="1225" y="250" class="step" fill="#d97706">04 REPORTING</text>
+    <text x="1225" y="292" class="head">How are models</text>
+    <text x="1225" y="324" class="head">compared?</text>
+    <text x="1225" y="366" class="copy">Paired tasks · tie bands</text>
+    <text x="1225" y="398" class="copy">repeat runs · uncertainty</text>
+    <text x="1225" y="444" class="small">Elo aggregates judgments;</text>
+    <text x="1225" y="471" class="small">it cannot repair a bad judge.</text>
+  </g>
+
+  <path d="M400 355 H435" class="edge"/>
+  <path d="M775 355 H810" class="edge"/>
+  <path d="M1150 355 H1185" class="edge"/>
+
+  <rect x="70" y="565" width="1455" height="92" rx="22" fill="#0f172a"/>
+  <text x="797" y="622" text-anchor="middle" class="sans" font-size="32" font-weight="850" fill="#ffffff">Consistency ≠ correctness: a stable score can still be stably wrong</text>
+
+  <text x="70" y="735" class="sans step" fill="#475569">JUDGE-PROTOCOL EVOLUTION IN BROWSER USE'S PUBLIC MATERIALS</text>
+  <line x1="210" y1="824" x2="1390" y2="824" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="390" cy="824" r="24" fill="#8b5cf6"/>
+  <circle cx="1210" cy="824" r="24" fill="#22c55e"/>
+  <text x="390" y="782" text-anchor="middle" class="sans timeline">2026-02</text>
+  <text x="390" y="875" text-anchor="middle" class="sans copy">Simple prompt + True/False</text>
+  <text x="390" y="907" text-anchor="middle" class="sans small">aligned against 200 human-labeled traces</text>
+  <text x="1210" y="782" text-anchor="middle" class="sans timeline">2026-08</text>
+  <text x="1210" y="875" text-anchor="middle" class="sans copy">0–100 score + median of three</text>
+  <text x="1210" y="907" text-anchor="middle" class="sans small">designed to reduce boundary amplification</text>
+</svg>

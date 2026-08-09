@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>48</strong><span>论文</span></div>
-    <div><strong>95</strong><span>资源链接</span></div>
+    <div><strong>49</strong><span>论文</span></div>
+    <div><strong>98</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -544,7 +544,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">8 篇论文</p>
+    <p class="eyebrow">9 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -595,6 +595,19 @@ toc: false
   <p>该论文提出 Actor-Refiner 协作机制，解决搜索增强推理 RL 中的多尺度信用分配问题。它缓解稀疏轨迹级奖励难以区分高质量推理与偶然猜对的问题，并减少冗余或误导性搜索行为。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2602.03647" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="skillrl-evolving-agents-via-recursive-skill-augmented-reinforcement-learning">
+  <div class="paper-meta">
+    <span>2026.02</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning</h3>
+  <p>SkillRL 将原始智能体轨迹蒸馏为层次化 SkillBank，自适应检索通用与任务特定启发式知识，并让技能库在强化学习中与策略递归共同演化。该方法在降低 token 开销的同时，提升了智能体在具身、网页购物和搜索增强任务上的泛化能力与性能。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2602.08234" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/aiming-lab/SkillRL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="arena-rl-training-llms-as-game-players-with-vision-language-action-models">

@@ -42,6 +42,7 @@
   - [记忆](#记忆)
 - [视觉](#视觉)
   - [目标检测](#目标检测)
+  - [语义对应](#语义对应)
 - [自动提示](#自动提示)
   - [提示优化](#提示优化)
   - [评测器提示](#评测器提示)
@@ -605,6 +606,12 @@
   **描述**: 该论文提出 Actor-Refiner 协作机制，解决搜索增强推理 RL 中的多尺度信用分配问题。它缓解稀疏轨迹级奖励难以区分高质量推理与偶然猜对的问题，并减少冗余或误导性搜索行为。 \
   <a href="https://arxiv.org/abs/2602.03647"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning** (2026.02) \
+  **描述**: SkillRL 将原始智能体轨迹蒸馏为层次化 SkillBank，自适应检索通用与任务特定启发式知识，并让技能库在强化学习中与策略递归共同演化。该方法在降低 token 开销的同时，提升了智能体在具身、网页购物和搜索增强任务上的泛化能力与性能。 \
+  [[论文](https://arxiv.org/abs/2602.08234)]
+  [[代码](https://github.com/aiming-lab/SkillRL)]
+  [[Hugging Face](https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data)]
+
 - **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) \
   **描述**: 该论文提出 Arena-RL，一个通过视觉语言动作模型训练 LLM 驱动智能体玩视觉游戏的强化学习框架，重点从交互式游戏反馈中改进策略。实验表明，基于游戏轨迹的奖励优化能显著提升策略决策与跨游戏泛化。 \
   <a href="https://arxiv.org/abs/2601.06487"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -699,6 +706,10 @@
   <a href="https://arxiv.org/abs/2603.29919"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 智能体开发
+- **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
+  **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
+  [[论文](https://arxiv.org/abs/2608.01964)]
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -750,6 +761,15 @@
   **描述**: DINO 通过对比去噪训练、用于锚点初始化的混合 query 选择，以及 look-forward-twice 框预测方案改进 DETR 类目标检测器。它在显著降低模型和数据需求的同时，在 COCO 上取得当时最优结果。 \
   <a href="https://arxiv.org/abs/2203.03605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/IDEA-Research/DINO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+## 语义对应
+
+- **SOCO: Benchmarking Semantic Object Correspondence in Vision Foundation Models** (2026.05) \
+  **描述**: SOCO 提出一个由分类体系驱动的语义对象对应基准，覆盖 100 个类别、超过一百万个对应点对，并提供一致且具有功能意义的关键点标注。评测揭示了视觉基础模型在跨类别迁移和对象部件几何理解上的不足，同时表明对应性能能够有力预测稠密下游任务表现。 \
+  [[论文](https://arxiv.org/abs/2605.31597)]
+  [[项目](https://genintel.github.io/SOCO/)]
+  [[代码](https://github.com/GenIntel/OmniProbe)]
+  [[Hugging Face](https://huggingface.co/datasets/GenIntelLab/SOCO)]
 
 # 自动提示
 
@@ -813,6 +833,11 @@
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
+
+- **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (2026-08-10) \
+  **描述**: 从 Browser Use 的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \
+  [[笔记](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
+  [[English](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
 
 - **把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计** (2026-08-05) \
   **描述**: 从职责切分、按需披露、Gate 校验、状态持久化与 Workflow 编排出发，讨论如何约束 Agent 的执行随机性并提升多步任务的可恢复性。 \

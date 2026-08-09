@@ -45,6 +45,7 @@
   - [Memory](#memory)
 - [Vision](#vision)
   - [Object Detection](#object-detection)
+  - [Semantic Correspondence](#semantic-correspondence)
 - [Auto-Prompt](#auto-prompt)
   - [Prompt Optimization](#prompt-optimization)
   - [Judge Prompting](#judge-prompting)
@@ -558,6 +559,13 @@
 - **Search-R2: Enhancing Search-Integrated Reasoning via Actor-Refiner Collaboration** (2026.02) 
   **Description**: This paper introduces Actor-Refiner collaboration to address the multi-scale credit assignment problem in search-integrated reasoning RL, where sparse trajectory-level rewards fail to distinguish high-quality reasoning from fortuitous guesses, reducing redundant or misleading search behaviors. 
   <a href="https://arxiv.org/abs/2602.03647"></a>
+
+- **SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning** (2026.02) \
+  **Description**: SkillRL distills raw agent trajectories into a hierarchical SkillBank, retrieves general and task-specific heuristics adaptively, and recursively evolves the skill library alongside the policy during reinforcement learning. This reduces token overhead while improving generalization and performance across embodied, web-shopping, and search-augmented tasks. \
+  [[Paper](https://arxiv.org/abs/2602.08234)]
+  [[Code](https://github.com/aiming-lab/SkillRL)]
+  [[Hugging Face](https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data)]
+
 - **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) 
   **Description**: This paper introduces Arena-RL, a reinforcement learning framework that trains LLM-driven agents to play visual games via vision-language action models, focusing on policy improvement from interactive game feedback. It demonstrates that reward-driven optimization over game trajectories can significantly improve strategic decision-making and generalization across game environments. 
   <a href="https://arxiv.org/abs/2601.06487"></a>
@@ -650,6 +658,10 @@
 
 ## Agent Development
 
+- **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
+  **Description**: LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks. \
+  [[Paper](https://arxiv.org/abs/2608.01964)]
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) 
   **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. 
   <a href="https://arxiv.org/abs/2607.13285"></a>
@@ -696,6 +708,15 @@
   **Description**: DINO improves DETR-like object detectors by introducing contrastive denoising training, mixed query selection for anchor initialization, and a look-forward-twice box prediction scheme, achieving state-of-the-art results on COCO with significantly reduced model and data requirements. 
   <a href="https://arxiv.org/abs/2203.03605"></a>
   <a href="https://github.com/IDEA-Research/DINO"></a>
+
+## Semantic Correspondence
+
+- **SOCO: Benchmarking Semantic Object Correspondence in Vision Foundation Models** (2026.05) \
+  **Description**: SOCO introduces a taxonomy-driven benchmark with consistent, functionally meaningful keypoint annotations across 100 categories and more than one million correspondence pairs. Its evaluation reveals gaps in cross-category transfer and object-part geometry understanding while showing that correspondence performance strongly predicts dense downstream task performance. \
+  [[Paper](https://arxiv.org/abs/2605.31597)]
+  [[Project](https://genintel.github.io/SOCO/)]
+  [[Code](https://github.com/GenIntel/OmniProbe)]
+  [[Hugging Face](https://huggingface.co/datasets/GenIntelLab/SOCO)]
 
 # Auto-Prompt
 
@@ -760,6 +781,11 @@
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
+
+- **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (2026-08-10) \
+  **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through Browser Use's 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
+  [[Note](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
+  [[中文](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
 
 - **Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows** (2026-08-05) \
   **Description**: An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration. \

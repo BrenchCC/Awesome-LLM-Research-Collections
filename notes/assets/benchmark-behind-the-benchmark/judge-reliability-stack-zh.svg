@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">从裁判稳定到评测可信的四层链路</title>
+  <desc id="desc">证据覆盖、重复一致性、人工校准和比较报告共同决定评测可信度。下方时间线展示 Browser Use 从二元判决转向连续评分与三次中位数聚合。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; }
+      .title { font-size: 40px; font-weight: 800; fill: #0f172a; }
+      .subtitle { font-size: 20px; fill: #475569; }
+      .step { font-size: 18px; font-weight: 800; letter-spacing: .08em; }
+      .head { font-size: 27px; font-weight: 800; fill: #0f172a; }
+      .copy { font-size: 18px; fill: #334155; }
+      .small { font-size: 16px; fill: #64748b; }
+      .timeline { font-size: 21px; font-weight: 750; fill: #0f172a; }
+      .edge { stroke: #64748b; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" rx="30" fill="url(#bg)"/>
+  <text x="70" y="78" class="sans title">裁判稳定之后，Benchmark 才开始可信</text>
+  <text x="70" y="118" class="sans subtitle">降低随机波动只解决一致性；证据、人工校准与报告协议决定结果是否接近真实能力。</text>
+
+  <g class="sans" filter="url(#shadow)">
+    <rect x="70" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="445" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+    <rect x="820" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#22c55e" stroke-width="3"/>
+    <rect x="1195" y="205" width="330" height="300" rx="24" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+  </g>
+
+  <g class="sans">
+    <text x="100" y="250" class="step" fill="#0284c7">01 证据覆盖</text>
+    <text x="100" y="296" class="head">裁判能看到什么</text>
+    <text x="100" y="340" class="copy">轨迹、截图、页面文本</text>
+    <text x="100" y="372" class="copy">生成文件与最终环境状态</text>
+    <text x="100" y="420" class="small">缺失证据会让真结果看起来</text>
+    <text x="100" y="447" class="small">和幻觉没有区别。</text>
+
+    <text x="475" y="250" class="step" fill="#7c3aed">02 重复一致性</text>
+    <text x="475" y="296" class="head">同一轨迹是否同分</text>
+    <text x="475" y="340" class="copy">连续评分 · 独立复评</text>
+    <text x="475" y="372" class="copy">三次结果取中位数</text>
+    <text x="475" y="420" class="small">方差下降说明结果更稳定，</text>
+    <text x="475" y="447" class="small">并不证明裁判判断正确。</text>
+
+    <text x="850" y="250" class="step" fill="#16a34a">03 有效性校准</text>
+    <text x="850" y="296" class="head">分数是否接近人类判断</text>
+    <text x="850" y="340" class="copy">专家标签 · 明确 rubric</text>
+    <text x="850" y="372" class="copy">周期抽检与失败模式更新</text>
+    <text x="850" y="420" class="small">系统偏差无法通过重复采样</text>
+    <text x="850" y="447" class="small">自动抵消。</text>
+
+    <text x="1225" y="250" class="step" fill="#d97706">04 比较与报告</text>
+    <text x="1225" y="296" class="head">如何解释模型差异</text>
+    <text x="1225" y="340" class="copy">同任务配对 · 平局区间</text>
+    <text x="1225" y="372" class="copy">重复运行 · 不确定性</text>
+    <text x="1225" y="420" class="small">Elo 只能聚合既有判断，</text>
+    <text x="1225" y="447" class="small">不能修复错误裁判。</text>
+  </g>
+
+  <path d="M400 355 H435" class="edge"/>
+  <path d="M775 355 H810" class="edge"/>
+  <path d="M1150 355 H1185" class="edge"/>
+
+  <rect x="70" y="565" width="1455" height="92" rx="22" fill="#0f172a"/>
+  <text x="797" y="622" text-anchor="middle" class="sans" font-size="32" font-weight="850" fill="#ffffff">一致性 ≠ 正确性；稳定分数也可能稳定地偏离真实能力</text>
+
+  <text x="70" y="735" class="sans step" fill="#475569">裁判协议演进（Browser Use 官方公开材料）</text>
+  <line x1="210" y1="824" x2="1390" y2="824" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="390" cy="824" r="24" fill="#8b5cf6"/>
+  <circle cx="1210" cy="824" r="24" fill="#22c55e"/>
+  <text x="390" y="782" text-anchor="middle" class="sans timeline">2026-02</text>
+  <text x="390" y="875" text-anchor="middle" class="sans copy">简单 prompt + True/False</text>
+  <text x="390" y="907" text-anchor="middle" class="sans small">在 200 条人工轨迹上校准</text>
+  <text x="1210" y="782" text-anchor="middle" class="sans timeline">2026-08</text>
+  <text x="1210" y="875" text-anchor="middle" class="sans copy">0–100 连续评分 + 三次中位数</text>
+  <text x="1210" y="907" text-anchor="middle" class="sans small">以降低边界任务的放大效应</text>
+</svg>

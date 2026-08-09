@@ -86,6 +86,8 @@ CATEGORY_SLUGS = {
     "记忆": "memory",
     "Object Detection": "object-detection",
     "目标检测": "object-detection",
+    "Semantic Correspondence": "semantic-correspondence",
+    "语义对应": "semantic-correspondence",
     "Prompt Optimization": "prompt-optimization",
     "提示优化": "prompt-optimization",
     "Judge Prompting": "judge-prompting",

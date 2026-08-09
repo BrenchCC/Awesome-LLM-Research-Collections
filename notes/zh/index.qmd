@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>16</strong><span>笔记</span></div>
+    <div><strong>17</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-05</strong><span>最新日期</span></div>
+    <div><strong>2026-08-10</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -163,6 +163,21 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
+  <span class="category-count">2026-08-10</span>
+  <h3>Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较</h3>
+  <p>从 Browser Use 的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent Evaluation</span>
+    <span class="note-tag">LLM-as-a-Judge</span>
+    <span class="note-tag">Benchmark</span>
+    <span class="note-tag">Statistical Reliability</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/skill-design-sharing.html">
   <span class="category-count">2026-08-05</span>
   <h3>把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计</h3>
