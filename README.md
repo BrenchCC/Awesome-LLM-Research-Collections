@@ -797,7 +797,7 @@
 ## Technical Reflections
 
 - **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (2026-08-10) \
-  **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through Browser Use's 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
+  **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
   [[Note](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
   [[中文](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
 

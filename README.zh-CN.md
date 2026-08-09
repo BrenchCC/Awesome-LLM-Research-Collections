@@ -848,7 +848,7 @@
 ## 技术思考
 
 - **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (2026-08-10) \
-  **描述**: 从 Browser Use 的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \
+  **描述**: 从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \
   [[笔记](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
   [[English](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
 

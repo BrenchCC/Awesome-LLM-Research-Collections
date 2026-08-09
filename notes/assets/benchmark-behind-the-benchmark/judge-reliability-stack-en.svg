@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
   <title id="title">Four layers from judge stability to trustworthy evaluation</title>
-  <desc id="desc">Evidence coverage, repeatability, human calibration, and comparison reporting jointly determine evaluation trustworthiness. A timeline shows Browser Use moving from binary verdicts to continuous scores aggregated by a three-judge median.</desc>
+  <desc id="desc">Evidence coverage, repeatability, human calibration, and comparison reporting jointly determine evaluation trustworthiness. A timeline shows the source team moving from binary verdicts to continuous scores aggregated by a three-judge median.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8fafc"/>
@@ -77,7 +77,7 @@
   <rect x="70" y="565" width="1455" height="92" rx="22" fill="#0f172a"/>
   <text x="797" y="622" text-anchor="middle" class="sans" font-size="32" font-weight="850" fill="#ffffff">Consistency ≠ correctness: a stable score can still be stably wrong</text>
 
-  <text x="70" y="735" class="sans step" fill="#475569">JUDGE-PROTOCOL EVOLUTION IN BROWSER USE'S PUBLIC MATERIALS</text>
+  <text x="70" y="735" class="sans step" fill="#475569">JUDGE-PROTOCOL EVOLUTION IN THE AUTHORS' PUBLIC MATERIALS</text>
   <line x1="210" y1="824" x2="1390" y2="824" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
   <circle cx="390" cy="824" r="24" fill="#8b5cf6"/>
   <circle cx="1210" cy="824" r="24" fill="#22c55e"/>

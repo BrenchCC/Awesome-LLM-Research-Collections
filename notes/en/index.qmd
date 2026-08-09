@@ -166,7 +166,7 @@ toc: false
 <a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
   <span class="category-count">2026-08-10</span>
   <h3>The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons</h3>
-  <p>An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through Browser Use&#x27;s 106-task multi-judge experiment, with a clear distinction between consistency and correctness.</p>
+  <p>An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness.</p>
   <div class="note-tags">
     <span class="note-tag">Agent Evaluation</span>
     <span class="note-tag">LLM-as-a-Judge</span>

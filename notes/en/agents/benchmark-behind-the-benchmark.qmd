@@ -2,7 +2,7 @@
 author: Brench
 date: 2026-08-10
 title: "The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons"
-description: "An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through Browser Use's 106-task multi-judge experiment, with a clear distinction between consistency and correctness."
+description: "An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness."
 order: 1
 note_type: technical-reflection
 topic: agents
@@ -15,7 +15,7 @@ tags:
 
 ![An evaluation pipeline built from a task set, an agent, and a judge, with the judge still represented as an unexplained black box](../../assets/benchmark-behind-the-benchmark/hero.png)
 
-Model leaderboards often interpret a gap of a few percentage points as a clear capability difference. That number, however, passes through at least two stochastic processes: the agent must first perform the task, and a judge must then decide how well it did. In [The Benchmark Behind the Benchmark](https://browser-use.com/posts/benchmark-behind-the-benchmark), Browser Use froze the agent trajectories and changed only the judging model. The aggregate score for the same work ranged from **62.5% to 83.7%**. A 21.2-point range is wider than the separation between many neighboring models on public leaderboards.
+Model leaderboards often interpret a gap of a few percentage points as a clear capability difference. That number, however, passes through at least two stochastic processes: the agent must first perform the task, and a judge must then decide how well it did. In [The Benchmark Behind the Benchmark](https://browser-use.com/posts/benchmark-behind-the-benchmark), the authors froze the agent trajectories and changed only the judging model. The aggregate score for the same work ranged from **62.5% to 83.7%**. A 21.2-point range is wider than the separation between many neighboring models on public leaderboards.
 
 The value of this experiment is not another agent ranking. It turns the judge from an implementation detail into an object of evaluation. This note first reconstructs the complete evidence chain and then asks a stricter question: once the judge becomes stable, is the score trustworthy? My answer is no. Lower variance improves repeatability; correctness still depends on evidence coverage, task specification, human calibration, and the comparison protocol.
 
@@ -37,7 +37,7 @@ $$
 
 ### 1.1 One Agent Does Not Have One Fixed Outcome
 
-Browser Use ran GPT-5.5 five times on the same 106 tasks with the same model, harness, and configuration. Each run solved about 89 tasks, but never the same 89.
+The authors ran GPT-5.5 five times on the same 106 tasks with the same model, harness, and configuration. Each run solved about 89 tasks, but never the same 89.
 
 ![Five GPT-5.5 runs over 106 tasks: 64 always pass, 40 vary between pass and fail, and 2 never pass](../../assets/benchmark-behind-the-benchmark/task-grid.png)
 
@@ -47,7 +47,7 @@ Those numbers answer different questions. A single-run score approximates how re
 
 ### 1.2 Judge Variation Can Be Larger Than Agent Variation
 
-Browser Use then froze 104 completed trajectories with human labels and changed only the judging model, evaluating 11 judges in total.
+The authors then froze 104 completed trajectories with human labels and changed only the judging model, evaluating 11 judges in total.
 
 ![Eleven judges grading the same 104 trajectories: 48 unanimous passes, 9 unanimous failures, and 47 disagreements](../../assets/benchmark-behind-the-benchmark/judge-grid.png)
 
@@ -57,7 +57,7 @@ The term “judge noise” needs care here. Differences across 11 models are not
 
 ## 2. From a Single Call to an Agentic Judge
 
-Browser Use's first judge was a single LLM call: put the entire trajectory in a prompt and request a verdict. That can work for short traces from one harness. With several harnesses and hundreds of steps, the decisive evidence may be removed by truncation or compaction.
+The first judge described in the source was a single LLM call: put the entire trajectory in a prompt and request a verdict. That can work for short traces from one harness. With several harnesses and hundreds of steps, the decisive evidence may be removed by truncation or compaction.
 
 ### 2.1 The Decisive Error May Appear Once
 
@@ -67,7 +67,7 @@ The article gives a task that asks for rental listings below \$2,000 per month. 
 
 If the judge reads only the final answer, the result can look plausible. If the trace is truncated around the wrong region, the judge cannot recover the cause either. Grading this task is not ordinary text classification; it is evidence retrieval over a long trajectory and workspace.
 
-Browser Use therefore converted the judge into a read-only agent. It can inspect the trajectory, open a generated CSV, return to a specific step, and compare a value with its source page. The concrete advantage of an agentic judge is not merely “better reasoning.” It receives opportunities to search and cross-check.
+The authors therefore converted the judge into a read-only agent. It can inspect the trajectory, open a generated CSV, return to a specific step, and compare a value with its source page. The concrete advantage of an agentic judge is not merely “better reasoning.” It receives opportunities to search and cross-check.
 
 ### 2.2 The Evidence Contract Comes Before Prompt Engineering
 
@@ -81,13 +81,13 @@ An evaluation system therefore needs an evidence contract before it tunes the ju
 
 Many real tasks have no natural 0/1 boundary. “Check one of the top contributors” does not specify the top 10 or top 20. Returning a CSV with all the correct data when JSON was requested is also difficult to equate with total failure.
 
-One Browser Use task asked the agent to open a recommended Space, inspect a top contributor, and return the follower count. The recommended-Spaces page required login, so the agent used a publicly reachable Space and verified **227 followers**. Given the same screenshots and number, 5 of 11 judges passed the task and 6 failed it. Their disagreement centered on whether replacing the login-gated Space was acceptable.
+One task in the experiment asked the agent to open a recommended Space, inspect a top contributor, and return the follower count. The recommended-Spaces page required login, so the agent used a publicly reachable Space and verified **227 followers**. Given the same screenshots and number, 5 of 11 judges passed the task and 6 failed it. Their disagreement centered on whether replacing the login-gated Space was acceptable.
 
 Encoding the result as 0 or 1 hides the underlying judgment. A score of 60 can still be debated, but the debate now refers to visible completion and evidence.
 
 ![A continuous 0-to-100 scale cut into pass and fail by a threshold, allowing a small wobble to flip the outcome](../../assets/benchmark-behind-the-benchmark/threshold.png)
 
-Browser Use changed the question to: what percentage of the requested outcome was delivered correctly and backed by evidence? The same judge graded the same traces four times while only a setting that should not affect the answer was changed. Interpreted as pass/fail, the benchmark moved by 20 percentage points. Retaining the raw 0–100 scores reduced the movement to 0.5 points.
+The authors changed the question to: what percentage of the requested outcome was delivered correctly and backed by evidence? The same judge graded the same traces four times while only a setting that should not affect the answer was changed. Interpreted as pass/fail, the benchmark moved by 20 percentage points. Retaining the raw 0–100 scores reduced the movement to 0.5 points.
 
 ![The same four judging runs moving by 20 points under binary aggregation but only 0.5 points under continuous scoring](../../assets/benchmark-behind-the-benchmark/amplify.png)
 
@@ -105,7 +105,7 @@ $$
 \mathrm{Var}(\bar{s}) = \frac{\sigma^2}{n}
 $$
 
-Three independent judgments reduce standard deviation to $1/\sqrt{3}$ of the original, and five reduce it to $1/\sqrt{5}$. Browser Use observed less than the ideal independent-noise gain, but the aggregate benchmark moved by only about one point across repeated judging runs.
+Three independent judgments reduce standard deviation to $1/\sqrt{3}$ of the original, and five reduce it to $1/\sqrt{5}$. The reported experiment observed less than the ideal independent-noise gain, but the aggregate benchmark moved by only about one point across repeated judging runs.
 
 ### 4.1 Why Use the Median?
 
@@ -115,7 +115,7 @@ Finding a buried defect in a long trace is a search problem. Three judges might 
 
 The cost is equally clear. With scores of 20, 25, and 95, the median removes the only correct high-scoring judge. A median cannot tell whether an outlier is wrong or whether a minority judge found the missing evidence.
 
-Browser Use tried sending widely separated scores and their audits to a fourth model for arbitration.
+The authors tried sending widely separated scores and their audits to a fourth model for arbitration.
 
 ![Three judgments leading either to a median or a fourth-model arbitration path, with arbitration ultimately increasing variation](../../assets/benchmark-behind-the-benchmark/arbitrator.png)
 
@@ -123,7 +123,7 @@ This made the final number less stable because the arbitrator was another stocha
 
 ### 4.2 A Failure-Mode Library Acts Like a Marking Scheme
 
-Universities do not ask every teaching assistant to invent partial-credit rules from scratch. They provide a marking scheme that assigns points to proof steps. Browser Use similarly ran a task about 20 times across models, collected the ways it failed, and supplied the resulting **5,692 failure modes** to the judge.
+Universities do not ask every teaching assistant to invent partial-credit rules from scratch. They provide a marking scheme that assigns points to proof steps. The authors similarly ran a task about 20 times across models, collected the ways it failed, and supplied the resulting **5,692 failure modes** to the judge.
 
 This reduces disagreement for known cases but cannot cover new strategies. If an agent skips the browser and reverse-engineers a site's API, the existing list may have no applicable rule. The failure-mode library is a versioned artifact, not a static prompt that can be written once.
 
@@ -141,7 +141,7 @@ This discards the information preserved by continuous scoring. A 52 and a 48 are
 
 ### 5.2 Same-Task Pairing Removes Some Shared Noise
 
-A more informative comparison has both models attempt the same task, assigns a per-task winner, and keeps a tie band for small score differences. Browser Use used a five-point tie band because that roughly matched the natural movement of the same judge on the same task.
+A more informative comparison has both models attempt the same task, assigns a per-task winner, and keeps a tie band for small score differences. The source used a five-point tie band because that roughly matched the natural movement of the same judge on the same task.
 
 ![GPT-5.5 and Opus 5 compared on matching tasks, with each row producing a winner or a tie](../../assets/benchmark-behind-the-benchmark/head-to-head.png)
 
@@ -157,13 +157,13 @@ $$
 \frac{s_{\Delta}}{\sqrt{n}}
 $$
 
-Mean differences can still be contaminated by a few extreme judge decisions. In the article, Opus beat Grok on 44 tasks by an average of 12.3 points. Grok beat Opus on 28 tasks by an average of 26.7 points. The mean difference favored Grok, whereas win counts favored Opus by 56.6 to 43.4. Browser Use trusted the latter because a 90-point difference on one task was more likely to be a judge artifact than a capability gap.
+Mean differences can still be contaminated by a few extreme judge decisions. In the article, Opus beat Grok on 44 tasks by an average of 12.3 points. Grok beat Opus on 28 tasks by an average of 26.7 points. The mean difference favored Grok, whereas win counts favored Opus by 56.6 to 43.4. The authors trusted the latter because a 90-point difference on one task was more likely to be a judge artifact than a capability gap.
 
 Win counting also discards magnitude. The justification is that task-level magnitude may contain more judge artifact than useful signal. This choice depends on the task and judge error structure and should not be treated as universal.
 
 ### 5.3 Elo Scales the Comparison but Cannot Repair the Judge
 
-When there are many models and incomplete task overlap, each shared task can be treated as a game. A score difference above five points produces a win; a difference within five produces a draw. With 106 tasks and six configurations, Browser Use constructed 1,590 matches.
+When there are many models and incomplete task overlap, each shared task can be treated as a game. A score difference above five points produces a win; a difference within five produces a draw. With 106 tasks and six configurations, the authors constructed 1,590 matches.
 
 ![Elo ratings for six model configurations, with the top four contained within a 56-point range](../../assets/benchmark-behind-the-benchmark/elo.png)
 
@@ -175,15 +175,15 @@ The article closes by comparing judged success with run cost.
 
 ![Judged success over 106 tasks plotted against agent cost, with Luna configurations forming a cost frontier](../../assets/benchmark-behind-the-benchmark/pareto.png)
 
-Browser Use reports that Luna xhigh finished only two fewer tasks than Opus 5 at about one-sixteenth of the cost. That conclusion depends on holding the task set, evidence protocol, and judge version fixed. Changing any of them can move the apparent frontier.
+The source reports that Luna xhigh finished only two fewer tasks than Opus 5 at about one-sixteenth of the cost. That conclusion depends on holding the task set, evidence protocol, and judge version fixed. Changing any of them can move the apparent frontier.
 
 ## 6. Additional Analysis: Consistency Is Not Correctness
 
-The preceding 14 figures reproduce the source article's visual argument in its original order. The next two figures examine boundaries that the article does not fully develop; they do not replace or independently validate Browser Use's internal results.
+The preceding 14 figures reproduce the source article's visual argument in its original order. The next two figures examine boundaries that the article does not fully develop; they do not replace or independently validate the source team's internal results.
 
 ### 6.1 From Evidence Coverage to Trustworthy Reporting
 
-![Four layers of evaluation reliability: evidence coverage, repeatability, human calibration, and comparison reporting, plus the evolution of Browser Use's judge protocol](../../assets/benchmark-behind-the-benchmark/judge-reliability-stack-en.svg)
+![Four layers of evaluation reliability: evidence coverage, repeatability, human calibration, and comparison reporting, plus the evolution of the source team's judge protocol](../../assets/benchmark-behind-the-benchmark/judge-reliability-stack-en.svg)
 
 The article's variance decomposition is a useful debugging entry point, not a complete statistical model. A real evaluation also includes task ambiguity, harness differences, web state, shared infrastructure failures, and covariance among these factors. If three judges all fail to open the same file, their errors are not independent. The median will preserve the same mistake consistently.
 
@@ -202,17 +202,17 @@ Continuous scoring and a median of three primarily improve the first. The second
 
 Anthropic defines each attempt at a task as a trial, the complete interaction record as a transcript, the final environment state as the outcome, and the infrastructure that executes, records, grades, and aggregates as the evaluation harness. This fills in what the “tasks + judge” abstraction omits: a model score belongs to a **model × agent harness × environment × judge protocol** configuration rather than being an intrinsic model constant.
 
-Anthropic likewise recommends multiple trials for stochastic agents, deterministic graders for verifiable outcomes where possible, partial credit for multi-component tasks, and continuing expert calibration of LLM graders. Those recommendations align with Browser Use's move toward evidence access, continuous scores, and repeated judgments.
+Anthropic likewise recommends multiple trials for stochastic agents, deterministic graders for verifiable outcomes where possible, partial credit for multi-component tasks, and continuing expert calibration of LLM graders. Those recommendations align with the source team's move toward evidence access, continuous scores, and repeated judgments.
 
 ### 6.3 The Judge Protocol Must Be Versioned
 
-In its February 2026 article on [scalable evaluation infrastructure](https://browser-use.com/posts/our-browser-agent-evaluation-system), Browser Use wrote that after alignment against 200 human-labeled traces, simple prompts and absolute True/False verdicts worked best. By August, the present article reported that binary verdicts amplified borderline noise by 20 points and replaced them with 0–100 scores plus a median of three.
+In its February 2026 article on [scalable evaluation infrastructure](https://browser-use.com/posts/our-browser-agent-evaluation-system), the authors wrote that after alignment against 200 human-labeled traces, simple prompts and absolute True/False verdicts worked best. By August, the present article reported that binary verdicts amplified borderline noise by 20 points and replaced them with 0–100 scores plus a median of three.
 
 This need not be read as a simple contradiction. The experiments may have used different tasks, judges, evidence, and optimization targets. It does show that the judge prompt, output schema, scoring scale, aggregation rule, failure-mode library, and model version are all part of the benchmark's public interface. Publishing a dataset without those artifacts does not let another team reproduce the same benchmark.
 
 ## 7. Conclusion
 
-Browser Use's experiment supports a concrete engineering rule: evaluate the judge repeatedly before comparing agents. For open-ended tasks, preserve the complete evidence record, report repeated agent trials, use a scale that can express partial completion, rejudge trajectories independently, publish the aggregation method, and version the judge protocol alongside the dataset.
+The reported experiment supports a concrete engineering rule: evaluate the judge repeatedly before comparing agents. For open-ended tasks, preserve the complete evidence record, report repeated agent trials, use a scale that can express partial completion, rejudge trajectories independently, publish the aggregation method, and version the judge protocol alongside the dataset.
 
 Yet “the score no longer moves” is only the minimum requirement. A median of three can suppress random variance and can also consistently discard the only judge that found the decisive evidence. Elo can aggregate thousands of task-level games but cannot correct a shared systematic bias. A trustworthy benchmark must make its task definitions, evidence, human labels, judge versions, and uncertainty inspectable.
 
@@ -220,8 +220,8 @@ When two models differ by only a few points, I now want four details before inte
 
 ## 8. References
 
-1. Gregor Zunic. [The Benchmark Behind the Benchmark](https://browser-use.com/posts/benchmark-behind-the-benchmark). Browser Use, 2026-08-05.
-2. Browser Use. [How we aligned our evals](https://x.com/browser_use/status/2085382641696768358). X, 2026-08-06.
+1. Gregor Zunic. [The Benchmark Behind the Benchmark](https://browser-use.com/posts/benchmark-behind-the-benchmark). 2026-08-05.
+2. [How we aligned our evals](https://x.com/browser_use/status/2085382641696768358). X, 2026-08-06.
 3. 机智流. [LLM Benchmark 里的分数到底是怎么打的](https://mp.weixin.qq.com/s/o8h4t5ioA62td7dhjB3BEA). WeChat, 2026-08-09.
-4. Alexander Yue. [How we built scalable evaluation infrastructure for AI web agents](https://browser-use.com/posts/our-browser-agent-evaluation-system). Browser Use, 2026-02-23.
+4. Alexander Yue. [How we built scalable evaluation infrastructure for AI web agents](https://browser-use.com/posts/our-browser-agent-evaluation-system). 2026-02-23.
 5. Anthropic. [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). 2026-01-09.

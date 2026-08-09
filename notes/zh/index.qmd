@@ -166,7 +166,7 @@ toc: false
 <a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
   <span class="category-count">2026-08-10</span>
   <h3>Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较</h3>
-  <p>从 Browser Use 的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。</p>
+  <p>从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。</p>
   <div class="note-tags">
     <span class="note-tag">Agent Evaluation</span>
     <span class="note-tag">LLM-as-a-Judge</span>
