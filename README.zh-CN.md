@@ -359,6 +359,13 @@
 # 训练
 
 ## 数据准备
+- **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks** (2026.08) \
+  **描述**: BigBang 是一个通用 35B-A3B 模型，通过对抗式、自演化的生成器—评判器框架合成可验证前沿任务并进行后训练。该管线利用留出的真实研究任务进行校准，迭代提升任务难度与评估质量，从而在科学研究、推理、编程和工具调用上取得广泛增益。 \
+  [[论文](https://endlessfrontier.tech/assets/paper.pdf)]
+  [[项目](https://endlessfrontier.tech/)]
+  [[代码](https://github.com/endless-frontier/BigBang-v1)]
+  [[Hugging Face](https://huggingface.co/endless-frontier/BigBang-v1)]
+
 - **DataPrep-Bench: Benchmarking LLMs as Training Data Preparators** (2026.05) \
   **描述**: DataPrep-Bench 是首个统一、以下游效果为依据的基准，用于评估大语言模型、智能体和数据工作流构建监督训练数据及预测候选数据集下游效用的能力。论文还提出技能驱动的数据构建智能体和分布对齐分数，后者在多数测试领域优于已有的质量、多样性与启发式评估方法。 \
   [[论文](https://arxiv.org/abs/2607.20465)]
@@ -721,6 +728,12 @@
   <a href="https://arxiv.org/abs/2607.05391"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://llm-as-a-verifier.com/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/llm-as-a-verifier/llm-as-a-verifier"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **Towards Long-Horizon Agents: A Survey** (2026.07) \
+  **描述**: 该综述将长时程智能体形式化为由模型策略与外围 harness 耦合而成的决策过程，并以外显的 harness 工程和内化的模型优化为主线提出统一分类体系。论文从六个相互关联的视角梳理领域演进、应用、基准与开放问题。 \
+  [[论文](https://openreview.net/forum?id=HyhfhlbWGh)]
+  [[项目](https://long-horizon-agents.github.io/)]
+  [[代码](https://github.com/RUC-NLPIR/Awesome-Long-Horizon-Agents)]
 
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \

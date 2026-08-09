@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>128</strong><span>论文</span></div>
+    <div><strong>130</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>300</strong><span>资源链接</span></div>
+    <div><strong>307</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -69,11 +69,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">4 篇论文</span>
+  <span class="category-count">5 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
-    <span>2026.05</span>
+    <span>2026.08</span>
     <span>优化、数据准备、蒸馏</span>
   </div>
 </a>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">21 篇论文</span>
+  <span class="category-count">22 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="training.html#bigbang-pursuing-open-ended-intelligence-through-self-evolving-synthesis-of-verifiable-frontier-tasks">
+  <span>2026.08</span>
+  <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
+  <em>训练</em>
+</a>
 <a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <span>2026.08</span>
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.07</span>
   <strong>Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</strong>
   <em>强化学习</em>
-</a>
-<a class="recent-row" href="agents-application.html#harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">
-  <span>2026.07</span>
-  <strong>Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable</strong>
-  <em>智能体应用</em>
 </a>
   </div>
 </section>
