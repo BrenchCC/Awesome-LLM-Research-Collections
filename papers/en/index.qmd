@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>130</strong><span>Papers</span></div>
+    <div><strong>131</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>307</strong><span>Resource links</span></div>
+    <div><strong>311</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">19 papers</span>
+  <span class="category-count">20 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">

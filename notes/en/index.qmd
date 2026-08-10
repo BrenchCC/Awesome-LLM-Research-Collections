@@ -9,7 +9,7 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>Notes</span></div>
+    <div><strong>18</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
     <div><strong>2026-08-10</strong><span>Latest date</span></div>
   </div>
@@ -25,6 +25,23 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/skillrl-failure-to-reusable-skill.html">
+  <span class="category-count">2026-08-10</span>
+  <h3>SkillRL: How a Failure Becomes a Reusable Skill</h3>
+  <p>A reading of SkillRL through ALFWorld&#x27;s Skipping State Changes failure, tracing candidate-skill extraction, SkillBank organization, skill-aware policy training, and the boundary between paper evidence, repository behavior, and production admission controls.</p>
+  <div class="note-tags">
+    <span class="note-tag">SkillRL</span>
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Skill Learning</span>
+    <span class="note-tag">Failure Learning</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
 <a class="category-card" href="attention/kimi-linear-kda.html">
   <span class="category-count">2026-08-03</span>
   <h3>Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention</h3>

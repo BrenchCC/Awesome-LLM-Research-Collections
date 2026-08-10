@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Note XHS Recommender"
+  short_description: "Turn repository notes into concise XHS recommendations"
+  default_prompt: "Use $repo-note-xhs-recommender to draft a concise, fact-checked XHS text recommendation from a repository note."

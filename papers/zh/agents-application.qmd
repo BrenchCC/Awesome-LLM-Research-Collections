@@ -16,7 +16,7 @@ toc: false
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
-    <a href="#">计算机使用</a>
+    <a href="#computer-use">计算机使用</a>
 <a href="#tool-use">工具调用</a>
 <a href="#web-agents">网络智能体</a>
 <a href="#data-agents">数据智能体</a>
@@ -27,7 +27,7 @@ toc: false
   </nav>
 </section>
 
-<section class="paper-section" id="">
+<section class="paper-section" id="computer-use">
   <div class="section-heading compact">
     <p class="eyebrow">1 篇论文</p>
     <h2>计算机使用</h2>

@@ -70,6 +70,8 @@ CATEGORY_SLUGS = {
     "智能体强化学习": "agentic-rl",
     "VLA RL": "vla-rl",
     "视觉-语言-动作强化学习": "vla-rl",
+    "Computer Use": "computer-use",
+    "计算机使用": "computer-use",
     "AI Research": "ai-research",
     "AI 研究": "ai-research",
     "Tool Use": "tool-use",
@@ -107,6 +109,51 @@ LINK_ICONS = {
 }
 
 PAPER_LABELS = {"Paper", "论文"}
+
+LINK_KINDS = {
+    "Paper": "paper",
+    "论文": "paper",
+    "Project": "project",
+    "项目": "project",
+    "Code": "code",
+    "代码": "code",
+    "Hugging Face": "hugging_face",
+}
+
+LINK_KIND_ORDER = {
+    "paper": 0,
+    "project": 1,
+    "code": 2,
+    "hugging_face": 3,
+}
+
+LINK_LABELS_BY_LANGUAGE = {
+    "en": {
+        "Paper",
+        "Project",
+        "Code",
+        "Hugging Face"
+    },
+    "zh": {
+        "论文",
+        "项目",
+        "代码",
+        "Hugging Face"
+    },
+}
+
+SOURCE_ICON_LINK_PATTERN = re.compile(
+    r'^  <a href="([^"]+)"><img src="assets/icons/([^"]+)" '
+    r'alt="([^"]+)" width="20"></a>$'
+)
+
+SOURCE_EMPTY_LINK_PATTERN = re.compile(
+    r'^\s*<a\b[^>]*>\s*</a>\s*$'
+)
+
+SOURCE_TEXT_LINK_PATTERN = re.compile(
+    r'^\s+\[\[([^\]]+)\]\(([^)]+)\)\]\]?\s*$'
+)
 
 
 @dataclass
@@ -355,7 +402,7 @@ def parse_readme(readme_path, config):
     current_paper = None
     lines = readme_path.read_text(encoding = "utf-8").splitlines()
     description_pattern = (
-        r"^\s+\*\*" + re.escape(config.description_label) + r"\*\*: (.+?)(?: \\\s*)?\s*$"
+        r"^\s+\*\*" + re.escape(config.description_label) + r"\*\*: (.+?) \\\s*$"
     )
 
     for line in lines:
@@ -384,7 +431,7 @@ def parse_readme(readme_path, config):
             continue
 
         title_match = re.match(
-            r"^- \*\*(.+)\*\* \((\d{4}\.\d{2})\)(?: \\\s*)?\s*$",
+            r"^- \*\*(.+)\*\* \((\d{4}\.\d{2})\) \\\s*$",
             line
         )
         if title_match:
@@ -407,38 +454,10 @@ def parse_readme(readme_path, config):
             current_paper.description = desc_match.group(1).strip()
             continue
 
-        link_match = re.match(r"^\s+\[\[([^\]]+)\]\(([^)]+)\)\]\]?\s*$", line)
-        icon_link_match = re.match(
-            r"^\s+\[!\[([^\]]+)\]\(assets/icons/[^)]+\)\]\(([^)]+)\)\s*$",
-            line
-        )
-        html_icon_link_match = re.match(
-            r'^\s+<a href="([^"]+)"><img src="assets/icons/[^"]+" alt="([^"]+)" width="\d+"></a>\s*$',
-            line
-        )
-        bare_html_link_match = re.match(
-            r'^\s+<a href="([^"]+)"></a>\s*$',
-            line
-        )
-        if link_match or icon_link_match or html_icon_link_match or bare_html_link_match:
-            match = link_match or icon_link_match
-            if match:
-                label = match.group(1).strip()
-                url = match.group(2).strip()
-            elif html_icon_link_match:
-                label = html_icon_link_match.group(2).strip()
-                url = html_icon_link_match.group(1).strip()
-            else:
-                url = bare_html_link_match.group(1).strip()
-                if "arxiv.org" in url:
-                    label = "论文" if config.key == "zh" else "Paper"
-                elif "github.com" in url:
-                    label = "代码" if config.key == "zh" else "Code"
-                elif "huggingface.co" in url:
-                    label = "Hugging Face"
-                else:
-                    label = "项目" if config.key == "zh" else "Project"
-
+        html_icon_link_match = SOURCE_ICON_LINK_PATTERN.match(line)
+        if html_icon_link_match:
+            url = html_icon_link_match.group(1).strip()
+            label = html_icon_link_match.group(3).strip()
             current_paper.links.append(
                 Link(
                     label = label,
@@ -447,6 +466,136 @@ def parse_readme(readme_path, config):
             )
 
     return category_order, papers_by_category
+
+
+def canonical_link_kind(label):
+    """Return the language-independent resource kind.
+
+    Parameters:
+        label: Localized resource label.
+    """
+    return LINK_KINDS.get(label)
+
+
+def paper_catalog_rows(readme_path, config):
+    """Return numbered lines that belong to paper categories.
+
+    Parameters:
+        readme_path: Source README path.
+        config: Language-specific parsing configuration.
+    """
+    lines = readme_path.read_text(encoding = "utf-8").splitlines()
+    rows = []
+    active = False
+    for line_number, line in enumerate(lines, start = 1):
+        top_match = re.match(r"^# (.+)$", line)
+        if top_match:
+            active = top_match.group(1).strip() not in config.skipped_headings
+            continue
+        if active:
+            rows.append((line_number, line))
+    return lines, rows
+
+
+def validate_readme_source(readme_path, config):
+    """Validate canonical paper formatting in one README source.
+
+    Parameters:
+        readme_path: Source README path.
+        config: Language-specific parsing configuration.
+    """
+    errors = []
+    lines, rows = paper_catalog_rows(readme_path, config)
+    expected_title = f"# {config.skipped_headings[0]}"
+    if not lines or lines[0] != expected_title:
+        errors.append(f"{readme_path}:1: expected document title {expected_title!r}")
+
+    title_pattern = re.compile(r"^- \*\*(.+)\*\* \(\d{4}\.\d{2}\)(.*)$")
+    description_pattern = re.compile(
+        r"^  \*\*" + re.escape(config.description_label) + r"\*\*: (.*)$"
+    )
+    for line_number, line in rows:
+        location = f"{readme_path}:{line_number}"
+        if line != line.rstrip():
+            errors.append(f"{location}: trailing whitespace in paper catalog")
+
+        title_match = title_pattern.match(line)
+        if title_match:
+            if title_match.group(2) != " \\":
+                errors.append(f"{location}: paper title must end with a space and backslash")
+            if line_number > 1 and lines[line_number - 2] != "":
+                errors.append(f"{location}: expected a blank line before paper entry")
+            continue
+        if line.lstrip().startswith("- **"):
+            errors.append(f"{location}: malformed paper title line")
+            continue
+
+        if description_pattern.match(line):
+            if not line.endswith(" \\"):
+                errors.append(
+                    f"{location}: paper description must end with a space and backslash"
+                )
+            continue
+        if line.lstrip().startswith(f"**{config.description_label}**:"):
+            errors.append(f"{location}: malformed paper description line")
+            continue
+
+        if SOURCE_EMPTY_LINK_PATTERN.match(line):
+            errors.append(f"{location}: empty resource anchor is not allowed")
+            continue
+        if SOURCE_TEXT_LINK_PATTERN.match(line):
+            errors.append(f"{location}: paper resources must use HTML icon links")
+            continue
+
+        if re.match(r"^\s*<a\b", line):
+            icon_match = SOURCE_ICON_LINK_PATTERN.match(line)
+            if not icon_match:
+                errors.append(f"{location}: malformed paper resource link")
+                continue
+            url, icon, label = icon_match.groups()
+            if label not in LINK_LABELS_BY_LANGUAGE[config.key]:
+                errors.append(f"{location}: invalid {config.key} resource label {label!r}")
+                continue
+            expected_icon = link_icon(Link(label = label, url = url))
+            if icon != expected_icon:
+                errors.append(
+                    f"{location}: {label} must use assets/icons/{expected_icon}"
+                )
+        elif line.lstrip().startswith("["):
+            errors.append(f"{location}: paper resources must use HTML icon links")
+
+    category_order, papers_by_category = parse_readme(readme_path, config)
+    papers = all_papers(category_order, papers_by_category)
+    if not category_order:
+        errors.append(f"{readme_path}: paper catalog must contain at least one category")
+    if not papers:
+        errors.append(f"{readme_path}: paper catalog must contain at least one paper")
+
+    paper_urls = {}
+    for paper in papers:
+        kinds = [canonical_link_kind(link.label) for link in paper.links]
+        if not paper.description:
+            errors.append(f"{readme_path}: missing description for {paper.title}")
+        if any(kind is None for kind in kinds):
+            continue
+        if kinds.count("paper") != 1:
+            errors.append(f"{readme_path}: expected one Paper resource for {paper.title}")
+        if len(kinds) != len(set(kinds)):
+            errors.append(f"{readme_path}: duplicate resource kind for {paper.title}")
+        if kinds != sorted(kinds, key = LINK_KIND_ORDER.get):
+            errors.append(f"{readme_path}: invalid resource order for {paper.title}")
+        for link, kind in zip(paper.links, kinds):
+            if kind != "paper":
+                continue
+            if link.url in paper_urls:
+                errors.append(
+                    f"{readme_path}: duplicate Paper URL for {paper.title} "
+                    f"and {paper_urls[link.url]}: {link.url}"
+                )
+            else:
+                paper_urls[link.url] = paper.title
+
+    return errors
 
 
 def all_papers(category_order, papers_by_category):
@@ -460,6 +609,72 @@ def all_papers(category_order, papers_by_category):
     for category in category_order:
         papers.extend(papers_by_category.get(category, []))
     return papers
+
+
+def catalog_records(config):
+    """Build language-independent records in README order.
+
+    Parameters:
+        config: Language-specific parsing configuration.
+    """
+    category_order, papers_by_category = parse_readme(Path(config.readme_path), config)
+    records = []
+    for paper in all_papers(category_order, papers_by_category):
+        resources = tuple(
+            (canonical_link_kind(link.label), link.url)
+            for link in paper.links
+        )
+        paper_url = next(url for kind, url in resources if kind == "paper")
+        records.append(
+            (
+                paper_url,
+                slugify(paper.category),
+                slugify(paper.subcategory) if paper.subcategory else "",
+                paper.title,
+                paper.date,
+                resources
+            )
+        )
+    return records
+
+
+def validate_bilingual_catalog(english_config, chinese_config):
+    """Validate structural and resource parity across both README catalogs.
+
+    Parameters:
+        english_config: English parsing configuration.
+        chinese_config: Chinese parsing configuration.
+    """
+    errors = []
+    english_records = catalog_records(english_config)
+    chinese_records = catalog_records(chinese_config)
+    if len(english_records) != len(chinese_records):
+        return [
+            "Bilingual paper count mismatch: "
+            f"{len(english_records)} != {len(chinese_records)}"
+        ]
+
+    field_names = [
+        "Paper URL",
+        "category",
+        "subcategory",
+        "title",
+        "date",
+        "resources"
+    ]
+    for english_record, chinese_record in zip(english_records, chinese_records):
+        paper_url = english_record[0]
+        for field_name, english_value, chinese_value in zip(
+            field_names,
+            english_record,
+            chinese_record
+        ):
+            if english_value != chinese_value:
+                errors.append(
+                    f"Bilingual {field_name} mismatch near {paper_url}: "
+                    f"{english_value!r} != {chinese_value!r}"
+                )
+    return errors
 
 
 def paper_count_text(count, config):
@@ -1089,6 +1304,32 @@ def selected_configs(args):
     return [LANGUAGE_CONFIGS[args.language]]
 
 
+def validate_sources(args):
+    """Validate selected README sources before checking generated pages.
+
+    Parameters:
+        args: Parsed command-line arguments.
+    """
+    errors = []
+    for config in selected_configs(args):
+        errors.extend(
+            validate_readme_source(
+                readme_path = Path(config.readme_path),
+                config = config
+            )
+        )
+
+    if not errors and args.readme is None and args.language == "all":
+        errors.extend(
+            validate_bilingual_catalog(
+                english_config = LANGUAGE_CONFIGS["en"],
+                chinese_config = LANGUAGE_CONFIGS["zh"]
+            )
+        )
+
+    return errors
+
+
 def expected_files(args):
     """Build the expected qmd file map.
 
@@ -1133,6 +1374,12 @@ def main():
     No parameters.
     """
     args = parse_args()
+    source_errors = validate_sources(args)
+    if source_errors:
+        for error in source_errors:
+            logger.error(error)
+        return 1
+
     files = expected_files(args)
     out_of_sync = write_or_check(
         files = files,

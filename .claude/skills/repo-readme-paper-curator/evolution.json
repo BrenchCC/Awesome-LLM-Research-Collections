@@ -1,0 +1,11 @@
+{
+  "last_updated": "2026-08-10T02:58:10.850419",
+  "preferences": [
+    "README paper resources must use the repository's canonical HTML icon anchors in both languages; do not mix in text-only Markdown links."
+  ],
+  "fixes": [
+    "Reject empty anchors and restore the matching local icon, localized alt label, and width=\"20\" attributes.",
+    "Keep each paper title and Description/描述 line terminated by a space plus backslash, with a blank line before the next paper.",
+    "Before regenerating Quarto pages, verify English and Chinese paper order, category/subcategory slugs, dates, titles, and resource kind/URL sequences are identical."
+  ]
+}

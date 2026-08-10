@@ -54,6 +54,7 @@
 # 注意力机制
 
 ## 注意力架构
+
 - **FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention** (2026.06) \
   **描述**: 该论文提出 Lookahead Sparse Attention，使用独立训练的神经记忆索引器预测未来上下文需求，仅在 GPU 上保留查询关键的 KV 分块。FlashMemory 将物理 KV 缓存占用平均压缩至完整上下文注意力的 13.5%，同时保持或略微提升长上下文准确率。 \
   <a href="https://arxiv.org/abs/2606.09079"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -78,15 +79,15 @@
 
 - **Kimi Linear: An Expressive, Efficient Attention Architecture** (2025.10) \
   **描述**: 该论文提出 Kimi Linear 混合架构，其 Kimi Delta Attention 模块结合细粒度门控与基于特化对角加低秩转移矩阵的高效分块算法。一个总参数 48B、激活参数 3B 的模型在相同训练方案下优于完整 MLA，同时将 KV 缓存占用最多降低 75%，并在 100 万 token 上下文中实现最高 6 倍解码吞吐。 \
-  [[论文](https://arxiv.org/abs/2510.26692)]
-  [[代码](https://github.com/MoonshotAI/Kimi-Linear)]
-  [[Hugging Face](https://huggingface.co/collections/moonshotai/kimi-linear-a3b)]
+  <a href="https://arxiv.org/abs/2510.26692"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MoonshotAI/Kimi-Linear"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/moonshotai/kimi-linear-a3b"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **RoFormer: Enhanced Transformer with Rotary Position Embedding** (2021.04) \
   **描述**: 该论文提出旋转位置编码（RoPE），通过旋转矩阵编码绝对位置，同时使自注意力显式依赖相对位置。RoPE 支持灵活的序列长度、随相对距离增加而衰减的 token 依赖，并可为线性自注意力引入相对位置编码。 \
-  [[论文](https://arxiv.org/abs/2104.09864)]
-  [[代码](https://github.com/ZhuiyiTechnology/roformer)]
-  [[Hugging Face](https://huggingface.co/junnyu/roformer_chinese_base)]
+  <a href="https://arxiv.org/abs/2104.09864"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/ZhuiyiTechnology/roformer"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/junnyu/roformer_chinese_base"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
   **描述**: 该论文提出 multi-query attention，在不同注意力头之间共享 keys 和 values，以降低 Transformer 增量解码中的内存带宽开销。该变体显著提升解码速度，同时相较多头注意力基线仅带来轻微质量下降。 \
@@ -95,12 +96,13 @@
 # 大语言模型
 
 ## 基础模型
+
 - **Kimi K3: Open Frontier Intelligence** (2026.07) \
   **描述**: Kimi K3 是一个 2.8T 总参数、104B 激活参数的 MoE 基础模型，具备原生视觉能力和 100 万 token 上下文，并基于 Kimi Delta Attention、Attention Residuals 与 Stable LatentMoE 构建。其架构和训练改进相较 Kimi K2 将整体扩展效率提升约 2.5 倍，并在长程代码、智能体、推理和视觉任务上达到前沿水平。 \
-  [[论文](https://arxiv.org/abs/2607.24653)]
-  [[项目](https://www.kimi.com/blog/kimi-k3)]
-  [[代码](https://github.com/MoonshotAI/Kimi-K3)]
-  [[Hugging Face](https://huggingface.co/moonshotai/Kimi-K3)]
+  <a href="https://arxiv.org/abs/2607.24653"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.kimi.com/blog/kimi-k3"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/MoonshotAI/Kimi-K3"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/moonshotai/Kimi-K3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence** (2026.05) \
   **描述**: 该技术报告介绍 MiniMax-M2 系列，一组以较小激活参数规模面向真实智能体部署的 MoE 语言模型。它结合智能体驱动的可验证数据管线、Forge 智能体原生 RL 系统，以及 M2.7 中的早期自演进机制，提升代码、深度搜索、办公任务和推理表现。 \
@@ -197,6 +199,7 @@
   <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 推理
+
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
   **描述**: 该论文提出 Exploratory Sampling (ESamp)，用于缓解标准随机采样主要产生词面变化、语义探索不足的问题。它在测试时训练轻量 Distiller 由浅层表征预测深层表征，并用预测误差作为新颖性信号重加权候选 token，从而提升推理模型的 Pass@k 效率。 \
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -206,7 +209,15 @@
   **描述**: 该论文为 LLM 的最优测试时计算提出理论框架，证明最优算法总会生成一种“毛毛虫树”结构，并提出 CaT。该方法相比 Tree-of-Thoughts 用更少 token 生成取得更高成功率。 \
   <a href="https://arxiv.org/abs/2603.22784"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning** (2025.06) \
+  **描述**: FinChain 提出一个无污染、机器可验证的多步金融推理基准，通过带可执行 Python 轨迹的参数化模板覆盖 12 个领域的 58 个主题。其 ChainEval 指标联合评估最终答案正确性与逐步推理一致性，并揭示 26 个主流 LLM 在符号金融推理上的持续短板。 \
+  <a href="https://arxiv.org/abs/2506.02515"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://mbzuai-nlp.github.io/finchain/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/mbzuai-nlp/finchain"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/spaces/Usmansafder/finchain-space"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 ## 检测
+
 - **Base Models Look Human To AI Detectors** (2026.05) \
   **描述**: 该论文发现，商业 AI 文本检测器常把基础模型输出判为比指令微调模型输出更像人类文本，说明检测器可能更多捕捉指令微调痕迹和局部上下文，而非稳定的机器生成文本信号。论文提出 Humanization by Iterative Paraphrasing (HIP)，通过检测器无关的微调与迭代改写管线，在保持语义的同时提升检测规避效果。 \
   <a href="https://arxiv.org/abs/2605.19516"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -215,12 +226,13 @@
 # 多模态大模型
 
 ## 视觉语言
+
 - **VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding** (2026.07) \
   **描述**: VideoChat3 是一个完全开放的 4B 视频多模态大模型，通过 I3D-ViT 与自适应帧分辨率实现高效时空表征和流式感知。其可扩展数据合成管线构建了覆盖通用、长视频和流式场景的数据集，在降低计算开销的同时提升跨领域泛化能力。 \
-  [[论文](https://arxiv.org/abs/2607.14935)]
-  [[项目](https://mcg-nju.github.io/VideoChat3/)]
-  [[代码](https://github.com/MCG-NJU/VideoChat3)]
-  [[Hugging Face](https://huggingface.co/collections/MCG-NJU/videochat3)]
+  <a href="https://arxiv.org/abs/2607.14935"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://mcg-nju.github.io/VideoChat3/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/MCG-NJU/VideoChat3"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/MCG-NJU/videochat3"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **Lance: Unified Multimodal Modeling by Multi-Task Synergy** (2026.05) \
   **描述**: Lance 提出一种轻量级原生统一多模态模型，在不主要依赖容量扩展的情况下支持图像和视频理解、生成与编辑。它结合共享交错上下文建模、解耦能力路径、双流 MoE、模态感知 RoPE 和分阶段多任务训练，同时提升生成与理解能力。 \
@@ -299,12 +311,14 @@
   <a href="https://llava-vl.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
 ## 多模态推理
+
 - **Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey** (2025.03) \
   **描述**: 这篇综述弥补了多模态大模型中多模态 Chain-of-Thought 推理缺少最新系统综述的问题，覆盖图像、视频、语音、音频、3D 和结构化数据。它给出基础定义、完整 taxonomy、跨应用方法分析，并总结未来多模态推理研究的开放挑战。 \
   <a href="https://arxiv.org/abs/2503.12605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/yaotingwangofficial/Awesome-MCoT"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
 ## 视觉-语言-动作
+
 - **LA4VLA: Learning to Act without Seeing via Language-Action Pretraining** (2026.06) \
   **描述**: 该论文提出 LA4VLA，一种语言-动作预训练框架，通过把示范轨迹分解为原子动作片段并配对低层动作描述，使 VLA 策略在无视觉观测的情况下学习语言条件动作先验。论文构建 LA-33K 数据集，并表明结合语言-动作与 VLA 监督可以提升仿真和真实机器人任务中的操作成功率。 \
   <a href="https://arxiv.org/abs/2606.27295"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -326,6 +340,7 @@
   <a href="https://huggingface.co/collections/LinShan/clap"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 嵌入模型
+
 - **Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models** (2025.06) \
   **描述**: 该论文提出 Qwen3 Embedding，一个基于 Qwen3 基础模型构建的文本嵌入与重排序模型系列，结合多阶段训练、模型合并和 LLM 合成的多语言数据。该系列覆盖 0.6B、4B 和 8B 规模，并在多语言嵌入、检索、重排序、代码检索和跨语言检索基准上取得领先表现。 \
   <a href="https://arxiv.org/abs/2506.05176"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -342,6 +357,7 @@
 # 监督微调
 
 ## 监督微调方法
+
 - **Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning** (2026.05) \
   **描述**: 该论文系统研究监督微调中的基于难度的数据选择，指出不存在普适最优的数据难度。论文用分布内泛化与外推之间的权衡解释数据规模相关的最优难度，并发现随着数据预算增加，最优训练样本会逐渐转向更难样本。 \
   <a href="https://arxiv.org/abs/2605.12906"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -359,30 +375,33 @@
 # 训练
 
 ## 数据准备
+
 - **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks** (2026.08) \
   **描述**: BigBang 是一个通用 35B-A3B 模型，通过对抗式、自演化的生成器—评判器框架合成可验证前沿任务并进行后训练。该管线利用留出的真实研究任务进行校准，迭代提升任务难度与评估质量，从而在科学研究、推理、编程和工具调用上取得广泛增益。 \
-  [[论文](https://endlessfrontier.tech/assets/paper.pdf)]
-  [[项目](https://endlessfrontier.tech/)]
-  [[代码](https://github.com/endless-frontier/BigBang-v1)]
-  [[Hugging Face](https://huggingface.co/endless-frontier/BigBang-v1)]
+  <a href="https://endlessfrontier.tech/assets/paper.pdf"><img src="assets/icons/paper.svg" alt="论文" width="20"></a>
+  <a href="https://endlessfrontier.tech/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/endless-frontier/BigBang-v1"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/endless-frontier/BigBang-v1"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **DataPrep-Bench: Benchmarking LLMs as Training Data Preparators** (2026.05) \
   **描述**: DataPrep-Bench 是首个统一、以下游效果为依据的基准，用于评估大语言模型、智能体和数据工作流构建监督训练数据及预测候选数据集下游效用的能力。论文还提出技能驱动的数据构建智能体和分布对齐分数，后者在多数测试领域优于已有的质量、多样性与启发式评估方法。 \
-  [[论文](https://arxiv.org/abs/2607.20465)]
-  [[项目](https://datapreparationbench.github.io/)]
-  [[代码](https://github.com/OpenDCAI/Data-Preparation-Bench)]
-  [[Hugging Face](https://huggingface.co/datasets/lhpku20010120/Data-Prep-Bench)]
+  <a href="https://arxiv.org/abs/2607.20465"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://datapreparationbench.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/OpenDCAI/Data-Preparation-Bench"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/lhpku20010120/Data-Prep-Bench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 优化
+
 - **PowLU: An Activation Function for Stable Pre-Training of LLMs** (2026.05) \
   **描述**: 该论文指出 SwiGLU 在大正输入下接近二次放大会扩大输出范围并加剧 outlier，从而在低精度大规模 LLM 预训练中带来数值不稳定。论文提出 Power Linear Unit (PowLU)，用有理幂函数在保持自适应非线性的同时稳定 spike 区域，并通过 scaling law 与 Ling 模型实验展示竞争性效果和更好的训练可扩展性。 \
   <a href="https://arxiv.org/abs/2605.25704"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 - **Pre-training LLM without Learning Rate Decay Enhances Supervised Fine-Tuning** (2026.03) \
   **描述**: 该论文表明，预热后保持学习率恒定的 Warmup-Stable-Only 预训练策略，在 1B 和 8B 模型上均能稳定优于衰减式调度器的下游 SFT 表现。损失景观分析将这一增益归因于更平坦的极小值，它们能够保留模型的下游适应能力。 \
-  [[论文](https://arxiv.org/abs/2603.16127)]
+  <a href="https://arxiv.org/abs/2603.16127"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 蒸馏
+
 - **Knowledge Distillation of Large Language Models** (2023.06) \
   **描述**: 该论文研究面向生成式大语言模型的白盒知识蒸馏，并提出 MiniLLM，用反向 KLD 替代标准前向 KLD，以避免学生模型高估教师分布中的低概率区域。论文推导了有效优化方法，并在 120M 到 13B 参数的不同模型族上提升指令跟随质量、校准性、曝光偏差和长文本生成表现。 \
   <a href="https://arxiv.org/abs/2306.08543"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -392,6 +411,7 @@
 # 强化学习
 
 ## 策略优化
+
 - **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
   **描述**: 该论文提出层贡献度指标，用于衡量单独训练每个 Transformer 层能够恢复多少全参数强化学习增益。跨多种模型、强化学习算法和任务的实验表明，强化学习增益稳定集中在少数中间层，且单层训练可以达到甚至超过全参数训练。 \
   <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -402,8 +422,8 @@
 
 - **SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning** (2026.07) \
   **描述**: 该论文提出 SERPO，一种面向开放式生成的测试时强化学习框架，无需标注反馈、外部奖励模型或更强评测器，即可协同演化回答证据、查询特定的评分准则与策略参数。其概率化准则评分将判定 token 的似然转化为奖励，使策略及其自生成评测标准在闭环中持续改进。 \
-  [[论文](https://arxiv.org/abs/2607.26873)]
-  [[代码](https://github.com/chiefovoavicii/SERPO)]
+  <a href="https://arxiv.org/abs/2607.26873"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/chiefovoavicii/SERPO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **Rethinking the Divergence Regularization in LLM RL** (2026.06) \
   **描述**: 该论文提出 Divergence Regularized Policy Optimization (DRPO)，以平滑的优势加权二次正则项替代 DPPO 的硬散度掩码，同时保留其信赖域几何结构。DRPO 通过有界连续梯度权重和越界后的纠正信号，提高 LLM 强化学习训练的稳定性与效率。 \
@@ -457,6 +477,7 @@
   <a href="https://github.com/openai/baselines"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## OPD
+
 - **PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation** (2026.06) \
   **描述**: 该论文指出，基于采样 token 的 on-policy distillation 中，无界的 log-ratio 奖励会引发高方差梯度与训练不稳定。PowerOPD 使用由 Box-Cox 幂变换导出的有界、符号一致奖励族，在降低全词表 OPD 时间和显存开销的同时提升数学推理准确率。 \
   <a href="https://arxiv.org/abs/2606.17199"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -501,6 +522,7 @@
   <a href="https://github.com/idanshen/Self-Distillation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 奖励建模
+
 - **The Verification Horizon: No Silver Bullet for Coding Agent Rewards** (2026.06) \
   **描述**: 该论文将可靠验证视为编码智能体面临的新瓶颈，并从可扩展性、忠实性和鲁棒性三个维度评估奖励信号。通过测试、规则、用户反馈和自动化智能体验证器，论文表明针对性的验证设计能够抑制奖励劫持，并指出验证机制必须与能力不断增强的生成器协同演化。 \
   <a href="https://arxiv.org/abs/2606.26300"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -532,6 +554,7 @@
   <a href="https://arxiv.org/abs/2510.08049"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 视频生成强化学习
+
 - **KVPO: ODE-Native GRPO for Autoregressive Video Alignment via KV Semantic Exploration** (2026.05) \
   **描述**: KVPO 使用 ODE-native online GRPO 框架，将流式自回归视频生成器与人类偏好对齐。它用历史 KV 缓存的因果语义路由替代噪声探索，并基于 Trajectory Velocity Energy 优化速度场代理策略。 \
   <a href="https://arxiv.org/abs/2605.14278"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -540,6 +563,7 @@
   <a href="https://huggingface.co/Richard-ZZZZZ/KVPO"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 多模态强化学习
+
 - **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
   **描述**: 该论文提出 CapRL，首次将 RLVR 应用于开放式图像描述，通过检验无视觉语言模型能否仅依据生成描述回答图像问题来构造奖励。训练得到的 CapRL-3B 能生成信息更丰富且更多样的描述，其生成的描述数据还在 12 个基准上提升了大视觉语言模型的预训练效果。 \
   <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -547,6 +571,7 @@
   <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 推理强化学习
+
 - **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
   **描述**: 该论文通过结合裁剪重要性采样、训练与推理比率校正及混合精度控制的稳定训练管线，将基于可验证奖励的强化学习从基础模型扩展至万亿参数规模。所得模型在提升样本效率与推理质量的同时，自发形成结构化、自验证和自适应推理行为。 \
   <a href="https://arxiv.org/abs/2607.12395"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -592,6 +617,7 @@
   <a href="https://huggingface.co/deepseek-ai/deepseek-math-7b-rl"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 智能体强化学习
+
 - **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
   **描述**: 该论文提出 OPID，从已完成的在策略轨迹中提取分层的回合级与步骤级技能，并将技能带来的概率变化转化为 token 级自蒸馏优势，与结果优势共同优化策略。其关键步骤优先路由提供稠密且匹配当前策略分布的后见监督，在具身、网页购物和搜索问答任务上提升智能体性能、样本效率与鲁棒性。 \
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -599,8 +625,8 @@
 
 - **Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning** (2026.06) \
   **描述**: 该论文提出面向长程智能体强化学习的 Group-Graph Policy Optimization (G2PO)，将采样得到的交互轨迹转换为全局状态转移图，以降低状态价值估计方差。其群组聚合价值估计与边中心优势估计在稀疏、延迟奖励下实现细粒度信用分配，相比 GRPO 将成功率最高提升 22.2%。 \
-  [[论文](https://arxiv.org/abs/2606.22995)]
-  [[代码](https://github.com/Nala-YN/G2PO)]
+  <a href="https://arxiv.org/abs/2606.22995"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/Nala-YN/G2PO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning** (2026.05) \
   **描述**: Spreadsheet-RL 是一个用于在真实 Microsoft Excel 环境中训练专用表格智能体的强化学习微调框架，面向提示式智能体难以处理的复杂多步工作流。它结合自动化起止表格数据构建、多轮 Spreadsheet Gym 沙盒工具环境，以及 Domain-Spreadsheet 基准，以提升真实表格自动化能力。 \
@@ -615,9 +641,9 @@
 
 - **SkillRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning** (2026.02) \
   **描述**: SkillRL 将原始智能体轨迹蒸馏为层次化 SkillBank，自适应检索通用与任务特定启发式知识，并让技能库在强化学习中与策略递归共同演化。该方法在降低 token 开销的同时，提升了智能体在具身、网页购物和搜索增强任务上的泛化能力与性能。 \
-  [[论文](https://arxiv.org/abs/2602.08234)]
-  [[代码](https://github.com/aiming-lab/SkillRL)]
-  [[Hugging Face](https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data)]
+  <a href="https://arxiv.org/abs/2602.08234"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/aiming-lab/SkillRL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/Jianwen/SkillRL-SFT-Data"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 - **Arena-RL: Training LLMs as Game Players with Vision-Language Action Models** (2026.01) \
   **描述**: 该论文提出 Arena-RL，一个通过视觉语言动作模型训练 LLM 驱动智能体玩视觉游戏的强化学习框架，重点从交互式游戏反馈中改进策略。实验表明，基于游戏轨迹的奖励优化能显著提升策略决策与跨游戏泛化。 \
@@ -640,6 +666,7 @@
   <a href="https://github.com/sunnynexus/Search-o1"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 视觉-语言-动作强化学习
+
 - **SRPO: Self-Referential Policy Optimization for Vision-Language-Action Models** (2025.11) \
   **描述**: 该论文提出 SRPO，一个用于视觉语言动作模型的强化学习框架，用模型自身成功轨迹中的进展式奖励替代稀疏二元奖励。它利用潜在世界模型表征稳健衡量行为进展，并以更少 RL 步数在 LIBERO 上取得最优操作成功率。 \
   <a href="https://arxiv.org/abs/2511.15605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -647,12 +674,14 @@
 # 智能体应用
 
 ## 计算机使用
+
 - **Learning from Failure: Inference-Time Self-Improvement for Computer-Use Agents** (2026.06) \
   **描述**: 该论文提出面向 computer-use agents 的失败驱动推理时自改进循环，将失败轨迹转化为由 LLM 诊断生成的策略与代码补丁，而不是直接丢弃失败样本。在 OSWorld 上，该方法无需额外训练、仅增加适度推理开销，就将 OpenCUA-72B 的成功率从 42.3% 提升到 48.9%。 \
   <a href="https://arxiv.org/abs/2606.31270"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/snow10072740/Learning_from_Failure"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 工具调用
+
 - **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
   **描述**: 该论文实证研究检索策略、智能体 harness 设计与工具结果呈现方式在 agentic search 中如何相互影响。在基于 LongMemEval、Chronos 和厂商 CLI harness 的实验中，grep 往往优于向量检索，但整体性能仍强烈受 harness 与工具调用风格影响。 \
   <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -666,19 +695,20 @@
 
 - **Tongyi DeepResearch Technical Report** (2025.10) \
   **描述**: Tongyi DeepResearch 是一个面向长时程信息检索任务的智能体语言模型，总参数量为 30.5B、每个 token 激活 3.3B 参数，并通过智能体中期训练与后训练构建。其全自动数据合成管线和分阶段定制环境支持各训练阶段可扩展且稳定的交互。 \
-  [[论文](https://arxiv.org/abs/2510.24701)]
-  [[项目](https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/)]
-  [[代码](https://github.com/Alibaba-NLP/DeepResearch)]
-  [[Hugging Face](https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B)]
+  <a href="https://arxiv.org/abs/2510.24701"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://tongyi-agent.github.io/blog/introducing-tongyi-deep-research/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Alibaba-NLP/DeepResearch"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/Alibaba-NLP/Tongyi-DeepResearch-30B-A3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 数据智能体
 
 - **Data Agents: Levels, State of the Art, and Open Problems** (2026.02) \
   **描述**: 数据智能体利用 LLM 与工具自动化数据管理、准备和分析，但概念使用不一致，模糊了能力与责任边界。该教程提出 L0-L5 自治层级与生命周期驱动的综述框架，梳理现有系统，并勾勒迈向主动式和生成式数据智能体的研究路线图。 \
-  [[论文](https://arxiv.org/abs/2602.04261)]
-  [[代码](https://github.com/HKUSTDial/awesome-data-agents)]
+  <a href="https://arxiv.org/abs/2602.04261"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/HKUSTDial/awesome-data-agents"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## AI 研究
+
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
   **描述**: 这篇综述从创造、写作、验证和传播等环节分析 AI 辅助科研，指出自动化在哪些地方可靠，以及自治系统在新颖性、实验和科学判断上仍会失败。它提供生命周期分类、基准套件、工具清单、设计原则和面向实践者的人类治理式 AI 研究工作流指南。 \
   <a href="https://arxiv.org/abs/2605.18661"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -696,6 +726,7 @@
   <a href="https://arxiv.org/abs/2603.26499"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 智能体技能
+
 - **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
   **描述**: SkillsVote 将 Agent Skills 视为可复用经验资产，通过收集、推荐、归因和演化治理来缓解智能体轨迹噪声与难治理问题。它分析大规模开源技能语料，在执行前推荐结构化技能上下文，并只接纳证据门控的成功发现，以在不更新模型的情况下改进冻结智能体。 \
   <a href="https://arxiv.org/abs/2605.18401"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -713,9 +744,10 @@
   <a href="https://arxiv.org/abs/2603.29919"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 智能体开发
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
-  [[论文](https://arxiv.org/abs/2608.01964)]
+  <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
@@ -731,9 +763,9 @@
 
 - **Towards Long-Horizon Agents: A Survey** (2026.07) \
   **描述**: 该综述将长时程智能体形式化为由模型策略与外围 harness 耦合而成的决策过程，并以外显的 harness 工程和内化的模型优化为主线提出统一分类体系。论文从六个相互关联的视角梳理领域演进、应用、基准与开放问题。 \
-  [[论文](https://openreview.net/forum?id=HyhfhlbWGh)]
-  [[项目](https://long-horizon-agents.github.io/)]
-  [[代码](https://github.com/RUC-NLPIR/Awesome-Long-Horizon-Agents)]
+  <a href="https://openreview.net/forum?id=HyhfhlbWGh"><img src="assets/icons/paper.svg" alt="论文" width="20"></a>
+  <a href="https://long-horizon-agents.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/RUC-NLPIR/Awesome-Long-Horizon-Agents"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **Nurture-First Agent Development: Building Domain-Expert AI Agents Through Conversational Knowledge Crystallization** (2026.03) \
   **描述**: 该论文提出 Nurture-First Development，一种通过结构化对话而非固定代码优先或提示优先方式培养领域专家智能体的范式。它形式化了知识结晶循环、三层认知架构、双工作区模式和螺旋开发模型，用于持续把从业者隐性知识转化为可复用智能体资产。 \
@@ -745,6 +777,7 @@
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 记忆
+
 - **ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory** (2026.07) \
   **描述**: 该论文提出 ABot-AgentOS，一个位于机器人底层控制器之上的审慎式运行时层，统一协调规划、隔离式技能执行、验证、边云协同与持久多模态图记忆。它还提出 EmbodiedWorldBench 和防泄漏的自进化循环，将诊断出的记忆故障转化为受门控的运行时改进，以支持长时程具身任务。 \
   <a href="https://arxiv.org/abs/2607.10350"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -770,6 +803,7 @@
 # 视觉
 
 ## 目标检测
+
 - **DINO: DETR with Improved DeNoising Anchor Boxes for End-to-End Object Detection** (2022.03) \
   **描述**: DINO 通过对比去噪训练、用于锚点初始化的混合 query 选择，以及 look-forward-twice 框预测方案改进 DETR 类目标检测器。它在显著降低模型和数据需求的同时，在 COCO 上取得当时最优结果。 \
   <a href="https://arxiv.org/abs/2203.03605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -779,20 +813,22 @@
 
 - **SOCO: Benchmarking Semantic Object Correspondence in Vision Foundation Models** (2026.05) \
   **描述**: SOCO 提出一个由分类体系驱动的语义对象对应基准，覆盖 100 个类别、超过一百万个对应点对，并提供一致且具有功能意义的关键点标注。评测揭示了视觉基础模型在跨类别迁移和对象部件几何理解上的不足，同时表明对应性能能够有力预测稠密下游任务表现。 \
-  [[论文](https://arxiv.org/abs/2605.31597)]
-  [[项目](https://genintel.github.io/SOCO/)]
-  [[代码](https://github.com/GenIntel/OmniProbe)]
-  [[Hugging Face](https://huggingface.co/datasets/GenIntelLab/SOCO)]
+  <a href="https://arxiv.org/abs/2605.31597"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://genintel.github.io/SOCO/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/GenIntel/OmniProbe"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/GenIntelLab/SOCO"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 自动提示
 
 ## 提示优化
+
 - **GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning** (2025.07) \
   **描述**: GEPA 提出一种提示优化器，通过自然语言反思从试错中学习高层规则，平均超过 GRPO 6%，并最多减少 35 倍 rollout。它还比 MIPROv2 高出 10% 以上，并在代码优化的推理时搜索中展现潜力。 \
   <a href="https://arxiv.org/abs/2507.19457"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/gepa-ai/gepa"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 评测器提示
+
 - **Becoming Experienced Judges: Selective Test-Time Learning for Evaluators** (2025.12) \
   **描述**: 该论文提出 Learning While Evaluating，让 LLM-as-a-judge 系统在推理时通过自生成反馈更新元提示，从而按序列持续改进。它进一步提出 Selective LWE，只在自我不一致样本上更新，以更好的成本效率提升评测质量。 \
   <a href="https://arxiv.org/abs/2512.06751"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -804,6 +840,11 @@
 # 笔记
 
 ## 论文解读
+
+- **SkillRL：如何将一次失败变成可复用的 Skill** (2026-08-10) \
+  **描述**: 以 ALFWorld 的 Skipping State Changes 为贯穿案例，拆解 SkillRL 如何从失败轨迹提炼候选技能、组织 SkillBank、训练技能使用策略，并区分论文证据、代码实现与生产准入建议。 \
+  [[笔记](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
+  [[English](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
 
 - **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (2026-08-03) \
   **描述**: 从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。 \

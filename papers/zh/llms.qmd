@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>19</strong><span>论文</span></div>
-    <div><strong>58</strong><span>资源链接</span></div>
+    <div><strong>20</strong><span>论文</span></div>
+    <div><strong>62</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -245,7 +245,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>推理</h2>
   </div>
   <div class="paper-grid">
@@ -270,6 +270,20 @@ toc: false
   <p>该论文为 LLM 的最优测试时计算提出理论框架，证明最优算法总会生成一种“毛毛虫树”结构，并提出 CaT。该方法相比 Tree-of-Thoughts 用更少 token 生成取得更高成功率。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.22784" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="finchain-a-symbolic-benchmark-for-verifiable-chain-of-thought-financial-reasoning">
+  <div class="paper-meta">
+    <span>2025.06</span>
+    <span>推理</span>
+  </div>
+  <h3>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</h3>
+  <p>FinChain 提出一个无污染、机器可验证的多步金融推理基准，通过带可执行 Python 轨迹的参数化模板覆盖 12 个领域的 58 个主题。其 ChainEval 指标联合评估最终答案正确性与逐步推理一致性，并揭示 26 个主流 LLM 在符号金融推理上的持续短板。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2506.02515" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://mbzuai-nlp.github.io/finchain/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/mbzuai-nlp/finchain" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/spaces/Usmansafder/finchain-space" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

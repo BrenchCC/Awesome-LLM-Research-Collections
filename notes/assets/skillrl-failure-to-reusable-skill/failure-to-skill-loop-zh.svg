@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SkillRL 从失败到可复用技能的三段闭环</title>
+  <desc id="desc">并排展示数据构造循环、强化学习循环与本文建议的生产准入门禁。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f9fc"/>
+      <stop offset="1" stop-color="#eef2f8"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#26334d" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f6fed"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#138a63"/>
+    </marker>
+    <style>
+      .title { font: 700 38px Inter, "Noto Sans SC", sans-serif; fill: #172033; }
+      .subtitle { font: 400 18px Inter, "Noto Sans SC", sans-serif; fill: #61708a; }
+      .panel-title { font: 700 25px Inter, "Noto Sans SC", sans-serif; fill: #172033; }
+      .panel-note { font: 500 15px Inter, "Noto Sans SC", sans-serif; fill: #6b7790; }
+      .node-title { font: 700 17px Inter, "Noto Sans SC", sans-serif; fill: #202a40; }
+      .node-text { font: 400 14px Inter, "Noto Sans SC", sans-serif; fill: #526078; }
+      .small { font: 500 13px Inter, "Noto Sans SC", sans-serif; fill: #6a7892; }
+      .badge { font: 700 13px Inter, "Noto Sans SC", sans-serif; }
+      .panel { fill: #ffffff; stroke: #dfe5ef; stroke-width: 1.5; filter: url(#shadow); }
+      .node { fill: #f8fafc; stroke: #dce3ee; stroke-width: 1.5; }
+      .arrow-blue { fill: none; stroke: #2f6fed; stroke-width: 3; marker-end: url(#arrow-blue); }
+      .arrow-orange { fill: none; stroke: #d97706; stroke-width: 3; marker-end: url(#arrow-orange); }
+      .arrow-green { fill: none; stroke: #138a63; stroke-width: 3; marker-end: url(#arrow-green); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="70" y="68" class="title">从一次失败到可复用 Skill</text>
+  <text x="70" y="101" class="subtitle">SkillRL 的训练闭环，与生产环境还需要补上的准入闭环</text>
+
+  <g transform="translate(55 135)">
+    <rect class="panel" x="0" y="0" width="480" height="700" rx="26"/>
+    <rect x="28" y="26" width="118" height="30" rx="15" fill="#e8f0ff"/>
+    <text x="87" y="47" text-anchor="middle" class="badge" fill="#2f6fed">DATA LOOP</text>
+    <text x="28" y="92" class="panel-title">数据构造循环</text>
+    <text x="28" y="120" class="panel-note">失败提供边界，成功提供可蒸馏输出</text>
+
+    <rect class="node" x="45" y="155" width="390" height="62" rx="16"/>
+    <text x="68" y="181" class="node-title">Rollout 解析与去重</text>
+    <text x="68" y="203" class="node-text">状态、动作、反馈、结果 → 轨迹</text>
+    <path class="arrow-blue" d="M240 217 L240 247"/>
+
+    <rect x="45" y="250" width="185" height="120" rx="16" fill="#ecf8f3" stroke="#b8e2d3" stroke-width="1.5"/>
+    <text x="66" y="280" class="node-title">成功轨迹</text>
+    <text x="66" y="306" class="node-text">关键决策点</text>
+    <text x="66" y="328" class="node-text">正确动作的理由</text>
+    <text x="66" y="350" class="node-text">可迁移模式</text>
+
+    <rect x="250" y="250" width="185" height="120" rx="16" fill="#fff5e8" stroke="#f0cc9b" stroke-width="1.5"/>
+    <text x="271" y="280" class="node-title">失败轨迹</text>
+    <text x="271" y="306" class="node-text">失败点 · 根因</text>
+    <text x="271" y="328" class="node-text">替代动作</text>
+    <text x="271" y="350" class="node-text">适用条件 / 边界</text>
+
+    <path class="arrow-blue" d="M137 370 C137 410 190 405 210 425"/>
+    <path class="arrow-orange" d="M343 370 C343 410 290 405 270 425"/>
+    <rect class="node" x="45" y="425" width="390" height="70" rx="16"/>
+    <text x="68" y="454" class="node-title">per-trajectory memory</text>
+    <text x="68" y="478" class="node-text">成功保留精炼路径；失败写入 mistakes_to_avoid</text>
+    <path class="arrow-blue" d="M240 495 L240 525"/>
+
+    <rect x="45" y="528" width="390" height="70" rx="16" fill="#edf3ff" stroke="#b9cdf8" stroke-width="1.5"/>
+    <text x="68" y="557" class="node-title">SkillBank 聚合</text>
+    <text x="68" y="581" class="node-text">General skills + task-specific skills + mistakes</text>
+    <path class="arrow-blue" d="M240 598 L240 625"/>
+
+    <rect class="node" x="45" y="628" width="390" height="48" rx="14"/>
+    <text x="240" y="658" text-anchor="middle" class="node-title">技能增强的成功轨迹 → {instruction, output}</text>
+  </g>
+
+  <g transform="translate(560 135)">
+    <rect class="panel" x="0" y="0" width="480" height="700" rx="26"/>
+    <rect x="28" y="26" width="104" height="30" rx="15" fill="#fff1df"/>
+    <text x="80" y="47" text-anchor="middle" class="badge" fill="#d97706">RL LOOP</text>
+    <text x="28" y="92" class="panel-title">策略与 SkillBank 共同更新</text>
+    <text x="28" y="120" class="panel-note">论文主线：SFT cold start → GRPO → 失败回流</text>
+
+    <rect x="45" y="155" width="390" height="62" rx="16" fill="#fff5e8" stroke="#f0cc9b" stroke-width="1.5"/>
+    <text x="68" y="181" class="node-title">Cold-start SFT</text>
+    <text x="68" y="203" class="node-text">先学会检索、解释并调用技能；同时得到 πref</text>
+    <path class="arrow-orange" d="M240 217 L240 247"/>
+
+    <rect class="node" x="45" y="250" width="390" height="62" rx="16"/>
+    <text x="68" y="276" class="node-title">按任务检索技能并采样 G 条完整轨迹</text>
+    <text x="68" y="298" class="node-text">上下文：任务描述 + general + retrieved skills</text>
+    <path class="arrow-orange" d="M240 312 L240 342"/>
+
+    <rect class="node" x="45" y="345" width="390" height="80" rx="16"/>
+    <text x="68" y="373" class="node-title">二值终局奖励与组内标准化</text>
+    <text x="68" y="397" class="node-text">Ri ∈ {0,1}；Ai = (Ri − mean(R)) / std(R)</text>
+    <path class="arrow-orange" d="M240 425 L240 455"/>
+
+    <rect x="45" y="458" width="390" height="72" rx="16" fill="#fff5e8" stroke="#f0cc9b" stroke-width="1.5"/>
+    <text x="68" y="486" class="node-title">GRPO 更新策略</text>
+    <text x="68" y="510" class="node-text">PPO-style clipping + KL(πθ || πref)</text>
+    <path class="arrow-orange" d="M240 530 L240 560"/>
+
+    <rect class="node" x="45" y="563" width="390" height="80" rx="16"/>
+    <text x="68" y="591" class="node-title">低成功率类别触发失败分析</text>
+    <text x="68" y="615" class="node-text">提出新技能或修订建议，再更新 SkillBank</text>
+    <path class="arrow-orange" d="M45 603 C5 603 5 282 45 282"/>
+    <text x="26" y="450" class="small" transform="rotate(-90 26 450)">recursive evolution</text>
+    <rect x="45" y="660" width="390" height="24" rx="12" fill="#f4f6fa"/>
+    <text x="240" y="677" text-anchor="middle" class="small">论文算法写 validation failure；推荐代码可改用 train batch</text>
+  </g>
+
+  <g transform="translate(1065 135)">
+    <rect class="panel" x="0" y="0" width="480" height="700" rx="26"/>
+    <rect x="28" y="26" width="132" height="30" rx="15" fill="#e6f6f0"/>
+    <text x="94" y="47" text-anchor="middle" class="badge" fill="#138a63">PROD GATE</text>
+    <text x="28" y="92" class="panel-title">生产准入 Gate</text>
+    <text x="28" y="120" class="panel-note">本文建议，不是 SkillRL 已实现功能</text>
+
+    <rect x="45" y="155" width="390" height="64" rx="16" fill="#eaf7f2" stroke="#b5dfcf" stroke-width="1.5"/>
+    <text x="68" y="181" class="node-title">候选技能 + provenance</text>
+    <text x="68" y="204" class="node-text">来源轨迹、环境版本、适用条件、生成版本</text>
+    <path class="arrow-green" d="M240 219 L240 246"/>
+
+    <rect class="node" x="45" y="249" width="390" height="54" rx="15"/>
+    <text x="68" y="282" class="node-title">语义去重与冲突检查</text>
+    <path class="arrow-green" d="M240 303 L240 330"/>
+    <rect class="node" x="45" y="333" width="390" height="54" rx="15"/>
+    <text x="68" y="366" class="node-title">held-out probe：新环境 / 新任务实例</text>
+    <path class="arrow-green" d="M240 387 L240 414"/>
+    <rect class="node" x="45" y="417" width="390" height="70" rx="15"/>
+    <text x="68" y="446" class="node-title">配对验证</text>
+    <text x="68" y="470" class="node-text">旧版 skill / 新版 skill / no-skill；控制采样噪声</text>
+    <path class="arrow-green" d="M240 487 L240 514"/>
+    <rect class="node" x="45" y="517" width="390" height="54" rx="15"/>
+    <text x="68" y="550" class="node-title">Canary：小流量、可观察、可撤销</text>
+    <path class="arrow-green" d="M240 571 L240 598"/>
+
+    <rect x="45" y="601" width="185" height="62" rx="16" fill="#eaf7f2" stroke="#b5dfcf" stroke-width="1.5"/>
+    <text x="137" y="638" text-anchor="middle" class="node-title" fill="#0d7251">晋升并版本化</text>
+    <rect x="250" y="601" width="185" height="62" rx="16" fill="#fff0f0" stroke="#efc1c1" stroke-width="1.5"/>
+    <text x="342" y="629" text-anchor="middle" class="node-title" fill="#b54747">回滚 / 隔离</text>
+    <text x="342" y="651" text-anchor="middle" class="node-text">过期清理</text>
+    <path d="M435 450 C470 450 470 632 435 632" fill="none" stroke="#c85b5b" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arrow-orange)"/>
+    <text x="456" y="543" class="small" transform="rotate(90 456 543)">任一 Gate 失败</text>
+  </g>
+</svg>

@@ -9,7 +9,7 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>17</strong><span>笔记</span></div>
+    <div><strong>18</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
     <div><strong>2026-08-10</strong><span>最新日期</span></div>
   </div>
@@ -25,6 +25,23 @@ toc: false
     <h2>论文解读</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/skillrl-failure-to-reusable-skill.html">
+  <span class="category-count">2026-08-10</span>
+  <h3>SkillRL：如何将一次失败变成可复用的 Skill</h3>
+  <p>以 ALFWorld 的 Skipping State Changes 为贯穿案例，拆解 SkillRL 如何从失败轨迹提炼候选技能、组织 SkillBank、训练技能使用策略，并区分论文证据、代码实现与生产准入建议。</p>
+  <div class="note-tags">
+    <span class="note-tag">SkillRL</span>
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Skill Learning</span>
+    <span class="note-tag">Failure Learning</span>
+    <span class="note-tag">Long-Horizon Agents</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>论文解读</span>
+  </div>
+</a>
 <a class="category-card" href="attention/kimi-linear-kda.html">
   <span class="category-count">2026-08-03</span>
   <h3>Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力</h3>

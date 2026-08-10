@@ -43,10 +43,10 @@ Use this exact English list style in `README.md`:
 ```markdown
 - **<Paper Title>** (YYYY.MM) \
   **Description**: <1-2 sentence summary based on abstract> \
-  [[Paper](<arxiv_abs_url>)]
-  [[Project](<project_url>)]            # optional
-  [[Code](<github_url>)]                # optional
-  [[Hugging Face](<hf_url>)]]           # optional
+  <a href="<arxiv_abs_url>"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="<project_url>"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="<github_url>"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="<hf_url>"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 ```
 
 Use this exact Chinese list style in `README.zh-CN.md`:
@@ -54,15 +54,17 @@ Use this exact Chinese list style in `README.zh-CN.md`:
 ```markdown
 - **<Paper Title>** (YYYY.MM) \
   **描述**: <中文 1-2 句摘要，基于 abstract> \
-  [[论文](<arxiv_abs_url>)]
-  [[项目](<project_url>)]               # optional
-  [[代码](<github_url>)]                # optional
-  [[Hugging Face](<hf_url>)]]           # optional
+  <a href="<arxiv_abs_url>"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="<project_url>"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="<github_url>"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="<hf_url>"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 ```
 
 Rules:
 - Keep field order exactly: `Paper`, `Project`, `Code`, `Hugging Face`.
 - Keep matching field order in Chinese: `论文`, `项目`, `代码`, `Hugging Face`.
+- Render every paper resource as the canonical HTML icon link shown above; do not mix in `[[Label](URL)]`, Markdown image links, or empty anchors.
+- Use `paper.svg` only when a `Paper` / `论文` URL is not an arXiv URL; otherwise use `arxiv.svg`.
 - Use the official paper title as the display title in both README files.
 - Use publication month from arXiv as `YYYY.MM`.
 - Keep existing repository style (headings and markdown layout) unchanged.
@@ -77,6 +79,7 @@ Rules:
 - Use `\` at the end of the title line and `Description` line for forced line breaks.
 - Keep one blank line between two paper bullet items.
 - Do not leave trailing spaces at line ends.
+- Keep the icon path, localized `alt`, and `width="20"` attributes exactly aligned with the resource kind.
 
 ## LaTeX Usage Rules
 
@@ -436,3 +439,16 @@ Validation rules:
 - Within the same category/subcategory, sort entries by date descending.
 - Newer papers must appear above older papers.
 - If two papers share the same month, keep existing relative order and place the new one after existing same-month entries.
+
+
+## User-Learned Best Practices & Constraints
+
+> **Auto-Generated Section**: This section is maintained by `skill-evolution-manager`. Do not edit manually.
+
+### User Preferences
+- README paper resources must use the repository's canonical HTML icon anchors in both languages; do not mix in text-only Markdown links.
+
+### Known Fixes & Workarounds
+- Reject empty anchors and restore the matching local icon, localized alt label, and width="20" attributes.
+- Keep each paper title and Description/描述 line terminated by a space plus backslash, with a blank line before the next paper.
+- Before regenerating Quarto pages, verify English and Chinese paper order, category/subcategory slugs, dates, titles, and resource kind/URL sequences are identical.

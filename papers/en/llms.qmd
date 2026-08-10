@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>19</strong><span>Papers</span></div>
-    <div><strong>58</strong><span>Resource links</span></div>
+    <div><strong>20</strong><span>Papers</span></div>
+    <div><strong>62</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -245,7 +245,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>Inference</h2>
   </div>
   <div class="paper-grid">
@@ -270,6 +270,20 @@ toc: false
   <p>This paper presents a theoretical framework for optimal test-time computation in LLMs, proving that the optimal algorithm always generates a caterpillar tree structure, and introduces CaT which achieves better success rate than Tree-of-Thoughts with fewer token generations.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2603.22784" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="finchain-a-symbolic-benchmark-for-verifiable-chain-of-thought-financial-reasoning">
+  <div class="paper-meta">
+    <span>2025.06</span>
+    <span>Inference</span>
+  </div>
+  <h3>FinChain: A Symbolic Benchmark for Verifiable Chain-of-Thought Financial Reasoning</h3>
+  <p>FinChain introduces a contamination-free benchmark for machine-verifiable multi-step financial reasoning, covering 58 topics across 12 domains through parameterized templates with executable Python traces. Its ChainEval metric jointly evaluates final-answer correctness and step-level reasoning consistency, revealing persistent weaknesses across 26 leading LLMs.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2506.02515" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://mbzuai-nlp.github.io/finchain/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/mbzuai-nlp/finchain" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/spaces/Usmansafder/finchain-space" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>
