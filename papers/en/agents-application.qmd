@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>Papers</span></div>
-    <div><strong>45</strong><span>Resource links</span></div>
+    <div><strong>24</strong><span>Papers</span></div>
+    <div><strong>51</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -212,7 +212,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
@@ -225,6 +225,19 @@ toc: false
   <p>LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.01964" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</h3>
+  <p>OneDayAgent turns open-ended long-horizon requests into a managed execution process that combines bounded subtask decomposition, execution memory under context pressure, and global verification with targeted repair across heterogeneous tools. On 104 AgentIF-OneDay tasks, it scores 0.821 with GLM-5.2 and runs across five backend LLMs from three model families without backend-specific tuning.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.05013" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/zjunlp/OneDayAgent" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/zjunlp/onedayagent_traj" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">
@@ -293,10 +306,23 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>Memory</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="agent-memory-distillation-empowering-small-llm-agents-with-hierarchical-teacher-memory">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Memory</span>
+  </div>
+  <h3>Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</h3>
+  <p>Agent Memory Distillation is a training-free framework that transfers successful teacher-agent experience to 4B-8B student agents through complementary Workflow, Subtask, and Function memories, using proactive injection for planning and reactive retrieval for tool errors. Across four student models, it improves average accuracy over zero-shot by 27.2, 11.2, and 3.4 percentage points on AppWorld, BFCL V3, and ToolSandbox, respectively.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.07169" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://agent-memory-distillation.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/taeilkim2465/agentic_memory_distillation" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="abot-agentos-a-general-robotic-agent-os-with-lifelong-multi-modal-memory">
   <div class="paper-meta">
     <span>2026.07</span>

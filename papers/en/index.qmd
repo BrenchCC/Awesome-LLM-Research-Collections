@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>131</strong><span>Papers</span></div>
+    <div><strong>133</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>311</strong><span>Resource links</span></div>
+    <div><strong>317</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">22 papers</span>
+  <span class="category-count">24 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
@@ -132,6 +132,16 @@ toc: false
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
   <em>Agents Application</em>
 </a>
+<a class="recent-row" href="agents-application.html#onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
+  <span>2026.08</span>
+  <strong>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</strong>
+  <em>Agents Application</em>
+</a>
+<a class="recent-row" href="agents-application.html#agent-memory-distillation-empowering-small-llm-agents-with-hierarchical-teacher-memory">
+  <span>2026.08</span>
+  <strong>Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="llms.html#kimi-k3-open-frontier-intelligence">
   <span>2026.07</span>
   <strong>Kimi K3: Open Frontier Intelligence</strong>
@@ -150,16 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#turning-off-policy-tokens-on-policy-a-plug-in-approach-for-improving-llm-alignment">
   <span>2026.07</span>
   <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning">
-  <span>2026.07</span>
-  <strong>SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
-  <span>2026.07</span>
-  <strong>Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

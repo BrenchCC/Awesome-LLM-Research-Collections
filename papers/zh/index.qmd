@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>131</strong><span>论文</span></div>
+    <div><strong>133</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>311</strong><span>资源链接</span></div>
+    <div><strong>317</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">22 篇论文</span>
+  <span class="category-count">24 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
@@ -132,6 +132,16 @@ toc: false
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
   <em>智能体应用</em>
 </a>
+<a class="recent-row" href="agents-application.html#onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
+  <span>2026.08</span>
+  <strong>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</strong>
+  <em>智能体应用</em>
+</a>
+<a class="recent-row" href="agents-application.html#agent-memory-distillation-empowering-small-llm-agents-with-hierarchical-teacher-memory">
+  <span>2026.08</span>
+  <strong>Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="llms.html#kimi-k3-open-frontier-intelligence">
   <span>2026.07</span>
   <strong>Kimi K3: Open Frontier Intelligence</strong>
@@ -150,16 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#turning-off-policy-tokens-on-policy-a-plug-in-approach-for-improving-llm-alignment">
   <span>2026.07</span>
   <strong>Turning Off-Policy Tokens On-Policy: A Plug-in Approach for Improving LLM Alignment</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#serpo-self-evolving-rubric-policy-optimization-for-open-ended-test-time-reinforcement-learning">
-  <span>2026.07</span>
-  <strong>SERPO: Self-Evolving Rubric Policy Optimization for Open-Ended Test-Time Reinforcement Learning</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
-  <span>2026.07</span>
-  <strong>Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning</strong>
   <em>强化学习</em>
 </a>
   </div>

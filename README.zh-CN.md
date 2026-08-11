@@ -749,6 +749,12 @@
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents** (2026.08) \
+  **描述**: OneDayAgent 将开放式长时程请求转化为受管理的执行流程，在异构工具环境中结合有界子任务分解、上下文压力下的执行记忆，以及全局验证与定向修复。在 AgentIF-OneDay 的 104 项任务上，它使用 GLM-5.2 获得 0.821 分，并可在来自三个模型家族的五种后端 LLM 上无需针对性调优地运行。 \
+  <a href="https://arxiv.org/abs/2608.05013"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/zjunlp/OneDayAgent"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/zjunlp/onedayagent_traj"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -777,6 +783,12 @@
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 记忆
+
+- **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \
+  **描述**: Agent Memory Distillation 是一个无需训练的框架，通过互补的 Workflow、Subtask 和 Function 三层记忆，将教师智能体的成功经验迁移给 4B-8B 学生智能体，并分别以主动注入支持规划、以响应式检索修复工具调用错误。在四种学生模型上，它相较 zero-shot 在 AppWorld、BFCL V3 和 ToolSandbox 上的平均准确率分别提升 27.2、11.2 和 3.4 个百分点。 \
+  <a href="https://arxiv.org/abs/2608.07169"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://agent-memory-distillation.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/taeilkim2465/agentic_memory_distillation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory** (2026.07) \
   **描述**: 该论文提出 ABot-AgentOS，一个位于机器人底层控制器之上的审慎式运行时层，统一协调规划、隔离式技能执行、验证、边云协同与持久多模态图记忆。它还提出 EmbodiedWorldBench 和防泄漏的自进化循环，将诊断出的记忆故障转化为受门控的运行时改进，以支持长时程具身任务。 \

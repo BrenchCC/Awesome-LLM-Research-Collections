@@ -750,6 +750,12 @@
   **Description**: LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks. \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents** (2026.08) \
+  **Description**: OneDayAgent turns open-ended long-horizon requests into a managed execution process that combines bounded subtask decomposition, execution memory under context pressure, and global verification with targeted repair across heterogeneous tools. On 104 AgentIF-OneDay tasks, it scores 0.821 with GLM-5.2 and runs across five backend LLMs from three model families without backend-specific tuning. \
+  <a href="https://arxiv.org/abs/2608.05013"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/zjunlp/OneDayAgent"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/zjunlp/onedayagent_traj"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -778,6 +784,12 @@
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## Memory
+
+- **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \
+  **Description**: Agent Memory Distillation is a training-free framework that transfers successful teacher-agent experience to 4B-8B student agents through complementary Workflow, Subtask, and Function memories, using proactive injection for planning and reactive retrieval for tool errors. Across four student models, it improves average accuracy over zero-shot by 27.2, 11.2, and 3.4 percentage points on AppWorld, BFCL V3, and ToolSandbox, respectively. \
+  <a href="https://arxiv.org/abs/2608.07169"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://agent-memory-distillation.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/taeilkim2465/agentic_memory_distillation"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 - **ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory** (2026.07) \
   **Description**: This paper presents ABot-AgentOS, a deliberative runtime layer above robot controllers that coordinates planning, isolated skill execution, verification, edge-cloud collaboration, and persistent multimodal graph memory. It also introduces EmbodiedWorldBench and a leakage-resistant self-evolution loop that turns diagnosed memory failures into gated runtime improvements for long-horizon embodied tasks. \

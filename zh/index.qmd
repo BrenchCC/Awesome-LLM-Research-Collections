@@ -11,7 +11,7 @@ toc: false
   <h1 class="home-title">Awesome LLM 研究论文合集</h1>
   <p class="lede">面向大模型研究的知识分享索引，系统整理论文条目、阅读笔记与技术札记，便于持续复盘、归档与查阅。</p>
   <div class="stat-strip">
-    <div><strong>131</strong><span>论文</span></div>
+    <div><strong>133</strong><span>论文</span></div>
     <div><strong>18</strong><span>笔记</span></div>
     <div><strong>1</strong><span>博客分享</span></div>
     <div><strong>2026.08</strong><span>最新论文</span></div>
@@ -29,7 +29,7 @@ toc: false
   <h2>论文</h2>
   <p>按主题整理的大模型、多模态、训练、强化学习、智能体与提示优化研究目录。</p>
   <div class="collection-metrics">
-    <span><strong>131</strong>论文</span>
+    <span><strong>133</strong>论文</span>
     <span><strong>10</strong>分类</span>
   </div>
   <span class="collection-action">进入索引</span>
