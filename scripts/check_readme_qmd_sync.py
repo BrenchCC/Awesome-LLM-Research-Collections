@@ -84,6 +84,8 @@ CATEGORY_SLUGS = {
     "智能体技能": "agent-skills",
     "Agent Development": "agent-development",
     "智能体开发": "agent-development",
+    "Agent Evaluation": "agent-evaluation",
+    "智能体评测": "agent-evaluation",
     "Memory": "memory",
     "记忆": "memory",
     "Object Detection": "object-detection",

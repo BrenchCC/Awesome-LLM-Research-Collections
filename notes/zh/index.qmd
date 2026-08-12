@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>18</strong><span>笔记</span></div>
+    <div><strong>19</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-10</strong><span>最新日期</span></div>
+    <div><strong>2026-08-12</strong><span>最新日期</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -180,6 +180,21 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/clio-llm-embedding-clustering.html">
+  <span class="category-count">2026-08-12</span>
+  <h3>从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘</h3>
+  <p>从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">Clio</span>
+    <span class="note-tag">Embedding Clustering</span>
+    <span class="note-tag">Agent Skill</span>
+    <span class="note-tag">Reproducibility</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
   <span class="category-count">2026-08-10</span>
   <h3>Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较</h3>

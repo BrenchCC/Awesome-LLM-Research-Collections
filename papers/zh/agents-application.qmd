@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>24</strong><span>论文</span></div>
-    <div><strong>51</strong><span>资源链接</span></div>
+    <div><strong>26</strong><span>论文</span></div>
+    <div><strong>55</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -23,6 +23,7 @@ toc: false
 <a href="#ai-research">AI 研究</a>
 <a href="#agent-skills">智能体技能</a>
 <a href="#agent-development">智能体开发</a>
+<a href="#agent-evaluation">智能体评测</a>
 <a href="#memory">记忆</a>
   </nav>
 </section>
@@ -102,7 +103,7 @@ toc: false
 </section>
 <section class="paper-section" id="data-agents">
   <div class="section-heading compact">
-    <p class="eyebrow">1 篇论文</p>
+    <p class="eyebrow">2 篇论文</p>
     <h2>数据智能体</h2>
   </div>
   <div class="paper-grid">
@@ -116,6 +117,18 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2602.04261" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/HKUSTDial/awesome-data-agents" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="clio-privacy-preserving-insights-into-real-world-ai-use">
+  <div class="paper-meta">
+    <span>2024.12</span>
+    <span>数据智能体</span>
+  </div>
+  <h3>Clio: Privacy-Preserving Insights into Real-World AI Use</h3>
+  <p>Clio 是一个隐私保护平台，利用 AI 助手从数百万次对话中提取、聚类并总结聚合模式，无需人工审阅原始数据。其评测及对一百万次 Claude.ai 对话的应用表明，大规模使用分析能够在保护用户隐私的同时揭示真实应用方式与新兴安全风险。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2412.13678" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://www.anthropic.com/news/clio" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
   </div>
 </article>
   </div>
@@ -300,6 +313,26 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2601.07348" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/QuantaAlpha/EvoControl" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="agent-evaluation">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>智能体评测</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="swe-bench-promax-benchmarking-agents-on-large-scale-multilingual-code-refactoring">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring</h3>
+  <p>SWE-Bench ProMax 是一个经专家策划的多语言大规模代码重构基准，包含来自七种编程语言真实提交的 170 个任务，并采用重写的明确任务描述与人工审查的测试。其跨文件任务平均修改 11.4 个文件和 261.6 行代码，而受测最佳前沿模型的解决率仅为 41.2%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.09802" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+  <defs>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #5b6475; }
+      .metric { font: 700 22px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .value { font: 700 30px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+      .copy { font: 400 17px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #465064; }
+      .delta { font: 700 18px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; }
+      .axis { font: 500 14px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #6c7586; }
+    </style>
+  </defs>
+  <rect width="1400" height="720" rx="28" fill="#f7f8fb"/>
+  <text x="64" y="66" class="title">同一组 Embedding，不同的指标结论</text>
+  <text x="64" y="100" class="subtitle">20 Newsgroups，4,806 篇；baseline 与 skill 都输出 20 个簇</text>
+
+  <g transform="translate(64,150)">
+    <rect width="392" height="420" rx="22" fill="#ffffff" stroke="#dfe3eb" stroke-width="2"/>
+    <text x="30" y="52" class="metric">Hungarian ACC</text>
+    <text x="30" y="87" class="copy">一对一最优映射后的类别命中率</text>
+    <line x1="44" y1="330" x2="348" y2="330" stroke="#aeb6c4" stroke-width="2"/>
+    <rect x="82" y="119" width="76" height="211" rx="10" fill="#9eabc0"/>
+    <rect x="234" y="110" width="76" height="220" rx="10" fill="#3e9271"/>
+    <text x="120" y="156" class="value" text-anchor="middle" fill="#ffffff">0.631</text>
+    <text x="272" y="147" class="value" text-anchor="middle" fill="#ffffff">0.657</text>
+    <text x="120" y="358" class="axis" text-anchor="middle">baseline</text>
+    <text x="272" y="358" class="axis" text-anchor="middle">skill</text>
+    <text x="196" y="397" class="delta" text-anchor="middle" fill="#267455">+0.026</text>
+  </g>
+
+  <g transform="translate(504,150)">
+    <rect width="392" height="420" rx="22" fill="#ffffff" stroke="#dfe3eb" stroke-width="2"/>
+    <text x="30" y="52" class="metric">NMI</text>
+    <text x="30" y="87" class="copy">预测分区与真实标签的共享信息</text>
+    <line x1="44" y1="330" x2="348" y2="330" stroke="#aeb6c4" stroke-width="2"/>
+    <rect x="82" y="112" width="76" height="218" rx="10" fill="#9eabc0"/>
+    <rect x="234" y="114" width="76" height="216" rx="10" fill="#d96d4d"/>
+    <text x="120" y="149" class="value" text-anchor="middle" fill="#ffffff">0.650</text>
+    <text x="272" y="151" class="value" text-anchor="middle" fill="#ffffff">0.645</text>
+    <text x="120" y="358" class="axis" text-anchor="middle">baseline</text>
+    <text x="272" y="358" class="axis" text-anchor="middle">skill</text>
+    <text x="196" y="397" class="delta" text-anchor="middle" fill="#b34d33">−0.006</text>
+  </g>
+
+  <g transform="translate(944,150)">
+    <rect width="392" height="420" rx="22" fill="#ffffff" stroke="#dfe3eb" stroke-width="2"/>
+    <text x="30" y="52" class="metric">ARI</text>
+    <text x="30" y="87" class="copy">样本对是否被一致地分到同一簇</text>
+    <line x1="44" y1="330" x2="348" y2="330" stroke="#aeb6c4" stroke-width="2"/>
+    <rect x="82" y="160" width="76" height="170" rx="10" fill="#9eabc0"/>
+    <rect x="234" y="176" width="76" height="154" rx="10" fill="#d96d4d"/>
+    <text x="120" y="201" class="value" text-anchor="middle" fill="#ffffff">0.507</text>
+    <text x="272" y="217" class="value" text-anchor="middle" fill="#ffffff">0.460</text>
+    <text x="120" y="358" class="axis" text-anchor="middle">baseline</text>
+    <text x="272" y="358" class="axis" text-anchor="middle">skill</text>
+    <text x="196" y="397" class="delta" text-anchor="middle" fill="#b34d33">−0.047</text>
+  </g>
+
+  <rect x="64" y="605" width="1272" height="70" rx="16" fill="#edf2f8"/>
+  <text x="92" y="636" class="copy">解释：</text>
+  <text x="152" y="636" class="copy">LLM 分层合并让最终簇更容易与 20 个版块做一对一对应，</text>
+  <text x="92" y="660" class="copy">但没有同时改善整体分区纯度和样本对一致性。单报 ACC 会隐藏这部分代价。</text>
+</svg>

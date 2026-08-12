@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+  <defs>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #17233c; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b6475; }
+      .lane { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #17233c; }
+      .box-title { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #17233c; }
+      .box-copy { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #465064; }
+      .note { font: 600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #8a402f; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7d8799"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="720" rx="28" fill="#f7f8fb"/>
+  <text x="64" y="64" class="title">Clio's Full Pipeline and the Skill's Actual Coverage</text>
+  <text x="64" y="96" class="subtitle">They share semantic clustering and LLM hierarchization, but differ in inputs, privacy controls, and deliverables</text>
+
+  <text x="64" y="168" class="lane">Clio paper</text>
+  <g transform="translate(64,195)">
+    <rect width="190" height="118" rx="18" fill="#fff1eb" stroke="#d96d4d" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Raw conversations</text>
+    <text x="22" y="72" class="box-copy">Real user traffic</text>
+    <text x="22" y="94" class="box-copy">May contain private data</text>
+  </g>
+  <path d="M264 254 H307" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(318,195)">
+    <rect width="190" height="118" rx="18" fill="#fff1eb" stroke="#d96d4d" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Facet summaries</text>
+    <text x="22" y="72" class="box-copy">Extract task, language, etc.</text>
+    <text x="22" y="94" class="box-copy">Privacy-aware prompts</text>
+  </g>
+  <path d="M518 254 H561" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(572,195)">
+    <rect width="190" height="118" rx="18" fill="#eaf2ff" stroke="#4d78bd" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Embedding + k-means</text>
+    <text x="22" y="72" class="box-copy">Many base clusters</text>
+    <text x="22" y="94" class="box-copy">Small user groups removed</text>
+  </g>
+  <path d="M772 254 H815" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(826,195)">
+    <rect width="190" height="118" rx="18" fill="#e9f7f1" stroke="#3e9271" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">LLM hierarchy</text>
+    <text x="22" y="72" class="box-copy">Name, propose, assign</text>
+    <text x="22" y="94" class="box-copy">Build a taxonomy</text>
+  </g>
+  <path d="M1026 254 H1069" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(1080,195)">
+    <rect width="240" height="118" rx="18" fill="#fff1eb" stroke="#d96d4d" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Audit and exploration</text>
+    <text x="22" y="72" class="box-copy">Thresholds and privacy audit</text>
+    <text x="22" y="94" class="box-copy">Map / Tree / facet views</text>
+  </g>
+
+  <text x="64" y="390" class="lane">llm-embedding-clustering Skill</text>
+  <g transform="translate(64,418)">
+    <rect width="244" height="118" rx="18" fill="#f0f2f6" stroke="#788397" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Ready-made short text</text>
+    <text x="22" y="72" class="box-copy">CSV / Excel / JSON</text>
+    <text x="22" y="94" class="box-copy">No private-chat summarizer</text>
+  </g>
+  <path d="M318 477 H361" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(372,418)">
+    <rect width="244" height="118" rx="18" fill="#eaf2ff" stroke="#4d78bd" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">bge-m3 + base clustering</text>
+    <text x="22" y="72" class="box-copy">L2-normalized embeddings</text>
+    <text x="22" y="94" class="box-copy">k-means / HDBSCAN</text>
+  </g>
+  <path d="M626 477 H669" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(680,418)">
+    <rect width="244" height="118" rx="18" fill="#e9f7f1" stroke="#3e9271" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Agent semantic merging</text>
+    <text x="22" y="72" class="box-copy">Name, propose, dedup, assign</text>
+    <text x="22" y="94" class="box-copy">Choose target_n and stopping</text>
+  </g>
+  <path d="M934 477 H977" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(988,418)">
+    <rect width="332" height="118" rx="18" fill="#f3edff" stroke="#8463b8" stroke-width="2"/>
+    <text x="22" y="42" class="box-title">Engineering deliverables</text>
+    <text x="22" y="72" class="box-copy">Excel + HTML report + UMAP</text>
+    <text x="22" y="94" class="box-copy">Inspect clusters, hierarchy, cases</text>
+  </g>
+
+  <rect x="64" y="586" width="1256" height="78" rx="16" fill="#fff4ef" stroke="#d96d4d" stroke-width="2"/>
+  <text x="92" y="618" class="note">Boundary:</text>
+  <text x="178" y="618" class="box-copy">The current skill omits user-level aggregation thresholds, privacy-aware summarization prompts,</text>
+  <text x="92" y="646" class="box-copy">and the privacy auditor. It is Clio-style hierarchical clustering, not a reproduction of Clio's privacy guarantee.</text>
+</svg>

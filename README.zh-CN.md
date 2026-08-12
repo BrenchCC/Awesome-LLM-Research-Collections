@@ -39,6 +39,7 @@
   - [AI 研究](#ai-研究)
   - [智能体技能](#智能体技能)
   - [智能体开发](#智能体开发)
+  - [智能体评测](#智能体评测)
   - [记忆](#记忆)
 - [视觉](#视觉)
   - [目标检测](#目标检测)
@@ -707,6 +708,11 @@
   <a href="https://arxiv.org/abs/2602.04261"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/HKUSTDial/awesome-data-agents"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Clio: Privacy-Preserving Insights into Real-World AI Use** (2024.12) \
+  **描述**: Clio 是一个隐私保护平台，利用 AI 助手从数百万次对话中提取、聚类并总结聚合模式，无需人工审阅原始数据。其评测及对一百万次 Claude.ai 对话的应用表明，大规模使用分析能够在保护用户隐私的同时揭示真实应用方式与新兴安全风险。 \
+  <a href="https://arxiv.org/abs/2412.13678"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.anthropic.com/news/clio"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 ## AI 研究
 
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
@@ -781,6 +787,13 @@
   **描述**: 该论文提出 EvoControl，一个面向算法代码优化的受控自进化框架，在 generate-verify-refine 循环中平衡正确性与探索。它结合分阶段自进化、类遗传种群搜索和进化记忆，在高难算法基准上提升代码质量。 \
   <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+## 智能体评测
+
+- **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \
+  **描述**: SWE-Bench ProMax 是一个经专家策划的多语言大规模代码重构基准，包含来自七种编程语言真实提交的 170 个任务，并采用重写的明确任务描述与人工审查的测试。其跨文件任务平均修改 11.4 个文件和 261.6 行代码，而受测最佳前沿模型的解决率仅为 41.2%。 \
+  <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 记忆
 
@@ -899,6 +912,11 @@
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
+
+- **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (2026-08-12) \
+  **描述**: 从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。 \
+  [[笔记](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
+  [[English](notes/en/agents/clio-llm-embedding-clustering.qmd)]
 
 - **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (2026-08-10) \
   **描述**: 从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \

@@ -40,6 +40,7 @@
   - [AI Research](#ai-research)
   - [Agent Skills](#agent-skills)
   - [Agent Development](#agent-development)
+  - [Agent Evaluation](#agent-evaluation)
   - [Memory](#memory)
 - [Vision](#vision)
   - [Object Detection](#object-detection)
@@ -708,6 +709,11 @@
   <a href="https://arxiv.org/abs/2602.04261"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/HKUSTDial/awesome-data-agents"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Clio: Privacy-Preserving Insights into Real-World AI Use** (2024.12) \
+  **Description**: Clio is a privacy-preserving platform that uses AI assistants to extract, cluster, and summarize aggregate patterns from millions of conversations without requiring human reviewers to inspect raw data. Its evaluations and deployment on one million Claude.ai conversations show how large-scale usage analysis can reveal real-world applications and emerging safety risks while protecting user privacy. \
+  <a href="https://arxiv.org/abs/2412.13678"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.anthropic.com/news/clio"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 ## AI Research
 
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
@@ -782,6 +788,13 @@
   **Description**: This paper proposes EvoControl, a controlled self-evolution framework for algorithmic code optimization that balances correctness with exploration across generate-verify-refine cycles. It uses staged self-evolution, genetic-style population search, and evolutionary memory to improve code quality on challenging algorithmic benchmarks. \
   <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+## Agent Evaluation
+
+- **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \
+  **Description**: SWE-Bench ProMax is an expert-curated benchmark of 170 large-scale code-refactoring tasks drawn from real commits across seven programming languages, with rewritten specifications and manually reviewed tests. Its cross-file tasks average 11.4 modified files and 261.6 changed lines, while the best evaluated frontier model resolves only 41.2%. \
+  <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Memory
 
@@ -900,6 +913,11 @@
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
+
+- **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (2026-08-12) \
+  **Description**: An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building. \
+  [[Note](notes/en/agents/clio-llm-embedding-clustering.qmd)]
+  [[中文](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
 
 - **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (2026-08-10) \
   **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
