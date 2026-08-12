@@ -46,7 +46,6 @@ jobs:
       LARKSUITE_CLI_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
       LARKSUITE_CLI_BRAND: feishu
       LARKSUITE_CLI_STRICT_MODE: bot
-      LARKSUITE_CLI_CONFIG_DIR: ${{ runner.temp }}/lark-cli-feishu-wiki
       FEISHU_WIKI_SPACE_ID: ${{ vars.FEISHU_WIKI_SPACE_ID }}
       GITHUB_SHA: ${{ github.sha }}
       SYNC_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'apply' }}
@@ -77,6 +76,8 @@ jobs:
           rsvg-convert --version
 
       - name: Initialize ephemeral lark-cli bot profile
+        env:
+          LARKSUITE_CLI_CONFIG_DIR: ${{ runner.temp }}/lark-cli-feishu-wiki
         run: |
           printf '%s' "$LARKSUITE_CLI_APP_SECRET" | env \
             -u LARKSUITE_CLI_APP_ID \
@@ -109,4 +110,6 @@ jobs:
         run: quarto render --no-execute
 
       - name: Synchronize Feishu Wiki
+        env:
+          LARKSUITE_CLI_CONFIG_DIR: ${{ runner.temp }}/lark-cli-feishu-wiki
         run: python scripts/sync_feishu_wiki.py --"${SYNC_MODE}"
