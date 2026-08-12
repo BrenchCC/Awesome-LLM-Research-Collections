@@ -64,13 +64,21 @@ I therefore preserved the clustering idea without describing the project as a pr
 
 ## 3. Turning the Paper into an Agent Skill
 
-The paper describes the method, but not a ready-to-run workflow for arbitrary local files. I wanted a user to ask a coding agent to “cluster these queries into a topic hierarchy” and have the agent connect data loading, scripts, semantic decisions, and deliverables. At commit `683cdf4`, the skill separates deterministic scripts from agent judgments and passes state through JSON files under `state/`.
+The paper describes the method, but not a ready-to-run workflow for arbitrary local files. I wanted a user to ask a coding agent to “cluster these queries into a topic hierarchy” and have the agent connect data loading, scripts, semantic decisions, and deliverables. The skill separates deterministic scripts from agent judgments and passes state through JSON files under `state/`.
+
+Two version anchors matter. The reconstruction experiment ran at commit `683cdf4`; when I updated this note, remote `main` had advanced to `890b66a`. Both revisions use the same clustering algorithms and semantic-decision flow, so the previous experiment still represents the current method. The new revision tightens the runtime contract: before computation begins, the agent must obtain an explicit conda, uv, or venv choice, store the project environment configuration, and read it back for validation.
+
+| Evidence role | Version and date | How this note uses it |
+| --- | --- | --- |
+| 20 Newsgroups experiment | `683cdf4`, 2026-08-12 | Metrics, timings, the `196 → 60 → 20` hierarchy, and report captures |
+| Current usage guide | `890b66a`, 2026-08-13 | Installation, environment gate, work-directory contract, and outputs |
+| Version check | Clustering method unchanged; runtime gate updated | Does not misreport an environment-protocol update as an algorithmic gain |
 
 ### 3.1 Input Representation and Base Clustering
 
 The skill reads one short-text column from CSV, Excel, or JSON and uses `BAAI/bge-m3` by default. Every vector is L2 normalized because the downstream kNN profile, cosine silhouette, and hierarchy neighborhoods depend on directional similarity. If an online API returns unnormalized embeddings, vector magnitude contaminates those distances.
 
-In addition to saving embeddings, `prepare.py` computes 10-NN distance statistics, a TwoNN intrinsic-dimension estimate, and the LOF outlier ratio. The agent selects a base algorithm from that profile and the user's clustering goal. k-means is the default for regular, moderately sized dense data; HDBSCAN is available when noise and uneven density matter. For k-means, the script tests 0.7, 1.0, and 1.3 times the heuristic $\sqrt{8N}$ and selects among them with cosine silhouette.
+In addition to saving embeddings, data preparation computes 10-NN distance statistics, a TwoNN intrinsic-dimension estimate, and the LOF outlier ratio. The agent selects a base algorithm from that profile and the user's clustering goal. k-means is the default for regular, moderately sized dense data; HDBSCAN is available when noise and uneven density matter. For k-means, the workflow tests 0.7, 1.0, and 1.3 times the heuristic $\sqrt{8N}$ and selects among them with cosine silhouette.
 
 This search does not guarantee a globally optimal $K$. It prevents the agent from choosing a number without evidence and, more importantly, leaves enough base clusters for semantic merging. Setting the base count directly to the desired top-level count reduces the entire workflow to one k-means run followed by LLM labeling.
 
@@ -90,11 +98,11 @@ The skill requires at least two hierarchy levels and allows at most six. The low
 
 ### 3.3 JSON State Is More Auditable Than One Long Prompt
 
-The agent does not keep every cluster in conversational context. `probe.json` records the data profile and algorithm decision, `base.json` records initial clusters, and `level_1.json`, `level_2.json`, and later files preserve probes, neighborhoods, candidates, parents, assignments, and final clusters. Scripts own deterministic transformations; the agent writes back only the semantic decision for the current step.
+The agent does not keep every cluster in conversational context. State is stored by stage: one record preserves the data profile and algorithm decision, another preserves base clusters, and each later level records neighborhoods, candidates, parents, assignments, and final clusters. Deterministic computation owns vector and data transformations; the agent writes back only the semantic decision for the current step.
 
 This does not remove model randomness, but it creates checkpoints. If a parent name looks wrong, I can inspect its children and assignment at that level instead of reconstructing the entire dialogue. The same embedding matrix is cached, so prompt changes and hierarchy reruns do not repeat the most expensive computation.
 
-`finalize.py` writes `result.xlsx` and a six-section `report.html`. The workbook contains the hierarchy, the source-item-to-leaf mapping, and statistics. The report contains the data profile, algorithm rationale, per-level decisions, final tree, UMAP projection, and case browser. “Interpretability” here does not mean a causal explanation for every k-means assignment. It means that names, parent-child relations, sizes, and representative cases remain inspectable.
+The final stage writes `result.xlsx` and a six-section `report.html`. The workbook contains the hierarchy, the source-item-to-leaf mapping, and statistics. The report contains the data profile, algorithm rationale, per-level decisions, final tree, UMAP projection, and case browser. “Interpretability” here does not mean a causal explanation for every k-means assignment. It means that names, parent-child relations, sizes, and representative cases remain inspectable.
 
 ### 3.4 Why Not Give Every Source Text Directly to the LLM?
 
@@ -102,9 +110,71 @@ An apparently simpler implementation would place all source texts in context and
 
 Base clustering acts as compression. The 4,806 documents become 196 local units, and the agent sees samples, names, and descriptions from each unit. Higher levels operate on 196 cluster representations rather than rereading every post. The cost is that a bad base assignment cannot be split later; the hierarchy can only recombine erroneous units. This constraint helps explain why semantic merging can repair class-level alignment without repairing NMI and ARI globally.
 
-## 4. The 20 Newsgroups Reconstruction
+## 4. Using the Skill from a Natural-Language Request
+
+Install it through the generic Agent Skills CLI:
+
+```bash
+npx skills add brenchcc/cilo-llm-embedding-clustering
+```
+
+After installation, the user does not need to remember internal pipeline arguments. The interface is the coding agent, not an individual script. In practice, I put four facts in the request: the file, text column, clustering goal, and embedding model.
+
+> Use the `llm-embedding-clustering` skill to cluster the `text` column in `data.xlsx` into a topic hierarchy. The goal is to inspect content-topic distribution; use `BAAI/bge-m3` for embeddings.
+
+That sentence supplies every business input. If the current project has no environment configuration, the latest skill still asks whether to use conda, uv, or venv; conda requires an environment name. Only after the choice is stored does the agent validate dependencies and inspect data.
+
+![Invocation flow from a natural-language request to final deliverables](../../assets/clio-llm-embedding-clustering/skill-invocation-en.svg)
+
+### 4.1 How Much to Put in the Prompt
+
+The [companion Zhihu article](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311) does not begin with a feature inventory. It begins with a failure that readers can reproduce: asking one LLM context to cluster tens of thousands of texts eventually runs into the context limit and produces forgetting, duplicate names, and degraded decisions late in the prompt. Only then does it state the division of labor: embeddings absorb scale; the LLM handles semantics. This guide follows that practical order by showing a request first and explaining the mandatory follow-up questions afterward.
+
+The invocation can be as short as “cluster these queries by topic.” A short request triggers the skill, but it does not remove mandatory questions. Supplying every result-changing choice in the first message reduces turns.
+
+| Request | What the agent already knows | What it still needs |
+| --- | --- | --- |
+| “Cluster these queries by topic.” | The task is topic clustering | Environment, path, text column, goal, and embedding model |
+| “Cluster `data.xlsx:text` into a hierarchy for content-topic distribution with bge-m3.” | Path, column, goal, and local model | Environment only when the current project lacks configuration |
+| “Use an online embedding API to discover risk topics.” | The goal is risk discovery and embeddings come from an API | Environment, path, column, endpoint, key source, model name, and a minimal client example |
+
+The clustering goal must be explicit. On the same support queries, content distribution may produce refund, logistics, and product-quality topics. Risk discovery instead emphasizes abuse, repeated-refund exploitation, or threats. Recommendation labeling favors names suitable for a downstream label store. This is not stylistic wording; it changes the taxonomy objective.
+
+### 4.2 The Environment Gate Is an Execution Contract
+
+Commit `890b66a` promotes the environment question to a hard gate. The agent may not infer the answer from the active shell, and it may not begin computation before asking. It stores the choice as project environment configuration and reuses it until the user explicitly requests a change.
+
+| Choice | Runtime location | Best fit |
+| --- | --- | --- |
+| conda | A named existing environment | The project already pins a Conda CUDA/PyTorch stack |
+| uv | An isolated environment in the current project | Fast setup managed by uv |
+| venv | An isolated environment in the current project | Standard-library isolation without adding uv |
+
+The Zhihu article documents an earlier usage snapshot and describes uv as the first-run path. Current commit `890b66a` instead offers conda, uv, or venv. This note follows the current execution contract rather than copying outdated installation details from the article.
+
+That extra question prevents two practical failures: installing dependencies into the wrong environment and writing runtime state into the installed skill. The latter can make separate projects share `state/`, allowing one experiment to overwrite another experiment's JSON and embeddings.
+
+### 4.3 Separate the Skill Directory from the Run
+
+The current specification distinguishes the installed skill from the current project. The former supplies a reusable execution protocol, deterministic compute stages, semantic-decision templates, and dependency declarations. The latter owns the environment configuration, intermediate state, and final outputs. Results from propose, dedup, assign, and rename must return to one canonical per-level state chain; parallel work must not create a second side-channel record.
+
+![Responsibility boundary between the installed skill and the current project](../../assets/clio-llm-embedding-clustering/runtime-layout-en.svg)
+
+After a run, I do not judge success from whether the UMAP looks attractive. The three artifact groups answer different review questions:
+
+| Artifact | Inspect first | Primary use |
+| --- | --- | --- |
+| `out/result.xlsx` | Source-to-leaf mapping, parent-child hierarchy, and cluster sizes | Statistics, sampling, and downstream business integration |
+| `out/report.html` | Algorithm rationale, stopping decisions, final tree, cases, and UMAP | Human review of process and semantic boundaries |
+| Intermediate state directory | Candidates, assignments, and pre/post-rename records | Locate the failing level and rerun locally on cached embeddings |
+
+That is the difference from a clustering API that returns only labels. The skill automates execution without hiding the evidence needed to audit what the agent did.
+
+## 5. The 20 Newsgroups Reconstruction
 
 The local 20 Newsgroups files yielded 37,656 boundary-delimited records and 18,828 documents after deduplication, indicating that the source contained one complete duplicate copy. I then drew a stratified sample of 4,806 documents across all 20 forums with seed 42. Its SHA-256 is `014abaeb1606f18fec3caea58b010463a79f00a0251f2d06619aae34a4894cf2`.
+
+The Zhihu article also presents a 4,806-document 20 Newsgroups run, but reports a `137 → 48 → 20` hierarchy and different evaluation numbers. It does not provide the same sample hash and per-level state as the local report, so I treat it as an independent experimental snapshot rather than combining it with this note's `196 → 60 → 20`, 0.631, and 0.657. Every experimental claim below remains grounded in the local artifacts.
 
 One small preprocessing detail is worth preserving. Eleven documents contained 21 control characters prohibited by Excel. The bge-m3 token sequences were identical before and after cleanup, so the operation made the workbook writable without changing embedding inputs. That statement is more useful for reproducibility than a generic claim that the data was “cleaned.”
 
@@ -124,7 +194,7 @@ The base candidates were 137, 196, and 254, with cosine silhouette scores of 0.0
 
 The environment used Python 3.10.0, PyTorch 2.13.0, sentence-transformers 5.7.0, and scikit-learn 1.7.2. The bge-m3 revision was `5617a9f61b028005a4858fdac845db406aefb181`, stored in a local 2.14 GiB model directory. Embedding took 39 minutes 11 seconds, hierarchy building took 11 minutes 27 seconds, and the complete run took 50 minutes 38 seconds. Roughly 77% of wall time was embedding, which makes vector caching materially useful when iterating on hierarchy prompts.
 
-## 5. How `196 → 60 → 20` Emerged
+## 6. How `196 → 60 → 20` Emerged
 
 Level 1 divided 196 base clusters into nine neighborhoods. The agent proposed roughly 60 subtopic families because computing, recreation, science, religion, politics, commerce, and health still contained useful internal distinctions. Collapsing directly to 20 would merge hardware with software and doctrine with religious practice too early. Sixty candidates remained after global deduplication, and `should_stop` was false.
 
@@ -138,7 +208,7 @@ The final names include `PC Hardware`, `Windows and DOS`, `Computer Graphics`, `
 
 UMAP is useful for finding local mixtures and isolated regions, but it is not a clustering metric. The skill uses `n_neighbors = 15`, `min_dist = 0.1`, and cosine distance to project 1,024 dimensions into two. The paper's projector uses `min_dist = 0`. Projection parameters change the visible geometry, and an island in two dimensions is not proof of a reliable boundary in the original space.
 
-## 6. Why ACC Rises While NMI and ARI Fall
+## 7. Why ACC Rises While NMI and ARI Fall
 
 The final comparison is the most informative part of this reconstruction.
 
@@ -164,7 +234,7 @@ I would therefore not report the +0.026 ACC as an unqualified “improvement.”
 
 The comparison also needs a fairness qualification. The baseline runs one $K=20$ k-means, while the skill begins with 196 base clusters and spends multiple rounds of agent inference. They share the representation and top-level count, but not the compute budget. The experiment isolates direct geometric partitioning from semantic merging after fine-grained geometric partitioning; it is not a same-cost algorithm race. If latency and LLM tokens are deployment constraints, whether +0.026 ACC justifies roughly 11 additional minutes of hierarchy work requires a separate utility analysis.
 
-## 7. Why 0.657 Cannot Be Compared with the Paper's 94%
+## 8. Why 0.657 Cannot Be Compared with the Paper's 94%
 
 Figure 4 reports 94% reconstruction accuracy on 19,476 synthetic regular conversations across 20 high-level categories. That number is much higher, but it measures a different setup.
 
@@ -178,7 +248,7 @@ My experiment never supplies the 20 Newsgroups labels to the agent. Parents such
 
 The datasets also differ. The paper's synthetic set is generated downward from predefined high-level classes to subcategories and conversations, so its hierarchy has a construction prior. Natural 20 Newsgroups posts contain quotations and often mix technical detail, political positions, and religious debate. Placing 94% beside 0.657 to declare either a failed reproduction or a weaker model would be methodologically wrong.
 
-## 8. Where the Skill Fits
+## 9. Where the Skill Fits
 
 I would use this skill when inputs are already short, the goal is exploratory topic discovery, geometric clusters need a readable multi-level taxonomy, the dataset can afford several rounds of LLM naming and assignment, and the data is public, sanitized, or handled in an environment authorized by its owner.
 
@@ -195,7 +265,7 @@ The stopping decision deserves a separate audit. This run stopped at 20 parents,
 5. Change the clustering goal and compare topic discovery, risk discovery, and recommendation labeling on the same embeddings.
 6. Before private data, implement unique-user thresholds, privacy-aware summaries, and an independent auditor, then evaluate privacy explicitly.
 
-## 9. Conclusion
+## 10. Conclusion
 
 The useful engineering lesson is not merely that an LLM can participate in clustering. Embeddings and LLMs should own different parts of the problem. Embeddings provide scalable, cacheable local similarity. The LLM reads a bounded set of cluster descriptions, proposes readable parents, and resolves semantic boundaries that are difficult to encode as fixed rules. JSON state turns those roles into a workflow that can pause, be inspected, and rerun.
 
@@ -208,6 +278,6 @@ That trade may be worthwhile when an analyst needs a navigable topic map. It is 
 ## References
 
 1. Alex Tamkin et al. [Clio: Privacy-Preserving Insights into Real-World AI Use](https://arxiv.org/abs/2412.13678). 2024.
-2. BrenchCC. [cilo-llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering), commit `683cdf4`. 2026-08-12.
+2. BrenchCC. [cilo-llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering), experiment commit `683cdf4` and usage-documentation commit `890b66a`. 2026-08-13.
 3. BAAI. [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3).
-4. 周星星. [写了个 skill，用 LLM 结合 embedding 做聚类](https://www.xiaohongshu.com/discovery/item/6a792b2000000000330309db). Xiaohongshu. Included as project context and further reading; no image or unverified OCR content from the post is used here.
+4. 周星星. [AI 的 SKILL 究竟是什么，应该如何应用？](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311). Zhihu. Used as project context, a usage-narrative reference, and an independent experiment snapshot; its images and evaluation numbers are not reused here.

@@ -64,13 +64,21 @@ Clio 的 Figure 2 容易让人把隐私措施看成几条橙色装饰线，Figur
 
 ## 3. 从论文算法到 Agent Skill
 
-论文提供了方法，但没有提供一个面向任意本地文件的开箱工作流。我希望用户在 coding agent 中提出「把这批 query 做分层主题聚类」后，Agent 能把数据读取、脚本运行、语义判断和结果交付串起来。commit `683cdf4` 对应的 skill 将过程拆成确定性脚本与 Agent 决策两部分，并用 `state/` 下的 JSON 文件接力。
+论文提供了方法，但没有提供一个面向任意本地文件的开箱工作流。我希望用户在 coding agent 中提出「把这批 query 做分层主题聚类」后，Agent 能把数据读取、脚本运行、语义判断和结果交付串起来。skill 将过程拆成确定性脚本与 Agent 决策两部分，并用 `state/` 下的 JSON 文件接力。
+
+本文需要保留两个版本锚点。复现实验运行在 commit `683cdf4`；写作更新时，远端 `main` 已到 `890b66a`。两版采用相同的聚类算法与语义决策流程，因此旧实验仍对应当前方法。新版本只收紧了运行契约：开始计算前必须先得到 conda、uv 或 venv 的明确选择，并在保存项目环境配置后回读校验。
+
+| 证据用途 | 版本与日期 | 本文如何使用 |
+| --- | --- | --- |
+| 20 Newsgroups 实验 | `683cdf4`，2026-08-12 | 指标、耗时、`196 → 60 → 20` 层级与报告截图 |
+| 当前使用说明 | `890b66a`，2026-08-13 | 安装方式、环境门禁、工作目录契约与交付物 |
+| 版本核对 | 聚类方法未变，运行门禁更新 | 不把环境协议更新误写成算法效果更新 |
 
 ### 3.1 输入表示与 base clustering
 
 skill 输入 CSV、Excel 或 JSON 中的一列短文本，默认使用 `BAAI/bge-m3`。所有向量做 L2 归一化，因为后续 kNN profile、cosine silhouette 和层级 neighborhood 都依赖方向相似度；如果在线 API 返回未归一化向量，向量长度会污染距离。
 
-`prepare.py` 除了保存 embedding，还计算 10-NN 距离统计、TwoNN 内在维度和 LOF 离群比例。Agent 根据这些画像与用户给出的聚类目标选择 base 算法。常规、规模适中的稠密数据优先 k-means；存在明显噪声和不规则密度时可以选择 HDBSCAN。对 k-means，脚本围绕经验值 $\sqrt{8N}$ 测试 0.7、1.0 和 1.3 三档 $K$，以 cosine silhouette 选 base 数量。
+数据准备阶段除了保存 embedding，还计算 10-NN 距离统计、TwoNN 内在维度和 LOF 离群比例。Agent 根据这些画像与用户给出的聚类目标选择 base 算法。常规、规模适中的稠密数据优先 k-means；存在明显噪声和不规则密度时可以选择 HDBSCAN。对 k-means，流程围绕经验值 $\sqrt{8N}$ 测试 0.7、1.0 和 1.3 三档 $K$，以 cosine silhouette 选 base 数量。
 
 该策略并不保证找到全局最优 $K$。它的作用是避免 Agent 凭感觉随手填一个数，同时保留足够多的 base 簇给上层语义合并。如果一开始就直接设为目标顶层数，整个流程会退化成「一次 k-means + LLM 起名」，hierarchizer 没有发挥空间。
 
@@ -90,11 +98,11 @@ skill 强制至少完成两层，最多六层。下限防止第一次 probe 就�
 
 ### 3.3 JSON 状态比一段超长提示词更可复核
 
-整个过程并不要求 Agent 在上下文里记住所有簇。`probe.json` 保存数据画像和算法选择，`base.json` 保存初始簇，`level_1.json`、`level_2.json` 依次保存 probe、neighborhood、candidate、parent、assignment 和 final。脚本负责确定性转换，Agent 只写回当前语义决策。
+整个过程并不要求 Agent 在上下文里记住所有簇。运行状态按阶段保存：第一份记录数据画像和算法选择，第二份记录初始簇，后续每层分别记录 neighborhood、candidate、parent、assignment 和 final。确定性计算负责向量与数据转换，Agent 只写回当前语义决策。
 
 这种拆分没有消除模型随机性，但它留下了检查点。某个父簇命名异常时，我可以回到该层的 children 与 assignment，而不是重新阅读整段对话日志。相同 embedding 还能被缓存，调 prompt 或重跑层级时不必再次支付最昂贵的向量计算。
 
-最终 `finalize.py` 输出 `result.xlsx` 和六部分 `report.html`。Excel 保存层级表、原始项到叶簇的映射及统计；HTML 展示数据画像、算法理由、每层决策、最终树、UMAP 和 case 浏览。这里的「可解释」不是给每次 k-means assignment 生成因果理由，而是让主题名称、父子关系、规模和代表 case 可以被人工核查。
+最终阶段输出 `result.xlsx` 和六部分 `report.html`。Excel 保存层级表、原始项到叶簇的映射及统计；HTML 展示数据画像、算法理由、每层决策、最终树、UMAP 和 case 浏览。这里的「可解释」不是给每次 k-means assignment 生成因果理由，而是让主题名称、父子关系、规模和代表 case 可以被人工核查。
 
 ### 3.4 为什么不把所有原文直接交给 LLM
 
@@ -102,9 +110,71 @@ skill 强制至少完成两层，最多六层。下限防止第一次 probe 就�
 
 base clustering 在这里承担信息压缩。4,806 篇原文先变成 196 个局部单元，Agent 看到的是每簇样本、名称和描述；进入上层后，它只处理 196 个 cluster representation，而不是重新阅读全部帖子。代价是 base assignment 一旦错误，上层只能在错误单元之间重新组合，不能把某条文档从 base cluster 中拆出来。该约束解释了为什么 LLM hierarchy 可以修正类别级合并，却不能全面修复 NMI 和 ARI。
 
-## 4. 20 Newsgroups 复现实验
+## 4. Skill 使用说明：从一句自然语言开始
+
+安装使用通用 Agent Skills CLI：
+
+```bash
+npx skills add brenchcc/cilo-llm-embedding-clustering
+```
+
+安装后不需要记住内部流水线的命令参数。用户面对的是 coding agent，不是某个脚本入口。我在实际使用中会直接写清四件事：文件、文本列、聚类目的和 embedding 模型。
+
+> 使用 `llm-embedding-clustering` skill，对 `data.xlsx` 的 `text` 列做分层主题聚类。目的是看内容主题分布，embedding 使用 `BAAI/bge-m3`。
+
+这句话已经给出全部业务输入。如果当前项目还没有环境配置，最新版 Skill 仍会先问本次使用 conda、uv 还是 venv；选择 conda 时还会追问环境名。环境确定后，Agent 才验证依赖和读取数据。
+
+![从自然语言触发到最终交付的 Skill 调用流程](../../assets/clio-llm-embedding-clustering/skill-invocation-zh.svg)
+
+### 4.1 调用句写到什么程度
+
+[知乎同源文章](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311)没有先堆功能清单，而是从一个容易亲手验证的失败方式讲起：把成千上万条文本一次性交给 LLM，规模上会撞到上下文上限，语义上也会出现遗忘、重名和后半程敷衍。随后才落到「规模交给 embedding，语义交给 LLM」这条分工。本文的使用说明也沿用这个顺序，先给一句可以直接发给 Agent 的请求，再解释它为什么还要追问。
+
+真正调用时可以从一句很短的话开始，例如「帮我把这批 query 做一下主题聚类」。短句能触发 Skill，但不会消除必要澄清。更省往返的写法，是在第一条消息里把会改变结果的选择给全。
+
+| 调用方式 | Agent 已经知道什么 | 下一步仍需确认 |
+| --- | --- | --- |
+| 「帮我把这批 query 做主题聚类」 | 用户要做 topic clustering | 环境、文件路径、文本列、聚类目的、embedding |
+| 「对 `data.xlsx` 的 `text` 列做分层聚类，看看内容主题分布，用 bge-m3」 | 路径、列名、目的、本地模型 | 仅在当前项目缺少环境配置时询问环境 |
+| 「用在线 embedding API 做风险主题发现」 | 目标是风险发现、模型来自 API | 环境、路径、列名、endpoint、key 来源、model 名和最小调用样例 |
+
+聚类目的必须明说。对同一批客服 query，「内容主题分布」会产生退款、物流、质量等业务主题；「风险发现」更可能形成辱骂、套利或威胁类簇；「推荐标签」又会偏向可落库的标签体系。这里不是措辞偏好，而是 taxonomy 的目标函数。
+
+### 4.2 环境门禁解决的不是算法问题
+
+commit `890b66a` 把环境询问提升为执行门禁。Agent 不能从当前 shell 或已激活环境猜答案，也不能先启动计算再补问。选择会写入工作目录中的项目环境配置，后续复用；用户明确要求换环境时才更新。
+
+| 选择 | 运行位置 | 适合情况 |
+| --- | --- | --- |
+| conda | 用户指定的已有环境 | 项目已经用 Conda 管理依赖，且希望复用现有 CUDA/PyTorch 组合 |
+| uv | 当前项目的隔离环境 | 希望快速创建项目环境，并由 uv 管理安装 |
+| venv | 当前项目的隔离环境 | 只依赖 Python 标准工具，不额外引入 uv |
+
+知乎文章记录的是更早的使用快照，文末将首次运行写成 uv 单一路径；当前 commit `890b66a` 已改为 conda、uv、venv 三选一。这里以当前 Skill 的运行契约为准，不把旧文章的安装细节照搬进来。
+
+该门禁看似只是多问一句，实际避免了两个常见问题：依赖被装进错误环境，以及运行状态写进已安装的 Skill。后者会让不同项目共享 `state/`，一次实验覆盖另一次实验的 JSON 和 embedding。
+
+### 4.3 Skill 目录与运行目录必须分开
+
+最新版明确区分已安装的 Skill 与当前项目。前者只提供可复用的执行协议、确定性计算模块、语义决策模板和依赖声明；运行从当前项目发起，环境配置、中间状态和最终结果也全部留在项目中。Agent 的 propose、dedup、assign 和 rename 结果必须写回同一条逐层状态链，不能另建一套旁路记录。
+
+![安装后的 Skill 目录与当前项目运行目录之间的职责边界](../../assets/clio-llm-embedding-clustering/runtime-layout-zh.svg)
+
+跑完后，我不会只看 UMAP 是否好看。三个产物承担不同的检查任务：
+
+| 产物 | 先检查什么 | 主要用途 |
+| --- | --- | --- |
+| `out/result.xlsx` | 原始项到叶簇映射、各层父子关系、簇规模 | 做后续统计、抽样复核或业务回填 |
+| `out/report.html` | 算法理由、每层停止判断、最终树、case 与 UMAP | 面向人审阅聚类过程和语义边界 |
+| 中间状态目录 | candidate、assignment、rename 前后的逐层记录 | 定位错误发生在哪一层，并在缓存 embedding 上局部重跑 |
+
+这也是它与「调用一个聚类 API 返回 labels」的差别。Skill 的价值不在隐藏步骤，而在 Agent 替用户执行步骤之后，仍把中间证据和最终交付同时留下。
+
+## 5. 20 Newsgroups 复现实验
 
 实验数据来自本地 20 Newsgroups 文件。解析得到 37,656 条带边界记录，去重后剩 18,828 篇，说明源文件包含一份完整重复副本。随后按类别分层，以 seed 42 抽取 4,806 篇，覆盖全部 20 个版块。样本 SHA-256 为 `014abaeb1606f18fec3caea58b010463a79f00a0251f2d06619aae34a4894cf2`。
+
+知乎文章同样展示了 4,806 篇 20 Newsgroups，但记录的是 `137 → 48 → 20` 和另一组评测数字。文章没有给出与本地报告相同的样本哈希和逐层状态，因此我把它视为独立实验快照，不与本文的 `196 → 60 → 20`、0.631 和 0.657 拼接。本文所有实验判断仍只来自本地可复核产物。
 
 数据准备中还有一个很小但值得记录的修复：11 篇文档含 21 个 Excel 禁止控制字符。清理前后 bge-m3 token 序列完全一致，因此该操作只保证 Excel 可写，不改变 embedding 输入。相比泛泛说「完成了预处理」，这种细节更能说明结果能否复核。
 
@@ -124,7 +194,7 @@ base 候选数分别为 137、196 和 254，对应 cosine silhouette 为 0.0423�
 
 运行环境为 Python 3.10.0、PyTorch 2.13.0、sentence-transformers 5.7.0 和 scikit-learn 1.7.2；bge-m3 revision 是 `5617a9f61b028005a4858fdac845db406aefb181`，本地模型目录约 2.14 GiB。embedding 用时 39 分 11 秒，分层聚类用时 11 分 27 秒，端到端 50 分 38 秒。约 77% 的时间消耗在 embedding，说明重复调层级 prompt 时缓存向量的收益很实际。
 
-## 5. `196 → 60 → 20` 是怎样形成的
+## 6. `196 → 60 → 20` 是怎样形成的
 
 Level 1 把 196 个 base cluster 分为 9 个 neighborhood。Agent 判断这些细粒度簇可以整理为约 60 个子主题家族，理由是计算机、娱乐、科学、宗教、政治、交易和健康内部仍存在有用区分，直接压到 20 会过早合并。60 个候选跨 neighborhood 去重后仍为 60 个，`should_stop` 为 false。
 
@@ -138,7 +208,7 @@ Level 2 面对 60 个中间簇，切出 3 个 neighborhood，提出 24 个候选
 
 UMAP 能帮助发现局部混合和孤立区域，但不能替代聚类指标。skill 使用 `n_neighbors = 15`、`min_dist = 0.1` 和 cosine metric，把 1024 维向量压成二维；论文 projector 的 `min_dist` 为 0。不同投影参数会改变点云外观，二维图上看起来分开的岛也不等于高维空间中存在可靠决策边界。
 
-## 6. 为什么 ACC 上升而 NMI、ARI 下降
+## 7. 为什么 ACC 上升而 NMI、ARI 下降
 
 最终对比是这次复现最有价值的部分。
 
@@ -164,7 +234,7 @@ NMI 关注预测分区与真实标签共享多少信息，不要求一对一命�
 
 这组对比还需要一条公平性说明。baseline 只运行一次 $K=20$ k-means，skill 则从 196 个 base 簇开始并消耗多轮 Agent 推理；两者共享表示和顶层簇数，却不共享计算预算。实验隔离的是「直接几何分区」与「细粒度几何分区后再做语义合并」的差异，不是同成本算法竞赛。若部署目标把时延和 LLM token 纳入约束，+0.026 ACC 是否值得约 11 分钟额外层级处理，需要单独做效用评估。
 
-## 7. 为什么不能拿本次 0.657 对比论文的 94%
+## 8. 为什么不能拿本次 0.657 对比论文的 94%
 
 Clio Figure 4 报告在 19,476 条 synthetic regular conversations、20 个高层类别上的 94% reconstruction accuracy。数字比本实验高很多，但任务设置并不相同。
 
@@ -178,7 +248,7 @@ Clio Figure 4 报告在 19,476 条 synthetic regular conversations、20 个高�
 
 数据也不同。论文 synthetic set 由预先定义的高层类别逐级生成子类别和会话，类别分布与层级结构具有生成时的先验；20 Newsgroups 是自然论坛文本，单篇帖子经常同时包含引用、政治立场、宗教争论和技术细节。把 94% 与 0.657 并排得出「复现失败」或「模型能力下降」都不成立。
 
-## 8. 这套 Skill 适合什么，不适合什么
+## 9. 这套 Skill 适合什么，不适合什么
 
 我会在以下条件下使用该 skill：输入已经是短文本；目标是发现主题并交给人浏览；几何聚类只能给出分堆，业务需要多级 taxonomy；数据规模允许多轮 LLM 命名和 assignment；数据公开、已脱敏，或运行环境与访问权限经过数据所有者确认。
 
@@ -195,7 +265,7 @@ Clio Figure 4 报告在 19,476 条 synthetic regular conversations、20 个高�
 5. 改写聚类目标，比较内容主题、风险发现和推荐标签对同一 embedding 的影响。
 6. 若进入私有数据，先实现 unique-user threshold、privacy-aware summary 与独立 auditor，再讨论隐私效果。
 
-## 9. 结论
+## 10. 结论
 
 这次工程化最有用的认识不是「LLM 可以做聚类」，而是 embedding 和 LLM 应该承担不同职责。embedding 适合大规模、可缓存的局部相似度计算；LLM 适合读取有限数量的簇描述，提出可读父级并处理难以写成固定规则的语义边界。JSON 状态把两者接成一条可以暂停、检查和重跑的流程。
 
@@ -208,6 +278,6 @@ Clio Figure 4 报告在 19,476 条 synthetic regular conversations、20 个高�
 ## 参考资料
 
 1. Alex Tamkin et al. [Clio: Privacy-Preserving Insights into Real-World AI Use](https://arxiv.org/abs/2412.13678). 2024.
-2. BrenchCC. [cilo-llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering), commit `683cdf4`. 2026-08-12.
+2. BrenchCC. [cilo-llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering), experiment commit `683cdf4` and usage-documentation commit `890b66a`. 2026-08-13.
 3. BAAI. [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3).
-4. 周星星. [写了个 skill，用 LLM 结合 embedding 做聚类](https://www.xiaohongshu.com/discovery/item/6a792b2000000000330309db). 小红书，作为项目缘起与延伸阅读；本文未使用其中图片或未经核对的 OCR 内容。
+4. 周星星. [AI 的 SKILL 究竟是什么，应该如何应用？](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311). 知乎，作为项目缘起、使用叙述与独立实验快照；本文未复用其中图片，也未混合其评测数字。

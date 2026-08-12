@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; fill: #17233c; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; fill: #5b6475; }
+      .lane { font: 700 23px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; fill: #17233c; }
+      .label { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #17233c; }
+      .copy { font: 400 15px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; fill: #465064; }
+      .small { font: 500 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #465064; }
+      .note { font: 600 16px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; fill: #267455; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7d8799"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="760" rx="28" fill="#f7f8fb"/>
+  <text x="64" y="66" class="title">The Skill Defines How; the Work Directory Records This Run</text>
+  <text x="64" y="100" class="subtitle">Keep the installation read-only; the current project owns environment, evidence, and outputs</text>
+
+  <rect x="64" y="146" width="478" height="464" rx="24" fill="#eef2f7" stroke="#788397" stroke-width="2"/>
+  <text x="96" y="190" class="lane">Reusable skill package</text>
+  <rect x="384" y="164" width="126" height="30" rx="15" fill="#788397"/>
+  <text x="447" y="185" text-anchor="middle" style="font:700 13px -apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;fill:#fff">READ ONLY</text>
+
+  <g transform="translate(96,226)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Execution protocol</text>
+    <text x="20" y="54" class="copy">Triggers, inquiry gates, and complete workflow</text>
+  </g>
+  <g transform="translate(96,314)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Deterministic compute</text>
+    <text x="20" y="54" class="copy">Prepare data, base cluster, iterate, export, visualize</text>
+  </g>
+  <g transform="translate(96,402)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Semantic decisions</text>
+    <text x="20" y="54" class="copy">Select, name, propose, dedup, assign, rename</text>
+  </g>
+  <g transform="translate(96,490)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Dependency declaration</text>
+    <text x="20" y="54" class="copy">Install only when the selected environment lacks deps</text>
+  </g>
+
+  <path d="M562 378 H624" stroke="#7d8799" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="594" y="354" class="copy" text-anchor="middle">invoke</text>
+
+  <rect x="644" y="146" width="692" height="464" rx="24" fill="#edf7f3" stroke="#3e9271" stroke-width="2"/>
+  <text x="676" y="190" class="lane">Current project · this run</text>
+  <rect x="1168" y="164" width="136" height="30" rx="15" fill="#3e9271"/>
+  <text x="1236" y="185" text-anchor="middle" style="font:700 13px -apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;fill:#fff">WRITE / RERUN</text>
+
+  <g transform="translate(676,226)">
+    <rect width="284" height="106" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Environment configuration</text>
+    <text x="20" y="58" class="small">conda | uv | venv</text>
+    <text x="20" y="84" class="copy">Single environment source</text>
+  </g>
+  <g transform="translate(984,226)">
+    <rect width="320" height="106" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">Per-level evidence</text>
+    <text x="20" y="58" class="small">profile · base · candidates · assignments</text>
+    <text x="20" y="84" class="copy">Embeddings and one canonical state chain</text>
+  </g>
+  <path d="M960 279 H974" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(676,364)">
+    <rect width="628" height="146" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="34" class="label">out/</text>
+    <rect x="20" y="56" width="272" height="62" rx="12" fill="#eaf2ff"/>
+    <text x="38" y="82" class="small">result.xlsx</text>
+    <text x="38" y="104" class="copy">Hierarchy, mapping, statistics</text>
+    <rect x="316" y="56" width="292" height="62" rx="12" fill="#f3edff"/>
+    <text x="334" y="82" class="small">report.html</text>
+    <text x="334" y="104" class="copy">Evidence, cases, interactive UMAP</text>
+  </g>
+  <text x="676" y="550" class="copy">Environment, intermediate state, and outputs never write back into the installed skill.</text>
+  <text x="676" y="578" class="copy">Parallel-agent responses merge into one state chain rather than side-channel records.</text>
+
+  <rect x="64" y="646" width="1272" height="62" rx="16" fill="#e9f7f1"/>
+  <text x="92" y="684" class="note">Result:</text>
+  <text x="152" y="684" class="copy">one skill can serve many projects while every run keeps an independently auditable environment, state, and output.</text>
+</svg>

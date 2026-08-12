@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #5b6475; }
+      .lane { font: 700 23px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .label { font: 700 17px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #17233c; }
+      .copy { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #465064; }
+      .small { font: 500 14px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #465064; }
+      .note { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #267455; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7d8799"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="760" rx="28" fill="#f7f8fb"/>
+  <text x="64" y="66" class="title">Skill 负责“怎么做”，工作目录保存“这次做了什么”</text>
+  <text x="64" y="100" class="subtitle">安装包只读；环境配置、中间证据和结果都归当前项目，多个实验互不串线</text>
+
+  <rect x="64" y="146" width="478" height="464" rx="24" fill="#eef2f7" stroke="#788397" stroke-width="2"/>
+  <text x="96" y="190" class="lane">可复用 Skill 包</text>
+  <rect x="384" y="164" width="126" height="30" rx="15" fill="#788397"/>
+  <text x="447" y="185" text-anchor="middle" style="font:700 13px -apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;fill:#fff">只读</text>
+
+  <g transform="translate(96,226)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">执行协议</text>
+    <text x="20" y="54" class="copy">触发条件、询问门禁与完整工作流</text>
+  </g>
+  <g transform="translate(96,314)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">确定性计算模块</text>
+    <text x="20" y="54" class="copy">数据准备、base clustering、迭代、导出与可视化</text>
+  </g>
+  <g transform="translate(96,402)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">语义决策模板</text>
+    <text x="20" y="54" class="copy">算法选择、命名、propose、dedup、assign、rename</text>
+  </g>
+  <g transform="translate(96,490)">
+    <rect width="414" height="70" rx="14" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">依赖声明</text>
+    <text x="20" y="54" class="copy">仅在选定环境缺依赖时安装</text>
+  </g>
+
+  <path d="M562 378 H624" stroke="#7d8799" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="594" y="354" class="copy" text-anchor="middle">调用</text>
+
+  <rect x="644" y="146" width="692" height="464" rx="24" fill="#edf7f3" stroke="#3e9271" stroke-width="2"/>
+  <text x="676" y="190" class="lane">当前项目 · 本次运行</text>
+  <rect x="1168" y="164" width="136" height="30" rx="15" fill="#3e9271"/>
+  <text x="1236" y="185" text-anchor="middle" style="font:700 13px -apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;fill:#fff">可写 / 可复跑</text>
+
+  <g transform="translate(676,226)">
+    <rect width="284" height="106" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">项目环境配置</text>
+    <text x="20" y="58" class="small">conda | uv | venv</text>
+    <text x="20" y="84" class="copy">项目唯一环境选择源</text>
+  </g>
+  <g transform="translate(984,226)">
+    <rect width="320" height="106" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="30" class="label">逐层中间证据</text>
+    <text x="20" y="58" class="small">profile · base · candidates · assignments</text>
+    <text x="20" y="84" class="copy">embedding 与每轮统一状态</text>
+  </g>
+  <path d="M960 279 H974" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(676,364)">
+    <rect width="628" height="146" rx="16" fill="#ffffff" stroke="#dfe3eb"/>
+    <text x="20" y="34" class="label">out/</text>
+    <rect x="20" y="56" width="272" height="62" rx="12" fill="#eaf2ff"/>
+    <text x="38" y="82" class="small">result.xlsx</text>
+    <text x="38" y="104" class="copy">层级、映射、统计</text>
+    <rect x="316" y="56" width="292" height="62" rx="12" fill="#f3edff"/>
+    <text x="334" y="82" class="small">report.html</text>
+    <text x="334" y="104" class="copy">过程证据、case、UMAP</text>
+  </g>
+  <text x="676" y="550" class="copy">环境配置、中间状态和交付物都不写回已安装的 Skill。</text>
+  <text x="676" y="578" class="copy">并行 Agent 的回答也必须合并回统一状态链，而不是另建旁路记录。</text>
+
+  <rect x="64" y="646" width="1272" height="62" rx="16" fill="#e9f7f1"/>
+  <text x="92" y="684" class="note">结果：</text>
+  <text x="150" y="684" class="copy">同一个 Skill 可以服务多个项目；每次实验的环境、状态和交付物仍能独立复核。</text>
+</svg>

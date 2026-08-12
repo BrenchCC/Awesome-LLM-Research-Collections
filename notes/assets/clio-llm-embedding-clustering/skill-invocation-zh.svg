@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs>
+    <style>
+      .title { font: 700 34px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .subtitle { font: 400 18px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #5b6475; }
+      .prompt { font: 600 20px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .step { font: 700 18px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #17233c; }
+      .copy { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #465064; }
+      .badge { font: 700 13px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #ffffff; }
+      .note { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; fill: #714b25; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7d8799"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="760" rx="28" fill="#f7f8fb"/>
+  <text x="64" y="66" class="title">一句话可以触发，但 Agent 不会立刻盲跑</text>
+  <text x="64" y="100" class="subtitle">当前仓库 commit 890b66a：先完成环境门禁和业务澄清，再进入 Clio 风格聚类</text>
+
+  <rect x="64" y="136" width="1272" height="108" rx="20" fill="#ffffff" stroke="#dfe3eb" stroke-width="2"/>
+  <rect x="88" y="158" width="82" height="28" rx="14" fill="#8463b8"/>
+  <text x="129" y="178" class="badge" text-anchor="middle">推荐调用</text>
+  <text x="88" y="218" class="prompt">“对 data.xlsx 的 text 列做分层主题聚类，目的是看内容主题分布，embedding 用 bge-m3。”</text>
+
+  <g transform="translate(64,302)">
+    <rect width="224" height="214" rx="20" fill="#f0f2f6" stroke="#788397" stroke-width="2"/>
+    <circle cx="32" cy="34" r="18" fill="#788397"/>
+    <text x="32" y="39" class="badge" text-anchor="middle">1</text>
+    <text x="60" y="41" class="step">识别触发意图</text>
+    <text x="24" y="82" class="copy">分层聚类 / 主题聚类</text>
+    <text x="24" y="108" class="copy">Clio 聚类 / 自动发现主题</text>
+    <text x="24" y="148" class="copy">只有“分类”或“归纳”</text>
+    <text x="24" y="174" class="copy">不会自动触发该 skill</text>
+  </g>
+  <path d="M298 409 H330" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(340,302)">
+    <rect width="224" height="214" rx="20" fill="#fff1eb" stroke="#d96d4d" stroke-width="2"/>
+    <circle cx="32" cy="34" r="18" fill="#d96d4d"/>
+    <text x="32" y="39" class="badge" text-anchor="middle">2</text>
+    <text x="60" y="41" class="step">Python 环境门禁</text>
+    <text x="24" y="82" class="copy">已有项目环境配置：</text>
+    <text x="24" y="108" class="copy">读取并复用</text>
+    <text x="24" y="148" class="copy">没有配置：询问 conda、</text>
+    <text x="24" y="174" class="copy">uv 或 venv，写入后回读校验</text>
+  </g>
+  <path d="M574 409 H606" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(616,302)">
+    <rect width="224" height="214" rx="20" fill="#eaf2ff" stroke="#4d78bd" stroke-width="2"/>
+    <circle cx="32" cy="34" r="18" fill="#4d78bd"/>
+    <text x="32" y="39" class="badge" text-anchor="middle">3</text>
+    <text x="60" y="41" class="step">补齐业务输入</text>
+    <text x="24" y="82" class="copy">文件路径与文本列</text>
+    <text x="24" y="108" class="copy">聚类目的（必须明确）</text>
+    <text x="24" y="134" class="copy">本地模型或在线 API</text>
+    <text x="24" y="174" class="copy">算法、base K、层数不用问</text>
+  </g>
+  <path d="M850 409 H882" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(892,302)">
+    <rect width="224" height="214" rx="20" fill="#e9f7f1" stroke="#3e9271" stroke-width="2"/>
+    <circle cx="32" cy="34" r="18" fill="#3e9271"/>
+    <text x="32" y="39" class="badge" text-anchor="middle">4</text>
+    <text x="60" y="41" class="step">混合执行</text>
+    <text x="24" y="82" class="copy">计算：embedding、聚类、导出</text>
+    <text x="24" y="108" class="copy">Agent：命名、候选、分配</text>
+    <text x="24" y="134" class="copy">至少两层，最多六层</text>
+    <text x="24" y="174" class="copy">每轮结果写回统一状态链</text>
+  </g>
+  <path d="M1126 409 H1158" stroke="#7d8799" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1168,302)">
+    <rect width="168" height="214" rx="20" fill="#f3edff" stroke="#8463b8" stroke-width="2"/>
+    <circle cx="32" cy="34" r="18" fill="#8463b8"/>
+    <text x="32" y="39" class="badge" text-anchor="middle">5</text>
+    <text x="60" y="41" class="step">交付</text>
+    <text x="20" y="88" class="copy">result.xlsx</text>
+    <text x="20" y="118" class="copy">report.html</text>
+    <text x="20" y="148" class="copy">UMAP 交互图</text>
+    <text x="20" y="184" class="copy">可追查层级与 case</text>
+  </g>
+
+  <rect x="64" y="570" width="1272" height="112" rx="18" fill="#fff7e9" stroke="#d8a451" stroke-width="2"/>
+  <text x="92" y="606" class="note">实践判断：</text>
+  <text x="190" y="606" class="copy">调用句越完整，往返越少；但聚类目的不能靠 Agent 猜。</text>
+  <text x="92" y="638" class="copy">如果当前项目还没有环境配置，即使路径、列名、目标和模型都写齐，Agent 仍会先询问环境类型。</text>
+  <text x="92" y="666" class="copy">这不是额外仪式，而是防止依赖被装进错误环境、运行状态污染已安装 Skill。</text>
+</svg>
