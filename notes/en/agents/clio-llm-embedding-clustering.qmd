@@ -13,9 +13,11 @@ tags:
   - Reproducibility
 ---
 
-The problem I wanted to solve was concrete: given several thousand or tens of thousands of titles, queries, or short summaries, how can I produce a browsable topic tree instead of a column of opaque cluster IDs?
+Short-text clustering is easy to leave half-finished. The embeddings are computed and k-means returns `cluster_0` and `cluster_1`, but the work that matters to an analyst has barely begun. What should $K$ be? What does each cluster mean? How should topics merge? When should the process stop, and how can a person inspect the result?
 
-Running k-means is the easy part. The difficult questions come afterward. What should $K$ be? How should clusters be named? How should fine-grained topics be merged level by level? When should the process stop, and how can a person inspect the result? [*Clio: Privacy-Preserving Insights into Real-World AI Use*](https://arxiv.org/abs/2412.13678) offers an appealing division of labor: embeddings handle scale, while an LLM extracts semantics, labels clusters, and builds a hierarchy. I turned that clustering idea into the [llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering) Agent Skill and evaluated it on a labeled 20 Newsgroups sample.
+The obvious shortcut is to place every text in one LLM context and ask for groups, names, and a taxonomy. That can be the simplest solution for a few dozen items. At a few thousand, context length, cost, order sensitivity, and coverage become one combined failure mode. The model may classify early samples precisely and push later samples into broad parents. If it misses a long-tail topic, there is no explicit assignment table to inspect.
+
+The division of labor I settled on is simple: embeddings provide scalable, cacheable local similarity; the LLM works only on a bounded number of cluster representations to name concepts, resolve boundaries, and merge parents. [*Clio: Privacy-Preserving Insights into Real-World AI Use*](https://arxiv.org/abs/2412.13678) presents a complete system built around that division. My scope is narrower: I turned its clustering subsystem into the [llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering) Agent Skill and evaluated it on a labeled 20 Newsgroups sample.
 
 The result is not a blanket claim that LLM hierarchy building beats k-means. On the same bge-m3 embedding matrix, Hungarian ACC rose from 0.631 to 0.657, while NMI fell from 0.650 to 0.645 and ARI fell from 0.507 to 0.460. The hierarchy made the final 20 clusters easier to align one-to-one with the 20 forums, but it lost some global partition information and pairwise consistency. Both directions matter.
 
@@ -23,9 +25,9 @@ One boundary matters even more: this work reconstructs **Clio's semantic cluster
 
 ![The full Clio pipeline compared with the skill's actual coverage](../../assets/clio-llm-embedding-clustering/paper-vs-skill-en.svg)
 
-## 1. Clio Addresses a Conflict Between Analysis and Privacy
+## 1. Clio Places This Division of Labor Inside a Privacy System
 
-Model providers can access real usage data, but access does not make unconstrained analysis acceptable. Conversations can contain identity, health, employment, and business information. Human review also exposes reviewers to sensitive material repeatedly, and the daily volume of messages makes manual synthesis impractical even before the ethical concerns are considered.
+Access to real usage data does not make unconstrained analysis acceptable. Conversations can contain identity, health, employment, and business information; human review repeatedly exposes those details, and daily message volume exceeds manual synthesis capacity.
 
 Clio is designed to extract aggregate patterns while preventing individual conversations and small-group information from reaching analysts. Its pipeline extracts facets, embeds summaries, forms many initial clusters with k-means, uses Claude to label and describe them, recursively builds a hierarchy, and exposes the results through Map and Tree views.
 
@@ -60,9 +62,9 @@ These measures are part of Clio's system definition. They do not emerge automati
 
 Removing names after clustering cannot repair that gap. A rare description without an explicit name may still identify a small group through a combination of location, occupation, illness, and time. A large cluster may also consist of repeated submissions from one account rather than evidence from many people. Clio constrains both unique accounts and conversations precisely to separate “many records” from “many independent users.” Privacy evaluation must therefore inspect provenance and aggregation, not only run redaction rules over the final cluster title.
 
-I therefore preserved the clustering idea without describing the project as a privacy-preserving platform. Omitting one unsupported adjective from the README is more responsible than presenting an unimplemented safety property as a default capability.
+I therefore preserved the clustering idea without presenting an unimplemented privacy property as a default capability.
 
-## 3. Turning the Paper into an Agent Skill
+## 3. Turning the Method into an Executable Agent Skill
 
 The paper describes the method, but not a ready-to-run workflow for arbitrary local files. I wanted a user to ask a coding agent to “cluster these queries into a topic hierarchy” and have the agent connect data loading, scripts, semantic decisions, and deliverables. The skill separates deterministic scripts from agent judgments and passes state through JSON files under `state/`.
 
@@ -104,13 +106,13 @@ This does not remove model randomness, but it creates checkpoints. If a parent n
 
 The final stage writes `result.xlsx` and a six-section `report.html`. The workbook contains the hierarchy, the source-item-to-leaf mapping, and statistics. The report contains the data profile, algorithm rationale, per-level decisions, final tree, UMAP projection, and case browser. “Interpretability” here does not mean a causal explanation for every k-means assignment. It means that names, parent-child relations, sizes, and representative cases remain inspectable.
 
-### 3.4 Why Not Give Every Source Text Directly to the LLM?
+### 3.4 What Base Clustering Compresses—and What It Loses
 
-An apparently simpler implementation would place all source texts in context and ask the LLM to generate a taxonomy from scratch. That can work for a few dozen demo items. At larger scales it encounters context limits, cost, order sensitivity, and coverage problems simultaneously. The model may create detailed categories for early samples and use a few broad parents for later ones. There is also no explicit assignment table for investigating a missed long-tail topic.
+The workflow scales because base clustering changes the size of the problem, not because the LLM reads faster. It compresses 4,806 documents into 196 local units. The agent sees samples, names, and descriptions from those units, and higher levels operate on 196 cluster representations rather than rereading every post. Every source text still has an explicit base assignment, so a long-tail topic or suspicious placement can be traced through the state chain.
 
-Base clustering acts as compression. The 4,806 documents become 196 local units, and the agent sees samples, names, and descriptions from each unit. Higher levels operate on 196 cluster representations rather than rereading every post. The cost is that a bad base assignment cannot be split later; the hierarchy can only recombine erroneous units. This constraint helps explain why semantic merging can repair class-level alignment without repairing NMI and ARI globally.
+Compression also discards freedom. A bad base assignment cannot be split later; the hierarchy can only recombine existing units. The LLM can reinterpret relations among clusters, but it cannot undo which samples were bound together at the bottom. That limitation later appears in the metrics: hierarchy building repairs several class-level correspondences without repairing NMI and ARI globally.
 
-## 4. Using the Skill from a Natural-Language Request
+## 4. How to Invoke It: Start with Natural Language
 
 Install it through the generic Agent Skills CLI:
 
@@ -128,9 +130,9 @@ That sentence supplies every business input. If the current project has no envir
 
 ### 4.1 How Much to Put in the Prompt
 
-The [companion Zhihu article](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311) does not begin with a feature inventory. It begins with a failure that readers can reproduce: asking one LLM context to cluster tens of thousands of texts eventually runs into the context limit and produces forgetting, duplicate names, and degraded decisions late in the prompt. Only then does it state the division of labor: embeddings absorb scale; the LLM handles semantics. This guide follows that practical order by showing a request first and explaining the mandatory follow-up questions afterward.
+The invocation can be as short as “cluster these queries by topic.” That states the task type, but it does not say whether the desired taxonomy should describe content, surface risk behavior, or produce labels suitable for storage. It also does not identify the data. The request can trigger the skill without giving the agent permission to skip questions that change the result.
 
-The invocation can be as short as “cluster these queries by topic.” A short request triggers the skill, but it does not remove mandatory questions. Supplying every result-changing choice in the first message reduces turns.
+To reduce turns, put the file, text column, clustering goal, and embedding model in the first message. The environment is not a business objective, but it determines where computation starts. If the current project has no stored choice, the agent confirms it separately before running anything.
 
 | Request | What the agent already knows | What it still needs |
 | --- | --- | --- |
@@ -150,8 +152,6 @@ Commit `890b66a` promotes the environment question to a hard gate. The agent may
 | uv | An isolated environment in the current project | Fast setup managed by uv |
 | venv | An isolated environment in the current project | Standard-library isolation without adding uv |
 
-The Zhihu article documents an earlier usage snapshot and describes uv as the first-run path. Current commit `890b66a` instead offers conda, uv, or venv. This note follows the current execution contract rather than copying outdated installation details from the article.
-
 That extra question prevents two practical failures: installing dependencies into the wrong environment and writing runtime state into the installed skill. The latter can make separate projects share `state/`, allowing one experiment to overwrite another experiment's JSON and embeddings.
 
 ### 4.3 Separate the Skill Directory from the Run
@@ -170,13 +170,11 @@ After a run, I do not judge success from whether the UMAP looks attractive. The 
 
 That is the difference from a clustering API that returns only labels. The skill automates execution without hiding the evidence needed to audit what the agent did.
 
-## 5. The 20 Newsgroups Reconstruction
+## 5. Running the Workflow on 20 Newsgroups
 
 The local 20 Newsgroups files yielded 37,656 boundary-delimited records and 18,828 documents after deduplication, indicating that the source contained one complete duplicate copy. I then drew a stratified sample of 4,806 documents across all 20 forums with seed 42. Its SHA-256 is `014abaeb1606f18fec3caea58b010463a79f00a0251f2d06619aae34a4894cf2`.
 
-The Zhihu article also presents a 4,806-document 20 Newsgroups run, but reports a `137 → 48 → 20` hierarchy and different evaluation numbers. It does not provide the same sample hash and per-level state as the local report, so I treat it as an independent experimental snapshot rather than combining it with this note's `196 → 60 → 20`, 0.631, and 0.657. Every experimental claim below remains grounded in the local artifacts.
-
-One small preprocessing detail is worth preserving. Eleven documents contained 21 control characters prohibited by Excel. The bge-m3 token sequences were identical before and after cleanup, so the operation made the workbook writable without changing embedding inputs. That statement is more useful for reproducibility than a generic claim that the data was “cleaned.”
+Eleven documents contained 21 control characters prohibited by Excel. The bge-m3 token sequences were identical before and after cleanup, so the fix made the workbook writable without changing embedding inputs.
 
 ![Sample size, algorithm selection, and embedding profile from the experiment report](../../assets/clio-llm-embedding-clustering/experiment-report-overview.png)
 
@@ -192,9 +190,11 @@ The goal was to identify the content topics discussed in forum posts. Baseline a
 
 The base candidates were 137, 196, and 254, with cosine silhouette scores of 0.0423, 0.0449, and 0.0383. The script therefore selected 196. All three scores are low, consistent with the paper's description of a continuous semantic manifold. Silhouette chooses among three candidates here; it does not establish that the data contains 196 strongly separated natural clusters.
 
-The environment used Python 3.10.0, PyTorch 2.13.0, sentence-transformers 5.7.0, and scikit-learn 1.7.2. The bge-m3 revision was `5617a9f61b028005a4858fdac845db406aefb181`, stored in a local 2.14 GiB model directory. Embedding took 39 minutes 11 seconds, hierarchy building took 11 minutes 27 seconds, and the complete run took 50 minutes 38 seconds. Roughly 77% of wall time was embedding, which makes vector caching materially useful when iterating on hierarchy prompts.
+Embedding took 39 minutes 11 seconds, hierarchy building took 11 minutes 27 seconds, and the complete run took 50 minutes 38 seconds. Roughly 77% of wall time was embedding, which makes vector caching materially useful when iterating on hierarchy prompts.
 
-## 6. How `196 → 60 → 20` Emerged
+## 6. Two Rounds of Merging: `196 → 60 → 20`
+
+Those three numbers can look like a preset schedule. Only 196 came from the silhouette comparison. The agent selected 60 and then 20 from semantic coverage, requested granularity, and the stopping condition at each level. Per-level state matters because it turns “the model decided to merge them” into reviewable candidate counts, assignments, and stopping rationales.
 
 Level 1 divided 196 base clusters into nine neighborhoods. The agent proposed roughly 60 subtopic families because computing, recreation, science, religion, politics, commerce, and health still contained useful internal distinctions. Collapsing directly to 20 would merge hardware with software and doctrine with religious practice too early. Sixty candidates remained after global deduplication, and `should_stop` was false.
 
@@ -208,9 +208,9 @@ The final names include `PC Hardware`, `Windows and DOS`, `Computer Graphics`, `
 
 UMAP is useful for finding local mixtures and isolated regions, but it is not a clustering metric. The skill uses `n_neighbors = 15`, `min_dist = 0.1`, and cosine distance to project 1,024 dimensions into two. The paper's projector uses `min_dist = 0`. Projection parameters change the visible geometry, and an island in two dimensions is not proof of a reliable boundary in the original space.
 
-## 7. Why ACC Rises While NMI and ARI Fall
+## 7. The Result Does Not Improve Every Metric
 
-The final comparison is the most informative part of this reconstruction.
+At this point it is tempting to expect hierarchy building to win across the board. The result is less tidy: ACC rises while NMI and ARI fall. That disagreement is the most useful result of the reconstruction.
 
 ![Hungarian ACC improves while NMI and ARI decline](../../assets/clio-llm-embedding-clustering/metric-tradeoff-en.svg)
 
@@ -248,7 +248,9 @@ My experiment never supplies the 20 Newsgroups labels to the agent. Parents such
 
 The datasets also differ. The paper's synthetic set is generated downward from predefined high-level classes to subcategories and conversations, so its hierarchy has a construction prior. Natural 20 Newsgroups posts contain quotations and often mix technical detail, political positions, and religious debate. Placing 94% beside 0.657 to declare either a failed reproduction or a weaker model would be methodologically wrong.
 
-## 9. Where the Skill Fits
+## 9. When the Skill Is Worth Using
+
+The negative result makes the operating boundary clearer. Hierarchy building primarily optimizes for a taxonomy that people can browse, name, and audit. It may improve alignment with external labels, but it does not promise to preserve every geometric neighborhood. Whether the LLM stage is worth adding depends on which result the user actually needs.
 
 I would use this skill when inputs are already short, the goal is exploratory topic discovery, geometric clusters need a readable multi-level taxonomy, the dataset can afford several rounds of LLM naming and assignment, and the data is public, sanitized, or handled in an environment authorized by its owner.
 
@@ -265,19 +267,16 @@ The stopping decision deserves a separate audit. This run stopped at 20 parents,
 5. Change the clustering goal and compare topic discovery, risk discovery, and recommendation labeling on the same embeddings.
 6. Before private data, implement unique-user thresholds, privacy-aware summaries, and an independent auditor, then evaluate privacy explicitly.
 
-## 10. Conclusion
+## 10. Conclusion: Start with Roles, Then Read the Metrics
 
 The useful engineering lesson is not merely that an LLM can participate in clustering. Embeddings and LLMs should own different parts of the problem. Embeddings provide scalable, cacheable local similarity. The LLM reads a bounded set of cluster descriptions, proposes readable parents, and resolves semantic boundaries that are difficult to encode as fixed rules. JSON state turns those roles into a workflow that can pause, be inspected, and rerun.
 
 The 20 Newsgroups run provides a restrained result. The `196 → 60 → 20` hierarchy produces a readable taxonomy and raises Hungarian ACC by 2.6 percentage points, but lower NMI and ARI show that readable parents are not free. The LLM repairs some geometric boundaries and breaks others that were already clean.
 
-For me, reliability is not established by whether one generated taxonomy looks plausible. The intermediate state must remain inspectable, repeated runs must be measured for stability, and negative metrics must be published beside positive ones. Only with that evidence can an agent's semantic judgment become part of a maintainable engineering process.
-
-That trade may be worthwhile when an analyst needs a navigable topic map. It is not enough when the objective is maximum partition consistency. Privacy is an even clearer boundary: the current implementation cannot borrow Clio's conclusion. Before processing user conversations, the aggregation thresholds and auditing stages that appear peripheral to clustering must return to the center of the system.
+The trade is worthwhile only when an analyst needs a navigable topic map. If the objective is maximum partition consistency, plausible names are not enough. Reliability requires inspectable state, stability across runs, and complete metrics. The privacy boundary is sharper still: before processing user data, the system needs user-level aggregation thresholds, privacy-aware summaries, and independent auditing. The current implementation cannot borrow Clio's privacy conclusion.
 
 ## References
 
 1. Alex Tamkin et al. [Clio: Privacy-Preserving Insights into Real-World AI Use](https://arxiv.org/abs/2412.13678). 2024.
 2. BrenchCC. [cilo-llm-embedding-clustering](https://github.com/BrenchCC/cilo-llm-embedding-clustering), experiment commit `683cdf4` and usage-documentation commit `890b66a`. 2026-08-13.
 3. BAAI. [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3).
-4. 周星星. [AI 的 SKILL 究竟是什么，应该如何应用？](https://www.zhihu.com/question/2027303590776063616/answer/2041949740292650311). Zhihu. Used as project context, a usage-narrative reference, and an independent experiment snapshot; its images and evaluation numbers are not reused here.
