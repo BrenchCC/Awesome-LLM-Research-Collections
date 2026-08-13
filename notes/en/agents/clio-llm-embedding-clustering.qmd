@@ -68,13 +68,7 @@ I therefore preserved the clustering idea without presenting an unimplemented pr
 
 The paper describes the method, but not a ready-to-run workflow for arbitrary local files. I wanted a user to ask a coding agent to “cluster these queries into a topic hierarchy” and have the agent connect data loading, scripts, semantic decisions, and deliverables. The skill separates deterministic scripts from agent judgments and passes state through JSON files under `state/`.
 
-Two version anchors matter. The reconstruction experiment ran at commit `683cdf4`; when I updated this note, remote `main` had advanced to `890b66a`. Both revisions use the same clustering algorithms and semantic-decision flow, so the previous experiment still represents the current method. The new revision tightens the runtime contract: before computation begins, the agent must obtain an explicit conda, uv, or venv choice, store the project environment configuration, and read it back for validation.
-
-| Evidence role | Version and date | How this note uses it |
-| --- | --- | --- |
-| 20 Newsgroups experiment | `683cdf4`, 2026-08-12 | Metrics, timings, the `196 → 60 → 20` hierarchy, and report captures |
-| Current usage guide | `890b66a`, 2026-08-13 | Installation, environment gate, work-directory contract, and outputs |
-| Version check | Clustering method unchanged; runtime gate updated | Does not misreport an environment-protocol update as an algorithmic gain |
+The reconstruction experiment ran at commit `683cdf4`; when I wrote this note, remote `main` had advanced to `890b66a`. Both revisions use the same clustering algorithms and semantic-decision flow. The metrics, timings, and `196 → 60 → 20` hierarchy therefore still represent the current method; the later commit changes runtime constraints, not algorithmic performance.
 
 ### 3.1 Input Representation and Base Clustering
 
@@ -112,7 +106,7 @@ The workflow scales because base clustering changes the size of the problem, not
 
 Compression also discards freedom. A bad base assignment cannot be split later; the hierarchy can only recombine existing units. The LLM can reinterpret relations among clusters, but it cannot undo which samples were bound together at the bottom. That limitation later appears in the metrics: hierarchy building repairs several class-level correspondences without repairing NMI and ARI globally.
 
-## 4. How to Invoke It: Start with Natural Language
+## 4. Invoking the Skill
 
 Install it through the generic Agent Skills CLI:
 
@@ -120,55 +114,11 @@ Install it through the generic Agent Skills CLI:
 npx skills add brenchcc/cilo-llm-embedding-clustering
 ```
 
-After installation, the user does not need to remember internal pipeline arguments. The interface is the coding agent, not an individual script. In practice, I put four facts in the request: the file, text column, clustering goal, and embedding model.
+After installation, there are no internal commands to memorize. I usually give the coding agent four facts: the file, text column, clustering goal, and embedding model.
 
 > Use the `llm-embedding-clustering` skill to cluster the `text` column in `data.xlsx` into a topic hierarchy. The goal is to inspect content-topic distribution; use `BAAI/bge-m3` for embeddings.
 
-That sentence supplies every business input. If the current project has no environment configuration, the latest skill still asks whether to use conda, uv, or venv; conda requires an environment name. Only after the choice is stored does the agent validate dependencies and inspect data.
-
-![Invocation flow from a natural-language request to final deliverables](../../assets/clio-llm-embedding-clustering/skill-invocation-en.svg)
-
-### 4.1 How Much to Put in the Prompt
-
-The invocation can be as short as “cluster these queries by topic.” That states the task type, but it does not say whether the desired taxonomy should describe content, surface risk behavior, or produce labels suitable for storage. It also does not identify the data. The request can trigger the skill without giving the agent permission to skip questions that change the result.
-
-To reduce turns, put the file, text column, clustering goal, and embedding model in the first message. The environment is not a business objective, but it determines where computation starts. If the current project has no stored choice, the agent confirms it separately before running anything.
-
-| Request | What the agent already knows | What it still needs |
-| --- | --- | --- |
-| “Cluster these queries by topic.” | The task is topic clustering | Environment, path, text column, goal, and embedding model |
-| “Cluster `data.xlsx:text` into a hierarchy for content-topic distribution with bge-m3.” | Path, column, goal, and local model | Environment only when the current project lacks configuration |
-| “Use an online embedding API to discover risk topics.” | The goal is risk discovery and embeddings come from an API | Environment, path, column, endpoint, key source, model name, and a minimal client example |
-
-The clustering goal must be explicit. On the same support queries, content distribution may produce refund, logistics, and product-quality topics. Risk discovery instead emphasizes abuse, repeated-refund exploitation, or threats. Recommendation labeling favors names suitable for a downstream label store. This is not stylistic wording; it changes the taxonomy objective.
-
-### 4.2 The Environment Gate Is an Execution Contract
-
-Commit `890b66a` promotes the environment question to a hard gate. The agent may not infer the answer from the active shell, and it may not begin computation before asking. It stores the choice as project environment configuration and reuses it until the user explicitly requests a change.
-
-| Choice | Runtime location | Best fit |
-| --- | --- | --- |
-| conda | A named existing environment | The project already pins a Conda CUDA/PyTorch stack |
-| uv | An isolated environment in the current project | Fast setup managed by uv |
-| venv | An isolated environment in the current project | Standard-library isolation without adding uv |
-
-That extra question prevents two practical failures: installing dependencies into the wrong environment and writing runtime state into the installed skill. The latter can make separate projects share `state/`, allowing one experiment to overwrite another experiment's JSON and embeddings.
-
-### 4.3 Separate the Skill Directory from the Run
-
-The current specification distinguishes the installed skill from the current project. The former supplies a reusable execution protocol, deterministic compute stages, semantic-decision templates, and dependency declarations. The latter owns the environment configuration, intermediate state, and final outputs. Results from propose, dedup, assign, and rename must return to one canonical per-level state chain; parallel work must not create a second side-channel record.
-
-![Responsibility boundary between the installed skill and the current project](../../assets/clio-llm-embedding-clustering/runtime-layout-en.svg)
-
-After a run, I do not judge success from whether the UMAP looks attractive. The three artifact groups answer different review questions:
-
-| Artifact | Inspect first | Primary use |
-| --- | --- | --- |
-| `out/result.xlsx` | Source-to-leaf mapping, parent-child hierarchy, and cluster sizes | Statistics, sampling, and downstream business integration |
-| `out/report.html` | Algorithm rationale, stopping decisions, final tree, cases, and UMAP | Human review of process and semantic boundaries |
-| Intermediate state directory | Candidates, assignments, and pre/post-rename records | Locate the failing level and rerun locally on cached embeddings |
-
-That is the difference from a clustering API that returns only labels. The skill automates execution without hiding the evidence needed to audit what the agent did.
+If the request is only “cluster these queries by topic,” the agent still needs the data location and clustering objective. The objective matters: content distribution, risk discovery, and recommendation labeling produce different names and merge boundaries on the same support queries. The skill can handle the remaining execution details.
 
 ## 5. Running the Workflow on 20 Newsgroups
 
