@@ -715,6 +715,12 @@
 
 ## AI 研究
 
+- **Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill** (2026.08) \
+  **描述**: Spark-to-Paper 将端到端科研论文生成实现为现有编程助手内的 13 个可组合技能，覆盖文献检索、实验规划与执行、证据引导的修订及可编辑图表生成。它结合确定性完整性检查、自我批评和对自我否定循环的有界恢复，使长程科研工作流程持续以实测证据为核心。 \
+  <a href="https://arxiv.org/abs/2608.11924"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://spark-to-paper-skills.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Spark-To-Paper-Skills/spark-to-paper-skills"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
   **描述**: 这篇综述从创造、写作、验证和传播等环节分析 AI 辅助科研，指出自动化在哪些地方可靠，以及自治系统在新颖性、实验和科学判断上仍会失败。它提供生命周期分类、基准套件、工具清单、设计原则和面向实践者的人类治理式 AI 研究工作流指南。 \
   <a href="https://arxiv.org/abs/2605.18661"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -716,6 +716,12 @@
 
 ## AI Research
 
+- **Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill** (2026.08) \
+  **Description**: Spark-to-Paper implements end-to-end research paper generation as thirteen composable skills inside an existing coding assistant, covering literature retrieval, experiment planning and execution, evidence-guided revision, and editable figure production. It combines deterministic integrity checks with self-critique and bounded recovery from self-refutation loops to keep long-horizon research workflows grounded in measured evidence. \
+  <a href="https://arxiv.org/abs/2608.11924"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://spark-to-paper-skills.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Spark-To-Paper-Skills/spark-to-paper-skills"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **AI for Auto-Research: Roadmap & User Guide** (2026.05) \
   **Description**: This survey analyzes AI-assisted research across creation, writing, validation, and dissemination, showing where automation is reliable and where autonomy still fails on novelty, experiments, and scientific judgment. It provides a lifecycle taxonomy, benchmark suite, tool inventory, design principles, and practitioner playbook for human-governed AI research workflows. \
   <a href="https://arxiv.org/abs/2605.18661"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

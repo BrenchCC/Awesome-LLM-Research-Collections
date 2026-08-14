@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>135</strong><span>Papers</span></div>
+    <div><strong>136</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>321</strong><span>Resource links</span></div>
+    <div><strong>324</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">26 papers</span>
+  <span class="category-count">27 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
   <em>Training</em>
 </a>
+<a class="recent-row" href="agents-application.html#spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
+  <span>2026.08</span>
+  <strong>Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <span>2026.08</span>
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.07</span>
   <strong>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</strong>
   <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#is-one-layer-enough-training-a-single-transformer-layer-can-match-full-parameter-rl-training">
-  <span>2026.07</span>
-  <strong>Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training</strong>
-  <em>Reinforcement Learning</em>
 </a>
   </div>
 </section>
