@@ -16,6 +16,10 @@ This repository is documentation-first, bilingual, and website-enabled. The prim
 - `styles.css`: shared Quarto website styling for homepage, overview, notes, blogs, and paper pages.
 - `scripts/check_readme_qmd_sync.py`: bilingual sync checker and qmd regeneration helper.
 - `scripts/sync_blog_shares.py`: blogs README and Quarto page generator/checker.
+- `scripts/sync_feishu_wiki.py`: GitHub-to-Feishu bilingual Wiki converter and incremental synchronizer.
+- `tests/test_sync_feishu_wiki.py`: unit tests for Feishu conversion, planning, recovery, retries, and deletion boundaries.
+- `.github/workflows/feishu-wiki-sync.yml`: push, manual, and daily Feishu Wiki synchronization workflow.
+- `docs/feishu-wiki-sync.md`: Feishu permissions, setup, operation, recovery, and key rotation runbook.
 - `LICENSE`: project license.
 - `.codex/`, `.claude/`, `.omc/`, `.omx/`: local tooling metadata; do not edit unless your change is tooling-related.
 
@@ -41,6 +45,29 @@ quarto render --no-execute
 
 - If either checker reports README drift, run that generator with `--write`, then restart the full check sequence. Do not stop after the first generator passes.
 
+## Feishu Wiki Mirror
+
+GitHub `main` is the only source of truth for the managed private Wiki space `Awesome LLM Research Collections`. The production mirror is already initialized and reuses the selected existing Feishu application; do not recreate the space, replace the application, or repeat membership setup during routine content work.
+
+- Papers are generated from the bilingual README catalogs, notes from `notes/en/` and `notes/zh/`, and blogs from `data/blog_shares.json`.
+- Managed pages include source path, source commit, and an automatic-sync warning. Manual edits to managed Feishu page bodies can be overwritten on the next apply.
+- The homepage contains the versioned ownership manifest. Never edit its manifest JSON manually, claim nodes by title alone, or delete unknown/unmanaged nodes.
+- `--check` performs local conversion validation only. `--plan` reads Wiki nodes, the manifest, and Docx revisions without writing. `--apply` performs serialized incremental writes and commits the completed manifest last.
+- Use lark-cli `1.0.86` and `rsvg-convert` for local remote operations. Follow `docs/feishu-wiki-sync.md` instead of guessing CLI parameters or recovery steps.
+- Remote commands require `LARKSUITE_CLI_APP_ID`, `LARKSUITE_CLI_APP_SECRET`, `LARKSUITE_CLI_BRAND=feishu`, and `FEISHU_WIKI_SPACE_ID`. Never print, commit, or pass the App Secret as a command-line argument.
+- GitHub Actions expects Secrets `FEISHU_APP_ID` and `FEISHU_APP_SECRET`, plus Variable `FEISHU_WIKI_SPACE_ID`.
+- Relevant pushes to `main` run `apply`; UTC cron `0 4 * * *` targets 12:00 Asia/Shanghai; `workflow_dispatch` accepts `plan` or `apply`. Local unpushed changes do not trigger synchronization.
+- For a manual remote update, first run the **Sync Feishu Wiki** workflow with `plan`, inspect the diff, then rerun it with `apply`. Push and scheduled runs always use `apply`.
+- The equivalent CLI trigger is `gh workflow run feishu-wiki-sync.yml --ref main -f mode=plan`; change the mode to `apply` only after reviewing the plan run.
+- Synchronization intentionally uses serial writes and bounded transient retries. Duplicate titles, corrupt manifests, moved managed nodes, revision conflicts, and unknown children fail closed.
+
+When changing the synchronizer or any mirrored content, include these checks as appropriate:
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/sync_feishu_wiki.py --check
+```
+
 ## Build, Test, and Development Commands
 Use lightweight checks before committing:
 
@@ -52,6 +79,8 @@ Use lightweight checks before committing:
 - `python scripts/sync_notes.py` - verify generated notes content is in sync.
 - `python scripts/sync_blog_shares.py --write` - regenerate README blog sections and bilingual blog index pages.
 - `python scripts/sync_blog_shares.py` - verify generated blog content is in sync.
+- `python -m unittest discover -s tests -v` - run the Feishu Wiki synchronizer test suite.
+- `python scripts/sync_feishu_wiki.py --check` - validate all local content conversions without contacting Feishu.
 - `quarto render` - render the website into `_site/`.
 - `git diff -- README.md README.zh-CN.md index.qmd papers zh blogs data assets _quarto.yml styles.css scripts` - review intended content edits.
 - `git log --oneline -n 10` - check recent commit style.
@@ -72,6 +101,7 @@ Markdown and qmd consistency are the core style requirements.
 - Keep Quarto pages synchronized with both README files by running the sync script after paper edits.
 - Keep the generated homepage focused on the three collection entries; do not reintroduce direct paper lists there.
 - Keep paper-category browsing and recent-paper lists on the generated paper overview pages.
+- Treat `date` in note front matter as the note's latest source-modification date, not its original publication or creation date. Whenever either language version of a note is edited, set `date` in both paired notes to the current `Asia/Shanghai` calendar date before regenerating indexes.
 - Keep blogs in `data/blog_shares.json` with exact fields: `slug`, `date`, `title_en`, `title_zh`, `description_en`, `description_zh`, `blog_url`, `github_url`.
 - Blogs sort by `date` descending through `scripts/sync_blog_shares.py`; do not hand-edit generated Blogs sections.
 - Leave `github_url` empty when a blog has no official linked GitHub repository.
@@ -106,16 +136,19 @@ rg -n 'class="math display"' _site
 The first scan must return no matches for intended display formulas. The second scan should find one rendered `math display` element per display formula. A successful Quarto command alone is insufficient: fenced `math` blocks can compile without warnings while still rendering incorrectly.
 
 ## Testing Guidelines
-No automated test suite is configured. Treat review as content validation:
+The Feishu Wiki synchronizer has an automated unittest suite; catalog and generated-site review still relies on the content checks below:
 
 - Verify links are canonical and point to paper/project/code roots.
 - Ensure the paper is placed in the best-matching category/subcategory in both languages.
 - Confirm both `# Contents` / `# 目录` match actual headings after edits.
 - Confirm `python scripts/check_readme_qmd_sync.py` passes.
+- Confirm edited English and Chinese note pairs have matching `date` values equal to the current modification date.
 - Confirm `python scripts/sync_notes.py` passes after note edits.
 - Confirm `python scripts/sync_blog_shares.py` passes after blog edits.
 - Confirm homepage stats are refreshed by rerunning `python scripts/check_readme_qmd_sync.py --write` after note or blog generator writes.
 - Confirm both shared README checks pass after any Notes, Blogs, paper catalog, Contents, or generator change.
+- Confirm `python -m unittest discover -s tests -v` and `python scripts/sync_feishu_wiki.py --check` pass after synchronization code or conversion changes.
+- Use `--plan` before any local `--apply`; a successful local test run does not replace checking the real GitHub Actions and remote Wiki result.
 - Confirm `quarto render --no-execute` succeeds before pushing website changes.
 
 GitHub Pages deploys through `.github/workflows/quarto-gh-pages.yml` using GitHub Actions artifacts. Do not commit `_site/` or `.quarto/`.

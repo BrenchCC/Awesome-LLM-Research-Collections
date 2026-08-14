@@ -65,6 +65,8 @@ Allowed `note_type` values:
 - `paper-reading`
 - `technical-reflection`
 
+Treat `date` as the note's latest source-modification date, not its original publication or creation date. Whenever either language version is created or edited, set `date` in both paired notes to the current local calendar date in `Asia/Shanghai` before running any generator. Do not retain the earlier date after changing prose, structure, figures, formulas, links, or front matter.
+
 Keep paired English and Chinese notes aligned on `date`, `author`, `order`, `note_type`, `topic`, and `tags`. Titles and descriptions should be localized.
 
 ## Bilingual Writing and Translation
@@ -86,7 +88,7 @@ Keep paired English and Chinese notes aligned on `date`, `author`, `order`, `not
 1. Read the source note and identify its topic, slug, language, note type, structure, and main claims.
 2. Polish the requested language for clear, natural technical writing and Quarto-friendly formatting.
 3. Create or update the paired note at the same relative path in the other language, preserving content alignment while writing idiomatic localized prose.
-4. Normalize required front matter in both files.
+4. Normalize required front matter in both files, update both `date` fields to the current `Asia/Shanghai` date, and verify that the dates match.
 5. Move shared images to `notes/assets/<slug>/` and update image links.
 6. Check `.codex/project.local.json` for `conda_env`; run Python commands through `conda run -n <env> python ...`.
 7. Generate README notes sections and notes index pages:
@@ -129,5 +131,6 @@ quarto render --no-execute
 
 - Keep notes separate from the paper catalog.
 - Deliver complete English and Chinese note pairs unless the user explicitly requests otherwise.
+- Confirm that every edited note pair carries the current modification date before generating indexes.
 - Do not hand-edit generated README Notes sections after running the sync script.
 - Mention any missing bilingual pair, missing metadata, or failed render clearly.
