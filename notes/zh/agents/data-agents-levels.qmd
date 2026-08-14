@@ -18,6 +18,34 @@ tags:
 
 论文借用了自动驾驶的分级思路，把数据智能体分为 L0–L5。真正有价值的部分不在六个等级本身，而在分级同时追问了三个问题：谁决定下一步做什么，谁能直接改变数据与系统，失败后责任仍由谁承担。沿这条线看，当前研究的主体仍在 L1 和 L2，少量系统开始表现出端到端编排能力，论文谨慎地称之为 Proto-L3。L4 和 L5 则是研究愿景，不是已经被基准验证的产品能力。
 
+```{mermaid}
+%%| fig-width: 10
+flowchart TB
+    L0["<b>L0 · 无自治</b><br/>智能体：不参与<br/>人：执行全部任务并承担责任"]
+    L1["<b>L1 · 辅助</b><br/>智能体：无状态响应者<br/>人：执行并验证建议"]
+    L2["<b>L2 · 部分自治</b><br/>智能体：程序执行器<br/>人：编排流程并负责结果"]
+    L3["<b>L3 · 条件自治</b><br/>智能体：端到端编排器<br/>人：监督计划与结果"]
+    L4["<b>L4 · 高度自治</b><br/>智能体：主动自治组件<br/>人：完全授权，不再监督"]
+    L5["<b>L5 · 完全自治</b><br/>智能体：生成式数据科学家<br/>人：不再参与"]
+
+    L0 -->|响应请求| L1
+    L1 -->|感知环境并执行| L2
+    L2 -->|接管流程编排| L3
+    L3 -->|主动发现任务| L4
+    L4 -->|发明方法与范式| L5
+
+    classDef baseline fill:#f3f4f6,stroke:#6b7280,color:#111827,stroke-width:2px;
+    classDef current fill:#e8f1ff,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef frontier fill:#fff3cd,stroke:#d97706,color:#451a03,stroke-width:3px;
+    classDef vision fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:2px,stroke-dasharray:6 4;
+    class L0 baseline;
+    class L1,L2 current;
+    class L3 frontier;
+    class L4,L5 vision;
+```
+
+_领读图：六个等级描述的是任务支配权如何从人转向智能体，依次跨过响应请求、环境交互、流程编排、任务发现和方法创新五道边界。蓝色表示已经形成稳定模式的 L1–L2，琥珀色表示 Proto-L3 研究前沿，紫色虚线表示论文对 L4–L5 的愿景。定义压缩自[论文第 2.2.1 节](https://arxiv.org/html/2602.04261#S2.SS2.SSS1)。_
+
 ![论文标题、作者及所属机构](../../assets/data-agents-levels/paper-title-authors.png)
 
 _图 1：论文标题与作者。Yuyu Luo、Guoliang Li、Ju Fan、Nan Tang 分别来自 HKUST（GZ）、清华大学和中国人民大学。来源：[论文 PDF，第 1 页](https://arxiv.org/pdf/2602.04261)。_

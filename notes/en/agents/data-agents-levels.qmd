@@ -18,6 +18,34 @@ If a chat box that writes SQL, an executor that runs a notebook, and a planner t
 
 The paper borrows the form of driving-automation levels and classifies data agents from L0 to L5. The useful part is not the existence of six bins by itself. The taxonomy forces three questions to be asked together: who decides what happens next, who can directly change data or systems, and who remains responsible when the workflow fails. On those terms, most present research is still L1 or L2. A smaller group of systems exhibits portions of end-to-end orchestration, for which the paper deliberately uses Proto-L3. L4 and L5 are research visions rather than benchmarked product capabilities.
 
+```{mermaid}
+%%| fig-width: 10
+flowchart TB
+    L0["<b>L0 · No autonomy</b><br/>Agent: none<br/>Human: performs and owns every task"]
+    L1["<b>L1 · Assistance</b><br/>Agent: stateless responder<br/>Human: executes and verifies"]
+    L2["<b>L2 · Partial autonomy</b><br/>Agent: procedural executor<br/>Human: orchestrates the pipeline"]
+    L3["<b>L3 · Conditional autonomy</b><br/>Agent: end-to-end orchestrator<br/>Human: supervises plans and outcomes"]
+    L4["<b>L4 · High autonomy</b><br/>Agent: proactive, self-governing component<br/>Human: delegates without routine supervision"]
+    L5["<b>L5 · Full autonomy</b><br/>Agent: generative data scientist<br/>Human: no longer required"]
+
+    L0 -->|Respond to requests| L1
+    L1 -->|Perceive and act on the environment| L2
+    L2 -->|Own workflow orchestration| L3
+    L3 -->|Discover tasks proactively| L4
+    L4 -->|Invent methods and paradigms| L5
+
+    classDef baseline fill:#f3f4f6,stroke:#6b7280,color:#111827,stroke-width:2px;
+    classDef current fill:#e8f1ff,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef frontier fill:#fff3cd,stroke:#d97706,color:#451a03,stroke-width:3px;
+    classDef vision fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:2px,stroke-dasharray:6 4;
+    class L0 baseline;
+    class L1,L2 current;
+    class L3 frontier;
+    class L4,L5 vision;
+```
+
+_Reading map: the levels transfer task dominance from human to agent through five boundaries: response, environment interaction, workflow orchestration, task discovery, and method invention. Blue marks established L1–L2 patterns, amber marks the Proto-L3 research frontier, and dashed purple marks the paper's L4–L5 visions. Definitions are condensed from [Section 2.2.1 of the paper](https://arxiv.org/html/2602.04261#S2.SS2.SSS1)._
+
 ![Paper title, authors, and affiliations](../../assets/data-agents-levels/paper-title-authors.png)
 
 _Figure 1: Title and authors of the paper. Yuyu Luo, Guoliang Li, Ju Fan, and Nan Tang are affiliated with HKUST (GZ), Tsinghua University, and Renmin University of China. Source: [paper PDF, page 1](https://arxiv.org/pdf/2602.04261)._
