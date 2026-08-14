@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-05-28
+date-modified: 2026-06-15
 title: "OPD: Capability Integration Interface in Post-training"
 description: "A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4."
 order: 1

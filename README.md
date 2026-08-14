@@ -620,6 +620,11 @@
 
 ## Agentic RL
 
+- **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
+  **Description**: This paper introduces Skill Self-Play, a reinforcement learning framework in which a proposer, solver, and dynamic skill controller co-evolve through skill-conditioned task generation, frontier exploration, and feedback-driven skill-library updates. It combines reliable skill-specific verification with open-ended task diversity to improve tool use and reasoning across diverse LLM backbones. \
+  <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/Qwen-Applications/skill-self-play"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
   **Description**: This paper proposes OPID, which extracts hierarchical episode- and step-level skills from completed on-policy trajectories and converts their effect into token-level self-distillation advantages alongside the outcome advantage. Its critical-first routing supplies dense, distribution-matched hindsight supervision, improving agent performance, sample efficiency, and robustness on embodied, web-shopping, and search-based tasks. \
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -873,99 +878,99 @@
 
 ## Paper Readings
 
-- **SkillRL: How a Failure Becomes a Reusable Skill** (2026-08-10) \
+- **SkillRL: How a Failure Becomes a Reusable Skill** (Created: 2026-08-10; Updated: 2026-08-11) \
   **Description**: A reading of SkillRL through ALFWorld's Skipping State Changes failure, tracing candidate-skill extraction, SkillBank organization, skill-aware policy training, and the boundary between paper evidence, repository behavior, and production admission controls. \
   [[Note](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
   [[中文](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
 
-- **Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention** (2026-08-03) \
+- **Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention** (Created: 2026-08-03; Updated: 2026-08-04) \
   **Description**: A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations. \
   [[Note](notes/en/attention/kimi-linear-kda.qmd)]
   [[中文](notes/zh/attention/kimi-linear-kda.qmd)]
 
-- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (2026-08-01) \
+- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (Created: 2026-08-01; Updated: 2026-08-06) \
   **Description**: A plain-language explanation of Kimi K3's KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests. \
   [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
 
-- **Data Agents: Levels, State of the Art, and Open Problems** (2026-07-29) \
+- **Data Agents: Levels, State of the Art, and Open Problems** (Created: 2026-07-29; Updated: 2026-08-15) \
   **Description**: A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation. \
   [[Note](notes/en/agents/data-agents-levels.qmd)]
   [[中文](notes/zh/agents/data-agents-levels.qmd)]
 
-- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (2026-07-28) \
+- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (Created: 2026-07-28; Updated: 2026-07-29) \
   **Description**: A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation. \
   [[Note](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
   [[中文](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
 
-- **SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate** (2026-06-30) \
+- **SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate** (Created: 2026-06-30; Updated: 2026-07-01) \
   **Description**: An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation. \
   [[Note](notes/en/reinforcement-learning/SAPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/SAPO.qmd)]
 
-- **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (2026-06-18) \
+- **Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning** (Created: 2026-06-18; Updated: 2026-06-19) \
   **Description**: A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization. \
   [[Note](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
   [[中文](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
 
-- **From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training** (2026-06-15) \
+- **From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training** (Created: 2026-06-15; Updated: 2026-06-15) \
   **Description**: A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion. \
   [[Note](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
   [[中文](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
 
-- **CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning** (2026-06-15) \
+- **CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning** (Created: 2026-06-15; Updated: 2026-06-15) \
   **Description**: CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models. \
   [[Note](notes/en/reinforcement-learning/CapRL.qmd)]
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
 
-- **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (2026-08-12) \
+- **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (Created: 2026-08-12; Updated: 2026-08-14) \
   **Description**: An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building. \
   [[Note](notes/en/agents/clio-llm-embedding-clustering.qmd)]
   [[中文](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
 
-- **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (2026-08-10) \
+- **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (Created: 2026-08-10; Updated: 2026-08-10) \
   **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
   [[Note](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
   [[中文](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
 
-- **Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows** (2026-08-05) \
+- **Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows** (Created: 2026-08-05; Updated: 2026-08-06) \
   **Description**: An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration. \
   [[Note](notes/en/agents/skill-design-sharing.qmd)]
   [[中文](notes/zh/agents/skill-design-sharing.qmd)]
 
-- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (2026-07-06) \
+- **Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL** (Created: 2026-07-06; Updated: 2026-07-06) \
   **Description**: A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision. \
   [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
   [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
 
-- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (2026-07-02) \
+- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (Created: 2026-07-02; Updated: 2026-07-02) \
   **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
   [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
   [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]
 
-- **Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization** (2026-06-30) \
+- **Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization** (Created: 2026-06-30; Updated: 2026-06-30) \
   **Description**: A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries. \
   [[Note](notes/en/agents/agent-experience-learning.qmd)]
   [[中文](notes/zh/agents/agent-experience-learning.qmd)]
 
-- **Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent** (2026-06-30) \
+- **Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent** (Created: 2026-06-30; Updated: 2026-07-02) \
   **Description**: A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments. \
   [[Note](notes/en/llms/grpo-loss-analysis.qmd)]
   [[中文](notes/zh/llms/grpo-loss-analysis.qmd)]
 
-- **From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings** (2026-06-29) \
+- **From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings** (Created: 2026-06-29; Updated: 2026-06-29) \
   **Description**: Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL. \
   [[Note](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
   [[中文](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
 
-- **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (2026-06-16) \
+- **PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment** (Created: 2026-06-16; Updated: 2026-06-16) \
   **Description**: A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries. \
   [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **OPD: Capability Integration Interface in Post-training** (2026-05-28) \
+- **OPD: Capability Integration Interface in Post-training** (Created: 2026-05-28; Updated: 2026-06-15) \
   **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]

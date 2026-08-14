@@ -3,6 +3,7 @@ author: Brench
 title: "From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training"
 description: "A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion."
 date: 2026-06-15
+date-modified: 2026-06-15
 order: 1
 note_type: paper-reading
 topic: mllms

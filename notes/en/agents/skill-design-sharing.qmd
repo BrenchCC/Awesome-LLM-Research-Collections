@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-05
+date-modified: 2026-08-06
 title: "Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows"
 description: "An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration."
 order: 1

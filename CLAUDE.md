@@ -177,7 +177,7 @@ Do not commit `_site/` or `.quarto/`.
 
 Maintain notes as localized pairs under `notes/en/<topic>/<slug>.qmd` and `notes/zh/<topic>/<slug>.qmd`. Keep their structure, claims, formulas, links, figures, conclusions, and shared front matter aligned.
 
-The front-matter `date` is the note's latest source-modification date, not its original publication or creation date. Whenever either language version is created or edited, set `date` in both paired notes to the current `Asia/Shanghai` calendar date before regenerating Notes indexes and homepage statistics.
+Use two front-matter dates. `date` is the immutable creation date and controls newest-created-first ordering. `date-modified` records the latest source modification. Set both to the current `Asia/Shanghai` date when creating a bilingual note pair; on later edits, preserve `date` and update `date-modified` in both language versions before regenerating Notes indexes and homepage statistics.
 
 After editing a note, run:
 
@@ -233,7 +233,7 @@ The Feishu synchronizer has automated unittests. Catalog and generated-site vali
 - Paper is placed in the best-matching category/subcategory in both languages
 - `# Contents` and `# 目录` match actual headings after edits
 - QMD pages match README via `python scripts/check_readme_qmd_sync.py`
-- Edited English and Chinese note pairs use matching `date` values equal to the current modification date
+- Edited English and Chinese note pairs preserve matching creation `date` values and carry matching current `date-modified` values
 - Notes README sections and pages match note front matter via `python scripts/sync_notes.py`
 - Blog README sections and pages match `data/blog_shares.json` via `python scripts/sync_blog_shares.py`
 - Homepage stats are refreshed after note or blog generator writes

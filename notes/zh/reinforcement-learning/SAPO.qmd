@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-07-01
 title: "SAPO：用连续软门控替代策略比率的硬截断"
 description: "从代理目标、梯度权重、非对称温度与 Qwen3-VL 实验出发，分析 SAPO 如何在 token 级保留有效梯度，并在小步更新条件下近似序列级软信任域。"
 order: 4

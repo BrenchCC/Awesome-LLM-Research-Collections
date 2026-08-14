@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-18
+date-modified: 2026-06-19
 title: "Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning"
 description: "A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO's Clip-Higher strategy, and covariance regularization."
 order: 3

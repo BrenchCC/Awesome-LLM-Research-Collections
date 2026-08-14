@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-07-02
+date-modified: 2026-07-02
 title: "在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定"
 description: "围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。"
 order: 1

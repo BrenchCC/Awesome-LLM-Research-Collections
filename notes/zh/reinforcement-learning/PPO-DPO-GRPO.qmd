@@ -3,6 +3,7 @@ author: Brench
 title: "PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程"
 description: "从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。"
 date: 2026-06-16
+date-modified: 2026-06-16
 order: 2
 note_type: technical-reflection
 topic: reinforcement-learning

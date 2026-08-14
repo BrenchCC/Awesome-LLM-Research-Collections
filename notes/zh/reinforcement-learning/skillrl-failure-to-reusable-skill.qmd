@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-10
+date-modified: 2026-08-11
 title: "SkillRL：如何将一次失败变成可复用的 Skill"
 description: "以 ALFWorld 的 Skipping State Changes 为贯穿案例，拆解 SkillRL 如何从失败轨迹提炼候选技能、组织 SkillBank、训练技能使用策略，并区分论文证据、代码实现与生产准入建议。"
 order: 5

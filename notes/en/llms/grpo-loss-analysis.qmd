@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-07-02
 title: "Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent"
 description: "A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments."
 order: 1

@@ -1,6 +1,7 @@
 ---
 author: Brench
-date: 2026-08-15
+date: 2026-07-29
+date-modified: 2026-08-15
 title: "Data Agents: Levels, State of the Art, and Open Problems"
 description: "A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation."
 order: 1

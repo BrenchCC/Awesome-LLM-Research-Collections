@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-10
+date-modified: 2026-08-10
 title: "The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons"
 description: "An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness."
 order: 1

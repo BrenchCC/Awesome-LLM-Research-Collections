@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>136</strong><span>Papers</span></div>
+    <div><strong>137</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>324</strong><span>Resource links</span></div>
+    <div><strong>326</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">49 papers</span>
+  <span class="category-count">50 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">

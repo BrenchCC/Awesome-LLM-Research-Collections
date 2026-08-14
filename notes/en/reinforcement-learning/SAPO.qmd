@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-07-01
 title: "SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate"
 description: "An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation."
 order: 4

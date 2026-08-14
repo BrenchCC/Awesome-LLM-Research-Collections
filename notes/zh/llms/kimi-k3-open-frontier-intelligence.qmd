@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-01
+date-modified: 2026-08-06
 title: "Kimi K3：架构、训练与百万 Token Agentic RL 技术解读"
 description: "用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。"
 order: 1

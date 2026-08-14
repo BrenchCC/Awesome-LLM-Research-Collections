@@ -101,7 +101,7 @@ Markdown and qmd consistency are the core style requirements.
 - Keep Quarto pages synchronized with both README files by running the sync script after paper edits.
 - Keep the generated homepage focused on the three collection entries; do not reintroduce direct paper lists there.
 - Keep paper-category browsing and recent-paper lists on the generated paper overview pages.
-- Treat `date` in note front matter as the note's latest source-modification date, not its original publication or creation date. Whenever either language version of a note is edited, set `date` in both paired notes to the current `Asia/Shanghai` calendar date before regenerating indexes.
+- Use two dates in note front matter: `date` is the immutable creation date and controls newest-created-first ordering; `date-modified` is the latest source-modification date. Set both to the current `Asia/Shanghai` date for a new bilingual note pair. On later edits, preserve `date` and update `date-modified` in both paired notes before regenerating indexes.
 - Keep blogs in `data/blog_shares.json` with exact fields: `slug`, `date`, `title_en`, `title_zh`, `description_en`, `description_zh`, `blog_url`, `github_url`.
 - Blogs sort by `date` descending through `scripts/sync_blog_shares.py`; do not hand-edit generated Blogs sections.
 - Leave `github_url` empty when a blog has no official linked GitHub repository.
@@ -142,7 +142,7 @@ The Feishu Wiki synchronizer has an automated unittest suite; catalog and genera
 - Ensure the paper is placed in the best-matching category/subcategory in both languages.
 - Confirm both `# Contents` / `# 目录` match actual headings after edits.
 - Confirm `python scripts/check_readme_qmd_sync.py` passes.
-- Confirm edited English and Chinese note pairs have matching `date` values equal to the current modification date.
+- Confirm edited English and Chinese note pairs have matching creation `date` and `date-modified` values, with only `date-modified` updated for later revisions.
 - Confirm `python scripts/sync_notes.py` passes after note edits.
 - Confirm `python scripts/sync_blog_shares.py` passes after blog edits.
 - Confirm homepage stats are refreshed by rerunning `python scripts/check_readme_qmd_sync.py --write` after note or blog generator writes.

@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Dict, List
 from dataclasses import dataclass
+from datetime import date as date_type
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +12,7 @@ logger = logging.getLogger(__name__)
 REQUIRED_METADATA = [
     "title",
     "date",
+    "date-modified",
     "description",
     "author",
     "order",
@@ -32,6 +34,7 @@ class Note:
     relative_path: Path
     title: str
     date: str
+    date_modified: str
     description: str
     author: str
     order: int
@@ -52,6 +55,8 @@ class LanguageConfig:
     notes_label: str
     topics_label: str
     latest_label: str
+    created_label: str
+    updated_label: str
     browse_label: str
     no_notes_label: str
     readme_heading: str
@@ -74,7 +79,9 @@ LANGUAGE_CONFIGS = {
         hero_summary = "Bilingual notes for paper readings and technical reflections around LLM research and engineering.",
         notes_label = "Notes",
         topics_label = "Topics",
-        latest_label = "Latest date",
+        latest_label = "Latest creation",
+        created_label = "Created",
+        updated_label = "Updated",
         browse_label = "Browse",
         no_notes_label = "No notes yet.",
         readme_heading = "# Notes",
@@ -102,7 +109,9 @@ LANGUAGE_CONFIGS = {
         hero_summary = "围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。",
         notes_label = "笔记",
         topics_label = "主题",
-        latest_label = "最新日期",
+        latest_label = "最近创建",
+        created_label = "创建",
+        updated_label = "更新",
         browse_label = "浏览",
         no_notes_label = "暂无笔记。",
         readme_heading = "# 笔记",
@@ -203,6 +212,21 @@ def parse_front_matter(path):
     except ValueError as error:
         raise ValueError(f"{path} has non-integer order: {metadata['order']}") from error
 
+    parsed_dates = {}
+    for field in ["date", "date-modified"]:
+        try:
+            parsed_dates[field] = date_type.fromisoformat(metadata[field])
+        except ValueError as error:
+            raise ValueError(
+                f"{path} has invalid {field}: {metadata[field]} (expected YYYY-MM-DD)"
+            ) from error
+
+    if parsed_dates["date-modified"] < parsed_dates["date"]:
+        raise ValueError(
+            f"{path} has date-modified earlier than date: "
+            f"{metadata['date-modified']} < {metadata['date']}"
+        )
+
     if not metadata["tags"]:
         raise ValueError(f"{path} has no tags")
 
@@ -231,6 +255,7 @@ def scan_notes(config):
                 relative_path = relative_path,
                 title = metadata["title"],
                 date = metadata["date"],
+                date_modified = metadata["date-modified"],
                 description = metadata["description"],
                 author = metadata["author"],
                 order = metadata["order"],
@@ -284,7 +309,15 @@ def validate_bilingual_pairs(notes_by_language):
 
     for relative_path, en_note in en_notes.items():
         zh_note = zh_notes[relative_path]
-        comparable_fields = ["date", "author", "order", "note_type", "topic", "tags"]
+        comparable_fields = [
+            "date",
+            "date_modified",
+            "author",
+            "order",
+            "note_type",
+            "topic",
+            "tags",
+        ]
         for field in comparable_fields:
             if getattr(en_note, field) != getattr(zh_note, field):
                 raise ValueError(
@@ -313,13 +346,18 @@ def render_note_card(note, config):
     description = html.escape(note.description)
     topic = html.escape(note.topic.upper())
     section = html.escape(config.section_labels[note.note_type])
-    date = html.escape(note.date)
+    created = html.escape(note.date)
+    updated = html.escape(note.date_modified)
+    date_summary = (
+        f"{html.escape(config.created_label)} {created} · "
+        f"{html.escape(config.updated_label)} {updated}"
+    )
     tags = "\n".join(
         f'    <span class="note-tag">{html.escape(tag)}</span>'
         for tag in note.tags
     )
     return f"""<a class="category-card" href="{href}">
-  <span class="category-count">{date}</span>
+  <span class="category-count">{date_summary}</span>
   <h3>{title}</h3>
   <p>{description}</p>
   <div class="note-tags">
@@ -366,7 +404,7 @@ def generate_index(notes, config):
     """
     groups = grouped_notes(notes)
     topics = sorted({note.topic for note in notes})
-    latest = max((note.date for note in notes), default = "N/A")
+    latest_created = max((note.date for note in notes), default = "N/A")
     nav_links = "\n".join(
         f'<a href="#{html.escape(config.section_labels[note_type].lower().replace(" ", "-"), quote = True)}">'
         f'{html.escape(config.section_labels[note_type])}</a>'
@@ -390,7 +428,7 @@ toc: false
   <div class="stat-strip compact-strip">
     <div><strong>{len(notes)}</strong><span>{html.escape(config.notes_label)}</span></div>
     <div><strong>{len(topics)}</strong><span>{html.escape(config.topics_label)}</span></div>
-    <div><strong>{html.escape(latest)}</strong><span>{html.escape(config.latest_label)}</span></div>
+    <div><strong>{html.escape(latest_created)}</strong><span>{html.escape(config.latest_label)}</span></div>
   </div>
   <nav class="section-nav" aria-label="{html.escape(config.browse_label)}">
     {nav_links}
@@ -421,7 +459,9 @@ def render_readme_note(note, paired_note, config):
     """
     return "\n".join(
         [
-            f"- **{note.title}** ({note.date}) \\",
+            f"- **{note.title}** "
+            f"({config.created_label}: {note.date}; "
+            f"{config.updated_label}: {note.date_modified}) \\",
             f"  **{config.readme_description_label}**: {note.description} \\",
             f"  [[{config.readme_note_label}]({readme_note_path(note)})]",
             f"  [[{config.readme_alt_label}]({readme_note_path(paired_note)})]",

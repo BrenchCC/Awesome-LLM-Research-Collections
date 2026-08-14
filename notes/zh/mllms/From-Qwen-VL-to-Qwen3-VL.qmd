@@ -3,6 +3,7 @@ author: Brench
 title: '从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进'
 description: "梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。"
 date: 2026-06-15
+date-modified: 2026-06-15
 order: 1
 note_type: paper-reading
 topic: mllms

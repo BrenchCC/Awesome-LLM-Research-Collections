@@ -509,10 +509,16 @@ def convert_qmd_body(
         return f"[{label}]({target})"
 
     body = link_pattern.sub(replace_link, body)
+    date_labels = {
+        "en": ("Created", "Last modified"),
+        "zh": ("创建日期", "最后更新"),
+    }
+    created_label, modified_label = date_labels[note.language]
     header = [
         f"# {note.title}",
         "",
-        f"**Date:** {note.date}  ",
+        f"**{created_label}:** {note.date}  ",
+        f"**{modified_label}:** {note.date_modified}  ",
         f"**Author:** {note.author}  ",
         f"**Topic:** {note.topic}  ",
         f"**Tags:** {', '.join(note.tags)}",

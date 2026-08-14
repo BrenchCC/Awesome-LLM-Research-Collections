@@ -3,6 +3,7 @@ author: Brench
 title: "PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment"
 description: "A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries."
 date: 2026-06-16
+date-modified: 2026-06-16
 order: 2
 note_type: technical-reflection
 topic: reinforcement-learning

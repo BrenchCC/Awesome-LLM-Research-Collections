@@ -3,6 +3,7 @@ author: Brench
 title: "CapRL：用强化学习激发视觉语言模型的描述能力"
 description: "CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。"
 date: 2026-06-15
+date-modified: 2026-06-15
 order: 1
 note_type: paper-reading
 topic: reinforcement-learning

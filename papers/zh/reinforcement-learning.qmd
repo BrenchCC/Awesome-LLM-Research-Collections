@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>49</strong><span>论文</span></div>
-    <div><strong>98</strong><span>资源链接</span></div>
+    <div><strong>50</strong><span>论文</span></div>
+    <div><strong>100</strong><span>资源链接</span></div>
     <div><strong>2026.07</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -544,10 +544,22 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">9 篇论文</p>
+    <p class="eyebrow">10 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="skill-self-play-pushing-the-frontier-of-llm-capability-with-co-evolving-skills">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills</h3>
+  <p>该论文提出 Skill Self-Play，一个由提议器、求解器和动态技能控制器通过技能条件任务生成、能力边界探索及反馈驱动的技能库更新共同演化的强化学习框架。它兼顾技能特定验证的可靠性与开放式任务的多样性，在多种 LLM 骨干上提升工具使用和推理能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.22529" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/Qwen-Applications/skill-self-play" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">
   <div class="paper-meta">
     <span>2026.06</span>

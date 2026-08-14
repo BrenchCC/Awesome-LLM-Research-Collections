@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-01
+date-modified: 2026-08-06
 title: "Kimi K3: Architecture, Training, and Million-Token Agentic RL"
 description: "A plain-language explanation of Kimi K3's KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests."
 order: 1

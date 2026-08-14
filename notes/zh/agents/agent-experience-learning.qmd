@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-06-30
 title: "Agent 经验学习：从文本反思、程序技能到策略内化"
 description: "梳理 LLM Agent 将任务轨迹沉淀为可检索经验、可执行技能和参数化能力的技术路线，并讨论技能库维护、评测方法与工程边界。"
 order: 1

@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-07-28
+date-modified: 2026-07-29
 title: "From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations"
 description: "A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation."
 order: 1

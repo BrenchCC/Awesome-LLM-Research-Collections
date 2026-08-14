@@ -619,6 +619,11 @@
 
 ## 智能体强化学习
 
+- **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
+  **描述**: 该论文提出 Skill Self-Play，一个由提议器、求解器和动态技能控制器通过技能条件任务生成、能力边界探索及反馈驱动的技能库更新共同演化的强化学习框架。它兼顾技能特定验证的可靠性与开放式任务的多样性，在多种 LLM 骨干上提升工具使用和推理能力。 \
+  <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/Qwen-Applications/skill-self-play"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
   **描述**: 该论文提出 OPID，从已完成的在策略轨迹中提取分层的回合级与步骤级技能，并将技能带来的概率变化转化为 token 级自蒸馏优势，与结果优势共同优化策略。其关键步骤优先路由提供稠密且匹配当前策略分布的后见监督，在具身、网页购物和搜索问答任务上提升智能体性能、样本效率与鲁棒性。 \
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -872,99 +877,99 @@
 
 ## 论文解读
 
-- **SkillRL：如何将一次失败变成可复用的 Skill** (2026-08-10) \
+- **SkillRL：如何将一次失败变成可复用的 Skill** (创建: 2026-08-10; 更新: 2026-08-11) \
   **描述**: 以 ALFWorld 的 Skipping State Changes 为贯穿案例，拆解 SkillRL 如何从失败轨迹提炼候选技能、组织 SkillBank、训练技能使用策略，并区分论文证据、代码实现与生产准入建议。 \
   [[笔记](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
   [[English](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
 
-- **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (2026-08-03) \
+- **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (创建: 2026-08-03; 更新: 2026-08-04) \
   **描述**: 从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。 \
   [[笔记](notes/zh/attention/kimi-linear-kda.qmd)]
   [[English](notes/en/attention/kimi-linear-kda.qmd)]
 
-- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (2026-08-01) \
+- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (创建: 2026-08-01; 更新: 2026-08-06) \
   **描述**: 用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。 \
   [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
 
-- **数据智能体：自治等级、研究现状与开放问题** (2026-07-29) \
+- **数据智能体：自治等级、研究现状与开放问题** (创建: 2026-07-29; 更新: 2026-08-15) \
   **描述**: 基于 L0–L5 自治分级和数据生命周期视角，梳理数据智能体从响应式助手、程序执行器到受监督编排器的能力边界，并分析责任、治理与评测缺口。 \
   [[笔记](notes/zh/agents/data-agents-levels.qmd)]
   [[English](notes/en/agents/data-agents-levels.qmd)]
 
-- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (2026-07-28) \
+- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (创建: 2026-07-28; 更新: 2026-07-29) \
   **描述**: 沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。 \
   [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
   [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
 
-- **SAPO：用连续软门控替代策略比率的硬截断** (2026-06-30) \
+- **SAPO：用连续软门控替代策略比率的硬截断** (创建: 2026-06-30; 更新: 2026-07-01) \
   **描述**: 从代理目标、梯度权重、非对称温度与 Qwen3-VL 实验出发，分析 SAPO 如何在 token 级保留有效梯度，并在小步更新条件下近似序列级软信任域。 \
   [[笔记](notes/zh/reinforcement-learning/SAPO.qmd)]
   [[English](notes/en/reinforcement-learning/SAPO.qmd)]
 
-- **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (2026-06-18) \
+- **Entropy Collapse：大模型 RL 训练中的策略熵消耗机制** (创建: 2026-06-18; 更新: 2026-06-19) \
   **描述**: 从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。 \
   [[笔记](notes/zh/reinforcement-learning/Entropy_Collapse.qmd)]
   [[English](notes/en/reinforcement-learning/Entropy_Collapse.qmd)]
 
-- **从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进** (2026-06-15) \
+- **从 Qwen-VL 到 Qwen3-VL：四代模型的架构与训练演进** (创建: 2026-06-15; 更新: 2026-06-15) \
   **描述**: 梳理 Qwen-VL 四代模型在视觉语言对齐、动态分辨率、时空位置编码、视频建模与深层视觉融合上的技术演进。 \
   [[笔记](notes/zh/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
   [[English](notes/en/mllms/From-Qwen-VL-to-Qwen3-VL.qmd)]
 
-- **CapRL：用强化学习激发视觉语言模型的描述能力** (2026-06-15) \
+- **CapRL：用强化学习激发视觉语言模型的描述能力** (创建: 2026-06-15; 更新: 2026-06-15) \
   **描述**: CapRL 用 vision-free LLM 的 MCQ 答题准确率评价 caption，将主观的描述质量评分改造成可验证奖励，并据此训练图像描述模型。 \
   [[笔记](notes/zh/reinforcement-learning/CapRL.qmd)]
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
 
-- **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (2026-08-12) \
+- **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (创建: 2026-08-12; 更新: 2026-08-14) \
   **描述**: 从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。 \
   [[笔记](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
   [[English](notes/en/agents/clio-llm-embedding-clustering.qmd)]
 
-- **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (2026-08-10) \
+- **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (创建: 2026-08-10; 更新: 2026-08-10) \
   **描述**: 从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \
   [[笔记](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
   [[English](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
 
-- **把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计** (2026-08-05) \
+- **把 Agent 当作算法使用：Skill、CLI 与 Workflow 的工程化设计** (创建: 2026-08-05; 更新: 2026-08-06) \
   **描述**: 从职责切分、按需披露、Gate 校验、状态持久化与 Workflow 编排出发，讨论如何约束 Agent 的执行随机性并提升多步任务的可恢复性。 \
   [[笔记](notes/zh/agents/skill-design-sharing.qmd)]
   [[English](notes/en/agents/skill-design-sharing.qmd)]
 
-- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (2026-07-06) \
+- **长轨迹、可学习价值与动态验证：Agentic RL 的训练约束正在变化** (创建: 2026-07-06; 更新: 2026-07-06) \
   **描述**: 结合 GLM-5.2、Qwen、GenAC、OPID 与两项相关研究，分析长时域智能体如何重塑轨迹采样、信用分配、奖励验证和稠密监督。 \
   [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
   [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
 
-- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (2026-07-02) \
+- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (创建: 2026-07-02; 更新: 2026-07-02) \
   **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
   [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
   [[English](notes/en/training/dpo-with-sft-loss.qmd)]
 
-- **Agent 经验学习：从文本反思、程序技能到策略内化** (2026-06-30) \
+- **Agent 经验学习：从文本反思、程序技能到策略内化** (创建: 2026-06-30; 更新: 2026-06-30) \
   **描述**: 梳理 LLM Agent 将任务轨迹沉淀为可检索经验、可执行技能和参数化能力的技术路线，并讨论技能库维护、评测方法与工程边界。 \
   [[笔记](notes/zh/agents/agent-experience-learning.qmd)]
   [[English](notes/en/agents/agent-experience-learning.qmd)]
 
-- **从代码拆解 GRPO Loss：各组成项、负值与目标上升** (2026-06-30) \
+- **从代码拆解 GRPO Loss：各组成项、负值与目标上升** (创建: 2026-06-30; 更新: 2026-07-02) \
   **描述**: 沿着最小 GRPO 实现拆解 importance ratio、clipping、KL penalty 与聚合过程，解释负 loss、目标上升和近零实验现象。 \
   [[笔记](notes/zh/llms/grpo-loss-analysis.qmd)]
   [[English](notes/en/llms/grpo-loss-analysis.qmd)]
 
-- **从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配** (2026-06-29) \
+- **从 1D-RoPE 到 Qwen 的 MRoPE：旋转位置编码的频率分配** (创建: 2026-06-29; 更新: 2026-06-29) \
   **描述**: 从一个 6 维向量出发，推导 1D-RoPE 的相对位置性质，并分析 Qwen2.5-VL 分块式 MRoPE 与 Qwen3-VL Interleaved-MRoPE 的差异。 \
   [[笔记](notes/zh/mllms/From-1D-ROPE-to-MROPE.qmd)]
   [[English](notes/en/mllms/From-1D-ROPE-to-MROPE.qmd)]
 
-- **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (2026-06-16) \
+- **PPO、DPO 与 GRPO：大模型对齐算法的目标函数与训练流程** (创建: 2026-06-16; 更新: 2026-06-16) \
   **描述**: 从目标函数、优势估计和训练循环出发，对比 PPO、DPO 与 GRPO 在大模型对齐中的设计取舍与适用边界。 \
   [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[English](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **OPD：后训练中的能力整合接口** (2026-05-28) \
+- **OPD：后训练中的能力整合接口** (创建: 2026-05-28; 更新: 2026-06-15) \
   **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]

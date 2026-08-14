@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-03
+date-modified: 2026-08-04
 title: "Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力"
 description: "从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。"
 order: 1

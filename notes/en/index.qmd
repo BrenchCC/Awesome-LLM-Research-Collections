@@ -11,7 +11,7 @@ toc: false
   <div class="stat-strip compact-strip">
     <div><strong>19</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-08-12</strong><span>Latest date</span></div>
+    <div><strong>2026-08-12</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -26,7 +26,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="reinforcement-learning/skillrl-failure-to-reusable-skill.html">
-  <span class="category-count">2026-08-10</span>
+  <span class="category-count">Created 2026-08-10 · Updated 2026-08-11</span>
   <h3>SkillRL: How a Failure Becomes a Reusable Skill</h3>
   <p>A reading of SkillRL through ALFWorld&#x27;s Skipping State Changes failure, tracing candidate-skill extraction, SkillBank organization, skill-aware policy training, and the boundary between paper evidence, repository behavior, and production admission controls.</p>
   <div class="note-tags">
@@ -43,7 +43,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="attention/kimi-linear-kda.html">
-  <span class="category-count">2026-08-03</span>
+  <span class="category-count">Created 2026-08-03 · Updated 2026-08-04</span>
   <h3>Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention</h3>
   <p>A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations.</p>
   <div class="note-tags">
@@ -59,7 +59,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
-  <span class="category-count">2026-08-01</span>
+  <span class="category-count">Created 2026-08-01 · Updated 2026-08-06</span>
   <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
   <p>A plain-language explanation of Kimi K3&#x27;s KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests.</p>
   <div class="note-tags">
@@ -75,7 +75,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/data-agents-levels.html">
-  <span class="category-count">2026-07-29</span>
+  <span class="category-count">Created 2026-07-29 · Updated 2026-08-15</span>
   <h3>Data Agents: Levels, State of the Art, and Open Problems</h3>
   <p>A lifecycle-based reading of the L0–L5 autonomy framework, tracing data agents from responsive assistants and procedural executors to supervised orchestrators while examining gaps in responsibility, governance, and evaluation.</p>
   <div class="note-tags">
@@ -91,7 +91,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
-  <span class="category-count">2026-07-28</span>
+  <span class="category-count">Created 2026-07-28 · Updated 2026-07-29</span>
   <h3>From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations</h3>
   <p>A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation.</p>
   <div class="note-tags">
@@ -107,7 +107,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/SAPO.html">
-  <span class="category-count">2026-06-30</span>
+  <span class="category-count">Created 2026-06-30 · Updated 2026-07-01</span>
   <h3>SAPO: Replacing Hard Ratio Clipping with a Continuous Soft Gate</h3>
   <p>An analysis of SAPO through its surrogate objective, gradient weights, asymmetric temperatures, and Qwen3-VL experiments, with attention to its token-level behavior and sequence-level approximation.</p>
   <div class="note-tags">
@@ -124,7 +124,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/Entropy_Collapse.html">
-  <span class="category-count">2026-06-18</span>
+  <span class="category-count">Created 2026-06-18 · Updated 2026-06-19</span>
   <h3>Entropy Collapse: Policy Entropy Consumption in LLM Reinforcement Learning</h3>
   <p>A note on entropy collapse in LLM reinforcement learning, covering policy entropy, the difference between SFT and RL, DAPO&#x27;s Clip-Higher strategy, and covariance regularization.</p>
   <div class="note-tags">
@@ -140,7 +140,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="mllms/From-Qwen-VL-to-Qwen3-VL.html">
-  <span class="category-count">2026-06-15</span>
+  <span class="category-count">Created 2026-06-15 · Updated 2026-06-15</span>
   <h3>From Qwen-VL to Qwen3-VL: Four Generations of Architecture and Training</h3>
   <p>A technical review of how four Qwen-VL generations evolved across vision-language alignment, dynamic resolution, spatiotemporal position encoding, video modeling, and deep visual fusion.</p>
   <div class="note-tags">
@@ -156,7 +156,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/CapRL.html">
-  <span class="category-count">2026-06-15</span>
+  <span class="category-count">Created 2026-06-15 · Updated 2026-06-15</span>
   <h3>CapRL: Stimulating Vision-Language Captioning Capabilities with Reinforcement Learning</h3>
   <p>CapRL evaluates captions through the MCQ accuracy of a vision-free LLM, turning subjective caption-quality scoring into a verifiable reward for training image-captioning models.</p>
   <div class="note-tags">
@@ -181,7 +181,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/clio-llm-embedding-clustering.html">
-  <span class="category-count">2026-08-12</span>
+  <span class="category-count">Created 2026-08-12 · Updated 2026-08-14</span>
   <h3>From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering</h3>
   <p>An engineering reconstruction of Clio&#x27;s semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building.</p>
   <div class="note-tags">
@@ -196,7 +196,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
-  <span class="category-count">2026-08-10</span>
+  <span class="category-count">Created 2026-08-10 · Updated 2026-08-10</span>
   <h3>The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons</h3>
   <p>An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness.</p>
   <div class="note-tags">
@@ -211,7 +211,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/skill-design-sharing.html">
-  <span class="category-count">2026-08-05</span>
+  <span class="category-count">Created 2026-08-05 · Updated 2026-08-06</span>
   <h3>Treating Agents as Algorithms: Engineering Skills, CLIs, and Workflows</h3>
   <p>An engineering reflection on constraining execution variability and making multi-step agent tasks recoverable through responsibility boundaries, progressive disclosure, Gate validation, persistent state, and Workflow orchestration.</p>
   <div class="note-tags">
@@ -226,7 +226,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/agentic-rl-long-horizon-verification.html">
-  <span class="category-count">2026-07-06</span>
+  <span class="category-count">Created 2026-07-06 · Updated 2026-07-06</span>
   <h3>Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL</h3>
   <p>A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision.</p>
   <div class="note-tags">
@@ -242,7 +242,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training/dpo-with-sft-loss.html">
-  <span class="category-count">2026-07-02</span>
+  <span class="category-count">Created 2026-07-02 · Updated 2026-07-02</span>
   <h3>Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor</h3>
   <p>A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis.</p>
   <div class="note-tags">
@@ -258,7 +258,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/agent-experience-learning.html">
-  <span class="category-count">2026-06-30</span>
+  <span class="category-count">Created 2026-06-30 · Updated 2026-06-30</span>
   <h3>Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization</h3>
   <p>A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries.</p>
   <div class="note-tags">
@@ -273,7 +273,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/grpo-loss-analysis.html">
-  <span class="category-count">2026-06-30</span>
+  <span class="category-count">Created 2026-06-30 · Updated 2026-07-02</span>
   <h3>Dissecting GRPO Loss in Code: Components, Negative Values, and Objective Ascent</h3>
   <p>A line-by-line analysis of importance ratios, clipping, KL penalties, and aggregation in a minimal GRPO implementation, explaining negative loss values, objective ascent, and near-zero experiments.</p>
   <div class="note-tags">
@@ -288,7 +288,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="mllms/From-1D-ROPE-to-MROPE.html">
-  <span class="category-count">2026-06-29</span>
+  <span class="category-count">Created 2026-06-29 · Updated 2026-06-29</span>
   <h3>From 1D-RoPE to Qwen&#x27;s MRoPE: Frequency Allocation in Rotary Position Embeddings</h3>
   <p>Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL.</p>
   <div class="note-tags">
@@ -303,7 +303,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/PPO-DPO-GRPO.html">
-  <span class="category-count">2026-06-16</span>
+  <span class="category-count">Created 2026-06-16 · Updated 2026-06-16</span>
   <h3>PPO, DPO, and GRPO: Objectives and Training Loops for LLM Alignment</h3>
   <p>A comparison of PPO, DPO, and GRPO through their objectives, advantage estimators, training loops, engineering tradeoffs, and practical boundaries.</p>
   <div class="note-tags">
@@ -319,7 +319,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="opd/post-training-opd.html">
-  <span class="category-count">2026-05-28</span>
+  <span class="category-count">Created 2026-05-28 · Updated 2026-06-15</span>
   <h3>OPD: Capability Integration Interface in Post-training</h3>
   <p>A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4.</p>
   <div class="note-tags">

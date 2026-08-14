@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-29
+date-modified: 2026-06-29
 title: "From 1D-RoPE to Qwen's MRoPE: Frequency Allocation in Rotary Position Embeddings"
 description: "Starting from a six-dimensional vector, this note derives the relative-position property of 1D-RoPE and compares blockwise MRoPE in Qwen2.5-VL with Interleaved-MRoPE in Qwen3-VL."
 order: 2

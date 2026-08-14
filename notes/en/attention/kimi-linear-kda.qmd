@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-03
+date-modified: 2026-08-04
 title: "Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention"
 description: "A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations."
 order: 1

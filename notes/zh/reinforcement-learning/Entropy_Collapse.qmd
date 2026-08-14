@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-18
+date-modified: 2026-06-19
 title: "Entropy Collapse：大模型 RL 训练中的策略熵消耗机制"
 description: "从策略熵、SFT 与 RL 的优化差异、DAPO 的 Clip-Higher，以及协方差正则化角度理解大模型 RL 训练中的 Entropy Collapse。"
 order: 3

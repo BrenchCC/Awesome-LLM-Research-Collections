@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-07-06
+date-modified: 2026-07-06
 title: "Long Trajectories, Learned Values, and Adaptive Verification: The Changing Constraints of Agentic RL"
 description: "A synthesis of GLM-5.2, Qwen, GenAC, OPID, and two related studies on how long-horizon agents reshape trajectory sampling, credit assignment, reward verification, and dense supervision."
 order: 1

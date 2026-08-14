@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-12
+date-modified: 2026-08-14
 title: "从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘"
 description: "从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。"
 order: 1

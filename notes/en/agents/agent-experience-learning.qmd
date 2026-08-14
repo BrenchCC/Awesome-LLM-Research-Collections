@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-06-30
 title: "Agent Experience Learning: From Textual Reflection and Programmatic Skills to Policy Internalization"
 description: "A technical synthesis of how LLM agents turn task trajectories into retrievable experience, executable skills, and parametric behavior, with an emphasis on library maintenance, evaluation, and engineering boundaries."
 order: 1

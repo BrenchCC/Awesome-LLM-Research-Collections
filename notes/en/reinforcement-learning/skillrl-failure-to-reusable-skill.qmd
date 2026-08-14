@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-10
+date-modified: 2026-08-11
 title: "SkillRL: How a Failure Becomes a Reusable Skill"
 description: "A reading of SkillRL through ALFWorld's Skipping State Changes failure, tracing candidate-skill extraction, SkillBank organization, skill-aware policy training, and the boundary between paper evidence, repository behavior, and production admission controls."
 order: 5

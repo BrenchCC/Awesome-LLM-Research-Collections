@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-06-30
+date-modified: 2026-07-02
 title: "从代码拆解 GRPO Loss：各组成项、负值与目标上升"
 description: "沿着最小 GRPO 实现拆解 importance ratio、clipping、KL penalty 与聚合过程，解释负 loss、目标上升和近零实验现象。"
 order: 1

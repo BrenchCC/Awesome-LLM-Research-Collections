@@ -248,6 +248,7 @@ class LocalConversionTests(unittest.TestCase):
                 relative_path = Path("topic/source.qmd"),
                 title = "Source",
                 date = "2026-08-13",
+                date_modified = "2026-08-15",
                 description = "Description",
                 author = "Brench",
                 order = 1,
@@ -264,6 +265,8 @@ class LocalConversionTests(unittest.TestCase):
             self.assertIn("$$\nx = y + 1\n$$", body)
             self.assertIn("![Figure](@./", body)
             self.assertIn("feishu-wiki://notes/en/page/topic/target", body)
+            self.assertIn("**Created:** 2026-08-13", body)
+            self.assertIn("**Last modified:** 2026-08-15", body)
             self.assertEqual(media, [image_path.resolve()])
             self.assertNotIn("fig-alt", body)
         finally:
@@ -296,6 +299,7 @@ class LocalConversionTests(unittest.TestCase):
                 relative_path = Path("topic/source.qmd"),
                 title = "Source",
                 date = "2026-08-13",
+                date_modified = "2026-08-15",
                 description = "Description",
                 author = "Brench",
                 order = 1,
@@ -322,6 +326,8 @@ class LocalConversionTests(unittest.TestCase):
                 svg_converter = fake_converter
             )
             self.assertIn(".feishu-wiki-sync/assets/", body)
+            self.assertIn("**创建日期:** 2026-08-13", body)
+            self.assertIn("**最后更新:** 2026-08-15", body)
             self.assertEqual(media, created)
             self.assertTrue(media[0].is_file())
         finally:

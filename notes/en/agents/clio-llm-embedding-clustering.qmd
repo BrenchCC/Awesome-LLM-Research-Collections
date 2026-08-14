@@ -1,6 +1,7 @@
 ---
 author: Brench
 date: 2026-08-12
+date-modified: 2026-08-14
 title: "From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering"
 description: "An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building."
 order: 1
