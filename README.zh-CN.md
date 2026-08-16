@@ -228,6 +228,12 @@
 
 ## 视觉语言
 
+- **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
+  **描述**: Intern-S2-Preview 是一系列科学智能体基础模型，通过科学多模态预训练、统一监督微调、多任务与智能体强化学习以及 on-policy 蒸馏，支持科学理解、推理、生成和长程任务。其 397B 模型进一步加入时间序列预测，并以独立的 Memory Decoder 路径实现快速科学领域适配，在科学、多模态、智能体及通用基准上取得有竞争力或领先的结果。 \
+  <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/InternLM/Intern-S1"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/internlm/Intern-S2-Preview-397B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding** (2026.07) \
   **描述**: VideoChat3 是一个完全开放的 4B 视频多模态大模型，通过 I3D-ViT 与自适应帧分辨率实现高效时空表征和流式感知。其可扩展数据合成管线构建了覆盖通用、长视频和流式场景的数据集，在降低计算开销的同时提升跨领域泛化能力。 \
   <a href="https://arxiv.org/abs/2607.14935"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

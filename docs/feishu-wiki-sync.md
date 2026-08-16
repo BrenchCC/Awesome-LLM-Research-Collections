@@ -66,6 +66,8 @@ gh variable set FEISHU_WIKI_SPACE_ID
 
 工作流把两个 Secret 映射为 lark-cli 官方环境变量 `LARKSUITE_CLI_APP_ID` 和 `LARKSUITE_CLI_APP_SECRET`，再通过 stdin 初始化 runner 临时目录中的 lark-cli profile。同步完成后 runner 被销毁；密钥不会进入仓库、命令参数或日志。
 
+如果需要修改同步器代码结构、定位模块职责或补测试入口，先阅读 [代码指导文档](./feishu-wiki-sync-code-guide.md)。
+
 ## 本地检查和手动同步
 
 本地需要 lark-cli `1.0.86` 和 `rsvg-convert`。先只验证本地内容：
@@ -87,7 +89,7 @@ python scripts/sync_feishu_wiki.py --plan
 python scripts/sync_feishu_wiki.py --apply
 ```
 
-本地未设置 `GITHUB_SHA` 时，同步器使用当前 Git HEAD。`--plan` 会读取清单、节点和 Docx revision，但不会写入；首次预览应只显示预期的 `CREATE`。`--apply` 严格串行写入，并在所有正文和安全删除完成后最后提交首页成功清单。
+本地未设置 `GITHUB_SHA` 时，同步器使用当前 Git HEAD。`--plan` 会读取清单、节点和候选 Docx 信息，但不会写入；首次预览应只显示预期的 `CREATE`。`--apply` 会先生成 `SyncPlan`，只读阶段最多 4 路并发发现远端节点与候选 revision，不同正文文档的写入最多 2 路并发，而创建、认领、重命名、删除、首页检查点与最终首页提交仍保持串行。首页成功清单始终最后提交。
 
 在 GitHub Actions 页面手动运行 **Sync Feishu Wiki** 时，先选 `plan` 检查日志，再选 `apply`。push 和定时入口固定执行 `apply`。定时 cron 为 UTC `0 4 * * *`，即北京时间 12:00；GitHub 调度可能延迟数分钟。
 
@@ -98,16 +100,21 @@ python scripts/sync_feishu_wiki.py --apply
 - 本地图片改写为 lark-cli 相对媒体引用；SVG 在临时目录转换为 PNG。缺失文件或单个媒体超过 20 MB 时检查失败。
 - 站内 QMD 链接映射到清单中的 Wiki node token，外部链接保持不变。
 - 页面哈希覆盖规范化正文和媒体字节。页面显示的 commit 只在该页正文确实更新时刷新，避免无关 Git commit 让全部页面重写。
-- 飞书中的手工正文修改会造成 revision 漂移，并在下一次 `apply` 被 GitHub 真源覆盖。
+- 首页 Manifest v2 为非首页受管页面记录 Wiki 节点的 `obj_edit_time`，并把它作为远端对象变更信号；本地哈希或该时间变化后才读取最新 revision。`obj_edit_time` 变化只表示“需要进一步核验”，真正的正文冲突仍以 revision 为准。
+- 快路径依赖飞书把手工正文修改反映为 Wiki 对象编辑时间和 Docx revision 漂移，随后由下一次 `apply` 用 GitHub 真源覆盖。如果节点列表没有返回 `obj_edit_time`，或者同步器自己写入后发现 revision 已变化但编辑时间没有推进，该页会记录为未知元数据并在后续每次运行保守读取 revision。
 
-飞书对 Docx 编辑和单文档写入有频率限制，因此同步器不并发写入，并只对限流与临时网络错误做最多四次指数退避。媒体上传遵守官方 20 MB 限制：
+飞书对 Docx 编辑和单文档写入有频率限制，因此同步器只在安全范围内并发：只读阶段最多 4 路、不同正文文档写入最多 2 路，结构变更和首页写入始终串行，并只对限流与临时网络错误做最多四次指数退避。媒体上传遵守官方 20 MB 限制：
 
 - [Docx API 概览](https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/docx-overview)
+- [获取 Docx 基本信息与最新 revision](https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document/get?lang=zh-CN)
+- [获取 Wiki 子节点及 `obj_edit_time`](https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-node/list?lang=zh-CN)
 - [素材上传限制](https://open.feishu.cn/document/server-docs/docs/drive-v1/media/upload_all?lang=zh-CN)
 
 ## 故障恢复
 
-同步开始时，首页会明确写入 `in_progress` 检查点。新节点先使用包含稳定 key 哈希的确定性暂存标题创建，全部 token 记录进检查点后再原地改成最终标题；这样既避免高频改写同一个首页文档，也能在任务中断后安全识别自己创建的暂存节点。兼容旧检查点时，`pending_create_key` 也只允许认领精确父节点和精确标题。其他同名节点仍会停止同步。
+同步开始时，只有存在真实写入动作才会写入 `in_progress` 检查点。新节点先使用包含稳定 key 哈希的确定性暂存标题创建，全部 token 记录进检查点后再原地改成最终标题；这样既避免高频改写同一个首页文档，也能在任务中断后安全识别自己创建的暂存节点。兼容旧检查点时，`pending_create_key` 也只允许认领精确父节点和精确标题。其他同名节点仍会停止同步。
+
+首页 Manifest 兼容 v1 与 v2。首次在旧清单上执行 `apply` 时，同步器会做一次轻量远端审计，并把 Wiki API 已返回的 `obj_edit_time` 写回 v2；迁移完成后，同一 commit、元数据完整且无变化的页面可以跳过 revision 查询。API 未返回编辑时间的页面会继续保守审计。
 
 建议按以下顺序恢复：
 

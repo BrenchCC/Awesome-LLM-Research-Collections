@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>18</strong><span>Papers</span></div>
-    <div><strong>54</strong><span>Resource links</span></div>
-    <div><strong>2026.07</strong><span>Latest month</span></div>
+    <div><strong>19</strong><span>Papers</span></div>
+    <div><strong>57</strong><span>Resource links</span></div>
+    <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#vision-language">Vision-Language</a>
@@ -24,10 +24,23 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">14 papers</p>
+    <p class="eyebrow">15 papers</p>
     <h2>Vision-Language</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="intern-s2-preview-scientific-agentic-foundation-model">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Vision-Language</span>
+  </div>
+  <h3>Intern-S2-Preview: Scientific Agentic Foundation Model</h3>
+  <p>Intern-S2-Preview is a series of scientific agentic foundation models that combines multimodal scientific pre-training with unified supervised fine-tuning, multi-task and agentic reinforcement learning, and on-policy distillation for scientific understanding, reasoning, generation, and long-horizon tasks. Its 397B model adds time-series forecasting and a separate Memory Decoder path for rapid scientific specialization, achieving competitive or leading results across scientific, multimodal, agentic, and general-purpose benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.13505" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/InternLM/Intern-S1" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/internlm/Intern-S2-Preview-397B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="videochat3-fully-open-video-mllm-for-efficient-and-generalist-video-understanding">
   <div class="paper-meta">
     <span>2026.07</span>

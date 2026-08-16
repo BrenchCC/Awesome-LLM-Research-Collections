@@ -17,7 +17,8 @@ on:
       - "scripts/sync_notes.py"
       - "scripts/sync_blog_shares.py"
       - "scripts/sync_feishu_wiki.py"
-      - "tests/test_sync_feishu_wiki.py"
+      - "scripts/feishu_wiki_sync/**"
+      - "tests/**"
       - ".github/workflows/feishu-wiki-sync.yml"
   workflow_dispatch:
     inputs:
@@ -64,9 +65,6 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
       - name: Install pinned lark-cli and SVG converter
         run: |
           npm install --global @larksuite/cli@1.0.86
@@ -105,9 +103,6 @@ jobs:
 
       - name: Validate local Feishu conversion
         run: python scripts/sync_feishu_wiki.py --check
-
-      - name: Render Quarto site
-        run: quarto render --no-execute
 
       - name: Synchronize Feishu Wiki
         env:

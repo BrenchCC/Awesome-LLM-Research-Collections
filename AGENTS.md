@@ -17,9 +17,11 @@ This repository is documentation-first, bilingual, and website-enabled. The prim
 - `scripts/check_readme_qmd_sync.py`: bilingual sync checker and qmd regeneration helper.
 - `scripts/sync_blog_shares.py`: blogs README and Quarto page generator/checker.
 - `scripts/sync_feishu_wiki.py`: GitHub-to-Feishu bilingual Wiki converter and incremental synchronizer.
-- `tests/test_sync_feishu_wiki.py`: unit tests for Feishu conversion, planning, recovery, retries, and deletion boundaries.
+- `scripts/feishu_wiki_sync/`: modular Feishu synchronizer implementation for models, content conversion, lark-cli access, planning, execution, and CLI orchestration.
+- `tests/test_feishu_wiki_*.py`: split tests for Feishu conversion, manifests, planning, recovery, retries, concurrency, and deletion boundaries.
 - `.github/workflows/feishu-wiki-sync.yml`: push, manual, and daily Feishu Wiki synchronization workflow.
 - `docs/feishu-wiki-sync.md`: Feishu permissions, setup, operation, recovery, and key rotation runbook.
+- `docs/feishu-wiki-sync-code-guide.md`: code ownership guide for the Feishu synchronizer modules, data flow, invariants, and test split.
 - `LICENSE`: project license.
 - `.codex/`, `.claude/`, `.omc/`, `.omx/`: local tooling metadata; do not edit unless your change is tooling-related.
 
@@ -52,14 +54,16 @@ GitHub `main` is the only source of truth for the managed private Wiki space `Aw
 - Papers are generated from the bilingual README catalogs, notes from `notes/en/` and `notes/zh/`, and blogs from `data/blog_shares.json`.
 - Managed pages include source path, source commit, and an automatic-sync warning. Manual edits to managed Feishu page bodies can be overwritten on the next apply.
 - The homepage contains the versioned ownership manifest. Never edit its manifest JSON manually, claim nodes by title alone, or delete unknown/unmanaged nodes.
-- `--check` performs local conversion validation only. `--plan` reads Wiki nodes, the manifest, and Docx revisions without writing. `--apply` performs serialized incremental writes and commits the completed manifest last.
+- `--check` performs local conversion validation only. `--plan` reads Wiki nodes, the manifest, and candidate Docx information without writing. `--apply` uses up to 4-way read concurrency, up to 2-way body-write concurrency for different documents, keeps structure and homepage writes serialized, and commits the completed manifest last.
 - Use lark-cli `1.0.86` and `rsvg-convert` for local remote operations. Follow `docs/feishu-wiki-sync.md` instead of guessing CLI parameters or recovery steps.
+- Read `docs/feishu-wiki-sync-code-guide.md` before refactoring the synchronizer or splitting tests into multiple files.
 - Remote commands require `LARKSUITE_CLI_APP_ID`, `LARKSUITE_CLI_APP_SECRET`, `LARKSUITE_CLI_BRAND=feishu`, and `FEISHU_WIKI_SPACE_ID`. Never print, commit, or pass the App Secret as a command-line argument.
 - GitHub Actions expects Secrets `FEISHU_APP_ID` and `FEISHU_APP_SECRET`, plus Variable `FEISHU_WIKI_SPACE_ID`.
 - Relevant pushes to `main` run `apply`; UTC cron `0 4 * * *` targets 12:00 Asia/Shanghai; `workflow_dispatch` accepts `plan` or `apply`. Local unpushed changes do not trigger synchronization.
 - For a manual remote update, first run the **Sync Feishu Wiki** workflow with `plan`, inspect the diff, then rerun it with `apply`. Push and scheduled runs always use `apply`.
 - The equivalent CLI trigger is `gh workflow run feishu-wiki-sync.yml --ref main -f mode=plan`; change the mode to `apply` only after reviewing the plan run.
-- Synchronization intentionally uses serial writes and bounded transient retries. Duplicate titles, corrupt manifests, moved managed nodes, revision conflicts, and unknown children fail closed.
+- Manifest v2 records `obj_edit_time` for non-home pages to support the no-op fast path; v1 manifests are migrated during apply with a light remote audit.
+- Synchronization intentionally uses bounded read and body-write concurrency plus transient retries. Duplicate titles, corrupt manifests, moved managed nodes, revision conflicts, and unknown children fail closed.
 
 When changing the synchronizer or any mirrored content, include these checks as appropriate:
 

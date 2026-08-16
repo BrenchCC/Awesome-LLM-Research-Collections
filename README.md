@@ -229,6 +229,12 @@
 
 ## Vision-Language
 
+- **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
+  **Description**: Intern-S2-Preview is a series of scientific agentic foundation models that combines multimodal scientific pre-training with unified supervised fine-tuning, multi-task and agentic reinforcement learning, and on-policy distillation for scientific understanding, reasoning, generation, and long-horizon tasks. Its 397B model adds time-series forecasting and a separate Memory Decoder path for rapid scientific specialization, achieving competitive or leading results across scientific, multimodal, agentic, and general-purpose benchmarks. \
+  <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/InternLM/Intern-S1"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/internlm/Intern-S2-Preview-397B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding** (2026.07) \
   **Description**: VideoChat3 is a fully open 4B video-centric MLLM that combines I3D-ViT with adaptive frame resolution for efficient spatiotemporal and streaming perception. Its scalable data synthesis pipeline curates datasets for general, long-form, and streaming video, improving cross-domain generalization while reducing computation. \
   <a href="https://arxiv.org/abs/2607.14935"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

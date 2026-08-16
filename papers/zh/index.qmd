@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>137</strong><span>论文</span></div>
+    <div><strong>138</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>326</strong><span>资源链接</span></div>
+    <div><strong>329</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">18 篇论文</span>
+  <span class="category-count">19 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
-    <span>2026.07</span>
+    <span>2026.08</span>
     <span>多模态推理、视觉-语言-动作、视觉语言</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
+  <span>2026.08</span>
+  <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
+  <em>多模态大模型</em>
+</a>
 <a class="recent-row" href="training.html#bigbang-pursuing-open-ended-intelligence-through-self-evolving-synthesis-of-verifiable-frontier-tasks">
   <span>2026.08</span>
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.07</span>
   <strong>Kimi K3: Open Frontier Intelligence</strong>
   <em>大语言模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#videochat3-fully-open-video-mllm-for-efficient-and-generalist-video-understanding">
-  <span>2026.07</span>
-  <strong>VideoChat3: Fully Open Video MLLM for Efficient and Generalist Video Understanding</strong>
-  <em>多模态大模型</em>
 </a>
   </div>
 </section>
