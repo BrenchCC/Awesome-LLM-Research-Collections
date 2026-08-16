@@ -201,6 +201,13 @@
 
 ## 推理
 
+- **LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers** (2026.08) \
+  **描述**: LLMRouter 将大模型路由统一表述为覆盖单轮、多轮和个性化场景的序列决策过程，并提供模块化基础设施与联合评估回答质量和推理成本的自动化管线。其 xRouteBench 覆盖五类路由场景；在超过 16 种代表性路由器上的实验表明，学习型路由相对最强固定模型基线提升 14.6%。 \
+  <a href="https://arxiv.org/abs/2608.06867"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://ulab-uiuc.github.io/LLMRouter/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/ulab-uiuc/LLMRouter"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/ulab-ai/xRouteBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
   **描述**: 该论文提出 Exploratory Sampling (ESamp)，用于缓解标准随机采样主要产生词面变化、语义探索不足的问题。它在测试时训练轻量 Distiller 由浅层表征预测深层表征，并用预测误差作为新颖性信号重加权候选 token，从而提升推理模型的 Pass@k 效率。 \
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

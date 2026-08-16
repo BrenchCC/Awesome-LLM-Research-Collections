@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>20</strong><span>论文</span></div>
-    <div><strong>62</strong><span>资源链接</span></div>
-    <div><strong>2026.07</strong><span>最新月份</span></div>
+    <div><strong>21</strong><span>论文</span></div>
+    <div><strong>66</strong><span>资源链接</span></div>
+    <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#foundation-models">基础模型</a>
@@ -245,10 +245,24 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">3 篇论文</p>
+    <p class="eyebrow">4 篇论文</p>
     <h2>推理</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>推理</span>
+  </div>
+  <h3>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</h3>
+  <p>LLMRouter 将大模型路由统一表述为覆盖单轮、多轮和个性化场景的序列决策过程，并提供模块化基础设施与联合评估回答质量和推理成本的自动化管线。其 xRouteBench 覆盖五类路由场景；在超过 16 种代表性路由器上的实验表明，学习型路由相对最强固定模型基线提升 14.6%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.06867" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://ulab-uiuc.github.io/LLMRouter/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/ulab-uiuc/LLMRouter" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/ulab-ai/xRouteBench" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="large-language-models-explore-by-latent-distilling">
   <div class="paper-meta">
     <span>2026.04</span>

@@ -202,6 +202,13 @@
 
 ## Inference
 
+- **LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers** (2026.08) \
+  **Description**: LLMRouter formulates LLM routing as a sequential decision process spanning single-turn, multi-turn, and personalized settings, and provides modular infrastructure with an automated pipeline for joint quality-cost evaluation. Its xRouteBench benchmark covers five routing scenarios, while experiments across more than 16 representative routers show that learned routers achieve a 14.6% relative improvement over the strongest fixed-model baseline. \
+  <a href="https://arxiv.org/abs/2608.06867"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://ulab-uiuc.github.io/LLMRouter/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/ulab-uiuc/LLMRouter"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/ulab-ai/xRouteBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
   **Description**: This paper proposes Exploratory Sampling (ESamp), a decoding method that addresses the shallow lexical variation of standard stochastic sampling by encouraging semantic exploration. It trains a lightweight Distiller at test time to predict deep-layer representations from shallow ones, then uses prediction error as a novelty signal to reweight candidate tokens and improve Pass@k efficiency. \
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
