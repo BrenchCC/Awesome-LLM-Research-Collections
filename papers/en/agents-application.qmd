@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>27</strong><span>Papers</span></div>
-    <div><strong>58</strong><span>Resource links</span></div>
+    <div><strong>28</strong><span>Papers</span></div>
+    <div><strong>60</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -238,7 +238,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">7 papers</p>
+    <p class="eyebrow">8 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
@@ -264,6 +264,18 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2608.05013" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/zjunlp/OneDayAgent" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/datasets/zjunlp/onedayagent_traj" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="self-evolving-coding-agents">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Self-Evolving Coding Agents</h3>
+  <p>This survey defines self-evolving coding agents and organizes the field through an object-centered taxonomy of evolving frameworks, memory, skills, tools, models, and collaboration structures, complemented by when evolution occurs and which software-specific evidence drives it. It also identifies executable feedback, repository context, and coding trajectories as distinctive foundations for evolution while outlining challenges in reliability, safety, cost, maintainability, and generalization.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.03392" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">

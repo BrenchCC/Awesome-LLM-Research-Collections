@@ -785,6 +785,11 @@
   <a href="https://github.com/zjunlp/OneDayAgent"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/zjunlp/onedayagent_traj"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Self-Evolving Coding Agents** (2026.08) \
+  **描述**: 该综述定义了自演化编码智能体，并以框架、记忆、技能、工具、模型和协作结构等演化对象为核心建立分类体系，同时从演化时机及其依赖的软件特定证据两个维度补充分析。论文指出可执行反馈、仓库级上下文和编码轨迹构成该领域的独特基础，并梳理了可靠性、安全性、成本、可维护性与泛化等挑战。 \
+  <a href="https://arxiv.org/abs/2608.03392"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

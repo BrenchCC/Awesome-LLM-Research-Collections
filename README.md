@@ -786,6 +786,11 @@
   <a href="https://github.com/zjunlp/OneDayAgent"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/zjunlp/onedayagent_traj"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Self-Evolving Coding Agents** (2026.08) \
+  **Description**: This survey defines self-evolving coding agents and organizes the field through an object-centered taxonomy of evolving frameworks, memory, skills, tools, models, and collaboration structures, complemented by when evolution occurs and which software-specific evidence drives it. It also identifies executable feedback, repository context, and coding trajectories as distinctive foundations for evolution while outlining challenges in reliability, safety, cost, maintainability, and generalization. \
+  <a href="https://arxiv.org/abs/2608.03392"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
