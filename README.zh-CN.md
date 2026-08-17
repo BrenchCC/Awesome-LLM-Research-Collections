@@ -895,6 +895,11 @@
 
 ## 论文解读
 
+- **Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化** (创建: 2026-08-17; 更新: 2026-08-17) \
+  **描述**: 基于演化对象、演化时机与软件证据三条主线，梳理自进化编码智能体如何更新框架、记忆、技能工具、模型与协作结构，并讨论可信演化所需的验证、版本化和回滚机制。 \
+  [[笔记](notes/zh/agents/self-evolving-coding-agents.qmd)]
+  [[English](notes/en/agents/self-evolving-coding-agents.qmd)]
+
 - **SkillRL：如何将一次失败变成可复用的 Skill** (创建: 2026-08-10; 更新: 2026-08-11) \
   **描述**: 以 ALFWorld 的 Skipping State Changes 为贯穿案例，拆解 SkillRL 如何从失败轨迹提炼候选技能、组织 SkillBank、训练技能使用策略，并区分论文证据、代码实现与生产准入建议。 \
   [[笔记](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]

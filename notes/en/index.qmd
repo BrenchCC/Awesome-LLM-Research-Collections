@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>19</strong><span>Notes</span></div>
+    <div><strong>20</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-08-12</strong><span>Latest creation</span></div>
+    <div><strong>2026-08-17</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -25,6 +25,23 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/self-evolving-coding-agents.html">
+  <span class="category-count">Created 2026-08-17 · Updated 2026-08-17</span>
+  <h3>Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution</h3>
+  <p>A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution.</p>
+  <div class="note-tags">
+    <span class="note-tag">Self-Evolving Coding Agents</span>
+    <span class="note-tag">Coding Agents</span>
+    <span class="note-tag">Agent Self-Evolution</span>
+    <span class="note-tag">Software Engineering</span>
+    <span class="note-tag">Agent Memory</span>
+    <span class="note-tag">Agent Skills</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
 <a class="category-card" href="reinforcement-learning/skillrl-failure-to-reusable-skill.html">
   <span class="category-count">Created 2026-08-10 · Updated 2026-08-11</span>
   <h3>SkillRL: How a Failure Becomes a Reusable Skill</h3>

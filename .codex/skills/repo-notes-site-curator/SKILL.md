@@ -85,6 +85,10 @@ Keep paired English and Chinese notes aligned on `date`, `date-modified`, `autho
 - Put shared images under `notes/assets/<slug>/`.
 - From `notes/<lang>/<topic>/<slug>.qmd`, reference shared assets with `../../assets/<slug>/<file>`.
 - Do not leave per-language duplicate image folders unless the image is language-specific.
+- Preserve high-resolution source images. Do not downsample an asset only to make it appear smaller on the rendered page.
+- Control final layout in `.qmd` image references with Quarto `width` and `fig-align` attributes, for example: `![Alt text](../../assets/<slug>/<file>){width="90%" fig-align="center"}`.
+- Choose display width according to the content and rendered legibility. As starting ranges, use about `70%`–`80%` for titles or compact text crops and `85%`–`95%` for wide figures or tables. Keep corresponding image order, `width`, and `fig-align` attributes aligned across bilingual notes.
+- Treat file-size optimization and display sizing as separate concerns. When a source asset is unnecessarily large, prefer lossless optimization before considering any resolution reduction.
 
 ## Workflow
 
@@ -124,16 +128,19 @@ python scripts/check_readme_qmd_sync.py
 python scripts/sync_blog_shares.py
 ```
 
-12. Render the website when requested or when navigation/render configuration changed:
+12. Render the website when requested; when navigation/render configuration changed; or after adding or modifying images, SVGs, `width`, or `fig-align` attributes:
 
 ```bash
 quarto render --no-execute
 ```
+
+Inspect the rendered pages for image overflow, undersized content, blur, and unwanted horizontal scrolling. Fix presentation by adjusting the `.qmd` `width` first instead of shrinking the high-resolution source image.
 
 ## Output Expectations
 
 - Keep notes separate from the paper catalog.
 - Deliver complete English and Chinese note pairs unless the user explicitly requests otherwise.
 - Confirm that every edited note pair preserves its creation `date` and carries the current `date-modified` value before generating indexes.
+- Confirm that bilingual image order and Quarto layout attributes match, and that the rendered image layout has been inspected.
 - Do not hand-edit generated README Notes sections after running the sync script.
 - Mention any missing bilingual pair, missing metadata, or failed render clearly.

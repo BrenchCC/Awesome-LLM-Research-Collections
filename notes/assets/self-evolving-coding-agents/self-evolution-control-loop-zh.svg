@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">受控自进化状态机</title>
+  <desc id="desc">从证据采集、候选变更、隔离验证、版本化发布到在线监控，并在异常时回滚的闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" rx="30" fill="url(#bg)"/>
+  <text x="60" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="700" fill="#0f172a">受控自进化状态机</text>
+  <text x="60" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" fill="#475569">把“会改变自己”变成可验证、可追溯、可回滚的工程流程</text>
+  <rect x="930" y="47" width="210" height="42" rx="21" fill="#e0e7ff"/>
+  <text x="1035" y="74" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#4338ca">本文扩展 · 非论文原图</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+    <rect x="280" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="505" y="170" width="190" height="200" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="730" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <rect x="955" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <circle cx="78" cy="207" r="17" fill="#0ea5e9"/>
+    <text x="78" y="213" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">1</text>
+    <text x="150" y="239" text-anchor="middle" font-size="23" font-weight="700" fill="#0f172a">证据采集</text>
+    <text x="150" y="275" text-anchor="middle" font-size="17" fill="#475569">测试 · CI · 评审</text>
+    <text x="150" y="304" text-anchor="middle" font-size="17" fill="#475569">环境状态 · 轨迹</text>
+
+    <circle cx="303" cy="207" r="17" fill="#6366f1"/>
+    <text x="303" y="213" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">2</text>
+    <text x="375" y="239" text-anchor="middle" font-size="23" font-weight="700" fill="#0f172a">形成候选</text>
+    <text x="375" y="275" text-anchor="middle" font-size="17" fill="#475569">记忆 · 技能 · 工作流</text>
+    <text x="375" y="304" text-anchor="middle" font-size="17" fill="#475569">框架 · 模型参数</text>
+
+    <circle cx="528" cy="192" r="17" fill="#f59e0b"/>
+    <text x="528" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">3</text>
+    <text x="600" y="231" text-anchor="middle" font-size="23" font-weight="700" fill="#78350f">隔离验证门</text>
+    <text x="600" y="267" text-anchor="middle" font-size="17" fill="#92400e">留出集增益</text>
+    <text x="600" y="296" text-anchor="middle" font-size="17" fill="#92400e">回归 · 安全 · 成本</text>
+    <rect x="548" y="320" width="104" height="30" rx="15" fill="#fef3c7"/>
+    <text x="600" y="341" text-anchor="middle" font-size="15" font-weight="700" fill="#b45309">通过 / 拒绝</text>
+
+    <circle cx="753" cy="207" r="17" fill="#22c55e"/>
+    <text x="753" y="213" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">4</text>
+    <text x="825" y="239" text-anchor="middle" font-size="23" font-weight="700" fill="#0f172a">版本化发布</text>
+    <text x="825" y="275" text-anchor="middle" font-size="17" fill="#475569">不可变快照</text>
+    <text x="825" y="304" text-anchor="middle" font-size="17" fill="#475569">灰度 / 金丝雀</text>
+
+    <circle cx="978" cy="207" r="17" fill="#10b981"/>
+    <text x="978" y="213" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">5</text>
+    <text x="1050" y="239" text-anchor="middle" font-size="23" font-weight="700" fill="#0f172a">在线监控</text>
+    <text x="1050" y="275" text-anchor="middle" font-size="17" fill="#475569">质量 · 成本 · 漂移</text>
+    <text x="1050" y="304" text-anchor="middle" font-size="17" fill="#475569">保留率 · 事故率</text>
+  </g>
+
+  <g fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M245 270 H272"/>
+    <path d="M470 270 H497"/>
+    <path d="M695 270 H722"/>
+    <path d="M920 270 H947"/>
+  </g>
+
+  <path d="M1050 360 V472 H600" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrow-red)"/>
+  <rect x="415" y="435" width="370" height="78" rx="18" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+  <text x="600" y="468" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#be123c">异常触发回滚</text>
+  <text x="600" y="496" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#9f1239">恢复上一稳定版本，同时保留失败证据供离线分析</text>
+  <path d="M415 474 H150 V363" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrow-red)"/>
+
+  <text x="600" y="590" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#334155">核心原则：学习闭环与生产闭环分离；任何持久化变更都必须先过验证门。</text>
+</svg>

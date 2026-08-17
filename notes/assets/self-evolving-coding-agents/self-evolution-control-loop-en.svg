@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Controlled self-evolution state machine</title>
+  <desc id="desc">A loop from evidence collection and candidate changes through isolated validation, versioned release, monitoring, and rollback.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" rx="30" fill="url(#bg)"/>
+  <text x="60" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="700" fill="#0f172a">Controlled Self-Evolution State Machine</text>
+  <text x="60" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" fill="#475569">Turn “changing itself” into a verifiable, traceable, and reversible process</text>
+  <rect x="905" y="47" width="235" height="42" rx="21" fill="#e0e7ff"/>
+  <text x="1022" y="74" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="600" fill="#4338ca">Our extension · not from paper</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+    <rect x="280" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#c7d2fe" stroke-width="2"/>
+    <rect x="505" y="170" width="190" height="200" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="730" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+    <rect x="955" y="185" width="190" height="170" rx="20" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <circle cx="78" cy="202" r="15" fill="#0ea5e9"/>
+    <text x="78" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1</text>
+    <text x="150" y="244" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Collect evidence</text>
+    <text x="150" y="275" text-anchor="middle" font-size="16" fill="#475569">Tests · CI · review</text>
+    <text x="150" y="304" text-anchor="middle" font-size="16" fill="#475569">Environment · traces</text>
+
+    <circle cx="303" cy="202" r="15" fill="#6366f1"/>
+    <text x="303" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2</text>
+    <text x="375" y="244" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Propose change</text>
+    <text x="375" y="275" text-anchor="middle" font-size="16" fill="#475569">Memory · skill · workflow</text>
+    <text x="375" y="304" text-anchor="middle" font-size="16" fill="#475569">Framework · model</text>
+
+    <circle cx="528" cy="187" r="15" fill="#f59e0b"/>
+    <text x="528" y="193" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3</text>
+    <text x="600" y="236" text-anchor="middle" font-size="19" font-weight="700" fill="#78350f">Isolation gate</text>
+    <text x="600" y="267" text-anchor="middle" font-size="16" fill="#92400e">Held-out gain</text>
+    <text x="600" y="296" text-anchor="middle" font-size="16" fill="#92400e">Regression · safety · cost</text>
+    <rect x="540" y="320" width="120" height="30" rx="15" fill="#fef3c7"/>
+    <text x="600" y="341" text-anchor="middle" font-size="14" font-weight="700" fill="#b45309">Accept / reject</text>
+
+    <circle cx="753" cy="202" r="15" fill="#22c55e"/>
+    <text x="753" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">4</text>
+    <text x="825" y="244" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Versioned release</text>
+    <text x="825" y="275" text-anchor="middle" font-size="16" fill="#475569">Immutable snapshot</text>
+    <text x="825" y="304" text-anchor="middle" font-size="16" fill="#475569">Staged / canary</text>
+
+    <circle cx="978" cy="202" r="15" fill="#10b981"/>
+    <text x="978" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">5</text>
+    <text x="1050" y="244" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Monitor online</text>
+    <text x="1050" y="275" text-anchor="middle" font-size="16" fill="#475569">Quality · cost · drift</text>
+    <text x="1050" y="304" text-anchor="middle" font-size="16" fill="#475569">Retention · incidents</text>
+  </g>
+
+  <g fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M245 270 H272"/>
+    <path d="M470 270 H497"/>
+    <path d="M695 270 H722"/>
+    <path d="M920 270 H947"/>
+  </g>
+
+  <path d="M1050 360 V472 H600" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrow-red)"/>
+  <rect x="415" y="435" width="370" height="78" rx="18" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+  <text x="600" y="468" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#be123c">Rollback on anomaly</text>
+  <text x="600" y="496" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" fill="#9f1239">Restore the last stable version and retain failure evidence</text>
+  <path d="M415 474 H150 V363" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrow-red)"/>
+
+  <text x="600" y="590" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#334155">Principle: separate learning from production; every persistent change must pass the gate.</text>
+</svg>

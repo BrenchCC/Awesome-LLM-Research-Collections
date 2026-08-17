@@ -896,6 +896,11 @@
 
 ## Paper Readings
 
+- **Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution** (Created: 2026-08-17; Updated: 2026-08-17) \
+  **Description**: A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution. \
+  [[Note](notes/en/agents/self-evolving-coding-agents.qmd)]
+  [[中文](notes/zh/agents/self-evolving-coding-agents.qmd)]
+
 - **SkillRL: How a Failure Becomes a Reusable Skill** (Created: 2026-08-10; Updated: 2026-08-11) \
   **Description**: A reading of SkillRL through ALFWorld's Skipping State Changes failure, tracing candidate-skill extraction, SkillBank organization, skill-aware policy training, and the boundary between paper evidence, repository behavior, and production admission controls. \
   [[Note](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]

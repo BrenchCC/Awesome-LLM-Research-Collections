@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>19</strong><span>笔记</span></div>
+    <div><strong>20</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-12</strong><span>最近创建</span></div>
+    <div><strong>2026-08-17</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -25,6 +25,23 @@ toc: false
     <h2>论文解读</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/self-evolving-coding-agents.html">
+  <span class="category-count">创建 2026-08-17 · 更新 2026-08-17</span>
+  <h3>Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化</h3>
+  <p>基于演化对象、演化时机与软件证据三条主线，梳理自进化编码智能体如何更新框架、记忆、技能工具、模型与协作结构，并讨论可信演化所需的验证、版本化和回滚机制。</p>
+  <div class="note-tags">
+    <span class="note-tag">Self-Evolving Coding Agents</span>
+    <span class="note-tag">Coding Agents</span>
+    <span class="note-tag">Agent Self-Evolution</span>
+    <span class="note-tag">Software Engineering</span>
+    <span class="note-tag">Agent Memory</span>
+    <span class="note-tag">Agent Skills</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>论文解读</span>
+  </div>
+</a>
 <a class="category-card" href="reinforcement-learning/skillrl-failure-to-reusable-skill.html">
   <span class="category-count">创建 2026-08-10 · 更新 2026-08-11</span>
   <h3>SkillRL：如何将一次失败变成可复用的 Skill</h3>
