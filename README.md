@@ -620,6 +620,12 @@
   **Description**: This paper studies policy entropy collapse as a bottleneck in RL for reasoning language models, showing an empirical relationship between entropy and downstream performance that makes the performance ceiling predictable. It derives entropy dynamics from the covariance between action probability and logit updates, then proposes Clip-Cov and KL-Cov to preserve exploration and improve downstream performance. \
   <a href="https://arxiv.org/abs/2505.22617"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Seek in the Dark: Reasoning via Test-Time Instance-Level Policy Gradient in Latent Space** (2025.05) \
+  **Description**: This paper introduces LatentSeek, a test-time instance-level adaptation framework that uses policy gradients and self-generated rewards to iteratively optimize an LLM's latent representations without updating model parameters. It improves reasoning across GSM8K, MATH-500, and AIME2024 while typically converging within only a few iterations. \
+  <a href="https://arxiv.org/abs/2505.13308"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://bigai-nlco.github.io/LatentSeek/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/bigai-nlco/LatentSeek"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **Description**: This paper shows that pure reinforcement learning can directly elicit advanced reasoning behaviors in LLMs without human-labeled reasoning traces. The proposed framework induces self-reflection, verification, and adaptive strategy use, leading to strong gains on math, coding, and STEM reasoning tasks. \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

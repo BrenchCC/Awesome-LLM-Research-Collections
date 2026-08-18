@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>50</strong><span>Papers</span></div>
-    <div><strong>100</strong><span>Resource links</span></div>
+    <div><strong>51</strong><span>Papers</span></div>
+    <div><strong>103</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -429,7 +429,7 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">9 papers</p>
+    <p class="eyebrow">10 papers</p>
     <h2>Reasoning RL</h2>
   </div>
   <div class="paper-grid">
@@ -513,6 +513,19 @@ toc: false
   <p>This paper studies policy entropy collapse as a bottleneck in RL for reasoning language models, showing an empirical relationship between entropy and downstream performance that makes the performance ceiling predictable. It derives entropy dynamics from the covariance between action probability and logit updates, then proposes Clip-Cov and KL-Cov to preserve exploration and improve downstream performance.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2505.22617" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="seek-in-the-dark-reasoning-via-test-time-instance-level-policy-gradient-in-latent-space">
+  <div class="paper-meta">
+    <span>2025.05</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>Seek in the Dark: Reasoning via Test-Time Instance-Level Policy Gradient in Latent Space</h3>
+  <p>This paper introduces LatentSeek, a test-time instance-level adaptation framework that uses policy gradients and self-generated rewards to iteratively optimize an LLM&#x27;s latent representations without updating model parameters. It improves reasoning across GSM8K, MATH-500, and AIME2024 while typically converging within only a few iterations.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2505.13308" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://bigai-nlco.github.io/LatentSeek/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/bigai-nlco/LatentSeek" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="deepseek-r1-incentivizing-reasoning-capability-in-llms-via-reinforcement-learning">

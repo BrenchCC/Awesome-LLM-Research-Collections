@@ -619,6 +619,12 @@
   **描述**: 该论文研究推理语言模型强化学习中的策略熵坍塌瓶颈，发现熵与下游性能之间存在经验关系，使性能上限可被预测。论文从动作概率与 logit 更新的协方差推导熵动态，并提出 Clip-Cov 和 KL-Cov 保持探索、提升下游表现。 \
   <a href="https://arxiv.org/abs/2505.22617"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **Seek in the Dark: Reasoning via Test-Time Instance-Level Policy Gradient in Latent Space** (2025.05) \
+  **描述**: 该论文提出 LatentSeek，一种测试时实例级适应框架，在不更新模型参数的情况下，利用策略梯度与自生成奖励迭代优化 LLM 的潜在表示。该方法在 GSM8K、MATH-500 和 AIME2024 上提升推理表现，并且通常只需少量迭代即可收敛。 \
+  <a href="https://arxiv.org/abs/2505.13308"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://bigai-nlco.github.io/LatentSeek/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/bigai-nlco/LatentSeek"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning** (2025.01) \
   **描述**: 该论文展示纯强化学习无需人工标注推理轨迹即可直接激发 LLM 的高级推理行为。所提出框架诱导自我反思、验证和自适应策略使用，并在数学、代码和 STEM 推理任务上取得强提升。 \
   <a href="https://arxiv.org/abs/2501.12948"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
