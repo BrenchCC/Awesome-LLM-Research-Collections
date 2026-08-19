@@ -954,7 +954,7 @@
 ## 技术思考
 
 - **如何科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-20) \
-  **描述**: 从评测对象、分层指标、环境与任务设计、评分协议、失败归因和双层回归出发，构建可复现且受安全门禁约束的 AI Agent 评测闭环。 \
+  **描述**: 从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。 \
   [[笔记](notes/zh/agents/scientific-agent-evaluation.qmd)]
   [[English](notes/en/agents/scientific-agent-evaluation.qmd)]
 

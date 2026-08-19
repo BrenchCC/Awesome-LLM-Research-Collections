@@ -955,7 +955,7 @@
 ## Technical Reflections
 
 - **How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-20) \
-  **Description**: A reproducible, safety-gated approach to AI agent evaluation covering the evaluation object, layered metrics, environment and task design, grading protocols, failure attribution, and dual regression. \
+  **Description**: A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression. \
   [[Note](notes/en/agents/scientific-agent-evaluation.qmd)]
   [[中文](notes/zh/agents/scientific-agent-evaluation.qmd)]
 

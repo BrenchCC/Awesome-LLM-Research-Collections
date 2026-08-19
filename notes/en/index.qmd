@@ -200,7 +200,7 @@ toc: false
 <a class="category-card" href="agents/scientific-agent-evaluation.html">
   <span class="category-count">Created 2026-08-19 · Updated 2026-08-20</span>
   <h3>How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop</h3>
-  <p>A reproducible, safety-gated approach to AI agent evaluation covering the evaluation object, layered metrics, environment and task design, grading protocols, failure attribution, and dual regression.</p>
+  <p>A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression.</p>
   <div class="note-tags">
     <span class="note-tag">Agent Evaluation</span>
     <span class="note-tag">Benchmark Design</span>
