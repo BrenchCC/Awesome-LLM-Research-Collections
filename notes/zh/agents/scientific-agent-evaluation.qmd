@@ -1,8 +1,8 @@
 ---
 author: Brench
 date: 2026-08-19
-date-modified: 2026-08-19
-title: "科学评测 AI Agent：指标、环境、裁判与回归闭环"
+date-modified: 2026-08-20
+title: "如何科学评测 AI Agent：指标、环境、裁判与回归闭环"
 description: "从评测对象、分层指标、环境与任务设计、评分协议、失败归因和双层回归出发，构建可复现且受安全门禁约束的 AI Agent 评测闭环。"
 order: 1
 note_type: technical-reflection
@@ -25,8 +25,9 @@ tags:
 
 ```{mermaid}
 %%| fig-width: 10
+%%| fig-align: center
 flowchart TB
-    accTitle: 科学评测 AI Agent 的闭环
+    accTitle: 如何科学评测 AI Agent 的闭环
     accDescr: 任务设计依次进入隔离环境、重复运行、状态与轨迹评分、百分之九十五置信区间、安全门禁、失败归因和双层回归，回归样例再反馈给任务设计
 
     task["任务设计"] --> environment["隔离环境"]

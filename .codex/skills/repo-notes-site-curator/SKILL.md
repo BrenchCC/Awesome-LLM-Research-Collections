@@ -87,6 +87,7 @@ Keep paired English and Chinese notes aligned on `date`, `date-modified`, `autho
 - Do not leave per-language duplicate image folders unless the image is language-specific.
 - Preserve high-resolution source images. Do not downsample an asset only to make it appear smaller on the rendered page.
 - Control final layout in `.qmd` image references with Quarto `width` and `fig-align` attributes, for example: `![Alt text](../../assets/<slug>/<file>){width="90%" fig-align="center"}`.
+- Center Mermaid diagrams explicitly with the Quarto cell option `%%| fig-align: center`; do not rely on the browser's default alignment. Keep this option aligned across bilingual notes, then inspect the rendered SVG to confirm it is horizontally centered.
 - Choose display width according to the content and rendered legibility. As starting ranges, use about `70%`–`80%` for titles or compact text crops and `85%`–`95%` for wide figures or tables. Keep corresponding image order, `width`, and `fig-align` attributes aligned across bilingual notes.
 - Treat file-size optimization and display sizing as separate concerns. When a source asset is unnecessarily large, prefer lossless optimization before considering any resolution reduction.
 
@@ -134,7 +135,7 @@ python scripts/sync_blog_shares.py
 quarto render --no-execute
 ```
 
-Inspect the rendered pages for image overflow, undersized content, blur, and unwanted horizontal scrolling. Fix presentation by adjusting the `.qmd` `width` first instead of shrinking the high-resolution source image.
+Inspect the rendered pages for image overflow, undersized content, blur, unwanted horizontal scrolling, and Mermaid diagrams that are not horizontally centered. Fix presentation by adjusting the `.qmd` layout options first instead of shrinking the high-resolution source image.
 
 ## Output Expectations
 

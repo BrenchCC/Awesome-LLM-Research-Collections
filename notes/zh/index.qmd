@@ -198,8 +198,8 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/scientific-agent-evaluation.html">
-  <span class="category-count">创建 2026-08-19 · 更新 2026-08-19</span>
-  <h3>科学评测 AI Agent：指标、环境、裁判与回归闭环</h3>
+  <span class="category-count">创建 2026-08-19 · 更新 2026-08-20</span>
+  <h3>如何科学评测 AI Agent：指标、环境、裁判与回归闭环</h3>
   <p>从评测对象、分层指标、环境与任务设计、评分协议、失败归因和双层回归出发，构建可复现且受安全门禁约束的 AI Agent 评测闭环。</p>
   <div class="note-tags">
     <span class="note-tag">Agent Evaluation</span>
