@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">端到端回归与 trajectory-prefix 回归的职责边界</title>
+  <desc id="desc">同一个冻结版本包进入两条独立测试通道。左侧端到端回归从干净初始状态完整运行并负责发布门禁。右侧前缀回归从正确、失败或扰动前缀恢复，用于隔离策略、工具与恢复问题；条件化分支结果不得并入端到端成功率。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4b5563"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="820" fill="#ffffff"/>
+  <text x="700" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#111827">两类回归，两个不同的条件分布</text>
+  <rect x="360" y="78" width="680" height="76" rx="14" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="700" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#312e81">冻结版本包</text>
+  <text x="700" y="135" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#3730a3">模型 · Agent harness · Prompt · 工具 · 环境 · Grader</text>
+
+  <rect x="48" y="180" width="616" height="560" rx="18" fill="#f8fafc" stroke="#2563eb" stroke-width="3"/>
+  <text x="356" y="220" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">端到端回归</text>
+  <text x="356" y="247" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">估计从真实初始状态出发的系统表现</text>
+  <rect x="155" y="285" width="402" height="68" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="356" y="326" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#172554">干净重置 + 完整任务输入</text>
+  <rect x="155" y="397" width="402" height="68" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="356" y="438" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#0c4a6e">完整 rollout：规划、工具、恢复</text>
+  <rect x="155" y="509" width="402" height="74" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="356" y="540" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#14532d">状态与轨迹评分</text>
+  <text x="356" y="564" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#166534">成功率 · 可靠性 · 成本/延迟 · 安全</text>
+  <rect x="155" y="627" width="402" height="72" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+  <text x="356" y="659" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#7c2d12">发布门禁</text>
+  <text x="356" y="683" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9a3412">唯一可进入发布判断的回归分布</text>
+
+  <rect x="736" y="180" width="616" height="560" rx="18" fill="#fdfcfb" stroke="#7c3aed" stroke-width="3"/>
+  <text x="1044" y="220" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#581c87">trajectory-prefix 回归</text>
+  <text x="1044" y="247" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b21a8">条件化诊断：固定历史后从快照继续</text>
+
+  <rect x="790" y="285" width="158" height="94" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="869" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#14532d">正确前缀</text>
+  <text x="869" y="346" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#166534">隔离后续策略</text>
+  <rect x="965" y="285" width="158" height="94" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="1044" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#7f1d1d">失败前缀</text>
+  <text x="1044" y="346" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#991b1b">检查恢复能力</text>
+  <rect x="1140" y="285" width="158" height="94" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="1219" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#78350f">扰动前缀</text>
+  <text x="1219" y="346" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#92400e">检查局部稳健性</text>
+  <rect x="840" y="448" width="408" height="88" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="1044" y="482" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#3b0764">隔离诊断</text>
+  <text x="1044" y="510" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#581c87">策略选择 · 工具契约 · 状态恢复 · 错误传播</text>
+  <rect x="840" y="602" width="408" height="98" rx="12" fill="#fff1f2" stroke="#be123c" stroke-width="3"/>
+  <text x="1044" y="638" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#881337">不得并入端到端成功率</text>
+  <text x="1044" y="665" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9f1239">前缀由诊断者选择，改变了样本条件</text>
+  <text x="1044" y="688" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9f1239">单独报告分支覆盖与恢复结果</text>
+
+  <g stroke="#4b5563" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M560,154 L560,168 L688,168 L688,267 L356,267 L356,280"/>
+    <path d="M840,154 L840,168 L712,168 L712,267 L1044,267 L1044,280"/>
+    <path d="M356,353 L356,392"/>
+    <path d="M356,465 L356,504"/>
+    <path d="M356,583 L356,622"/>
+    <path d="M869,379 L970,443"/>
+    <path d="M1044,379 L1044,443"/>
+    <path d="M1219,379 L1118,443"/>
+    <path d="M1044,536 L1044,597"/>
+  </g>
+  <text x="700" y="786" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#4b5563">共享版本包与失败样例链接；分开统计、分开解释、分开决策</text>
+</svg>

@@ -954,6 +954,11 @@
 
 ## Technical Reflections
 
+- **Scientific Evaluation of AI Agents: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-19) \
+  **Description**: A reproducible, safety-gated approach to AI agent evaluation covering the evaluation object, layered metrics, environment and task design, grading protocols, failure attribution, and dual regression. \
+  [[Note](notes/en/agents/scientific-agent-evaluation.qmd)]
+  [[中文](notes/zh/agents/scientific-agent-evaluation.qmd)]
+
 - **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (Created: 2026-08-12; Updated: 2026-08-14) \
   **Description**: An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building. \
   [[Note](notes/en/agents/clio-llm-embedding-clustering.qmd)]

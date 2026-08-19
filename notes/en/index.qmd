@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>20</strong><span>Notes</span></div>
+    <div><strong>21</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-08-17</strong><span>Latest creation</span></div>
+    <div><strong>2026-08-19</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -197,6 +197,22 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/scientific-agent-evaluation.html">
+  <span class="category-count">Created 2026-08-19 · Updated 2026-08-19</span>
+  <h3>Scientific Evaluation of AI Agents: Metrics, Environments, Judges, and the Regression Loop</h3>
+  <p>A reproducible, safety-gated approach to AI agent evaluation covering the evaluation object, layered metrics, environment and task design, grading protocols, failure attribution, and dual regression.</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent Evaluation</span>
+    <span class="note-tag">Benchmark Design</span>
+    <span class="note-tag">LLM-as-a-Judge</span>
+    <span class="note-tag">Regression Testing</span>
+    <span class="note-tag">Agent Safety</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
 <a class="category-card" href="agents/clio-llm-embedding-clustering.html">
   <span class="category-count">Created 2026-08-12 · Updated 2026-08-14</span>
   <h3>From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering</h3>

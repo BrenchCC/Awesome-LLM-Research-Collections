@@ -953,6 +953,11 @@
 
 ## 技术思考
 
+- **科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-19) \
+  **描述**: 从评测对象、分层指标、环境与任务设计、评分协议、失败归因和双层回归出发，构建可复现且受安全门禁约束的 AI Agent 评测闭环。 \
+  [[笔记](notes/zh/agents/scientific-agent-evaluation.qmd)]
+  [[English](notes/en/agents/scientific-agent-evaluation.qmd)]
+
 - **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (创建: 2026-08-12; 更新: 2026-08-14) \
   **描述**: 从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。 \
   [[笔记](notes/zh/agents/clio-llm-embedding-clustering.qmd)]

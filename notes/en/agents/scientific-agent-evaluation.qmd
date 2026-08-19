@@ -1,0 +1,329 @@
+---
+author: Brench
+date: 2026-08-19
+date-modified: 2026-08-19
+title: "Scientific Evaluation of AI Agents: Metrics, Environments, Judges, and the Regression Loop"
+description: "A reproducible, safety-gated approach to AI agent evaluation covering the evaluation object, layered metrics, environment and task design, grading protocols, failure attribution, and dual regression."
+order: 1
+note_type: technical-reflection
+topic: agents
+tags:
+  - Agent Evaluation
+  - Benchmark Design
+  - LLM-as-a-Judge
+  - Regression Testing
+  - Agent Safety
+---
+
+A single success is easy to demonstrate. The harder questions are which system produced it, whether it repeats, what it cost, and whether a failure can cross a safety boundary. An agent's output is jointly produced by a model, its runtime scaffold, prompts, tools, and external state, then interpreted by a grader. One average success rate compresses those variables into a number that cannot be audited.
+
+This note fixes the evaluation object as **model × agent harness × prompt × tool version × environment × grader**, then separates five layers: final state, execution process, repeat reliability, cost and latency, and safety risk. The goal is not to implement another framework. It is to give existing evaluation systems a versioned, comparable, and regression-ready protocol.
+
+::: {.callout-warning title="Evidence boundary"}
+This is an evaluation-method design, not a report of new agent experiments. Its task, environment, and grading principles come from papers and official engineering material. `AgentLens` and `DIVERT` are both 2026 preprints; they appear only as optional approaches to process diagnosis and snapshot branching, not as methods already replicated across domains.
+:::
+
+```{mermaid}
+%%| fig-width: 10
+flowchart TB
+    accTitle: A scientific AI agent evaluation loop
+    accDescr: Task design moves through an isolated environment, repeated trials, outcome and trajectory grading, a ninety-five-percent confidence interval, a safety gate, failure attribution, and dual regression before versioned cases feed back into task design
+
+    task["Task design"] --> environment["Isolated environment"]
+    environment --> trials["Repeated trials"]
+    trials --> grading["Outcome / trajectory grading"]
+    grading --> ci["95% CI"]
+    ci --> safety{"Safety gate"}
+    safety --> attribution["Failure attribution"]
+    attribution --> regression["Dual regression"]
+    regression -. "Versioned cases" .-> task
+
+    classDef design fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef analysis fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px;
+    classDef gate fill:#fff7ed,stroke:#ea580c,color:#7c2d12,stroke-width:3px;
+    classDef regression_style fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px;
+
+    class task,environment,trials design;
+    class grading,ci,attribution analysis;
+    class safety gate;
+    class regression regression_style;
+```
+
+_Figure 1: The evaluation loop connects tasks, execution, grading, statistics, safety, and regression. The safety gate can block a release, while failure cases enter two regressions with different responsibilities. Diagram synthesized in this note._
+
+## 1. Evaluation object: a score belongs to a frozen configuration, not a bare model
+
+Anthropic's [guide to agent evaluations](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) provides a broader evaluation glossary. This note selects five units that are often conflated.
+
+| Unit | Operational definition | What the evaluation should preserve |
+| --- | --- | --- |
+| task | One test with inputs, initial state, and success criteria | Task ID, template version, instance parameters, initial-state hash |
+| trial | One attempt at a task under a frozen configuration | Trial ID, random seed, time and resource budgets, termination reason |
+| trajectory | The ordered interaction record for a trial | Model messages, tool calls, tool outputs, state differences, intermediate artifacts |
+| outcome | The environment state and deliverables when the trial ends | Database, files, ticket, patch, and user-visible result |
+| evaluation harness | Infrastructure that runs, isolates, records, grades, and aggregates trials | Runner, container, concurrency, retry, grader, and aggregation versions |
+
+The `agent harness` is the scaffold that organizes model context, prompts, tools, and the control loop. The `evaluation harness` runs the complete test. They are different layers. The identity key for one comparable run can be written as:
+
+$$
+\Theta
+=
+M
+\times H_{\mathrm{agent}}
+\times P
+\times V_{\mathrm{tools}}
+\times E
+\times G.
+$$
+
+Here, $M$ is the model and inference configuration, $H_{\mathrm{agent}}$ is the agent harness, $P$ contains system and task prompts, $V_{\mathrm{tools}}$ identifies tool schemas and implementations, $E$ identifies the environment image and initial state, and $G$ identifies the grader, rubric, and aggregation protocol. A change to any component creates a new $\Theta$. A comparison report should expose traceable versions for all six rather than naming only the model.
+
+![A multi-turn τ-bench interaction among a simulated user, an agent, tools, and a database, followed by an example trajectory that rejects the original request under policy](../../assets/scientific-agent-evaluation/tau-bench-figure-1.png){width="92%" fig-align="center" fig-alt="τ-bench Figure 1, where a simulated user converses with an agent, the agent calls tools that read and write a database, and domain policy determines how a request is completed or rejected"}
+
+_Figure 2: User–Agent–Tool–Database interaction in τ-bench. Different dialogue paths can reach the same valid outcome, so trajectories and outcomes must be preserved separately. Figure 1 in the original paper; source: [τ-bench paper PDF](https://arxiv.org/pdf/2406.12045)._
+
+## 2. Five metric layers: measure separately before making a release decision
+
+An agent evaluation needs at least five metric layers. They answer different questions and should not be averaged into one score before interpretation.
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| Layer | Core question | Representative metrics | Primary evidence |
+| --- | --- | --- | --- |
+| Final state | Was the task actually completed? | Outcome success, required-condition pass rate, rubric partial credit | State diff, deliverable, deterministic assertions |
+| Execution process | How did the agent complete or damage the task? | Policy violations, invalid calls, first divergence, recovery success, redundant steps | Complete trajectory, tool and permission logs |
+| Repeat reliability | Can it complete the same task consistently? | `pass@k`, `pass^k`, per-task success distribution | Multiple independent trials |
+| Cost and latency | What resources does success require? | Tokens, tool fees, wall time, P50/P95 latency, retries | Unified billing and telemetry logs |
+| Safety risk | Did it cause an unacceptable consequence? | Privilege violations, attack success, sensitive-data leakage, irreversible side effects | Adversarial tasks, permission audit, environment-state checks |
+:::
+
+[AgentDojo](https://arxiv.org/abs/2406.13352) reports benign utility, utility under attack, and targeted attack success rate separately. That separation is better suited to release decisions than a single “utility minus risk” score. For a set of risk types $\mathcal{R}$, a release rule can use hard gates:
+
+$$
+\begin{aligned}
+\mathrm{release}(\Theta)
+&=
+\mathbf{1}\!\left\{L_{0.95}(\Delta_{\mathrm{quality}})\ge -\epsilon\right\}
+\\
+&\quad\times
+\prod_{r\in\mathcal{R}}
+\mathbf{1}\!\left\{U_{1-\alpha_r}(\widehat{q}_{r})\le\tau_{r}\right\}.
+\end{aligned}
+$$
+
+$\Delta_{\mathrm{quality}}$ is defined as candidate minus baseline, $L_{0.95}$ is the lower bound of its 95% confidence interval, and $\epsilon$ is a preregistered non-inferiority tolerance. $U_{1-\alpha_r}(\widehat q_r)$ is a one-sided upper confidence bound derived from observed risk outcomes, and $\tau_r$ is the risk gate. The value of $\alpha_r$, minimum exposure, and concrete threshold must be chosen from business risk before results are inspected. The equation encodes only one policy: failure of any safety gate blocks release; average success cannot compensate for it.
+
+::: {.callout-important title="A safety gate is not a weighted metric"}
+A high success rate and one severe privilege violation are not exchangeable quantities. Safety results should be reported as a separate vector. For a zero-tolerance category defined by observed event counts, any observed event immediately trips the gate; observing none still means only “not found within the available evidence,” not that the population risk is zero.
+:::
+
+Open-ended tasks need partial credit, but that credit should still aggregate from inspectable leaves. PaperBench decomposes research replication into a hierarchical rubric: leaf nodes receive binary judgments and parent nodes aggregate manually assigned weights that are fixed in advance.
+
+![PaperBench hierarchically decomposes a replication task into binary rubric leaves and propagates their weights into a partial score](../../assets/scientific-agent-evaluation/paperbench-figure-2.png){width="92%" fig-align="center" fig-alt="PaperBench Figure 2, a hierarchical rubric tree that decomposes research replication into granular requirements and computes a final replication score of 55% from leaf-node grades"}
+
+_Figure 3: A hierarchical rubric ties partial completion to explicit requirements instead of a judge's holistic impression. Figure 2 in the original paper; source: [PaperBench paper PDF](https://arxiv.org/pdf/2504.01848)._
+
+## 3. Repeated trials: `pass@k` and `pass^k` ask opposite questions
+
+After $\Theta$ is frozen, suppose task $i$ has $n_i$ trials that can be treated as IID, with $c_i$ successes and $n_i\ge k$. Under that assumption, τ-bench gives the following unbiased task-wise combinatorial estimators:
+
+$$
+\begin{aligned}
+\widehat{\mathrm{pass}@k}_{i}
+&=
+1-
+\frac{\binom{n_i-c_i}{k}}{\binom{n_i}{k}},
+\\
+\widehat{\mathrm{pass}^{k}}_{i}
+&=
+\frac{\binom{c_i}{k}}{\binom{n_i}{k}}.
+\end{aligned}
+$$
+
+Macro-average over $T$ tasks:
+
+$$
+\begin{aligned}
+\widehat{\mathrm{pass}@k}
+&=
+\frac{1}{T}\sum_{i=1}^{T}\widehat{\mathrm{pass}@k}_{i},
+\\
+\widehat{\mathrm{pass}^{k}}
+&=
+\frac{1}{T}\sum_{i=1}^{T}\widehat{\mathrm{pass}^{k}}_{i}.
+\end{aligned}
+$$
+
+`pass@k` asks whether at least one of $k$ attempts succeeds, which is close to “can a solution be found with enough candidates?” `pass^k` asks whether all $k$ attempts succeed, which is close to “can the system deliver reliably every time?” Pooling all trials into one global rate and then taking a power is incorrect because tasks with more trials receive more weight.
+
+Under the same IID assumption, if task $i$ has a stable success probability $p_i$, the population quantities have the following power-form simplifications:
+
+$$
+\begin{aligned}
+\mathrm{pass}@k_i
+&=
+1-(1-p_i)^k,
+\\
+\mathrm{pass}^{k}_i
+&=
+p_i^k.
+\end{aligned}
+$$
+
+Shared caches, leftover files, common rate limits, cross-trial memory, user-simulator version drift, and resource exhaustion all violate IID. The combinatorial expressions then describe, at most, subsampling $k$ attempts from the observed trials, and the curves remain descriptive rather than supporting an independent-Bernoulli interpretation of correlated samples.
+
+![At a fixed per-trial success probability of 0.60, pass@k rises with k while pass^k falls](../../assets/scientific-agent-evaluation/pass-k-curves-en.svg){width="88%" fig-align="center" fig-alt="Formula illustration with blue pass@k rising from 60% toward 100% and orange pass^k falling from 60% toward 0%"}
+
+_Figure 4: Under the illustrative assumptions of IID trials and $p=0.60$, the two metrics diverge after $k=1$. Values are computed from the formulas solely to explain the metrics; they are not experimental results from any model or benchmark._
+
+### 3.1 `Best@k` must define both the selector and the scoring function
+
+The nine primary sources do not share a standard definition of `Best@k`. If it is reported, let $\tau_{ij}$ be candidate trajectory $j$ for task $i$, select with score $s$, and evaluate with final function $q$:
+
+$$
+\begin{aligned}
+j_i^{\star}
+&=
+\underset{1\le j\le k}{\mathrm{arg\,max}}\;s(\tau_{ij}),
+\\
+\mathrm{Best}@k(s,q)
+&=
+\frac{1}{T}\sum_{i=1}^{T}q(\tau_{i j_i^{\star}}).
+\end{aligned}
+$$
+
+The report must state $s$, $q$, tie handling, candidate budget, selection cost, and what information the oracle sees. If $s$ reads hidden test truth directly, the result is an oracle-assisted upper bound rather than a deployable strategy. Prompts, harnesses, and selectors should be chosen on development data and frozen. Selecting the best prompt from test results and then treating the same test set as an unbiased evaluation is prohibited.
+
+## 4. An environment is more than a tool list
+
+A reproducible environment has at least five parts.
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| Component | What must be frozen or recorded | Common distortion |
+| --- | --- | --- |
+| Task and initial state | Instruction, entities, permissions, database/file/UI snapshot | Initial state leaks the answer or cannot be replayed |
+| Environment dynamics | State transition, concurrency, clock, user simulator, external-service change | Shared state or dynamic drift across trials |
+| Atomic tools | Schema, semantics, error codes, side effects, idempotence, version | The name stays fixed while behavior changes |
+| Grader | Outcome oracle, trajectory assertions, rubric, judge | The grader cannot access decisive evidence or is itself attacked |
+| Execution protocol | Reset, budget, timeout, retry, termination, permission, network rules | Configurations receive different resources or recovery opportunities |
+:::
+
+Interaction topology and scoring oracle are orthogonal dimensions. In τ-bench, the agent calls tools while the simulated user supplies information, giving a single-control environment. [τ²-bench](https://arxiv.org/abs/2506.07982) lets both user and agent change a shared environment through tools, giving dual control. Either topology can be graded with final database state, programmatic assertions, a hierarchical rubric, or an LLM judge. Environment complexity does not require a model grader; a deterministic oracle resolves scoring but still does not identify who controls state changes.
+
+Isolation means more than creating a new container. Post-reset state hashes, dependency versions, clock, random seeds, caches, and quotas belong in the run record. If several trials fail because of one shared-resource outage, they are neither independent nor eligible for silent deletion.
+
+## 5. Task sets: cover real variation while controlling contamination
+
+A task bank should distinguish templates, instances, and runtime states. A template defines the business goal and constraints. A parameterized instance substitutes entities, amounts, files, times, and permissions. Runtime state then adds queued tickets, partially completed forms, existing branches, or prior messages. Testing only clean landing states may miss common intermediate conditions in deployed systems.
+
+Task design can be audited along six axes:
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| Design axis | Implementation | Evidence or basis |
+| --- | --- | --- |
+| Parameterized instances | Compose tasks from atomic components, constrain valid parameters, retain a uniquely verifiable goal | The compositional task generator in τ²-bench |
+| Real intermediate state | Start from a real baseline or replayable snapshot; preserve the full prefix and state when interaction history matters | Real repository base commits in SWE-bench-Live; resumable dialogue snapshots in DIVERT |
+| Multiple valid trajectories | Prefer outcome and necessary-policy checks over one mandatory tool order | Multi-turn paths in τ-bench and Anthropic's outcome-first guidance |
+| Hidden and rotating tasks | Hold out instances and add new time windows and entities periodically | The PaperBench held-out set; the continuously updated design of SWE-bench-Live |
+| Contamination protection | Record first-public dates, training visibility, resource blacklists, and leakage audits | SWE-bench-Live and PaperBench |
+| Coverage matrix | Track business domain, frequency, risk, difficulty, tool chain, and reversibility | Controlled complexity and domain coverage in τ²-bench |
+:::
+
+Trajectory length alone is not a difficulty measure. Two 20-step tasks differ substantially if one contains read-only queries and the other requires a permission judgment plus an irreversible write. A coverage matrix should at least cross business frequency with consequence level, then add required tools, state branching, information gaps, and recovery windows. Public tasks support development. The final release gate needs a frozen held-out suite and rotating batches. Once a test task repeatedly participates in prompt tuning, it has become development data.
+
+## 6. Grading: programmatic verification first, model judgment for soft criteria
+
+The grading protocol should follow evidence strength:
+
+1. **Programmatic validators** inspect final state, files, tests, database assertions, permissions, and forbidden side effects. A deterministically verifiable condition should not be delegated to an LLM.
+2. **LLM judges** supplement tone, explanation quality, requirement coverage, and open-ended evidence synthesis. Each soft dimension receives an isolated rubric and may return `Unknown` when evidence is insufficient.
+3. **Domain-expert spot checks** calibrate the judge and review high-risk, `Unknown`, borderline, order-sensitive, and cross-model disagreement cases.
+
+`Unknown` is not a synonym for failure. It says that the evidence contract does not support a verdict, so it should be counted separately and trigger evidence repair. A conservative release policy may treat it as failure at the gate, but the raw label must remain available.
+
+[LLM-as-a-Judge](https://arxiv.org/abs/2306.05685) documents position, verbosity, and potential self-enhancement biases. Pairwise comparison should at least swap A/B order and rejudge; inconsistent outcomes become a tie or receive human escalation rather than selective retention. Candidate names, vendors, and version identifiers supplied to the judge should be blinded. The judge itself must be versioned: model snapshot, system prompt, rubric, evidence selector, output schema, temperature, retries, and aggregation jointly define the grader version.
+
+For a detailed treatment of judge variance, borderline cases, and the distinction between consistency and validity, see [The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons](benchmark-behind-the-benchmark.qmd). This section focuses only on how those issues constrain an end-to-end agent evaluation protocol rather than repeating the existing judge-noise analysis.
+
+## 7. Statistical protocol: macro-average tasks and preserve pairing
+
+Aggregate trials within each task first, then give tasks equal weight in the macro-average. An easy task with 20 reruns should not outweigh a high-value hard task with 3. Three to five trials per task is a practical early starting point, not a guarantee of statistical sufficiency. Increase repetition when a result is near a release threshold or task variance is large. When trials are strongly correlated, first remove shared state or use inference that handles correlation and clustering; more reruns alone do not restore IID.
+
+For configurations $A$ and $B$, compute the same-task difference:
+
+$$
+d_i
+=
+\bar{y}_{i,A}-\bar{y}_{i,B},
+\qquad
+\bar{d}
+=
+\frac{1}{T}\sum_{i=1}^{T}d_i.
+$$
+
+A paired task-level bootstrap resamples task IDs and carries all trials for that task under both $A$ and $B$ together. Compute $\bar d^{*(b)}$ for each bootstrap sample and use its 2.5th and 97.5th percentiles for a 95% CI. If task families exist, add a family-level resampling layer. METR's [o3/o4-mini evaluation report](https://metr.org/evaluations/openai-o3-report/) uses a three-level bootstrap over task family, task, and attempt; the paired variant here adapts that structure to same-task configuration comparisons.
+
+Timeouts, agent crashes, and harness crashes stay in the denominator and receive distinct termination labels. Infrastructure failures may be rerun under a preregistered rule, but the original event does not disappear from the report. Cost and latency distributions should be reported for both successful trials and all trials; otherwise, fast failures can make average latency look artificially favorable.
+
+## 8. Failure records: trace the final symptom back to the earliest evidence
+
+Each failure record needs at least these fields:
+
+| Field | Content |
+| --- | --- |
+| Version bundle | The six $\Theta$ versions, code commit, container digest, dependencies, grader version |
+| Run identity | Task/trial ID, seed, budget, start time, termination reason |
+| Earliest evidenced divergence | First observable deviation in state, plan, or tool contract |
+| Hypothesized earliest causal step | Earliest inferred cause based on the evidence chain, kept separate from observable divergence |
+| Multi-label root cause | task, environment, policy/planning, tool, recovery, grader, safety |
+| Evidence references | Trajectory step, state diff, artifact hash, log excerpt, grader assertion |
+| Recoverability | Automatic, human-assisted, or irreversible; include the required prefix and state |
+| Confidence | High/medium/low, adjudicator, review status, missing evidence |
+| Regression link | End-to-end case, prefix fixture, fixing commit, first included version |
+
+The last error is usually a symptom. A failed database write may originate in an earlier identity-resolution mistake. A judge that cannot find a file may expose an evidence-contract failure rather than an unfinished task. “Earliest evidenced divergence” remains auditable, while “hypothesized causal step” preserves a diagnosis that is not yet proven.
+
+The [AgentLens](https://arxiv.org/abs/2605.12925) preprint builds process references from multiple successful trajectories and emits divergence points and waste signals. It offers one optional direction for process diagnosis, but its current evidence centers on OpenHands-style SWE trajectories. A divergence point is not automatically a causal root, and one reference trajectory must not be treated as the only legal path.
+
+## 9. Dual regression: separate the release gate from fault isolation
+
+End-to-end regression starts a complete trial from the specified initial state. It covers model decisions, tools, environment, recovery, grading, and cost, and it owns the release gate. Trajectory-prefix regression fixes an interaction history, restores its snapshot, and tests only the continuation. It is useful for three narrower questions:
+
+- From a correct prefix, can the current policy complete the remaining work?
+- From a failed prefix, can the agent or tool detect the problem and recover?
+- From a perturbed prefix, does a local state change amplify into a larger failure?
+
+![DIVERT contrasts repeated full rollouts from the initial state with directed branches resumed from intermediate snapshots](../../assets/scientific-agent-evaluation/divert-figure-1.png){width="95%" fig-align="center" fig-alt="DIVERT Figure 1, with repeated complete conversations from the beginning on the left and saved intermediate states that generate directed branches at critical points on the right"}
+
+_Figure 5: Full rollout versus snapshot branching. DIVERT stores conversation, agent, tool environment, simulator, and the original random seed in a snapshot to reuse shared prefixes and explore under-covered continuations. Source: [DIVERT paper PDF](https://arxiv.org/pdf/2604.21480), Figure 1 in a 2026 preprint._
+
+DIVERT branches are selected by coverage objectives and the diagnostic procedure. They are no longer IID trials drawn from the initial state. Prefix results can therefore report conditional branch coverage, recovery, and failure discovery, but they cannot be combined with end-to-end trials into one success rate.
+
+![End-to-end regression owns the release gate, while correct, failed, and perturbed prefix regressions isolate faults and remain statistically separate](../../assets/scientific-agent-evaluation/dual-regression-en.svg){width="94%" fig-align="center" fig-alt="Dual-regression responsibility diagram with a complete end-to-end run entering the release gate on the left and three trajectory-prefix fixtures entering policy, tool, and recovery diagnosis on the right, with an explicit prohibition on merging success rates"}
+
+_Figure 6: End-to-end and trajectory-prefix regression share version bundles and links to failures, but use different sample conditions, statistics, and decision responsibilities. Diagram synthesized in this note; prefix branching is informed by DIVERT and multi-path process diagnosis by AgentLens._
+
+## 10. Minimum reporting contract and the regression loop
+
+An auditable release report should include all of the following:
+
+1. Frozen $\Theta$, task-set version, date window, and contamination statement;
+2. Number of tasks, trials per task, termination-reason distribution, and isolation checks;
+3. Final-state, process, `pass@k`/`pass^k`, cost/latency, and safety results;
+4. Paired task-level 95% CI, macro-averaging rule, and every release threshold;
+5. Judge `Unknown` rates, order swapping, blinding, expert calibration, and version;
+6. Failure records, end-to-end regression links, and separately reported prefix diagnostics.
+
+This contract does not require one oracle for every task. Code tasks can rely on tests and static analysis, database tasks can compare final state, and open-ended deliverables can combine hierarchical rubrics with model judges. Versioning, evidence, statistical unit, and release policy must remain consistent across tasks. Task design enters an isolated environment, repeated trials receive separate outcome and trajectory grades, confidence intervals quantify sampling uncertainty in change estimates, the safety gate decides whether release is allowed, and failure attribution feeds cases into two regressions. This loop takes traceable evidence as its input; one aggregate success rate is insufficient for a release decision.
+
+## References
+
+1. Anthropic. [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). 2026.
+2. Shunyu Yao et al. [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045). 2024.
+3. Victor Barres et al. [τ²-bench: Evaluating Conversational Agents in a Dual-Control Environment](https://arxiv.org/abs/2506.07982). 2025.
+4. Giulio Starace et al. [PaperBench: Evaluating AI's Ability to Replicate AI Research](https://arxiv.org/abs/2504.01848). 2025.
+5. Lianmin Zheng et al. [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685). 2023.
+6. Linghao Zhang et al. [SWE-bench Goes Live!](https://arxiv.org/abs/2505.23419). 2025.
+7. Priyam Sahoo et al. [AgentLens: Revealing The Lucky Pass Problem in SWE-Agent Evaluation](https://arxiv.org/abs/2605.12925). 2026 preprint.
+8. Itay Nakash et al. [Efficient Agent Evaluation via Diversity-Guided User Simulation](https://arxiv.org/abs/2604.21480). 2026 preprint (DIVERT).
+9. Edoardo Debenedetti et al. [AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents](https://arxiv.org/abs/2406.13352). 2024.
+10. METR. [Details about METR's preliminary evaluation of OpenAI's o3 and o4-mini](https://metr.org/evaluations/openai-o3-report/). 2025.

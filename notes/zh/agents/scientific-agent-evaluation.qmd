@@ -1,0 +1,329 @@
+---
+author: Brench
+date: 2026-08-19
+date-modified: 2026-08-19
+title: "科学评测 AI Agent：指标、环境、裁判与回归闭环"
+description: "从评测对象、分层指标、环境与任务设计、评分协议、失败归因和双层回归出发，构建可复现且受安全门禁约束的 AI Agent 评测闭环。"
+order: 1
+note_type: technical-reflection
+topic: agents
+tags:
+  - Agent Evaluation
+  - Benchmark Design
+  - LLM-as-a-Judge
+  - Regression Testing
+  - Agent Safety
+---
+
+一次成功很容易展示，难的是说明这次成功属于哪个系统、能否重复、付出了什么代价，以及失败时会不会越过安全边界。Agent 的输出由模型、运行脚手架、提示词、工具和外部状态共同产生，最后还要经过评分器解释。只写一个平均成功率，会把这些变量压成一个无法复核的数字。
+
+本文把评测对象固定为 **模型 × Agent harness × Prompt × 工具版本 × 环境 × Grader**，再沿最终状态、执行过程、重复可靠性、成本与延迟、安全风险五层展开。目标不是实现一套新框架，而是给现有评测系统建立可版本化、可比较、可回归的协议。
+
+::: {.callout-warning title="证据边界"}
+本文是一份评测方法设计，不报告新的 Agent 实验。任务、环境和评分原则来自论文与官方工程资料；`AgentLens` 与 `DIVERT` 均为 2026 年预印本，只用于说明可选的过程诊断和快照分支方法，不代表这些方法已经得到跨领域充分复现。
+:::
+
+```{mermaid}
+%%| fig-width: 10
+flowchart TB
+    accTitle: 科学评测 AI Agent 的闭环
+    accDescr: 任务设计依次进入隔离环境、重复运行、状态与轨迹评分、百分之九十五置信区间、安全门禁、失败归因和双层回归，回归样例再反馈给任务设计
+
+    task["任务设计"] --> environment["隔离环境"]
+    environment --> trials["重复运行"]
+    trials --> grading["状态 / 轨迹评分"]
+    grading --> ci["95% CI"]
+    ci --> safety{"安全门禁"}
+    safety --> attribution["失败归因"]
+    attribution --> regression["双层回归"]
+    regression -. "版本化样例" .-> task
+
+    classDef design fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px;
+    classDef analysis fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px;
+    classDef gate fill:#fff7ed,stroke:#ea580c,color:#7c2d12,stroke-width:3px;
+    classDef regression_style fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px;
+
+    class task,environment,trials design;
+    class grading,ci,attribution analysis;
+    class safety gate;
+    class regression regression_style;
+```
+
+_图 1：评测闭环把任务、运行、评分、统计、安全与回归连接起来。安全门禁可以阻止发布，失败样例则进入两类职责不同的回归测试。本文整理。_
+
+## 1. 评测对象：分数属于冻结配置，不属于裸模型
+
+Anthropic 的 [Agent 评测指南](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) 给出了一组评测术语。本文从中选取五个容易混用的单位。
+
+| 单位 | 操作性定义 | 评测中要保存的内容 |
+| --- | --- | --- |
+| task | 一项具有输入、初始状态和成功标准的测试 | task ID、模板版本、实例参数、初始状态哈希 |
+| trial | 冻结配置对一项 task 的一次尝试 | trial ID、随机种子、时间与资源预算、终止原因 |
+| trajectory | trial 的有序交互记录 | 模型消息、工具调用、工具返回、状态差异与中间产物 |
+| outcome | trial 结束时的环境状态与交付物 | 数据库、文件、工单、补丁、用户可见结果 |
+| evaluation harness | 运行、隔离、记录、评分和聚合 trial 的基础设施 | runner、容器、并发、重试、grader 与聚合版本 |
+
+`Agent harness` 是围绕模型组织上下文、提示、工具和控制循环的脚手架；`evaluation harness` 则负责把整个测试跑起来。两者不是同一层。一次可比较运行的身份键可以写成：
+
+$$
+\Theta
+=
+M
+\times H_{\mathrm{agent}}
+\times P
+\times V_{\mathrm{tools}}
+\times E
+\times G.
+$$
+
+其中 $M$ 是模型与推理参数，$H_{\mathrm{agent}}$ 是 Agent harness，$P$ 是系统提示与任务提示，$V_{\mathrm{tools}}$ 是工具 schema 和实现版本，$E$ 是环境镜像与初始状态，$G$ 是 grader、rubric 和聚合协议。任何一项变化都产生新的 $\Theta$。比较报告至少应给出这六项的可追踪版本，而不是只报模型名称。
+
+![τ-bench 中模拟用户、Agent、工具与数据库构成的多轮交互，右侧给出遵守政策并拒绝原请求的示例轨迹](../../assets/scientific-agent-evaluation/tau-bench-figure-1.png){width="92%" fig-align="center" fig-alt="τ-bench Figure 1，模拟用户与 Agent 多轮对话，Agent 调用工具读写数据库，并依据领域政策完成或拒绝请求"}
+
+_图 2：τ-bench 的 User–Agent–Tool–Database 交互。不同对话路径可以到达同一合法 outcome，因此 trajectory 与 outcome 必须分别记录。原论文 Figure 1；来源：[τ-bench 论文 PDF](https://arxiv.org/pdf/2406.12045)。_
+
+## 2. 五层指标：先分开测量，再决定如何发布
+
+一套 Agent 评测至少需要五层指标。它们回答不同问题，不能先加权成一个总分再解释。
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| 层级 | 核心问题 | 代表指标 | 主要证据 |
+| --- | --- | --- | --- |
+| 最终状态 | 任务是否真正完成 | outcome success、必要条件通过率、rubric 部分得分 | 状态 diff、交付物、确定性断言 |
+| 执行过程 | Agent 怎样完成或破坏任务 | 政策违规、无效调用、首次偏离、恢复成功率、冗余步骤 | 完整 trajectory、工具与权限日志 |
+| 重复可靠性 | 同一任务能否稳定完成 | `pass@k`、`pass^k`、逐任务成功分布 | 多个独立 trial |
+| 成本与延迟 | 成功需要多少资源 | token、工具费用、墙钟时间、P50/P95 延迟、重试次数 | 统一计费与遥测日志 |
+| 安全风险 | 是否产生不可接受后果 | 越权率、攻击成功率、敏感数据泄漏、不可逆副作用 | 对抗任务、权限审计、环境状态检查 |
+:::
+
+[AgentDojo](https://arxiv.org/abs/2406.13352) 分开报告 benign utility、受攻击时的 utility 和 targeted attack success rate。这种分离比“效用减去风险”的单分数更适合发布决策。若风险类型集合为 $\mathcal{R}$，发布规则可以写成硬门槛：
+
+$$
+\begin{aligned}
+\mathrm{release}(\Theta)
+&=
+\mathbf{1}\!\left\{L_{0.95}(\Delta_{\mathrm{quality}})\ge -\epsilon\right\}
+\\
+&\quad\times
+\prod_{r\in\mathcal{R}}
+\mathbf{1}\!\left\{U_{1-\alpha_r}(\widehat{q}_{r})\le\tau_{r}\right\}.
+\end{aligned}
+$$
+
+$\Delta_{\mathrm{quality}}$ 定义为候选配置减基线配置，$L_{0.95}$ 是其 95% 置信区间下界，$\epsilon$ 是预先登记的非劣容忍度。$U_{1-\alpha_r}(\widehat q_r)$ 是由风险观测得到的单侧置信上界，$\tau_r$ 是风险门槛。$\alpha_r$、最小暴露量和具体阈值都要在看结果前按业务风险确定。公式表达的只有一条规则：任一安全门槛失败都阻止发布，平均成功率不能抵消它。
+
+::: {.callout-important title="安全门禁不是加权指标"}
+高成功率与一次严重越权不是可交换的量。安全结果应作为独立向量报告。对于按观测事件计数的零容忍类目，任何一次观测事件都立即触发门禁；未观测到事件仍只表示当前证据范围内未发现，不能证明总体风险率为零。
+:::
+
+开放任务需要部分得分，但部分得分仍应从可检查的叶节点向上聚合。PaperBench 将研究复现拆成层级 rubric：叶节点二元判断，父节点按预先固定的人工权重聚合。
+
+![PaperBench 的层级 rubric 将复现任务逐层拆成二元叶节点，并把叶节点权重向上聚合为部分得分](../../assets/scientific-agent-evaluation/paperbench-figure-2.png){width="92%" fig-align="center" fig-alt="PaperBench Figure 2，一棵层级 rubric 树将研究复现任务拆成细粒度要求，并从叶节点得分计算 55% 的最终复现分数"}
+
+_图 3：层级 rubric 让部分完成落到明确要求，而不是由裁判凭整体印象给分。原论文 Figure 2；来源：[PaperBench 论文 PDF](https://arxiv.org/pdf/2504.01848)。_
+
+## 3. 重复运行：`pass@k` 与 `pass^k` 回答相反问题
+
+冻结 $\Theta$ 后，设任务 $i$ 有 $n_i$ 个可视为 IID 的 trial，其中 $c_i$ 次成功，且 $n_i\ge k$。τ-bench 在这一前提下给出的逐任务无偏组合估计为：
+
+$$
+\begin{aligned}
+\widehat{\mathrm{pass}@k}_{i}
+&=
+1-
+\frac{\binom{n_i-c_i}{k}}{\binom{n_i}{k}},
+\\
+\widehat{\mathrm{pass}^{k}}_{i}
+&=
+\frac{\binom{c_i}{k}}{\binom{n_i}{k}}.
+\end{aligned}
+$$
+
+对 $T$ 个任务做宏平均：
+
+$$
+\begin{aligned}
+\widehat{\mathrm{pass}@k}
+&=
+\frac{1}{T}\sum_{i=1}^{T}\widehat{\mathrm{pass}@k}_{i},
+\\
+\widehat{\mathrm{pass}^{k}}
+&=
+\frac{1}{T}\sum_{i=1}^{T}\widehat{\mathrm{pass}^{k}}_{i}.
+\end{aligned}
+$$
+
+`pass@k` 表示 $k$ 次里至少一次成功，更接近“给足候选后能否找到解”；`pass^k` 表示 $k$ 次全部成功，更接近“能否每次可靠交付”。不能把所有 task 的 trial 混成一个全局成功率后再取幂，否则高频任务会获得更大权重。
+
+在相同 IID 条件下，若任务 $i$ 的成功概率稳定为 $p_i$，才有总体量的幂式简化：
+
+$$
+\begin{aligned}
+\mathrm{pass}@k_i
+&=
+1-(1-p_i)^k,
+\\
+\mathrm{pass}^{k}_i
+&=
+p_i^k.
+\end{aligned}
+$$
+
+共享缓存、残留文件、共同限流、跨 trial 记忆、用户模拟器版本漂移和资源耗尽都会破坏 IID。此时组合式至多描述从已观测 trial 中抽取 $k$ 次的组合结果，曲线也只能作为描述统计，不能把独立 Bernoulli 解释强加给相关样本。
+
+![单次成功率固定为 0.60 时，pass@k 随 k 上升而 pass^k 随 k 下降的曲线](../../assets/scientific-agent-evaluation/pass-k-curves-zh.svg){width="88%" fig-align="center" fig-alt="公式示意图，蓝色 pass@k 从 60% 上升并趋近 100%，橙色 pass^k 从 60% 下降并趋近 0%"}
+
+_图 4：在 IID 且单次成功率 $p=0.60$ 的示意条件下，两个指标从 $k=1$ 开始分化。该图由公式计算，仅用于解释指标，不是任何模型或 benchmark 的实验结果。_
+
+### 3.1 `Best@k` 必须同时定义选择器与评分函数
+
+九项主要来源没有一个统一的 `Best@k` 定义。若确实需要报告，可将第 $i$ 个任务的候选轨迹记为 $\tau_{ij}$，用选择分数 $s$ 挑选候选，再用最终函数 $q$ 评价：
+
+$$
+\begin{aligned}
+j_i^{\star}
+&=
+\underset{1\le j\le k}{\mathrm{arg\,max}}\;s(\tau_{ij}),
+\\
+\mathrm{Best}@k(s,q)
+&=
+\frac{1}{T}\sum_{i=1}^{T}q(\tau_{i j_i^{\star}}).
+\end{aligned}
+$$
+
+报告必须说明 $s$、$q$、并列处理、候选预算、选择成本和 oracle 可见信息。若 $s$ 直接读取测试集隐藏真值，结果只是 oracle-assisted 上界，不是可部署策略。Prompt、harness 和选择器应在开发集上确定并冻结；禁止根据测试集结果挑选最优 Prompt，再把同一测试集当作无偏评测。
+
+## 4. 环境不是工具清单
+
+一个可复现环境至少包含五部分。
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| 组成 | 必须冻结或记录的内容 | 常见失真 |
+| --- | --- | --- |
+| 任务与初始状态 | 指令、实体、权限、数据库/文件/界面快照 | 初始状态泄漏答案，或无法重放 |
+| 环境动态 | 状态转移、并发、时间、用户模拟器、外部服务变化 | trial 之间共享状态或动态漂移 |
+| 原子工具 | schema、语义、错误码、副作用、幂等性、版本 | 名称相同但行为已变化 |
+| 评分器 | outcome oracle、trajectory assertion、rubric、Judge | grader 读取不到关键证据或自身被攻击 |
+| 执行协议 | reset、预算、超时、重试、终止、权限、网络规则 | 对不同配置给出不同资源或恢复机会 |
+:::
+
+交互拓扑与评分 oracle 是两个正交维度。τ-bench 中 Agent 调工具、模拟用户只提供信息，属于单控制；[τ²-bench](https://arxiv.org/abs/2506.07982) 允许用户与 Agent 都通过工具改变共享环境，属于双控制。无论哪种拓扑，都可以使用最终数据库状态、程序化断言、层级 rubric 或 LLM Judge 评分。环境复杂度不决定评分器必须是模型；确定性 oracle 只解决评分问题，也不能说明谁拥有状态控制权。
+
+隔离要求不止是“每次新建容器”。reset 后的状态哈希、依赖版本、时钟、随机种子、缓存与配额都要进入运行记录。若多个 trial 因同一个共享资源故障同时失败，它们既不独立，也不应被悄悄删除。
+
+## 5. 任务集：覆盖真实变化，同时控制污染
+
+任务库应区分模板、实例和运行时状态。模板定义业务目标与约束；参数化实例替换实体、金额、文件、时间和权限；运行时状态再加入排队工单、半完成表单、已有分支或历史消息。只在干净初始页上测试，可能漏掉部署系统中的常见中间状态。
+
+任务设计可以按六条轴检查：
+
+::: {.evaluation-table style="overflow-wrap: anywhere;"}
+| 设计轴 | 实施方式 | 证据或依据 |
+| --- | --- | --- |
+| 参数化实例 | 用原子组件组合任务，约束参数合法性并保留唯一可验证目标 | τ²-bench 的 compositional task generator |
+| 真实中间状态 | 从真实基线或可重放快照开始；需要交互历史时保存完整前缀与状态 | SWE-bench-Live 的真实仓库 base commit；DIVERT 的可恢复对话快照 |
+| 多条合法轨迹 | 优先验证 outcome 与必要政策，不强制唯一工具顺序 | τ-bench 的多轮对话与 Anthropic 的 outcome-first 建议 |
+| 隐藏与轮换任务 | 保留 held-out 实例，周期加入新时间窗与新实体 | PaperBench 的 held-out 集；SWE-bench-Live 的持续更新设计 |
+| 污染防护 | 记录任务首次可见时间、训练可见性、资源黑名单和泄漏审计 | SWE-bench-Live 与 PaperBench |
+| 覆盖矩阵 | 按业务域、频率、风险、难度、工具链和可逆性统计缺口 | τ²-bench 的可控复杂度与领域覆盖 |
+:::
+
+难度不能只用轨迹长度代理。同样 20 步，一条全是只读查询，另一条包含权限判断和不可逆写入，风险完全不同。覆盖矩阵应至少交叉业务频率与后果等级，再叠加所需工具数、状态分支、信息不完整度和恢复窗口。公开集适合开发；最终发布门禁需要冻结的 held-out 任务和轮换批次。测试任务一旦反复参与 Prompt 调优，就已经转为开发数据。
+
+## 6. 评分：程序验证优先，模型裁判负责软标准
+
+评分协议按证据强度分层：
+
+1. **程序化验证器**检查最终状态、文件、测试、数据库断言、权限和禁止副作用。能确定验证的条件不交给 LLM。
+2. **LLM Judge**补充语气、解释质量、需求覆盖和开放式证据综合。每个软维度使用独立 rubric，允许在证据不足时返回 `Unknown`。
+3. **领域专家抽检**校准 Judge，复核高风险、`Unknown`、边界分数、顺序敏感和模型间分歧样本。
+
+`Unknown` 不是失败的同义词。它表示证据契约不足以作出判断，应单独统计并触发证据修复；若发布政策要求保守处理，可以在门禁层把它按失败计入，但原始标签不能丢失。
+
+[LLM-as-a-Judge](https://arxiv.org/abs/2306.05685) 记录了位置、冗长和潜在 self-enhancement 偏差。成对比较至少要交换 A/B 顺序复判；两次结论不一致时记为 tie 或升级人工，而不是择一保留。送给 Judge 的候选名称、供应商和版本标识应盲化。Judge 自身也要版本化：模型快照、系统提示、rubric、证据选择器、输出 schema、温度、重试和聚合规则共同构成 grader 版本。
+
+关于裁判方差、边界样本和稳定性与有效性的区别，可参见本站的[《Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较》](benchmark-behind-the-benchmark.qmd)。本节只讨论这些问题如何进入端到端 Agent 评测协议，避免重复已有的裁判噪声分析。
+
+## 7. 统计协议：任务宏平均，比较时保持配对
+
+每个 task 先在自己的 trial 内聚合，再对 task 做等权宏平均。这样一个有 20 次重跑的易题不会压过只有 3 次的高价值难题。每任务 3–5 次可以作为早期起点，不是统计充分性的保证；当结果接近发布阈值或任务方差大时，应增加重复次数。trial 高相关时，应先消除共享状态，或采用能处理相关性与聚类结构的推断，单纯加跑不能恢复 IID。
+
+比较配置 $A$ 与 $B$ 时，对相同 task ID 计算：
+
+$$
+d_i
+=
+\bar{y}_{i,A}-\bar{y}_{i,B},
+\qquad
+\bar{d}
+=
+\frac{1}{T}\sum_{i=1}^{T}d_i.
+$$
+
+配对 task-level bootstrap 每轮重采样 task ID，并同时带走该任务在 $A$、$B$ 下的全部 trial；对每个 bootstrap 样本计算 $\bar d^{*(b)}$，用 2.5% 与 97.5% 分位数形成 95% CI。若有 task family，应在 family 层再做分层抽样。METR 的 [o3/o4-mini 评测报告](https://metr.org/evaluations/openai-o3-report/) 使用 task family、task、attempt 三层 bootstrap；这里的配对版本用于同任务配置比较。
+
+超时、Agent 崩溃和 harness 崩溃保留在分母中，并分别标注终止原因。基础设施故障可以按预先登记的规则补跑，但原始事件不能从报告中消失。成本与延迟同时报告成功 trial 和全部 trial 的分布，否则“快速失败”会让平均延迟看起来更好。
+
+## 8. 失败记录：从最后症状回到最早证据
+
+一条失败记录至少包含以下字段：
+
+| 字段 | 内容 |
+| --- | --- |
+| 版本包 | $\Theta$ 六项版本、代码提交、容器 digest、依赖与 grader 版本 |
+| 运行身份 | task/trial ID、种子、预算、开始时间、终止原因 |
+| 最早有证据的偏离点 | 首个可观察到状态、计划或工具契约偏离的位置 |
+| 推定最早因果步骤 | 基于证据链推断的最早原因；与可观察偏离点分开记录 |
+| 多标签根因 | task、environment、policy/planning、tool、recovery、grader、safety |
+| 证据引用 | trajectory step、状态 diff、artifact 哈希、日志片段与 grader 断言 |
+| 可恢复性 | 可自动恢复、需人工介入、不可逆；注明恢复所需前缀与状态 |
+| 置信度 | 高/中/低、判定者、复判状态和仍缺的证据 |
+| 回归链接 | 对应端到端用例、prefix fixture、修复提交与首次纳入版本 |
+
+最后一次报错通常只是症状。例如写数据库失败可能源于更早的身份解析错误；Judge 找不到文件可能源于 evidence contract，而非 Agent 没有完成任务。记录“最早有证据的偏离点”能保持可复核性，“推定因果步骤”则允许保留尚未证实的诊断。
+
+[AgentLens](https://arxiv.org/abs/2605.12925) 预印本用多条成功轨迹建立过程参考，并输出 divergence point 与 waste signal。这为过程诊断提供了一个可选方向，但其当前证据集中在 OpenHands 风格的 SWE 轨迹。divergence point 不能直接等同于因果根因，也不能把一条参考轨迹当作唯一合法路径。
+
+## 9. 双层回归：发布门禁与问题隔离分开
+
+端到端回归从规定的初始状态启动完整 trial，覆盖模型决策、工具、环境、恢复、评分与成本，负责发布门禁。trajectory-prefix 回归则固定一段历史，从快照恢复后只测试后续行为。它适合回答三个更窄的问题：
+
+- 从正确前缀继续时，当前策略能否完成后半程；
+- 从失败前缀继续时，Agent 或工具能否识别并恢复；
+- 从扰动前缀继续时，局部状态变化是否导致错误放大。
+
+![DIVERT 对比从初始状态反复完整 rollout 与从中间快照定向分支的评测方式](../../assets/scientific-agent-evaluation/divert-figure-1.png){width="95%" fig-align="center" fig-alt="DIVERT Figure 1，左侧多次从头运行完整对话，右侧保存中间状态并从关键节点生成多条定向分支"}
+
+_图 5：完整 rollout 与快照分支的区别。DIVERT 将对话、Agent、工具环境、模拟器和原始随机种子保存在快照中，以复用共享前缀并探索欠覆盖的后续路径。来源：[DIVERT 论文 PDF](https://arxiv.org/pdf/2604.21480)，2026 年预印本 Figure 1。_
+
+DIVERT 的分支由覆盖目标和诊断者定向选择，不再是从初始状态抽取的 IID trial。因此，prefix 结果只能报告条件化的分支覆盖、恢复率和失败发现，不能与端到端 trial 合成一个成功率。
+
+![端到端回归负责发布门禁，正确、失败和扰动前缀回归负责隔离诊断，两类结果保持分开](../../assets/scientific-agent-evaluation/dual-regression-zh.svg){width="94%" fig-align="center" fig-alt="双层回归职责图，左侧端到端完整运行进入发布门禁，右侧三种 trajectory prefix 进入策略、工具和恢复诊断，并明确禁止合并成功率"}
+
+_图 6：端到端回归与 trajectory-prefix 回归共享版本包和失败样例链接，但使用不同的样本条件、统计口径和决策职责。本文整理；prefix 分支思路参考 DIVERT，过程多路径诊断参考 AgentLens。_
+
+## 10. 最小报告合同与回归闭环
+
+一次可审计的发布报告应同时给出：
+
+1. 冻结的 $\Theta$、任务集版本、日期窗口和污染声明；
+2. task 数量、每任务 trial 数、终止原因分布与环境隔离检查；
+3. 最终状态、过程、`pass@k`/`pass^k`、成本/延迟和安全五层结果；
+4. 配对 task-level 95% CI、宏平均口径和所有门槛；
+5. Judge 的 `Unknown`、顺序复判、盲化、专家校准和版本；
+6. 失败记录、端到端回归链接和独立的 prefix 诊断结果。
+
+这套合同不要求所有任务都使用同一种 oracle。代码任务可以依赖测试和静态分析，数据库任务可以比较最终状态，开放式交付物可以用层级 rubric 加模型裁判。跨任务需要统一版本、证据、统计单位和发布规则。任务设计进入隔离环境，多次运行后分别评分 outcome 与 trajectory；置信区间量化变化估计的抽样不确定性，安全门禁决定能否发布，失败归因再把样例送回两类回归。这条闭环以可追踪证据为输入，单一总成功率不足以支撑发布判断。
+
+## 参考资料
+
+1. Anthropic. [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). 2026.
+2. Shunyu Yao et al. [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/abs/2406.12045). 2024.
+3. Victor Barres et al. [τ²-bench: Evaluating Conversational Agents in a Dual-Control Environment](https://arxiv.org/abs/2506.07982). 2025.
+4. Giulio Starace et al. [PaperBench: Evaluating AI's Ability to Replicate AI Research](https://arxiv.org/abs/2504.01848). 2025.
+5. Lianmin Zheng et al. [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685). 2023.
+6. Linghao Zhang et al. [SWE-bench Goes Live!](https://arxiv.org/abs/2505.23419). 2025.
+7. Priyam Sahoo et al. [AgentLens: Revealing The Lucky Pass Problem in SWE-Agent Evaluation](https://arxiv.org/abs/2605.12925). 2026 年预印本。
+8. Itay Nakash et al. [Efficient Agent Evaluation via Diversity-Guided User Simulation](https://arxiv.org/abs/2604.21480). 2026 年预印本（DIVERT）。
+9. Edoardo Debenedetti et al. [AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents](https://arxiv.org/abs/2406.13352). 2024.
+10. METR. [Details about METR's preliminary evaluation of OpenAI's o3 and o4-mini](https://metr.org/evaluations/openai-o3-report/). 2025.
