@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>29</strong><span>论文</span></div>
-    <div><strong>63</strong><span>资源链接</span></div>
+    <div><strong>30</strong><span>论文</span></div>
+    <div><strong>66</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -357,7 +357,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">1 篇论文</p>
+    <p class="eyebrow">2 篇论文</p>
     <h2>智能体评测</h2>
   </div>
   <div class="paper-grid">
@@ -371,6 +371,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.09802" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="harnesseval-w-agentifying-the-evaluation-of-visual-worlds">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>HarnessEval-W: Agentifying the Evaluation of Visual Worlds</h3>
+  <p>HarnessEval-W 是一个面向世界模型 rollout 的智能体化评测流水线：父智能体将每个案例拆解为可度量的子问题，交由配备专用工具的子智能体分析，再验证证据并生成可审计的证据树，而非仅输出单一分数。在覆盖 18 个世界模型的 330 个评测案例上，其判断与人类偏好高度一致，并能给出细粒度诊断。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.16859" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://mirros-lab.github.io/HarnessEval-W/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/MirroS-Lab/HarnessEval-W" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

@@ -836,6 +836,12 @@
   <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **HarnessEval-W: Agentifying the Evaluation of Visual Worlds** (2026.08) \
+  **描述**: HarnessEval-W 是一个面向世界模型 rollout 的智能体化评测流水线：父智能体将每个案例拆解为可度量的子问题，交由配备专用工具的子智能体分析，再验证证据并生成可审计的证据树，而非仅输出单一分数。在覆盖 18 个世界模型的 330 个评测案例上，其判断与人类偏好高度一致，并能给出细粒度诊断。 \
+  <a href="https://arxiv.org/abs/2608.16859"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 记忆
 
 - **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \

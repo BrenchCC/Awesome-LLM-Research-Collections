@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>29</strong><span>Papers</span></div>
-    <div><strong>63</strong><span>Resource links</span></div>
+    <div><strong>30</strong><span>Papers</span></div>
+    <div><strong>66</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -357,7 +357,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Agent Evaluation</h2>
   </div>
   <div class="paper-grid">
@@ -371,6 +371,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.09802" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="harnesseval-w-agentifying-the-evaluation-of-visual-worlds">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agent Evaluation</span>
+  </div>
+  <h3>HarnessEval-W: Agentifying the Evaluation of Visual Worlds</h3>
+  <p>HarnessEval-W is an agentified pipeline for evaluating world-model rollouts: a parent agent decomposes each case into measurable subproblems, delegates them to tool-equipped specialists, validates their evidence, and produces an auditable evidence tree instead of only a scalar score. Across 330 cases and 18 world models, its judgments closely align with human preferences while providing fine-grained diagnoses.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.16859" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://mirros-lab.github.io/HarnessEval-W/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/MirroS-Lab/HarnessEval-W" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

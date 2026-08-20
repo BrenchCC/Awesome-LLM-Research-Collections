@@ -837,6 +837,12 @@
   <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://huggingface.co/datasets/swe-bench-promax/SWE-Bench-ProMax"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **HarnessEval-W: Agentifying the Evaluation of Visual Worlds** (2026.08) \
+  **Description**: HarnessEval-W is an agentified pipeline for evaluating world-model rollouts: a parent agent decomposes each case into measurable subproblems, delegates them to tool-equipped specialists, validates their evidence, and produces an auditable evidence tree instead of only a scalar score. Across 330 cases and 18 world models, its judgments closely align with human preferences while providing fine-grained diagnoses. \
+  <a href="https://arxiv.org/abs/2608.16859"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Memory
 
 - **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \
