@@ -823,6 +823,12 @@
   <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents** (2025.05) \
+  **描述**: Darwin Gödel Machine（DGM）是一种自改进编码智能体系统，通过反复修改自身代码、在编程基准上验证改动，并从不断扩展的智能体档案中开展开放式探索来持续演化。它将 SWE-bench 和 Polyglot 的性能分别从 20.0% 提升至 50.0% 和从 14.2% 提升至 30.7%，优于缺少自改进或开放式探索的消融基线。 \
+  <a href="https://arxiv.org/abs/2505.22954"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://sakana.ai/dgm/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/jennyzzt/dgm"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 智能体评测
 
 - **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \

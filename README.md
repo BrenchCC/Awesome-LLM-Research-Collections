@@ -824,6 +824,12 @@
   <a href="https://arxiv.org/abs/2601.07348"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/QuantaAlpha/EvoControl"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents** (2025.05) \
+  **Description**: Darwin Gödel Machine (DGM) is a self-improving coding-agent system that repeatedly rewrites its own code, evaluates each change on coding benchmarks, and explores an expanding archive of agent variants. It raises performance from 20.0% to 50.0% on SWE-bench and from 14.2% to 30.7% on Polyglot, outperforming ablations without self-improvement or open-ended exploration. \
+  <a href="https://arxiv.org/abs/2505.22954"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://sakana.ai/dgm/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/jennyzzt/dgm"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Agent Evaluation
 
 - **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \
