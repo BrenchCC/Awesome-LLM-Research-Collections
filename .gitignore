@@ -435,7 +435,4 @@ __marimo__/
 /.quarto/
 **/*.quarto_ipynb
 
-notes/*/*/papers
 notes/zh/llms/test
-notes/zh/agents/2026-08-08_自进化（Self-evolving／RSI），一篇就够了 - 知乎
-notes/zh/reinforcement-learning/2026-08-13_Why RL Matters - 知乎
