@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 650" role="img" aria-labelledby="title desc">
+  <title id="title">递归自我改进证据准入门槛</title>
+  <desc id="desc">候选更新依次通过预算、私有测试、重复运行、跨任务泛化、来源与对抗检查，以及回滚和人工准入。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#516078"/></marker>
+  </defs>
+  <style>
+    text { font-family: Inter, "Noto Sans SC", "PingFang SC", sans-serif; fill: #172033; }
+    .title { font-size: 34px; font-weight: 720; }
+    .sub { font-size: 17px; fill: #667085; }
+    .num { font-size: 16px; font-weight: 800; fill: #fff; }
+    .head { font-size: 19px; font-weight: 700; }
+    .body { font-size: 15px; fill: #596579; }
+    .state { font-size: 20px; font-weight: 750; }
+  </style>
+  <rect width="1260" height="650" rx="30" fill="#f7f9fc"/>
+  <text x="58" y="62" class="title">RSI 证据准入门槛</text>
+  <text x="58" y="96" class="sub">分数上涨只是候选信号；更新能否进入下一轮，取决于整条验证链</text>
+
+  <path d="M120 255 H1130" stroke="#516078" stroke-width="3" marker-end="url(#arrow)"/>
+  <g transform="translate(72 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#9ab1cf"/><circle cx="30" cy="30" r="18" fill="#315f9f"/><text x="30" y="36" text-anchor="middle" class="num">1</text><text x="22" y="78" class="head">固定预算与协议</text><text x="22" y="108" class="body">时间、token、工具</text><text x="22" y="132" class="body">硬件与停止条件一致</text><text x="22" y="163" class="body">防止多给算力</text></g>
+  <g transform="translate(262 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#8bbcae"/><circle cx="30" cy="30" r="18" fill="#25866b"/><text x="30" y="36" text-anchor="middle" class="num">2</text><text x="22" y="78" class="head">公私测试隔离</text><text x="22" y="108" class="body">开发集负责搜索</text><text x="22" y="132" class="body">私有集只做准入</text><text x="22" y="163" class="body">避免评测泄漏</text></g>
+  <g transform="translate(452 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#d4b267"/><circle cx="30" cy="30" r="18" fill="#b47a13"/><text x="30" y="36" text-anchor="middle" class="num">3</text><text x="22" y="78" class="head">重复运行</text><text x="22" y="108" class="body">多 seed、多次 rollout</text><text x="22" y="132" class="body">报告方差与失败率</text><text x="22" y="163" class="body">排除偶然胜出</text></g>
+  <g transform="translate(642 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#aa95cf"/><circle cx="30" cy="30" r="18" fill="#7653aa"/><text x="30" y="36" text-anchor="middle" class="num">4</text><text x="22" y="78" class="head">跨任务泛化</text><text x="22" y="108" class="body">未见仓库与任务族</text><text x="22" y="132" class="body">不只保留均值</text><text x="22" y="163" class="body">检查最差组</text></g>
+  <g transform="translate(832 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#d79a9a"/><circle cx="30" cy="30" r="18" fill="#b64f4f"/><text x="30" y="36" text-anchor="middle" class="num">5</text><text x="22" y="78" class="head">来源与对抗检查</text><text x="22" y="108" class="body">轨迹、代码、分数可追</text><text x="22" y="132" class="body">查奖励黑客与捷径</text><text x="22" y="163" class="body">验证器不可自证</text></g>
+  <g transform="translate(1022 160)"><rect width="168" height="186" rx="20" fill="#fff" stroke="#769fc9"/><circle cx="30" cy="30" r="18" fill="#28669e"/><text x="30" y="36" text-anchor="middle" class="num">6</text><text x="22" y="78" class="head">回滚与人工准入</text><text x="22" y="108" class="body">健康探测、版本签名</text><text x="22" y="132" class="body">高风险更新需复核</text><text x="22" y="163" class="body">失败可恢复</text></g>
+
+  <path d="M620 346 V430" stroke="#b64f4f" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="402" y="450" width="436" height="82" rx="18" fill="#fff0f0" stroke="#d78989"/>
+  <text x="620" y="486" text-anchor="middle" class="state" fill="#a94040">任一门槛失败：隔离候选并回滚</text>
+  <text x="620" y="514" text-anchor="middle" class="body">记录反例，不能用同一验证器自行豁免</text>
+  <rect x="907" y="430" width="283" height="122" rx="20" fill="#e8f7ef" stroke="#70b992"/>
+  <text x="1048" y="474" text-anchor="middle" class="state" fill="#247251">全部通过</text>
+  <text x="1048" y="505" text-anchor="middle" class="body">签名、发布、进入下一轮</text>
+  <text x="1048" y="529" text-anchor="middle" class="body">继续接受独立审计</text>
+  <text x="58" y="608" class="sub">严格的 RSI 证据还需要证明：收益可持久化、可泛化，并提高后续改进效率。</text>
+</svg>

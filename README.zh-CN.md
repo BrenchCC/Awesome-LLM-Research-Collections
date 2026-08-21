@@ -965,6 +965,11 @@
 
 ## 技术思考
 
+- **递归自我改进：从产出物、Harness 到模型—脚手架共进化** (创建: 2026-08-21; 更新: 2026-08-21) \
+  **描述**: 用优化对象与闭环程度两个维度重审 2026 年递归自我改进进展，并给出一套可审计的证据准入标准。 \
+  [[笔记](notes/zh/agents/recursive-self-improvement.qmd)]
+  [[English](notes/en/agents/recursive-self-improvement.qmd)]
+
 - **如何科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-20) \
   **描述**: 从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。 \
   [[笔记](notes/zh/agents/scientific-agent-evaluation.qmd)]

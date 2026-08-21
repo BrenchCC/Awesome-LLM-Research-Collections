@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 760" role="img" aria-labelledby="title desc">
+  <title id="title">Two-dimensional map of optimization targets and loop closure</title>
+  <desc id="desc">Rows show artifacts, harnesses, and models; columns show one-shot revision, persistent updating, optimizer improvement, and model-harness co-evolution.</desc>
+  <style>
+    text { font-family: Inter, "Noto Sans", "Helvetica Neue", Arial, sans-serif; fill: #172033; }
+    .title { font-size: 34px; font-weight: 720; }
+    .sub { font-size: 17px; fill: #667085; }
+    .head { font-size: 19px; font-weight: 700; }
+    .row { font-size: 23px; font-weight: 720; }
+    .cell { font-size: 16px; }
+    .example { font-size: 14px; fill: #536079; }
+  </style>
+  <rect width="1260" height="760" rx="30" fill="#f7f9fc"/>
+  <text x="58" y="62" class="title">A two-dimensional map of recursive self-improvement</text>
+  <text x="58" y="94" class="sub">Ask what changes first, then how far the update loop closes</text>
+  <rect x="218" y="132" width="980" height="92" rx="18" fill="#172033"/>
+  <text x="340" y="170" text-anchor="middle" class="head" fill="#fff">One-shot revision</text>
+  <text x="585" y="170" text-anchor="middle" class="head" fill="#fff">Persistent update</text>
+  <text x="830" y="170" text-anchor="middle" class="head" fill="#fff">Improve the optimizer</text>
+  <text x="1075" y="170" text-anchor="middle" class="head" fill="#fff">Model–harness co-evolution</text>
+  <text x="340" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">better current output</text>
+  <text x="585" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">survives into later tasks</text>
+  <text x="830" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">update rule can change</text>
+  <text x="1075" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">two-timescale rebuild</text>
+  <rect x="58" y="244" width="140" height="138" rx="18" fill="#e8f0ff" stroke="#8fb1ef"/><text x="128" y="299" text-anchor="middle" class="row">Artifact</text><text x="128" y="330" text-anchor="middle" class="sub">code, proof,</text><text x="128" y="355" text-anchor="middle" class="sub">experiment</text>
+  <rect x="218" y="244" width="230" height="138" rx="18" fill="#e8f0ff" stroke="#8fb1ef"/><text x="238" y="287" class="cell">Reflect, rewrite, rerun</text><text x="238" y="320" class="example">Autoresearch</text>
+  <rect x="462" y="244" width="230" height="138" rx="18" fill="#f0f5ff" stroke="#b9c9e9"/><text x="482" y="287" class="cell">Retain winners and traces</text><text x="482" y="320" class="example">AlphaEvolve archive</text>
+  <rect x="706" y="244" width="230" height="138" rx="18" fill="#fff8e8" stroke="#e8c771"/><text x="726" y="287" class="cell">Editable search strategy</text><text x="726" y="320" class="example">needs separate evidence</text>
+  <rect x="950" y="244" width="248" height="138" rx="18" fill="#f3f4f6" stroke="#d0d5dd"/><text x="970" y="287" class="cell">Usually supplies experience</text><text x="970" y="320" class="example">not a closed loop alone</text>
+  <rect x="58" y="397" width="140" height="138" rx="18" fill="#e8fbf5" stroke="#73c9ac"/><text x="128" y="451" text-anchor="middle" class="row">Harness</text><text x="128" y="482" text-anchor="middle" class="sub">prompt, tool,</text><text x="128" y="507" text-anchor="middle" class="sub">memory, flow</text>
+  <rect x="218" y="397" width="230" height="138" rx="18" fill="#e8fbf5" stroke="#73c9ac"/><text x="238" y="440" class="cell">Tune the current scaffold</text><text x="238" y="473" class="example">Hermes / MiniMax</text>
+  <rect x="462" y="397" width="230" height="138" rx="18" fill="#ddf7ee" stroke="#48b58f"/><text x="482" y="440" class="cell">Write back code or skills</text><text x="482" y="473" class="example">RHO / MOSS / AIDE²</text>
+  <rect x="706" y="397" width="230" height="138" rx="18" fill="#d1f2e6" stroke="#299b73"/><text x="726" y="440" class="cell">Evolver becomes editable</text><text x="726" y="473" class="example">HSI meta-evolver</text>
+  <rect x="950" y="397" width="248" height="138" rx="18" fill="#e9e3ff" stroke="#9b87d8"/><text x="970" y="440" class="cell">Rebuild after model updates</text><text x="970" y="473" class="example">HELIX</text>
+  <rect x="58" y="550" width="140" height="138" rx="18" fill="#f2ecff" stroke="#a892de"/><text x="128" y="604" text-anchor="middle" class="row">Model</text><text x="128" y="635" text-anchor="middle" class="sub">weights, policy,</text><text x="128" y="660" text-anchor="middle" class="sub">representation</text>
+  <rect x="218" y="550" width="230" height="138" rx="18" fill="#f2ecff" stroke="#a892de"/><text x="238" y="593" class="cell">Learn from current traces</text><text x="238" y="626" class="example">SIA model update</text>
+  <rect x="462" y="550" width="230" height="138" rx="18" fill="#ece4ff" stroke="#967bd6"/><text x="482" y="593" class="cell">Weights persist across tasks</text><text x="482" y="626" class="example">continual training loop</text>
+  <rect x="706" y="550" width="230" height="138" rx="18" fill="#fff8e8" stroke="#e8c771"/><text x="726" y="593" class="cell">Improve training or verifier</text><text x="726" y="626" class="example">evidence remains sparse</text>
+  <rect x="950" y="550" width="248" height="138" rx="18" fill="#e5dcff" stroke="#8067c3"/><text x="970" y="593" class="cell">Train on verified traces</text><text x="970" y="626" class="example">HELIX / Continual Harness</text>
+  <text x="58" y="727" class="sub">Darker cells indicate deeper loop closure, not independent replication.</text>
+</svg>

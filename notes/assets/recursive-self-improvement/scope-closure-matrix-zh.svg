@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 760" role="img" aria-labelledby="title desc">
+  <title id="title">优化对象与闭环程度二维矩阵</title>
+  <desc id="desc">纵轴为产出物、Harness 和模型，横轴为单次修订、持久更新、改进优化器、模型与 Harness 共进化。</desc>
+  <style>
+    text { font-family: Inter, "Noto Sans SC", "PingFang SC", sans-serif; fill: #172033; }
+    .title { font-size: 34px; font-weight: 720; }
+    .sub { font-size: 17px; fill: #667085; }
+    .head { font-size: 20px; font-weight: 700; }
+    .row { font-size: 23px; font-weight: 720; }
+    .cell { font-size: 17px; }
+    .example { font-size: 15px; fill: #536079; }
+  </style>
+  <rect width="1260" height="760" rx="30" fill="#f7f9fc"/>
+  <text x="58" y="62" class="title">递归自我改进的二维坐标</text>
+  <text x="58" y="94" class="sub">先问改了什么，再问更新走到了哪一层闭环</text>
+
+  <rect x="218" y="132" width="980" height="92" rx="18" fill="#172033"/>
+  <text x="340" y="170" text-anchor="middle" class="head" fill="#fff">单次自我修订</text>
+  <text x="585" y="170" text-anchor="middle" class="head" fill="#fff">跨任务持久更新</text>
+  <text x="830" y="170" text-anchor="middle" class="head" fill="#fff">改进优化器本身</text>
+  <text x="1075" y="170" text-anchor="middle" class="head" fill="#fff">模型—Harness 共进化</text>
+  <text x="340" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">本次答案变好</text>
+  <text x="585" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">下一任务继续生效</text>
+  <text x="830" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">更新规则也可更新</text>
+  <text x="1075" y="199" text-anchor="middle" class="sub" fill="#cdd5e4">双时间尺度重建</text>
+
+  <rect x="58" y="244" width="140" height="138" rx="18" fill="#e8f0ff" stroke="#8fb1ef"/>
+  <text x="128" y="299" text-anchor="middle" class="row">Artifact</text>
+  <text x="128" y="330" text-anchor="middle" class="sub">代码、证明</text>
+  <text x="128" y="355" text-anchor="middle" class="sub">实验配置</text>
+  <rect x="218" y="244" width="230" height="138" rx="18" fill="#e8f0ff" stroke="#8fb1ef"/>
+  <text x="238" y="287" class="cell">反思、重写、重跑</text><text x="238" y="320" class="example">Autoresearch</text>
+  <rect x="462" y="244" width="230" height="138" rx="18" fill="#f0f5ff" stroke="#b9c9e9"/>
+  <text x="482" y="287" class="cell">保留高分产物与经验</text><text x="482" y="320" class="example">AlphaEvolve archive</text>
+  <rect x="706" y="244" width="230" height="138" rx="18" fill="#fff8e8" stroke="#e8c771"/>
+  <text x="726" y="287" class="cell">搜索策略开始可编辑</text><text x="726" y="320" class="example">仍需独立验证</text>
+  <rect x="950" y="244" width="248" height="138" rx="18" fill="#f3f4f6" stroke="#d0d5dd"/>
+  <text x="970" y="287" class="cell">通常提供训练经验</text><text x="970" y="320" class="example">不是独立闭环证据</text>
+
+  <rect x="58" y="397" width="140" height="138" rx="18" fill="#e8fbf5" stroke="#73c9ac"/>
+  <text x="128" y="451" text-anchor="middle" class="row">Harness</text>
+  <text x="128" y="482" text-anchor="middle" class="sub">提示、工具</text>
+  <text x="128" y="507" text-anchor="middle" class="sub">记忆、流程</text>
+  <rect x="218" y="397" width="230" height="138" rx="18" fill="#e8fbf5" stroke="#73c9ac"/>
+  <text x="238" y="440" class="cell">按当前任务调脚手架</text><text x="238" y="473" class="example">Hermes / MiniMax</text>
+  <rect x="462" y="397" width="230" height="138" rx="18" fill="#ddf7ee" stroke="#48b58f"/>
+  <text x="482" y="440" class="cell">写回代码、技能或策略</text><text x="482" y="473" class="example">RHO / MOSS / AIDE²</text>
+  <rect x="706" y="397" width="230" height="138" rx="18" fill="#d1f2e6" stroke="#299b73"/>
+  <text x="726" y="440" class="cell">Evolver 也可被修改</text><text x="726" y="473" class="example">HSI meta-evolver</text>
+  <rect x="950" y="397" width="248" height="138" rx="18" fill="#e9e3ff" stroke="#9b87d8"/>
+  <text x="970" y="440" class="cell">随模型能力重新构建</text><text x="970" y="473" class="example">HELIX</text>
+
+  <rect x="58" y="550" width="140" height="138" rx="18" fill="#f2ecff" stroke="#a892de"/>
+  <text x="128" y="604" text-anchor="middle" class="row">Model</text>
+  <text x="128" y="635" text-anchor="middle" class="sub">参数、策略</text>
+  <text x="128" y="660" text-anchor="middle" class="sub">表示空间</text>
+  <rect x="218" y="550" width="230" height="138" rx="18" fill="#f2ecff" stroke="#a892de"/>
+  <text x="238" y="593" class="cell">从本轮轨迹学习</text><text x="238" y="626" class="example">SIA 的模型更新</text>
+  <rect x="462" y="550" width="230" height="138" rx="18" fill="#ece4ff" stroke="#967bd6"/>
+  <text x="482" y="593" class="cell">权重跨任务保留</text><text x="482" y="626" class="example">持续训练闭环</text>
+  <rect x="706" y="550" width="230" height="138" rx="18" fill="#fff8e8" stroke="#e8c771"/>
+  <text x="726" y="593" class="cell">改进训练或验证机制</text><text x="726" y="626" class="example">证据仍稀少</text>
+  <rect x="950" y="550" width="248" height="138" rx="18" fill="#e5dcff" stroke="#8067c3"/>
+  <text x="970" y="593" class="cell">用验证轨迹更新模型</text><text x="970" y="626" class="example">HELIX / Continual Harness</text>
+  <text x="58" y="727" class="sub">颜色越深表示闭环越完整；它不代表结果已经通过独立复现。</text>
+</svg>

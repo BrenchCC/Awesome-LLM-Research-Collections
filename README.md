@@ -966,6 +966,11 @@
 
 ## Technical Reflections
 
+- **Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution** (Created: 2026-08-21; Updated: 2026-08-21) \
+  **Description**: A two-axis review of 2026 recursive self-improvement work, with an auditable standard for admitting self-generated updates. \
+  [[Note](notes/en/agents/recursive-self-improvement.qmd)]
+  [[中文](notes/zh/agents/recursive-self-improvement.qmd)]
+
 - **How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-20) \
   **Description**: A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression. \
   [[Note](notes/en/agents/scientific-agent-evaluation.qmd)]

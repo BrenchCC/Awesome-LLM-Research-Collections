@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">OpenAI GPT-5.6 self-improvement evaluations</title>
+  <desc id="desc">A redraw of OpenAI's published scores for GPT-5.6 Sol, Terra, Luna, and GPT-5.5 on five self-improvement evaluations.</desc>
+  <style>
+    text { font-family: Inter, "Noto Sans", "Helvetica Neue", Arial, sans-serif; fill: #14213d; }
+    .title { font-size: 32px; font-weight: 700; }
+    .subtitle { font-size: 17px; fill: #5c677d; }
+    .axis { font-size: 14px; fill: #6b7280; }
+    .label { font-size: 19px; font-weight: 650; }
+    .value { font-size: 18px; font-weight: 700; }
+    .small { font-size: 14px; fill: #64748b; }
+  </style>
+  <rect width="1200" height="660" rx="28" fill="#f7f8fa"/>
+  <text x="64" y="64" class="title">OpenAI GPT-5.6 · Self-Improvement Evaluations</text>
+  <text x="64" y="96" class="subtitle">Published scores (%) · redraw from OpenAI’s July 2026 release</text>
+
+  <rect x="64" y="126" width="1072" height="214" rx="20" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="92" y="166" class="label">Aggregate RSI Index</text>
+  <line x1="300" y1="184" x2="1084" y2="184" stroke="#d9dee8"/>
+  <line x1="300" y1="184" x2="300" y2="310" stroke="#d9dee8"/>
+  <line x1="496" y1="184" x2="496" y2="310" stroke="#e7eaf0"/>
+  <line x1="692" y1="184" x2="692" y2="310" stroke="#e7eaf0"/>
+  <line x1="888" y1="184" x2="888" y2="310" stroke="#e7eaf0"/>
+  <line x1="1084" y1="184" x2="1084" y2="310" stroke="#e7eaf0"/>
+  <text x="296" y="326" class="axis">0</text>
+  <text x="486" y="326" class="axis">20</text>
+  <text x="682" y="326" class="axis">40</text>
+  <text x="878" y="326" class="axis">60</text>
+  <text x="1074" y="326" class="axis">80</text>
+
+  <text x="92" y="212" class="small">GPT-5.6 Sol</text>
+  <rect x="300" y="196" width="567.4" height="22" rx="7" fill="#2563eb"/>
+  <text x="880" y="213" class="value">57.9</text>
+  <text x="92" y="244" class="small">GPT-5.6 Terra</text>
+  <rect x="300" y="228" width="551.7" height="22" rx="7" fill="#0f8b8d"/>
+  <text x="864" y="245" class="value">56.3</text>
+  <text x="92" y="276" class="small">GPT-5.6 Luna</text>
+  <rect x="300" y="260" width="410.6" height="22" rx="7" fill="#f59e0b"/>
+  <text x="723" y="277" class="value">41.9</text>
+  <text x="92" y="308" class="small">GPT-5.5</text>
+  <rect x="300" y="292" width="408.7" height="22" rx="7" fill="#94a3b8"/>
+  <text x="721" y="309" class="value">41.7</text>
+
+  <rect x="64" y="364" width="1072" height="222" rx="20" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="92" y="405" class="label">Component scores</text>
+  <text x="596" y="405" class="small">Sol</text>
+  <text x="708" y="405" class="small">Terra</text>
+  <text x="824" y="405" class="small">Luna</text>
+  <text x="950" y="405" class="small">GPT-5.5</text>
+  <line x1="92" y1="422" x2="1108" y2="422" stroke="#d8dee8"/>
+  <text x="92" y="455" class="small">Internal Research Debugging</text>
+  <text x="590" y="455" class="value">68.3</text><text x="702" y="455" class="value">67.8</text><text x="818" y="455" class="value">50.8</text><text x="958" y="455" class="value">50.0</text>
+  <text x="92" y="493" class="small">KernelGen 1P</text>
+  <text x="590" y="493" class="value">61.1</text><text x="702" y="493" class="value">49.2</text><text x="818" y="493" class="value">22.4</text><text x="958" y="493" class="value">29.3</text>
+  <text x="92" y="531" class="small">NanoGPT</text>
+  <text x="590" y="531" class="value">9.69</text><text x="702" y="531" class="value">14.5</text><text x="818" y="531" class="value">1.66</text><text x="958" y="531" class="value">2.65</text>
+  <text x="92" y="569" class="small">PostTrainBench Lite</text>
+  <text x="590" y="569" class="value">50.3</text><text x="702" y="569" class="value">51.5</text><text x="818" y="569" class="value">29.6</text><text x="958" y="569" class="value">38.8</text>
+  <text x="64" y="626" class="small">Source: OpenAI, “GPT-5.6: Frontier intelligence that scales with your ambition.” Accessed 2026-08-21.</text>
+</svg>
