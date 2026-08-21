@@ -98,7 +98,7 @@ MiniMax M2.7 presents a source-level harness-search case. MiniMax says the syste
 
 Apodex‑1.0 assigns verification to explicit roles. An orchestrator dispatches retrieval to as many as 150 sub-agents, collects results in a shared report pool, and routes conflicts, key claims, and final drafts to reviewers, fact checkers, and a global verifier. The design improves a current research artifact; it does not show cross-task rewriting of its own implementation. In the two-axis map, it is best described as a sophisticated harness for one-shot revision, not a terminal RSI loop.
 
-![The Apodex‑1.0 multi-agent research and verification architecture. Source: the Apodex blog.](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
+![The Apodex‑1.0 multi-agent research and verification architecture. Source: the Apodex blog.](../../assets/recursive-self-improvement/apodex-agent-team.png){width="88%" fig-align="center"}
 
 ## RHI: make the workflow specification searchable
 

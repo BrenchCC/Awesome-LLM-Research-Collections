@@ -235,6 +235,45 @@ class LocalConversionTests(unittest.TestCase):
         finally:
             shutil.rmtree(temporary_root)
 
+    def test_unsupported_local_image_format_fails_during_conversion(self):
+        """Verify unsupported media fails before a remote document update.
+
+        Parameters:
+            self: Current test case.
+        """
+        temporary_root = Path(tempfile.mkdtemp(dir = Path.cwd()))
+        try:
+            source_dir = temporary_root / "notes" / "en" / "topic"
+            source_dir.mkdir(parents = True)
+            image_path = source_dir / "figure.avif"
+            image_path.write_bytes(b"avif")
+            source_path = source_dir / "source.qmd"
+            source_path.write_text(
+                "---\ntitle: Source\n---\n\n![Figure](figure.avif)\n",
+                encoding = "utf-8"
+            )
+            note = Note(
+                language = "en",
+                source_path = source_path,
+                relative_path = Path("topic/source.qmd"),
+                title = "Source",
+                date = "2026-08-13",
+                date_modified = "2026-08-15",
+                description = "Description",
+                author = "Brench",
+                order = 1,
+                note_type = "paper-reading",
+                topic = "topic",
+                tags = ["Tag"]
+            )
+            with self.assertRaisesRegex(
+                ValueError,
+                "Unsupported note image format for Feishu"
+            ):
+                convert_qmd_body(note = note, source_key_by_path = {})
+        finally:
+            shutil.rmtree(temporary_root)
+
     def test_stable_hash_tracks_media_bytes(self):
         """Verify media changes affect the page content hash.
 

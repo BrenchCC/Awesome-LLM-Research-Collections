@@ -98,7 +98,7 @@ MiniMax M2.7 的公开案例更接近源码级 harness 搜索。官方称系统�
 
 Apodex‑1.0 把验证结构化为独立角色：orchestrator 向最多 150 个子 Agent 分派检索，结果进入共享 report pool；冲突事实、关键主张和最终草稿分别交给 reviewer、fact checker 与 global verifier。它主要改善当前 research artifact，没有显示跨任务改写自身代码，因此在二维框架里更接近「复杂 Harness 支撑单次修订」，而不是闭环末端。
 
-![Apodex‑1.0 的多 Agent 研究与验证结构。来源：Apodex 官方博客。](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
+![Apodex‑1.0 的多 Agent 研究与验证结构。来源：Apodex 官方博客。](../../assets/recursive-self-improvement/apodex-agent-team.png){width="88%" fig-align="center"}
 
 ## RHI：让工作流规范成为搜索对象
 

@@ -29,6 +29,19 @@ from .models import REPOSITORY_URL
 from .models import repo_relative, stable_hash
 
 
+SUPPORTED_LOCAL_IMAGE_SUFFIXES = {
+    ".bmp",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".svg",
+    ".tif",
+    ".tiff",
+    ".webp",
+}
+
+
 def strip_front_matter(text, source_path):
     """Remove YAML front matter from a QMD document.
 
@@ -162,6 +175,10 @@ def convert_qmd_body(
         relative = repo_relative(source)
         if not source.is_file():
             raise ValueError(f"Missing note image: {relative}")
+        if source.suffix.lower() not in SUPPORTED_LOCAL_IMAGE_SUFFIXES:
+            raise ValueError(
+                f"Unsupported note image format for Feishu: {relative}"
+            )
         if source.stat().st_size > MAX_MEDIA_BYTES:
             raise ValueError(f"Note image exceeds 20 MB: {relative}")
         media_source = source
