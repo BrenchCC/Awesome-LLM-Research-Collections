@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-01
-date-modified: 2026-08-06
+date-modified: 2026-08-22
 title: "Kimi K3：架构、训练与百万 Token Agentic RL 技术解读"
 description: "用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。"
 order: 1
@@ -17,7 +17,7 @@ tags:
 
 ![Kimi K3 技术报告标题、报告副标题与作者团队。](../../assets/kimi-k3-open-frontier-intelligence/paper-title-authors.png){fig-alt="Kimi K3 Open Frontier Intelligence 技术报告标题和 Kimi Team 作者署名"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，第 1 页；由 PDF 矢量页按 5× 缩放裁切，约 360 DPI。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，第 1 页。*
 
 ## 摘要与核心判断
 
@@ -63,7 +63,7 @@ K3 有 93 层，隐藏维度仍是 7168。其中 69 层使用 KDA，24 层使用
 
 ![Kimi K3 总体架构：Stable LatentMoE、KDA、3:1 混合注意力、Block AttnRes 与原生视觉路径。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-2-architecture.png){fig-alt="Kimi K3 论文 Figure 2，总体架构包含 Stable LatentMoE、KDA、Gated MLA、Attention Residuals 和 MoonViT-V2"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 2，第 3 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 2，第 3 页。*
 
 论文从序列、深度和宽度三个维度解释架构，视觉是第四条输入路径。可以把它们理解成四个问题：一个 token 怎样读取历史？当前层怎样读取前面的层？一个 token 要交给哪些专家处理？图片怎样转换成能与文本一起训练的 token？KDA/MLA、AttnRes、LatentMoE 和 MoonViT-V2 分别回答这四个问题。它们最终汇入同一个模型骨干，并不是四套独立模型。
 
@@ -85,7 +85,7 @@ $$
 
 ![自制的 K3 四维信息流图：序列、深度、宽度与模态汇入同一 2.8T MoE 骨干。](../../assets/kimi-k3-open-frontier-intelligence/k3-information-flow-map.svg){fig-alt="自制 Kimi K3 信息流图，序列维使用 3 KDA 加 1 MLA，深度维使用 Block AttnRes，宽度维使用 Stable LatentMoE，模态维使用 MoonViT-V2"}
 
-*自制图；依据 [K3 报告](https://arxiv.org/abs/2607.24653) §2 与 Figure 2 重绘。*
+*依据 [K3 报告](https://arxiv.org/abs/2607.24653) §2 与 Figure 2。*
 
 这套划分也说明 2.5× 应该怎样理解。K3 的曲线相对 K2 左移约 2.5×，表示在作者的验证损失拟合中，达到相同损失所需的训练计算量更少。这里比较的是整套训练方案。K3 同时改了架构、数据混合、视觉训练、优化器和稳定性方法，所以这张曲线不能证明“KDA 单独把训练效率提高了 2.5×”。
 
@@ -199,7 +199,7 @@ $$
 
 ![KDA 单步状态编辑中的通道衰减、定向擦除、关联写入与查询读出。](../../assets/kimi-linear-kda/kda-state-edit.svg){fig-alt="KDA 单 token 输入输出流，先用 alpha 对 key 通道衰减，再由 beta 和 key 定向改写状态，最后由 query 从更新状态读出"}
 
-*图源复用自站内 [Kimi Linear 与 KDA 专题笔记](../attention/kimi-linear-kda.qmd)；依据 Kimi Linear 的 KDA 递推重绘。*
+*来源：Kimi Linear 的 KDA 递推；参见站内 [Kimi Linear 与 KDA 专题笔记](../attention/kimi-linear-kda.qmd)。*
 
 各输入信号的职责可以压缩成一张表：
 
@@ -264,7 +264,7 @@ $$
 
 ![K3 论文中的 lower-bounded decay：将对数衰减限制在有限区间，使对角 tile 也能使用 Tensor Core。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-3-kda-decay.png){fig-alt="Kimi K3 Figure 3，对比 Kimi Linear 的负 Softplus 衰减与 K3 的下界衰减，以及对角 tile 的 Tensor Core 计算"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 3，第 5 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 3，第 5 页。*
 
 KDA 的关键工程改动是“带下界的衰减”（lower-bounded decay）。$g_t^h$ 是对数形式的衰减值，K3 把它限制在 $g_{\min}$ 和 0 之间：
 
@@ -279,7 +279,7 @@ $$
 
 ![自制的 3 KDA + 1 Gated MLA 混合记忆图：KDA 状态大小近似不随上下文增长，MLA latent cache 按 token 增长。](../../assets/kimi-k3-open-frontier-intelligence/kda-mla-hybrid-memory.svg){fig-alt="自制 KDA 与 MLA 混合缓存图，展示 3 比 1 层模式、固定形状递归状态和随 token 线性增长的 MLA latent cache"}
 
-*自制图；依据 [K3 报告](https://arxiv.org/abs/2607.24653) §2.1 与 [vLLM K3 工程报告](https://vllm-project.github.io/2026/07/27/k3.html)重绘。*
+*依据 [K3 报告](https://arxiv.org/abs/2607.24653) §2.1 与 [vLLM K3 工程报告](https://vllm-project.github.io/2026/07/27/k3.html)。*
 
 ## 4. Block AttnRes：让深层网络有选择地读取前层
 
@@ -304,7 +304,7 @@ $$
 
 ![Attention Residuals 原论文 Figure 1：标准残差、Full AttnRes 与 Block AttnRes。](../../assets/kimi-k3-open-frontier-intelligence/attention-residuals-figure-1.png){fig-alt="Attention Residuals Figure 1，比较标准残差、对所有前层做注意力的 Full AttnRes 和按块汇总的 Block AttnRes"}
 
-*来源：[Attention Residuals](https://arxiv.org/abs/2603.15031)，Figure 1，第 1 页；5× 裁切。*
+*来源：[Attention Residuals](https://arxiv.org/abs/2603.15031)，Figure 1，第 1 页。*
 
 Block AttnRes 用“分块摘要”降低成本。块内仍做普通残差相加，跨块只保存一个汇总表示。K3 按 12 层为上限切成 8 个主干块：前 7 个块各 12 层，最后一个是不完整的 9 层块；再把输入 embedding 作为第 9 个深度来源。Figure 2 右侧红线画的正是 embedding、已完成块和当前块部分和之间的选择。这样做会失去逐层选择的细度，但长期保存和跨流水线阶段传输的状态从 $L$ 个层输出降到 $N$ 个块输出。它更像深度方向的分块索引：它改变一层从哪里取信息，不改变 token 之间的因果顺序。
 
@@ -320,11 +320,11 @@ Figure 2 左上的两条分支不能混为一条。Router 根据完整隐藏状�
 
 ![Stable LatentMoE 使用 SiTU-GLU 限制 gate 与 up 分支的乘积幅值。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-4-situ-glu.png){fig-alt="Kimi K3 Figure 4，对比 GLU、SwiGLU 和 SiTU-GLU 的 gate、up 分支与标量响应"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 4，第 7 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 4，第 7 页。*
 
 ![NVIDIA LatentMoE 原论文中的标准 MoE 与 latent 路径对比。](../../assets/kimi-k3-open-frontier-intelligence/nvidia-latentmoe-figure-1.png){fig-alt="NVIDIA LatentMoE Figure 1，标准 MoE 在主维度路由，LatentMoE 先下投影，在更多低维专家中计算后再上投影"}
 
-*来源：[LatentMoE](https://arxiv.org/abs/2601.18089)，Figure 1，第 2 页；NVIDIA 论文 PDF 5× 裁切。*
+*来源：[LatentMoE](https://arxiv.org/abs/2601.18089)，Figure 1，第 2 页。*
 
 K3 对标准 LatentMoE 做了稳定化。设 $T_k(x)$ 为被选中的专家集合、$p_i$ 为路由权重，routed 分支先聚合再归一化；完整输出为：
 
@@ -376,7 +376,7 @@ $$
 
 ![Quantile Balancing 从不均匀 Top-k 路由中估计每个专家的分位阈值。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-5-quantile-balancing.png){fig-alt="Kimi K3 Figure 5，八个 token、四个专家的 Quantile Balancing 示例，从负载 4 3 1 0 调整为 2 2 2 2"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 5，第 8 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 5，第 8 页。*
 
 ## 6. 原生视觉、Per-Head Muon 与 2.5× scaling
 
@@ -384,7 +384,7 @@ K3 所说的“原生视觉”，是指文本、图片和视频从预训练开�
 
 ![MoonViT-V2 与 SigLIP 初始化基线的视觉塔梯度范数。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-6-vision-gradients.png){fig-alt="Kimi K3 Figure 6，MoonViT-V2 from scratch 与 MoonViT-3D SigLIP 初始化的视觉塔梯度曲线"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 6，第 9 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 6，第 9 页。*
 
 优化器方面，Per-Head Muon 会把注意力矩阵按“头”切开，分别更新，而不是把整块大矩阵一起正交化。不同注意力头负责不同特征子空间，分开处理可以减少头与头之间的尺度干扰。K3 还沿用 K2 的权重裁剪、1% 线性预热、余弦学习率和 0.1 权重衰减。论文没有证明一个新优化器就解决了全部稳定性问题。Per-Head Muon、带下界的衰减、RMSNorm、SiTU-GLU、QB 和权重裁剪共同发挥作用。
 
@@ -392,11 +392,11 @@ K3 所说的“原生视觉”，是指文本、图片和视频从预训练开�
 
 ![K2 与 K3 的 scaling-law 拟合曲线，报告给出约 2.5× 整体 scaling efficiency。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-7-scaling-law.png){fig-alt="Kimi K3 Figure 7，K2 与 K3 验证损失相对训练 FLOPs 的拟合曲线，标注 2.5 倍"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 7，第 11 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 7，第 11 页。*
 
 ![K2 与 K3 架构口径表：层数、参数、专家、注意力、上下文和视觉塔。](../../assets/kimi-k3-open-frontier-intelligence/paper-table-1-k2-k3.png){fig-alt="Kimi K3 Table 1，比较 K2 与 K3 的 61 对 93 层、1.04T 对 2.78T 参数、32.6B 对 104.2B 激活参数及其他配置"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Table 1，第 11 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Table 1，第 11 页。*
 
 图 7 要和表 1 一起读。K3 的总参数增加 167%，激活参数增加 220%，层数增加 52%，训练窗口从 128K 扩到 1M，还加入视觉训练。2.5× 曲线比较的是达到相同验证损失所需的训练计算量，不是推理延迟、显存占用或每次请求成本。它能支持“K3 整套方案在作者设置下训练效率更高”，不能证明“K3 服务一定比 K2 便宜”。
 
@@ -406,7 +406,7 @@ K3 使用 NoPE，也就是不加入显式位置编码。token 的先后顺序由
 
 ![自制的 K3 上下文课程：预训练从 8K 到 64K，cooldown 再扩到 256K 和 1M。](../../assets/kimi-k3-open-frontier-intelligence/k3-context-curriculum.svg){fig-alt="自制 Kimi K3 上下文训练课程图，依次显示 8K、64K、256K 和 1048576 token，并强调有效上下文取决于数据和任务"}
 
-*自制图；依据 [K3 报告](https://arxiv.org/abs/2607.24653) §3.4 重绘。*
+*依据 [K3 报告](https://arxiv.org/abs/2607.24653) §3.4。*
 
 上下文训练分四段：先从 8K 扩到 64K，在训练收尾（cooldown）阶段再扩到 256K 和 1M。超长序列只占后期一部分预算，比从头到尾都用 1M 训练便宜，也让模型逐步适应长距离依赖。代价是 1M 样本的更新次数较少，模型对不同位置、任务和模态的利用能力可能不均匀。
 
@@ -420,13 +420,13 @@ K3 使用 NoPE，也就是不加入显式位置编码。token 的先后顺序由
 
 ![RL FLOPs 增加时，多类任务的分数与平均 assistant steps 共同变化。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-8-rl-scaling.png){fig-alt="Kimi K3 Figure 8，编码、工具使用、网页开发、搜索、专业工作流、办公交付、图表理解和视觉谜题的 RL 分数与平均步数曲线"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 8，第 13 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 8，第 13 页。*
 
 图 8 显示，随着强化学习计算量增加，多项任务的分数和平均工具调用步数总体上升。这说明模型学会了执行更长的交互，但不能反过来证明“步骤越多，分数越高”。两条曲线都随训练变化，而且有些阶段并不单调。论文用 token 预算和冗长度控制，限制无意义的长回答。对没有明确自动答案的任务，Agentic GRM 会充当评分模型：它先阅读结果，生成评分标准，再逐项打分并记录依据。只要奖励来自另一个模型，评分标准和长度惩罚就可能被策略利用，这仍是需要警惕的偏差来源。
 
 ![自制的 K3 后训练图：SFT 分化为三域三档 effort 的九个策略，再经 MOPD 合并。](../../assets/kimi-k3-open-frontier-intelligence/k3-post-training-mopd.svg){fig-alt="自制 Kimi K3 后训练流程，SFT 后形成 coding、general、agent 三个域各 low high max 的九个策略，经 MOPD 蒸馏为统一模型"}
 
-*自制图；依据 [K3 报告](https://arxiv.org/abs/2607.24653) §4.1 重绘。*
+*依据 [K3 报告](https://arxiv.org/abs/2607.24653) §4.1。*
 
 可以把 MOPD 理解为“多教师在线策略蒸馏”。学生模型先按自己的当前策略生成 token，这叫 on-policy，即训练数据来自学生此刻真正会访问的轨迹。随后，系统用对应领域和推理预算的教师模型给每个 token 一个稠密奖励。对领域 $d$、预算档位 $e$ 和当前 token $y_t$，奖励由教师与学生概率之比的对数计算，并做上下限裁剪：
 
@@ -454,7 +454,7 @@ Agentic RL 是面向智能体任务的强化学习：模型不只回答一次，
 
 ![知识图谱引导的任务合成：概念采样、材料检索和任务生成。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-9-task-synthesis.png){fig-alt="Kimi K3 Figure 9，分层知识图谱采样关键词，检索论文博客代码，再选择编码、知识或视觉任务进行合成"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 9，第 15 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 9，第 15 页。*
 
 系统需要长期保存百万 token 轨迹的环境状态。AgentENV 使用 microVM，也就是轻量虚拟机，隔离不同任务。checkpoint 是保存当前环境快照，耗时中位数约 133 ms；resume 是从快照恢复，约 49 ms。系统还允许分配的虚拟内存超过实际物理内存，最高把可承载环境数提高 6.5×。训练期间累计启动了 51,219,741 个 sandbox（隔离沙箱）。这个数字说明系统运行规模很大，但不代表有 5120 万个互不重复的高质量任务；同一环境可能被重试、恢复或多条轨迹复用。
 
@@ -464,13 +464,13 @@ Partial rollout 指从轨迹中间继续生成，避免每次策略更新都丢�
 
 ![KDA checkpoint 与 MLA hash block 分离后的细粒度 prefix cache。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-12-prefix-cache.png){fig-alt="Kimi K3 Figure 12，一个 6144 token 物理块含十二个 512 token hash block，并在 2560 token 边界恢复 KDA checkpoint"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 12，第 23 页；5× 裁切。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 12，第 23 页。*
 
 KDA 和 MLA 保存历史的方式不同，因此前缀缓存也要保存两种状态。MLA 为每个 token 保存压缩后的键和值，可以按较小的哈希块复用；KDA 为每个序列、每一层保存一个较大的递归状态，只能在少数边界做快照。K3 把一个 6144-token 物理块拆成十二个 512-token 哈希块。若前 2560 个 token 命中缓存，系统会复用前五个 MLA 块，同时恢复 2560 位置对应的 KDA 状态，再从这里继续预填充。只有 MLA 命中而没有 KDA 快照，模型状态仍不完整。
 
 ![vLLM 对 K3 混合缓存的解释：KDA 固定状态与 MLA 逐 token latent 共用一个逻辑 prefix。](../../assets/kimi-k3-open-frontier-intelligence/vllm-hybrid-cache.png){fig-alt="vLLM K3 工程图，左侧是每层每序列 KDA fp32 recurrent state，右侧是随 1M token 增长的 bf16 MLA latent cache"}
 
-*来源：[vLLM《Serving Kimi K3 at Frontier Scale》](https://vllm-project.github.io/2026/07/27/k3.html)，网页原图，访问于 2026-08-01。*
+*来源：[vLLM《Serving Kimi K3 at Frontier Scale》](https://vllm-project.github.io/2026/07/27/k3.html)，访问于 2026-08-01。*
 
 vLLM 在 16× GB300 NVL72 的指定系统上报告约 118 token/s，未使用推测解码；启用 DSpark 后约 370 token/s。推测解码会先让较小的草稿模型猜多个 token，再由主模型批量验证。这个结果说明公开权重能够在主流推理框架上高性能部署，也说明草稿模型明显影响速度。但这不是单卡数据，不能脱离整套 16 节点系统、并行策略、量化方式、请求长度和软件版本直接套到其他硬件。相比单个速度数字，缓存图更有参考价值，因为它解释了传统分页 KV 缓存为何不能直接管理 KDA 的递归状态。
 
@@ -480,7 +480,7 @@ K3 报告覆盖编程、智能体搜索、知识工作、视觉、数学和一�
 
 ![四组 score–cost 曲线：Kimi Code Bench 2.0、BrowseComp、GDPval-AA v2 与 AA-Briefcase。](../../assets/kimi-k3-open-frontier-intelligence/paper-figure-13-score-cost.png){fig-alt="Kimi K3 Figure 13，四个任务的每题美元成本与分数或 Elo 散点图，Kimi K3 用星号表示"}
 
-*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 13，第 32 页；5× 裁切。成本按论文当时列出的 API 价格估算。*
+*来源：[Kimi K3 技术报告](https://arxiv.org/abs/2607.24653)，Figure 13，第 32 页。成本按论文当时列出的 API 价格估算。*
 
 图 13 同时画出任务成绩和每题推理成本，比单独排列分数更接近实际使用。不过，横轴根据论文采用的 API 价格和 token 消耗计算，并不是购买、运行硬件的全部成本。不同评测框架的工具调用、上下文压缩和失败重试也会改变费用，API 价格还会变化。图中 K3 在部分任务上有较好的分数与成本组合，只能说明它在当时协议和价格下有竞争力，不能推出所有业务都更便宜。
 
@@ -488,9 +488,9 @@ low、high、max 三档会同时改变生成长度、工具调用步数、重试
 
 论文末尾展示了 GPU 编译器、I–Love–Q、AI 芯片研究站点、引力波分析和视频编辑等长任务，其中包含两小时生成数千行代码、数千次检索和多个子智能体并发执行。这些案例由模型团队挑选，没有对照组、失败样本分布和独立复现日志，证据更接近工程演示。它们能说明系统做过这类任务，不能用来估计普通用户一次运行的成功率或能节省多少工时。
 
-![Artificial Analysis 的 Kimi K3 动态页面快照，显示当日 intelligence、速度、价格和窗口口径。](../../assets/kimi-k3-open-frontier-intelligence/artificial-analysis-k3-snapshot.png){fig-alt="Artificial Analysis Kimi K3 max 页面在 2026 年 8 月 1 日的截图，显示 Intelligence Index 57、速度约 35.9 token 每秒、输入 3 美元输出 15 美元和 1M context"}
+![Artificial Analysis 在 2026 年 8 月 1 日公布的 Kimi K3 intelligence、速度、价格和窗口口径。](../../assets/kimi-k3-open-frontier-intelligence/artificial-analysis-k3-snapshot.png){fig-alt="Artificial Analysis Kimi K3 max 页面在 2026 年 8 月 1 日显示 Intelligence Index 57、速度约 35.9 token 每秒、输入 3 美元输出 15 美元和 1M context"}
 
-*来源：[Artificial Analysis Kimi K3 页面](https://artificialanalysis.ai/models/kimi-k3/)，2× 浏览器截图，访问于 2026-08-01。排名、速度、价格与样本数均会动态变化。*
+*来源：[Artificial Analysis Kimi K3 页面](https://artificialanalysis.ai/models/kimi-k3/)，访问于 2026-08-01。排名、速度、价格与样本数均会动态变化。*
 
 这张外部快照显示：综合智能指数（Intelligence Index）为 57，输出速度约 35.9 token/s，输入和输出价格分别为每百万 token 3 美元和 15 美元，页面还标出 1M 窗口和 2.8T/104B 参数。它与论文成本图不是同一项实验。提供商、系统负载、采样设置、测试集版本和平台聚合规则都可能不同。截图只记录访问当天页面显示的结果，不能给 K3 做长期定级。
 

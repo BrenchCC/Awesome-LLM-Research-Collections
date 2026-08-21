@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">推理模式概率质量的移动</title>
+  <desc id="desc">基础模型、SFT 冷启动和强化学习三个阶段对四种推理模式概率质量的示意比较。</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#ecfeff"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.09"/></filter></defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <text x="85" y="100" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="46" font-weight="700" fill="#0f172a">训练移动的是“被采样的概率质量”</text>
+  <text x="85" y="150" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" fill="#475569">示意图：柱高表示模式选择概率，不等同于模式的条件执行成功率</text>
+  <g font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" filter="url(#shadow)">
+    <rect x="85" y="220" width="440" height="520" rx="28" fill="#fff"/><text x="305" y="285" text-anchor="middle" font-size="32" font-weight="700" fill="#334155">基础模型</text>
+    <rect x="145" y="535" width="60" height="145" rx="10" fill="#818cf8"/><rect x="245" y="445" width="60" height="235" rx="10" fill="#14b8a6"/><rect x="345" y="585" width="60" height="95" rx="10" fill="#f59e0b"/><rect x="445" y="505" width="60" height="175" rx="10" fill="#94a3b8"/>
+    <text x="175" y="715" text-anchor="middle" font-size="19" fill="#475569">短解</text><text x="275" y="715" text-anchor="middle" font-size="19" fill="#475569">长解</text><text x="375" y="715" text-anchor="middle" font-size="19" fill="#475569">记忆</text><text x="475" y="715" text-anchor="middle" font-size="19" fill="#475569">其他</text>
+    <rect x="580" y="220" width="440" height="520" rx="28" fill="#fff"/><text x="800" y="285" text-anchor="middle" font-size="32" font-weight="700" fill="#334155">SFT 冷启动</text>
+    <rect x="640" y="430" width="60" height="250" rx="10" fill="#818cf8"/><rect x="740" y="475" width="60" height="205" rx="10" fill="#14b8a6"/><rect x="840" y="610" width="60" height="70" rx="10" fill="#f59e0b"/><rect x="940" y="565" width="60" height="115" rx="10" fill="#94a3b8"/>
+    <text x="670" y="715" text-anchor="middle" font-size="19" fill="#475569">短解</text><text x="770" y="715" text-anchor="middle" font-size="19" fill="#475569">长解</text><text x="870" y="715" text-anchor="middle" font-size="19" fill="#475569">记忆</text><text x="970" y="715" text-anchor="middle" font-size="19" fill="#475569">其他</text>
+    <rect x="1075" y="220" width="440" height="520" rx="28" fill="#fff"/><text x="1295" y="285" text-anchor="middle" font-size="32" font-weight="700" fill="#334155">RL 后</text>
+    <rect x="1135" y="340" width="60" height="340" rx="10" fill="#818cf8"/><rect x="1235" y="540" width="60" height="140" rx="10" fill="#14b8a6"/><rect x="1335" y="635" width="60" height="45" rx="10" fill="#f59e0b"/><rect x="1435" y="625" width="60" height="55" rx="10" fill="#94a3b8"/>
+    <text x="1165" y="715" text-anchor="middle" font-size="19" fill="#475569">短解</text><text x="1265" y="715" text-anchor="middle" font-size="19" fill="#475569">长解</text><text x="1365" y="715" text-anchor="middle" font-size="19" fill="#475569">记忆</text><text x="1465" y="715" text-anchor="middle" font-size="19" fill="#475569">其他</text>
+  </g>
+  <g font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="20" fill="#475569"><text x="800" y="805" text-anchor="middle">SFT 扩大可用模式的初始质量；RL 继续把质量集中到当前奖励偏好的模式</text><text x="800" y="840" text-anchor="middle">若某一模式从未进入可达区域，仅靠短程稀疏奖励通常很难把它“召唤”出来</text></g>
+</svg>

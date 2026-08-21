@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-12
-date-modified: 2026-08-14
+date-modified: 2026-08-22
 title: "From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering"
 description: "An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building."
 order: 1
@@ -34,7 +34,7 @@ Clio is designed to extract aggregate patterns while preventing individual conve
 
 ![Clio's complete system from raw conversations and facet summaries to initial clusters, hierarchical clusters, and the map interface](../../assets/clio-llm-embedding-clustering/paper-figure-2-system-diagram.png)
 
-*Source: Figure 2 of the Clio paper. The original figure number and caption are retained in the crop.*
+*Source: Figure 2 of the Clio paper.*
 
 Two design choices are easy to lose in a short summary.
 
@@ -50,7 +50,7 @@ Figure 2 can make the privacy barriers look like annotations around the clusteri
 
 ![Privacy-score progression across raw conversations, conversation summaries, and cluster summaries](../../assets/clio-llm-embedding-clustering/paper-figure-5-privacy-layers.png)
 
-*Source: Figure 5 of the Clio paper. The original figure number and caption are retained in the crop.*
+*Source: Figure 5 of the Clio paper.*
 
 That outcome depends on four interventions working together:
 
@@ -191,7 +191,7 @@ Figure 4 reports 94% reconstruction accuracy on 19,476 synthetic regular convers
 
 ![Clio's supervised reconstruction against known high-level categories](../../assets/clio-llm-embedding-clustering/paper-figure-4-supervised-reconstruction.png)
 
-*Source: Figure 4 of the Clio paper. The original figure number and caption are retained in the crop.*
+*Source: Figure 4 of the Clio paper.*
 
 For the paper's quantitative reconstruction, Clio first creates base clusters without labels and then receives the **known set of 20 ground-truth top-level categories**. It performs the assignment step of the hierarchizer against those fixed parents. The test asks whether summarization, base clustering, and assignment recover the original category distribution.
 

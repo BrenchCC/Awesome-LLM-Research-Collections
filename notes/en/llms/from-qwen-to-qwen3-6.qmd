@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-07-28
-date-modified: 2026-07-29
+date-modified: 2026-08-22
 title: "From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations"
 description: "A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation."
 order: 1
@@ -84,7 +84,7 @@ The reward model could only express distinctions present in its preference data.
 
 ![The first Qwen generation separates its BBPE-fed decoder-only foundation from SFT, preference modeling, and PPO. Based on the Qwen technical report.](../../assets/from-qwen-to-qwen3-6/qwen-foundation-rlhf.svg){fig-alt="Diagram of first-generation Qwen training with a roughly 152K-token BBPE vocabulary, MHA and RoPE backbone components, SFT, reward or process-aware preference modeling, and PPO RLHF"}
 
-![Figure 1 from the Qwen technical report: a pre-trained base branches into Chat, code, mathematics, vision-language, reward, and RLHF models. Cropped from the vector PDF page at more than 300 DPI.](../../assets/from-qwen-to-qwen3-6/qwen-model-lineage.png){fig-alt="The Qwen technical report model lineage showing Qwen, Qwen-Chat, Qwen-RM, Qwen-Chat-RLHF, Code-Qwen, Math-Qwen-Chat, and Qwen-VL"}
+![Figure 1 from the Qwen technical report: a pre-trained base branches into Chat, code, mathematics, vision-language, reward, and RLHF models.](../../assets/from-qwen-to-qwen3-6/qwen-model-lineage.png){fig-alt="The Qwen technical report model lineage showing Qwen, Qwen-Chat, Qwen-RM, Qwen-Chat-RLHF, Code-Qwen, Math-Qwen-Chat, and Qwen-VL"}
 
 The figure records one more important fact. Code, mathematics, visual language, and reward modeling were already present in the first-generation program, but they occupied separate branches. Qwen3.5 did not mark the first time Qwen processed an image. It moved vision-language learning from a specialized branch into the foundation model’s early pre-training. “A family contains a vision model” and “the shared backbone is natively multimodal” are different claims.
 

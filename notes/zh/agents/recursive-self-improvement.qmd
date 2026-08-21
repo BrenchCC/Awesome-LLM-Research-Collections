@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-21
-date-modified: 2026-08-21
+date-modified: 2026-08-22
 title: "递归自我改进：从产出物、Harness 到模型—脚手架共进化"
 description: "用优化对象与闭环程度两个维度重审 2026 年递归自我改进进展，并给出一套可审计的证据准入标准。"
 order: 1
@@ -28,11 +28,11 @@ tags:
 
 [OpenAI 的 GPT‑5.6 发布页](https://openai.com/index/gpt-5-6/)把 Internal Research Debugging、KernelGen 1P、NanoGPT 和 PostTrainBench Lite 汇总为 RSI Index。官方结果中 GPT‑5.6 Sol 为 57.9%，GPT‑5.5 为 41.7%，即高 16.2 个百分点；这些任务覆盖研究代码调试、内核优化、小模型预训练和后训练配方。这个指标测的是「帮助 AI 研发的能力」，还不是模型自主设计并交付后继模型的证明。OpenAI 的[系统卡](https://deploymentsafety.openai.com/gpt-5-6/)也把 GPT‑5.6 的 AI Self-Improvement 能力评为未达到其 High 阈值。
 
-![OpenAI 公布的 GPT‑5.6 自我改进评测分数。根据 2026 年 7 月官方发布页重绘，访问日期：2026-08-21；图中数值均为 OpenAI 内部或官方配置下的结果。](../../assets/recursive-self-improvement/openai-rsi-index-redraw.svg){width="92%" fig-align="center"}
+![OpenAI 公布的 GPT‑5.6 自我改进评测分数。来源：2026 年 7 月官方发布页，访问日期：2026-08-21；图中数值均为 OpenAI 内部或官方配置下的结果。](../../assets/recursive-self-improvement/openai-rsi-index-redraw.svg){width="92%" fig-align="center"}
 
 [Anthropic Institute](https://www.anthropic.com/institute/recursive-self-improvement)则用五阶段时间线描述组织内部的变化：人工编写第一版 Claude、聊天机器人辅助、coding agent、能运行代码并委派工作的 autonomous agent，以及尚未发生的 closing the loop。页面还报告 Anthropic 工程师当前每季度交付的代码量约为 2021—2025 年平均水平的 8 倍。后一个数字同时受模型、工具、流程和组织扩张影响，不宜当作模型能力的纯测量。
 
-![Anthropic 对 AI 研发自动化的五阶段划分。官方页面截图，访问日期：2026-08-21；“20XX?” 明确表示 closing the loop 仍是未来阶段。](../../assets/recursive-self-improvement/anthropic-rsi-timeline.png){width="62%" fig-align="center"}
+![Anthropic 对 AI 研发自动化的五阶段划分。来源：Anthropic Institute 官方页面，访问日期：2026-08-21；“20XX?” 明确表示 closing the loop 仍是未来阶段。](../../assets/recursive-self-improvement/anthropic-rsi-timeline.png){width="62%" fig-align="center"}
 
 其余公开动向更适合放在「方向」层，而不是和受控论文实验混在一起：
 
@@ -51,7 +51,7 @@ tags:
 
 按优化对象划分，Artifact 是代码、证明、算法和实验配置；Harness 是 prompt、memory、tool、skill、hook、路由与控制流；Model 是参数、策略和内部表示。原有三分法能回答「改了什么」，却没有回答「更新是否留下来」和「优化器是否也被改进」。
 
-![原有三类优化对象：Models、Harnesses 与 Artifacts。保留原图；该图只描述优化对象，不表示闭环强度。](../../assets/recursive-self-improvement/three-object-taxonomy.png){width="72%" fig-align="center"}
+![Models、Harnesses 与 Artifacts 三类优化对象。该图只描述优化对象，不表示闭环强度。](../../assets/recursive-self-improvement/three-object-taxonomy.png){width="72%" fig-align="center"}
 
 我更倾向于加入第二条轴：
 
@@ -72,13 +72,13 @@ Artifact 路线已经最接近稳定工程实践。原因并不神秘：目标�
 
 [Karpathy 的 Autoresearch](https://github.com/karpathy/autoresearch)把小型语言模型训练压缩成一个受控循环：Agent 只能修改 `train.py`，每个候选固定训练五分钟，用越低越好的 `val_bpb` 选择是否保留。架构、优化器、batch size 和超参数都能改，但预算与验收规则不动。一次长跑约尝试 700 个改动，只留下约 20 个有效版本，并把达到目标水平的训练时间从 2.02 小时降到 1.80 小时。这里被改进的是训练程序和配置，不是执行该搜索的模型权重。
 
-![Autoresearch 的自动实验记录：候选修改、固定训练预算、验证指标与保留/丢弃决策。保留原图，来源：项目公开运行记录。](../../assets/recursive-self-improvement/autoresearch-run.png){width="92%" fig-align="center"}
+![Autoresearch 的自动实验记录：候选修改、固定训练预算、验证指标与保留/丢弃决策。来源：项目公开运行记录。](../../assets/recursive-self-improvement/autoresearch-run.png){width="92%" fig-align="center"}
 
 ## AlphaEvolve：程序种群与自动评估器
 
 [Google DeepMind 的 AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/)由 LLM 生成候选程序，自动评估器运行并打分，进化搜索保留有用个体。DeepMind 报告它在数据中心调度、硬件电路、矩阵乘法和训练内核上产生了已部署改进，包括 Gemini 训练中的 1% 计算节省，以及某个 FlashAttention kernel 的 32.5% 加速。这里最强的证据来自可执行 artifact 和客观 evaluator；「这些改进反哺模型研发」说明它进入了研发链，却不自动等同于开放式 RSI。
 
-![AlphaEvolve 流程：历史程序采样、LLM 生成、自动评估和进化数据库。保留原图，来源：Google DeepMind 官方博客。](../../assets/recursive-self-improvement/alphaevolve-loop.webp){width="92%" fig-align="center"}
+![AlphaEvolve 流程：历史程序采样、LLM 生成、自动评估和进化数据库。来源：Google DeepMind 官方博客。](../../assets/recursive-self-improvement/alphaevolve-loop.webp){width="92%" fig-align="center"}
 
 # Harness 路线：更新更便宜，验证更困难
 
@@ -86,7 +86,7 @@ Harness 位于模型与环境之间。它决定上下文如何压缩、工具怎
 
 [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/)讨论了一个重要的不对称：提出 harness 修改的能力在一段模型能力区间内变化不大，但从修改中获益的能力呈非单调关系。弱模型可能无法正确执行复杂脚手架，强模型又接近任务上限，中间档模型反而有更大收益空间。这说明 harness 不是免费能力；它会把推理成本换成上下文、编排和执行负担。
 
-![Harness-updating 与 harness-benefit 的差异。保留原图；左图显示更新建议能力较平，右图显示不同模型从更新中获益并不单调。](../../assets/recursive-self-improvement/harness-updating-benefit.png){width="92%" fig-align="center"}
+![Harness-updating 与 harness-benefit 的差异：左图显示更新建议能力较平，右图显示不同模型从更新中获益并不单调。](../../assets/recursive-self-improvement/harness-updating-benefit.png){width="92%" fig-align="center"}
 
 ## 从经验文件到多 Agent 验证
 
@@ -94,17 +94,17 @@ Harness 位于模型与环境之间。它决定上下文如何压缩、工具怎
 
 MiniMax M2.7 的公开案例更接近源码级 harness 搜索。官方称系统循环分析失败轨迹、修改 scaffold、运行评测并决定保留或回退，100 多轮后内部性能提升 30%；在 RL 团队工作流中，Agent 还能续跑实验。由于任务集与完整预算未公开，我把它视为工程可行性信号，不把 30% 当作可迁移的效果量。
 
-![MiniMax 公布的 M2 系列研发 Harness：技能、记忆、护栏和评测基础设施连接到实验迭代循环。保留原图，来源：MiniMax 官方发布页。](../../assets/recursive-self-improvement/minimax-m27-recursive-loop.png){width="90%" fig-align="center"}
+![MiniMax 公布的 M2 系列研发 Harness：技能、记忆、护栏和评测基础设施连接到实验迭代循环。来源：MiniMax 官方发布页。](../../assets/recursive-self-improvement/minimax-m27-recursive-loop.png){width="90%" fig-align="center"}
 
 Apodex‑1.0 把验证结构化为独立角色：orchestrator 向最多 150 个子 Agent 分派检索，结果进入共享 report pool；冲突事实、关键主张和最终草稿分别交给 reviewer、fact checker 与 global verifier。它主要改善当前 research artifact，没有显示跨任务改写自身代码，因此在二维框架里更接近「复杂 Harness 支撑单次修订」，而不是闭环末端。
 
-![Apodex‑1.0 的多 Agent 研究与验证结构。保留原图，来源：Apodex 官方博客。](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
+![Apodex‑1.0 的多 Agent 研究与验证结构。来源：Apodex 官方博客。](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
 
 ## RHI：让工作流规范成为搜索对象
 
 [Recursive Harness Self-Improvement（RHI）](https://arxiv.org/abs/2607.15524)把 harness 写成 Agent loop 的 prompt 级规范。Agent 用当前 $H^{(i)}$ 解任务，LLM evaluator 比较相邻版本输出，偏好进入历史，optimizer 再生成 $H^{(i+1)}$。论文自己把贡献限定为 model–harness co-evolution 的「前半段」：它改进 traces 的生产器，但没有训练下一代模型。
 
-![RHI 循环：运行当前 Harness、比较输出、累积偏好历史并生成下一版 Harness。保留原图，来源：RHI v1，Figure 2。](../../assets/recursive-self-improvement/rhi-loop.png){width="90%" fig-align="center"}
+![RHI 循环：运行当前 Harness、比较输出、累积偏好历史并生成下一版 Harness。来源：RHI v1，Figure 2。](../../assets/recursive-self-improvement/rhi-loop.png){width="90%" fig-align="center"}
 
 给定任务 $x$ 和 harness 空间 $\mathcal H$，RHI 的理想目标可写为
 
@@ -143,25 +143,25 @@ $$
 
 RHI 将结构拆成 Agent Design 与 Agent Workflow，后者又含 contract 和 hop。优先修改 contract/hop 的理由很实际：只传下游真正需要的信息，能减少重复上下文、提高 KV-cache 复用，并降低多 Agent 协作成本。论文在 30 个合成机器学习研究任务上报告，少量迭代可让低 reasoning-effort 配置超过同模型的最高 reasoning-effort 配置，并最多降低 60% 推理成本；任务为量化金融、机器人和制药场景的合成问题，结论不应外推到所有长程 Agent。
 
-![RHI 对 Harness 的分解：Agent Design，以及由 Contract 与 Hop 构成的 Agent Workflow。保留原图，来源：RHI v1。](../../assets/recursive-self-improvement/rhi-harness-structure.png){width="84%" fig-align="center"}
+![RHI 对 Harness 的分解：Agent Design，以及由 Contract 与 Hop 构成的 Agent Workflow。来源：RHI v1。](../../assets/recursive-self-improvement/rhi-harness-structure.png){width="84%" fig-align="center"}
 
 ## Ai2 的反证：预算对等后，进化未必占优
 
 [Rethinking the Evaluation of Harness Evolution for Agents](https://arxiv.org/abs/2607.12227)要求把 harness evolution 与同预算的 parallel sampling、sequential refinement 和 harness scaling 比较，并把搜索任务与 held-out 评测任务分开。在 Terminal‑Bench 2.1 的实验中，Harness Evolution 得分 67.4，低于初始 harness 的 68.2；Parallel Sampling 为 72.3。论文的结论不是「Harness 不值得改」，而是当前自动进化方法没有稳定胜过简单 test-time scaling，迁移也有限。
 
-![Terminal‑Bench 2.1 的预算对等结果。低分辨率原图按较窄宽度展示；来源：Ai2 论文 v1。](../../assets/recursive-self-improvement/harness-evolution-budget-baselines.png){width="42%" fig-align="center"}
+![Terminal‑Bench 2.1 的预算对等结果。来源：Ai2 论文 v1。](../../assets/recursive-self-improvement/harness-evolution-budget-baselines.png){width="42%" fig-align="center"}
 
 ## AIDE²：让外层 Agent 修改内层科研 Agent
 
 Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman 提出源码修改，内层 Agent 在 harness engineering、algorithm 与 ML engineering 任务上运行；候选只有通过固定预算和隐藏分数才被接受。团队报告连续运行 8 天、100 步，约 90% 提案被拒。AIDE85 在 MLE‑Bench Lite、ALE‑Bench Lite 和分布外 WeatherBench 2 上优于 AIDE0，并把检测到的 reward hacking 率从 63% 降到 34%。这些数字仍来自团队自报，但公开协议至少把私有测试、固定成本和外部基准纳入了闭环。
 
-![AIDE² 的外层代码改写与逐步准入。保留原图，来源：Weco AI 官方实验说明；每个候选需超过当前最佳版本才保留。](../../assets/recursive-self-improvement/aide2-self-improvement.png){width="92%" fig-align="center"}
+![AIDE² 的外层代码改写与逐步准入。来源：Weco AI 官方实验说明；每个候选需超过当前最佳版本才保留。](../../assets/recursive-self-improvement/aide2-self-improvement.png){width="92%" fig-align="center"}
 
 ## 今年新增的三条 Harness 路线
 
 [RHO](https://arxiv.org/abs/2606.05922)不依赖标注验证集。它从历史轨迹中选取难度多样的 coreset，对同一任务做并行重跑，再用轨迹内 self-validation 和轨迹间 self-consistency 诊断失败，最后通过成对 self-preference 选择候选 harness。论文报告一轮优化把 SWE‑Bench Pro pass rate 从 59% 提到 78%，但「无外部评分」同时也是风险：自偏好若与真实正确性偏离，会形成自证循环。
 
-![RHO 从历史轨迹到 Harness 更新的流程。来源：RHO v2，Figure 2；PDF 原页 220 DPI 裁切。](../../assets/recursive-self-improvement/rho-retrospective-harness-pipeline.png){width="94%" fig-align="center"}
+![RHO 从历史轨迹到 Harness 更新的流程。来源：RHO v2，Figure 2。](../../assets/recursive-self-improvement/rho-retrospective-harness-pipeline.png){width="94%" fig-align="center"}
 
 [MOSS](https://arxiv.org/abs/2605.22794)把编辑面从文本配置推进到源码。系统根据生产失败批次定位、规划、实现和构建候选，在临时 trial worker 中重放任务，再由用户同意的容器热交换发布；host-daemon 对新容器做健康探测，失败就回滚到 last-known-good image。OpenClaw 的四任务均值在一轮中从 0.25 升到 0.61。相比只写 skill，源码改写覆盖路由、hook 顺序和状态不变量，也把权限和供应链风险推高了一层。
 
@@ -169,7 +169,7 @@ Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman �
 
 [Hierarchical Self-Improvement（HSI）](https://arxiv.org/abs/2608.08466)继续向递归方向走了一步。冻结的同一 LLM 分别运行 task harness $H$、重写 $H$ 的 Evolver $\Sigma$，以及重写 $\Sigma$ 策略代码的 Meta-Evolver；最外层执行逻辑保持冻结，给自修改设定边界。BALROG 结果显示中等难度任务有明显增益，NLE 等超出 backbone 能力的任务没有改善。这个负结果很关键：Harness 可以组织已有能力，不能凭空创造 backbone 没有的能力。
 
-![HSI 的三层结构：Meta-Evolver、Evolver 与 Task Harness，共享文件系统但拥有不同可编辑面。来源：HSI v1，Figure 1；PDF 原页 220 DPI 裁切。](../../assets/recursive-self-improvement/hsi-three-level-architecture.png){width="94%" fig-align="center"}
+![HSI 的三层结构：Meta-Evolver、Evolver 与 Task Harness，共享文件系统但拥有不同可编辑面。来源：HSI v1，Figure 1。](../../assets/recursive-self-improvement/hsi-three-level-architecture.png){width="94%" fig-align="center"}
 
 # Model 与模型—Harness 共进化
 
@@ -179,15 +179,15 @@ Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman �
 
 [SIA](https://arxiv.org/abs/2605.27276)含 Meta-Agent、Task-Specific Agent 和 Feedback-Agent。后者阅读轨迹，决定下一步修改 scaffold，还是触发 LoRA 权重更新。论文覆盖中文法律罪名分类、H100 上的 Triton kernel 优化与单细胞 RNA 去噪；作者报告联合更新在三项任务上都超过只改 scaffold 的版本，并相对既有 SOTA 分别取得 25.1 个百分点、12.4% kernel 加速和 20.4% 去噪增益。这是三种窄域实验的结果，不能直接推导成通用模型会自主研发下一代模型。
 
-![SIA 的两个更新旋钮：Harness 与模型权重。保留原图，来源：SIA v2。](../../assets/recursive-self-improvement/sia-two-update-levers.png){width="90%" fig-align="center"}
+![SIA 的两个更新旋钮：Harness 与模型权重。来源：SIA v2。](../../assets/recursive-self-improvement/sia-two-update-levers.png){width="90%" fig-align="center"}
 
-![SIA 的完整循环：Meta-Agent 初始化 scaffold，任务 Agent 执行，Feedback-Agent 在 Harness 与权重更新间选择。保留原图，来源：SIA v2。](../../assets/recursive-self-improvement/sia-system-loop.png){width="90%" fig-align="center"}
+![SIA 的完整循环：Meta-Agent 初始化 scaffold，任务 Agent 执行，Feedback-Agent 在 Harness 与权重更新间选择。来源：SIA v2。](../../assets/recursive-self-improvement/sia-system-loop.png){width="90%" fig-align="center"}
 
 ## Continual Harness：快循环改流程，慢循环蒸馏模型
 
 [Continual Harness](https://arxiv.org/abs/2605.09998)在 Pokémon 长程游戏中使用两个时间尺度。单局内，Refiner 定期更新 prompt、子 Agent、skill 和 memory；跨迭代，过程奖励模型筛出低质量片段，由更强教师重标，再用 soft SFT 更新开源策略模型，而且环境不重置。论文报告强模型配置从零构建 harness 时，以约 130 美元中位成本完成目标里程碑，而极简 baseline 约 215 美元达到 98%；在较弱模型上，自动 harness 反而可能更贵且完成度更低。收益受 backbone 能力约束，这与 HSI 的 NLE 负结果一致。
 
-![Continual Harness：单局内高频更新 Harness，跨轮次用过程奖励与教师轨迹更新模型。保留原图，来源：论文 v1。](../../assets/recursive-self-improvement/continual-harness.png){width="94%" fig-align="center"}
+![Continual Harness：单局内高频更新 Harness，跨轮次用过程奖励与教师轨迹更新模型。来源：论文 v1。](../../assets/recursive-self-improvement/continual-harness.png){width="94%" fig-align="center"}
 
 ## HELIX：把共进化变成可审计的数据系统
 
@@ -195,7 +195,7 @@ Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman �
 
 这些数字证明了「可追踪的数据生产链」能运作，还没有展示多轮模型更新后的持续加速。HELIX 的价值恰在于没有跳过中间层：每个 intervention、轨迹、测试结果和来源都可审计，后续才可能判断增益来自模型、Harness 还是候选数量。
 
-![HELIX 的双时间尺度：任务内模型与 Harness 交互，跨轮次由验证 sibling data 更新模型，并为新模型重建 Harness。来源：HELIX v1，Figure 1；PDF 原页 220 DPI 裁切。](../../assets/recursive-self-improvement/helix-two-timescales.png){width="94%" fig-align="center"}
+![HELIX 的双时间尺度：任务内模型与 Harness 交互，跨轮次由验证 sibling data 更新模型，并为新模型重建 Harness。来源：HELIX v1，Figure 1。](../../assets/recursive-self-improvement/helix-two-timescales.png){width="94%" fig-align="center"}
 
 # 模型层自我改进的机制前提
 
@@ -205,7 +205,7 @@ Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman �
 
 [Thinking Machines 的 On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/)让学生从当前策略采样轨迹，教师逐 token 给分。教师与学生分歧集中的 forking token 往往对应推理即将分叉的决定点。官方实验在 Qwen3 上报告，相近精度的 RL 需 17,920 GPU 小时，蒸馏约 1,800 GPU 小时；它还用于恢复持续学习中被冲掉的指令遵循能力。这说明密集监督可以更精确地修正策略，不说明模型已能自己定义训练目标、验证后继版本并重开一轮。
 
-![On-policy distillation 的逐 token 教师置信度示例。保留原 SVG，来源：Thinking Machines 官方博客。](../../assets/recursive-self-improvement/on-policy-distillation-token-confidence.svg){width="72%" fig-align="center"}
+![On-policy distillation 的逐 token 教师置信度示例。来源：Thinking Machines 官方博客。](../../assets/recursive-self-improvement/on-policy-distillation-token-confidence.svg){width="72%" fig-align="center"}
 
 ## J-space 与 Reasoning by Superposition：看见内部状态
 
@@ -213,7 +213,7 @@ Weco AI 的 AIDE² 用一个双层循环回应上述问题。外层 AIDEhuman �
 
 [Reasoning by Superposition](https://arxiv.org/abs/2505.12514)分析 Coconut 的连续潜在推理，发现单个连续向量可以叠加表示多条搜索前沿。在图可达性实验中，Coconut 准确率为 0.98，CoT 为 0.76，延长 CoT 为 0.83。潜在空间可能提高搜索密度，也会让来源追踪和人类审查更困难。它回答的是「模型怎样表示并行搜索」，并未回答「谁设目标、谁验证、失败后怎样回滚」。
 
-![图可达性实验中 Coconut、CoT、延长 CoT 与 No-CoT 的准确率。低分辨率原图按较窄宽度展示；来源：Reasoning by Superposition。](../../assets/recursive-self-improvement/reasoning-by-superposition-results.png){width="38%" fig-align="center"}
+![图可达性实验中 Coconut、CoT、延长 CoT 与 No-CoT 的准确率。来源：Reasoning by Superposition。](../../assets/recursive-self-improvement/reasoning-by-superposition-results.png){width="38%" fig-align="center"}
 
 # 评测与工程准入
 

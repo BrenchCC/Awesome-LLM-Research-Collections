@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-07-02
-date-modified: 2026-07-02
+date-modified: 2026-08-22
 title: "Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor"
 description: "A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis."
 order: 1

@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-17
-date-modified: 2026-08-17
+date-modified: 2026-08-22
 title: "Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化"
 description: "基于演化对象、演化时机与软件证据三条主线，梳理自进化编码智能体如何更新框架、记忆、技能工具、模型与协作结构，并讨论可信演化所需的验证、版本化和回滚机制。"
 order: 1
@@ -18,7 +18,7 @@ tags:
 
 ![论文标题、作者与摘要开篇](../../assets/self-evolving-coding-agents/paper-title-authors.png){width="78%" fig-align="center"}
 
-*论文信息：Hao Zhou、Haichuan Hu、Ye Shang、Quanjun Zhang；南京理工大学、南京大学；arXiv:2608.03392v1，2026 年 8 月 4 日。截图来自 [v1 PDF](https://arxiv.org/pdf/2608.03392v1)。*
+*论文信息：Hao Zhou、Haichuan Hu、Ye Shang、Quanjun Zhang；南京理工大学、南京大学；arXiv:2608.03392v1，2026 年 8 月 4 日。来源：[v1 PDF](https://arxiv.org/pdf/2608.03392v1)。*
 
 这篇综述讨论的不是“让 Coding Agent 多试几次”，而是一个更严格的问题：**一次编码经历能否改变智能体在未来任务中的持久状态，并带来可验证的改进？** 如果失败只触发同一任务内的重试，任务结束后所有经验随上下文一起消失，那么系统仍是静态智能体；只有当框架、记忆、技能与工具、模型，或工作流与拓扑发生可复用的更新，才进入自进化的讨论范围。
 
@@ -65,7 +65,7 @@ tags:
 
 ![代表性系统分类表（下半部分）](../../assets/self-evolving-coding-agents/paper-table-2-bottom.png){width="95%" fig-align="center"}
 
-*论文 Table 2：代表性系统在演化对象、时机、证据、机制与评测上的映射。表格跨页裁成两段以保证网页可读性。来源：[v1 PDF](https://arxiv.org/pdf/2608.03392v1)。*
+*论文 Table 2：代表性系统在演化对象、时机、证据、机制与评测上的映射。来源：[v1 PDF](https://arxiv.org/pdf/2608.03392v1)。*
 
 这套分类最有价值的地方，不是给论文贴标签，而是揭示**状态的作用域与风险半径**：记忆条目通常是局部状态，技能会跨任务复用，工作流会改变多个角色的控制路径，模型更新则可能影响所有仓库与用户。对象越全局，更新前所需的证据强度、回归覆盖和观察窗口就应越高。
 

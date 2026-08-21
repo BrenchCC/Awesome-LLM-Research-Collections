@@ -145,3 +145,11 @@ Inspect the rendered pages for image overflow, undersized content, blur, unwante
 - Confirm that bilingual image order and Quarto layout attributes match, and that the rendered image layout has been inspected.
 - Do not hand-edit generated README Notes sections after running the sync script.
 - Mention any missing bilingual pair, missing metadata, or failed render clearly.
+
+
+## User-Learned Best Practices & Constraints
+
+> **Auto-Generated Section**: This section is maintained by `skill-evolution-manager`. Do not edit manually.
+
+### User Preferences
+- When writing or editing notes, do not mention image cropping or crop-production details such as DPI in prose or figure captions. Describe only the figure content and include necessary source attribution.

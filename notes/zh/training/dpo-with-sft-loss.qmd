@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-07-02
-date-modified: 2026-07-02
+date-modified: 2026-08-22
 title: "在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定"
 description: "围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。"
 order: 1
@@ -23,7 +23,7 @@ tags:
 
 我的判断是：`sft_loss_weight` 应被当作一个可证伪的工程假设，而不是 DPO 的默认补丁。仓库目前已实现这项假设所需的主要计算路径；真正缺少的是受控消融、绝对 likelihood 诊断与 held-out generation 评测。
 
-![DPO 与 RLHF 训练管线的对照。DPO 原论文 Figure 1，仅截取原图。](../../assets/dpo-with-sft-loss/dpo-figure1-pipeline.png){fig-alt="DPO 原论文对 RLHF 与 DPO 管线的对比图"}
+![DPO 原论文 Figure 1：RLHF 与 DPO 训练管线的对照。](../../assets/dpo-with-sft-loss/dpo-figure1-pipeline.png){fig-alt="DPO 原论文对 RLHF 与 DPO 管线的对比图"}
 
 *图 1：DPO 省去了显式 reward model 与在线 RL，但其二分类式目标仍然是相对偏好目标。来源：[Rafailov et al., 2023, Figure 1](https://arxiv.org/abs/2305.18290)。*
 

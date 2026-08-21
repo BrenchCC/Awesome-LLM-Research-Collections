@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-10
-date-modified: 2026-08-10
+date-modified: 2026-08-22
 title: "Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较"
 description: "从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。"
 order: 1
@@ -199,7 +199,7 @@ Elo 只负责聚合已有胜负。若底层评分存在系统偏差，Elo 会把
 
 ![Anthropic 对 Agent 评测组成的定义，包括 task、trial、transcript、outcome、grader 与 evaluation harness](../../assets/benchmark-behind-the-benchmark/anthropic-agent-eval-components.png)
 
-*图源：[Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)。保存的是官方发布的高分辨率原图。*
+*图源：[Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)。*
 
 Anthropic 的评测指南把一次 task 的每次尝试称为 trial，把完整交互记录称为 transcript，把最终环境状态称为 outcome，并将执行、记录、评分和聚合基础设施统一放进 evaluation harness。这个定义补足了「任务集 + 裁判」的简化：模型成绩实际上属于 **model × agent harness × environment × judge protocol** 的组合，而不是模型的固有常数。
 

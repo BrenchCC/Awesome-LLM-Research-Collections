@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>51</strong><span>Papers</span></div>
-    <div><strong>103</strong><span>Resource links</span></div>
+    <div><strong>52</strong><span>Papers</span></div>
+    <div><strong>105</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -557,7 +557,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">10 papers</p>
+    <p class="eyebrow">11 papers</p>
     <h2>Agentic RL</h2>
   </div>
   <div class="paper-grid">
@@ -571,6 +571,18 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2607.22529" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/Qwen-Applications/skill-self-play" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="openforgerl-train-harness-native-agents-in-any-environment">
+  <div class="paper-meta">
+    <span>2026.07</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>OpenForgeRL: Train Harness-native Agents in Any Environment</h3>
+  <p>OpenForgeRL is an open-source framework for end-to-end reinforcement learning of agents inside the stateful, multi-process inference harnesses and environments used at deployment. A lightweight recording proxy converts harness model calls into data for standard RL stacks, while a Kubernetes orchestrator isolates and scales rollouts across tool-use and multimodal GUI environments.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2607.21557" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/MSR-Orchard/OpenForge-RL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="opid-on-policy-skill-distillation-for-agentic-reinforcement-learning">

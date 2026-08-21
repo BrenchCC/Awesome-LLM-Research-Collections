@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-17
-date-modified: 2026-08-17
+date-modified: 2026-08-22
 title: "Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution"
 description: "A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution."
 order: 1
@@ -18,7 +18,7 @@ tags:
 
 ![Paper title, authors, and opening of the abstract](../../assets/self-evolving-coding-agents/paper-title-authors.png){width="78%" fig-align="center"}
 
-*Paper: Hao Zhou, Haichuan Hu, Ye Shang, and Quanjun Zhang; Nanjing University of Science and Technology and Nanjing University; arXiv:2608.03392v1, August 4, 2026. Screenshot from the [v1 PDF](https://arxiv.org/pdf/2608.03392v1).*
+*Paper: Hao Zhou, Haichuan Hu, Ye Shang, and Quanjun Zhang; Nanjing University of Science and Technology and Nanjing University; arXiv:2608.03392v1, August 4, 2026. Source: [v1 PDF](https://arxiv.org/pdf/2608.03392v1).*
 
 This survey is not about making a coding agent retry more often. It asks a stricter question: **can an episode of software work alter the agent's durable state and produce a verifiable improvement on future tasks?** If a failure merely triggers another attempt inside the same context and all experience disappears when the task ends, the agent remains static. Self-evolution begins when the system makes reusable updates to its framework, memory, skills and tools, model, or workflow and topology.
 
@@ -65,7 +65,7 @@ The survey's main axis is a five-way taxonomy by the **object of evolution**. It
 
 ![Representative systems, lower part of the classification table](../../assets/self-evolving-coding-agents/paper-table-2-bottom.png){width="95%" fig-align="center"}
 
-*Paper Table 2: representative systems mapped to evolution object, timing, evidence, mechanism, and evaluation. The page-wide table is split into two crops for web readability. Source: [v1 PDF](https://arxiv.org/pdf/2608.03392v1).*
+*Paper Table 2: representative systems mapped to evolution object, timing, evidence, mechanism, and evaluation. Source: [v1 PDF](https://arxiv.org/pdf/2608.03392v1).*
 
 The taxonomy matters less as a labeling scheme than as a map of **state scope and blast radius**. A memory item is often local. A skill can be reused across tasks. A workflow changes control paths among several roles. A model update may affect every repository and user. The more global the object, the stronger the evidence, regression coverage, and observation window should be before release.
 

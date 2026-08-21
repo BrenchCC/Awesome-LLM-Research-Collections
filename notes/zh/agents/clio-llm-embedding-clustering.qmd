@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-12
-date-modified: 2026-08-14
+date-modified: 2026-08-22
 title: "从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘"
 description: "从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。"
 order: 1
@@ -34,7 +34,7 @@ Clio 的目标是从海量对话中提取聚合模式，同时阻止单条会话
 
 ![Clio 从原始会话、facet 摘要、初始簇到层级簇与地图界面的完整系统图](../../assets/clio-llm-embedding-clustering/paper-figure-2-system-diagram.png)
 
-*图源：Clio 论文 Figure 2。截图保留原始 Figure 编号和 caption。*
+*图源：Clio 论文 Figure 2。*
 
 这里有两个容易被简化掉的设计。
 
@@ -50,7 +50,7 @@ Clio 的 Figure 2 容易让人把隐私措施看成几条橙色装饰线，Figur
 
 ![Clio 在原始会话、会话摘要和簇摘要三个阶段的隐私评分变化](../../assets/clio-llm-embedding-clustering/paper-figure-5-privacy-layers.png)
 
-*图源：Clio 论文 Figure 5。截图保留原始 Figure 编号和 caption。*
+*图源：Clio 论文 Figure 5。*
 
 这个结果来自四层干预共同作用：
 
@@ -191,7 +191,7 @@ Clio Figure 4 报告在 19,476 条 synthetic regular conversations、20 个高�
 
 ![Clio 在已知高层类别上的 supervised reconstruction 结果](../../assets/clio-llm-embedding-clustering/paper-figure-4-supervised-reconstruction.png)
 
-*图源：Clio 论文 Figure 4。截图保留原始 Figure 编号和 caption。*
+*图源：Clio 论文 Figure 4。*
 
 论文的 quantitative reconstruction 先无监督生成 base clusters，然后 **固定已知的 20 个顶层 ground-truth categories**，让 Clio 执行 hierarchizer 中的 assignment step，把 base cluster 分配给这些现成类别。换句话说，顶层标签集合已经提供给系统，评估的是摘要、base clustering 与 assignment 能否恢复原始类别分布。
 

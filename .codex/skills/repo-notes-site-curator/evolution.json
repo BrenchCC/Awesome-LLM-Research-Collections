@@ -1,0 +1,8 @@
+{
+  "last_updated": "2026-08-21T23:49:46.624924",
+  "preferences": [
+    "When writing or editing notes, do not mention image cropping or crop-production details such as DPI in prose or figure captions. Describe only the figure content and include necessary source attribution."
+  ],
+  "fixes": [],
+  "custom_prompts": ""
+}

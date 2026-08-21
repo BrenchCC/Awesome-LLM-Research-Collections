@@ -9,7 +9,7 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>Notes</span></div>
+    <div><strong>23</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
     <div><strong>2026-08-21</strong><span>Latest creation</span></div>
   </div>
@@ -26,7 +26,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/self-evolving-coding-agents.html">
-  <span class="category-count">Created 2026-08-17 · Updated 2026-08-17</span>
+  <span class="category-count">Created 2026-08-17 · Updated 2026-08-22</span>
   <h3>Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution</h3>
   <p>A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution.</p>
   <div class="note-tags">
@@ -60,7 +60,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="attention/kimi-linear-kda.html">
-  <span class="category-count">Created 2026-08-03 · Updated 2026-08-04</span>
+  <span class="category-count">Created 2026-08-03 · Updated 2026-08-22</span>
   <h3>Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention</h3>
   <p>A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations.</p>
   <div class="note-tags">
@@ -76,7 +76,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/kimi-k3-open-frontier-intelligence.html">
-  <span class="category-count">Created 2026-08-01 · Updated 2026-08-06</span>
+  <span class="category-count">Created 2026-08-01 · Updated 2026-08-22</span>
   <h3>Kimi K3: Architecture, Training, and Million-Token Agentic RL</h3>
   <p>A plain-language explanation of Kimi K3&#x27;s KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests.</p>
   <div class="note-tags">
@@ -108,7 +108,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms/from-qwen-to-qwen3-6.html">
-  <span class="category-count">Created 2026-07-28 · Updated 2026-07-29</span>
+  <span class="category-count">Created 2026-07-28 · Updated 2026-08-22</span>
   <h3>From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations</h3>
   <p>A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation.</p>
   <div class="note-tags">
@@ -198,7 +198,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/recursive-self-improvement.html">
-  <span class="category-count">Created 2026-08-21 · Updated 2026-08-21</span>
+  <span class="category-count">Created 2026-08-21 · Updated 2026-08-22</span>
   <h3>Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution</h3>
   <p>A two-axis review of 2026 recursive self-improvement work, with an auditable standard for admitting self-generated updates.</p>
   <div class="note-tags">
@@ -209,6 +209,22 @@ toc: false
   </div>
   <div class="category-foot">
     <span>AGENTS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
+<a class="category-card" href="reinforcement-learning/rl-matters.html">
+  <span class="category-count">Created 2026-08-21 · Updated 2026-08-22</span>
+  <h3>What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training</h3>
+  <p>A technical reflection on SFT, RLVR, distillation, and second-stage RL through the existence, selection, transfer, and control of reasoning patterns.</p>
+  <div class="note-tags">
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">SFT</span>
+    <span class="note-tag">RLVR</span>
+    <span class="note-tag">Distillation</span>
+    <span class="note-tag">Reasoning</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
     <span>Technical Reflections</span>
   </div>
 </a>
@@ -229,7 +245,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/clio-llm-embedding-clustering.html">
-  <span class="category-count">Created 2026-08-12 · Updated 2026-08-14</span>
+  <span class="category-count">Created 2026-08-12 · Updated 2026-08-22</span>
   <h3>From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering</h3>
   <p>An engineering reconstruction of Clio&#x27;s semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building.</p>
   <div class="note-tags">
@@ -244,7 +260,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/benchmark-behind-the-benchmark.html">
-  <span class="category-count">Created 2026-08-10 · Updated 2026-08-10</span>
+  <span class="category-count">Created 2026-08-10 · Updated 2026-08-22</span>
   <h3>The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons</h3>
   <p>An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness.</p>
   <div class="note-tags">
@@ -290,7 +306,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training/dpo-with-sft-loss.html">
-  <span class="category-count">Created 2026-07-02 · Updated 2026-07-02</span>
+  <span class="category-count">Created 2026-07-02 · Updated 2026-08-22</span>
   <h3>Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor</h3>
   <p>A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis.</p>
   <div class="note-tags">

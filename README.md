@@ -644,6 +644,11 @@
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/Qwen-Applications/skill-self-play"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **OpenForgeRL: Train Harness-native Agents in Any Environment** (2026.07) \
+  **Description**: OpenForgeRL is an open-source framework for end-to-end reinforcement learning of agents inside the stateful, multi-process inference harnesses and environments used at deployment. A lightweight recording proxy converts harness model calls into data for standard RL stacks, while a Kubernetes orchestrator isolates and scales rollouts across tool-use and multimodal GUI environments. \
+  <a href="https://arxiv.org/abs/2607.21557"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/MSR-Orchard/OpenForge-RL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
   **Description**: This paper proposes OPID, which extracts hierarchical episode- and step-level skills from completed on-policy trajectories and converts their effect into token-level self-distillation advantages alongside the outcome advantage. Its critical-first routing supplies dense, distribution-matched hindsight supervision, improving agent performance, sample efficiency, and robustness on embodied, web-shopping, and search-based tasks. \
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -914,7 +919,7 @@
 
 ## Paper Readings
 
-- **Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution** (Created: 2026-08-17; Updated: 2026-08-17) \
+- **Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution** (Created: 2026-08-17; Updated: 2026-08-22) \
   **Description**: A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution. \
   [[Note](notes/en/agents/self-evolving-coding-agents.qmd)]
   [[中文](notes/zh/agents/self-evolving-coding-agents.qmd)]
@@ -924,12 +929,12 @@
   [[Note](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
   [[中文](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
 
-- **Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention** (Created: 2026-08-03; Updated: 2026-08-04) \
+- **Kimi Linear and KDA: From Channel-Wise Forgetting to Hardware-Efficient Linear Attention** (Created: 2026-08-03; Updated: 2026-08-22) \
   **Description**: A technical reading of Kimi Linear through its recurrence, WY/UT parallel algorithm, 3:1 KDA/MLA hybrid, experiments, and public implementations. \
   [[Note](notes/en/attention/kimi-linear-kda.qmd)]
   [[中文](notes/zh/attention/kimi-linear-kda.qmd)]
 
-- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (Created: 2026-08-01; Updated: 2026-08-06) \
+- **Kimi K3: Architecture, Training, and Million-Token Agentic RL** (Created: 2026-08-01; Updated: 2026-08-22) \
   **Description**: A plain-language explanation of Kimi K3's KDA, Block AttnRes, LatentMoE, 1M context, and nine-policy RL, with clear boundaries between paper claims and external tests. \
   [[Note](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[中文](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
@@ -939,7 +944,7 @@
   [[Note](notes/en/agents/data-agents-levels.qmd)]
   [[中文](notes/zh/agents/data-agents-levels.qmd)]
 
-- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (Created: 2026-07-28; Updated: 2026-07-29) \
+- **From Qwen to Qwen3.6: The Architecture and Training Evolution of Seven Generations** (Created: 2026-07-28; Updated: 2026-08-22) \
   **Description**: A seven-generation account of how Qwen evolved across attention, MoE, data, post-training, native multimodality, and agent environments—and why Qwen3-Next is an architectural bridge rather than a separate generation. \
   [[Note](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
   [[中文](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
@@ -966,22 +971,27 @@
 
 ## Technical Reflections
 
-- **Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution** (Created: 2026-08-21; Updated: 2026-08-21) \
+- **Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution** (Created: 2026-08-21; Updated: 2026-08-22) \
   **Description**: A two-axis review of 2026 recursive self-improvement work, with an auditable standard for admitting self-generated updates. \
   [[Note](notes/en/agents/recursive-self-improvement.qmd)]
   [[中文](notes/zh/agents/recursive-self-improvement.qmd)]
+
+- **What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training** (Created: 2026-08-21; Updated: 2026-08-22) \
+  **Description**: A technical reflection on SFT, RLVR, distillation, and second-stage RL through the existence, selection, transfer, and control of reasoning patterns. \
+  [[Note](notes/en/reinforcement-learning/rl-matters.qmd)]
+  [[中文](notes/zh/reinforcement-learning/rl-matters.qmd)]
 
 - **How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-20) \
   **Description**: A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression. \
   [[Note](notes/en/agents/scientific-agent-evaluation.qmd)]
   [[中文](notes/zh/agents/scientific-agent-evaluation.qmd)]
 
-- **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (Created: 2026-08-12; Updated: 2026-08-14) \
+- **From Clio to an Executable Skill: Engineering LLM-Assisted Embedding Clustering** (Created: 2026-08-12; Updated: 2026-08-22) \
   **Description**: An engineering reconstruction of Clio's semantic clustering subsystem, evaluated on 20 Newsgroups to expose the gains, costs, reproducibility limits, and missing privacy controls of LLM-assisted hierarchy building. \
   [[Note](notes/en/agents/clio-llm-embedding-clustering.qmd)]
   [[中文](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
 
-- **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (Created: 2026-08-10; Updated: 2026-08-10) \
+- **The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons** (Created: 2026-08-10; Updated: 2026-08-22) \
   **Description**: An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness. \
   [[Note](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
   [[中文](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
@@ -996,7 +1006,7 @@
   [[Note](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
   [[中文](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
 
-- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (Created: 2026-07-02; Updated: 2026-07-02) \
+- **Keeping an SFT Gradient in DPO: From Relative Preference to a Chosen-Likelihood Anchor** (Created: 2026-07-02; Updated: 2026-08-22) \
   **Description**: A code-centered analysis of how chosen-response SFT changes DPO gradients, data and memory constraints, and the experiments needed to retain or reject the hypothesis. \
   [[Note](notes/en/training/dpo-with-sft-loss.qmd)]
   [[中文](notes/zh/training/dpo-with-sft-loss.qmd)]

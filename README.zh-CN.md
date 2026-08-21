@@ -643,6 +643,11 @@
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/Qwen-Applications/skill-self-play"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **OpenForgeRL: Train Harness-native Agents in Any Environment** (2026.07) \
+  **描述**: OpenForgeRL 是一个开源框架，用于在部署时实际使用的有状态、多进程推理 harness 与环境中对智能体进行端到端强化学习。它通过轻量级记录代理将 harness 的模型调用转换为标准 RL 训练栈可用的数据，并用 Kubernetes 编排器隔离和扩展工具调用及多模态 GUI 环境中的 rollout。 \
+  <a href="https://arxiv.org/abs/2607.21557"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MSR-Orchard/OpenForge-RL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning** (2026.06) \
   **描述**: 该论文提出 OPID，从已完成的在策略轨迹中提取分层的回合级与步骤级技能，并将技能带来的概率变化转化为 token 级自蒸馏优势，与结果优势共同优化策略。其关键步骤优先路由提供稠密且匹配当前策略分布的后见监督，在具身、网页购物和搜索问答任务上提升智能体性能、样本效率与鲁棒性。 \
   <a href="https://arxiv.org/abs/2606.26790"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -913,7 +918,7 @@
 
 ## 论文解读
 
-- **Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化** (创建: 2026-08-17; 更新: 2026-08-17) \
+- **Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化** (创建: 2026-08-17; 更新: 2026-08-22) \
   **描述**: 基于演化对象、演化时机与软件证据三条主线，梳理自进化编码智能体如何更新框架、记忆、技能工具、模型与协作结构，并讨论可信演化所需的验证、版本化和回滚机制。 \
   [[笔记](notes/zh/agents/self-evolving-coding-agents.qmd)]
   [[English](notes/en/agents/self-evolving-coding-agents.qmd)]
@@ -923,12 +928,12 @@
   [[笔记](notes/zh/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
   [[English](notes/en/reinforcement-learning/skillrl-failure-to-reusable-skill.qmd)]
 
-- **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (创建: 2026-08-03; 更新: 2026-08-04) \
+- **Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力** (创建: 2026-08-03; 更新: 2026-08-22) \
   **描述**: 从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。 \
   [[笔记](notes/zh/attention/kimi-linear-kda.qmd)]
   [[English](notes/en/attention/kimi-linear-kda.qmd)]
 
-- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (创建: 2026-08-01; 更新: 2026-08-06) \
+- **Kimi K3：架构、训练与百万 Token Agentic RL 技术解读** (创建: 2026-08-01; 更新: 2026-08-22) \
   **描述**: 用直白的方式解释 Kimi K3 的 KDA、Block AttnRes、LatentMoE、1M 上下文与九策略强化学习，并区分论文结论和外部实测。 \
   [[笔记](notes/zh/llms/kimi-k3-open-frontier-intelligence.qmd)]
   [[English](notes/en/llms/kimi-k3-open-frontier-intelligence.qmd)]
@@ -938,7 +943,7 @@
   [[笔记](notes/zh/agents/data-agents-levels.qmd)]
   [[English](notes/en/agents/data-agents-levels.qmd)]
 
-- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (创建: 2026-07-28; 更新: 2026-07-29) \
+- **从 Qwen 到 Qwen3.6：七代模型的架构与训练演进** (创建: 2026-07-28; 更新: 2026-08-22) \
   **描述**: 沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。 \
   [[笔记](notes/zh/llms/from-qwen-to-qwen3-6.qmd)]
   [[English](notes/en/llms/from-qwen-to-qwen3-6.qmd)]
@@ -965,22 +970,27 @@
 
 ## 技术思考
 
-- **递归自我改进：从产出物、Harness 到模型—脚手架共进化** (创建: 2026-08-21; 更新: 2026-08-21) \
+- **递归自我改进：从产出物、Harness 到模型—脚手架共进化** (创建: 2026-08-21; 更新: 2026-08-22) \
   **描述**: 用优化对象与闭环程度两个维度重审 2026 年递归自我改进进展，并给出一套可审计的证据准入标准。 \
   [[笔记](notes/zh/agents/recursive-self-improvement.qmd)]
   [[English](notes/en/agents/recursive-self-improvement.qmd)]
+
+- **RL 到底改变了什么：推理模式、蒸馏与可控后训练** (创建: 2026-08-21; 更新: 2026-08-22) \
+  **描述**: 以推理模式的存在、选择、迁移与控制为框架，重新审视 SFT、RLVR、蒸馏和二次 RL 的职责边界。 \
+  [[笔记](notes/zh/reinforcement-learning/rl-matters.qmd)]
+  [[English](notes/en/reinforcement-learning/rl-matters.qmd)]
 
 - **如何科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-20) \
   **描述**: 从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。 \
   [[笔记](notes/zh/agents/scientific-agent-evaluation.qmd)]
   [[English](notes/en/agents/scientific-agent-evaluation.qmd)]
 
-- **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (创建: 2026-08-12; 更新: 2026-08-14) \
+- **从 Clio 到可执行 Skill：LLM + Embedding 分层聚类的工程复盘** (创建: 2026-08-12; 更新: 2026-08-22) \
   **描述**: 从 Clio 的语义聚类子系统出发，复盘一个可执行 Agent Skill 的实现，并用 20 Newsgroups 实验分析 LLM 分层合并带来的指标收益、代价与隐私边界。 \
   [[笔记](notes/zh/agents/clio-llm-embedding-clustering.qmd)]
   [[English](notes/en/agents/clio-llm-embedding-clustering.qmd)]
 
-- **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (创建: 2026-08-10; 更新: 2026-08-10) \
+- **Benchmark 背后的 Benchmark：Agent 评测中的裁判噪声与可信比较** (创建: 2026-08-10; 更新: 2026-08-22) \
   **描述**: 从原文报告的 106 个任务与多裁判实验出发，分析 Agent 噪声、裁判方差、证据契约、连续评分、集成聚合和模型比较，并区分稳定性与正确性。 \
   [[笔记](notes/zh/agents/benchmark-behind-the-benchmark.qmd)]
   [[English](notes/en/agents/benchmark-behind-the-benchmark.qmd)]
@@ -995,7 +1005,7 @@
   [[笔记](notes/zh/llms/agentic-rl-long-horizon-verification.qmd)]
   [[English](notes/en/llms/agentic-rl-long-horizon-verification.qmd)]
 
-- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (创建: 2026-07-02; 更新: 2026-07-02) \
+- **在 DPO 中保留一条 SFT 梯度：从相对偏好到 chosen likelihood 锚定** (创建: 2026-07-02; 更新: 2026-08-22) \
   **描述**: 围绕 DPO Trainer with SFT Loss 的代码路径，分析 chosen-response SFT 如何改变 DPO 梯度、数据与显存边界，以及该假设应如何被实验推翻或保留。 \
   [[笔记](notes/zh/training/dpo-with-sft-loss.qmd)]
   [[English](notes/en/training/dpo-with-sft-loss.qmd)]

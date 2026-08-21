@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">A responsibility loop for post-training</title>
+  <desc id="desc">SFT initializes reasoning patterns, RL selects them on policy, distillation transfers valuable patterns, and a second RL stage adapts the target model.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <text x="90" y="105" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="46" font-weight="700" fill="#0f172a">Post-training is a chain of responsibilities</text>
+  <text x="90" y="155" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="24" fill="#475569">Pattern initialization → on-policy selection → capability transfer → target adaptation</text>
+  <g filter="url(#shadow)" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <rect x="90" y="255" width="310" height="320" rx="28" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    <circle cx="155" cy="325" r="34" fill="#e0e7ff"/><text x="155" y="337" text-anchor="middle" font-size="30" font-weight="700" fill="#4338ca">1</text>
+    <text x="210" y="335" font-size="34" font-weight="700" fill="#312e81">SFT</text>
+    <text x="130" y="415" font-size="25" font-weight="650" fill="#0f172a">Initialize patterns</text>
+    <text x="130" y="462" font-size="21" fill="#475569">Place learnable traces in</text><text x="130" y="496" font-size="21" fill="#475569">the model's reachable set</text>
+    <rect x="130" y="525" width="210" height="10" rx="5" fill="#818cf8"/>
+    <rect x="450" y="255" width="310" height="320" rx="28" fill="#ffffff" stroke="#99f6e4" stroke-width="3"/>
+    <circle cx="515" cy="325" r="34" fill="#ccfbf1"/><text x="515" y="337" text-anchor="middle" font-size="30" font-weight="700" fill="#0f766e">2</text>
+    <text x="570" y="335" font-size="34" font-weight="700" fill="#115e59">RL</text>
+    <text x="490" y="415" font-size="25" font-weight="650" fill="#0f172a">Select and adapt</text>
+    <text x="490" y="462" font-size="21" fill="#475569">Improve high-reward traces</text><text x="490" y="496" font-size="21" fill="#475569">under the current policy</text>
+    <rect x="490" y="525" width="210" height="10" rx="5" fill="#14b8a6"/>
+    <rect x="810" y="255" width="310" height="320" rx="28" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
+    <circle cx="875" cy="325" r="34" fill="#fef3c7"/><text x="875" y="337" text-anchor="middle" font-size="30" font-weight="700" fill="#b45309">3</text>
+    <text x="930" y="335" font-size="34" font-weight="700" fill="#92400e">Distill</text>
+    <text x="850" y="415" font-size="25" font-weight="650" fill="#0f172a">Transfer discoveries</text>
+    <text x="850" y="462" font-size="21" fill="#475569">Use teacher traces or logits</text><text x="850" y="496" font-size="21" fill="#475569">to avoid repeated search</text>
+    <rect x="850" y="525" width="210" height="10" rx="5" fill="#f59e0b"/>
+    <rect x="1170" y="255" width="340" height="320" rx="28" fill="#ffffff" stroke="#fbcfe8" stroke-width="3"/>
+    <circle cx="1235" cy="325" r="34" fill="#fce7f3"/><text x="1235" y="337" text-anchor="middle" font-size="30" font-weight="700" fill="#be185d">4</text>
+    <text x="1290" y="335" font-size="34" font-weight="700" fill="#9d174d">Second RL</text>
+    <text x="1210" y="415" font-size="25" font-weight="650" fill="#0f172a">Adapt the target</text>
+    <text x="1210" y="462" font-size="21" fill="#475569">Repair capacity, distribution,</text><text x="1210" y="496" font-size="21" fill="#475569">and product mismatches</text>
+    <rect x="1210" y="525" width="240" height="10" rx="5" fill="#ec4899"/>
+  </g>
+  <g fill="none" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"><path d="M405 415 H440"/><path d="M765 415 H800"/><path d="M1125 415 H1160"/></g>
+  <path d="M1340 610 C1340 760 620 780 610 610" fill="none" stroke="#94a3b8" stroke-width="4" stroke-dasharray="12 12" marker-end="url(#arrow)"/>
+  <text x="975" y="745" text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="22" fill="#64748b">If the transferred policy misses the environment, return to on-policy adaptation</text>
+</svg>

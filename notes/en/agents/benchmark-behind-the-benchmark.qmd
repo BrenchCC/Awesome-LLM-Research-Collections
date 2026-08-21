@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-10
-date-modified: 2026-08-10
+date-modified: 2026-08-22
 title: "The Benchmark Behind the Benchmark: Judge Noise and Trustworthy Agent Comparisons"
 description: "An analysis of agent noise, judge variance, evidence contracts, continuous scoring, ensembles, and model comparison through a 106-task multi-judge experiment, with a clear distinction between consistency and correctness."
 order: 1
@@ -199,7 +199,7 @@ Continuous scoring and a median of three primarily improve the first. The second
 
 ![Anthropic's components of agent evaluations, including tasks, trials, transcripts, outcomes, graders, and the evaluation harness](../../assets/benchmark-behind-the-benchmark/anthropic-agent-eval-components.png)
 
-*Source: [Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). This asset is the official high-resolution figure.*
+*Source: [Anthropic, Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents).*
 
 Anthropic defines each attempt at a task as a trial, the complete interaction record as a transcript, the final environment state as the outcome, and the infrastructure that executes, records, grades, and aggregates as the evaluation harness. This fills in what the “tasks + judge” abstraction omits: a model score belongs to a **model × agent harness × environment × judge protocol** configuration rather than being an intrinsic model constant.
 

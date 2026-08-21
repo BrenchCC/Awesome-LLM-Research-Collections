@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-21
-date-modified: 2026-08-21
+date-modified: 2026-08-22
 title: "Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution"
 description: "A two-axis review of 2026 recursive self-improvement work, with an auditable standard for admitting self-generated updates."
 order: 1
@@ -28,11 +28,11 @@ That distinction also determines the evidence policy here. Controlled papers and
 
 OpenAI's [GPT‑5.6 release](https://openai.com/index/gpt-5-6/) aggregates Internal Research Debugging, KernelGen 1P, NanoGPT, and PostTrainBench Lite into an RSI Index. GPT‑5.6 Sol scores 57.9%, versus 41.7% for GPT‑5.5, a 16.2-point difference. The suite spans research-code debugging, kernel optimization, small-model pretraining, and post-training recipes. It measures the ability to assist AI R&D; it does not demonstrate an autonomous system designing and delivering its successor. OpenAI's [system card](https://deploymentsafety.openai.com/gpt-5-6/) separately rates GPT‑5.6 below its High threshold for AI Self-Improvement.
 
-![OpenAI's published GPT‑5.6 self-improvement scores. Redrawn from the official July 2026 release, accessed 2026-08-21; all values come from OpenAI's internal or official evaluation configurations.](../../assets/recursive-self-improvement/openai-rsi-index-redraw.svg){width="92%" fig-align="center"}
+![OpenAI's published GPT‑5.6 self-improvement scores. Source: the official July 2026 release, accessed 2026-08-21; all values come from OpenAI's internal or official evaluation configurations.](../../assets/recursive-self-improvement/openai-rsi-index-redraw.svg){width="92%" fig-align="center"}
 
 The [Anthropic Institute](https://www.anthropic.com/institute/recursive-self-improvement) describes organizational change as a five-stage timeline: humans building the first Claude, chatbot assistance, coding agents, autonomous agents that run code and delegate work, and a future *closing the loop* stage. The page also reports that Anthropic engineers now ship roughly eight times as much code per quarter as the 2021–2025 average. That figure combines changes in models, tools, workflows, and organization size; it is not a clean model-capability measurement.
 
-![Anthropic's five stages of AI-development automation. Official page screenshot, accessed 2026-08-21; “20XX?” explicitly places closing the loop in the future.](../../assets/recursive-self-improvement/anthropic-rsi-timeline.png){width="62%" fig-align="center"}
+![Anthropic's five stages of AI-development automation. Source: the official Anthropic Institute page, accessed 2026-08-21; “20XX?” explicitly places closing the loop in the future.](../../assets/recursive-self-improvement/anthropic-rsi-timeline.png){width="62%" fig-align="center"}
 
 Other public developments belong in a directional layer rather than beside controlled experiments:
 
@@ -51,7 +51,7 @@ Other public developments belong in a directional layer rather than beside contr
 
 By optimization target, an artifact is code, a proof, an algorithm, or an experiment configuration. A harness is the prompt, memory, tool surface, skill library, hook system, routing, and control flow around a model. The model target covers parameters, policy, and internal representation. This familiar split answers *what changed*, but not whether the change survives or whether the updater itself improves.
 
-![The original three optimization targets: models, harnesses, and artifacts. Preserved source image; it classifies the target, not the depth of loop closure.](../../assets/recursive-self-improvement/three-object-taxonomy.png){width="72%" fig-align="center"}
+![The three optimization targets—models, harnesses, and artifacts—classify what changes, not the depth of loop closure.](../../assets/recursive-self-improvement/three-object-taxonomy.png){width="72%" fig-align="center"}
 
 A second axis tracks loop closure:
 
@@ -72,13 +72,13 @@ Artifact optimization is already the closest of these routes to routine engineer
 
 [Karpathy's Autoresearch](https://github.com/karpathy/autoresearch) compresses small-language-model training into a controlled loop. The agent may edit only `train.py`; each candidate receives five minutes of training and is accepted by the lower-is-better `val_bpb` metric. Architectures, optimizers, batch sizes, and hyperparameters can change while the budget and acceptance rule remain fixed. One long run tried roughly 700 edits, kept about 20, and reduced the time to a target level from 2.02 to 1.80 hours. The training program and configuration improve; the searching model's weights do not.
 
-![An Autoresearch run records candidate changes, fixed training budgets, validation scores, and keep/discard decisions. Preserved source image from a public project run.](../../assets/recursive-self-improvement/autoresearch-run.png){width="92%" fig-align="center"}
+![An Autoresearch run records candidate changes, fixed training budgets, validation scores, and keep/discard decisions. Source: a public project run.](../../assets/recursive-self-improvement/autoresearch-run.png){width="92%" fig-align="center"}
 
 ## AlphaEvolve: program populations and automatic evaluation
 
 [Google DeepMind's AlphaEvolve](https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/) uses an LLM to propose programs, executes them under automatic evaluators, and retains useful candidates through evolutionary search. DeepMind reports deployed improvements in data-center scheduling, circuit design, matrix multiplication, and training kernels, including a 1% reduction in Gemini training compute and a 32.5% speedup for one FlashAttention kernel. Executable artifacts and objective evaluators are the strongest evidence here. Feeding such artifacts back into model development places the system in the R&D chain, but does not by itself establish open-ended RSI.
 
-![AlphaEvolve samples prior programs, generates candidates with an LLM, evaluates them automatically, and writes survivors back to an evolutionary database. Preserved image from the Google DeepMind blog.](../../assets/recursive-self-improvement/alphaevolve-loop.webp){width="92%" fig-align="center"}
+![AlphaEvolve samples prior programs, generates candidates with an LLM, evaluates them automatically, and writes survivors back to an evolutionary database. Source: the Google DeepMind blog.](../../assets/recursive-self-improvement/alphaevolve-loop.webp){width="92%" fig-align="center"}
 
 # Harness route: cheaper updates, harder validation
 
@@ -86,7 +86,7 @@ The harness mediates between model and environment. It decides how context is co
 
 [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) highlights an asymmetry: the ability to propose harness updates changes little across part of the model-capability range, while the ability to benefit from an updated harness is non-monotonic. Weak models may fail to execute a complicated scaffold; very strong models may already be close to the task ceiling; intermediate models can gain most. A harness is therefore not free capability. It trades inference effort for context, orchestration, and execution burden.
 
-![Harness-updating and harness-benefit behave differently. The preserved source plot is relatively flat on update proposals and non-monotonic on realized benefit.](../../assets/recursive-self-improvement/harness-updating-benefit.png){width="92%" fig-align="center"}
+![Harness-updating and harness-benefit behave differently: update proposals are relatively flat, while realized benefit is non-monotonic.](../../assets/recursive-self-improvement/harness-updating-benefit.png){width="92%" fig-align="center"}
 
 ## From experience files to multi-agent verification
 
@@ -94,17 +94,17 @@ The harness mediates between model and environment. It decides how context is co
 
 MiniMax M2.7 presents a source-level harness-search case. MiniMax says the system analyzes failure traces, edits scaffold code, evaluates the candidate, and keeps or reverts the change; more than 100 rounds produced a 30% gain on an internal evaluation, and the agent can continue some RL-team experiments. Because neither the task set nor the full budget is public, I treat this as an engineering-feasibility signal rather than a transferable effect size.
 
-![MiniMax's M2 research harness connects skills, memory, guardrails, and evaluation infrastructure to an experiment-iteration loop. Preserved source image from the official release.](../../assets/recursive-self-improvement/minimax-m27-recursive-loop.png){width="90%" fig-align="center"}
+![MiniMax's M2 research harness connects skills, memory, guardrails, and evaluation infrastructure to an experiment-iteration loop. Source: the official release.](../../assets/recursive-self-improvement/minimax-m27-recursive-loop.png){width="90%" fig-align="center"}
 
 Apodex‑1.0 assigns verification to explicit roles. An orchestrator dispatches retrieval to as many as 150 sub-agents, collects results in a shared report pool, and routes conflicts, key claims, and final drafts to reviewers, fact checkers, and a global verifier. The design improves a current research artifact; it does not show cross-task rewriting of its own implementation. In the two-axis map, it is best described as a sophisticated harness for one-shot revision, not a terminal RSI loop.
 
-![The Apodex‑1.0 multi-agent research and verification architecture. Preserved source image from the Apodex blog.](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
+![The Apodex‑1.0 multi-agent research and verification architecture. Source: the Apodex blog.](../../assets/recursive-self-improvement/apodex-agent-team.avif){width="88%" fig-align="center"}
 
 ## RHI: make the workflow specification searchable
 
 [Recursive Harness Self-Improvement (RHI)](https://arxiv.org/abs/2607.15524) represents the harness as a prompt-level specification of the agent loop. The agent solves a task with $H^{(i)}$, an LLM evaluator compares adjacent outputs, the preference enters a revision history, and an optimizer proposes $H^{(i+1)}$. The paper explicitly calls this the first half of model–harness co-evolution: it improves the trace producer without training a successor model.
 
-![RHI runs the current harness, compares outputs, accumulates preference history, and produces the next harness. Preserved source image from RHI v1, Figure 2.](../../assets/recursive-self-improvement/rhi-loop.png){width="90%" fig-align="center"}
+![RHI runs the current harness, compares outputs, accumulates preference history, and produces the next harness. Source: RHI v1, Figure 2.](../../assets/recursive-self-improvement/rhi-loop.png){width="90%" fig-align="center"}
 
 For task $x$ and harness space $\mathcal H$, the ideal objective is
 
@@ -143,25 +143,25 @@ The best observed $\widehat f_x$ is uninterpretable without population size, rol
 
 RHI decomposes the system into Agent Design and Agent Workflow, with Contract and Hop inside the workflow. Prioritizing Contract and Hop has a practical motivation: sending only the information needed downstream reduces repeated context, improves KV-cache reuse, and lowers multi-agent coordination cost. Across 30 synthetic machine-learning research tasks in quantitative finance, robotics, and pharmacy, the paper reports that a few iterations let low-reasoning-effort agents exceed the same model at maximum reasoning effort while cutting inference cost by as much as 60%. The synthetic task scope matters; the result should not be generalized to every long-horizon agent.
 
-![RHI decomposes a harness into Agent Design and an Agent Workflow containing Contract and Hop. Preserved source image from RHI v1.](../../assets/recursive-self-improvement/rhi-harness-structure.png){width="84%" fig-align="center"}
+![RHI decomposes a harness into Agent Design and an Agent Workflow containing Contract and Hop. Source: RHI v1.](../../assets/recursive-self-improvement/rhi-harness-structure.png){width="84%" fig-align="center"}
 
 ## Ai2's counter-evidence: evolution may lose under equal budgets
 
 [Rethinking the Evaluation of Harness Evolution for Agents](https://arxiv.org/abs/2607.12227) compares harness evolution with equal-budget parallel sampling, sequential refinement, and harness scaling, and separates search tasks from held-out evaluation tasks. On Terminal‑Bench 2.1, Harness Evolution scores 67.4, below the initial harness at 68.2; Parallel Sampling reaches 72.3. The conclusion is not that harnesses should remain fixed. It is that current automatic evolution methods do not consistently beat simple test-time scaling and show limited transfer.
 
-![Budget-matched Terminal‑Bench 2.1 results. The low-resolution source is displayed narrowly; source: Ai2 paper v1.](../../assets/recursive-self-improvement/harness-evolution-budget-baselines.png){width="42%" fig-align="center"}
+![Budget-matched Terminal‑Bench 2.1 results. Source: Ai2 paper v1.](../../assets/recursive-self-improvement/harness-evolution-budget-baselines.png){width="42%" fig-align="center"}
 
 ## AIDE²: an outer agent edits an inner research agent
 
 Weco AI's AIDE² uses a bilevel loop. An outer AIDEhuman proposes source changes; an inner agent runs tasks in harness engineering, algorithms, and ML engineering; candidates are accepted only under fixed budgets and hidden scores. The team reports an eight-day, 100-step run in which about 90% of proposals were rejected. AIDE85 beats AIDE0 on MLE‑Bench Lite, ALE‑Bench Lite, and out-of-distribution WeatherBench 2, while the detected reward-hacking rate falls from 63% to 34%. These remain team-reported results, but the protocol at least includes private tests, fixed cost, and external benchmarks.
 
-![AIDE² rewrites the inner agent and admits only candidates that beat the incumbent. Preserved image from Weco AI's experimental report.](../../assets/recursive-self-improvement/aide2-self-improvement.png){width="92%" fig-align="center"}
+![AIDE² rewrites the inner agent and admits only candidates that beat the incumbent. Source: Weco AI's experimental report.](../../assets/recursive-self-improvement/aide2-self-improvement.png){width="92%" fig-align="center"}
 
 ## Three additional harness routes from 2026
 
 [RHO](https://arxiv.org/abs/2606.05922) does not require a labeled validation set. It selects a difficulty-diverse coreset from past trajectories, reruns tasks in parallel, diagnoses failures through within-trajectory self-validation and cross-trajectory self-consistency, then chooses a candidate harness by pairwise self-preference. The paper reports a one-round SWE‑Bench Pro pass-rate increase from 59% to 78% without external grading. That last condition is also the main risk: if self-preference drifts from correctness, the loop becomes self-confirming.
 
-![RHO turns past trajectories into harness updates. Source: RHO v2, Figure 2; cropped from a 220-DPI rendering of the paper PDF.](../../assets/recursive-self-improvement/rho-retrospective-harness-pipeline.png){width="94%" fig-align="center"}
+![RHO turns past trajectories into harness updates. Source: RHO v2, Figure 2.](../../assets/recursive-self-improvement/rho-retrospective-harness-pipeline.png){width="94%" fig-align="center"}
 
 [MOSS](https://arxiv.org/abs/2605.22794) moves the editable surface from text configuration to source code. It locates failures, plans and implements a candidate, builds it, replays the evidence batch inside ephemeral trial workers, and promotes it through a user-consent-gated container swap. A host daemon health-checks the new container and rolls back to the last-known-good image on failure. On OpenClaw, one cycle raises the four-task mean from 0.25 to 0.61. Source rewriting reaches routing, hook order, and state invariants that skill files cannot, while also increasing permission and supply-chain risk.
 
@@ -169,7 +169,7 @@ Weco AI's AIDE² uses a bilevel loop. An outer AIDEhuman proposes source changes
 
 [Hierarchical Self-Improvement (HSI)](https://arxiv.org/abs/2608.08466) moves one level further toward recursion. The same frozen LLM runs a task harness $H$, an Evolver $\Sigma$ that rewrites $H$, and a Meta-Evolver that rewrites $\Sigma$'s strategy code. The outer execution logic stays frozen to bound self-modification. BALROG results show substantial gains on moderate-difficulty tasks and no gain on NLE tasks beyond the backbone's capability. That negative result is important: a harness can organize existing ability, not create ability absent from the backbone.
 
-![HSI's three levels—Meta-Evolver, Evolver, and Task Harness—share a file system but expose distinct editable surfaces. Source: HSI v1, Figure 1; cropped from a 220-DPI PDF render.](../../assets/recursive-self-improvement/hsi-three-level-architecture.png){width="94%" fig-align="center"}
+![HSI's three levels—Meta-Evolver, Evolver, and Task Harness—share a file system but expose distinct editable surfaces. Source: HSI v1, Figure 1.](../../assets/recursive-self-improvement/hsi-three-level-architecture.png){width="94%" fig-align="center"}
 
 # Model updates and model–harness co-evolution
 
@@ -179,15 +179,15 @@ Model updates are slower, more expensive, and harder to roll back than harness e
 
 [SIA](https://arxiv.org/abs/2605.27276) contains a Meta-Agent, Task-Specific Agent, and Feedback-Agent. The last reads recent trajectories and decides whether to change the scaffold or trigger a LoRA weight update. Experiments cover Chinese legal charge classification, Triton kernel optimization on an H100, and single-cell RNA denoising. The authors report that joint updates beat scaffold-only iteration in all three domains and improve over prior SOTA by 25.1 points, 12.4% kernel speed, and 20.4% denoising performance, respectively. These are three narrow-domain experiments, not evidence that a general model can develop its successor autonomously.
 
-![SIA exposes two update levers: harness and model weights. Preserved source image from SIA v2.](../../assets/recursive-self-improvement/sia-two-update-levers.png){width="90%" fig-align="center"}
+![SIA exposes two update levers: harness and model weights. Source: SIA v2.](../../assets/recursive-self-improvement/sia-two-update-levers.png){width="90%" fig-align="center"}
 
-![The SIA loop: a Meta-Agent initializes the scaffold, a task agent acts, and a Feedback-Agent chooses between harness and weight updates. Preserved source image from SIA v2.](../../assets/recursive-self-improvement/sia-system-loop.png){width="90%" fig-align="center"}
+![The SIA loop: a Meta-Agent initializes the scaffold, a task agent acts, and a Feedback-Agent chooses between harness and weight updates. Source: SIA v2.](../../assets/recursive-self-improvement/sia-system-loop.png){width="90%" fig-align="center"}
 
 ## Continual Harness: fast workflow changes, slow model distillation
 
 [Continual Harness](https://arxiv.org/abs/2605.09998) uses two timescales in long-horizon Pokémon play. Within a run, a Refiner periodically updates the prompt, sub-agents, skills, and memory. Across iterations, a process reward model identifies poor segments, a stronger teacher relabels them, and soft SFT updates an open-source policy without resetting the environment. For a stronger model configuration, the paper reports a median cost of roughly USD 130 to reach the milestone from scratch, while a minimalist baseline spends about USD 215 to reach 98%. With weaker models, the automatic harness can cost more and complete less. The gain is bounded by backbone capability, matching HSI's NLE negative result.
 
-![Continual Harness updates the harness rapidly within a run and updates the model across rounds through process rewards and teacher trajectories. Preserved source image from paper v1.](../../assets/recursive-self-improvement/continual-harness.png){width="94%" fig-align="center"}
+![Continual Harness updates the harness rapidly within a run and updates the model across rounds through process rewards and teacher trajectories. Source: paper v1.](../../assets/recursive-self-improvement/continual-harness.png){width="94%" fig-align="center"}
 
 ## HELIX: turn co-evolution into an auditable data system
 
@@ -195,7 +195,7 @@ The August [HELIX](https://arxiv.org/abs/2608.13951) paper separates the two tim
 
 Those numbers show that a traceable data-production chain can operate. They do not yet show sustained acceleration across multiple model updates. HELIX is useful precisely because it preserves the intermediate layer: interventions, trajectories, test outcomes, and provenance remain auditable, making it possible to separate gains from the model, harness, and candidate count.
 
-![HELIX's two timescales: model–harness interaction within tasks, and cross-round model updates from verified sibling data followed by harness rebuilding. Source: HELIX v1, Figure 1; cropped from a 220-DPI PDF render.](../../assets/recursive-self-improvement/helix-two-timescales.png){width="94%" fig-align="center"}
+![HELIX's two timescales: model–harness interaction within tasks, and cross-round model updates from verified sibling data followed by harness rebuilding. Source: HELIX v1, Figure 1.](../../assets/recursive-self-improvement/helix-two-timescales.png){width="94%" fig-align="center"}
 
 # Mechanistic prerequisites for model-level improvement
 
@@ -205,7 +205,7 @@ The next three works study training signals, internal representations, and laten
 
 [Thinking Machines' On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/) samples trajectories from the current student policy and asks a teacher to score every token. High teacher–student disagreement at *forking tokens* often marks a decision where reasoning is about to diverge. In Qwen3 experiments, the official post reports 17,920 GPU-hours for RL versus about 1,800 for distillation at similar accuracy, and uses the method to restore instruction following lost during continual learning. Dense supervision can correct a policy more precisely; it does not show that the model can define its training objective, validate a successor, and initiate another round.
 
-![Per-token teacher confidence in on-policy distillation. Preserved SVG from the Thinking Machines blog.](../../assets/recursive-self-improvement/on-policy-distillation-token-confidence.svg){width="72%" fig-align="center"}
+![Per-token teacher confidence in on-policy distillation. Source: the Thinking Machines blog.](../../assets/recursive-self-improvement/on-policy-distillation-token-confidence.svg){width="72%" fig-align="center"}
 
 ## J-space and Reasoning by Superposition: observe internal state
 
@@ -213,7 +213,7 @@ The next three works study training signals, internal representations, and laten
 
 [Reasoning by Superposition](https://arxiv.org/abs/2505.12514) analyzes Coconut's continuous latent reasoning and finds that a single continuous vector can superpose several search frontiers. On graph reachability, Coconut reaches 0.98 accuracy, versus 0.76 for CoT and 0.83 for extended CoT. Latent space may support denser search while making provenance and human review harder. The work answers how a model represents parallel search, not who sets the objective, verifies the result, or rolls back a failure.
 
-![Accuracy of Coconut, CoT, extended CoT, and No-CoT on graph reachability. The low-resolution source is displayed narrowly; source: Reasoning by Superposition.](../../assets/recursive-self-improvement/reasoning-by-superposition-results.png){width="38%" fig-align="center"}
+![Accuracy of Coconut, CoT, extended CoT, and No-CoT on graph reachability. Source: Reasoning by Superposition.](../../assets/recursive-self-improvement/reasoning-by-superposition-results.png){width="38%" fig-align="center"}
 
 # Evaluation and engineering admission
 

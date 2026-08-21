@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-07-28
-date-modified: 2026-07-29
+date-modified: 2026-08-22
 title: "从 Qwen 到 Qwen3.6：七代模型的架构与训练演进"
 description: "沿七代 Qwen 主线梳理注意力、MoE、数据、后训练、原生多模态与 Agent 环境的演进，并解释 Qwen3-Next 为何是架构桥梁而非独立一代。"
 order: 1
@@ -84,7 +84,7 @@ Qwen3-Next 的名字容易诱导出「第八代」结论，但官方说明本身
 
 ![第一代 Qwen 的基座与 RLHF 分层：BBPE 输入 decoder-only 骨干，再经 SFT、偏好模型和 PPO 形成 Chat-RLHF。该图依据 Qwen 技术报告整理。](../../assets/from-qwen-to-qwen3-6/qwen-foundation-rlhf.svg){fig-alt="Qwen 第一代训练结构图，展示约15.2万词表的BBPE、MHA与RoPE等骨干组件，以及SFT、奖励或过程偏好模型和PPO RLHF流程"}
 
-![第一代 Qwen 技术报告 Figure 1：预训练基座分化为 Chat、代码、数学、视觉语言和 RLHF 模型。图像由论文 PDF 矢量页以 300 DPI 以上裁切。](../../assets/from-qwen-to-qwen3-6/qwen-model-lineage.png){fig-alt="Qwen 技术报告中的模型谱系图，展示 Qwen 基座、Qwen-Chat、Qwen-RM、Qwen-Chat-RLHF、Code-Qwen、Math-Qwen-Chat 与 Qwen-VL"}
+![第一代 Qwen 技术报告 Figure 1：预训练基座分化为 Chat、代码、数学、视觉语言和 RLHF 模型。](../../assets/from-qwen-to-qwen3-6/qwen-model-lineage.png){fig-alt="Qwen 技术报告中的模型谱系图，展示 Qwen 基座、Qwen-Chat、Qwen-RM、Qwen-Chat-RLHF、Code-Qwen、Math-Qwen-Chat 与 Qwen-VL"}
 
 这张谱系图还有一个容易被后见之明遮蔽的信息：第一代已经同时探索代码、数学、视觉语言和奖励模型，只是这些能力仍由不同分支承载。Qwen3.5 的「原生多模态」并不是 Qwen 第一次处理图像，而是把视觉语言训练从旁支模型改成共享主干的预训练起点。产品族是否包含视觉模型，与语言骨干是否原生接受多模态 token，是两种不同判断。
 

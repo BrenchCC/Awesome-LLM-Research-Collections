@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-03
-date-modified: 2026-08-04
+date-modified: 2026-08-22
 title: "Kimi Linear 与 KDA：从通道级遗忘到硬件高效的线性注意力"
 description: "从递推公式、WY/UT 并行算法、3:1 KDA/MLA 混合结构与公开实现出发，复核 Kimi Linear 的效果、效率和边界。"
 order: 1
@@ -23,7 +23,7 @@ tags:
 
 ![Kimi Linear 在 1.4T 公平对照中的性能—加速关系，以及长上下文批处理 TPOT。](../../assets/kimi-linear-kda/paper-figure-1-performance-efficiency.png){fig-alt="Kimi Linear 论文 Figure 1，左图比较 MLA、GDN-H 与 Kimi Linear 的性能和解码加速，右图比较不同上下文长度的 TPOT"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 1，第 1 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 1，第 1 页。*
 
 我的核心判断有五点。第一，KDA 真正新增的是“遗忘分辨率”，不是无限记忆容量；固定矩阵仍会发生压缩和干扰。第二，3:1 混合不是退让，而是用少量 MLA 纠正纯线性状态难以精确回看的结构性弱点。第三，1.16 倍 scaling efficiency 是可信但克制的训练收益，不能改写成 6 倍训练加速。第四，论文的系统收益依赖 kernel、层比例、并行策略和批处理条件，单看递推式无法复现。第五，后续 FlashKDA、Gated DeltaNet-2 与 Preconditioned DeltaNet 恰好暴露了 KDA 的三个边界：kernel 仍可深挖，擦除与写入共用一个标量门，delta rule 仍是忽略回归曲率的一阶更新。
 
@@ -37,9 +37,9 @@ tags:
 
 本文证据优先级是：论文与官方配置用于确认事实；官方 FLA/FlashKDA 代码用于确认实现路径；[知乎解读](https://zhuanlan.zhihu.com/p/1967632780847474121)、[科学空间的线性注意力简史](https://kexue.fm/archives/11033)、[MZeroMiko 的 KDA 推导](https://mzeromiko.github.io/blogs/Linear_Attention/5.%20kimi_linear/kda/)和[仿射变换推导](https://zhiyuan1i.github.io/en/posts/kda-mathematics/)只帮助比较解释方式。二手文章里出现的数字和因果说法，仍回查论文或代码。本文没有复现 1.4T 训练，也不把公开曲线写成独立实验结果。
 
-![Softmax/MLA 的随序列增长缓存与 KDA 固定状态记忆对照。](../../assets/kimi-linear-kda/attention-memory-cost.svg){fig-alt="自制图，对比 Softmax 或 MLA 按 token 增长的 KV 缓存、KDA 固定矩阵状态，以及 Kimi Linear 的三比一混合结构"}
+![Softmax/MLA 的随序列增长缓存与 KDA 固定状态记忆对照。](../../assets/kimi-linear-kda/attention-memory-cost.svg){fig-alt="对比 Softmax 或 MLA 按 token 增长的 KV 缓存、KDA 固定矩阵状态，以及 Kimi Linear 的三比一混合结构"}
 
-*自制图；依据 [Kimi Linear](https://arxiv.org/abs/2510.26692) §3–§4 与发布模型配置整理。*
+*依据 [Kimi Linear](https://arxiv.org/abs/2510.26692) §3–§4 与发布模型配置。*
 
 图中“固定”只指状态尺寸不随序列长度增长，不表示信息无损。Softmax 注意力保存每个历史 token 的键值，可以重新分配注意力；KDA 把过去压缩进每头一个矩阵，解码显存不再线性增长，却必须在线决定什么保留、什么覆盖。线性注意力的核心矛盾正由此产生：省掉 token 级缓存后，模型要自己学会内存管理。
 
@@ -92,13 +92,13 @@ $$
 
 ![线性注意力、DeltaNet、Gated DeltaNet 到 KDA 的递推谱系。](../../assets/kimi-linear-kda/delta-rule-lineage.svg){fig-alt="自制递推谱系图，从线性注意力累加、DeltaNet 残差改写、Gated DeltaNet 标量衰减到 KDA 通道级衰减"}
 
-*自制图；公式依据 [Kimi Linear](https://arxiv.org/abs/2510.26692) §2–§3 与 [Gated DeltaNet](https://arxiv.org/abs/2412.06464)。*
+*公式依据 [Kimi Linear](https://arxiv.org/abs/2510.26692) §2–§3 与 [Gated DeltaNet](https://arxiv.org/abs/2412.06464)。*
 
 这个写法有一个容易忽略的顺序：先用 $\mathrm{Diag}(\alpha_t)$ 衰减旧状态，再用 $I-\beta_tk_tk_t^{\top}$ 沿当前键擦除，最后写入 $\beta_tk_tv_t^{\top}$。衰减向量位于左侧，所以它缩放的是键通道对应的行，不是值维对应的列。将 $\alpha_t$ 说成“每个神经元一个遗忘门”过于含混，更准确的说法是“每个注意力头、每个键通道一个衰减系数”。
 
-![KDA 单步状态更新中的通道衰减、定向擦除、关联写入和查询读出。](../../assets/kimi-linear-kda/kda-state-edit.svg){fig-alt="自制 KDA 状态编辑图，依次展示通道级 alpha 衰减、beta 与键方向控制的擦除、键值外积写入和查询读出"}
+![KDA 单步状态更新中的通道衰减、定向擦除、关联写入和查询读出。](../../assets/kimi-linear-kda/kda-state-edit.svg){fig-alt="KDA 状态编辑图，依次展示通道级 alpha 衰减、beta 与键方向控制的擦除、键值外积写入和查询读出"}
 
-*自制图；依据论文 Equation 10 重绘。*
+*依据论文 Equation 10。*
 
 把更新写成“衰减—擦除—写入”有助于理解，但不要把三步当成三个独立可学习门。KDA 中 $\alpha_t$ 是通道向量，$\beta_t$ 仍是标量，而且同一个 $\beta_t$ 同时控制擦除与写入。如果模型想强烈清除旧值、谨慎写入新值，原始参数化无法直接表达。这个耦合后来正是 Gated DeltaNet-2 的出发点。
 
@@ -130,13 +130,13 @@ $$
 
 ![KDA 专用 kernel 与通用 DPLR kernel 的执行时间。](../../assets/kimi-linear-kda/paper-figure-2-kernel-dplr.png){fig-alt="Kimi Linear 论文 Figure 2，KDA 专用 kernel 与通用 DPLR kernel 在 2K 到 64K 输入长度下的执行时间曲线"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 2，第 5 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 2，第 5 页。*
 
 Figure 2 的设置是 batch size 1、16 个头，比较的是 kernel 执行时间，不是完整 48B MoE。64K 时 KDA 曲线约为通用 DPLR 的一半，能说明结构化参数带来的算子收益，但不能直接推出端到端模型快两倍。完整模型还包含投影、卷积、归一化、门控、MoE、MLA 层与通信。
 
 ![KDA 训练 prefill 的块内并行、跨块状态传递，以及解码 recurrent 数据流。](../../assets/kimi-linear-kda/kda-chunkwise-flow.svg){fig-alt="自制 KDA chunkwise 数据流，prefill 在每个块内以矩阵乘法并行并跨块传递固定状态，decode 使用融合递推 kernel 逐 token 更新"}
 
-*自制图；依据论文 §3.2、附录算法与 FLA 的 KDA kernel 路径整理。*
+*依据论文 §3.2、附录算法与 FLA 的 KDA kernel 路径。*
 
 这里还有一个工程上的精度问题。块算法改变了运算结合顺序，低精度下不一定与逐 token recurrence 位级一致。验证不能只测速度，至少要比较前向输出、最终状态和反向梯度，并覆盖长序列、极端衰减、可变长度批次。FlashKDA 后来选择 BF16 存储状态、FP32 执行 FMA，正是在显存带宽和累计误差之间取折中。
 
@@ -158,7 +158,7 @@ $$
 
 ![Kimi Linear 的 3:1 KDA/MLA 混合骨干、MoE 与 KDA block 结构。](../../assets/kimi-linear-kda/paper-figure-3-architecture.png){fig-alt="Kimi Linear 论文 Figure 3，左侧为三层 KDA 加一层 MLA 的混合骨干，右侧为 MoE 和 KDA block 的投影卷积归一化门控路径"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 3，第 6 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 3，第 6 页。*
 
 模型不把所有注意力都替换成 KDA，而是按 3:1 插入 MLA。发布配置有 27 个 token mixer：20 个 KDA 层位于 1–3、5–7，依此类推；7 个 MLA 层位于 4、8、12、16、20、24、27。最后一层使用 MLA，所以严格计数是 20:7，而不是把 27 简化为整数 3:1。配置还给出 2304 隐藏维、KDA 32 个头、每头 128 维、256 个路由专家且每 token 选择 8 个，并加入共享专家。论文 1.4T 对照与发布 checkpoint 的细节不完全相同，层数事实应注明来自当前配置。
 
@@ -170,7 +170,7 @@ Kimi Linear 采用 NoPE。对 KDA 而言，递推本身具有时间方向，状�
 
 ![KDA、GDN 与 Mamba2 在回文、MQAR 和栈状态跟踪上的长度与收敛结果。](../../assets/kimi-linear-kda/paper-figure-4-synthetic-tasks.png){fig-alt="Kimi Linear 论文 Figure 4，KDA、GDN 和 Mamba2 在 Palindrome、MQAR、Stack 三个合成任务上的序列长度泛化与训练收敛曲线"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 4，第 7 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 4，第 7 页。*
 
 KDA 在三个任务上都比 GDN 更快达到高精度；MQAR 尤其明显，KDA 约 5K step 已接近满分，GDN 到 20K 仍未达到同一水平。上排在 2048 长度时，KDA 对回文和 MQAR 的准确率也高于 GDN。这个结果与通道级时间尺度的动机一致：一个头可把不同地址方向按不同速度遗忘。
 
@@ -182,7 +182,7 @@ Table 1 同时回答混合比例与 block 组件。仅 MLA（0:1）的训练/验
 
 ![KDA/MLA 混合比例、output gate 和短卷积的消融结果。](../../assets/kimi-linear-kda/paper-table-1-ablation.png){fig-alt="Kimi Linear 论文 Table 1，比较 3 比 1、0 比 1、1 比 1、7 比 1、15 比 1 混合比例，以及移除或替换 output gate 和卷积的 PPL"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Table 1，第 8 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Table 1，第 8 页。*
 
 移除短卷积得到 9.29/5.70，说明局部混合对递推层有帮助；但幅度不足以支持“卷积是性能核心”。去掉 output gate 得到 9.25/5.67，略差于基线；换为 Swish gate 的 9.43/5.81 明显更差。更稳妥的结论是：论文选定的 sigmoid output gate 与其余归一化、残差尺度更匹配。消融没有分别移除 Q/K L2Norm、低秩 decay projection 或 NoPE，也没有给出这些组件在发布模型上的独立收益。
 
@@ -192,7 +192,7 @@ Table 1 同时回答混合比例与 block 组件。仅 MLA（0:1）的训练/验
 
 ![MLA 与 Kimi Linear 的 scaling law 拟合曲线和 1.16 倍水平差距。](../../assets/kimi-linear-kda/paper-figure-5-scaling-law.png){fig-alt="Kimi Linear 论文 Figure 5，MLA 与 Kimi Linear 的 loss 对 PFLOP 每秒天拟合曲线，标注约 1.16 倍计算效率"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 5，第 9 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 5，第 9 页。*
 
 1.16 倍是达到相同 loss 所需训练计算的拟合差，不是 wall-clock 训练速度，也不是推理吞吐。两条曲线指数非常接近，主要差异是截距；观测范围也只覆盖五个规模点。论文承认 KDA 沿用 MLA 调参，进一步调优可能改变曲线，但这只是合理假设，不是已经测得的收益。我的看法是，这个数字比“数量级提升”更有参考价值：它显示线性混合架构至少没有用明显质量损失换效率，同时给出一个有限、可审计的优势。
 
@@ -202,7 +202,7 @@ Table 5 的四个模型都训练 1.4T token，并在 128K 上下文评测。Kimi
 
 ![1.4T token 公平对照下的长上下文基准结果。](../../assets/kimi-linear-kda/paper-table-5-long-context.png){fig-alt="Kimi Linear 论文 Table 5，比较 MLA、GDN-H、Kimi Linear RoPE 与 Kimi Linear 在 RULER、MRCR、HELMET、LongBench V2、Frames、RepoQA 和长代码任务上的分数"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Table 5，第 12 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Table 5，第 12 页。*
 
 因此，准确说法是“Kimi Linear 在这组长上下文任务的平均分最高，并在若干检索与代码库任务领先”，不是“全面超过完整注意力”。不同任务依赖不同形式的记忆：RULER 偏受控检索，Frames 要整合分散证据，LongBench V2 的题型更混杂。少数 MLA 层保留的 token 级访问仍可能是后两类任务的关键。
 
@@ -210,7 +210,7 @@ Table 5 的四个模型都训练 1.4T token，并在 128K 上下文评测。Kimi
 
 ![Kimi Linear 与 MLA 在数学 RL 期间的训练、MATH500 与 AIME 2025 曲线。](../../assets/kimi-linear-kda/paper-figure-6-rl-curves.png){fig-alt="Kimi Linear 论文 Figure 6，Kimi Linear 1.4T 与 MLA 1.4T 在数学强化学习中的训练准确率、MATH500 和 AIME 2025 测试曲线"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 6，第 12 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 6，第 12 页。*
 
 ## 9. 效率：把单请求、批处理吞吐与缓存分开
 
@@ -218,7 +218,7 @@ Figure 7 明确写着 batch size 1。到 512K，Kimi Linear prefill 延迟约比
 
 ![batch size 1 下 MLA、GDN-H 与 Kimi Linear 的 prefill 延迟和 TPOT。](../../assets/kimi-linear-kda/paper-figure-7-prefill-tpot.png){fig-alt="Kimi Linear 论文 Figure 7，batch size 1 下三种模型随 4K 到 1M 长度变化的 prefill latency 与 time per output token"}
 
-*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 7，第 13 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Kimi Linear](https://arxiv.org/abs/2510.26692)，Figure 7，第 13 页。*
 
 Figure 1(b) 的 6.3 倍来自另一个服务条件：Kimi Linear 的较小缓存允许更大 batch，在 1M 时 TPOT 为 1.84 ms，对 MLA 的 11.48 ms。它是批处理容量带来的吞吐/TPOT收益，不是 batch size 1 的单请求延迟。论文“最多节省 75% KV cache”则来自 3:1 混合直觉：约四分之三层以固定状态替代随长度增长的 KV，剩余 MLA 仍需缓存。真实比例还受每层 KV 维度、状态矩阵、卷积缓存、数据类型和实现对齐影响。
 
@@ -230,11 +230,11 @@ Figure 1(b) 的 6.3 倍来自另一个服务条件：Kimi Linear 的较小缓存
 
 Hugging Face 配置确认发布模型 27 层中有 20 个 KDA、7 个 MLA，最大位置长度 1,048,576。实现细节应以具体 commit 为准：FLA 的默认 chunk size、短序列阈值、门的张量布局和状态 dtype 都可能更新。论文说“支持 recurrent 与 chunkwise”不等于任意框架已覆盖 continuous batching、prefix caching、量化、张量并行和容错恢复；这些仍需要推理引擎逐项接入。
 
-FlashKDA 把 kernel 优化继续往下推进。官方说明采用 CUTLASS、较小的 chunk 16、两个主 kernel，并用 BF16 保存状态、FP32 FMA 累加。下面的图按官方 H20 表格重绘，六个 $T=8192,d=128$ 工作负载相对 FLA KDA 为 1.85–2.31 倍。它是算子延迟，不含整个 Transformer 层。
+FlashKDA 把 kernel 优化继续往下推进。官方说明采用 CUTLASS、较小的 chunk 16、两个主 kernel，并用 BF16 保存状态、FP32 FMA 累加。下图汇总官方 H20 表格，六个 $T=8192,d=128$ 工作负载相对 FLA KDA 为 1.85–2.31 倍。它是算子延迟，不含整个 Transformer 层。
 
-![FlashKDA 官方 H20 benchmark 的高清数据重绘。](../../assets/kimi-linear-kda/flashkda-h20-benchmark.svg){fig-alt="依据 FlashKDA 官方仓库重绘的 H20 benchmark，列出 96 头与 64 头下固定长度、混合变长和八乘 1024 工作负载的 FLA 与 FlashKDA 延迟及加速比"}
+![FlashKDA H20 benchmark 中 FLA 与 FlashKDA 的延迟和加速比对照。](../../assets/kimi-linear-kda/flashkda-h20-benchmark.svg){fig-alt="FlashKDA 官方 H20 benchmark 数据，列出 96 头与 64 头下固定长度、混合变长和八乘 1024 工作负载的 FLA 与 FlashKDA 延迟及加速比"}
 
-*数据来源：[MoonshotAI/FlashKDA](https://github.com/MoonshotAI/FlashKDA)，官方 H20 benchmark（2026-04-22）；访问并重绘于 2026-08-03。原网页截图工具当次无可用浏览器实例，因此保留精确表值并明确标作重绘。*
+*数据来源：[MoonshotAI/FlashKDA](https://github.com/MoonshotAI/FlashKDA)，官方 H20 benchmark（2026-04-22）；访问于 2026-08-03。*
 
 这组数据也说明“算法复杂度”与“kernel 常数”必须分层讨论。KDA 相对 MLA 改变了随长度增长的工作量；KDA 专用 WY/UT 相对通用 DPLR 利用了代数结构；FlashKDA 相对 FLA 又在 tile、状态搬运和指令级累加上压缩常数。三层优化可以叠加，却不能用一个不带条件的倍数概括。
 
@@ -252,7 +252,7 @@ $$
 
 ![Gated DeltaNet-2 的混合架构与分离 decay、erase、write 门的 block。](../../assets/kimi-linear-kda/gdn2-figure-1-architecture.png){fig-alt="Gated DeltaNet-2 论文 Figure 1，展示混合滑窗注意力架构，以及分别生成 alpha 衰减、b 擦除和 w 写入门的 Gated Delta Rule 2 block"}
 
-*来源：[Gated DeltaNet-2](https://arxiv.org/abs/2605.22791)，Figure 1，第 6 页；PDF 矢量页按约 5×、360 DPI 裁切。*
+*来源：[Gated DeltaNet-2](https://arxiv.org/abs/2605.22791)，Figure 1，第 6 页。*
 
 第二条是优化视角。[Preconditioned DeltaNet](https://arxiv.org/abs/2604.21100) 把状态更新解释为在线最小二乘。DeltaNet、Gated DeltaNet 与 KDA 类似对单步损失做一阶梯度下降，却没有用键协方差形成的回归曲率；当键高度相关时，同一标量步长会在不同方向上过快或过慢。预条件方法近似逆曲率，在 340M/1B 实验和合成召回上改善结果。这个分析提醒我们：KDA 改进“遗忘坐标”，并未解决在线回归的条件数问题。
 
