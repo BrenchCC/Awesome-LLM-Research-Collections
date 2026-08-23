@@ -768,6 +768,10 @@
 
 ## 智能体技能
 
+- **SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback** (2026.08) \
+  **描述**: SkillEvo 通过多轮用户模拟持续生成反馈，逐层暴露智能体技能在交互中出现的缺陷并驱动其演化。独立的治理层主动修复事实退化与结构膨胀，在生产云服务技能上优于自反思和单轮问答驱动的演化方法。 \
+  <a href="https://arxiv.org/abs/2608.13120"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
   **描述**: SkillsVote 将 Agent Skills 视为可复用经验资产，通过收集、推荐、归因和演化治理来缓解智能体轨迹噪声与难治理问题。它分析大规模开源技能语料，在执行前推荐结构化技能上下文，并只接纳证据门控的成功发现，以在不更新模型的情况下改进冻结智能体。 \
   <a href="https://arxiv.org/abs/2605.18401"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

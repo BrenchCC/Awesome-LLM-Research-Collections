@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>30</strong><span>Papers</span></div>
-    <div><strong>66</strong><span>Resource links</span></div>
+    <div><strong>31</strong><span>Papers</span></div>
+    <div><strong>67</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -193,10 +193,21 @@ toc: false
 </section>
 <section class="paper-section" id="agent-skills">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">4 papers</p>
     <h2>Agent Skills</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="skillevo-self-renewing-evolution-gradients-from-multi-turn-interaction-feedback">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agent Skills</span>
+  </div>
+  <h3>SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback</h3>
+  <p>SkillEvo evolves agent skills using multi-turn user simulation to continuously generate feedback that reveals layered interaction failures. An independent governance layer repairs factual degradation and structural bloat, outperforming self-reflection and single-turn-QA-driven evolution across production cloud-service skills.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.13120" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="skillsvote-lifecycle-governance-of-agent-skills-from-collection-recommendation-to-evolution">
   <div class="paper-meta">
     <span>2026.05</span>

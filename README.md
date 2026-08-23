@@ -769,6 +769,10 @@
 
 ## Agent Skills
 
+- **SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback** (2026.08) \
+  **Description**: SkillEvo evolves agent skills using multi-turn user simulation to continuously generate feedback that reveals layered interaction failures. An independent governance layer repairs factual degradation and structural bloat, outperforming self-reflection and single-turn-QA-driven evolution across production cloud-service skills. \
+  <a href="https://arxiv.org/abs/2608.13120"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **SkillsVote: Lifecycle Governance of Agent Skills from Collection, Recommendation to Evolution** (2026.05) \
   **Description**: SkillsVote addresses noisy and hard-to-govern agent trajectories by treating Agent Skills as reusable experience artifacts with collection, recommendation, attribution, and evolution controls. It profiles large-scale open-source skill corpora, recommends structured skill context before execution, and admits only evidence-gated successful discoveries to improve frozen agents without model updates. \
   <a href="https://arxiv.org/abs/2605.18401"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
