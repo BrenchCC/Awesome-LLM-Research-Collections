@@ -416,6 +416,24 @@
 
 ## 蒸馏
 
+- **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
+  **描述**: 该论文揭示了在策略蒸馏中的低 KL 一致性陷阱：教师模型会局部顺应学生模型已损坏的 rollout，因而几乎无法提供纠错监督。论文提出自适应在线终止规则 KAT，过滤这些无信息后缀，在提升数学推理准确率的同时将平均 rollout 长度减少 59.73%。 \
+  <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
+- **On-Policy Distillation with Best-of-N Teacher Rollout Selection** (2026.05) \
+  **描述**: 该论文提出 BRTS，采样多条教师轨迹，并按照正确性优先、与学生当前行为对齐程度次之的规则选择监督信号。其辅助教师上下文分支和基于真实答案的恢复机制提升了 OPD 在高难度数学推理基准上的表现。 \
+  <a href="https://arxiv.org/abs/2605.09725"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/BWGZK-keke/BRTS"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **Trust Region On-Policy Distillation** (2026.05) \
+  **描述**: 该论文提出 TrOPD，通过仅在可靠区域使用反向 KL 监督，缓解教师与学生分布差异较大时在策略蒸馏的不稳定问题。该方法以裁剪、掩码或前向 KL 估计处理异常区域，并利用教师前缀的离策略指导将探索引回可信区域。 \
+  <a href="https://arxiv.org/abs/2606.01249"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
+- **Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes** (2026.03) \
+  **描述**: 该论文指出 sampled-token OPD 的三类失效模式：token 级监督失衡、教师在学生生成前缀上的指导不可靠，以及 tokenizer 或特殊 token 不匹配。论文结合教师 top-K 局部支持匹配、top-p rollout 采样和特殊 token 掩码，提高训练稳定性并比标准 OPD 提升 19.8%。 \
+  <a href="https://arxiv.org/abs/2603.25562"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/hhh675597/revisiting_opd"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Knowledge Distillation of Large Language Models** (2023.06) \
   **描述**: 该论文研究面向生成式大语言模型的白盒知识蒸馏，并提出 MiniLLM，用反向 KLD 替代标准前向 KLD，以避免学生模型高估教师分布中的低概率区域。论文推导了有效优化方法，并在 120M 到 13B 参数的不同模型族上提升指令跟随质量、校准性、曝光偏差和长文本生成表现。 \
   <a href="https://arxiv.org/abs/2306.08543"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

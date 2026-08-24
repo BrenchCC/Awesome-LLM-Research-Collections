@@ -417,6 +417,24 @@
 
 ## Distillation
 
+- **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
+  **Description**: This paper identifies a low-KL agreement trap in on-policy distillation, where a teacher locally agrees with a student's corrupted rollout and provides little corrective supervision. It proposes KAT, an adaptive online termination rule that filters these uninformative suffixes, improving mathematical reasoning accuracy while reducing average rollout length by 59.73%. \
+  <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
+- **On-Policy Distillation with Best-of-N Teacher Rollout Selection** (2026.05) \
+  **Description**: This paper proposes BRTS, which samples multiple teacher trajectories and selects supervision by prioritizing correctness and then alignment with the student's current behavior. An auxiliary teacher-context branch and ground-truth-conditioned recovery improve OPD on challenging mathematical reasoning benchmarks. \
+  <a href="https://arxiv.org/abs/2605.09725"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/BWGZK-keke/BRTS"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+- **Trust Region On-Policy Distillation** (2026.05) \
+  **Description**: This paper proposes TrOPD to stabilize on-policy distillation under large teacher-student distribution mismatch by restricting reverse-KL supervision to reliable regions. It handles outliers through clipping, masking, or forward-KL estimation and uses teacher-prefix off-policy guidance to steer exploration back toward trustworthy regions. \
+  <a href="https://arxiv.org/abs/2606.01249"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
+- **Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes** (2026.03) \
+  **Description**: This paper identifies three failure modes in sampled-token OPD: imbalanced token supervision, unreliable teacher guidance on student-generated prefixes, and tokenizer or special-token mismatch. It combines teacher top-K local support matching with top-p rollout sampling and special-token masking, improving stability and outperforming standard OPD by 19.8%. \
+  <a href="https://arxiv.org/abs/2603.25562"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/hhh675597/revisiting_opd"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Knowledge Distillation of Large Language Models** (2023.06) \
   **Description**: This paper studies white-box knowledge distillation for generative LLMs and proposes MiniLLM, replacing the standard forward KLD objective with reverse KLD to avoid overestimating low-probability teacher regions. The method derives an effective optimization procedure and improves instruction-following quality, calibration, exposure bias, and long-text generation across model families from 120M to 13B parameters. \
   <a href="https://arxiv.org/abs/2306.08543"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

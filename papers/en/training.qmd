@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>5</strong><span>Papers</span></div>
-    <div><strong>13</strong><span>Resource links</span></div>
+    <div><strong>9</strong><span>Papers</span></div>
+    <div><strong>19</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -90,10 +90,56 @@ toc: false
 </section>
 <section class="paper-section" id="distillation">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">5 papers</p>
     <h2>Distillation</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="escaping-the-kl-agreement-trap-in-on-policy-distillation">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Distillation</span>
+  </div>
+  <h3>Escaping the KL Agreement Trap in On-Policy Distillation</h3>
+  <p>This paper identifies a low-KL agreement trap in on-policy distillation, where a teacher locally agrees with a student&#x27;s corrupted rollout and provides little corrective supervision. It proposes KAT, an adaptive online termination rule that filters these uninformative suffixes, improving mathematical reasoning accuracy while reducing average rollout length by 59.73%.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.09471" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="on-policy-distillation-with-best-of-n-teacher-rollout-selection">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Distillation</span>
+  </div>
+  <h3>On-Policy Distillation with Best-of-N Teacher Rollout Selection</h3>
+  <p>This paper proposes BRTS, which samples multiple teacher trajectories and selects supervision by prioritizing correctness and then alignment with the student&#x27;s current behavior. An auxiliary teacher-context branch and ground-truth-conditioned recovery improve OPD on challenging mathematical reasoning benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.09725" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/BWGZK-keke/BRTS" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="trust-region-on-policy-distillation">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Distillation</span>
+  </div>
+  <h3>Trust Region On-Policy Distillation</h3>
+  <p>This paper proposes TrOPD to stabilize on-policy distillation under large teacher-student distribution mismatch by restricting reverse-KL supervision to reliable regions. It handles outliers through clipping, masking, or forward-KL estimation and uses teacher-prefix off-policy guidance to steer exploration back toward trustworthy regions.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.01249" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="revisiting-on-policy-distillation-empirical-failure-modes-and-simple-fixes">
+  <div class="paper-meta">
+    <span>2026.03</span>
+    <span>Distillation</span>
+  </div>
+  <h3>Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes</h3>
+  <p>This paper identifies three failure modes in sampled-token OPD: imbalanced token supervision, unreliable teacher guidance on student-generated prefixes, and tokenizer or special-token mismatch. It combines teacher top-K local support matching with top-p rollout sampling and special-token masking, improving stability and outperforming standard OPD by 19.8%.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2603.25562" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/hhh675597/revisiting_opd" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="knowledge-distillation-of-large-language-models">
   <div class="paper-meta">
     <span>2023.06</span>

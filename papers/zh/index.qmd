@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>146</strong><span>论文</span></div>
+    <div><strong>150</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>349</strong><span>资源链接</span></div>
+    <div><strong>355</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -69,7 +69,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">5 篇论文</span>
+  <span class="category-count">9 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
