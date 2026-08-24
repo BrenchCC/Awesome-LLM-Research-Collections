@@ -25,7 +25,7 @@
 lark-cli auth login
 lark-cli wiki +space-create \
   --name "Awesome LLM Research Collections" \
-  --description "GitHub main 的中英双语自动镜像" \
+  --description "精选并分类整理大语言模型领域的论文、研究笔记与技术博客，便于学习、检索与回顾" \
   --as user \
   --format json
 ```
