@@ -854,6 +854,11 @@
 
 ## Memory
 
+- **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
+  **Description**: MemTrapBench evaluates memory-induced cognitive traps in which faithful, relevant retrieved memories distort LLM reasoning or beliefs, covering Reasoning Fixation and Belief Distortion. Across memory frameworks, it finds performance below a no-memory baseline and introduces AdaptiveMem, an inference-time prompting method that mitigates these failures while preserving standard memory-benchmark performance. \
+  <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/zjunlp/MemTrapBench"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \
   **Description**: Agent Memory Distillation is a training-free framework that transfers successful teacher-agent experience to 4B-8B student agents through complementary Workflow, Subtask, and Function memories, using proactive injection for planning and reactive retrieval for tool errors. Across four student models, it improves average accuracy over zero-shot by 27.2, 11.2, and 3.4 percentage points on AppWorld, BFCL V3, and ToolSandbox, respectively. \
   <a href="https://arxiv.org/abs/2608.07169"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

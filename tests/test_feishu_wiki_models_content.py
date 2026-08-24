@@ -12,8 +12,10 @@ os.sys.path.append(str(Path.cwd() / "scripts"))
 from sync_notes import Note  # noqa: E402
 from feishu_wiki_sync.content import build_page_specs  # noqa: E402
 from feishu_wiki_sync.content import convert_qmd_body  # noqa: E402
+from feishu_wiki_sync.content import render_managed_page  # noqa: E402
 from feishu_wiki_sync.content import render_manifest_block  # noqa: E402
 from feishu_wiki_sync.models import HOME_TITLE  # noqa: E402
+from feishu_wiki_sync.models import PageSpec  # noqa: E402
 from feishu_wiki_sync.models import RemotePage  # noqa: E402
 from feishu_wiki_sync.models import SafetyError  # noqa: E402
 from feishu_wiki_sync.models import SyncManifest  # noqa: E402
@@ -82,6 +84,51 @@ def manifest_with_pages(
 
 class LocalConversionTests(unittest.TestCase):
     """Verify repository parsing and QMD conversion behavior."""
+
+    def test_generated_introductions_describe_page_purpose(self):
+        """Keep reader-facing introductions focused on each page's purpose.
+
+        Parameters:
+            self: Current test case.
+        """
+        specs, _ = build_page_specs()
+        self.assertIn("精选论文、研究笔记与技术博客", specs["home"].body)
+        self.assertIn("按研究主题整理", specs["papers"].body)
+        self.assertIn("论文解读与技术思考", specs["notes"].body)
+        self.assertIn("值得阅读的技术文章", specs["blogs"].body)
+        for spec in specs.values():
+            self.assertNotIn("自动同步", spec.body)
+            self.assertNotIn("飞书双语镜像", spec.body)
+
+    def test_managed_page_starts_with_purpose_and_ends_with_provenance(self):
+        """Move technical provenance after the reader-facing content.
+
+        Parameters:
+            self: Current test case.
+        """
+        spec = PageSpec(
+            key = "example",
+            parent_key = None,
+            title = "Example",
+            source_path = "docs/example.md",
+            body = "# Example\n\nExplain the document's purpose.\n"
+        )
+        rendered = render_managed_page(
+            spec = spec,
+            body = spec.body,
+            source_commit = "abc123"
+        )
+        self.assertTrue(rendered.startswith("# Example"))
+        self.assertIn("Explain the document's purpose.", rendered)
+        self.assertIn("## 文档信息 / Document information", rendered)
+        self.assertIn("**Source:** `docs/example.md`", rendered)
+        self.assertIn("**Git commit:** `abc123`", rendered)
+        self.assertNotIn("自动同步", rendered)
+        self.assertNotIn("Automatically synchronized", rendered)
+        self.assertLess(
+            rendered.index("Explain the document's purpose."),
+            rendered.index("## 文档信息 / Document information")
+        )
 
     def test_repository_baseline_counts(self):
         """Verify the accepted bilingual repository baseline.
@@ -319,6 +366,8 @@ class ManifestModelsContentTests(unittest.TestCase):
         )
         manifest = manifest_with_pages([home, child], schema_version = 2)
         content = render_manifest_block(manifest)
+        self.assertIn("## 内部维护清单 / Internal maintenance manifest", content)
+        self.assertNotIn("## 同步清单 / Sync manifest", content)
         restored = parse_manifest(content)
         self.assertEqual(restored.schema_version, 2)
         self.assertIsNone(restored.pages["home"].obj_edit_time)

@@ -853,6 +853,11 @@
 
 ## 记忆
 
+- **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
+  **描述**: MemTrapBench 评测记忆诱发的认知陷阱：即使忠实且语义相关的检索记忆，也可能扭曲 LLM 的推理或信念；基准覆盖推理固化与信念扭曲两类失效模式。论文发现各类记忆框架均低于无记忆基线，并提出推理时提示方法 AdaptiveMem，在缓解这些问题的同时保持标准记忆基准性能。 \
+  <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/zjunlp/MemTrapBench"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory** (2026.08) \
   **描述**: Agent Memory Distillation 是一个无需训练的框架，通过互补的 Workflow、Subtask 和 Function 三层记忆，将教师智能体的成功经验迁移给 4B-8B 学生智能体，并分别以主动注入支持规划、以响应式检索修复工具调用错误。在四种学生模型上，它相较 zero-shot 在 AppWorld、BFCL V3 和 ToolSandbox 上的平均准确率分别提升 27.2、11.2 和 3.4 个百分点。 \
   <a href="https://arxiv.org/abs/2608.07169"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

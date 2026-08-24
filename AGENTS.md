@@ -52,7 +52,7 @@ quarto render --no-execute
 GitHub `main` is the only source of truth for the managed private Wiki space `Awesome LLM Research Collections`. The production mirror is already initialized and reuses the selected existing Feishu application; do not recreate the space, replace the application, or repeat membership setup during routine content work.
 
 - Papers are generated from the bilingual README catalogs, notes from `notes/en/` and `notes/zh/`, and blogs from `data/blog_shares.json`.
-- Managed pages include source path, source commit, and an automatic-sync warning. Manual edits to managed Feishu page bodies can be overwritten on the next apply.
+- Reader-facing introductions must describe the page's subject and purpose only; never lead with synchronization warnings or implementation details. Put source path and source commit in the neutral document-information footer. Manual edits to managed Feishu page bodies can still be overwritten on the next apply.
 - The homepage contains the versioned ownership manifest. Never edit its manifest JSON manually, claim nodes by title alone, or delete unknown/unmanaged nodes.
 - `--check` performs local conversion validation only. `--plan` reads Wiki nodes, the manifest, and candidate Docx information without writing. `--apply` uses up to 4-way read concurrency, up to 2-way body-write concurrency for different documents, keeps structure and homepage writes serialized, and commits the completed manifest last.
 - Use lark-cli `1.0.86` and `rsvg-convert` for local remote operations. Follow `docs/feishu-wiki-sync.md` instead of guessing CLI parameters or recovery steps.

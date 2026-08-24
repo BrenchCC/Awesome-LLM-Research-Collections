@@ -11,11 +11,12 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 sys.path.append(os.getcwd())
 
 from feishu_wiki_sync.client import created_tokens, document_revision
+from feishu_wiki_sync.content import content_hash_for_resolved_spec
 from feishu_wiki_sync.content import render_homepage, render_managed_page
 from feishu_wiki_sync.content import resolve_wiki_links
 from feishu_wiki_sync.models import CONTENT_DIR, HOME_TITLE, MANIFEST_SCHEMA_VERSION
 from feishu_wiki_sync.models import LarkCliError, RemotePage, SafetyError, TreeNode
-from feishu_wiki_sync.models import new_manifest, stable_hash, utc_now
+from feishu_wiki_sync.models import new_manifest, utc_now
 from feishu_wiki_sync.planner import expected_parent_token, find_staging_node
 from feishu_wiki_sync.planner import find_title_collision, staging_title
 
@@ -102,7 +103,7 @@ def checkpoint_home(executor, home_spec, manifest, home_revision):
         [
             f"# {HOME_TITLE}",
             "",
-            "同步正在进行；若任务中断，下次 `--apply` 将从此检查点恢复。",
+            "内容更新正在进行；若任务中断，下次 `--apply` 将从此检查点恢复。",
             "",
         ]
     )
@@ -447,7 +448,7 @@ def synchronize_contents(
             continue
         old = manifest.pages[spec.key]
         resolved_body = resolve_wiki_links(spec.body, node_tokens)
-        desired_hash = stable_hash(resolved_body, spec.media_paths)
+        desired_hash = content_hash_for_resolved_spec(spec, resolved_body)
         current_revision = plan.current_revisions.get(spec.key, old.revision_id)
         current_edit_time = plan.current_edit_times.get(
             spec.key,
@@ -592,7 +593,7 @@ def finalize_homepage(
         node_token = home.node_token,
         obj_token = home.obj_token,
         title = specs["home"].title,
-        content_hash = stable_hash(resolved_body, specs["home"].media_paths),
+        content_hash = content_hash_for_resolved_spec(specs["home"], resolved_body),
         revision_id = -1,
         source_path = specs["home"].source_path,
         source_commit = commit,

@@ -82,7 +82,7 @@ GitHub `main` is the only source of truth for the managed private Wiki space `Aw
 
 - Papers come from `README.md` and `README.zh-CN.md`, notes from `notes/en/` and `notes/zh/`, and blogs from `data/blog_shares.json`.
 - `scripts/sync_feishu_wiki.py` builds the bilingual Wiki tree, converts QMD constructs and media, rewrites internal links, and tracks content/media hashes and Docx revisions.
-- Every managed page contains its source path, source commit, and an automatic-sync warning. Manual Feishu body edits may be overwritten.
+- Every managed page starts with a reader-facing description of its subject and purpose. Do not mention synchronization in that introduction; keep source path and source commit in the neutral document-information footer. Manual Feishu body edits may still be overwritten.
 - The Wiki homepage stores the versioned ownership manifest and is finalized only after successful writes. Never hand-edit the manifest, infer ownership from matching titles, or remove unknown nodes.
 - Duplicate titles, corrupt manifests, moved managed nodes, revision conflicts, and managed deletion targets with unknown children must fail closed.
 

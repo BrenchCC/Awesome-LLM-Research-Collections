@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>31</strong><span>论文</span></div>
-    <div><strong>67</strong><span>资源链接</span></div>
+    <div><strong>32</strong><span>论文</span></div>
+    <div><strong>69</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -401,10 +401,22 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>记忆</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="memtrapbench-benchmarking-cognitive-traps-in-llm-memory-use">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>记忆</span>
+  </div>
+  <h3>MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use</h3>
+  <p>MemTrapBench 评测记忆诱发的认知陷阱：即使忠实且语义相关的检索记忆，也可能扭曲 LLM 的推理或信念；基准覆盖推理固化与信念扭曲两类失效模式。论文发现各类记忆框架均低于无记忆基线，并提出推理时提示方法 AdaptiveMem，在缓解这些问题的同时保持标准记忆基准性能。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.20202" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/zjunlp/MemTrapBench" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="agent-memory-distillation-empowering-small-llm-agents-with-hierarchical-teacher-memory">
   <div class="paper-meta">
     <span>2026.08</span>

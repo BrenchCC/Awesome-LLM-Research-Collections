@@ -95,6 +95,7 @@ python scripts/sync_feishu_wiki.py --apply
 
 ## 内容规则
 
+- 所有页面开头只介绍文档主题、收录范围和阅读用途，不展示同步警告或实现细节；来源路径与 Git commit 统一放在正文末尾的“文档信息”区域。
 - 论文从 `README.md` 和 `README.zh-CN.md` 的结构化条目生成，每种语言按 10 个研究分类成页。
 - 笔记读取 `notes/en/` 和 `notes/zh/` 的正文 QMD；YAML front matter 被移除，callout 转为引用块，表格、代码和公式保留。
 - 本地图片改写为 lark-cli 相对媒体引用；SVG 在临时目录转换为 PNG。缺失文件或单个媒体超过 20 MB 时检查失败。

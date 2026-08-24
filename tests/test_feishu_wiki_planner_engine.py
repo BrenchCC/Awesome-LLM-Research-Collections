@@ -485,7 +485,7 @@ class EngineConcurrencyTests(unittest.TestCase):
         with self.assertRaises(LarkCliError):
             apply_sync_plan(executor, "space", specs, snapshot, plan, "commit-b")
         self.assertEqual(snapshot.manifest.status, "in_progress")
-        self.assertIn("同步正在进行", executor.documents["doc-home-token"]["content"])
+        self.assertIn("内容更新正在进行", executor.documents["doc-home-token"]["content"])
 
     def test_stabilization_uses_lightweight_revision_reads(self):
         """Wait until successive lightweight revision reads agree.

@@ -40,6 +40,7 @@ SUPPORTED_LOCAL_IMAGE_SUFFIXES = {
     ".tiff",
     ".webp",
 }
+PAGE_RENDER_VERSION = "reader-first-introductions-v2"
 
 
 def strip_front_matter(text, source_path):
@@ -211,13 +212,15 @@ def convert_qmd_body(
         return f"[{label}]({target})"
 
     body = link_pattern.sub(replace_link, body)
-    date_labels = {
-        "en": ("Created", "Last modified"),
-        "zh": ("创建日期", "最后更新"),
+    metadata_labels = {
+        "en": ("Overview", "Created", "Last modified"),
+        "zh": ("简介", "创建日期", "最后更新"),
     }
-    created_label, modified_label = date_labels[note.language]
+    overview_label, created_label, modified_label = metadata_labels[note.language]
     header = [
         f"# {note.title}",
+        "",
+        f"**{overview_label}:** {note.description}",
         "",
         f"**{created_label}:** {note.date}  ",
         f"**{modified_label}:** {note.date_modified}  ",
@@ -296,7 +299,12 @@ def render_paper_page(category, papers, language):
     """
     description_label = "描述" if language == "zh" else "Description"
     empty_text = "暂无论文。" if language == "zh" else "No papers yet."
-    lines = [f"# {category}", ""]
+    introduction = (
+        f"本页汇总“{category}”方向的论文，提供简要介绍及论文、项目、代码等相关链接。"
+        if language == "zh"
+        else f"This page collects papers on {category}, with concise summaries and links to papers, projects, code, and related resources."
+    )
+    lines = [f"# {category}", "", introduction, ""]
     if not papers:
         return "\n".join(lines + [empty_text, ""])
 
@@ -327,7 +335,12 @@ def render_blog_page(blog_shares, language):
     title = "博客分享" if language == "zh" else "Blog Shares"
     description_label = "描述" if language == "zh" else "Description"
     blog_label = "原文" if language == "zh" else "Blog"
-    lines = [f"# {title}", ""]
+    introduction = (
+        "本页收录值得阅读的大语言模型技术文章，并提供内容简介、原文及相关项目链接。"
+        if language == "zh"
+        else "This page curates useful technical articles on large language models, with summaries and links to the original posts and related projects."
+    )
+    lines = [f"# {title}", "", introduction, ""]
     for blog_share in blog_shares:
         item_title = blog_share.title_zh if language == "zh" else blog_share.title_en
         description = (
@@ -461,6 +474,11 @@ def build_page_specs(svg_converter = default_svg_converter):
     language_titles = {"zh": "中文", "en": "English"}
     for language in ["zh", "en"]:
         paper_language_key = f"papers/{language}"
+        paper_introduction = (
+            "浏览按研究方向分类的中文论文目录，快速查找代表性工作及相关资源。"
+            if language == "zh"
+            else "Browse English paper collections organized by research area, with concise summaries and related resources."
+        )
         category_items = [
             (category, f"papers/{language}/{slugify(category)}")
             for category in paper_categories[language]
@@ -473,7 +491,7 @@ def build_page_specs(svg_converter = default_svg_converter):
                 title = language_titles[language],
                 source_path = PAPER_CONFIGS[language].readme_path,
                 body = (
-                    f"# {language_titles[language]}\n\n"
+                    f"# {language_titles[language]}\n\n{paper_introduction}\n\n"
                     + render_link_list(category_items, "暂无分类。")
                 )
             )
@@ -498,6 +516,11 @@ def build_page_specs(svg_converter = default_svg_converter):
     for language in ["zh", "en"]:
         config = NOTE_CONFIGS[language]
         language_key = f"notes/{language}"
+        note_introduction = (
+            "浏览中文论文解读与技术思考，并按内容类型和主题查找笔记。"
+            if language == "zh"
+            else "Browse English paper readings and technical reflections organized by content type and topic."
+        )
         type_items = [
             (config.section_labels[note_type], f"notes/{language}/{note_type}")
             for note_type in NOTE_TYPE_ORDER
@@ -510,7 +533,7 @@ def build_page_specs(svg_converter = default_svg_converter):
                 title = language_titles[language],
                 source_path = f"notes/{language}/",
                 body = (
-                    f"# {language_titles[language]}\n\n"
+                    f"# {language_titles[language]}\n\n{note_introduction}\n\n"
                     + render_link_list(type_items, "暂无笔记。")
                 )
             )
@@ -525,6 +548,12 @@ def build_page_specs(svg_converter = default_svg_converter):
         }
         for note_type in NOTE_TYPE_ORDER:
             type_key = f"notes/{language}/{note_type}"
+            type_title = config.section_labels[note_type]
+            type_introduction = (
+                f"本页按主题整理{type_title}，方便集中浏览相关内容。"
+                if language == "zh"
+                else f"This page organizes {type_title} by topic for focused browsing."
+            )
             topics = sorted({note.topic for note in notes_by_type[note_type]})
             topic_items = [
                 (topic, f"{type_key}/{slugify(topic)}")
@@ -535,10 +564,10 @@ def build_page_specs(svg_converter = default_svg_converter):
                 PageSpec(
                     key = type_key,
                     parent_key = language_key,
-                    title = config.section_labels[note_type],
+                    title = type_title,
                     source_path = f"notes/{language}/",
                     body = (
-                        f"# {config.section_labels[note_type]}\n\n"
+                        f"# {type_title}\n\n{type_introduction}\n\n"
                         + render_link_list(topic_items, "暂无主题。")
                     )
                 )
@@ -557,6 +586,11 @@ def build_page_specs(svg_converter = default_svg_converter):
                         key = lambda item: (item.order, item.title)
                     )
                 ]
+                topic_introduction = (
+                    f"本页汇总“{topic}”主题下的笔记，方便按主题连续阅读。"
+                    if language == "zh"
+                    else f"This page collects notes on {topic} for focused, continuous reading."
+                )
                 add_spec(
                     specs,
                     PageSpec(
@@ -564,7 +598,10 @@ def build_page_specs(svg_converter = default_svg_converter):
                         parent_key = type_key,
                         title = topic,
                         source_path = f"notes/{language}/{topic}/",
-                        body = f"# {topic}\n\n" + render_link_list(note_items, "暂无笔记。")
+                        body = (
+                            f"# {topic}\n\n{topic_introduction}\n\n"
+                            + render_link_list(note_items, "暂无笔记。")
+                        )
                     )
                 )
                 for note in topic_notes:
@@ -590,6 +627,11 @@ def build_page_specs(svg_converter = default_svg_converter):
         language_key = f"blogs/{language}"
         index_key = f"{language_key}/index"
         page_title = "博客分享" if language == "zh" else "Blog Shares"
+        blog_introduction = (
+            "浏览中文技术文章与延伸阅读推荐。"
+            if language == "zh"
+            else "Browse recommended technical articles and further reading in English."
+        )
         add_spec(
             specs,
             PageSpec(
@@ -598,7 +640,7 @@ def build_page_specs(svg_converter = default_svg_converter):
                 title = language_titles[language],
                 source_path = "data/blog_shares.json",
                 body = (
-                    f"# {language_titles[language]}\n\n"
+                    f"# {language_titles[language]}\n\n{blog_introduction}\n\n"
                     + render_link_list([(page_title, index_key)], "暂无博客。")
                 )
             )
@@ -614,15 +656,42 @@ def build_page_specs(svg_converter = default_svg_converter):
             )
         )
 
-    specs["papers"].body = "# 论文 / Papers\n\n" + render_link_list(
+    specs["papers"].body = "\n".join(
+        [
+            "# 论文 / Papers",
+            "",
+            "按研究主题整理中英文论文条目，方便浏览代表性工作、内容摘要与相关资源。",
+            "",
+            "Browse bilingual paper collections by research topic, with summaries and links to related resources.",
+            "",
+        ]
+    ) + render_link_list(
         [("中文", "papers/zh"), ("English", "papers/en")],
         ""
     )
-    specs["notes"].body = "# 笔记 / Notes\n\n" + render_link_list(
+    specs["notes"].body = "\n".join(
+        [
+            "# 笔记 / Notes",
+            "",
+            "汇集论文解读与技术思考，并按语言、内容类型和主题组织。",
+            "",
+            "Explore paper readings and technical reflections organized by language, content type, and topic.",
+            "",
+        ]
+    ) + render_link_list(
         [("中文", "notes/zh"), ("English", "notes/en")],
         ""
     )
-    specs["blogs"].body = "# 博客 / Blogs\n\n" + render_link_list(
+    specs["blogs"].body = "\n".join(
+        [
+            "# 博客 / Blogs",
+            "",
+            "收录值得阅读的技术文章与延伸材料，方便发现有价值的观点和实践经验。",
+            "",
+            "Discover worthwhile technical articles, perspectives, and practical resources for further reading.",
+            "",
+        ]
+    ) + render_link_list(
         [("中文", "blogs/zh"), ("English", "blogs/en")],
         ""
     )
@@ -632,7 +701,9 @@ def build_page_specs(svg_converter = default_svg_converter):
             "",
             "**Awesome LLM Research Collections**",
             "",
-            "GitHub 仓库内容的飞书双语镜像。",
+            "聚合大语言模型领域的精选论文、研究笔记与技术博客，提供中英文分类导航，便于学习、检索与回顾。",
+            "",
+            "A bilingual collection of selected papers, research notes, and technical blogs on large language models for study, discovery, and review.",
             "",
             f"- {internal_link('论文 / Papers', 'papers')}",
             f"- {internal_link('笔记 / Notes', 'notes')}",
@@ -662,23 +733,25 @@ def build_page_specs(svg_converter = default_svg_converter):
 
 
 def render_managed_page(spec, body, source_commit):
-    """Add source provenance and an edit warning to a page body.
+    """Append neutral source provenance after the reader-facing page body.
 
     Parameters:
         spec: Page specification.
         body: Resolved canonical Markdown body.
         source_commit: Git commit displayed on the page.
     """
-    banner = "\n".join(
+    provenance = "\n".join(
         [
-            "> ⚠️ 自动同步，请勿直接编辑 / Automatically synchronized; do not edit directly.",
-            ">",
-            f"> Source: `{spec.source_path}`  ",
-            f"> Git commit: `{source_commit}`",
+            "---",
+            "",
+            "## 文档信息 / Document information",
+            "",
+            f"- **Source:** `{spec.source_path}`",
+            f"- **Git commit:** `{source_commit}`",
             "",
         ]
     )
-    return banner + body.rstrip() + "\n"
+    return body.rstrip() + "\n\n" + provenance
 
 
 def render_manifest_block(manifest):
@@ -695,7 +768,7 @@ def render_manifest_block(manifest):
     )
     return "\n".join(
         [
-            "## 同步清单 / Sync manifest",
+            "## 内部维护清单 / Internal maintenance manifest",
             "",
             MANIFEST_MARKER,
             "",
@@ -716,10 +789,10 @@ def render_homepage(spec, resolved_body, source_commit, manifest):
         source_commit: Current run commit.
         manifest: Manifest to embed.
     """
-    state_label = "同步完成 / Complete" if manifest.status == "complete" else "同步进行中 / In progress"
+    state_label = "内容已更新 / Current" if manifest.status == "complete" else "内容更新中 / Updating"
     status = "\n".join(
         [
-            "## 同步状态 / Sync status",
+            "## 维护状态 / Maintenance status",
             "",
             f"- **Status:** {state_label}",
             f"- **Git commit:** `{manifest.commit}`",
@@ -739,4 +812,21 @@ def content_hash_for_spec(spec, node_tokens):
         node_tokens: Stable page key to node token mapping.
     """
     resolved = resolve_wiki_links(spec.body, node_tokens)
-    return stable_hash(resolved, spec.media_paths)
+    return content_hash_for_resolved_spec(spec, resolved)
+
+
+def content_hash_for_resolved_spec(spec, resolved_body):
+    """Hash a resolved page body with its reader-facing render contract.
+
+    Parameters:
+        spec: Desired page specification.
+        resolved_body: Canonical body after Wiki-link resolution.
+    """
+    hash_material = "\n".join(
+        [
+            PAGE_RENDER_VERSION,
+            spec.source_path,
+            resolved_body,
+        ]
+    )
+    return stable_hash(hash_material, spec.media_paths)
