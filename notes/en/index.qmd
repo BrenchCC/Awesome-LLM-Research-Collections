@@ -213,7 +213,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/rl-matters.html">
-  <span class="category-count">Created 2026-08-21 · Updated 2026-08-22</span>
+  <span class="category-count">Created 2026-08-21 · Updated 2026-08-24</span>
   <h3>What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training</h3>
   <p>A technical reflection on SFT, RLVR, distillation, and second-stage RL through the existence, selection, transfer, and control of reasoning patterns.</p>
   <div class="note-tags">

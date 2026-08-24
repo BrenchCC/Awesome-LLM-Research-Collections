@@ -985,7 +985,7 @@
   [[Note](notes/en/agents/recursive-self-improvement.qmd)]
   [[中文](notes/zh/agents/recursive-self-improvement.qmd)]
 
-- **What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training** (Created: 2026-08-21; Updated: 2026-08-22) \
+- **What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training** (Created: 2026-08-21; Updated: 2026-08-24) \
   **Description**: A technical reflection on SFT, RLVR, distillation, and second-stage RL through the existence, selection, transfer, and control of reasoning patterns. \
   [[Note](notes/en/reinforcement-learning/rl-matters.qmd)]
   [[中文](notes/zh/reinforcement-learning/rl-matters.qmd)]

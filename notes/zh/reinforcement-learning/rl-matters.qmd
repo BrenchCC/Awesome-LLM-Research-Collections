@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-21
-date-modified: 2026-08-22
+date-modified: 2026-08-24
 title: "RL 到底改变了什么：推理模式、蒸馏与可控后训练"
 description: "以推理模式的存在、选择、迁移与控制为框架，重新审视 SFT、RLVR、蒸馏和二次 RL 的职责边界。"
 order: 1
@@ -14,10 +14,6 @@ tags:
   - Distillation
   - Reasoning
 ---
-
-::: {.callout-note title="写作说明"}
-这篇笔记受到 [ybq 关于“为什么 RL 很重要”的讨论](https://zhuanlan.zhihu.com/p/2067725096886785009)启发。下面保留其中值得追问的工程判断，但重新组织论证，并补入论文证据与反例；它不是对原文的转述。
-:::
 
 讨论 RL 时，一个常见分歧是：它究竟让模型学会了新的推理，还是只让模型更容易采样到原本就会的答案？如果把“能力”当成一个不可再分的标量，这个问题很难说清。更有用的拆法，是区分四件事：某种推理模式是否存在、它被选中的概率、它能否稳定执行，以及我们能否按需控制它。
 
@@ -134,7 +130,6 @@ SFT 用逐 token 监督增加示范轨迹附近的概率质量，同时也可能
 
 ## 参考资料
 
-- ybq，[《为什么 RL 很重要？》](https://zhuanlan.zhihu.com/p/2067725096886785009)
 - Yue et al., [Reshaping Reasoning in LLMs: A Theoretical Analysis of RL Training Dynamics through Pattern Selection](https://arxiv.org/abs/2506.04695)
 - Yue et al., [Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?](https://arxiv.org/abs/2504.13837)
 - Gao et al., [ProRL: Prolonged Reinforcement Learning Expands Reasoning Boundaries in Large Language Models](https://arxiv.org/abs/2505.24864)

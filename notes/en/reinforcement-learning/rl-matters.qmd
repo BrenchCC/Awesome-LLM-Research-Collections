@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-21
-date-modified: 2026-08-22
+date-modified: 2026-08-24
 title: "What RL Actually Changes: Reasoning Patterns, Distillation, and Controllable Post-Training"
 description: "A technical reflection on SFT, RLVR, distillation, and second-stage RL through the existence, selection, transfer, and control of reasoning patterns."
 order: 1
@@ -14,10 +14,6 @@ tags:
   - Distillation
   - Reasoning
 ---
-
-::: {.callout-note title="Editorial note"}
-This note was inspired by [ybq's discussion of why RL matters](https://zhuanlan.zhihu.com/p/2067725096886785009). It keeps the engineering questions worth pursuing, but rebuilds the argument and adds primary evidence and counterexamples. It is not a restatement of the original article.
-:::
 
 A recurring dispute about RL asks whether it teaches a model genuinely new reasoning or merely makes answers already latent in the base model easier to sample. The question stays muddy if “capability” is treated as one indivisible scalar. A more useful decomposition separates four things: whether a reasoning pattern exists, how likely it is to be selected, whether it can be executed reliably, and whether we can control when it appears.
 
@@ -134,7 +130,6 @@ Separating these responsibilities is more useful than debating whether RL “cre
 
 ## References
 
-- ybq, [Why Is RL Important?](https://zhuanlan.zhihu.com/p/2067725096886785009) (Chinese)
 - Yue et al., [Reshaping Reasoning in LLMs: A Theoretical Analysis of RL Training Dynamics through Pattern Selection](https://arxiv.org/abs/2506.04695)
 - Yue et al., [Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?](https://arxiv.org/abs/2504.13837)
 - Gao et al., [ProRL: Prolonged Reinforcement Learning Expands Reasoning Boundaries in Large Language Models](https://arxiv.org/abs/2505.24864)

@@ -213,7 +213,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning/rl-matters.html">
-  <span class="category-count">创建 2026-08-21 · 更新 2026-08-22</span>
+  <span class="category-count">创建 2026-08-21 · 更新 2026-08-24</span>
   <h3>RL 到底改变了什么：推理模式、蒸馏与可控后训练</h3>
   <p>以推理模式的存在、选择、迁移与控制为框架，重新审视 SFT、RLVR、蒸馏和二次 RL 的职责边界。</p>
   <div class="note-tags">

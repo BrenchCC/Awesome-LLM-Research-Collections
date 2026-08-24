@@ -984,7 +984,7 @@
   [[笔记](notes/zh/agents/recursive-self-improvement.qmd)]
   [[English](notes/en/agents/recursive-self-improvement.qmd)]
 
-- **RL 到底改变了什么：推理模式、蒸馏与可控后训练** (创建: 2026-08-21; 更新: 2026-08-22) \
+- **RL 到底改变了什么：推理模式、蒸馏与可控后训练** (创建: 2026-08-21; 更新: 2026-08-24) \
   **描述**: 以推理模式的存在、选择、迁移与控制为框架，重新审视 SFT、RLVR、蒸馏和二次 RL 的职责边界。 \
   [[笔记](notes/zh/reinforcement-learning/rl-matters.qmd)]
   [[English](notes/en/reinforcement-learning/rl-matters.qmd)]
