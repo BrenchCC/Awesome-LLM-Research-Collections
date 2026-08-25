@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-05-28
-date-modified: 2026-06-15
+date-modified: 2026-08-25
 title: "OPD：后训练中的能力整合接口"
 description: "从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。"
 order: 1
@@ -142,21 +142,35 @@ training_client.forward_backward(trajectories, loss_fn = "importance_sampling")
 
 ## OPD 的效率来源
 
-先看一组很能说明问题的数据。在 AIME'24 数学推理基准上，从同一个 off-policy 蒸馏 checkpoint 出发：
-![image](../../assets/post-training-opd/opd-qwen3-8b.png)
+这里有三组相关但不能混用的数据。第一组来自 Thinking Machines Lab 的独立复现实验：Qwen3-8B-Base 在 40 万条 OpenThoughts-3 样本上完成 off-policy 蒸馏后，full finetuning checkpoint 的 AIME'24 约为 60%；随后使用 OPD，约 150 个训练 step 后达到 70%。
 
-| 方法 | AIME'24 | 计算量 |
+![Thinking Machines Lab 的 Qwen3-8B-Base 实验：full finetuning 与不同 LoRA rank 从 SFT checkpoint 继续进行 on-policy distillation 时的 AIME'24 分数和附加计算量。](../../assets/post-training-opd/opd-qwen3-8b.png){#fig-tml-opd-qwen3-8b fig-align="center" width="88%"}
+
+*来源：[Thinking Machines Lab, On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/) 中的无编号网页图；网页无页码。横轴是作者按 FLOPs 折算的附加计算量；9–30 倍是该文相对 SFT 外推得到的条件性估算，不是 OPD 的通用加速比。*
+
+第二组来自 Qwen3 Technical Report Table 21。它比较 Qwen3-8B 学生阶段的 off-policy 蒸馏、直接 RL 与 OPD；这里的 GPU hours 是该表报告的学生训练成本，不能与上图的 FLOPs 横轴直接换算。
+
+| 方法 | AIME'24 | GPU hours |
 |---|---:|---:|
-| Off-policy 蒸馏 | 60.0 | 1x |
-| 纯 RL | 67.6 | 10x |
-| OPD | 74.4 | 1x |
+| Off-policy 蒸馏 | 55.0 | 未报告 |
+| 直接 RL | 67.6 | 17,920 |
+| OPD | 74.4 | 1,800 |
+
+![Qwen3 Technical Report Table 21：Qwen3-8B 上 off-policy 蒸馏、直接强化学习与 on-policy distillation 的性能、pass@64 和 GPU hours 对比。](../../assets/rl-matters/qwen3-rl-vs-opd-table-21.png){#fig-qwen3-table21-post-training-opd fig-align="center" width="88%"}
+
+*来源：[Qwen3 Technical Report，Table 21，第 21 页](https://arxiv.org/abs/2505.09388)。括号内为 pass@64；表中的 1,800 GPU hours 不包含训练强教师所需的前置成本。*
 
 我的判断是：OPD 的效率优势主要来自训练信号密度。
 
-![image](../../assets/post-training-opd/opd-self-distilltation.png)
-纯 RL 可能要生成很多条轨迹，才从最终奖励里估计出一点有用方向。OPD 则是在每个 token 上都有教师概率作为反馈。原来一个序列只有一个标量 reward，现在一个序列里几百上千个 token 都能贡献训练信号。
+第三组是 Thinking Machines Lab 的 matched self-distillation 实验：先用 RL 训练 Qwen3-8B-Base，再把得到的策略作为教师蒸馏回同一个 base 初始化。该设置下，OPD 在不到 10 个梯度 step 内恢复教师的 AIME'24 水平，而 RL 约用了 70 个 step；作者据此估算该实验的累计计算量降低约 50–100 倍。
 
-Qwen3 把轻量模型训练的 GPU 时间压到旗舰四阶段 RL 的约 1/10，背后也有同样的逻辑。对要量产小模型的团队来说，这不是小优化，而是训练范式上的成本重排。
+![Thinking Machines Lab 的 self-distillation 对比：左图是 RL 与不同 LoRA rank OPD 的 AIME'24 训练曲线，右图是学生相对教师的 reverse KL。](../../assets/post-training-opd/opd-self-distilltation.png){#fig-tml-self-distillation fig-align="center" width="90%"}
+
+*来源：[Thinking Machines Lab, On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/) 中的无编号网页图；网页无页码。这组 50–100 倍估算来自同架构 self-distillation 设置，与 Qwen3 Table 21 不是同一次实验。*
+
+纯 RL 可能要生成很多条轨迹，才从最终奖励里估计出一点有用方向。OPD 则能让一条序列中的大量 token 都贡献教师条件概率信号。三组结果都支持“密集监督提高迁移效率”这一解释，但具体倍数取决于初始化、教师、batch、rollout 长度和成本统计方式。
+
+在 Qwen3 Table 21 的特定 8B 学生训练对比里，OPD 报告的 GPU hours 约为直接 RL 的十分之一。这个结果说明已有强教师时，能力迁移可以明显便宜于重新探索；它不证明教师的训练成本消失，也不能推出所有 OPD 配方都有相同收益。
 
 ## 四家团队的四种用法
 

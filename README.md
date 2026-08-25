@@ -998,6 +998,11 @@
 
 ## Technical Reflections
 
+- **Local Credit Assignment and the Boundary of Global Correctness in OPD: Starting from a Distilled-RL Intuition** (Created: 2026-08-25; Updated: 2026-08-25) \
+  **Description**: Starting from a teacher-defined dense reward intuition, this note derives OPD's reverse-KL signal, examines local agreement after a corrupted prefix, and separates the roles of KAT, BRTS, TrOPD, local support matching, and verifiers. \
+  [[Note](notes/en/opd/opd-local-credit-global-correctness.qmd)]
+  [[中文](notes/zh/opd/opd-local-credit-global-correctness.qmd)]
+
 - **Recursive Self-Improvement: From Artifacts and Harnesses to Model–Scaffold Co-evolution** (Created: 2026-08-21; Updated: 2026-08-22) \
   **Description**: A two-axis review of 2026 recursive self-improvement work, with an auditable standard for admitting self-generated updates. \
   [[Note](notes/en/agents/recursive-self-improvement.qmd)]
@@ -1058,7 +1063,7 @@
   [[Note](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[中文](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **OPD: Capability Integration Interface in Post-training** (Created: 2026-05-28; Updated: 2026-06-15) \
+- **OPD: Capability Integration Interface in Post-training** (Created: 2026-05-28; Updated: 2026-08-25) \
   **Description**: A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4. \
   [[Note](notes/en/opd/post-training-opd.qmd)]
   [[中文](notes/zh/opd/post-training-opd.qmd)]

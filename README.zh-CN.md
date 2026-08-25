@@ -997,6 +997,11 @@
 
 ## 技术思考
 
+- **OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发** (创建: 2026-08-25; 更新: 2026-08-25) \
+  **描述**: 从一个『teacher-defined dense reward』的直觉出发，推导 OPD 的 reverse-KL 训练信号，分析错误前缀下的局部一致陷阱，并比较 KAT、BRTS、TrOPD 与 local support matching 的修正边界。 \
+  [[笔记](notes/zh/opd/opd-local-credit-global-correctness.qmd)]
+  [[English](notes/en/opd/opd-local-credit-global-correctness.qmd)]
+
 - **递归自我改进：从产出物、Harness 到模型—脚手架共进化** (创建: 2026-08-21; 更新: 2026-08-22) \
   **描述**: 用优化对象与闭环程度两个维度重审 2026 年递归自我改进进展，并给出一套可审计的证据准入标准。 \
   [[笔记](notes/zh/agents/recursive-self-improvement.qmd)]
@@ -1057,7 +1062,7 @@
   [[笔记](notes/zh/reinforcement-learning/PPO-DPO-GRPO.qmd)]
   [[English](notes/en/reinforcement-learning/PPO-DPO-GRPO.qmd)]
 
-- **OPD：后训练中的能力整合接口** (创建: 2026-05-28; 更新: 2026-06-15) \
+- **OPD：后训练中的能力整合接口** (创建: 2026-05-28; 更新: 2026-08-25) \
   **描述**: 从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。 \
   [[笔记](notes/zh/opd/post-training-opd.qmd)]
   [[English](notes/en/opd/post-training-opd.qmd)]

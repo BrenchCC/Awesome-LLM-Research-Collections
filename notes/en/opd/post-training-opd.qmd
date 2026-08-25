@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-05-28
-date-modified: 2026-06-15
+date-modified: 2026-08-25
 title: "OPD: Capability Integration Interface in Post-training"
 description: "A technical reflection on how OPD becomes a capability integration interface in post-training through Qwen3, GLM-5, MiMo-V2, and DeepSeek-V4."
 order: 1
@@ -142,23 +142,35 @@ training_client.forward_backward(trajectories, loss_fn = "importance_sampling")
 
 ## Where OPD's efficiency comes from
 
-First, consider a set of numbers that illustrates the point well. On the AIME'24 math reasoning benchmark, starting from the same off-policy distillation checkpoint:
+Three related results need to be kept separate. The first is Thinking Machines Lab's independent reproduction. After off-policy distillation on 400,000 OpenThoughts-3 examples, the fully finetuned Qwen3-8B-Base checkpoint scores about 60% on AIME'24. OPD then raises it to 70% in roughly 150 training steps.
 
-![image](../../assets/post-training-opd/opd-qwen3-8b.png)
+![Thinking Machines Lab's Qwen3-8B-Base experiment: AIME'24 score and additional compute as full finetuning and different LoRA ranks continue from their SFT checkpoints with on-policy distillation.](../../assets/post-training-opd/opd-qwen3-8b.png){#fig-tml-opd-qwen3-8b-en fig-align="center" width="88%"}
 
-| Method | AIME'24 | Compute |
+*Source: an unnumbered web chart in [Thinking Machines Lab, On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/); the webpage has no pagination. The horizontal axis is additional compute expressed in the authors' FLOP accounting. Their 9–30x estimate is conditional on an extrapolated SFT baseline, not a universal OPD speedup.*
+
+The second result is Qwen3 Technical Report Table 21. It compares off-policy distillation, direct RL, and OPD for the Qwen3-8B student stage. Its reported GPU hours should not be converted directly into the FLOP axis above.
+
+| Method | AIME'24 | GPU hours |
 |---|---:|---:|
-| Off-policy distillation | 60.0 | 1x |
-| Pure RL | 67.6 | 10x |
-| OPD | 74.4 | 1x |
+| Off-policy distillation | 55.0 | Unreported |
+| Direct RL | 67.6 | 17,920 |
+| OPD | 74.4 | 1,800 |
+
+![Qwen3 Technical Report Table 21: performance, pass@64, and GPU-hour comparison among off-policy distillation, direct reinforcement learning, and on-policy distillation on Qwen3-8B.](../../assets/rl-matters/qwen3-rl-vs-opd-table-21.png){#fig-qwen3-table21-post-training-opd-en fig-align="center" width="88%"}
+
+*Source: [Qwen3 Technical Report, Table 21, p. 21](https://arxiv.org/abs/2505.09388). Values in parentheses are pass@64. The reported 1,800 GPU hours do not include the upstream cost of training the strong teacher.*
 
 My view is that OPD's efficiency advantage mainly comes from training signal density.
 
-![image](../../assets/post-training-opd/opd-self-distilltation.png)
+The third result is Thinking Machines Lab's matched self-distillation experiment. The authors first train Qwen3-8B-Base with RL, then use that learned policy as the teacher and distill it back into the same base initialization. OPD recovers the teacher's AIME'24 level in fewer than 10 gradient steps, whereas RL takes about 70. They estimate a cumulative compute reduction of roughly 50–100x for this setup.
 
-Pure RL may need to generate many trajectories before extracting a useful direction from the final reward. OPD provides teacher probabilities as feedback on every token. A sequence that originally had only one scalar reward can now contribute training signal across hundreds or thousands of tokens.
+![Thinking Machines Lab's self-distillation comparison: AIME'24 training curves for RL and OPD at several LoRA ranks on the left, and student-to-teacher reverse KL on the right.](../../assets/post-training-opd/opd-self-distilltation.png){#fig-tml-self-distillation-en fig-align="center" width="90%"}
 
-Qwen3 reduces the GPU time for lightweight model training to about one tenth of the flagship four-stage RL process. The same logic is behind that result. For teams that need to produce small models at scale, this is not a small optimization. It is a cost restructuring at the training-paradigm level.
+*Source: an unnumbered web chart in [Thinking Machines Lab, On-Policy Distillation](https://thinkingmachines.ai/blog/on-policy-distillation/); the webpage has no pagination. The 50–100x estimate belongs to this matched-architecture self-distillation setup, not to Qwen3 Table 21.*
+
+Pure RL may need many trajectories before a final reward yields a useful update direction. OPD lets many tokens in one sequence contribute conditional-probability signal from the teacher. All three results support the explanation that dense supervision can make capability transfer more efficient, but the multiplier depends on initialization, teacher, batch size, rollout length, and cost accounting.
+
+Within the specific Qwen3 Table 21 comparison for the 8B student, OPD reports roughly one tenth the GPU hours of direct RL. This indicates that transferring an already discovered capability can be much cheaper than rediscovering it. It does not make the teacher's training cost disappear, nor does it establish the same ratio for every OPD recipe.
 
 ## Four teams, four usages
 

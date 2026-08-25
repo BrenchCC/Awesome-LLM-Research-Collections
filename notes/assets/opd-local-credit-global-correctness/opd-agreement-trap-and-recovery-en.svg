@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The OPD agreement trap and a layered recovery matrix</title>
+  <desc id="desc">The left panel shows KL rising at a forking token, then falling as the student generates a locally coherent suffix under the wrong prefix, creating an agreement trap. The right panel separates the roles of KAT, BRTS, TrOPD, teacher top-K local support matching, and an author-proposed verifier composition.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.09"/>
+    </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0 L11 5.5 L0 11 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Arial,sans-serif">
+    <text x="78" y="84" font-size="43" font-weight="700" fill="#0f172a">Why can one wrong fork receive only one strong correction?</text>
+    <text x="78" y="130" font-size="22" fill="#475569">Low teacher–student KL means local conditional agreement—not a globally correct reasoning trajectory</text>
+
+    <g filter="url(#shadow)">
+      <rect x="78" y="174" width="630" height="654" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+      <rect x="740" y="174" width="782" height="654" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+    </g>
+
+    <g>
+      <rect x="108" y="206" width="174" height="38" rx="19" fill="#e0e7ff"/>
+      <text x="195" y="233" text-anchor="middle" font-size="18" font-weight="700" fill="#4338ca">AGREEMENT TRAP</text>
+      <text x="108" y="287" font-size="23" font-weight="700" fill="#0f172a">State transitions on the student rollout</text>
+
+      <g>
+        <line x1="132" y1="350" x2="654" y2="350" stroke="#cbd5e1" stroke-width="4" marker-end="url(#arrow)"/>
+        <circle cx="150" cy="350" r="20" fill="#14b8a6"/>
+        <circle cx="230" cy="350" r="20" fill="#14b8a6"/>
+        <circle cx="310" cy="350" r="20" fill="#14b8a6"/>
+        <circle cx="390" cy="350" r="25" fill="#f97316" stroke="#ffedd5" stroke-width="8"/>
+        <circle cx="470" cy="350" r="20" fill="#94a3b8"/>
+        <circle cx="550" cy="350" r="20" fill="#94a3b8"/>
+        <circle cx="630" cy="350" r="20" fill="#94a3b8"/>
+        <text x="150" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1</text>
+        <text x="230" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2</text>
+        <text x="310" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3</text>
+        <text x="390" y="357" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">F</text>
+        <text x="470" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">5</text>
+        <text x="550" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">6</text>
+        <text x="630" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">7</text>
+      </g>
+      <text x="150" y="393" text-anchor="middle" font-size="16" fill="#0f766e">correct prefix</text>
+      <text x="390" y="393" text-anchor="middle" font-size="16" font-weight="700" fill="#c2410c">forking token</text>
+      <text x="550" y="393" text-anchor="middle" font-size="15" fill="#64748b">wrong but locally</text>
+      <text x="550" y="414" text-anchor="middle" font-size="15" fill="#64748b">coherent suffix</text>
+
+      <text x="108" y="451" font-size="19" font-weight="700" fill="#334155">Token-wise KL sketch</text>
+      <line x1="138" y1="583" x2="654" y2="583" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="138" y1="478" x2="138" y2="583" stroke="#cbd5e1" stroke-width="2"/>
+      <text x="119" y="486" text-anchor="end" font-size="15" fill="#64748b">high</text>
+      <text x="119" y="584" text-anchor="end" font-size="15" fill="#64748b">low</text>
+      <path d="M150 565 C210 558 270 562 318 554 C348 548 369 484 390 480 C414 480 430 538 468 551 C520 566 578 562 630 568" fill="none" stroke="#f97316" stroke-width="6"/>
+      <line x1="390" y1="472" x2="390" y2="585" stroke="#fb923c" stroke-width="2" stroke-dasharray="7 7"/>
+      <circle cx="390" cy="480" r="8" fill="#f97316"/>
+      <rect x="185" y="609" width="445" height="66" rx="17" fill="#fff7ed"/>
+      <text x="207" y="636" font-size="17" font-weight="700" fill="#9a3412">The strongest correction clusters near the fork</text>
+      <text x="207" y="662" font-size="16" fill="#c2410c">Given the wrong prefix, its continuation may look locally plausible</text>
+
+      <rect x="108" y="711" width="570" height="83" rx="19" fill="#0f172a"/>
+      <text x="134" y="744" font-size="18" font-weight="700" fill="#ffffff">Conclusion</text>
+      <text x="134" y="774" font-size="17" fill="#cbd5e1">Low KL may reflect shared entrapment—not global correctness.</text>
+    </g>
+
+    <g>
+      <rect x="770" y="206" width="224" height="38" rx="19" fill="#ccfbf1"/>
+      <text x="882" y="233" text-anchor="middle" font-size="18" font-weight="700" fill="#0f766e">LAYERED RECOVERY MATRIX</text>
+      <text x="770" y="280" font-size="18" fill="#475569">These methods address different failure layers; they are not interchangeable recipes.</text>
+
+      <rect x="770" y="305" width="722" height="48" rx="14" fill="#0f172a"/>
+      <text x="793" y="336" font-size="16" font-weight="700" fill="#ffffff">Mechanism</text>
+      <text x="968" y="336" font-size="16" font-weight="700" fill="#ffffff">Primary action</text>
+      <text x="1322" y="336" font-size="16" font-weight="700" fill="#ffffff">Layer / boundary</text>
+
+      <rect x="770" y="363" width="722" height="82" rx="15" fill="#f8fafc" stroke="#e2e8f0"/>
+      <rect x="786" y="380" width="140" height="48" rx="14" fill="#e0e7ff"/>
+      <text x="856" y="410" text-anchor="middle" font-size="18" font-weight="700" fill="#4338ca">KAT</text>
+      <text x="952" y="393" font-size="16" fill="#334155">Detect sustained low KL after drift;</text>
+      <text x="952" y="418" font-size="16" fill="#334155">truncate low-value suffixes online</text>
+      <text x="1320" y="393" font-size="15" font-weight="700" fill="#0f766e">Detect + stop loss</text>
+      <text x="1320" y="418" font-size="15" fill="#64748b">Does not restore the fork</text>
+
+      <rect x="770" y="455" width="722" height="82" rx="15" fill="#f8fafc" stroke="#e2e8f0"/>
+      <rect x="786" y="472" width="140" height="48" rx="14" fill="#ccfbf1"/>
+      <text x="856" y="502" text-anchor="middle" font-size="18" font-weight="700" fill="#0f766e">BRTS</text>
+      <text x="952" y="485" font-size="16" fill="#334155">Student-context RKL + teacher-context</text>
+      <text x="952" y="510" font-size="16" fill="#334155">FKL; L = Lstu + λLtea, λ = 10</text>
+      <text x="1320" y="485" font-size="15" font-weight="700" fill="#0f766e">Dual-context alignment</text>
+      <text x="1320" y="510" font-size="15" fill="#64748b">Adds off-policy guidance</text>
+
+      <rect x="770" y="547" width="722" height="82" rx="15" fill="#f8fafc" stroke="#e2e8f0"/>
+      <rect x="786" y="564" width="140" height="48" rx="14" fill="#fef3c7"/>
+      <text x="856" y="594" text-anchor="middle" font-size="18" font-weight="700" fill="#b45309">TrOPD</text>
+      <text x="952" y="577" font-size="16" fill="#334155">RKL on trusted tokens; teacher top-K FKL</text>
+      <text x="952" y="602" font-size="16" fill="#334155">on outliers + annealed teacher-prefix guidance</text>
+      <text x="1320" y="577" font-size="15" font-weight="700" fill="#b45309">Repair token outliers</text>
+      <text x="1320" y="602" font-size="15" fill="#64748b">Trust rule is sensitive</text>
+
+      <rect x="770" y="639" width="722" height="82" rx="15" fill="#f8fafc" stroke="#e2e8f0"/>
+      <rect x="786" y="656" width="140" height="48" rx="14" fill="#ede9fe"/>
+      <text x="856" y="686" text-anchor="middle" font-size="18" font-weight="700" fill="#6d28d9">Top-K</text>
+      <text x="952" y="669" font-size="16" fill="#334155">Renormalize both distributions in teacher</text>
+      <text x="952" y="694" font-size="16" fill="#334155">top-K; pair with top-p rollout + token masking</text>
+      <text x="1320" y="669" font-size="15" font-weight="700" fill="#6d28d9">Local-support denoise</text>
+      <text x="1320" y="694" font-size="15" fill="#64748b">Not a semantic verifier</text>
+
+      <rect x="770" y="731" width="722" height="72" rx="15" fill="#fff7ed" stroke="#fed7aa"/>
+      <rect x="786" y="743" width="140" height="48" rx="14" fill="#ffedd5"/>
+      <text x="856" y="773" text-anchor="middle" font-size="17" font-weight="700" fill="#c2410c">Verifier*</text>
+      <text x="952" y="756" font-size="16" fill="#334155">Author's synthesis: add a PRM, verifier,</text>
+      <text x="952" y="781" font-size="16" fill="#334155">or outcome reward for process/result checks</text>
+      <text x="1320" y="756" font-size="15" font-weight="700" fill="#c2410c">Global semantic check</text>
+      <text x="1320" y="781" font-size="15" fill="#64748b">Needs separate calibration</text>
+    </g>
+
+    <text x="800" y="869" text-anchor="middle" font-size="18" fill="#64748b">* The verifier composition is an engineering proposal here—not a jointly validated recipe from the cited methods.</text>
+  </g>
+</svg>

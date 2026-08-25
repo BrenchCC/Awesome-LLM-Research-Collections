@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>23</strong><span>笔记</span></div>
+    <div><strong>24</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-21</strong><span>最近创建</span></div>
+    <div><strong>2026-08-25</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -197,6 +197,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="opd/opd-local-credit-global-correctness.html">
+  <span class="category-count">创建 2026-08-25 · 更新 2026-08-25</span>
+  <h3>OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发</h3>
+  <p>从一个『teacher-defined dense reward』的直觉出发，推导 OPD 的 reverse-KL 训练信号，分析错误前缀下的局部一致陷阱，并比较 KAT、BRTS、TrOPD 与 local support matching 的修正边界。</p>
+  <div class="note-tags">
+    <span class="note-tag">OPD</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">Distillation</span>
+    <span class="note-tag">Credit Assignment</span>
+    <span class="note-tag">Verifier</span>
+  </div>
+  <div class="category-foot">
+    <span>OPD</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/recursive-self-improvement.html">
   <span class="category-count">创建 2026-08-21 · 更新 2026-08-22</span>
   <h3>递归自我改进：从产出物、Harness 到模型—脚手架共进化</h3>
@@ -383,7 +399,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="opd/post-training-opd.html">
-  <span class="category-count">创建 2026-05-28 · 更新 2026-06-15</span>
+  <span class="category-count">创建 2026-05-28 · 更新 2026-08-25</span>
   <h3>OPD：后训练中的能力整合接口</h3>
   <p>从 Qwen3、GLM-5、MiMo-V2 与 DeepSeek-V4 的技术路径看 OPD 如何成为后训练中的能力整合接口。</p>
   <div class="note-tags">

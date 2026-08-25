@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">OPD reverse-KL training flow with a sampled-token estimator</title>
+  <desc id="desc">A single student rollout is teacher-forced through the teacher to compute log probabilities on the same prefixes. The sampled log-ratio becomes a token advantage and updates the student through an RL-shaped loss. The figure separates the full-vocabulary reverse-KL target from the common sampled-token estimator and distinguishes the teacher target policy from a PPO reference model used as a drift regularizer.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#0f172a" flood-opacity="0.09"/>
+    </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0 L11 5.5 L0 11 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-indigo" markerWidth="11" markerHeight="11" refX="10" refY="5.5" orient="auto">
+      <path d="M0 0 L11 5.5 L0 11 Z" fill="#4f46e5"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Arial,sans-serif">
+    <text x="80" y="82" font-size="43" font-weight="700" fill="#0f172a">OPD training flow: one rollout, two probability views</text>
+    <text x="80" y="128" font-size="22" fill="#475569">The teacher scores student-visited prefixes; it does not generate a second trajectory</text>
+
+    <g filter="url(#shadow)">
+      <rect x="80" y="164" width="700" height="126" rx="24" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+      <rect x="820" y="164" width="700" height="126" rx="24" fill="#ffffff" stroke="#99f6e4" stroke-width="3"/>
+    </g>
+    <rect x="106" y="184" width="178" height="34" rx="17" fill="#e0e7ff"/>
+    <text x="195" y="208" text-anchor="middle" font-size="17" font-weight="700" fill="#4338ca">FULL-VOCAB TARGET</text>
+    <text x="106" y="251" font-size="22" font-weight="650" fill="#312e81">d_t = Σ_v πθ(v | s_t) · log [πθ(v | s_t) / πT(v | s_t)]</text>
+    <text x="106" y="276" font-size="16" fill="#64748b">Exact reverse KL requires both distributions over the vocabulary.</text>
+
+    <rect x="846" y="184" width="244" height="34" rx="17" fill="#ccfbf1"/>
+    <text x="968" y="208" text-anchor="middle" font-size="17" font-weight="700" fill="#0f766e">COMMON IMPLEMENTATION</text>
+    <text x="846" y="251" font-size="22" font-weight="650" fill="#115e59">d̂_t = log πθ(y_t | s_t) − log πT(y_t | s_t)</text>
+    <text x="846" y="276" font-size="16" fill="#64748b">A sampled-token log-ratio estimator—not the full KL evaluated exactly.</text>
+
+    <g filter="url(#shadow)">
+      <rect x="80" y="352" width="252" height="248" rx="25" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+      <rect x="378" y="352" width="252" height="248" rx="25" fill="#ffffff" stroke="#99f6e4" stroke-width="3"/>
+      <rect x="676" y="352" width="252" height="248" rx="25" fill="#ffffff" stroke="#fed7aa" stroke-width="3"/>
+      <rect x="974" y="352" width="252" height="248" rx="25" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
+      <rect x="1272" y="352" width="248" height="248" rx="25" fill="#ffffff" stroke="#c7d2fe" stroke-width="3"/>
+    </g>
+
+    <g>
+      <circle cx="119" cy="391" r="21" fill="#4f46e5"/>
+      <text x="119" y="399" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">1</text>
+      <text x="153" y="399" font-size="20" font-weight="700" fill="#312e81">Student rollout</text>
+      <rect x="106" y="433" width="200" height="50" rx="16" fill="#eef2ff"/>
+      <text x="206" y="465" text-anchor="middle" font-size="20" font-weight="650" fill="#4338ca">y ~ πθ(· | q)</text>
+      <text x="106" y="518" font-size="17" fill="#475569">s_t = (q, y_1 … y_{t−1})</text>
+      <text x="106" y="548" font-size="17" fill="#475569">Student visits the states</text>
+      <text x="106" y="574" font-size="17" fill="#475569">used for the update.</text>
+    </g>
+
+    <g>
+      <circle cx="417" cy="391" r="21" fill="#0f9f8f"/>
+      <text x="417" y="399" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">2</text>
+      <text x="451" y="399" font-size="20" font-weight="700" fill="#115e59">Teacher scoring</text>
+      <rect x="404" y="433" width="200" height="50" rx="16" fill="#f0fdfa"/>
+      <text x="504" y="465" text-anchor="middle" font-size="18" font-weight="650" fill="#0f766e">compute_logprobs(y)</text>
+      <text x="404" y="518" font-size="17" fill="#475569">Teacher-forcing on the</text>
+      <text x="404" y="544" font-size="17" fill="#475569">same student prefixes.</text>
+      <rect x="404" y="558" width="200" height="26" rx="13" fill="#fff7ed"/>
+      <text x="504" y="577" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">NO TEACHER ROLLOUT</text>
+    </g>
+
+    <g>
+      <circle cx="715" cy="391" r="21" fill="#f59e0b"/>
+      <text x="715" y="399" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">3</text>
+      <text x="749" y="399" font-size="20" font-weight="700" fill="#92400e">Log-ratio</text>
+      <rect x="702" y="433" width="200" height="50" rx="16" fill="#fff7ed"/>
+      <text x="802" y="465" text-anchor="middle" font-size="19" font-weight="650" fill="#b45309">log πθ − log πT</text>
+      <text x="702" y="518" font-size="17" fill="#475569">One value per sampled</text>
+      <text x="702" y="544" font-size="17" fill="#475569">token under its visited</text>
+      <text x="702" y="570" font-size="17" fill="#475569">state s_t.</text>
+    </g>
+
+    <g>
+      <circle cx="1013" cy="391" r="21" fill="#d97706"/>
+      <text x="1013" y="399" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">4</text>
+      <text x="1047" y="399" font-size="20" font-weight="700" fill="#92400e">Token advantage</text>
+      <rect x="1000" y="433" width="200" height="50" rx="16" fill="#fffbeb"/>
+      <text x="1100" y="465" text-anchor="middle" font-size="22" font-weight="700" fill="#b45309">A_t = −d̂_t</text>
+      <text x="1000" y="518" font-size="17" fill="#475569">Teacher-preferred tokens</text>
+      <text x="1000" y="544" font-size="17" fill="#475569">receive a more positive</text>
+      <text x="1000" y="570" font-size="17" fill="#475569">update signal.</text>
+    </g>
+
+    <g>
+      <circle cx="1311" cy="391" r="21" fill="#4f46e5"/>
+      <text x="1311" y="399" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">5</text>
+      <text x="1345" y="399" font-size="20" font-weight="700" fill="#312e81">Update student</text>
+      <rect x="1298" y="433" width="196" height="50" rx="16" fill="#eef2ff"/>
+      <text x="1396" y="465" text-anchor="middle" font-size="18" font-weight="650" fill="#4338ca">RL-shaped policy loss</text>
+      <text x="1298" y="518" font-size="17" fill="#475569">Reuse the rollout and</text>
+      <text x="1298" y="544" font-size="17" fill="#475569">optimization path; update</text>
+      <text x="1298" y="570" font-size="17" fill="#475569">only θ.</text>
+    </g>
+
+    <g fill="none" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)">
+      <path d="M338 476 H365"/>
+      <path d="M636 476 H663"/>
+      <path d="M934 476 H961"/>
+      <path d="M1232 476 H1259"/>
+    </g>
+    <path d="M1460 612 C1460 665 1325 675 1220 628" fill="none" stroke="#4f46e5" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#arrow-indigo)"/>
+    <text x="1344" y="665" text-anchor="middle" font-size="15" fill="#6366f1">next on-policy batch</text>
+
+    <rect x="80" y="688" width="1440" height="146" rx="25" fill="#0f172a"/>
+    <text x="112" y="727" font-size="18" font-weight="700" fill="#cbd5e1">DO NOT CONFUSE THE TWO ROLES</text>
+    <rect x="112" y="748" width="650" height="58" rx="17" fill="#115e59"/>
+    <circle cx="145" cy="777" r="17" fill="#2dd4bf"/>
+    <text x="145" y="783" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">T</text>
+    <text x="178" y="772" font-size="18" font-weight="700" fill="#ffffff">OPD teacher = target behavior</text>
+    <text x="178" y="796" font-size="16" fill="#99f6e4">Its probabilities directly define the token learning signal.</text>
+    <rect x="838" y="748" width="650" height="58" rx="17" fill="#334155"/>
+    <circle cx="871" cy="777" r="17" fill="#94a3b8"/>
+    <text x="871" y="783" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">R</text>
+    <text x="904" y="772" font-size="18" font-weight="700" fill="#ffffff">PPO reference = drift regularizer</text>
+    <text x="904" y="796" font-size="16" fill="#cbd5e1">Its KL penalty limits movement from a base or previous policy.</text>
+    <text x="800" y="870" text-anchor="middle" font-size="18" fill="#64748b">A common recipe uses the sampled-token estimator above; it should not be labeled as exact full-vocabulary KL.</text>
+  </g>
+</svg>
