@@ -735,6 +735,10 @@
   **Description**: This paper empirically studies how retrieval strategy, agent harness design, and tool-result delivery interact in agentic search. Across LongMemEval experiments with Chronos and provider CLI harnesses, grep often outperforms vector retrieval, while overall performance remains strongly shaped by the harness and tool-calling style. \
   <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction** (2026.05) \
+  **Description**: This paper introduces Direct Corpus Interaction (DCI), a retrieval paradigm in which agents search raw corpora with general-purpose terminal tools such as grep, file reads, and lightweight scripts instead of fixed top-k retrievers. DCI requires no embedding model, vector index, or retrieval API, and substantially outperforms sparse, dense, and reranking baselines on IR benchmarks and end-to-end agentic search tasks. \
+  <a href="https://arxiv.org/abs/2605.05242"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **Description**: This paper identifies brittleness in current multimodal tool-using reasoning under simple image orientation changes and corruptions, and proposes CodeVision, a code-as-tool framework that lets models invoke arbitrary image operations through generated code. It combines SFT and RL with dense process rewards to improve multi-tool reasoning, execution efficiency, and error recovery on thinking-with-images tasks. \
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -824,6 +828,13 @@
   <a href="https://arxiv.org/abs/2608.03392"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Prime Agent: A Self-Improving RLM Harness** (2026.08) \
+  **Description**: Prime Agent is an open-source harness for long-horizon evaluation and coding workflows that combines a persistent IPython REPL, durable histories and reusable agent assets, and recursively coordinated subagents. It standardizes execution, recovery, verification, and resource accounting while letting models construct their own strategies, substantially improving performance across reasoning, coding, and autonomous-task benchmarks. \
+  <a href="https://arxiv.org/abs/2608.23552"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.primeintellect.ai/blog/prime-agent"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/PrimeIntellect-ai/prime-agent"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.23552"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -869,6 +880,12 @@
   <a href="https://arxiv.org/abs/2608.16859"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+- **AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?** (2026.06) \
+  **Description**: AutoLab introduces a benchmark for ultra-long-horizon closed-loop optimization across system optimization, puzzles, model development, and CUDA kernels, with 36 expert-curated tasks that require agents to iteratively edit, run, measure, and improve real artifacts under strict budgets. Evaluations of 17 frontier models show that persistence and empirical feedback, rather than initial attempt quality alone, dominate success, motivating more time-aware and iterative autonomous-agent research. \
+  <a href="https://arxiv.org/abs/2606.05080"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://autolab.moe/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/autolabhq/autolab"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 ## Memory
 
@@ -997,6 +1014,11 @@
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
+
+- **Agentic RL Trajectory Data Contracts: From Harness State to Trainable Samples** (Created: 2026-08-26; Updated: 2026-08-26) \
+  **Description**: A practical account of how Agentic RL preserves auditable token-level training data from model calls, context reconstruction, rollout grouping, and credit assignment. \
+  [[Note](notes/en/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
+  [[中文](notes/zh/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
 
 - **Local Credit Assignment and the Boundary of Global Correctness in OPD: Starting from a Distilled-RL Intuition** (Created: 2026-08-25; Updated: 2026-08-25) \
   **Description**: Starting from a teacher-defined dense reward intuition, this note derives OPD's reverse-KL signal, examines local agreement after a corrupted prefix, and separates the roles of KAT, BRTS, TrOPD, local support matching, and verifiers. \

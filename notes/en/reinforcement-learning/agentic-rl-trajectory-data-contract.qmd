@@ -1,0 +1,180 @@
+---
+author: Brench
+date: 2026-08-26
+date-modified: 2026-08-26
+title: "Agentic RL Trajectory Data Contracts: From Harness State to Trainable Samples"
+description: "A practical account of how Agentic RL preserves auditable token-level training data from model calls, context reconstruction, rollout grouping, and credit assignment."
+order: 1
+note_type: technical-reflection
+topic: reinforcement-learning
+tags:
+  - Agentic RL
+  - Agent Harness
+  - Trajectory Data
+  - Policy Optimization
+  - Credit Assignment
+---
+
+Agentic RL is often reduced to “run an agent, then apply RL to the result.” That description misses its most fragile layer: a trainer updates actions sampled by a particular policy under a particular token prefix, not a conversation log or a terminal reward. If a harness changes the next context, or the rollout service and trainer disagree about tokenization, an apparently complete trajectory is not yet a reliable training sample.
+
+This note follows one data path. A harness maintains state, a protocol adapter builds a request, and an inference service emits the actual tokens. Completed calls are assembled into rollouts; only then do scoring, reward transformation, credit assignment, and sample packing occur. The goal is not to prescribe one training framework, but to identify the boundaries every system should preserve.
+
+![The Agentic RL trajectory data contract: the upper lane follows one model call from harness state to the next state; the lower lane follows a completed rollout from grouping and raw scoring to a trainable sample.](../../assets/agentic-rl-trajectory-data-contract/trajectory-data-contract.svg){width="95%" fig-align="center" fig-alt="Agentic RL trajectory data contract: an inference-runtime lane and a training-data lane, linked by exact token-level model calls."}
+
+## 1. Structured messages are not the training input
+
+One call has at least four representations: harness state $M_i$, protocol request $Q_i^{(v)}$, the actual input tokens seen by the model $p_i^{\mathrm{tok}}$, and sampled output $a_i^{\mathrm{tok}}$. They are related, but they are not interchangeable.
+
+$$
+\begin{aligned}
+Q_i^{(v)} &= \mathrm{Adapt}_v(M_i), \\
+p_i^{\mathrm{tok}} &= \mathrm{Encode}_{m,v}(Q_i^{(v)}), \\
+a_i^{\mathrm{tok}} &\sim \pi_\theta(\cdot \mid p_i^{\mathrm{tok}}).
+\end{aligned}
+$$
+
+$M_i$ may include a system prompt, history, tool definitions, tool results, and environment state. `Adapt` maps those objects into OpenAI, Anthropic, or another protocol. `Encode` then uses the model tokenizer and chat template to produce tokens. vLLM documents a chat template as the rule that encodes roles, messages, and chat-control tokens; the same request JSON therefore does not establish identical input tokens.[^vllm]
+
+The model output is detokenized, parsed into text or a tool call, and written into the next state:
+
+$$
+M_i \xrightarrow{\mathrm{Adapt}_v} Q_i^{(v)}
+\xrightarrow{\mathrm{Encode}_{m,v}} p_i^{\mathrm{tok}}
+\xrightarrow{\pi_\theta} a_i^{\mathrm{tok}}
+\xrightarrow{\mathrm{Detok}_m,\,P_v,\,U} M_{i+1}.
+$$
+
+The two records that must be retained are $p_i^{\mathrm{tok}}$ and $a_i^{\mathrm{tok}}$. The first is the prefix that conditioned the action; the second is the sampled action on which a policy loss can operate. Message records still matter, but they explain runtime state rather than replace the training boundary.
+
+## 2. A multi-turn rollout usually has no token-prefix guarantee
+
+Saving a session as append-only data does not imply that each model input merely appends to the previous input. Summarization, branch recovery, tool-result truncation, dynamic system prompts, and protocol conversion can all rewrite the effective context of the next call.
+
+Pi's compaction documentation provides one concrete implementation: older messages are summarized and the next call is rebuilt from that summary plus retained messages. It shows how compaction can change the history seen by a model; it does not claim that every harness behaves this way.[^pi]
+
+![Pi's compaction documentation introduces automatic compaction and branch summarization; its “How It Works” section explains how a following call is rebuilt from a summary and retained messages. Source: [Pi Compaction & Branch Summarization](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/compaction.md).](../../assets/agentic-rl-trajectory-data-contract/pi-compaction-context.png){width="90%" fig-align="center" fig-alt="Pi documentation screenshot introducing compaction and branch summarization."}
+
+Under strict conditions, the text sequence may satisfy:
+
+$$
+p_i^{\mathrm{text}} \Vert a_i^{\mathrm{text}}
+\preceq_{\mathrm{text}}
+p_{i+1}^{\mathrm{text}}.
+$$
+
+That still does not imply the same relation at token level. A chat template can insert control tokens at message boundaries; detokenize-and-reencode can change segmentation; a parser can normalize output. Saving each call's real input and output tokens is therefore the safe way to split calls into independent samples. Linear concatenation of adjacent calls requires a prior check that the conditioning sequence of every generated token has not changed.
+
+## 3. The minimum rollout data contract
+
+At the model boundary, a trajectory can be written as:
+
+$$
+\mathcal{C}^{\mathrm{tok}}(\rho)
+= \left(
+(p_1^{\mathrm{tok}}, a_1^{\mathrm{tok}}),
+(p_2^{\mathrm{tok}}, a_2^{\mathrm{tok}}),
+\ldots
+\right).
+$$
+
+For objectives that use importance correction, PPO, or GRPO-style terms, the system also needs the rollout-policy log probability of every sampled token:
+
+$$
+\ell_{i,t}^{\mathrm{roll}}
+= \log \pi_{\mathrm{roll}}\left(
+a_{i,t}^{\mathrm{tok}}
+\mid
+p_i^{\mathrm{tok}}, a_{i,\lt t}^{\mathrm{tok}}
+\right).
+$$
+
+The minimum contract is small, but missing fields are rarely recoverable from logs later.
+
+| Field | Purpose | Not a substitute |
+| --- | --- | --- |
+| Actual input / output token IDs | Reconstruct the rollout condition and action | Structured messages or final text |
+| Response / action mask | Mark positions included in the loss | Guessing boundaries from character length |
+| Rollout log probability | Support objectives tied to the old policy | Recomputing under the current model |
+| Rollout-policy and encoding-component versions | Decide whether a sample is stale or replayable | A model name |
+| Call, rollout, and environment record IDs | Trace tool results and final artifacts | A batch ID alone |
+
+verl separates an inference client from the server in its Agentic RL design and explicitly notes that converting between tokens and text can be irreversible, so training should use the tokens actually generated by inference. This is one implementation rationale for the contract, not an API requirement for every framework.[^verl]
+
+![verl's Agentic RL documentation introduces asynchronous rollouts, multi-turn conversations, and tool calls; its later `generate` interface section explains why training retains tokens actually generated during inference. Source: [verl Agentic RL Training](https://github.com/verl-project/verl/blob/main/docs/start/agentic_rl.rst).](../../assets/agentic-rl-trajectory-data-contract/verl-token-generate.png){width="88%" fig-align="center" fig-alt="verl documentation screenshot introducing asynchronous rollouts, multi-turn conversations, and tool calls."}
+
+For a black-box harness, a protocol-compatible serving gateway can sit between the harness and rollout service to record call IDs, real tokens, log probabilities, and versions. A white-box loop can record the same fields directly in its rollout function. A gateway is an integration choice, not part of the definition of Agentic RL.
+
+## 4. From a completed rollout to a trainable sample
+
+One call cannot yet be scored. Calls, environment evidence, and versions must first be assembled into a completed rollout:
+
+$$
+\mathcal{R}_\rho
+= \left(
+x_\rho,
+\mathcal{C}^{\mathrm{tok}}(\rho),
+e_\rho,
+v_\rho
+\right).
+$$
+
+Here $x_\rho$ is the task input, $e_\rho$ contains tool results, environment state, and final artifacts, and $v_\rho$ records the rollout policy and encoding-component versions. A grouping key such as task, initial state, or predefined sampling batch then produces:
+
+$$
+\mathcal{G}_g
+= \left\{
+\mathcal{R}_\rho
+\mid
+g(\rho) = g
+\right\}.
+$$
+
+A group defines which rollouts may be normalized, ranked, or batched together. It does not require a verifier to score only relatively. ART, for example, groups completed trajectories before sending them to training; it is a readable implementation example, while the reward and optimization policy remain application-specific.[^art]
+
+The important separation is between what a verifier observed, how a reward is configured, and how that reward is assigned to decisions:
+
+$$
+\mathcal{S}_g = \mathrm{Score}(\mathcal{G}_g)
+\quad\longrightarrow\quad
+\mathcal{Y}_g = \mathrm{Reward}(\mathcal{G}_g, \mathcal{S}_g)
+\quad\longrightarrow\quad
+\mathcal{K}_g = \mathrm{Credit}(\mathcal{G}_g, \mathcal{Y}_g).
+$$
+
+$\mathcal{S}_g$ retains raw verifier output, which may be scalar, multi-metric, or structured. $\mathcal{Y}_g$ combines, filters, or normalizes it. Only $\mathcal{K}_g$ turns outcomes into rollout-, call-, or token-level weights, returns, or advantages. Retaining raw scores separately makes reward shaping and credit-assignment variants comparable without rerunning an environment.
+
+The sample builder then produces trainer input:
+
+$$
+\mathcal{D}_g
+= \mathrm{Build}\left(
+\mathcal{G}_g,
+\mathcal{S}_g,
+\mathcal{Y}_g,
+\mathcal{K}_g
+\right).
+$$
+
+`Build` may split by call, or merge and pack calls only when their conditioning sequences remain intact. It is a data-layout decision: it should neither quietly change a rollout's batch weight nor reinterpret a verifier score.
+
+## 5. Four audit checks
+
+The point of this abstraction is not to introduce more intermediate objects. It is to make training failures localizable.
+
+| Check | Question the system must answer |
+| --- | --- |
+| Token traceability | Which call produced every token in the loss, and what was its real prefix? |
+| Rollout traceability | Which group and policy version produced a rollout, and what environment evidence remains? |
+| Score reviewability | What was the raw verifier output, and which reward and credit configuration derived from it? |
+| Packing preserves weight | Did splitting, merging, or packing create an undefined change in a rollout's training weight? |
+
+These checks do not make a reward correct and do not solve long-horizon credit assignment or verifier hacking. They solve an earlier problem: when success falls, KL becomes abnormal, or reward drifts, a team can determine whether the cause sits in the policy, environment, encoding, scoring, credit assignment, or sample construction.
+
+## Closing view
+
+Agentic RL data is not a readable dialogue plus a terminal score. It is a set of call records with real conditioning tokens, policy versions, environment evidence, and traceable training signals. Preserving that chain comes before choosing PPO, GRPO, reward shaping, or denser credit assignment; otherwise, the reported optimization target is difficult to audit.
+
+[^pi]: [Pi: Compaction & Branch Summarization](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/compaction.md).
+[^vllm]: [vLLM: OpenAI-Compatible Server — Chat Template](https://github.com/vllm-project/vllm/blob/main/docs/serving/online_serving/README.md).
+[^verl]: [verl: Agentic RL Training](https://github.com/verl-project/verl/blob/main/docs/start/agentic_rl.rst).
+[^art]: [OpenPipe ART: Training Loop Overview](https://github.com/openpipe/art).

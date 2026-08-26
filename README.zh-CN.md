@@ -734,6 +734,10 @@
   **描述**: 该论文实证研究检索策略、智能体 harness 设计与工具结果呈现方式在 agentic search 中如何相互影响。在基于 LongMemEval、Chronos 和厂商 CLI harness 的实验中，grep 往往优于向量检索，但整体性能仍强烈受 harness 与工具调用风格影响。 \
   <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction** (2026.05) \
+  **描述**: 该论文提出 Direct Corpus Interaction（DCI）检索范式，让智能体使用 grep、文件读取和轻量脚本等通用终端工具直接搜索原始语料，而不是依赖固定的 top-k 检索器。DCI 无需嵌入模型、向量索引或检索 API，并在信息检索基准和端到端 agentic search 任务上显著优于稀疏、稠密及重排序基线。 \
+  <a href="https://arxiv.org/abs/2605.05242"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Thinking with Programming Vision: Towards a Unified View for Thinking with Images** (2025.12) \
   **描述**: 该论文指出当前多模态工具调用推理在简单图像旋转和损坏下仍然脆弱，并提出 CodeVision，一种让模型通过生成代码调用任意图像操作的 code-as-tool 框架。它结合 SFT、RL 和密集过程奖励，提升多工具推理、执行效率和错误恢复。 \
   <a href="https://arxiv.org/abs/2512.03746"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -823,6 +827,13 @@
   <a href="https://arxiv.org/abs/2608.03392"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Prime Agent: A Self-Improving RLM Harness** (2026.08) \
+  **描述**: Prime Agent 是一个面向长时程评测与编码工作流的开源 harness，结合持久化 IPython REPL、可跨轨迹保留的历史与智能体资产，以及递归协作的子智能体。它在允许模型自主构造策略的同时，统一执行、恢复、验证和资源核算，并显著提升推理、编码与自主任务基准上的表现。 \
+  <a href="https://arxiv.org/abs/2608.23552"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.primeintellect.ai/blog/prime-agent"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/PrimeIntellect-ai/prime-agent"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.23552"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -868,6 +879,12 @@
   <a href="https://arxiv.org/abs/2608.16859"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+- **AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?** (2026.06) \
+  **描述**: AutoLab 提出一个面向超长时程闭环优化的智能体基准，覆盖系统优化、谜题挑战、模型开发和 CUDA 内核四类任务，共包含 36 个专家策划任务，要求智能体在严格预算内反复编辑、运行、测量并改进真实产物。对 17 个前沿模型的评测表明，持续迭代和利用经验反馈比初始尝试质量更能决定成功，因此需要更加关注时间感知与迭代能力的自主智能体研究。 \
+  <a href="https://arxiv.org/abs/2606.05080"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://autolab.moe/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/autolabhq/autolab"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 ## 记忆
 
@@ -996,6 +1013,11 @@
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
+
+- **Agentic RL 的轨迹数据契约：从 Harness 到可训练样本** (创建: 2026-08-26; 更新: 2026-08-26) \
+  **描述**: 从模型调用、上下文重建到 rollout 分组与信用分配，说明 Agentic RL 如何保留可审计的 token 级训练数据。 \
+  [[笔记](notes/zh/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
+  [[English](notes/en/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
 
 - **OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发** (创建: 2026-08-25; 更新: 2026-08-25) \
   **描述**: 从一个『teacher-defined dense reward』的直觉出发，推导 OPD 的 reverse-KL 训练信号，分析错误前缀下的局部一致陷阱，并比较 KAT、BRTS、TrOPD 与 local support matching 的修正边界。 \

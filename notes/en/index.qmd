@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>24</strong><span>Notes</span></div>
+    <div><strong>25</strong><span>Notes</span></div>
     <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-08-25</strong><span>Latest creation</span></div>
+    <div><strong>2026-08-26</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -197,6 +197,22 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/agentic-rl-trajectory-data-contract.html">
+  <span class="category-count">Created 2026-08-26 · Updated 2026-08-26</span>
+  <h3>Agentic RL Trajectory Data Contracts: From Harness State to Trainable Samples</h3>
+  <p>A practical account of how Agentic RL preserves auditable token-level training data from model calls, context reconstruction, rollout grouping, and credit assignment.</p>
+  <div class="note-tags">
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Agent Harness</span>
+    <span class="note-tag">Trajectory Data</span>
+    <span class="note-tag">Policy Optimization</span>
+    <span class="note-tag">Credit Assignment</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
 <a class="category-card" href="opd/opd-local-credit-global-correctness.html">
   <span class="category-count">Created 2026-08-25 · Updated 2026-08-25</span>
   <h3>Local Credit Assignment and the Boundary of Global Correctness in OPD: Starting from a Distilled-RL Intuition</h3>

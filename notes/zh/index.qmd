@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>24</strong><span>笔记</span></div>
+    <div><strong>25</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-25</strong><span>最近创建</span></div>
+    <div><strong>2026-08-26</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -197,6 +197,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/agentic-rl-trajectory-data-contract.html">
+  <span class="category-count">创建 2026-08-26 · 更新 2026-08-26</span>
+  <h3>Agentic RL 的轨迹数据契约：从 Harness 到可训练样本</h3>
+  <p>从模型调用、上下文重建到 rollout 分组与信用分配，说明 Agentic RL 如何保留可审计的 token 级训练数据。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agentic RL</span>
+    <span class="note-tag">Agent Harness</span>
+    <span class="note-tag">Trajectory Data</span>
+    <span class="note-tag">Policy Optimization</span>
+    <span class="note-tag">Credit Assignment</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="opd/opd-local-credit-global-correctness.html">
   <span class="category-count">创建 2026-08-25 · 更新 2026-08-25</span>
   <h3>OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发</h3>

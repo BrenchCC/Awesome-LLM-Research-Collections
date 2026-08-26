@@ -14,6 +14,15 @@ This is a documentation-first bilingual repository containing curated collection
 - Agents Application (Memory)
 - Auto-Prompt
 
+## Topic Classification
+
+Keep the `agents` and `reinforcement-learning` categories distinct for both papers and notes:
+
+- `agents` is for concept, system, evaluation, and application analysis. It focuses on how agents are designed or used and normally does not cover training methods.
+- `reinforcement-learning` is for reinforcement-learning training, including reasoning RL and Agentic RL. Rollouts, rewards, policy optimization, trajectory data, token-level masks or log probabilities, and credit assignment belong here, including when they are used to train agents.
+
+For material spanning both areas, use the main question as the tie-breaker: agent behavior or applications go under `agents`; reinforcement-learning training of agents goes under `reinforcement-learning`.
+
 ## Development Commands
 
 Use lightweight checks before committing:

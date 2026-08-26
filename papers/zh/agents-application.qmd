@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>论文</span></div>
-    <div><strong>69</strong><span>资源链接</span></div>
+    <div><strong>35</strong><span>论文</span></div>
+    <div><strong>77</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -50,7 +50,7 @@ toc: false
 </section>
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>工具调用</h2>
   </div>
   <div class="paper-grid">
@@ -63,6 +63,17 @@ toc: false
   <p>该论文实证研究检索策略、智能体 harness 设计与工具结果呈现方式在 agentic search 中如何相互影响。在基于 LongMemEval、Chronos 和厂商 CLI harness 的实验中，grep 往往优于向量检索，但整体性能仍强烈受 harness 与工具调用风格影响。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2605.15184" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+<article class="paper-card" id="beyond-semantic-similarity-rethinking-retrieval-for-agentic-search-via-direct-corpus-interaction">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>工具调用</span>
+  </div>
+  <h3>Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction</h3>
+  <p>该论文提出 Direct Corpus Interaction（DCI）检索范式，让智能体使用 grep、文件读取和轻量脚本等通用终端工具直接搜索原始语料，而不是依赖固定的 top-k 检索器。DCI 无需嵌入模型、向量索引或检索 API，并在信息检索基准和端到端 agentic search 任务上显著优于稀疏、稠密及重排序基线。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.05242" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
@@ -249,7 +260,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">9 篇论文</p>
+    <p class="eyebrow">10 篇论文</p>
     <h2>智能体开发</h2>
   </div>
   <div class="paper-grid">
@@ -287,6 +298,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.03392" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="prime-agent-a-self-improving-rlm-harness">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>Prime Agent: A Self-Improving RLM Harness</h3>
+  <p>Prime Agent 是一个面向长时程评测与编码工作流的开源 harness，结合持久化 IPython REPL、可跨轨迹保留的历史与智能体资产，以及递归协作的子智能体。它在允许模型自主构造策略的同时，统一执行、恢复、验证和资源核算，并显著提升推理、编码与自主任务基准上的表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.23552" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://www.primeintellect.ai/blog/prime-agent" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/papers/2608.23552" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">
@@ -368,7 +393,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>智能体评测</h2>
   </div>
   <div class="paper-grid">
@@ -395,6 +420,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2608.16859" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://mirros-lab.github.io/HarnessEval-W/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/MirroS-Lab/HarnessEval-W" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="autolab-can-frontier-models-solve-long-horizon-auto-research-and-engineering-tasks">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?</h3>
+  <p>AutoLab 提出一个面向超长时程闭环优化的智能体基准，覆盖系统优化、谜题挑战、模型开发和 CUDA 内核四类任务，共包含 36 个专家策划任务，要求智能体在严格预算内反复编辑、运行、测量并改进真实产物。对 17 个前沿模型的评测表明，持续迭代和利用经验反馈比初始尝试质量更能决定成功，因此需要更加关注时间感知与迭代能力的自主智能体研究。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.05080" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://autolab.moe/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/autolabhq/autolab" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

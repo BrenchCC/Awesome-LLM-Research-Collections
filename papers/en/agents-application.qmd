@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>Papers</span></div>
-    <div><strong>69</strong><span>Resource links</span></div>
+    <div><strong>35</strong><span>Papers</span></div>
+    <div><strong>77</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -50,7 +50,7 @@ toc: false
 </section>
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>Tool Use</h2>
   </div>
   <div class="paper-grid">
@@ -63,6 +63,17 @@ toc: false
   <p>This paper empirically studies how retrieval strategy, agent harness design, and tool-result delivery interact in agentic search. Across LongMemEval experiments with Chronos and provider CLI harnesses, grep often outperforms vector retrieval, while overall performance remains strongly shaped by the harness and tool-calling style.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2605.15184" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="beyond-semantic-similarity-rethinking-retrieval-for-agentic-search-via-direct-corpus-interaction">
+  <div class="paper-meta">
+    <span>2026.05</span>
+    <span>Tool Use</span>
+  </div>
+  <h3>Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction</h3>
+  <p>This paper introduces Direct Corpus Interaction (DCI), a retrieval paradigm in which agents search raw corpora with general-purpose terminal tools such as grep, file reads, and lightweight scripts instead of fixed top-k retrievers. DCI requires no embedding model, vector index, or retrieval API, and substantially outperforms sparse, dense, and reranking baselines on IR benchmarks and end-to-end agentic search tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2605.05242" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="thinking-with-programming-vision-towards-a-unified-view-for-thinking-with-images">
@@ -249,7 +260,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">9 papers</p>
+    <p class="eyebrow">10 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
@@ -287,6 +298,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.03392" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/zhouhao1024/Awesome-Self-Evolving-Coding-Agents" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="prime-agent-a-self-improving-rlm-harness">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Prime Agent: A Self-Improving RLM Harness</h3>
+  <p>Prime Agent is an open-source harness for long-horizon evaluation and coding workflows that combines a persistent IPython REPL, durable histories and reusable agent assets, and recursively coordinated subagents. It standardizes execution, recovery, verification, and resource accounting while letting models construct their own strategies, substantially improving performance across reasoning, coding, and autonomous-task benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.23552" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.primeintellect.ai/blog/prime-agent" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/papers/2608.23552" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="harness-handbook-making-evolving-agent-harnesses-readable-navigable-and-editable">
@@ -368,7 +393,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">2 papers</p>
+    <p class="eyebrow">3 papers</p>
     <h2>Agent Evaluation</h2>
   </div>
   <div class="paper-grid">
@@ -395,6 +420,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2608.16859" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://mirros-lab.github.io/HarnessEval-W/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/MirroS-Lab/HarnessEval-W" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="autolab-can-frontier-models-solve-long-horizon-auto-research-and-engineering-tasks">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Agent Evaluation</span>
+  </div>
+  <h3>AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?</h3>
+  <p>AutoLab introduces a benchmark for ultra-long-horizon closed-loop optimization across system optimization, puzzles, model development, and CUDA kernels, with 36 expert-curated tasks that require agents to iteratively edit, run, measure, and improve real artifacts under strict budgets. Evaluations of 17 frontier models show that persistence and empirical feedback, rather than initial attempt quality alone, dominate success, motivating more time-aware and iterative autonomous-agent research.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.05080" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://autolab.moe/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/autolabhq/autolab" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>
