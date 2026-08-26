@@ -19,7 +19,7 @@ Agentic RL is often reduced to “run an agent, then apply RL to the result.” 
 
 This note follows one data path. A harness maintains state, a protocol adapter builds a request, and an inference service emits the actual tokens. Completed calls are assembled into rollouts; only then do scoring, reward transformation, credit assignment, and sample packing occur. The goal is not to prescribe one training framework, but to identify the boundaries every system should preserve.
 
-![The Agentic RL trajectory data contract: the upper lane follows one model call from harness state to the next state; the lower lane follows a completed rollout from grouping and raw scoring to a trainable sample.](../../assets/agentic-rl-trajectory-data-contract/trajectory-data-contract.svg){width="95%" fig-align="center" fig-alt="Agentic RL trajectory data contract: an inference-runtime lane and a training-data lane, linked by exact token-level model calls."}
+![Bilingual Agentic RL trajectory data contract: the upper lane follows one model call from harness state to the next state; the lower lane follows a completed rollout from grouping and raw scoring to a trainable sample.](../../assets/agentic-rl-trajectory-data-contract/trajectory-data-contract.svg){width="95%" fig-align="center" fig-alt="Bilingual Agentic RL trajectory data contract: an inference-runtime lane and a training-data lane, linked by exact token-level model calls."}
 
 ## 1. Structured messages are not the training input
 

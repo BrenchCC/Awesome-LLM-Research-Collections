@@ -19,7 +19,7 @@ Agentic RL 最容易被简化成「让 Agent 跑任务，再根据结果做 RL�
 
 本文沿一条数据链展开：harness 维护状态，协议适配器组织请求，推理服务生成真实 token；完成的调用被聚合为 rollout，随后才经历评分、奖励变换、信用分配和样本打包。重点不是规定唯一的训练框架，而是标出每个系统都应明确保存的边界。
 
-![Agentic RL 的轨迹数据契约：上半部分是一次调用从 harness state 到下一状态的路径，下半部分是完整 rollout 从分组、原始评分到训练样本的路径。](../../assets/agentic-rl-trajectory-data-contract/trajectory-data-contract.svg){width="95%" fig-align="center" fig-alt="Agentic RL trajectory data contract: an inference-runtime lane and a training-data lane, linked by exact token-level model calls."}
+![双语版 Agentic RL 轨迹数据契约：上半部分是一次调用从 harness state 到下一状态的路径，下半部分是完整 rollout 从分组、原始评分到训练样本的路径。](../../assets/agentic-rl-trajectory-data-contract/trajectory-data-contract.svg){width="95%" fig-align="center" fig-alt="双语版 Agentic RL 轨迹数据契约：推理运行时链与训练数据链由精确的 token 级模型调用相连。"}
 
 ## 1. 结构化 messages 不是训练输入
 
