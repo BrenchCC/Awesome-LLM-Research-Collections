@@ -4,6 +4,7 @@ import os
 import re
 import sys
 import json
+import html
 import shutil
 import hashlib
 import subprocess
@@ -40,7 +41,132 @@ SUPPORTED_LOCAL_IMAGE_SUFFIXES = {
     ".tiff",
     ".webp",
 }
+SUPPORTED_NOTE_DOWNLOAD_SUFFIXES = {".pdf", ".tex"}
 PAGE_RENDER_VERSION = "reader-first-introductions-v2"
+
+
+def parse_front_matter_sections(text, source_path):
+    """Parse the front-matter sections used by note download metadata.
+
+    Parameters:
+        text: Full QMD text.
+        source_path: Source path used in validation errors.
+    """
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        raise ValueError(f"{source_path} is missing YAML front matter")
+    end_index = None
+    for index, line in enumerate(lines[1:], start = 1):
+        if line.strip() == "---":
+            end_index = index
+            break
+    if end_index is None:
+        raise ValueError(f"{source_path} has unterminated YAML front matter")
+
+    resources = []
+    other_links = []
+    section = None
+    current_link = None
+    for line in lines[1:end_index]:
+        if line and not line[0].isspace():
+            key, separator, value = line.partition(":")
+            section = key.strip() if separator and not value.strip() else None
+            continue
+        if section == "resources" and line.startswith("  - "):
+            resources.append(line[4:].strip().strip("'\""))
+            continue
+        if section != "other-links":
+            continue
+        if line.startswith("  - "):
+            if current_link is not None:
+                other_links.append(current_link)
+            current_link = {}
+            field, separator, value = line[4:].partition(":")
+            if separator:
+                current_link[field.strip()] = value.strip().strip("'\"")
+            continue
+        if current_link is not None and line.startswith("    "):
+            field, separator, value = line.strip().partition(":")
+            if separator:
+                current_link[field.strip()] = value.strip().strip("'\"")
+    if current_link is not None:
+        other_links.append(current_link)
+    return resources, other_links
+
+
+def parse_note_downloads(text, source_path):
+    """Return explicitly authorized local PDF and TeX downloads.
+
+    Parameters:
+        text: Full QMD text.
+        source_path: QMD source path used to resolve relative links.
+    """
+    resources, other_links = parse_front_matter_sections(text, source_path)
+    resource_paths = {
+        (source_path.parent / unquote(urlsplit(value).path)).resolve()
+        for value in resources
+        if value and not urlsplit(value).scheme and not urlsplit(value).netloc
+    }
+    downloads = []
+    seen = set()
+    for link in other_links:
+        raw_url = link.get("href", "").strip()
+        parsed = urlsplit(raw_url)
+        suffix = Path(unquote(parsed.path)).suffix.lower()
+        if (
+            not raw_url
+            or parsed.scheme
+            or parsed.netloc
+            or suffix not in SUPPORTED_NOTE_DOWNLOAD_SUFFIXES
+        ):
+            continue
+        label = link.get("text", "").strip()
+        if not label:
+            raise ValueError(f"Note download is missing text: {source_path}")
+        download_path = (source_path.parent / unquote(parsed.path)).resolve()
+        relative = repo_relative(download_path)
+        if download_path not in resource_paths:
+            raise ValueError(
+                f"Note download must also be listed in resources: {relative}"
+            )
+        if download_path in seen:
+            raise ValueError(f"Duplicate note download: {relative}")
+        if not download_path.is_file():
+            raise ValueError(f"Missing note download: {relative}")
+        if download_path.stat().st_size > MAX_MEDIA_BYTES:
+            raise ValueError(f"Note download exceeds 20 MB: {relative}")
+        seen.add(download_path)
+        downloads.append((label, download_path))
+    return downloads
+
+
+def validate_bilingual_downloads(notes_by_language):
+    """Require paired notes to authorize the same attachment paths and order.
+
+    Parameters:
+        notes_by_language: Scanned notes keyed by language.
+    """
+    notes_by_path = {
+        language: {note.relative_path: note for note in notes}
+        for language, notes in notes_by_language.items()
+    }
+    for relative_path, zh_note in notes_by_path["zh"].items():
+        en_note = notes_by_path["en"][relative_path]
+        zh_downloads = parse_note_downloads(
+            text = zh_note.source_path.read_text(encoding = "utf-8"),
+            source_path = zh_note.source_path.resolve()
+        )
+        en_downloads = parse_note_downloads(
+            text = en_note.source_path.read_text(encoding = "utf-8"),
+            source_path = en_note.source_path.resolve()
+        )
+        zh_paths = [repo_relative(path) for _, path in zh_downloads]
+        en_paths = [repo_relative(path) for _, path in en_downloads]
+        if zh_paths != en_paths:
+            raise ValueError(
+                f"Bilingual note downloads differ for {relative_path}: "
+                f"zh={zh_paths}, en={en_paths}"
+            )
 
 
 def strip_front_matter(text, source_path):
@@ -148,8 +274,13 @@ def convert_qmd_body(
         svg_converter: Callable used to rasterize SVG files.
     """
     source_path = note.source_path.resolve()
+    source_text = source_path.read_text(encoding = "utf-8")
+    downloads = parse_note_downloads(
+        text = source_text,
+        source_path = source_path
+    )
     body = strip_front_matter(
-        text = source_path.read_text(encoding = "utf-8"),
+        text = source_text,
         source_path = source_path
     )
     body = convert_callouts(body)
@@ -229,6 +360,16 @@ def convert_qmd_body(
         f"**Tags:** {', '.join(note.tags)}",
         "",
     ]
+    if downloads:
+        download_label = "附件下载" if note.language == "zh" else "Downloads"
+        header.extend([f"## {download_label}", ""])
+        for label, download_path in downloads:
+            relative = repo_relative(download_path)
+            escaped_label = html.escape(label, quote = True)
+            header.extend(
+                [f'<source path="@./{relative}" name="{escaped_label}"/>', ""]
+            )
+            media_paths.append(download_path)
     return "\n".join(header) + body.strip() + "\n", media_paths
 
 
@@ -439,6 +580,7 @@ def build_page_specs(svg_converter = default_svg_converter):
         notes_by_language[language] = scan_notes(NOTE_CONFIGS[language])
 
     validate_bilingual_pairs(notes_by_language)
+    validate_bilingual_downloads(notes_by_language)
     source_key_by_path = build_source_key_map(
         notes_by_language = notes_by_language,
         paper_categories = paper_categories

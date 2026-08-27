@@ -48,7 +48,7 @@ flowchart TD
 | `planner.py` | 拉取 Manifest、发现远端树、候选 revision 审计、哈希比较、生成 `SyncPlan` | 真正执行写入 |
 | `engine.py` | 执行创建、认领、重命名、正文更新、删除、检查点与最终 Manifest 提交 | 内容解析、CLI 参数解释 |
 
-`content.py` 的读者可见输出遵循“用途优先”规则：页面开头只说明主题、收录范围和阅读用途，不显示同步警告或实现细节；来源路径和 Git commit 追加到正文末尾的中性“文档信息”区域。修改页面外壳时必须更新 `PAGE_RENDER_VERSION`，确保已有页面的哈希发生变化并进入更新计划。
+`content.py` 的读者可见输出遵循“用途优先”规则：页面开头只说明主题、收录范围和阅读用途，不显示同步警告或实现细节；来源路径和 Git commit 追加到正文末尾的中性“文档信息”区域。笔记下载只识别同时出现在 `resources` 与 `other-links` 的本地 PDF/TeX，并以 `<source>` 资源块输出；附件路径复用 `PageSpec.media_paths`，因此附件字节变化会进入既有哈希与更新计划。修改全局页面外壳时必须更新 `PAGE_RENDER_VERSION`，确保已有页面的哈希发生变化并进入更新计划。
 
 ## 关键数据流
 
@@ -56,7 +56,7 @@ flowchart TD
 
 | 阶段 | 输入 | 输出 | 说明 |
 | --- | --- | --- | --- |
-| 内容构建 | README、Notes、Blogs、媒体文件 | `PageSpec[]` | 本地真源视图，包含用于后续计算哈希的规范化正文与媒体路径 |
+| 内容构建 | README、Notes、Blogs、图片与显式附件 | `PageSpec[]` | 本地真源视图，包含用于后续计算哈希的规范化正文与媒体路径 |
 | 远端快照 | Wiki 树、Manifest、首页 Docx 信息 | `RemoteSnapshot` | Wiki 树和 Manifest 共同保存 token、revision、`obj_edit_time` |
 | 计划生成 | `PageSpec[]` + `RemoteSnapshot` | `SyncPlan` | 显式列出需要执行的 `create/update/rename/delete/recover` 动作；无动作就是快路径 |
 | 写入执行 | `SyncPlan` | 检查点与最终 Manifest v2 | 非首页写入前落 `in_progress`，全部成功后最后提交 `complete` |

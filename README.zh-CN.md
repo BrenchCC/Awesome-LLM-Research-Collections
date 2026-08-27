@@ -834,6 +834,13 @@
   <a href="https://github.com/PrimeIntellect-ai/prime-agent"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/papers/2608.23552"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Apodex 1.1: Scaling Agentic Intelligence for Complex Work** (2026.08) \
+  **描述**: Apodex 1.1 通过环境扩展与智能体协调扩展，提升复杂真实任务上的持续、可验证进展：前者扩展可执行的文件、搜索和代码环境，后者支持有状态的多智能体任务分解、异步协作与重新规划。共享执行 harness 与 AgentOS 将环境轨迹和协调轨迹转化为可靠行为，同时 35B 参数的 Apodex 1.1 Mini 提供了可本地部署的 working capability。 \
+  <a href="https://arxiv.org/abs/2608.23283"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.apodex.com/blog/apodex-1.1-scaling-agentic-intelligence-for-complex-work"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/ApodexAI/FrontierAgent"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.23283"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **描述**: 该论文提出 Harness Handbook，通过静态分析与 LLM 辅助结构化构建以行为为中心的表示，将分散在 agent harness 中的系统行为映射到对应源码。其行为引导渐进披露方法在减少规划 token 用量的同时，提升行为定位与编辑计划质量。 \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -1013,6 +1020,11 @@
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
+
+- **KL 散度：从数学推导到 LLM 强化学习** (创建: 2026-08-27; 更新: 2026-08-27) \
+  **描述**: 看懂 KL 散度的数学结构，并理解它在 PPO、DPO、GRPO、On Policy Distillation 中究竟控制了什么。 \
+  [[笔记](notes/zh/reinforcement-learning/kl-divergence-llm-rl.qmd)]
+  [[English](notes/en/reinforcement-learning/kl-divergence-llm-rl.qmd)]
 
 - **Agentic RL 的轨迹数据契约：从 Harness 到可训练样本** (创建: 2026-08-26; 更新: 2026-08-26) \
   **描述**: 从模型调用、上下文重建到 rollout 分组与信用分配，说明 Agentic RL 如何保留可审计的 token 级训练数据。 \

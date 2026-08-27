@@ -42,6 +42,9 @@ python scripts/check_readme_qmd_sync.py
 python scripts/sync_notes.py --write
 python scripts/sync_notes.py
 
+# Validate explicitly authorized note downloads
+python scripts/check_note_attachments.py
+
 # Regenerate and verify bilingual blog pages
 python scripts/sync_blog_shares.py --write
 python scripts/sync_blog_shares.py
@@ -188,6 +191,10 @@ Maintain notes as localized pairs under `notes/en/<topic>/<slug>.qmd` and `notes
 
 Use two front-matter dates. `date` is the immutable creation date and controls newest-created-first ordering. `date-modified` records the latest source modification. Set both to the current `Asia/Shanghai` date when creating a bilingual note pair; on later edits, preserve `date` and update `date-modified` in both language versions before regenerating Notes indexes and homepage statistics.
 
+TeX/PDF downloads are opt-in and may be enabled only when the user explicitly requests them. File presence is not authorization. Add each requested local attachment to both `resources` and `other-links`, keep normalized paths and order aligned across the bilingual pair, and localize only the link labels. Do not add global resource globs, auto-scan attachment directories, or expose downloads in README/Notes cards. Preserve original attachment bytes unless the user requests a translation, rebuild, copy, or replacement, and retain previously authorized links during unrelated edits unless removal is requested.
+
+The Feishu mirror must create attachment resources only from the same explicit metadata. GitHub Actions validates and packages only those authorized files; neither path may infer downloads from files merely present in the repository.
+
 After editing a note, run:
 
 ```bash
@@ -196,6 +203,7 @@ python scripts/check_readme_qmd_sync.py --write
 python scripts/sync_notes.py
 python scripts/check_readme_qmd_sync.py
 python scripts/sync_blog_shares.py
+python scripts/check_note_attachments.py
 quarto render --no-execute
 ```
 

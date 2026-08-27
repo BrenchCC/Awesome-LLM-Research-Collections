@@ -835,6 +835,13 @@
   <a href="https://github.com/PrimeIntellect-ai/prime-agent"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/papers/2608.23552"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Apodex 1.1: Scaling Agentic Intelligence for Complex Work** (2026.08) \
+  **Description**: Apodex 1.1 develops sustained, verifiable progress on complex real-world tasks through Environment Scaling and Agentic Coordination Scaling, combining executable file, search, and code environments with stateful multi-agent decomposition, asynchronous coordination, and replanning. Its shared execution harness and AgentOS turn trajectories and coordination traces into reliable behavior, while the 35B-parameter Apodex 1.1 Mini provides a locally deployable form of this working capability. \
+  <a href="https://arxiv.org/abs/2608.23283"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.apodex.com/blog/apodex-1.1-scaling-agentic-intelligence-for-complex-work"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/ApodexAI/FrontierAgent"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.23283"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable** (2026.07) \
   **Description**: This paper introduces Harness Handbook, a behavior-centric representation that combines static analysis with LLM-assisted structuring to map distributed agent-harness behaviors to their source code. Its Behavior-Guided Progressive Disclosure method improves behavior localization and edit planning while reducing planner token usage. \
   <a href="https://arxiv.org/abs/2607.13285"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -1014,6 +1021,11 @@
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
+
+- **KL Divergence: From Mathematical Derivations to LLM Reinforcement Learning** (Created: 2026-08-27; Updated: 2026-08-27) \
+  **Description**: Understand the mathematical structure of KL divergence and what it controls in PPO, DPO, GRPO, and On-Policy Distillation. \
+  [[Note](notes/en/reinforcement-learning/kl-divergence-llm-rl.qmd)]
+  [[中文](notes/zh/reinforcement-learning/kl-divergence-llm-rl.qmd)]
 
 - **Agentic RL Trajectory Data Contracts: From Harness State to Trainable Samples** (Created: 2026-08-26; Updated: 2026-08-26) \
   **Description**: A practical account of how Agentic RL preserves auditable token-level training data from model calls, context reconstruction, rollout grouping, and credit assignment. \

@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>25</strong><span>笔记</span></div>
+    <div><strong>26</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-26</strong><span>最近创建</span></div>
+    <div><strong>2026-08-27</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -197,6 +197,24 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/kl-divergence-llm-rl.html">
+  <span class="category-count">创建 2026-08-27 · 更新 2026-08-27</span>
+  <h3>KL 散度：从数学推导到 LLM 强化学习</h3>
+  <p>看懂 KL 散度的数学结构，并理解它在 PPO、DPO、GRPO、On Policy Distillation 中究竟控制了什么。</p>
+  <div class="note-tags">
+    <span class="note-tag">KL Divergence</span>
+    <span class="note-tag">Reinforcement Learning</span>
+    <span class="note-tag">RLHF</span>
+    <span class="note-tag">PPO</span>
+    <span class="note-tag">DPO</span>
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">On-Policy Distillation</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="reinforcement-learning/agentic-rl-trajectory-data-contract.html">
   <span class="category-count">创建 2026-08-26 · 更新 2026-08-26</span>
   <h3>Agentic RL 的轨迹数据契约：从 Harness 到可训练样本</h3>

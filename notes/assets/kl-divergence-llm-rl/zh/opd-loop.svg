@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="470" viewBox="0 0 1250 470" role="img" aria-labelledby="title desc">
+  <title id="title">On Policy Distillation 基本闭环</title>
+  <desc id="desc">Student 从 prompt 生成轨迹，Teacher 在 Student 实际访问的前缀上给出 next-token 分布，再计算 divergence 更新 Student。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#334155"/></marker></defs>
+  <g fill="#f8fafc" stroke="#334155" stroke-width="2.5">
+    <rect x="30" y="70" width="210" height="82" rx="14"/><rect x="285" y="70" width="260" height="82" rx="14"/><rect x="590" y="70" width="310" height="82" rx="14"/><rect x="590" y="300" width="310" height="82" rx="14"/><rect x="285" y="300" width="260" height="82" rx="14"/>
+  </g>
+  <g fill="#0f172a" font-family="Arial, Noto Sans CJK SC, sans-serif" font-size="23" text-anchor="middle">
+    <text x="135" y="120">Prompt x</text><text x="415" y="106">Student 生成</text><text x="415" y="136">y ~ p_S^θ</text>
+    <text x="745" y="106">Student 实际访问的</text><text x="745" y="136">prefix y_&lt;t</text>
+    <text x="745" y="336">Teacher 给出</text><text x="745" y="366">next token distribution</text>
+    <text x="415" y="336">计算 divergence</text><text x="415" y="366">并更新 Student</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M240 111H282"/><path d="M545 111H587"/><path d="M745 154V297"/><path d="M590 341H548"/><path d="M415 300V188Q415 160 430 154"/>
+  </g>
+</svg>
+

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-labelledby="title desc">
+  <title id="title">Reward and KL in LLM reinforcement learning</title>
+  <desc id="desc">The reward model pushes the current policy toward higher reward, while KL to the reference policy constrains distribution shift.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#334155"/></marker></defs>
+  <g fill="#f8fafc" stroke="#334155" stroke-width="2.5">
+    <rect x="70" y="245" width="280" height="85" rx="14"/><rect x="550" y="245" width="280" height="85" rx="14"/><rect x="550" y="55" width="280" height="85" rx="14"/>
+  </g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">
+    <text x="210" y="282">Reference policy</text><text x="210" y="312">π_ref</text>
+    <text x="690" y="282">Current policy</text><text x="690" y="312">π_θ</text>
+    <text x="690" y="92">Reward model / verifier</text><text x="690" y="122">r(x, y)</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M690 140V242"/><path d="M352 287H548" marker-start="url(#arrow)"/>
+  </g>
+  <g fill="#334155" font-family="Arial, sans-serif" font-size="21" text-anchor="middle">
+    <text x="785" y="198">Increase reward</text><text x="450" y="270">KL constrains distribution shift</text>
+  </g>
+</svg>
+

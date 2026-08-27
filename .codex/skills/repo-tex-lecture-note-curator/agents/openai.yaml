@@ -1,0 +1,4 @@
+interface:
+  display_name: "TeX Lecture Note Curator"
+  short_description: "Publish bilingual Quarto lectures from TeX"
+  default_prompt: "Use $repo-tex-lecture-note-curator to turn this TeX source into a faithful bilingual lecture note with explicitly requested downloads."

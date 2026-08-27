@@ -99,8 +99,10 @@ python scripts/sync_feishu_wiki.py --apply
 - 论文从 `README.md` 和 `README.zh-CN.md` 的结构化条目生成，每种语言按 10 个研究分类成页。
 - 笔记读取 `notes/en/` 和 `notes/zh/` 的正文 QMD；YAML front matter 被移除，callout 转为引用块，表格、代码和公式保留。
 - 本地图片改写为 lark-cli 相对媒体引用；SVG 在临时目录转换为 PNG。缺失文件或单个媒体超过 20 MB 时检查失败。
+- 笔记附件严格按需启用：只有同时出现在 QMD `resources` 与 `other-links` 中的本地 `.pdf`/`.tex` 才会转换成 `<source>` 资源块。文件存在、目录扫描或通配符均不构成授权；中英配对页面必须使用相同的规范化路径和顺序。
+- `python scripts/check_note_attachments.py` 在本地和 CI 中执行同一组路径、存在性、重复、20 MB 与双语一致性检查。Pages 工作流还会生成只包含授权文件及 SHA-256 清单的 `note-downloads-<commit>` artifact。
 - 站内 QMD 链接映射到清单中的 Wiki node token，外部链接保持不变。
-- 页面哈希覆盖规范化正文和媒体字节。页面显示的 commit 只在该页正文确实更新时刷新，避免无关 Git commit 让全部页面重写。
+- 页面哈希覆盖规范化正文以及图片和显式附件的字节。页面显示的 commit 只在该页正文确实更新时刷新，避免无关 Git commit 让全部页面重写。
 - 首页 Manifest v2 为非首页受管页面记录 Wiki 节点的 `obj_edit_time`，并把它作为远端对象变更信号；本地哈希或该时间变化后才读取最新 revision。`obj_edit_time` 变化只表示“需要进一步核验”，真正的正文冲突仍以 revision 为准。
 - 快路径依赖飞书把手工正文修改反映为 Wiki 对象编辑时间和 Docx revision 漂移，随后由下一次 `apply` 用 GitHub 真源覆盖。如果节点列表没有返回 `obj_edit_time`，或者同步器自己写入后发现 revision 已变化但编辑时间没有推进，该页会记录为未知元数据并在后续每次运行保守读取 revision。
 

@@ -90,6 +90,7 @@ Use lightweight checks before committing:
 - `python scripts/check_readme_qmd_sync.py` - verify all qmd pages match the bilingual README sources.
 - `python scripts/sync_notes.py --write` - regenerate README notes sections and bilingual notes index pages.
 - `python scripts/sync_notes.py` - verify generated notes content is in sync.
+- `python scripts/check_note_attachments.py` - validate explicitly authorized TeX/PDF note downloads and bilingual attachment alignment.
 - `python scripts/sync_blog_shares.py --write` - regenerate README blog sections and bilingual blog index pages.
 - `python scripts/sync_blog_shares.py` - verify generated blog content is in sync.
 - `python -m unittest discover -s tests -v` - run the Feishu Wiki synchronizer test suite.
@@ -115,6 +116,9 @@ Markdown and qmd consistency are the core style requirements.
 - Keep the generated homepage focused on the three collection entries; do not reintroduce direct paper lists there.
 - Keep paper-category browsing and recent-paper lists on the generated paper overview pages.
 - Use two dates in note front matter: `date` is the immutable creation date and controls newest-created-first ordering; `date-modified` is the latest source-modification date. Set both to the current `Asia/Shanghai` date for a new bilingual note pair. On later edits, preserve `date` and update `date-modified` in both paired notes before regenerating indexes.
+- Note downloads are opt-in per bilingual note pair and may be enabled only when the user explicitly requests downloadable attachments. File presence alone is never authorization: list each requested local `.pdf` or `.tex` file in both `resources` and `other-links`, keep normalized paths and order aligned across the language pair, and localize only the link labels.
+- Do not add global download globs, automatically scan attachment directories, or expose downloads in README/Notes index cards. Unless requested, preserve the original attachment bytes and do not translate, duplicate, rebuild, or replace TeX/PDF files. Preserve previously authorized links during unrelated edits unless the user asks to remove them.
+- The Feishu mirror may emit attachment resources only from that same explicit `resources` plus `other-links` authorization. GitHub Actions validates this metadata and packages only authorized files; it must not infer downloads from repository contents.
 - Keep blogs in `data/blog_shares.json` with exact fields: `slug`, `date`, `title_en`, `title_zh`, `description_en`, `description_zh`, `blog_url`, `github_url`.
 - Blogs sort by `date` descending through `scripts/sync_blog_shares.py`; do not hand-edit generated Blogs sections.
 - Leave `github_url` empty when a blog has no official linked GitHub repository.
@@ -157,6 +161,7 @@ The Feishu Wiki synchronizer has an automated unittest suite; catalog and genera
 - Confirm `python scripts/check_readme_qmd_sync.py` passes.
 - Confirm edited English and Chinese note pairs have matching creation `date` and `date-modified` values, with only `date-modified` updated for later revisions.
 - Confirm `python scripts/sync_notes.py` passes after note edits.
+- Confirm `python scripts/check_note_attachments.py` passes after adding, changing, or removing note downloads.
 - Confirm `python scripts/sync_blog_shares.py` passes after blog edits.
 - Confirm homepage stats are refreshed by rerunning `python scripts/check_readme_qmd_sync.py --write` after note or blog generator writes.
 - Confirm both shared README checks pass after any Notes, Blogs, paper catalog, Contents, or generator change.

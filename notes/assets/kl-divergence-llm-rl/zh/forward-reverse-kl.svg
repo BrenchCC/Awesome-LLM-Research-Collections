@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Forward KL 与 Reverse KL 的典型行为</title>
+  <desc id="desc">目标分布为双峰分布。Forward KL 的近似覆盖两个模式，Reverse KL 的近似集中在一个模式。</desc>
+  <defs>
+    <style>
+      .axis { stroke: #475569; stroke-width: 2; fill: none; }
+      .target { stroke: #64748b; stroke-width: 4; stroke-dasharray: 10 8; fill: none; }
+      .approx { stroke: #2563eb; stroke-width: 5; fill: none; }
+      .label { fill: #0f172a; font: 22px Arial, "Noto Sans CJK SC", sans-serif; text-anchor: middle; }
+      .x { fill: #475569; font: italic 20px Georgia, serif; }
+    </style>
+  </defs>
+  <g transform="translate(30 25)">
+    <text class="label" x="170" y="25">目标分布 P</text>
+    <path class="axis" d="M20 300V55M20 300H340"/><text class="x" x="324" y="328">x</text>
+    <path class="approx" d="M25 297 C70 295 82 85 125 80 C165 78 168 254 185 275 C205 250 205 78 247 80 C290 85 302 295 335 297"/>
+  </g>
+  <g transform="translate(425 25)">
+    <text class="label" x="170" y="25">Forward KL 直觉</text>
+    <path class="axis" d="M20 300V55M20 300H340"/><text class="x" x="324" y="328">x</text>
+    <path class="target" d="M25 297 C70 295 82 85 125 80 C165 78 168 254 185 275 C205 250 205 78 247 80 C290 85 302 295 335 297"/>
+    <path class="approx" d="M25 295 C74 290 88 220 118 150 C145 92 195 78 232 118 C275 165 292 280 335 296"/>
+  </g>
+  <g transform="translate(820 25)">
+    <text class="label" x="170" y="25">Reverse KL 直觉</text>
+    <path class="axis" d="M20 300V55M20 300H340"/><text class="x" x="324" y="328">x</text>
+    <path class="target" d="M25 297 C70 295 82 85 125 80 C165 78 168 254 185 275 C205 250 205 78 247 80 C290 85 302 295 335 297"/>
+    <path class="approx" d="M25 298 C170 298 192 282 210 180 C220 108 235 76 252 80 C282 90 296 288 335 298"/>
+  </g>
+</svg>
+

@@ -14,6 +14,7 @@ on:
       - "data/blog_shares.json"
       - "assets/**"
       - "scripts/check_readme_qmd_sync.py"
+      - "scripts/check_note_attachments.py"
       - "scripts/sync_notes.py"
       - "scripts/sync_blog_shares.py"
       - "scripts/sync_feishu_wiki.py"
@@ -94,6 +95,9 @@ jobs:
 
       - name: Check notes synchronization
         run: python scripts/sync_notes.py
+
+      - name: Check explicitly authorized note downloads
+        run: python scripts/check_note_attachments.py
 
       - name: Check blogs synchronization
         run: python scripts/sync_blog_shares.py

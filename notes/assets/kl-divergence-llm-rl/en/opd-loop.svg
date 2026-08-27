@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="470" viewBox="0 0 1250 470" role="img" aria-labelledby="title desc">
+  <title id="title">Basic On-Policy Distillation loop</title>
+  <desc id="desc">The student generates a trajectory from the prompt, the teacher provides a next-token distribution at prefixes actually visited by the student, and the divergence updates the student.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#334155"/></marker></defs>
+  <g fill="#f8fafc" stroke="#334155" stroke-width="2.5">
+    <rect x="30" y="70" width="210" height="82" rx="14"/><rect x="285" y="70" width="260" height="82" rx="14"/><rect x="590" y="70" width="310" height="82" rx="14"/><rect x="590" y="300" width="310" height="82" rx="14"/><rect x="285" y="300" width="260" height="82" rx="14"/>
+  </g>
+  <g fill="#0f172a" font-family="Arial, sans-serif" font-size="23" text-anchor="middle">
+    <text x="135" y="120">Prompt x</text><text x="415" y="106">Student generates</text><text x="415" y="136">y ~ p_S^θ</text>
+    <text x="745" y="106">Student-visited</text><text x="745" y="136">prefix y_&lt;t</text>
+    <text x="745" y="336">Teacher provides</text><text x="745" y="366">next-token distribution</text>
+    <text x="415" y="336">Compute divergence</text><text x="415" y="366">and update Student</text>
+  </g>
+  <g fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M240 111H282"/><path d="M545 111H587"/><path d="M745 154V297"/><path d="M590 341H548"/><path d="M415 300V188Q415 160 430 154"/>
+  </g>
+</svg>
+

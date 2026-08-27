@@ -16,6 +16,7 @@ on:
       - "assets/**"
       - "data/blog_shares.json"
       - "scripts/check_readme_qmd_sync.py"
+      - "scripts/check_note_attachments.py"
       - "scripts/sync_notes.py"
       - "scripts/sync_blog_shares.py"
       - ".github/workflows/quarto-gh-pages.yml"
@@ -46,8 +47,24 @@ jobs:
       - name: Check README and QMD sync
         run: python scripts/check_readme_qmd_sync.py
 
+      - name: Check notes sync
+        run: python scripts/sync_notes.py
+
       - name: Check blogs sync
         run: python scripts/sync_blog_shares.py
+
+      - name: Package explicitly authorized note downloads
+        run: >-
+          python scripts/check_note_attachments.py
+          --bundle-dir _note-downloads
+          --manifest _note-downloads/manifest.json
+
+      - name: Upload note-download artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: note-downloads-${{ github.sha }}
+          path: _note-downloads
+          if-no-files-found: error
 
       - name: Render site
         run: quarto render --no-execute

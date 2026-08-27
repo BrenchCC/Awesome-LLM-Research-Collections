@@ -12,9 +12,12 @@ os.sys.path.append(str(Path.cwd() / "scripts"))
 from sync_notes import Note  # noqa: E402
 from feishu_wiki_sync.content import build_page_specs  # noqa: E402
 from feishu_wiki_sync.content import convert_qmd_body  # noqa: E402
+from feishu_wiki_sync.content import parse_note_downloads  # noqa: E402
 from feishu_wiki_sync.content import render_managed_page  # noqa: E402
 from feishu_wiki_sync.content import render_manifest_block  # noqa: E402
+from feishu_wiki_sync.content import validate_bilingual_downloads  # noqa: E402
 from feishu_wiki_sync.models import HOME_TITLE  # noqa: E402
+from feishu_wiki_sync.models import MAX_MEDIA_BYTES  # noqa: E402
 from feishu_wiki_sync.models import PageSpec  # noqa: E402
 from feishu_wiki_sync.models import RemotePage  # noqa: E402
 from feishu_wiki_sync.models import SafetyError  # noqa: E402
@@ -336,6 +339,204 @@ class LocalConversionTests(unittest.TestCase):
             second = stable_hash("body", [image_path])
             self.assertNotEqual(first, second)
             self.assertEqual(stable_hash("body\n"), stable_hash("body\r\n"))
+        finally:
+            shutil.rmtree(temporary_root)
+
+    def test_explicit_note_downloads_become_feishu_resources(self):
+        """Require resources and other-links before uploading note downloads.
+
+        Parameters:
+            self: Current test case.
+        """
+        temporary_root = Path(tempfile.mkdtemp(dir = Path.cwd()))
+        try:
+            source_dir = temporary_root / "notes" / "en" / "topic"
+            asset_dir = temporary_root / "notes" / "assets" / "downloads"
+            source_dir.mkdir(parents = True)
+            asset_dir.mkdir(parents = True)
+            pdf_path = asset_dir / "lecture.pdf"
+            tex_path = asset_dir / "lecture.tex"
+            pdf_path.write_bytes(b"pdf")
+            tex_path.write_text("tex", encoding = "utf-8")
+            source_path = source_dir / "source.qmd"
+            source_path.write_text(
+                "\n".join(
+                    [
+                        "---",
+                        "title: Source",
+                        "resources:",
+                        "  - ../../assets/downloads/lecture.pdf",
+                        "  - ../../assets/downloads/lecture.tex",
+                        "other-links:",
+                        "  - text: Download PDF",
+                        "    href: ../../assets/downloads/lecture.pdf",
+                        "    icon: file-earmark-pdf",
+                        "  - text: Download TeX",
+                        "    href: ../../assets/downloads/lecture.tex",
+                        "    icon: file-earmark-code",
+                        "---",
+                        "",
+                        "Body",
+                        "",
+                    ]
+                ),
+                encoding = "utf-8"
+            )
+            note = Note(
+                language = "en",
+                source_path = source_path,
+                relative_path = Path("topic/source.qmd"),
+                title = "Source",
+                date = "2026-08-27",
+                date_modified = "2026-08-27",
+                description = "Description",
+                author = "Brench",
+                order = 1,
+                note_type = "technical-reflection",
+                topic = "topic",
+                tags = ["Tag"]
+            )
+            body, media = convert_qmd_body(note = note, source_key_by_path = {})
+            self.assertIn("## Downloads", body)
+            self.assertIn(
+                '<source path="@./' + pdf_path.relative_to(Path.cwd()).as_posix(),
+                body
+            )
+            self.assertIn('name="Download TeX"/>', body)
+            self.assertEqual(media, [pdf_path.resolve(), tex_path.resolve()])
+            first_hash = stable_hash(body, media)
+            self.assertEqual(first_hash, stable_hash(body, media))
+            pdf_path.write_bytes(b"updated pdf")
+            self.assertNotEqual(first_hash, stable_hash(body, media))
+        finally:
+            shutil.rmtree(temporary_root)
+
+    def test_note_downloads_are_opt_in_and_fail_closed(self):
+        """Reject partial, unsafe, missing, duplicate, and oversized downloads.
+
+        Parameters:
+            self: Current test case.
+        """
+        temporary_root = Path(tempfile.mkdtemp(dir = Path.cwd()))
+        try:
+            source_dir = temporary_root / "notes" / "en" / "topic"
+            asset_dir = temporary_root / "notes" / "assets"
+            source_dir.mkdir(parents = True)
+            asset_dir.mkdir(parents = True)
+            pdf_path = asset_dir / "lecture.pdf"
+            pdf_path.write_bytes(b"pdf")
+            source_path = source_dir / "source.qmd"
+
+            source_path.write_text(
+                "---\ntitle: Source\nresources:\n  - ../../assets/lecture.pdf\n---\nBody\n",
+                encoding = "utf-8"
+            )
+            self.assertEqual(
+                parse_note_downloads(
+                    source_path.read_text(encoding = "utf-8"),
+                    source_path.resolve()
+                ),
+                []
+            )
+
+            cases = [
+                (
+                    "missing resources entry",
+                    "---\ntitle: Source\nother-links:\n  - text: PDF\n    href: ../../assets/lecture.pdf\n---\nBody\n",
+                    "must also be listed in resources"
+                ),
+                (
+                    "missing file",
+                    "---\ntitle: Source\nresources:\n  - ../../assets/missing.pdf\nother-links:\n  - text: PDF\n    href: ../../assets/missing.pdf\n---\nBody\n",
+                    "Missing note download"
+                ),
+                (
+                    "duplicate",
+                    "---\ntitle: Source\nresources:\n  - ../../assets/lecture.pdf\nother-links:\n  - text: PDF\n    href: ../../assets/lecture.pdf\n  - text: PDF again\n    href: ../../assets/lecture.pdf\n---\nBody\n",
+                    "Duplicate note download"
+                ),
+                (
+                    "path escape",
+                    "---\ntitle: Source\nresources:\n  - ../../../../../outside.pdf\nother-links:\n  - text: PDF\n    href: ../../../../../outside.pdf\n---\nBody\n",
+                    "Path escapes the repository"
+                ),
+            ]
+            for name, text_value, error_pattern in cases:
+                with self.subTest(name = name):
+                    source_path.write_text(text_value, encoding = "utf-8")
+                    with self.assertRaisesRegex(ValueError, error_pattern):
+                        parse_note_downloads(
+                            source_path.read_text(encoding = "utf-8"),
+                            source_path.resolve()
+                        )
+
+            large_path = asset_dir / "large.pdf"
+            with large_path.open("wb") as output:
+                output.truncate(MAX_MEDIA_BYTES + 1)
+            source_path.write_text(
+                "---\ntitle: Source\nresources:\n  - ../../assets/large.pdf\nother-links:\n  - text: PDF\n    href: ../../assets/large.pdf\n---\nBody\n",
+                encoding = "utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "exceeds 20 MB"):
+                parse_note_downloads(
+                    source_path.read_text(encoding = "utf-8"),
+                    source_path.resolve()
+                )
+        finally:
+            shutil.rmtree(temporary_root)
+
+    def test_bilingual_note_download_paths_must_match(self):
+        """Reject attachment authorization drift between paired notes.
+
+        Parameters:
+            self: Current test case.
+        """
+        temporary_root = Path(tempfile.mkdtemp(dir = Path.cwd()))
+        try:
+            asset_dir = temporary_root / "notes" / "assets"
+            asset_dir.mkdir(parents = True)
+            (asset_dir / "zh.pdf").write_bytes(b"zh")
+            (asset_dir / "en.pdf").write_bytes(b"en")
+            notes = {}
+            for language in ["zh", "en"]:
+                source_dir = temporary_root / "notes" / language / "topic"
+                source_dir.mkdir(parents = True)
+                source_path = source_dir / "source.qmd"
+                filename = f"{language}.pdf"
+                source_path.write_text(
+                    "\n".join(
+                        [
+                            "---",
+                            "title: Source",
+                            "resources:",
+                            f"  - ../../assets/{filename}",
+                            "other-links:",
+                            "  - text: PDF",
+                            f"    href: ../../assets/{filename}",
+                            "---",
+                            "Body",
+                        ]
+                    ),
+                    encoding = "utf-8"
+                )
+                notes[language] = [
+                    Note(
+                        language = language,
+                        source_path = source_path,
+                        relative_path = Path("topic/source.qmd"),
+                        title = "Source",
+                        date = "2026-08-27",
+                        date_modified = "2026-08-27",
+                        description = "Description",
+                        author = "Brench",
+                        order = 1,
+                        note_type = "technical-reflection",
+                        topic = "topic",
+                        tags = ["Tag"]
+                    )
+                ]
+            with self.assertRaisesRegex(ValueError, "Bilingual note downloads differ"):
+                validate_bilingual_downloads(notes)
         finally:
             shutil.rmtree(temporary_root)
 
