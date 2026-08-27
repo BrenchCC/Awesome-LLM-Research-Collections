@@ -1026,6 +1026,11 @@
 
 ## 技术思考
 
+- **没有线上数据，如何为 Agent 构建冷启动评测集** (创建: 2026-08-28; 更新: 2026-08-28) \
+  **描述**: 从能力地图、人工金种子、受控变异、状态 Oracle、可重置环境和发布门禁出发，构建上线前可复核的 Agent 冷启动评测集。 \
+  [[笔记](notes/zh/agents/cold-start-agent-evaluation-dataset.qmd)]
+  [[English](notes/en/agents/cold-start-agent-evaluation-dataset.qmd)]
+
 - **KL 散度：从数学推导到 LLM 强化学习** (创建: 2026-08-27; 更新: 2026-08-27) \
   **描述**: 看懂 KL 散度的数学结构，并理解它在 PPO、DPO、GRPO、On Policy Distillation 中究竟控制了什么。 \
   [[笔记](notes/zh/reinforcement-learning/kl-divergence-llm-rl.qmd)]
@@ -1051,7 +1056,7 @@
   [[笔记](notes/zh/reinforcement-learning/rl-matters.qmd)]
   [[English](notes/en/reinforcement-learning/rl-matters.qmd)]
 
-- **如何科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-20) \
+- **如何科学评测 AI Agent：指标、环境、裁判与回归闭环** (创建: 2026-08-19; 更新: 2026-08-28) \
   **描述**: 从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。 \
   [[笔记](notes/zh/agents/scientific-agent-evaluation.qmd)]
   [[English](notes/en/agents/scientific-agent-evaluation.qmd)]

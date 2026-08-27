@@ -1027,6 +1027,11 @@
 
 ## Technical Reflections
 
+- **Building a Cold-Start Evaluation Dataset for AI Agents Without Production Data** (Created: 2026-08-28; Updated: 2026-08-28) \
+  **Description**: A practical method for building auditable pre-launch agent eval datasets from capability maps, human-authored gold seeds, controlled mutations, state oracles, resettable environments, and release gates. \
+  [[Note](notes/en/agents/cold-start-agent-evaluation-dataset.qmd)]
+  [[中文](notes/zh/agents/cold-start-agent-evaluation-dataset.qmd)]
+
 - **KL Divergence: From Mathematical Derivations to LLM Reinforcement Learning** (Created: 2026-08-27; Updated: 2026-08-27) \
   **Description**: Understand the mathematical structure of KL divergence and what it controls in PPO, DPO, GRPO, and On-Policy Distillation. \
   [[Note](notes/en/reinforcement-learning/kl-divergence-llm-rl.qmd)]
@@ -1052,7 +1057,7 @@
   [[Note](notes/en/reinforcement-learning/rl-matters.qmd)]
   [[中文](notes/zh/reinforcement-learning/rl-matters.qmd)]
 
-- **How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-20) \
+- **How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop** (Created: 2026-08-19; Updated: 2026-08-28) \
   **Description**: A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression. \
   [[Note](notes/en/agents/scientific-agent-evaluation.qmd)]
   [[中文](notes/zh/agents/scientific-agent-evaluation.qmd)]

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">从能力地图到人工金种子</title>
+  <desc id="desc">产品需求、业务流程、工具和权限材料先形成能力地图，再沿用户目标、复杂度、输入质量、系统状态和风险等级构造评测矩阵，最后按频率、后果和覆盖缺口选择二十到五十条人工金种子。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1400" height="780" fill="#ffffff"/>
+  <text x="700" y="52" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">冷启动入口：先覆盖能力，再选择样本</text>
+
+  <rect x="50" y="105" width="300" height="540" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="200" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">业务证据</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1e3a8a" text-anchor="middle">
+    <rect x="92" y="182" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="218">产品需求 / PRD</text>
+    <rect x="92" y="260" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="296">业务 SOP / 人工流程</text>
+    <rect x="92" y="338" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="374">工具 Schema / 错误码</text>
+    <rect x="92" y="416" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="452">权限矩阵 / 风险规则</text>
+    <rect x="92" y="494" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="530">领域专家决议</text>
+  </g>
+  <text x="200" y="600" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">冲突规则先显式决议并版本化</text>
+
+  <rect x="430" y="105" width="400" height="540" rx="20" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="630" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#581c87">能力地图与评测矩阵</text>
+  <rect x="482" y="178" width="296" height="76" rx="12" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="630" y="209" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4c1d95">Capability Map</text>
+  <text x="630" y="235" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6d28d9">查询 · 修改 · 退款 · 异常 · 升级人工</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#4c1d95" text-anchor="middle">
+    <rect x="486" y="290" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="552" y="323">用户目标</text>
+    <rect x="642" y="290" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="708" y="323">任务复杂度</text>
+    <rect x="486" y="366" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="552" y="399">输入质量</text>
+    <rect x="642" y="366" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="708" y="399">系统状态</text>
+    <rect x="564" y="442" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="630" y="475">风险等级</text>
+  </g>
+  <text x="630" y="545" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">不做无意义的全量笛卡尔积</text>
+  <text x="630" y="574" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">按频率 × 后果 × 覆盖缺口取样</text>
+
+  <rect x="910" y="105" width="440" height="540" rx="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="1130" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#14532d">20–50 条人工金种子</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="970" y="190" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="221" font-size="17" font-weight="700" fill="#14532d">业务人员能独立判定</text><text x="1130" y="247" font-size="14" fill="#166534">两位专家得到相同通过 / 失败结论</text>
+    <rect x="970" y="290" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="321" font-size="17" font-weight="700" fill="#14532d">参考执行确实可解</text><text x="1130" y="347" font-size="14" fill="#166534">已知工作轨迹通过全部 grader</text>
+    <rect x="970" y="390" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="421" font-size="17" font-weight="700" fill="#14532d">断言可追溯</text><text x="1130" y="447" font-size="14" fill="#166534">每个检查对应规则或产品决议</text>
+    <rect x="970" y="490" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="521" font-size="17" font-weight="700" fill="#14532d">正例与负例平衡</text><text x="1130" y="547" font-size="14" fill="#166534">同时测试应该做与不应该做</text>
+  </g>
+  <text x="1130" y="605" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">质量先于规模</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M350,375 L420,375"/>
+    <path d="M830,375 L900,375"/>
+  </g>
+  <rect x="275" y="690" width="850" height="52" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="700" y="723" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#9a3412">目标不是证明「题够多」，而是说明「哪些能力和风险已被覆盖」</text>
+</svg>

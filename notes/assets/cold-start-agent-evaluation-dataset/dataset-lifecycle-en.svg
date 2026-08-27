@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 900" role="img" aria-labelledby="title desc">
+  <title id="title">Six agent-evaluation dataset buckets and the production loop</title>
+  <desc id="desc">Gold, Synthetic Coverage, Challenge, Regression, Canary, and Hidden Test sets have separate responsibilities. After development and release, dogfooding, shadow traffic, and limited rollout produce failures, corrections, high-confidence errors, and distribution shifts that feed the challenge and regression sets.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1540" height="900" fill="#ffffff"/>
+  <text x="770" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">An evaluation suite is a versioned data product, not a one-off question bank</text>
+
+  <rect x="45" y="92" width="890" height="530" rx="22" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="490" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#334155">Six buckets, six responsibilities</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="85" y="170" width="245" height="118" rx="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="207" y="204" font-size="18" font-weight="700" fill="#1e3a8a">Gold Set</text><text x="207" y="232" font-size="14" fill="#1e40af">Human seeds and rule evidence</text><text x="207" y="258" font-size="13" fill="#1e40af">Small · high confidence</text>
+    <rect x="367" y="170" width="245" height="118" rx="15" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="489" y="204" font-size="18" font-weight="700" fill="#581c87">Synthetic Coverage</text><text x="489" y="232" font-size="14" fill="#6b21a8">Controlled matrix expansion</text><text x="489" y="258" font-size="13" fill="#6b21a8">Primary development set</text>
+    <rect x="649" y="170" width="245" height="118" rx="15" fill="#fce7f3" stroke="#db2777" stroke-width="2"/><text x="771" y="204" font-size="18" font-weight="700" fill="#831843">Challenge Set</text><text x="771" y="232" font-size="14" fill="#9d174d">Boundary · failure · idempotency</text><text x="771" y="258" font-size="13" fill="#9d174d">Oversample severe events</text>
+    <rect x="85" y="332" width="245" height="118" rx="15" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="207" y="366" font-size="18" font-weight="700" fill="#14532d">Regression Set</text><text x="207" y="394" font-size="14" fill="#166534">Fixed failures and evidence</text><text x="207" y="420" font-size="13" fill="#166534">Type · cause · fixed version</text>
+    <rect x="367" y="332" width="245" height="118" rx="15" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="489" y="366" font-size="18" font-weight="700" fill="#78350f">Canary Set</text><text x="489" y="394" font-size="14" fill="#92400e">30–50 stable discriminators</text><text x="489" y="420" font-size="13" fill="#92400e">Run first; fail fast</text>
+    <rect x="649" y="332" width="245" height="118" rx="15" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/><text x="771" y="366" font-size="18" font-weight="700" fill="#312e81">Hidden Test</text><text x="771" y="394" font-size="14" fill="#3730a3">Sealed until release</text><text x="771" y="420" font-size="13" fill="#3730a3">Split by seed family</text>
+  </g>
+  <rect x="120" y="500" width="335" height="72" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="287" y="531" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1e3a8a">Development channel</text>
+  <text x="287" y="556" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e40af">Gold + Coverage + Challenge + Regression</text>
+  <rect x="525" y="500" width="335" height="72" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="692" y="531" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#9a3412">Release channel</text>
+  <text x="692" y="556" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9a3412">Canary → Full Eval → Hidden Gate</text>
+
+  <rect x="1015" y="92" width="480" height="530" rx="22" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="1255" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#14532d">Deployment and real traces</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="1085" y="174" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="212" font-size="17" fill="#14532d">Dogfooding</text>
+    <rect x="1085" y="263" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="301" font-size="17" fill="#14532d">Shadow Traffic</text>
+    <rect x="1085" y="352" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="390" font-size="17" fill="#14532d">Limited Canary Rollout</text>
+    <rect x="1085" y="441" width="340" height="104" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/><text x="1255" y="475" font-size="17" font-weight="700" fill="#065f46">Production traces</text><text x="1255" y="503" font-size="14" fill="#047857">Real goals · wording · system states</text><text x="1255" y="528" font-size="13" fill="#047857">De-identify, review, then rebuild fixtures</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" fill="none" marker-end="url(#arrow)"><path d="M1255,236 L1255,253"/><path d="M1255,325 L1255,342"/><path d="M1255,414 L1255,431"/></g>
+
+  <rect x="320" y="694" width="900" height="142" rx="20" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+  <text x="770" y="734" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#9a3412">Production feedback: failure mining and distribution shift</text>
+  <text x="770" y="770" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#9a3412">Task failure · repeated questions · high-confidence error · new goal / wording / state</text>
+  <text x="770" y="805" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#9a3412">Update Regression and Challenge, reweight coverage, and retire unrealistic synthetic cases</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M935,355 L1005,355"/><path d="M1255,622 L1255,662 L1035,662 L1035,684"/><path d="M505,694 L505,655 L207,655 L207,460"/><path d="M675,694 L675,655 L771,655 L771,460"/></g>
+</svg>

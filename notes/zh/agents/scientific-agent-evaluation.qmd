@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-19
-date-modified: 2026-08-20
+date-modified: 2026-08-28
 title: "如何科学评测 AI Agent：指标、环境、裁判与回归闭环"
 description: "从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。"
 order: 1
@@ -16,6 +16,8 @@ tags:
 ---
 
 Agent 的输出由模型、运行脚手架、提示词、工具和外部状态共同产生，最后经过评分器解释。只写一个平均成功率，会把这些变量压成一个无法复核的数字。本文梳理评测流水线的五个环节：测什么、怎么搭环境、怎么设计任务、什么时候用 LLM-as-a-Judge、以及怎么用回归测试收尾。
+
+若项目尚未上线，需要先从业务材料、人工金种子和受控合成开始，可参见[《没有线上数据，如何为 Agent 构建冷启动评测集》](cold-start-agent-evaluation-dataset.qmd)。本文接着讨论评测集建成以后如何运行、判分和回归。
 
 ```{mermaid}
 %%| fig-width: 10

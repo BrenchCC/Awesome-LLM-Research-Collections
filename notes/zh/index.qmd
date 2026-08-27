@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>26</strong><span>笔记</span></div>
+    <div><strong>27</strong><span>笔记</span></div>
     <div><strong>7</strong><span>主题</span></div>
-    <div><strong>2026-08-27</strong><span>最近创建</span></div>
+    <div><strong>2026-08-28</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -197,6 +197,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/cold-start-agent-evaluation-dataset.html">
+  <span class="category-count">创建 2026-08-28 · 更新 2026-08-28</span>
+  <h3>没有线上数据，如何为 Agent 构建冷启动评测集</h3>
+  <p>从能力地图、人工金种子、受控变异、状态 Oracle、可重置环境和发布门禁出发，构建上线前可复核的 Agent 冷启动评测集。</p>
+  <div class="note-tags">
+    <span class="note-tag">Agent Evaluation</span>
+    <span class="note-tag">Evaluation Dataset</span>
+    <span class="note-tag">Benchmark Design</span>
+    <span class="note-tag">Synthetic Data</span>
+    <span class="note-tag">Agent Safety</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="reinforcement-learning/kl-divergence-llm-rl.html">
   <span class="category-count">创建 2026-08-27 · 更新 2026-08-27</span>
   <h3>KL 散度：从数学推导到 LLM 强化学习</h3>
@@ -279,7 +295,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents/scientific-agent-evaluation.html">
-  <span class="category-count">创建 2026-08-19 · 更新 2026-08-20</span>
+  <span class="category-count">创建 2026-08-19 · 更新 2026-08-28</span>
   <h3>如何科学评测 AI Agent：指标、环境、裁判与回归闭环</h3>
   <p>从结果与过程指标、环境与任务设计、LLM-as-a-Judge、失败归因和双层回归出发，构建可复现的 AI Agent 评测闭环。</p>
   <div class="note-tags">

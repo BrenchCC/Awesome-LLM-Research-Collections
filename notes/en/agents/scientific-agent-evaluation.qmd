@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-19
-date-modified: 2026-08-20
+date-modified: 2026-08-28
 title: "How to Evaluate AI Agents Scientifically: Metrics, Environments, Judges, and the Regression Loop"
 description: "A practical guide to AI agent evaluation covering outcome and process metrics, environment and task design, LLM-as-a-Judge, failure attribution, and dual regression."
 order: 1
@@ -16,6 +16,8 @@ tags:
 ---
 
 An agent's output is jointly produced by a model, its runtime scaffold, prompts, tools, and external state, then interpreted by a grader. One average success rate compresses those variables into a number that cannot be audited. This note walks through the five pieces of a practical evaluation pipeline: what to measure, how to set up the environment, how to design tasks, when to use LLM-as-a-Judge, and how to close the loop with regression testing.
+
+For a project that has not launched, [Building a Cold-Start Evaluation Dataset for AI Agents Without Production Data](cold-start-agent-evaluation-dataset.qmd) explains how to derive cases from business evidence, human-authored gold seeds, and controlled synthesis. This note continues from there with execution, grading, statistics, and regression.
 
 ```{mermaid}
 %%| fig-width: 10

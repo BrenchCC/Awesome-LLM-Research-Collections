@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 830" role="img" aria-labelledby="title desc">
+  <title id="title">Controlled mutation and synthetic-case acceptance</title>
+  <desc id="desc">Human-authored gold seeds undergo language, parameter boundary, missing information, permission, tool failure, multi-turn, and adversarial mutations, followed by semantic deduplication, rule validation, solvability checks, distribution checks, and human review.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1500" height="830" fill="#ffffff"/>
+  <text x="750" y="50" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Seed Case → Mutation Operators → Accepted Synthetic Cases</text>
+
+  <rect x="50" y="130" width="250" height="520" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="175" y="177" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#1e3a8a">Gold Seed</text>
+  <rect x="82" y="220" width="186" height="118" rx="12" fill="#dbeafe"/>
+  <text x="175" y="253" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1e3a8a">Refund 80</text>
+  <text x="175" y="281" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e40af">Paid · owned order</text>
+  <text x="175" y="307" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e40af">At most one write</text>
+  <text x="175" y="380" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Frozen invariants</text>
+  <text x="175" y="410" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#64748b">Business rules</text>
+  <text x="175" y="438" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#64748b">Expected world state</text>
+  <text x="175" y="466" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#64748b">Safety boundaries</text>
+  <rect x="82" y="520" width="186" height="74" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="175" y="550" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#991b1b">Model may not edit</text>
+  <text x="175" y="576" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#991b1b">Ground truth or authority</text>
+
+  <rect x="370" y="95" width="450" height="610" rx="20" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="595" y="140" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#581c87">Allowed Mutation Operators</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="415" y="180" width="170" height="74" rx="12" fill="#ede9fe"/><text x="500" y="210" font-size="16" font-weight="700" fill="#4c1d95">Language</text><text x="500" y="234" font-size="13" fill="#6d28d9">Typos · slang · references</text>
+    <rect x="605" y="180" width="170" height="74" rx="12" fill="#ede9fe"/><text x="690" y="210" font-size="16" font-weight="700" fill="#4c1d95">Boundaries</text><text x="690" y="234" font-size="13" fill="#6d28d9">99.99 · 100 · 100.01</text>
+    <rect x="415" y="280" width="170" height="74" rx="12" fill="#ede9fe"/><text x="500" y="310" font-size="16" font-weight="700" fill="#4c1d95">Missing input</text><text x="500" y="334" font-size="13" fill="#6d28d9">Order · amount · identity</text>
+    <rect x="605" y="280" width="170" height="74" rx="12" fill="#ede9fe"/><text x="690" y="310" font-size="16" font-weight="700" fill="#4c1d95">Permissions</text><text x="690" y="334" font-size="13" fill="#6d28d9">Not owner · over limit</text>
+    <rect x="415" y="380" width="170" height="74" rx="12" fill="#ede9fe"/><text x="500" y="410" font-size="16" font-weight="700" fill="#4c1d95">Tool failures</text><text x="500" y="434" font-size="13" fill="#6d28d9">Timeout · partial · conflict</text>
+    <rect x="605" y="380" width="170" height="74" rx="12" fill="#ede9fe"/><text x="690" y="410" font-size="16" font-weight="700" fill="#4c1d95">Multi-turn user</text><text x="690" y="434" font-size="13" fill="#6d28d9">Slow reveal · goal change</text>
+    <rect x="510" y="480" width="170" height="74" rx="12" fill="#fce7f3" stroke="#db2777" stroke-width="2"/><text x="595" y="510" font-size="16" font-weight="700" fill="#831843">Adversarial</text><text x="595" y="534" font-size="13" fill="#9d174d">Injection · overreach · replay</text>
+  </g>
+  <rect x="435" y="595" width="320" height="66" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="595" y="624" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#9a3412">Change only declared dimensions</text>
+  <text x="595" y="648" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9a3412">Record seed_id and mutation_type</text>
+
+  <rect x="900" y="95" width="550" height="610" rx="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="1175" y="140" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#14532d">Acceptance chain</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="975" y="180" width="400" height="70" rx="12" fill="#dcfce7"/><text x="1175" y="210" font-size="17" font-weight="700" fill="#14532d">1. Semantic deduplication</text><text x="1175" y="234" font-size="13" fill="#166534">Compare goal, state, risk, and expected behavior</text>
+    <rect x="975" y="275" width="400" height="70" rx="12" fill="#dcfce7"/><text x="1175" y="305" font-size="17" font-weight="700" fill="#14532d">2. Rule validation</text><text x="1175" y="329" font-size="13" fill="#166534">Execute invariants and parameter constraints</text>
+    <rect x="975" y="370" width="400" height="70" rx="12" fill="#dcfce7"/><text x="1175" y="400" font-size="17" font-weight="700" fill="#14532d">3. Solvability check</text><text x="1175" y="424" font-size="13" fill="#166534">Reference run or deterministic refusal passes</text>
+    <rect x="975" y="465" width="400" height="70" rx="12" fill="#dcfce7"/><text x="1175" y="495" font-size="17" font-weight="700" fill="#14532d">4. Distribution check</text><text x="1175" y="519" font-size="13" fill="#166534">Capability · tool · risk · difficulty · mutation</text>
+    <rect x="975" y="560" width="400" height="70" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/><text x="1175" y="590" font-size="17" font-weight="700" fill="#065f46">5. Human review</text><text x="1175" y="614" font-size="13" fill="#047857">Focus on high-risk and open-ended rubrics</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M300,400 L360,400"/><path d="M820,400 L890,400"/></g>
+  <rect x="390" y="750" width="720" height="52" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="750" y="783" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0c4a6e">Output: traceable, resettable, and gradable Synthetic Coverage Cases</text>
+</svg>

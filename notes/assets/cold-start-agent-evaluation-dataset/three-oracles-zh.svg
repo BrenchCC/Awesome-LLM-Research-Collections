@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 850" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 评测的三层 Oracle 与安全门禁</title>
+  <desc id="desc">同一条试验轨迹依次由 Outcome Oracle 检查最终状态、Behavior Oracle 检查工具和业务不变量、Response Oracle 检查解释与忠实性。确定性状态和规则优先，开放表达交给模型和人工，任何安全违规直接导致发布失败。</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1480" height="850" fill="#ffffff"/>
+  <text x="740" y="52" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">先验证世界状态，再检查行为，最后评价回复</text>
+
+  <rect x="60" y="116" width="290" height="600" rx="20" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="205" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#334155">Trial 证据包</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="16" fill="#334155">
+    <rect x="100" y="198" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="238">初始与最终状态</text>
+    <rect x="100" y="288" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="328">完整 Tool Trace</text>
+    <rect x="100" y="378" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="418">对话与最终回复</text>
+    <rect x="100" y="468" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="508">版本包与运行日志</text>
+  </g>
+  <text x="205" y="588" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">同一证据支持多层评分</text>
+  <text x="205" y="615" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">不从流畅文本猜测状态</text>
+
+  <rect x="430" y="95" width="640" height="650" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+  <rect x="478" y="142" width="544" height="144" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="750" y="177" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">Outcome Oracle</text>
+  <text x="750" y="209" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1e40af">数据库 · API 状态 · 文件 · 业务对象</text>
+  <rect x="622" y="231" width="256" height="38" rx="9" fill="#dbeafe"/>
+  <text x="750" y="256" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a">程序断言 / 单元测试</text>
+
+  <rect x="478" y="319" width="544" height="162" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="750" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#581c87">Behavior Oracle</text>
+  <text x="750" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6b21a8">工具 · 参数 · 次数 · 权限 · 必要确认</text>
+  <text x="750" y="414" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b21a8">强流程检查 invariant；非强流程允许多条合法路径</text>
+  <rect x="622" y="431" width="256" height="38" rx="9" fill="#ede9fe"/>
+  <text x="750" y="456" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#4c1d95">规则引擎 / Trace 检查</text>
+
+  <rect x="478" y="514" width="544" height="174" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="750" y="549" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#14532d">Response Oracle</text>
+  <text x="750" y="581" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#166534">解释清楚 · 忠实工具结果 · 必要时澄清</text>
+  <text x="750" y="609" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#166534">Judge 可返回 Unknown，并接受业务人员校准</text>
+  <rect x="600" y="635" width="300" height="38" rx="9" fill="#dcfce7"/>
+  <text x="750" y="660" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#14532d">结构化 Rubric / LLM / 人工抽检</text>
+
+  <rect x="1145" y="140" width="280" height="224" rx="20" fill="#fff1f2" stroke="#e11d48" stroke-width="3"/>
+  <text x="1285" y="183" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#881337">Guardrail 检查</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="15" fill="#9f1239">
+    <text x="1285" y="224">越权操作</text><text x="1285" y="253">重复扣款 / 重复写入</text><text x="1285" y="282">隐私泄漏</text><text x="1285" y="311">非法或禁止工具调用</text>
+  </g>
+  <rect x="1145" y="500" width="280" height="160" rx="20" fill="#fee2e2" stroke="#dc2626" stroke-width="4"/>
+  <text x="1285" y="550" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#7f1d1d">Release Gate Failed</text>
+  <text x="1285" y="587" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#991b1b">安全事件不能被平均分抵消</text>
+  <text x="1285" y="620" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#991b1b">高风险阈值通常预登记为零</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M350,410 L420,410"/>
+    <path d="M1070,245 L1135,245"/>
+    <path d="M1070,400 L1105,400 L1105,300 L1135,300"/>
+    <path d="M1285,364 L1285,490"/>
+  </g>
+  <rect x="355" y="782" width="770" height="48" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="740" y="813" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#9a3412">优先级：程序验证 ＞ 规则验证 ＞ LLM Judge ＞ 人工抽检</text>
+</svg>

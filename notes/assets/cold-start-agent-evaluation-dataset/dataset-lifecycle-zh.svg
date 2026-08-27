@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 900" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 评测集的六个数据桶与生产闭环</title>
+  <desc id="desc">Gold、Synthetic Coverage、Challenge、Regression、Canary 和 Hidden Test 六个数据桶承担不同职责。开发和发布之后，系统经过内部试用、影子流量和灰度上线，生产失败、用户纠正、高置信错误与分布漂移再回流到挑战集和回归集。</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1540" height="900" fill="#ffffff"/>
+  <text x="770" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">评测集是版本化的数据产品，不是一次性题库</text>
+
+  <rect x="45" y="92" width="890" height="530" rx="22" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="490" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#334155">六个数据桶，六种职责</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="85" y="170" width="245" height="118" rx="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="207" y="204" font-size="18" font-weight="700" fill="#1e3a8a">Gold Set</text><text x="207" y="232" font-size="14" fill="#1e40af">人工金种子与规则证据</text><text x="207" y="258" font-size="13" fill="#1e40af">小规模 · 高可信</text>
+    <rect x="367" y="170" width="245" height="118" rx="15" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="489" y="204" font-size="18" font-weight="700" fill="#581c87">Synthetic Coverage</text><text x="489" y="232" font-size="14" fill="#6b21a8">受控变异补齐覆盖矩阵</text><text x="489" y="258" font-size="13" fill="#6b21a8">日常开发主集</text>
+    <rect x="649" y="170" width="245" height="118" rx="15" fill="#fce7f3" stroke="#db2777" stroke-width="2"/><text x="771" y="204" font-size="18" font-weight="700" fill="#831843">Challenge Set</text><text x="771" y="232" font-size="14" fill="#9d174d">边界 · 故障 · 幂等 · 对抗</text><text x="771" y="258" font-size="13" fill="#9d174d">低频高后果过采样</text>
+    <rect x="85" y="332" width="245" height="118" rx="15" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="207" y="366" font-size="18" font-weight="700" fill="#14532d">Regression Set</text><text x="207" y="394" font-size="14" fill="#166534">已修复故障与证据链</text><text x="207" y="420" font-size="13" fill="#166534">分类 · 根因 · 修复版本</text>
+    <rect x="367" y="332" width="245" height="118" rx="15" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="489" y="366" font-size="18" font-weight="700" fill="#78350f">Canary Set</text><text x="489" y="394" font-size="14" fill="#92400e">30–50 条稳定高区分案例</text><text x="489" y="420" font-size="13" fill="#92400e">变更后先跑，快速失败</text>
+    <rect x="649" y="332" width="245" height="118" rx="15" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/><text x="771" y="366" font-size="18" font-weight="700" fill="#312e81">Hidden Test</text><text x="771" y="394" font-size="14" fill="#3730a3">发布前封存</text><text x="771" y="420" font-size="13" fill="#3730a3">按 seed family 切分</text>
+  </g>
+  <rect x="120" y="500" width="335" height="72" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="287" y="531" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1e3a8a">开发通道</text>
+  <text x="287" y="556" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e40af">Gold + Coverage + Challenge + Regression</text>
+  <rect x="525" y="500" width="335" height="72" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="692" y="531" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#9a3412">发布通道</text>
+  <text x="692" y="556" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9a3412">Canary → Full Eval → Hidden Gate</text>
+
+  <rect x="1015" y="92" width="480" height="530" rx="22" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="1255" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#14532d">部署与真实轨迹</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="1085" y="174" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="212" font-size="17" fill="#14532d">内部试用 / Dogfooding</text>
+    <rect x="1085" y="263" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="301" font-size="17" fill="#14532d">影子流量 / Shadow Traffic</text>
+    <rect x="1085" y="352" width="340" height="62" rx="12" fill="#dcfce7"/><text x="1255" y="390" font-size="17" fill="#14532d">小比例灰度 / Canary Rollout</text>
+    <rect x="1085" y="441" width="340" height="104" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/><text x="1255" y="475" font-size="17" font-weight="700" fill="#065f46">生产轨迹</text><text x="1255" y="503" font-size="14" fill="#047857">真实目标 · 真实说法 · 真实系统状态</text><text x="1255" y="528" font-size="13" fill="#047857">先脱敏，再复核与重建 fixture</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" fill="none" marker-end="url(#arrow)"><path d="M1255,236 L1255,253"/><path d="M1255,325 L1255,342"/><path d="M1255,414 L1255,431"/></g>
+
+  <rect x="320" y="694" width="900" height="142" rx="20" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+  <text x="770" y="734" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#9a3412">生产反馈：失败挖掘与分布漂移</text>
+  <text x="770" y="770" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#9a3412">任务失败 · 用户反复追问 · 高置信错误 · 新目标 / 新表述 / 新状态</text>
+  <text x="770" y="805" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#9a3412">加入 Regression / Challenge，调整权重，淘汰失真的合成案例</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M935,355 L1005,355"/>
+    <path d="M1255,622 L1255,662 L1035,662 L1035,684"/>
+    <path d="M505,694 L505,655 L207,655 L207,460"/>
+    <path d="M675,694 L675,655 L771,655 L771,460"/>
+  </g>
+</svg>

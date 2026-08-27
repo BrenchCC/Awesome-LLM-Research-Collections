@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">From capability map to human-authored gold seeds</title>
+  <desc id="desc">Product requirements, business procedures, tools, and permission evidence form a capability map. User goal, complexity, input quality, system state, and risk form an evaluation matrix, from which twenty to fifty human-authored gold seeds are selected by frequency, consequence, and coverage gap.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1400" height="780" fill="#ffffff"/>
+  <text x="700" y="52" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Cold start: cover capabilities before selecting cases</text>
+
+  <rect x="50" y="105" width="300" height="540" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="200" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Business evidence</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1e3a8a" text-anchor="middle">
+    <rect x="92" y="182" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="218">Product requirements</text>
+    <rect x="92" y="260" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="296">SOPs / manual workflow</text>
+    <rect x="92" y="338" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="374">Tool schemas / errors</text>
+    <rect x="92" y="416" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="452">Permissions / risk rules</text>
+    <rect x="92" y="494" width="216" height="58" rx="10" fill="#dbeafe"/><text x="200" y="530">Domain decisions</text>
+  </g>
+  <text x="200" y="600" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Resolve and version conflicting rules</text>
+
+  <rect x="430" y="105" width="400" height="540" rx="20" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="630" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#581c87">Capability map and matrix</text>
+  <rect x="482" y="178" width="296" height="76" rx="12" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="630" y="209" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4c1d95">Capability Map</text>
+  <text x="630" y="235" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6d28d9">Query · modify · refund · recover · escalate</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#4c1d95" text-anchor="middle">
+    <rect x="486" y="290" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="552" y="323">User goal</text>
+    <rect x="642" y="290" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="708" y="323">Complexity</text>
+    <rect x="486" y="366" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="552" y="399">Input quality</text>
+    <rect x="642" y="366" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="708" y="399">System state</text>
+    <rect x="564" y="442" width="132" height="54" rx="10" fill="#ddd6fe"/><text x="630" y="475">Risk level</text>
+  </g>
+  <text x="630" y="545" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">Avoid a meaningless full Cartesian product</text>
+  <text x="630" y="574" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#475569">Sample by frequency × impact × coverage gap</text>
+
+  <rect x="910" y="105" width="440" height="540" rx="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="1130" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#14532d">20–50 human gold seeds</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <rect x="970" y="190" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="221" font-size="17" font-weight="700" fill="#14532d">Independent expert verdict</text><text x="1130" y="247" font-size="14" fill="#166534">Two reviewers agree on pass or fail</text>
+    <rect x="970" y="290" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="321" font-size="17" font-weight="700" fill="#14532d">Reference run is solvable</text><text x="1130" y="347" font-size="14" fill="#166534">A known execution passes every grader</text>
+    <rect x="970" y="390" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="421" font-size="17" font-weight="700" fill="#14532d">Assertions are traceable</text><text x="1130" y="447" font-size="14" fill="#166534">Every check maps to a recorded rule</text>
+    <rect x="970" y="490" width="320" height="76" rx="12" fill="#dcfce7"/><text x="1130" y="521" font-size="17" font-weight="700" fill="#14532d">Positive and negative cases</text><text x="1130" y="547" font-size="14" fill="#166534">Test when the action should and should not occur</text>
+  </g>
+  <text x="1130" y="605" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Quality before scale</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M350,375 L420,375"/><path d="M830,375 L900,375"/></g>
+  <rect x="200" y="690" width="1000" height="52" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="700" y="723" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#9a3412">The goal is to state which capabilities and risks are covered, not to claim that there are enough questions</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 850" role="img" aria-labelledby="title desc">
+  <title id="title">Three Oracles and the safety release gate</title>
+  <desc id="desc">The Outcome Oracle checks final state, the Behavior Oracle checks tools and business invariants, and the Response Oracle checks explanation and faithfulness. Deterministic state and rule checks come first, while open-ended language uses model and human review. Any safety violation fails the release gate.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <rect width="1480" height="850" fill="#ffffff"/>
+  <text x="740" y="52" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Verify world state, then behavior, then the response</text>
+
+  <rect x="60" y="116" width="290" height="600" rx="20" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+  <text x="205" y="160" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#334155">Trial evidence</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="16" fill="#334155">
+    <rect x="100" y="198" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="238">Initial and final state</text>
+    <rect x="100" y="288" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="328">Complete tool trace</text>
+    <rect x="100" y="378" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="418">Dialogue and response</text>
+    <rect x="100" y="468" width="210" height="66" rx="12" fill="#e2e8f0"/><text x="205" y="508">Version and run logs</text>
+  </g>
+  <text x="205" y="588" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">One evidence package supports all layers</text>
+  <text x="205" y="615" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#475569">Never infer state from fluent prose</text>
+
+  <rect x="430" y="95" width="640" height="650" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+  <rect x="478" y="142" width="544" height="144" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="750" y="177" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">Outcome Oracle</text>
+  <text x="750" y="209" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1e40af">Database · API state · files · business objects</text>
+  <rect x="622" y="231" width="256" height="38" rx="9" fill="#dbeafe"/>
+  <text x="750" y="256" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a">Assertions / unit tests</text>
+
+  <rect x="478" y="319" width="544" height="162" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="750" y="354" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#581c87">Behavior Oracle</text>
+  <text x="750" y="386" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6b21a8">Tools · parameters · call count · authority · confirmation</text>
+  <text x="750" y="414" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6b21a8">Enforce invariants, while flexible workflows allow valid paths</text>
+  <rect x="622" y="431" width="256" height="38" rx="9" fill="#ede9fe"/>
+  <text x="750" y="456" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#4c1d95">Rules / trace checks</text>
+
+  <rect x="478" y="514" width="544" height="174" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+  <text x="750" y="549" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#14532d">Response Oracle</text>
+  <text x="750" y="581" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#166534">Clear · grounded in tool evidence · clarifies when needed</text>
+  <text x="750" y="609" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#166534">Judge may return Unknown and is calibrated by experts</text>
+  <rect x="600" y="635" width="300" height="38" rx="9" fill="#dcfce7"/>
+  <text x="750" y="660" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#14532d">Rubric / LLM / human sampling</text>
+
+  <rect x="1145" y="140" width="280" height="224" rx="20" fill="#fff1f2" stroke="#e11d48" stroke-width="3"/>
+  <text x="1285" y="183" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#881337">Guardrail checks</text>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-size="15" fill="#9f1239">
+    <text x="1285" y="224">Unauthorized action</text><text x="1285" y="253">Duplicate charge / write</text><text x="1285" y="282">Privacy leak</text><text x="1285" y="311">Prohibited tool call</text>
+  </g>
+  <rect x="1145" y="500" width="280" height="160" rx="20" fill="#fee2e2" stroke="#dc2626" stroke-width="4"/>
+  <text x="1285" y="550" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#7f1d1d">Release Gate Failed</text>
+  <text x="1285" y="587" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#991b1b">An average cannot offset harm</text>
+  <text x="1285" y="620" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#991b1b">High-risk thresholds are pre-registered</text>
+
+  <g stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M350,410 L420,410"/><path d="M1070,245 L1135,245"/><path d="M1070,400 L1105,400 L1105,300 L1135,300"/><path d="M1285,364 L1285,490"/></g>
+  <rect x="345" y="782" width="790" height="48" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="740" y="813" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#9a3412">Priority: programmatic verification ＞ rule verification ＞ LLM judge ＞ human sampling</text>
+</svg>
