@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Supervised fine-tuning methods, data recipes, token weighting, and reasoning generalization studies.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>3</strong><span>Papers</span></div>
-    <div><strong>5</strong><span>Resource links</span></div>
+    <div><strong>4</strong><span>Papers</span></div>
+    <div><strong>7</strong><span>Resource links</span></div>
     <div><strong>2026.05</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -22,7 +22,7 @@ toc: false
 
 <section class="paper-section" id="sft-methods">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">4 papers</p>
     <h2>SFT Methods</h2>
   </div>
   <div class="paper-grid">
@@ -59,6 +59,18 @@ toc: false
   <p>This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines.</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2601.09195" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
+<article class="paper-card" id="beft-bias-efficient-fine-tuning-of-language-models-in-low-data-regimes">
+  <div class="paper-meta">
+    <span>2025.09</span>
+    <span>SFT Methods</span>
+  </div>
+  <h3>BEFT: Bias-Efficient Fine-Tuning of Language Models in Low-Data Regimes</h3>
+  <p>This paper studies which attention-projection bias terms to fine-tune in low-data settings and finds that directly tuning the value bias generally outperforms tuning query or key biases. The result holds across encoder-only and decoder-only language models up to 6.7B parameters, including bias-free models augmented with a value bias.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2509.15974" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/whubaichuan/BEFT" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

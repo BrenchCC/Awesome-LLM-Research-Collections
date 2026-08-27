@@ -45,6 +45,55 @@ SUPPORTED_NOTE_DOWNLOAD_SUFFIXES = {".pdf", ".tex"}
 PAGE_RENDER_VERSION = "reader-first-introductions-v2"
 
 
+def normalize_feishu_math(text):
+    """Rewrite GitHub/Quarto-specific LaTeX into Feishu-compatible math.
+
+    Parameters:
+        text: One LaTeX expression without Markdown math delimiters.
+    """
+    text = re.sub(r"\\tag\s*\{[^{}]*\}", "", text)
+    text = re.sub(r"\\operatorname\s*\{([^{}]*)\}", r"\\mathrm{\1}", text)
+    text = re.sub(r"\\lt\b", "<", text)
+    return re.sub(r"\\gt\b", ">", text)
+
+
+def normalize_feishu_formulas(text):
+    """Normalize math while preserving fenced code blocks unchanged.
+
+    Parameters:
+        text: Markdown body that may contain inline or display math.
+    """
+    def normalize_display(match):
+        """Normalize the content of one display-math block.
+
+        Parameters:
+            match: Display-math regular-expression match.
+        """
+        return f"$${normalize_feishu_math(match.group(1))}$$"
+
+    def normalize_inline(match):
+        """Normalize the content of one inline-math expression.
+
+        Parameters:
+            match: Inline-math regular-expression match.
+        """
+        return f"${normalize_feishu_math(match.group(1))}$"
+
+    sections = re.split(r"(```[\s\S]*?^```\s*$)", text, flags = re.MULTILINE)
+    for index in range(0, len(sections), 2):
+        section = re.sub(
+            r"\$\$([\s\S]*?)\$\$",
+            normalize_display,
+            sections[index]
+        )
+        sections[index] = re.sub(
+            r"(?<!\\)\$(?!\$)([^\n$]*?)(?<!\\)\$",
+            normalize_inline,
+            section
+        )
+    return "".join(sections)
+
+
 def parse_front_matter_sections(text, source_path):
     """Parse the front-matter sections used by note download metadata.
 
@@ -284,6 +333,7 @@ def convert_qmd_body(
         source_path = source_path
     )
     body = convert_callouts(body)
+    body = normalize_feishu_formulas(body)
     body = re.sub(r"^```\{([a-zA-Z0-9_-]+)\}\s*$", r"```\1", body, flags = re.MULTILINE)
     body = body.replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n")
     body = re.sub(r"(?m)^\s*\{[^{}]+\}\s*$", "", body)

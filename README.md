@@ -387,6 +387,11 @@
   **Description**: This paper presents ProFit, a supervised fine-tuning method that mitigates single-reference overfitting by using token probability as a proxy for semantic importance and masking low-probability tokens. The approach focuses learning on core logical content and improves reasoning and math performance over standard SFT baselines. \
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **BEFT: Bias-Efficient Fine-Tuning of Language Models in Low-Data Regimes** (2025.09) \
+  **Description**: This paper studies which attention-projection bias terms to fine-tune in low-data settings and finds that directly tuning the value bias generally outperforms tuning query or key biases. The result holds across encoder-only and decoder-only language models up to 6.7B parameters, including bias-free models augmented with a value bias. \
+  <a href="https://arxiv.org/abs/2509.15974"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/whubaichuan/BEFT"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 # Training
 
 ## Data Preparation

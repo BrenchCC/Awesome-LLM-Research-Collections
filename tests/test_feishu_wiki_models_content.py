@@ -183,8 +183,14 @@ class LocalConversionTests(unittest.TestCase):
                         ":::",
                         "",
                         "$$",
-                        "x = y + 1",
+                        r"\operatorname{clip}(x) \gt y \tag{7}",
                         "$$",
+                        "",
+                        r"Inline $a \lt b$ math.",
+                        "",
+                        "```latex",
+                        r"\operatorname{keep}(x) \tag{8}",
+                        "```",
                         "",
                         "![Figure](../../assets/figure.png){fig-alt=\"Figure\"}",
                         "",
@@ -214,7 +220,9 @@ class LocalConversionTests(unittest.TestCase):
                 source_key_by_path = {target_relative: "notes/en/page/topic/target"}
             )
             self.assertIn("> **⚠️ Boundary**", body)
-            self.assertIn("$$\nx = y + 1\n$$", body)
+            self.assertIn("$$\n\\mathrm{clip}(x) > y \n$$", body)
+            self.assertIn("Inline $a < b$ math.", body)
+            self.assertIn(r"\operatorname{keep}(x) \tag{8}", body)
             self.assertIn("![Figure](@./", body)
             self.assertIn("feishu-wiki://notes/en/page/topic/target", body)
             self.assertIn("**Created:** 2026-08-13", body)

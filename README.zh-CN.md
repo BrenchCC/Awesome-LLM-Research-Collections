@@ -386,6 +386,11 @@
   **描述**: 该论文提出 ProFit，一种监督微调方法，通过 token 概率作为语义重要性代理并屏蔽低概率 token，缓解单参考答案过拟合。该方法让训练更聚焦核心逻辑内容，并在推理和数学任务上优于标准 SFT 基线。 \
   <a href="https://arxiv.org/abs/2601.09195"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
+- **BEFT: Bias-Efficient Fine-Tuning of Language Models in Low-Data Regimes** (2025.09) \
+  **描述**: 该论文研究低数据场景中应微调哪些注意力投影偏置项，发现直接微调 value bias 通常优于微调 query 或 key bias。该结论在最高 6.7B 参数的 encoder-only 和 decoder-only 语言模型上均成立，也适用于加入 value bias 的无偏置模型。 \
+  <a href="https://arxiv.org/abs/2509.15974"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/whubaichuan/BEFT"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 # 训练
 
 ## 数据准备
