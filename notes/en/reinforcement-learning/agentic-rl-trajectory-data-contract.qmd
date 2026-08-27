@@ -84,7 +84,7 @@ $$
 = \log \pi_{\mathrm{roll}}\left(
 a_{i,t}^{\mathrm{tok}}
 \mid
-p_i^{\mathrm{tok}}, a_{i,\lt t}^{\mathrm{tok}}
+p_i^{\mathrm{tok}}, a_{i,1:t-1}^{\mathrm{tok}}
 \right).
 $$
 

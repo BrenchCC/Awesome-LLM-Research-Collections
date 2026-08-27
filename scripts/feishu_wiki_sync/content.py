@@ -46,15 +46,13 @@ PAGE_RENDER_VERSION = "reader-first-introductions-v2"
 
 
 def normalize_feishu_math(text):
-    """Rewrite GitHub/Quarto-specific LaTeX into Feishu-compatible math.
+    """Rewrite unsupported LaTeX commands into Feishu-compatible math.
 
     Parameters:
         text: One LaTeX expression without Markdown math delimiters.
     """
     text = re.sub(r"\\tag\s*\{[^{}]*\}", "", text)
-    text = re.sub(r"\\operatorname\s*\{([^{}]*)\}", r"\\mathrm{\1}", text)
-    text = re.sub(r"\\lt\b", "<", text)
-    return re.sub(r"\\gt\b", ">", text)
+    return re.sub(r"\\operatorname\s*\{([^{}]*)\}", r"\\mathrm{\1}", text)
 
 
 def normalize_feishu_formulas(text):
@@ -69,7 +67,8 @@ def normalize_feishu_formulas(text):
         Parameters:
             match: Display-math regular-expression match.
         """
-        return f"$${normalize_feishu_math(match.group(1))}$$"
+        formula = normalize_feishu_math(match.group(1))
+        return f"<latex>{html.escape(formula, quote = False)}</latex>"
 
     def normalize_inline(match):
         """Normalize the content of one inline-math expression.
