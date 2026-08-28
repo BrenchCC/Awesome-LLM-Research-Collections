@@ -12,6 +12,7 @@ os.sys.path.append(str(Path.cwd() / "scripts"))
 from sync_notes import Note  # noqa: E402
 from feishu_wiki_sync.content import build_page_specs  # noqa: E402
 from feishu_wiki_sync.content import convert_qmd_body  # noqa: E402
+from feishu_wiki_sync.content import normalize_feishu_formulas  # noqa: E402
 from feishu_wiki_sync.content import parse_note_downloads  # noqa: E402
 from feishu_wiki_sync.content import render_managed_page  # noqa: E402
 from feishu_wiki_sync.content import render_manifest_block  # noqa: E402
@@ -220,10 +221,7 @@ class LocalConversionTests(unittest.TestCase):
                 source_key_by_path = {target_relative: "notes/en/page/topic/target"}
             )
             self.assertIn("> **⚠️ Boundary**", body)
-            self.assertIn(
-                "<latex>\n\\mathrm{clip}(x) &lt; y \n</latex>",
-                body
-            )
+            self.assertIn("<latex> \\mathrm{clip}(x) < y </latex>", body)
             self.assertIn(r"Inline $a \lt b$ math.", body)
             self.assertIn(r"\operatorname{keep}(x) \tag{8}", body)
             self.assertIn("![Figure](@./", body)
@@ -234,6 +232,30 @@ class LocalConversionTests(unittest.TestCase):
             self.assertNotIn("fig-alt", body)
         finally:
             shutil.rmtree(temporary_root)
+
+    def test_display_formulas_preserve_latex_tokens_across_lines(self):
+        """Avoid XML escaping and command concatenation in display math.
+
+        Parameters:
+            self: Current test case.
+        """
+        body = normalize_feishu_formulas(
+            "\n".join(
+                [
+                    "$$",
+                    r"\begin{aligned}",
+                    r"Q_i^{(v)} &= \mathrm{Adapt}_v(M_i),\\",
+                    r"a_i^{\mathrm{tok}} &\sim \pi_\theta(\cdot \mid",
+                    r"p_i^{\mathrm{tok}}).",
+                    r"\end{aligned}",
+                    "$$",
+                ]
+            )
+        )
+        self.assertIn(r"Q_i^{(v)} &= \mathrm{Adapt}_v(M_i),\\", body)
+        self.assertIn(r"\mid p_i^{\mathrm{tok}}", body)
+        self.assertNotIn("&amp;", body)
+        self.assertNotIn(r"\midp_i", body)
 
     def test_svg_is_rasterized_to_deterministic_runtime_path(self):
         """Verify local SVG media is converted before upload.

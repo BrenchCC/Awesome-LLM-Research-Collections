@@ -51,8 +51,10 @@ def normalize_feishu_math(text):
     Parameters:
         text: One LaTeX expression without Markdown math delimiters.
     """
+    text = re.sub(r"\s*\n\s*", " ", text)
     text = re.sub(r"\\tag\s*\{[^{}]*\}", "", text)
-    return re.sub(r"\\operatorname\s*\{([^{}]*)\}", r"\\mathrm{\1}", text)
+    text = re.sub(r"\\operatorname\s*\{([^{}]*)\}", r"\\mathrm{\1}", text)
+    return re.sub(r"[ \t]+", " ", text)
 
 
 def normalize_feishu_formulas(text):
@@ -68,7 +70,7 @@ def normalize_feishu_formulas(text):
             match: Display-math regular-expression match.
         """
         formula = normalize_feishu_math(match.group(1))
-        return f"<latex>{html.escape(formula, quote = False)}</latex>"
+        return f"<latex>{formula}</latex>"
 
     def normalize_inline(match):
         """Normalize the content of one inline-math expression.
