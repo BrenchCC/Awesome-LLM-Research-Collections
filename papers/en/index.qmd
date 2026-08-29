@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>155</strong><span>Papers</span></div>
+    <div><strong>157</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>369</strong><span>Resource links</span></div>
+    <div><strong>373</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">52 papers</span>
+  <span class="category-count">53 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">36 papers</span>
+  <span class="category-count">37 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
@@ -137,6 +137,11 @@ toc: false
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
   <em>Training</em>
 </a>
+<a class="recent-row" href="agents-application.html#autoresearch-insight-in-hallucination-out">
+  <span>2026.08</span>
+  <strong>AutoResearch: Insight In, Hallucination Out</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="agents-application.html#spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
   <span>2026.08</span>
   <strong>Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
   <span>2026.08</span>
   <strong>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#self-evolving-coding-agents">
-  <span>2026.08</span>
-  <strong>Self-Evolving Coding Agents</strong>
   <em>Agents Application</em>
 </a>
   </div>

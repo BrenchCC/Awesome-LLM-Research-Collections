@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>52</strong><span>Papers</span></div>
-    <div><strong>105</strong><span>Resource links</span></div>
+    <div><strong>53</strong><span>Papers</span></div>
+    <div><strong>107</strong><span>Resource links</span></div>
     <div><strong>2026.07</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -408,7 +408,7 @@ toc: false
 </section>
 <section class="paper-section" id="multimodal-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Multimodal RL</h2>
   </div>
   <div class="paper-grid">
@@ -423,6 +423,18 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2509.22647" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/InternLM/CapRL" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/internlm/CapRL-3B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="visual-planning-let-s-think-only-with-images">
+  <div class="paper-meta">
+    <span>2025.05</span>
+    <span>Multimodal RL</span>
+  </div>
+  <h3>Visual Planning: Let&#x27;s Think Only with Images</h3>
+  <p>This paper introduces Visual Planning, a paradigm that performs step-by-step planning through sequences of images rather than text for vision-first spatial tasks. Its Visual Planning via Reinforcement Learning (VPRL) framework uses GRPO to post-train large vision models and improves planning on FrozenLake, Maze, and MiniBehavior.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2505.11409" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/yix8/VisualPlanning" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

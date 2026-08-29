@@ -608,6 +608,11 @@
   <a href="https://github.com/InternLM/CapRL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Visual Planning: Let's Think Only with Images** (2025.05) \
+  **Description**: This paper introduces Visual Planning, a paradigm that performs step-by-step planning through sequences of images rather than text for vision-first spatial tasks. Its Visual Planning via Reinforcement Learning (VPRL) framework uses GRPO to post-train large vision models and improves planning on FrozenLake, Maze, and MiniBehavior. \
+  <a href="https://arxiv.org/abs/2505.11409"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/yix8/VisualPlanning"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Reasoning RL
 
 - **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
@@ -771,6 +776,11 @@
   <a href="https://www.anthropic.com/news/clio"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
 ## AI Research
+
+- **AutoResearch: Insight In, Hallucination Out** (2026.08) \
+  **Description**: AutoResearch is a two-stage multi-agent system that links research-idea generation with evidence-grounded execution, using cross-model review, experiment decomposition, and independent audits. Across cross-modal retrieval, systems optimization, and benchmark-driven machine learning, it turns candidate ideas into measurable progress while detecting and correcting unreliable experimental results. \
+  <a href="https://arxiv.org/abs/2608.17906"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/EvoMap/AutoResearch"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 - **Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill** (2026.08) \
   **Description**: Spark-to-Paper implements end-to-end research paper generation as thirteen composable skills inside an existing coding assistant, covering literature retrieval, experiment planning and execution, evidence-guided revision, and editable figure production. It combines deterministic integrity checks with self-critique and bounded recovery from self-refutation loops to keep long-horizon research workflows grounded in measured evidence. \

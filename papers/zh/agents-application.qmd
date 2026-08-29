@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>36</strong><span>论文</span></div>
-    <div><strong>81</strong><span>资源链接</span></div>
+    <div><strong>37</strong><span>论文</span></div>
+    <div><strong>83</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -146,10 +146,22 @@ toc: false
 </section>
 <section class="paper-section" id="ai-research">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>AI 研究</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="autoresearch-insight-in-hallucination-out">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>AI 研究</span>
+  </div>
+  <h3>AutoResearch: Insight In, Hallucination Out</h3>
+  <p>AutoResearch 是一个两阶段多智能体系统，将科研想法生成与以证据为基础的执行相连接，并通过跨模型审查、实验分解和独立审计保障过程可靠性。它在跨模态检索、系统优化和基准驱动机器学习等场景中把候选想法转化为可量化进展，同时发现并纠正不可靠的实验结果。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.17906" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/EvoMap/AutoResearch" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
   <div class="paper-meta">
     <span>2026.08</span>

@@ -607,6 +607,11 @@
   <a href="https://github.com/InternLM/CapRL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/internlm/CapRL-3B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Visual Planning: Let's Think Only with Images** (2025.05) \
+  **描述**: 该论文提出视觉规划范式，面向视觉优先的空间任务通过图像序列而非文本完成逐步规划。其 Visual Planning via Reinforcement Learning（VPRL）框架使用 GRPO 对大视觉模型进行后训练，并提升其在 FrozenLake、Maze 和 MiniBehavior 上的规划能力。 \
+  <a href="https://arxiv.org/abs/2505.11409"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/yix8/VisualPlanning"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 推理强化学习
 
 - **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
@@ -770,6 +775,11 @@
   <a href="https://www.anthropic.com/news/clio"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
 ## AI 研究
+
+- **AutoResearch: Insight In, Hallucination Out** (2026.08) \
+  **描述**: AutoResearch 是一个两阶段多智能体系统，将科研想法生成与以证据为基础的执行相连接，并通过跨模型审查、实验分解和独立审计保障过程可靠性。它在跨模态检索、系统优化和基准驱动机器学习等场景中把候选想法转化为可量化进展，同时发现并纠正不可靠的实验结果。 \
+  <a href="https://arxiv.org/abs/2608.17906"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/EvoMap/AutoResearch"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 - **Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill** (2026.08) \
   **描述**: Spark-to-Paper 将端到端科研论文生成实现为现有编程助手内的 13 个可组合技能，覆盖文献检索、实验规划与执行、证据引导的修订及可编辑图表生成。它结合确定性完整性检查、自我批评和对自我否定循环的有界恢复，使长程科研工作流程持续以实测证据为核心。 \

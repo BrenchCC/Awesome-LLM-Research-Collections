@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>36</strong><span>Papers</span></div>
-    <div><strong>81</strong><span>Resource links</span></div>
+    <div><strong>37</strong><span>Papers</span></div>
+    <div><strong>83</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -146,10 +146,22 @@ toc: false
 </section>
 <section class="paper-section" id="ai-research">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
+    <p class="eyebrow">5 papers</p>
     <h2>AI Research</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="autoresearch-insight-in-hallucination-out">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>AI Research</span>
+  </div>
+  <h3>AutoResearch: Insight In, Hallucination Out</h3>
+  <p>AutoResearch is a two-stage multi-agent system that links research-idea generation with evidence-grounded execution, using cross-model review, experiment decomposition, and independent audits. Across cross-modal retrieval, systems optimization, and benchmark-driven machine learning, it turns candidate ideas into measurable progress while detecting and correcting unreliable experimental results.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.17906" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/EvoMap/AutoResearch" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
   <div class="paper-meta">
     <span>2026.08</span>
