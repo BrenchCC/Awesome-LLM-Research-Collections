@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>157</strong><span>论文</span></div>
+    <div><strong>158</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>373</strong><span>资源链接</span></div>
+    <div><strong>375</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">21 篇论文</span>
+  <span class="category-count">22 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
+  <span>2026.08</span>
+  <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="llms.html#llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
   <span>2026.08</span>
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <span>2026.08</span>
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="agents-application.html#onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
-  <span>2026.08</span>
-  <strong>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</strong>
   <em>智能体应用</em>
 </a>
   </div>

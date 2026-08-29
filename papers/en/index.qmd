@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>157</strong><span>Papers</span></div>
+    <div><strong>158</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>373</strong><span>Resource links</span></div>
+    <div><strong>375</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">21 papers</span>
+  <span class="category-count">22 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
+  <span>2026.08</span>
+  <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="llms.html#llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
   <span>2026.08</span>
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <span>2026.08</span>
   <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#onedayagent-towards-a-long-horizon-harness-for-autonomous-agents">
-  <span>2026.08</span>
-  <strong>OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents</strong>
   <em>Agents Application</em>
 </a>
   </div>

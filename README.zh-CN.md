@@ -98,6 +98,11 @@
 
 ## 基础模型
 
+- **BDH-CQ: In-Context Learning with Recurrent Latent Reasoning** (2026.08) \
+  **描述**: BDH-CQ 将通过持续更新的循环记忆实现的上下文学习，与高维潜在空间中的迭代推理相结合，无需将中间推理过程语言化。其 150M 参数配置在 ARC-AGI-1 上以每任务 $0.0007 的计算成本达到 29.5% 的 pass@2，改进了已有的成本—准确率前沿。 \
+  <a href="https://arxiv.org/abs/2608.09888"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/pathwaycom/arc-task-gen"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Kimi K3: Open Frontier Intelligence** (2026.07) \
   **描述**: Kimi K3 是一个 2.8T 总参数、104B 激活参数的 MoE 基础模型，具备原生视觉能力和 100 万 token 上下文，并基于 Kimi Delta Attention、Attention Residuals 与 Stable LatentMoE 构建。其架构和训练改进相较 Kimi K2 将整体扩展效率提升约 2.5 倍，并在长程代码、智能体、推理和视觉任务上达到前沿水平。 \
   <a href="https://arxiv.org/abs/2607.24653"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

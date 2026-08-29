@@ -99,6 +99,11 @@
 
 ## Foundation Models
 
+- **BDH-CQ: In-Context Learning with Recurrent Latent Reasoning** (2026.08) \
+  **Description**: BDH-CQ combines in-context learning through continuously updated recurrent memory with iterative reasoning in a high-dimensional latent space, without verbalizing intermediate reasoning. On ARC-AGI-1, its 150M-parameter configuration attains 29.5% pass@2 at a computed cost of $0.0007 per task, improving the reported cost-accuracy frontier. \
+  <a href="https://arxiv.org/abs/2608.09888"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/pathwaycom/arc-task-gen"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Kimi K3: Open Frontier Intelligence** (2026.07) \
   **Description**: Kimi K3 is a 2.8T-parameter MoE foundation model with 104B activated parameters, native vision, and a 1-million-token context window, built on Kimi Delta Attention, Attention Residuals, and Stable LatentMoE. These architectural and training advances improve overall scaling efficiency by about 2.5× over Kimi K2 and support frontier-level long-horizon coding, agentic, reasoning, and vision performance. \
   <a href="https://arxiv.org/abs/2607.24653"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
