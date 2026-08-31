@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">From a distillation-as-RL intuition to a three-role model of OPD</title>
-  <desc id="desc">The author's mental-model journey: OPD first looks like reinforcement learning with a distilled dense reward; two corrections remove the dual-rollout and PPO-reference misconceptions; the final model assigns state visitation to the student, local conditional distributions to the teacher, and global correctness to a verifier.</desc>
+  <desc id="desc">A three-role model of OPD: the student visits states, the teacher provides local distributions, and the verifier judges global correctness, with two key distinctions in standard OPD.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#f8fafc"/>
@@ -21,7 +21,7 @@
 
   <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Arial,sans-serif">
-    <text x="82" y="92" font-size="44" font-weight="700" fill="#0f172a">Two corrections changed how I understand OPD</text>
+    <text x="82" y="92" font-size="44" font-weight="700" fill="#0f172a">Three roles and two key distinctions in OPD</text>
     <text x="82" y="139" font-size="23" fill="#475569">“Distillation as RL” is a useful entry point—not a substitute for precise state and supervision roles</text>
     <rect x="82" y="170" width="1436" height="8" rx="4" fill="url(#journey)" opacity="0.92"/>
 
@@ -38,7 +38,7 @@
 
       <rect x="600" y="225" width="400" height="342" rx="28" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
       <rect x="630" y="255" width="154" height="38" rx="19" fill="#fef3c7"/>
-      <text x="707" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#b45309">Two corrections</text>
+      <text x="707" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#b45309">Key distinctions</text>
       <text x="630" y="343" font-size="24" font-weight="700" fill="#92400e">① Standard OPD has one rollout</text>
       <text x="630" y="381" font-size="19" fill="#475569">The teacher is forced on the same</text>
       <text x="630" y="411" font-size="19" fill="#475569">student prefix to compute log-probability</text>
@@ -49,7 +49,7 @@
 
       <rect x="1118" y="225" width="400" height="342" rx="28" fill="#ffffff" stroke="#99f6e4" stroke-width="3"/>
       <rect x="1148" y="255" width="174" height="38" rx="19" fill="#ccfbf1"/>
-      <text x="1235" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#0f766e">Updated model</text>
+      <text x="1235" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#0f766e">Role boundaries</text>
       <text x="1148" y="346" font-size="28" font-weight="700" fill="#115e59">Local teacher, not global judge</text>
       <text x="1148" y="397" font-size="22" fill="#334155">The teacher answers:</text>
       <text x="1148" y="434" font-size="20" fill="#475569">“What comes next under this prefix?”</text>

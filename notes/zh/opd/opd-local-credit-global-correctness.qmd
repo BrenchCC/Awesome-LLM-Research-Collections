@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-08-25
-date-modified: 2026-08-25
+date-modified: 2026-09-01
 title: "OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发"
 description: "从一个『teacher-defined dense reward』的直觉出发，推导 OPD 的 reverse-KL 训练信号，分析错误前缀下的局部一致陷阱，并比较 KAT、BRTS、TrOPD 与 local support matching 的修正边界。"
 order: 1
@@ -21,7 +21,7 @@ tags:
 
 更重要的修正出现在我继续追问「错误分支之后怎么办」时。Teacher 给出的条件概率只能回答：**既然已经处于当前 prefix，下一 token 哪些更合理？** 它没有直接回答：**当前 prefix 所代表的推理状态在全局上是否正确？** 这条边界解释了 OPD 为什么能准确抓住部分 forking token，也解释了错误轨迹后半段为什么可能重新出现低 KL。
 
-![我对 OPD 的理解从“蒸馏强化学习”演进到局部监督与全局验证分工。图由本文依据 OPD、KAT、BRTS、TrOPD 与 local support matching 的方法整理。](../../assets/opd-local-credit-global-correctness/opd-mental-model-journey-zh.svg){#fig-opd-mental-model-journey-zh fig-align="center" width="94%"}
+![OPD 中局部监督与全局正确性验证的职责分工。图由本文依据 OPD、KAT、BRTS、TrOPD 与 local support matching 的方法整理。](../../assets/opd-local-credit-global-correctness/opd-mental-model-journey-zh.svg){#fig-opd-mental-model-journey-zh fig-align="center" width="94%"}
 
 本文保留「蒸馏强化学习」这个初始直觉，但把它拆成可以核对的目标函数、状态分布和失败模式。我的结论是：OPD 提供的是 student-visited states 上的局部策略监督；如果任务要求验证一条推理链是否仍然通向正确答案，还需要额外的 state 或 outcome signal。
 

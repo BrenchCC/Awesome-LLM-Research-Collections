@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">从蒸馏强化学习直觉到 OPD 的三方职责模型</title>
-  <desc id="desc">图示作者对 OPD 的理解演进：先把 OPD 类比为蒸馏强化学习，再纠正双轨迹和 reference model 两个误解，最后形成 student 访问状态、teacher 提供局部分布、verifier 判断全局正确性的三方职责模型。</desc>
+  <desc id="desc">图示 OPD 的三方职责模型：student 访问状态，teacher 提供局部分布，verifier 判断全局正确性，并标出标准 OPD 的两个关键区分。</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop stop-color="#f8fafc"/>
@@ -21,7 +21,7 @@
 
   <rect width="1600" height="900" rx="36" fill="url(#bg)"/>
   <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif">
-    <text x="82" y="92" font-size="44" font-weight="700" fill="#0f172a">我对 OPD 的理解，经历了两次关键纠偏</text>
+    <text x="82" y="92" font-size="44" font-weight="700" fill="#0f172a">OPD 的三方职责与两个关键区分</text>
     <text x="82" y="139" font-size="23" fill="#475569">“蒸馏强化学习”是有用的入口，但不能替代对状态分布和监督职责的精确定义</text>
     <rect x="82" y="170" width="1436" height="8" rx="4" fill="url(#journey)" opacity="0.92"/>
 
@@ -38,7 +38,7 @@
 
       <rect x="600" y="225" width="400" height="342" rx="28" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
       <rect x="630" y="255" width="126" height="38" rx="19" fill="#fef3c7"/>
-      <text x="693" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#b45309">两项纠偏</text>
+      <text x="693" y="282" text-anchor="middle" font-size="19" font-weight="700" fill="#b45309">关键区分</text>
       <text x="630" y="343" font-size="24" font-weight="700" fill="#92400e">① 标准 OPD 只有一条 rollout</text>
       <text x="630" y="381" font-size="19" fill="#475569">teacher 在同一 student prefix 上</text>
       <text x="630" y="411" font-size="19" fill="#475569">teacher-forcing 并计算 log-probability</text>

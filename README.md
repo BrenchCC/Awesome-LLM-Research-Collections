@@ -1063,7 +1063,7 @@
   [[Note](notes/en/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
   [[中文](notes/zh/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
 
-- **Local Credit Assignment and the Boundary of Global Correctness in OPD: Starting from a Distilled-RL Intuition** (Created: 2026-08-25; Updated: 2026-08-25) \
+- **Local Credit Assignment and the Boundary of Global Correctness in OPD: Starting from a Distilled-RL Intuition** (Created: 2026-08-25; Updated: 2026-09-01) \
   **Description**: Starting from a teacher-defined dense reward intuition, this note derives OPD's reverse-KL signal, examines local agreement after a corrupted prefix, and separates the roles of KAT, BRTS, TrOPD, local support matching, and verifiers. \
   [[Note](notes/en/opd/opd-local-credit-global-correctness.qmd)]
   [[中文](notes/zh/opd/opd-local-credit-global-correctness.qmd)]

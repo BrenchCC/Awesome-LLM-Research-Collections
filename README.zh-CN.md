@@ -1062,7 +1062,7 @@
   [[笔记](notes/zh/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
   [[English](notes/en/reinforcement-learning/agentic-rl-trajectory-data-contract.qmd)]
 
-- **OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发** (创建: 2026-08-25; 更新: 2026-08-25) \
+- **OPD 的局部信用分配与全局正确性边界：从『蒸馏强化学习』直觉出发** (创建: 2026-08-25; 更新: 2026-09-01) \
   **描述**: 从一个『teacher-defined dense reward』的直觉出发，推导 OPD 的 reverse-KL 训练信号，分析错误前缀下的局部一致陷阱，并比较 KAT、BRTS、TrOPD 与 local support matching 的修正边界。 \
   [[笔记](notes/zh/opd/opd-local-credit-global-correctness.qmd)]
   [[English](notes/en/opd/opd-local-credit-global-correctness.qmd)]
