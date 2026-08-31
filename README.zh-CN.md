@@ -781,6 +781,12 @@
 
 ## AI 研究
 
+- **Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities** (2026.08) \
+  **描述**: 该综述将智能体产物创作定义为一种有状态的构建过程：AI 系统实质性地创建或修改交付物，并根据中间观察结果调整后续工作。论文梳理了六类产物中的 230 个系统和 29 个基准，分析构建与评测挑战，并提出明确责任、针对性修复和变更后重新验证等原则。 \
+  <a href="https://arxiv.org/abs/2608.28122"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://agentic-creation.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/GeminiLight/awesome-agentic-artifact-creation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **AutoResearch: Insight In, Hallucination Out** (2026.08) \
   **描述**: AutoResearch 是一个两阶段多智能体系统，将科研想法生成与以证据为基础的执行相连接，并通过跨模型审查、实验分解和独立审计保障过程可靠性。它在跨模态检索、系统优化和基准驱动机器学习等场景中把候选想法转化为可量化进展，同时发现并纠正不可靠的实验结果。 \
   <a href="https://arxiv.org/abs/2608.17906"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

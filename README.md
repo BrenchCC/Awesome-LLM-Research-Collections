@@ -782,6 +782,12 @@
 
 ## AI Research
 
+- **Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities** (2026.08) \
+  **Description**: This survey defines agentic artifact creation as stateful construction in which an AI system materially builds or revises a deliverable, with intermediate observations redirecting later work. It reviews 230 systems and 29 benchmarks across six artifact families, analyzes construction and evaluation challenges, and proposes principles for explicit responsibility, targeted repair, and post-change revalidation. \
+  <a href="https://arxiv.org/abs/2608.28122"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://agentic-creation.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/GeminiLight/awesome-agentic-artifact-creation"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **AutoResearch: Insight In, Hallucination Out** (2026.08) \
   **Description**: AutoResearch is a two-stage multi-agent system that links research-idea generation with evidence-grounded execution, using cross-model review, experiment decomposition, and independent audits. Across cross-modal retrieval, systems optimization, and benchmark-driven machine learning, it turns candidate ideas into measurable progress while detecting and correcting unreliable experimental results. \
   <a href="https://arxiv.org/abs/2608.17906"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

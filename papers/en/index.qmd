@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>158</strong><span>Papers</span></div>
+    <div><strong>159</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>375</strong><span>Resource links</span></div>
+    <div><strong>378</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">37 papers</span>
+  <span class="category-count">38 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
   <em>Training</em>
 </a>
+<a class="recent-row" href="agents-application.html#agentic-artifact-creation-systems-evaluation-principles-and-opportunities">
+  <span>2026.08</span>
+  <strong>Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="agents-application.html#autoresearch-insight-in-hallucination-out">
   <span>2026.08</span>
   <strong>AutoResearch: Insight In, Hallucination Out</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#skillevo-self-renewing-evolution-gradients-from-multi-turn-interaction-feedback">
   <span>2026.08</span>
   <strong>SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
-  <span>2026.08</span>
-  <strong>LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks</strong>
   <em>Agents Application</em>
 </a>
   </div>

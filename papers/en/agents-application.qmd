@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>37</strong><span>Papers</span></div>
-    <div><strong>83</strong><span>Resource links</span></div>
+    <div><strong>38</strong><span>Papers</span></div>
+    <div><strong>86</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -146,10 +146,23 @@ toc: false
 </section>
 <section class="paper-section" id="ai-research">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>AI Research</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="agentic-artifact-creation-systems-evaluation-principles-and-opportunities">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>AI Research</span>
+  </div>
+  <h3>Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities</h3>
+  <p>This survey defines agentic artifact creation as stateful construction in which an AI system materially builds or revises a deliverable, with intermediate observations redirecting later work. It reviews 230 systems and 29 benchmarks across six artifact families, analyzes construction and evaluation challenges, and proposes principles for explicit responsibility, targeted repair, and post-change revalidation.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.28122" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://agentic-creation.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/GeminiLight/awesome-agentic-artifact-creation" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="autoresearch-insight-in-hallucination-out">
   <div class="paper-meta">
     <span>2026.08</span>
