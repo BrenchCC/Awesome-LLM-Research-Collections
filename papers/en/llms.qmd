@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>Papers</span></div>
-    <div><strong>68</strong><span>Resource links</span></div>
+    <div><strong>23</strong><span>Papers</span></div>
+    <div><strong>69</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -257,7 +257,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
+    <p class="eyebrow">5 papers</p>
     <h2>Inference</h2>
   </div>
   <div class="paper-grid">
@@ -273,6 +273,17 @@ toc: false
 <a class="resource-link" href="https://ulab-uiuc.github.io/LLMRouter/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/ulab-uiuc/LLMRouter" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/datasets/ulab-ai/xRouteBench" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="ai4ai-at-test-time-strong-to-weak-capability-transfer-via-harnesses">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Inference</span>
+  </div>
+  <h3>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</h3>
+  <p>This paper introduces strong-to-weak scaffolding, in which a stronger builder model constructs an inference-time harness that improves a weaker target model without updating its parameters. Across four Theory-of-Mind benchmarks, the harness nearly doubles average performance by offloading unstable reasoning to deterministic code, task-specific routing, and strict answer-format enforcement.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.12307" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
 <article class="paper-card" id="large-language-models-explore-by-latent-distilling">

@@ -11,8 +11,8 @@ toc: false
   <h1 class="home-title">Awesome LLM Research Collections</h1>
   <p class="lede">A shared knowledge index for LLM research, collecting paper entries, reading notes, and technical essays for sustained review and reference.</p>
   <div class="stat-strip">
-    <div><strong>159</strong><span>Papers</span></div>
-    <div><strong>27</strong><span>Notes</span></div>
+    <div><strong>160</strong><span>Papers</span></div>
+    <div><strong>28</strong><span>Notes</span></div>
     <div><strong>1</strong><span>Blog shares</span></div>
     <div><strong>2026.08</strong><span>Latest paper</span></div>
   </div>
@@ -29,7 +29,7 @@ toc: false
   <h2>Papers</h2>
   <p>A topic-indexed catalog of LLM, multimodal, training, reinforcement learning, agent, and prompting research.</p>
   <div class="collection-metrics">
-    <span><strong>159</strong>Papers</span>
+    <span><strong>160</strong>Papers</span>
     <span><strong>10</strong>Categories</span>
   </div>
   <span class="collection-action">Open index</span>
@@ -39,7 +39,7 @@ toc: false
   <h2>Notes</h2>
   <p>Paper readings and technical reflections shared as reusable research notes.</p>
   <div class="collection-metrics">
-    <span><strong>27</strong>Notes</span>
+    <span><strong>28</strong>Notes</span>
     <span><strong>7</strong>Topics</span>
   </div>
   <span class="collection-action">Open index</span>

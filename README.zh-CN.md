@@ -213,6 +213,10 @@
   <a href="https://github.com/ulab-uiuc/LLMRouter"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/ulab-ai/xRouteBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses** (2026.08) \
+  **描述**: 该论文提出强到弱脚手架方法，由更强的构建模型在测试时生成推理 harness，在不更新目标模型参数的情况下提升弱模型表现。在四个心智理论基准上，该 harness 通过将不稳定推理卸载到确定性代码、任务特定路由和严格答案格式约束中，使目标模型的平均性能接近翻倍。 \
+  <a href="https://arxiv.org/abs/2608.12307"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
   **描述**: 该论文提出 Exploratory Sampling (ESamp)，用于缓解标准随机采样主要产生词面变化、语义探索不足的问题。它在测试时训练轻量 Distiller 由浅层表征预测深层表征，并用预测误差作为新颖性信号重加权候选 token，从而提升推理模型的 Pass@k 效率。 \
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -1046,6 +1050,11 @@
   [[English](notes/en/reinforcement-learning/CapRL.qmd)]
 
 ## 技术思考
+
+- **从策略滞后到优势坍缩：LLM 强化学习中的有效更新信号** (创建: 2026-09-01; 更新: 2026-09-01) \
+  **描述**: 从 rollout policy、PPO clip 与 GRPO 组内零优势出发，分析 LLM 强化学习中的无效更新，并给出数据、采样、监督和优化层面的处理顺序。 \
+  [[笔记](notes/zh/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]
+  [[English](notes/en/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]
 
 - **没有线上数据，如何为 Agent 构建冷启动评测集** (创建: 2026-08-28; 更新: 2026-08-28) \
   **描述**: 从能力地图、人工金种子、受控变异、状态 Oracle、可重置环境和发布门禁出发，构建上线前可复核的 Agent 冷启动评测集。 \

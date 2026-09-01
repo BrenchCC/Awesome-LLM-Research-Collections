@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">策略滞后与两类策略约束</title>
+  <desc id="desc">rollout 策略生成固定数据，当前策略经过多轮更新后产生滞后；ratio 与 clip 约束短期更新，reference KL 约束长期漂移。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .label { font: 650 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .body { font: 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .formula { font: 19px "Times New Roman", serif; fill: #0f172a; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #64748b; stroke-width: 2.5; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="620" rx="28" fill="#f8fafc"/>
+  <text x="600" y="52" text-anchor="middle" class="title">同一批 rollout 被复用时，策略差异来自两个时间尺度</text>
+
+  <rect x="70" y="105" width="255" height="115" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <text x="198" y="150" text-anchor="middle" class="label">Rollout policy</text>
+  <text x="198" y="184" text-anchor="middle" class="formula">pi_theta_k（冻结快照）</text>
+
+  <rect x="470" y="105" width="255" height="115" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="598" y="150" text-anchor="middle" class="label">固定训练数据</text>
+  <text x="598" y="184" text-anchor="middle" class="body">tokens + old log-probs</text>
+
+  <rect x="870" y="105" width="255" height="115" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="998" y="150" text-anchor="middle" class="label">Current policy</text>
+  <text x="998" y="184" text-anchor="middle" class="formula">pi_theta 持续更新</text>
+
+  <path d="M325 162 H470" class="arrow"/>
+  <text x="397" y="142" text-anchor="middle" class="body">生成</text>
+  <path d="M725 162 H870" class="arrow"/>
+  <text x="797" y="142" text-anchor="middle" class="body">多轮优化</text>
+
+  <rect x="80" y="300" width="500" height="230" rx="22" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+  <text x="330" y="343" text-anchor="middle" class="label">短期约束：old-policy ratio + clip</text>
+  <text x="330" y="388" text-anchor="middle" class="formula">rho_t = pi_theta(at|st) / pi_old(at|st)</text>
+  <text x="330" y="428" text-anchor="middle" class="body">比较当前策略与实际采样策略</text>
+  <text x="330" y="464" text-anchor="middle" class="body">限制继续放大 surrogate objective 的收益</text>
+  <text x="330" y="500" text-anchor="middle" class="body">解决：一批数据复用期间的 policy lag</text>
+
+  <rect x="620" y="300" width="500" height="230" rx="22" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="870" y="343" text-anchor="middle" class="label">长期约束：reference-policy KL</text>
+  <text x="870" y="388" text-anchor="middle" class="formula">D_KL(pi_theta || pi_ref)</text>
+  <text x="870" y="428" text-anchor="middle" class="body">比较当前策略与冻结的基础 / SFT 策略</text>
+  <text x="870" y="464" text-anchor="middle" class="body">持续惩罚偏离，而非只作用于单次更新</text>
+  <text x="870" y="500" text-anchor="middle" class="body">解决：训练过程中的累计策略漂移</text>
+
+  <path d="M196 220 C196 255 250 260 280 300" class="dash"/>
+  <path d="M998 220 C998 255 925 260 900 300" class="dash"/>
+  <path d="M998 220 C900 270 520 260 420 300" class="dash"/>
+  <rect x="860" y="555" width="280" height="42" rx="12" fill="#ede9fe"/>
+  <text x="1000" y="583" text-anchor="middle" class="body">pi_ref 不等于 pi_old</text>
+</svg>

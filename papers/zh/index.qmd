@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>159</strong><span>论文</span></div>
+    <div><strong>160</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>378</strong><span>资源链接</span></div>
+    <div><strong>379</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">22 篇论文</span>
+  <span class="category-count">23 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
@@ -132,6 +132,11 @@ toc: false
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
   <em>大语言模型</em>
 </a>
+<a class="recent-row" href="llms.html#ai4ai-at-test-time-strong-to-weak-capability-transfer-via-harnesses">
+  <span>2026.08</span>
+  <strong>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
   <span>2026.08</span>
   <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
   <span>2026.08</span>
   <strong>Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="agents-application.html#skillevo-self-renewing-evolution-gradients-from-multi-turn-interaction-feedback">
-  <span>2026.08</span>
-  <strong>SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback</strong>
   <em>智能体应用</em>
 </a>
   </div>

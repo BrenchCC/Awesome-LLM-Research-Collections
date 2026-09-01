@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">GRPO 奖励分组与训练路由</title>
+  <desc id="desc">根据组内正确率将 prompt 分到全对、混合和全错三类，并采用不同处理。随着模型能力变化，样本会从困难池进入策略边界，再进入简单池。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker>
+    <style>
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .label { font: 650 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .body { font: 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="#f8fafc"/>
+  <text x="600" y="50" text-anchor="middle" class="title">同样是零优势，全对与全错需要不同处理</text>
+
+  <rect x="430" y="85" width="340" height="90" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="600" y="123" text-anchor="middle" class="label">每个 prompt 生成 G 条回答</text>
+  <text x="600" y="153" text-anchor="middle" class="body">计算 reward、accuracy 与 std(R)</text>
+
+  <rect x="65" y="270" width="310" height="230" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="220" y="311" text-anchor="middle" class="label">全对：accuracy = 1</text>
+  <text x="220" y="348" text-anchor="middle" class="body">A = 0；通常已经掌握</text>
+  <text x="220" y="388" text-anchor="middle" class="body">排查 SFT / 数据污染</text>
+  <text x="220" y="424" text-anchor="middle" class="body">降采样、移除或保留评测</text>
+  <text x="220" y="460" text-anchor="middle" class="small">主要问题：浪费 rollout 算力</text>
+
+  <rect x="445" y="270" width="310" height="230" rx="20" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <text x="600" y="311" text-anchor="middle" class="label">混合：0 &lt; accuracy &lt; 1</text>
+  <text x="600" y="348" text-anchor="middle" class="body">std(R) &gt; 0；相对信号有效</text>
+  <text x="600" y="388" text-anchor="middle" class="body">进入 GRPO / DAPO 更新</text>
+  <text x="600" y="424" text-anchor="middle" class="body">重点监控 clip fraction 与 KL</text>
+  <text x="600" y="460" text-anchor="middle" class="small">模型当前的 capability frontier</text>
+
+  <rect x="825" y="270" width="310" height="230" rx="20" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  <text x="980" y="311" text-anchor="middle" class="label">全错：accuracy = 0</text>
+  <text x="980" y="348" text-anchor="middle" class="body">先查 verifier 与答案抽取</text>
+  <text x="980" y="388" text-anchor="middle" class="body">再判断 rare success / zero support</text>
+  <text x="980" y="424" text-anchor="middle" class="body">增大 G、探索、PRM / SFT</text>
+  <text x="980" y="460" text-anchor="middle" class="small">主要问题：能力与探索支持不足</text>
+
+  <path d="M600 175 V220 H220 V270" class="arrow"/>
+  <path d="M600 175 V270" class="arrow"/>
+  <path d="M600 220 H980 V270" class="arrow"/>
+
+  <text x="600" y="565" text-anchor="middle" class="label">在线课程学习：同一个 prompt 会随策略能力迁移</text>
+  <rect x="130" y="600" width="235" height="70" rx="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="248" y="644" text-anchor="middle" class="body">Hard pool · 0/16</text>
+  <rect x="483" y="600" width="235" height="70" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="600" y="644" text-anchor="middle" class="body">RL frontier · 2/16 → 15/16</text>
+  <rect x="835" y="600" width="235" height="70" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="953" y="644" text-anchor="middle" class="body">Easy pool · 16/16</text>
+  <path d="M365 635 H483" class="arrow"/>
+  <path d="M718 635 H835" class="arrow"/>
+</svg>

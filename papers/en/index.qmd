@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>159</strong><span>Papers</span></div>
+    <div><strong>160</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>378</strong><span>Resource links</span></div>
+    <div><strong>379</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">22 papers</span>
+  <span class="category-count">23 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
@@ -132,6 +132,11 @@ toc: false
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
   <em>LLMs</em>
 </a>
+<a class="recent-row" href="llms.html#ai4ai-at-test-time-strong-to-weak-capability-transfer-via-harnesses">
+  <span>2026.08</span>
+  <strong>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
   <span>2026.08</span>
   <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
   <span>2026.08</span>
   <strong>Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#skillevo-self-renewing-evolution-gradients-from-multi-turn-interaction-feedback">
-  <span>2026.08</span>
-  <strong>SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback</strong>
   <em>Agents Application</em>
 </a>
   </div>

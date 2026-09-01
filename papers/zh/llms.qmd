@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>论文</span></div>
-    <div><strong>68</strong><span>资源链接</span></div>
+    <div><strong>23</strong><span>论文</span></div>
+    <div><strong>69</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -257,7 +257,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>推理</h2>
   </div>
   <div class="paper-grid">
@@ -273,6 +273,17 @@ toc: false
 <a class="resource-link" href="https://ulab-uiuc.github.io/LLMRouter/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/ulab-uiuc/LLMRouter" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/datasets/ulab-ai/xRouteBench" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="ai4ai-at-test-time-strong-to-weak-capability-transfer-via-harnesses">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>推理</span>
+  </div>
+  <h3>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</h3>
+  <p>该论文提出强到弱脚手架方法，由更强的构建模型在测试时生成推理 harness，在不更新目标模型参数的情况下提升弱模型表现。在四个心智理论基准上，该 harness 通过将不稳定推理卸载到确定性代码、任务特定路由和严格答案格式约束中，使目标模型的平均性能接近翻倍。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.12307" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="large-language-models-explore-by-latent-distilling">

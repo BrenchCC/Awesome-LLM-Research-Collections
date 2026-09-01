@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">GRPO reward grouping and training routes</title>
+  <desc id="desc">Prompts are routed by group accuracy into all-correct, mixed, and all-wrong groups. As policy capability changes, prompts move from the hard pool through the learning frontier into the easy pool.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker>
+    <style>
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .label { font: 650 21px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .body { font: 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="#f8fafc"/>
+  <text x="600" y="50" text-anchor="middle" class="title">All-correct and all-wrong groups need different treatment</text>
+
+  <rect x="430" y="85" width="340" height="90" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="600" y="123" text-anchor="middle" class="label">Generate G responses per prompt</text>
+  <text x="600" y="153" text-anchor="middle" class="body">Compute reward, accuracy, and std(R)</text>
+
+  <rect x="65" y="270" width="310" height="245" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <text x="220" y="311" text-anchor="middle" class="label">All correct: accuracy = 1</text>
+  <text x="220" y="348" text-anchor="middle" class="body">A = 0; usually already mastered</text>
+  <text x="220" y="382" text-anchor="middle" class="body">Audit SFT / data contamination</text>
+  <text x="220" y="416" text-anchor="middle" class="body">Downsample or remove</text>
+  <text x="220" y="450" text-anchor="middle" class="body">Retain a subset for evaluation</text>
+  <text x="220" y="484" text-anchor="middle" class="small">Main cost: wasted rollout compute</text>
+
+  <rect x="445" y="270" width="310" height="245" rx="20" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <text x="600" y="311" text-anchor="middle" class="label">Mixed: 0 &lt; accuracy &lt; 1</text>
+  <text x="600" y="348" text-anchor="middle" class="body">std(R) &gt; 0; relative signal is valid</text>
+  <text x="600" y="388" text-anchor="middle" class="body">Train with GRPO / DAPO</text>
+  <text x="600" y="424" text-anchor="middle" class="body">Monitor clip fraction and KL</text>
+  <text x="600" y="460" text-anchor="middle" class="small">The current capability frontier</text>
+
+  <rect x="825" y="270" width="310" height="245" rx="20" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  <text x="980" y="311" text-anchor="middle" class="label">All wrong: accuracy = 0</text>
+  <text x="980" y="348" text-anchor="middle" class="body">Audit verifier first</text>
+  <text x="980" y="382" text-anchor="middle" class="body">Check answer extraction</text>
+  <text x="980" y="416" text-anchor="middle" class="body">Rare success or zero support?</text>
+  <text x="980" y="450" text-anchor="middle" class="body">Larger G, exploration, PRM / SFT</text>
+  <text x="980" y="484" text-anchor="middle" class="small">Main issue: capability / exploration support</text>
+
+  <path d="M600 175 V220 H220 V270" class="arrow"/>
+  <path d="M600 175 V270" class="arrow"/>
+  <path d="M600 220 H980 V270" class="arrow"/>
+
+  <text x="600" y="565" text-anchor="middle" class="label">Online curriculum: the same prompt migrates as the policy improves</text>
+  <rect x="130" y="600" width="235" height="70" rx="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="248" y="644" text-anchor="middle" class="body">Hard pool · 0/16</text>
+  <rect x="483" y="600" width="235" height="70" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="600" y="644" text-anchor="middle" class="body">RL frontier · 2/16 → 15/16</text>
+  <rect x="835" y="600" width="235" height="70" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="953" y="644" text-anchor="middle" class="body">Easy pool · 16/16</text>
+  <path d="M365 635 H483" class="arrow"/>
+  <path d="M718 635 H835" class="arrow"/>
+</svg>

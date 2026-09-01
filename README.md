@@ -214,6 +214,10 @@
   <a href="https://github.com/ulab-uiuc/LLMRouter"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/ulab-ai/xRouteBench"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses** (2026.08) \
+  **Description**: This paper introduces strong-to-weak scaffolding, in which a stronger builder model constructs an inference-time harness that improves a weaker target model without updating its parameters. Across four Theory-of-Mind benchmarks, the harness nearly doubles average performance by offloading unstable reasoning to deterministic code, task-specific routing, and strict answer-format enforcement. \
+  <a href="https://arxiv.org/abs/2608.12307"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Large Language Models Explore by Latent Distilling** (2026.04) \
   **Description**: This paper proposes Exploratory Sampling (ESamp), a decoding method that addresses the shallow lexical variation of standard stochastic sampling by encouraging semantic exploration. It trains a lightweight Distiller at test time to predict deep-layer representations from shallow ones, then uses prediction error as a novelty signal to reweight candidate tokens and improve Pass@k efficiency. \
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -1047,6 +1051,11 @@
   [[中文](notes/zh/reinforcement-learning/CapRL.qmd)]
 
 ## Technical Reflections
+
+- **From Policy Lag to Advantage Collapse: Effective Update Signals in LLM Reinforcement Learning** (Created: 2026-09-01; Updated: 2026-09-01) \
+  **Description**: An analysis of ineffective LLM RL updates through rollout policies, PPO clipping, homogeneous GRPO rewards, and interventions across data, sampling, supervision, and optimization. \
+  [[Note](notes/en/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]
+  [[中文](notes/zh/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]
 
 - **Building a Cold-Start Evaluation Dataset for AI Agents Without Production Data** (Created: 2026-08-28; Updated: 2026-08-28) \
   **Description**: A practical method for building auditable pre-launch agent eval datasets from capability maps, human-authored gold seeds, controlled mutations, state oracles, resettable environments, and release gates. \
