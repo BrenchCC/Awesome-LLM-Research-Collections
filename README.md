@@ -676,6 +676,10 @@
 
 ## Agentic RL
 
+- **DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents** (2026.08) \
+  **Description**: This paper proposes DART-SD, a topology-aware self-distillation framework that represents multi-turn tool execution as an Interaction-State Transition Graph (ISTG), preserving the diamond-shaped alternatives induced by order-independent sub-goals. It identifies the Critical Topological Breakpoint (CTB) in failed student rollouts and applies supervision only to retrieved recovery steps, protecting valid prefixes while progressively improving tool-use behavior. \
+  <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
   **Description**: This paper introduces Skill Self-Play, a reinforcement learning framework in which a proposer, solver, and dynamic skill controller co-evolve through skill-conditioned task generation, frontier exploration, and feedback-driven skill-library updates. It combines reliable skill-specific verification with open-ended task diversity to improve tool use and reasoning across diverse LLM backbones. \
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

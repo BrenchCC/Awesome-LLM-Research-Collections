@@ -675,6 +675,10 @@
 
 ## 智能体强化学习
 
+- **DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents** (2026.08) \
+  **描述**: 该论文提出 DART-SD，一种拓扑感知的自蒸馏框架，将多轮工具执行表示为交互状态转移图（ISTG），保留由无序子目标产生的菱形替代路径。它在失败的学生轨迹中识别关键拓扑断点（CTB），仅对检索得到的恢复步骤施加监督，从而保护有效前缀并逐步提升工具使用能力。 \
+  <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
   **描述**: 该论文提出 Skill Self-Play，一个由提议器、求解器和动态技能控制器通过技能条件任务生成、能力边界探索及反馈驱动的技能库更新共同演化的强化学习框架。它兼顾技能特定验证的可靠性与开放式任务的多样性，在多种 LLM 骨干上提升工具使用和推理能力。 \
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

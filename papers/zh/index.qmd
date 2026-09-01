@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>160</strong><span>论文</span></div>
+    <div><strong>161</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>379</strong><span>资源链接</span></div>
+    <div><strong>380</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,11 +78,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">53 篇论文</span>
+  <span class="category-count">54 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
-    <span>2026.07</span>
+    <span>2026.08</span>
     <span>OPD、多模态强化学习、奖励建模、推理强化学习、智能体强化学习、策略优化、视觉-语言-动作强化学习、视频生成强化学习</span>
   </div>
 </a>
@@ -147,6 +147,11 @@ toc: false
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
   <em>训练</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
+  <span>2026.08</span>
+  <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="agents-application.html#agentic-artifact-creation-systems-evaluation-principles-and-opportunities">
   <span>2026.08</span>
   <strong>Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#autoresearch-insight-in-hallucination-out">
   <span>2026.08</span>
   <strong>AutoResearch: Insight In, Hallucination Out</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="agents-application.html#spark-to-paper-end-to-end-research-paper-generation-as-a-composable-skill">
-  <span>2026.08</span>
-  <strong>Spark-to-Paper: End-to-End Research Paper Generation as a Composable Skill</strong>
   <em>智能体应用</em>
 </a>
   </div>

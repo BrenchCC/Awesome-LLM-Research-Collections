@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>53</strong><span>Papers</span></div>
-    <div><strong>107</strong><span>Resource links</span></div>
-    <div><strong>2026.07</strong><span>Latest month</span></div>
+    <div><strong>54</strong><span>Papers</span></div>
+    <div><strong>108</strong><span>Resource links</span></div>
+    <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#policy-optimization">Policy Optimization</a>
@@ -569,10 +569,21 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">11 papers</p>
+    <p class="eyebrow">12 papers</p>
     <h2>Agentic RL</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</h3>
+  <p>This paper proposes DART-SD, a topology-aware self-distillation framework that represents multi-turn tool execution as an Interaction-State Transition Graph (ISTG), preserving the diamond-shaped alternatives induced by order-independent sub-goals. It identifies the Critical Topological Breakpoint (CTB) in failed student rollouts and applies supervision only to retrieved recovery steps, protecting valid prefixes while progressively improving tool-use behavior.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.18524" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="skill-self-play-pushing-the-frontier-of-llm-capability-with-co-evolving-skills">
   <div class="paper-meta">
     <span>2026.07</span>
