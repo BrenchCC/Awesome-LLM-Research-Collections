@@ -922,6 +922,13 @@
   <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering** (2026.08) \
+  **Description**: LoopArena benchmarks how well a Controller model guides a separate, fixed coding-agent Worker through long-running software tasks using structured evidence and loop contracts. Its three evaluation settings range from next-step contract selection to full-task control; the best observed full-task strict success rate is 24.69%, while the lower-cost condensed setting reduces estimated inference cost by 64.4% on average. \
+  <a href="https://arxiv.org/abs/2608.28281"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://amap-ml.github.io/LoopArena/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/AMAP-ML/LoopArena"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.28281"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?** (2026.06) \
   **Description**: AutoLab introduces a benchmark for ultra-long-horizon closed-loop optimization across system optimization, puzzles, model development, and CUDA kernels, with 36 expert-curated tasks that require agents to iteratively edit, run, measure, and improve real artifacts under strict budgets. Evaluations of 17 frontier models show that persistence and empirical feedback, rather than initial attempt quality alone, dominate success, motivating more time-aware and iterative autonomous-agent research. \
   <a href="https://arxiv.org/abs/2606.05080"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -921,6 +921,13 @@
   <a href="https://mirros-lab.github.io/HarnessEval-W/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/MirroS-Lab/HarnessEval-W"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering** (2026.08) \
+  **描述**: LoopArena 评测控制器模型利用结构化证据和循环契约，引导一个独立且固定的编码智能体 Worker 完成长程软件任务的能力。它设置了从下一步契约选择到完整任务控制的三种评测模式；完整任务上的最佳严格成功率为 24.69%，而低成本的压缩任务模式平均可减少 64.4% 的估算推理成本。 \
+  <a href="https://arxiv.org/abs/2608.28281"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://amap-ml.github.io/LoopArena/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/AMAP-ML/LoopArena"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/papers/2608.28281"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?** (2026.06) \
   **描述**: AutoLab 提出一个面向超长时程闭环优化的智能体基准，覆盖系统优化、谜题挑战、模型开发和 CUDA 内核四类任务，共包含 36 个专家策划任务，要求智能体在严格预算内反复编辑、运行、测量并改进真实产物。对 17 个前沿模型的评测表明，持续迭代和利用经验反馈比初始尝试质量更能决定成功，因此需要更加关注时间感知与迭代能力的自主智能体研究。 \
   <a href="https://arxiv.org/abs/2606.05080"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
