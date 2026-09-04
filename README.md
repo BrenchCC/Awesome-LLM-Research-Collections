@@ -687,6 +687,13 @@
   **Description**: This paper proposes DART-SD, a topology-aware self-distillation framework that represents multi-turn tool execution as an Interaction-State Transition Graph (ISTG), preserving the diamond-shaped alternatives induced by order-independent sub-goals. It identifies the Critical Topological Breakpoint (CTB) in failed student rollouts and applies supervision only to retrieved recovery steps, protecting valid prefixes while progressively improving tool-use behavior. \
   <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL** (2026.08) \
+  **Description**: ContextPilot equips long-horizon agents with planning, long-term memory, and soft context-offloading tools to keep working context compact. Its context-aware partial rollout and action-level credit assignment focus exploration and policy updates on consequential context-editing decisions, improving long-context QA and deep-search performance. \
+  <a href="https://arxiv.org/abs/2608.28476"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://tencent.github.io/ContextPilot/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Tencent/ContextPilot"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/panzs19/contextpilot"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
   **Description**: This paper introduces Skill Self-Play, a reinforcement learning framework in which a proposer, solver, and dynamic skill controller co-evolve through skill-conditioned task generation, frontier exploration, and feedback-driven skill-library updates. It combines reliable skill-specific verification with open-ended task diversity to improve tool use and reasoning across diverse LLM backbones. \
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

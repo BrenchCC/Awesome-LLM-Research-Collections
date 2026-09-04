@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>163</strong><span>论文</span></div>
+    <div><strong>164</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>388</strong><span>资源链接</span></div>
+    <div><strong>392</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">55 篇论文</span>
+  <span class="category-count">56 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -157,10 +157,10 @@ toc: false
   <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
   <em>强化学习</em>
 </a>
-<a class="recent-row" href="agents-application.html#agentic-artifact-creation-systems-evaluation-principles-and-opportunities">
+<a class="recent-row" href="reinforcement-learning.html#contextpilot-teaching-agents-for-proactive-context-management-via-fine-grained-rl">
   <span>2026.08</span>
-  <strong>Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities</strong>
-  <em>智能体应用</em>
+  <strong>ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL</strong>
+  <em>强化学习</em>
 </a>
   </div>
 </section>
