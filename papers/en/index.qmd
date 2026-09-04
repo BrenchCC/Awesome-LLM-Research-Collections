@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>162</strong><span>Papers</span></div>
+    <div><strong>163</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>384</strong><span>Resource links</span></div>
+    <div><strong>388</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">54 papers</span>
+  <span class="category-count">55 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -147,6 +147,11 @@ toc: false
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
   <em>Training</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#does-on-policy-distillation-really-distill-from-noisy-teacher-to-self-improvement">
+  <span>2026.08</span>
+  <strong>Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
   <span>2026.08</span>
   <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#agentic-artifact-creation-systems-evaluation-principles-and-opportunities">
   <span>2026.08</span>
   <strong>Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#autoresearch-insight-in-hallucination-out">
-  <span>2026.08</span>
-  <strong>AutoResearch: Insight In, Hallucination Out</strong>
   <em>Agents Application</em>
 </a>
   </div>

@@ -524,6 +524,13 @@
 
 ## OPD
 
+- **Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement** (2026.08) \
+  **描述**: 该论文发现，教师监督中的噪声并非 on-policy distillation 性能提升的主要来源：仅对学生采样的低概率 token 施加固定负优势，即可达到相近效果。论文进一步提出无需教师和奖励的 On-Policy Self-Adaptation（OPSA），按 token 熵缩放负优势，以提升推理能力与泛化表现。 \
+  <a href="https://arxiv.org/abs/2608.31046"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://dripnowhy.github.io/On-Policy-Self-Adaptation/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/DripNowhy/On-Policy-Self-Adaptation"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/Tuwhy/on-policy-self-adaptation"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation** (2026.06) \
   **描述**: 该论文指出，基于采样 token 的 on-policy distillation 中，无界的 log-ratio 奖励会引发高方差梯度与训练不稳定。PowerOPD 使用由 Box-Cox 幂变换导出的有界、符号一致奖励族，在降低全词表 OPD 时间和显存开销的同时提升数学推理准确率。 \
   <a href="https://arxiv.org/abs/2606.17199"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

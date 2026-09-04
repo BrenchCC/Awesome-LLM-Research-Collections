@@ -525,6 +525,13 @@
 
 ## OPD
 
+- **Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement** (2026.08) \
+  **Description**: This paper finds that noisy teacher supervision is not the main source of on-policy distillation gains: suppressing student-sampled low-probability tokens with a fixed negative advantage achieves comparable performance. It introduces On-Policy Self-Adaptation (OPSA), a teacher- and reward-free method that scales negative advantages by token entropy to improve reasoning and generalization. \
+  <a href="https://arxiv.org/abs/2608.31046"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://dripnowhy.github.io/On-Policy-Self-Adaptation/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/DripNowhy/On-Policy-Self-Adaptation"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/collections/Tuwhy/on-policy-self-adaptation"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **PowerOPD: Stabilizing On-Policy Distillation with Bounded Power Transformation** (2026.06) \
   **Description**: This paper identifies the unbounded log-ratio reward as the source of high-variance gradients and unstable training in sampled-token on-policy distillation. PowerOPD replaces it with a bounded, sign-consistent reward family derived from the Box-Cox power transformation, improving mathematical reasoning accuracy while reducing time and memory relative to full-vocabulary OPD. \
   <a href="https://arxiv.org/abs/2606.17199"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
