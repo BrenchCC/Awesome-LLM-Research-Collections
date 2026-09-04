@@ -949,6 +949,11 @@
   <a href="https://autolab.moe/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/autolabhq/autolab"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **From Holistic Evaluation to Structured Criteria: Rubrics Across the Evolving LLM Landscape** (2026.06) \
+  **Description**: This survey presents rubrics as explicit, structured criteria that turn holistic quality judgments into verifiable and actionable standards for LLM evaluation and training. It organizes rubric construction, optimization, reliability, and benchmarks, tracing their roles from evaluation through dense process-level feedback to self-improvement. \
+  <a href="https://arxiv.org/abs/2606.08625"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/AI9Stars/LLM-Rubrics-Survey"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 ## Memory
 
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \

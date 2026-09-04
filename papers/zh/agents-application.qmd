@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>39</strong><span>论文</span></div>
-    <div><strong>90</strong><span>资源链接</span></div>
+    <div><strong>40</strong><span>论文</span></div>
+    <div><strong>92</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -432,7 +432,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">4 篇论文</p>
+    <p class="eyebrow">5 篇论文</p>
     <h2>智能体评测</h2>
   </div>
   <div class="paper-grid">
@@ -486,6 +486,18 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2606.05080" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://autolab.moe/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/autolabhq/autolab" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="from-holistic-evaluation-to-structured-criteria-rubrics-across-the-evolving-llm-landscape">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>From Holistic Evaluation to Structured Criteria: Rubrics Across the Evolving LLM Landscape</h3>
+  <p>本综述将 rubric 定义为把整体质量判断转化为可验证、可执行标准的显式结构化准则，用于 LLM 评测与训练。论文系统梳理 rubric 的构建、优化、可靠性与基准，并追踪其从评测到密集过程级反馈、再到自我改进的作用。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.08625" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/AI9Stars/LLM-Rubrics-Survey" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
   </div>

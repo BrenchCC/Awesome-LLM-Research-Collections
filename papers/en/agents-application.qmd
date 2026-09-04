@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>39</strong><span>Papers</span></div>
-    <div><strong>90</strong><span>Resource links</span></div>
+    <div><strong>40</strong><span>Papers</span></div>
+    <div><strong>92</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -432,7 +432,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">4 papers</p>
+    <p class="eyebrow">5 papers</p>
     <h2>Agent Evaluation</h2>
   </div>
   <div class="paper-grid">
@@ -486,6 +486,18 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2606.05080" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://autolab.moe/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/autolabhq/autolab" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="from-holistic-evaluation-to-structured-criteria-rubrics-across-the-evolving-llm-landscape">
+  <div class="paper-meta">
+    <span>2026.06</span>
+    <span>Agent Evaluation</span>
+  </div>
+  <h3>From Holistic Evaluation to Structured Criteria: Rubrics Across the Evolving LLM Landscape</h3>
+  <p>This survey presents rubrics as explicit, structured criteria that turn holistic quality judgments into verifiable and actionable standards for LLM evaluation and training. It organizes rubric construction, optimization, reliability, and benchmarks, tracing their roles from evaluation through dense process-level feedback to self-improvement.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.08625" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/AI9Stars/LLM-Rubrics-Survey" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
   </div>

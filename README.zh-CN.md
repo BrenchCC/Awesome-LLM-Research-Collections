@@ -948,6 +948,11 @@
   <a href="https://autolab.moe/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/autolabhq/autolab"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **From Holistic Evaluation to Structured Criteria: Rubrics Across the Evolving LLM Landscape** (2026.06) \
+  **描述**: 本综述将 rubric 定义为把整体质量判断转化为可验证、可执行标准的显式结构化准则，用于 LLM 评测与训练。论文系统梳理 rubric 的构建、优化、可靠性与基准，并追踪其从评测到密集过程级反馈、再到自我改进的作用。 \
+  <a href="https://arxiv.org/abs/2606.08625"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/AI9Stars/LLM-Rubrics-Survey"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 ## 记忆
 
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
