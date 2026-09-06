@@ -350,6 +350,13 @@
 
 ## VLA
 
+- **Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving** (2026.08) \
+  **Description**: Qwen-Drive-1.0 integrates 3D perception, visual question answering, and motion planning around an unchanged pretrained vision-language model, using an external BEV perception head and a Planning Expert for future ego trajectories. A staged recipe combines driving supervision with general vision-language data, preserving broad visual understanding while achieving strong 3D scene and closed-loop planning performance. \
+  <a href="https://arxiv.org/abs/2609.00111"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://qwen.ai/blog?id=qwen-drive-1.0"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen-Drive-1.0"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen-Drive-1.0-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LA4VLA: Learning to Act without Seeing via Language-Action Pretraining** (2026.06) \
   **Description**: This paper proposes LA4VLA, a language-action pretraining framework that teaches VLA policies language-conditioned action priors without visual observations by decomposing demonstrations into atomic action segments with low-level descriptions. It builds the LA-33K dataset and shows that combining language-action and VLA supervision improves manipulation success in both simulation and real-world tasks. \
   <a href="https://arxiv.org/abs/2606.27295"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>166</strong><span>Papers</span></div>
+    <div><strong>167</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>398</strong><span>Resource links</span></div>
+    <div><strong>402</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">19 papers</span>
+  <span class="category-count">20 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
@@ -147,6 +147,11 @@ toc: false
   <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
   <em>Multimodal LLMs</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#qwen-drive-1-0-an-initial-step-towards-a-vision-language-foundation-model-for-autonomous-driving">
+  <span>2026.08</span>
+  <strong>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="training.html#bigbang-pursuing-open-ended-intelligence-through-self-evolving-synthesis-of-verifiable-frontier-tasks">
   <span>2026.08</span>
   <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#does-on-policy-distillation-really-distill-from-noisy-teacher-to-self-improvement">
   <span>2026.08</span>
   <strong>Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
-  <span>2026.08</span>
-  <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

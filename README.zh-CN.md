@@ -349,6 +349,13 @@
 
 ## 视觉-语言-动作
 
+- **Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving** (2026.08) \
+  **描述**: Qwen-Drive-1.0 在保持预训练视觉语言模型不变的基础上，通过外接 BEV 感知头和规划专家，统一整合 3D 感知、视觉问答与运动规划。分阶段训练流程结合驾驶监督和通用视觉语言数据，在保留广泛视觉理解能力的同时，取得了较强的 3D 场景理解和闭环规划表现。 \
+  <a href="https://arxiv.org/abs/2609.00111"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://qwen.ai/blog?id=qwen-drive-1.0"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen-Drive-1.0"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen-Drive-1.0-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LA4VLA: Learning to Act without Seeing via Language-Action Pretraining** (2026.06) \
   **描述**: 该论文提出 LA4VLA，一种语言-动作预训练框架，通过把示范轨迹分解为原子动作片段并配对低层动作描述，使 VLA 策略在无视觉观测的情况下学习语言条件动作先验。论文构建 LA-33K 数据集，并表明结合语言-动作与 VLA 监督可以提升仿真和真实机器人任务中的操作成功率。 \
   <a href="https://arxiv.org/abs/2606.27295"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
