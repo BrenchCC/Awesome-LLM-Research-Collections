@@ -104,6 +104,13 @@
   <a href="https://arxiv.org/abs/2608.09888"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/pathwaycom/arc-task-gen"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability** (2026.08) \
+  **Description**: Qwen3.8-Flash-Next combines hybrid Gated DeltaNet and sparse attention, gated residual branches, and host-memory n-gram embeddings in a 125B-parameter MoE backbone with 6B parameters activated per token. Joint architecture and Muon optimizer ablations examine downstream quality, training and inference costs, and stability, yielding competitive pretraining performance at roughly one-ninth the predecessor's training FLOPs. \
+  <a href="https://arxiv.org/abs/2608.30320"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://qwen.ai/blog?id=qwen3.8-flash-next"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen3.8-Flash-Next"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Kimi K3: Open Frontier Intelligence** (2026.07) \
   **Description**: Kimi K3 is a 2.8T-parameter MoE foundation model with 104B activated parameters, native vision, and a 1-million-token context window, built on Kimi Delta Attention, Attention Residuals, and Stable LatentMoE. These architectural and training advances improve overall scaling efficiency by about 2.5× over Kimi K2 and support frontier-level long-horizon coding, agentic, reasoning, and vision performance. \
   <a href="https://arxiv.org/abs/2607.24653"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

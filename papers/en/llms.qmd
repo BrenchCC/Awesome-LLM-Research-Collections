@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>23</strong><span>Papers</span></div>
-    <div><strong>69</strong><span>Resource links</span></div>
+    <div><strong>24</strong><span>Papers</span></div>
+    <div><strong>73</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">17 papers</p>
+    <p class="eyebrow">18 papers</p>
     <h2>Foundation Models</h2>
   </div>
   <div class="paper-grid">
@@ -38,6 +38,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.09888" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/pathwaycom/arc-task-gen" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Foundation Models</span>
+  </div>
+  <h3>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</h3>
+  <p>Qwen3.8-Flash-Next combines hybrid Gated DeltaNet and sparse attention, gated residual branches, and host-memory n-gram embeddings in a 125B-parameter MoE backbone with 6B parameters activated per token. Joint architecture and Muon optimizer ablations examine downstream quality, training and inference costs, and stability, yielding competitive pretraining performance at roughly one-ninth the predecessor&#x27;s training FLOPs.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.30320" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=qwen3.8-flash-next" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3.8-Flash-Next" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="kimi-k3-open-frontier-intelligence">

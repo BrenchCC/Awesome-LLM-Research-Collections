@@ -103,6 +103,13 @@
   <a href="https://arxiv.org/abs/2608.09888"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/pathwaycom/arc-task-gen"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability** (2026.08) \
+  **描述**: Qwen3.8-Flash-Next 在总参数 125B、每 token 激活 6B 参数的 MoE 主干中，结合 Gated DeltaNet 与稀疏注意力混合架构、门控残差分支，以及存放于主机内存的 n-gram 嵌入。论文通过架构与 Muon 优化器的联合消融，考察下游效果、训练与推理成本及稳定性，以前代模型约九分之一的训练 FLOPs 获得有竞争力的预训练表现。 \
+  <a href="https://arxiv.org/abs/2608.30320"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://qwen.ai/blog?id=qwen3.8-flash-next"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/QwenLM/Qwen3.8-Flash-Next"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Kimi K3: Open Frontier Intelligence** (2026.07) \
   **描述**: Kimi K3 是一个 2.8T 总参数、104B 激活参数的 MoE 基础模型，具备原生视觉能力和 100 万 token 上下文，并基于 Kimi Delta Attention、Attention Residuals 与 Stable LatentMoE 构建。其架构和训练改进相较 Kimi K2 将整体扩展效率提升约 2.5 倍，并在长程代码、智能体、推理和视觉任务上达到前沿水平。 \
   <a href="https://arxiv.org/abs/2607.24653"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>165</strong><span>Papers</span></div>
+    <div><strong>166</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>394</strong><span>Resource links</span></div>
+    <div><strong>398</strong><span>Resource links</span></div>
     <div><strong>2026.08</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">23 papers</span>
+  <span class="category-count">24 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
   <em>LLMs</em>
 </a>
+<a class="recent-row" href="llms.html#on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
+  <span>2026.08</span>
+  <strong>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="llms.html#llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
   <span>2026.08</span>
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
   <span>2026.08</span>
   <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#contextpilot-teaching-agents-for-proactive-context-management-via-fine-grained-rl">
-  <span>2026.08</span>
-  <strong>ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

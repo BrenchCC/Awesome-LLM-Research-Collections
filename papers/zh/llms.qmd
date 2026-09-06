@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>23</strong><span>论文</span></div>
-    <div><strong>69</strong><span>资源链接</span></div>
+    <div><strong>24</strong><span>论文</span></div>
+    <div><strong>73</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">17 篇论文</p>
+    <p class="eyebrow">18 篇论文</p>
     <h2>基础模型</h2>
   </div>
   <div class="paper-grid">
@@ -38,6 +38,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2608.09888" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/pathwaycom/arc-task-gen" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>基础模型</span>
+  </div>
+  <h3>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</h3>
+  <p>Qwen3.8-Flash-Next 在总参数 125B、每 token 激活 6B 参数的 MoE 主干中，结合 Gated DeltaNet 与稀疏注意力混合架构、门控残差分支，以及存放于主机内存的 n-gram 嵌入。论文通过架构与 Muon 优化器的联合消融，考察下游效果、训练与推理成本及稳定性，以前代模型约九分之一的训练 FLOPs 获得有竞争力的预训练表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.30320" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://qwen.ai/blog?id=qwen3.8-flash-next" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/QwenLM/Qwen3.8-Flash-Next" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="kimi-k3-open-frontier-intelligence">

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>165</strong><span>论文</span></div>
+    <div><strong>166</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>394</strong><span>资源链接</span></div>
+    <div><strong>398</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">23 篇论文</span>
+  <span class="category-count">24 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
@@ -127,6 +127,11 @@ toc: false
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
   <em>大语言模型</em>
 </a>
+<a class="recent-row" href="llms.html#on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
+  <span>2026.08</span>
+  <strong>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="llms.html#llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
   <span>2026.08</span>
   <strong>LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
   <span>2026.08</span>
   <strong>DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#contextpilot-teaching-agents-for-proactive-context-management-via-fine-grained-rl">
-  <span>2026.08</span>
-  <strong>ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL</strong>
   <em>强化学习</em>
 </a>
   </div>
