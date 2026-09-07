@@ -1096,6 +1096,11 @@
 
 ## Technical Reflections
 
+- **Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries** (Created: 2026-09-07; Updated: 2026-09-07) \
+  **Description**: Intent recognition, clarification, behavior-driven rewriting, distillation, and retrieval evaluation, with evidence-dependent multi-hop training data and a discussion of Agent state management versus AIGC recaptioning. \
+  [[Note](notes/en/agents/query-understanding-and-rewriting.qmd)]
+  [[中文](notes/zh/agents/query-understanding-and-rewriting.qmd)]
+
 - **From Policy Lag to Advantage Collapse: Effective Update Signals in LLM Reinforcement Learning** (Created: 2026-09-01; Updated: 2026-09-01) \
   **Description**: An analysis of ineffective LLM RL updates through rollout policies, PPO clipping, homogeneous GRPO rewards, and interventions across data, sampling, supervision, and optimization. \
   [[Note](notes/en/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]

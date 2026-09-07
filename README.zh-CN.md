@@ -1095,6 +1095,11 @@
 
 ## 技术思考
 
+- **Query 识别与改写：训练、检索与 Agent 架构边界** (创建: 2026-09-07; 更新: 2026-09-07) \
+  **描述**: 梳理意图识别、澄清、行为驱动改写、蒸馏与检索评测，补充基于证据依赖的多跳训练数据构造，并讨论 Agent 状态管理与 AIGC recaption 的边界。 \
+  [[笔记](notes/zh/agents/query-understanding-and-rewriting.qmd)]
+  [[English](notes/en/agents/query-understanding-and-rewriting.qmd)]
+
 - **从策略滞后到优势坍缩：LLM 强化学习中的有效更新信号** (创建: 2026-09-01; 更新: 2026-09-01) \
   **描述**: 从 rollout policy、PPO clip 与 GRPO 组内零优势出发，分析 LLM 强化学习中的无效更新，并给出数据、采样、监督和优化层面的处理顺序。 \
   [[笔记](notes/zh/reinforcement-learning/policy-lag-and-advantage-collapse.qmd)]

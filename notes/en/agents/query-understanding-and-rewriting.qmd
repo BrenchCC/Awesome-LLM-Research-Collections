@@ -1,0 +1,568 @@
+---
+author: Brench
+date: 2026-09-07
+date-modified: 2026-09-07
+title: "Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries"
+description: "Intent recognition, clarification, behavior-driven rewriting, distillation, and retrieval evaluation, with evidence-dependent multi-hop training data and a discussion of Agent state management versus AIGC recaptioning."
+order: 1
+note_type: technical-reflection
+topic: agents
+tags:
+  - Query Rewriting
+  - Intent Recognition
+  - Retrieval
+  - Training Data
+  - Agent Architecture
+---
+
+Query understanding and rewriting bridge the gap between user language and execution or retrieval interfaces. A rewrite may recover an omitted object or expand retrieval coverage. The former requires reliable use of context; the latter requires control over semantic drift. Without this distinction, behavioral value, conversational memory, and tool parameters can become entangled in the same generated text.
+
+This note preserves the architecture, training methods, examples, and evaluation criteria of the source material, with additional discussion of multi-hop training data and architecture choices. Incomplete prompts and examples have been reconstructed from context to illustrate interfaces and constraints; they are not verbatim restorations. Unconfirmed organizations and model versions are not inferred. Example scores, initial thresholds, and weights do not represent measured production gains.
+
+## 1. Architecture and data responsibilities
+
+In an architecture with a separate semantic entry layer, query understanding and rewriting sit between the user conversation and Skills, Workflows, RAG, or search retrieval. They turn natural-language requests into standalone task representations and searchable queries. A complete representation does not itself authorize execution: parameter validation, authorization, and necessary confirmation remain responsibilities of the execution path.
+
+The overall flow is:
+
+Original user query → context completion → intent recognition → entity recognition and parameter extraction → clarification decision → query rewriting → retrieval → Skill or Workflow execution → response
+
+The system should retain the original input alongside two types of derived output:
+
+| Field | Responsibility | Boundary |
+| --- | --- | --- |
+| `raw_query` | Preserve the user's original wording for the current turn | Never overwrite it with a rewrite; retain it for intent recovery and auditing |
+| `standalone_query` | Resolve references and omissions for routing and tool-parameter extraction | Use only the current request and reliable context; it grants no execution permission |
+| `retrieval_queries` | Produce expressions for knowledge-base, product, content, or Q2I retrieval | Use as incremental retrieval channels; preserve the original query and each rewrite's provenance |
+
+Context completion determines what the utterance refers to. Retrieval expansion finds other ways to search for the same need. Multi-hop planning determines which earlier result a later search requires. These tasks can cooperate, but their supervision targets are different.
+
+```json
+{
+  "raw_query": "Now show the last 30 days",
+  "standalone_query": "Show transaction value over the last 30 days",
+  "intent": "metric_query",
+  "action": "read",
+  "entities": [{"type": "metric", "value": "transaction value", "source": "history"}],
+  "time_range": "last_30_days",
+  "missing_fields": [],
+  "ambiguities": [],
+  "need_clarification": false,
+  "retrieval_queries": ["last 30 days transaction value", "last 30 days sales value"]
+}
+```
+
+## 2. Intent recognition and parameter extraction
+
+Intent recognition parses user language into a structured task.
+
+Use information in this order: current query → conversation context → entity-probing results → Skill parameter definitions → business defaults.
+
+For example, if the user asks, “Show me yesterday's performance,” and the preceding conversation concerns product 1024001, the result can be:
+
+```json
+{
+  "intent": "performance_query",
+  "action": "read",
+  "object": {"type": "product", "id": "1024001"},
+  "time_range": "yesterday"
+}
+```
+
+If context supplies no object, and interpreting it as a store, product, or livestream would change the result, the system should clarify before routing.
+
+Intent recognition should describe what the user wants. A separate Skill Router selects an execution module using intent, entities, permissions, and a capability registry. Keeping these responsibilities separate avoids changing the intent model whenever a Skill is added.
+
+Suggested fields:
+
+| Field | Meaning | Examples |
+| --- | --- | --- |
+| intent | Task the user wants to complete | Query, analyze, diagnose, generate, modify, monitor |
+| action | Operation type | read, write, create, update, delete |
+| object | Target object | Store, product, category, content, campaign |
+| metric | Requested metric | Transaction value, order count, click-through rate |
+| time_range | Time interval | Last 7 days, yesterday, live |
+| scope | Data scope | Entire store, selected product, region |
+| constraints | Additional restrictions | Budget, location, price, status |
+| risk_level | Operation risk | low, medium, high |
+
+## 3. When to clarify
+
+Clarification is warranted when missing information affects the execution target, path, permissions, safety, or result accuracy. Infer from reliable context, probe when possible, and use safe defaults when defined. Ask the user when these measures still leave the task insufficiently specified.
+
+Clarification cases can be grouped by their effect on execution:
+
+| Case | Example and consequence |
+| --- | --- |
+| Missing required object | “Diagnose this store,” with no store identified in context. |
+| Ambiguous entity | “Apple” could mean a phone brand, fruit category, company, or store. |
+| Ambiguous workflow | “Keep an eye on this merchant's sales” could mean a current lookup or ongoing monitoring. |
+| Unconfirmed write or external effect | Configuration changes, messages, scheduled tasks, and automated outreach require checking the specific target and existing authorization. |
+| Unclear permissions | The request concerns sensitive data, batch operations, or potentially unauthorized objects. |
+| Unresolvable contextual reference | “Use the previous one,” when several objects or proposals were discussed. |
+
+Clarification is unnecessary when the object and action are clear, a read-only interface can resolve the entity, the Skill defines a safe default time range, the user asks about a rule or concept, an unsupported capability can be explained directly, or the missing field would not materially change the result.
+
+Offer concrete choices instead of a generic request for more information:
+
+```json
+{
+  "need_clarification": true,
+  "reason_code": "AMBIGUOUS_WORKFLOW",
+  "question": "Do you want to query current data or create ongoing monitoring?",
+  "options": [
+    {"id": "query_once", "label": "Query current data", "recommended": true, "impact": "Read-only; creates no monitoring task"},
+    {"id": "create_monitor", "label": "Create ongoing monitoring", "recommended": false, "impact": "Requires confirmation of the target, frequency, and notification method"}
+  ]
+}
+```
+
+Once clarification is pending, pause routing and execution that depend on the answer. Independent, authorized read-only probes may continue if they do not change the object under clarification. After the user responds, combine the new information with the original query and repeat intent recognition, risk checks, and routing.
+
+## 4. Data and training for query rewriting
+
+Query rewriting aims to improve completeness, normalization, retrieval coverage, and business value while preserving the user's primary need. Search and recommendation systems face several limitations:
+
+- Behavior-only mining reflects actual demand but is noisy and weak on the long tail.
+- Direct large-model generation generalizes more broadly but can depart from business behavior and incur substantial online cost.
+- Offline query labels refresh too slowly for new products, emerging topics, and immediate search intent.
+
+A business with search-behavior data and online cost constraints can use three stages: behavioral co-occurrence mining → Qwen teacher cleaning → small-model distillation and real-time inference. This is an engineering choice, not a mandatory path for every Agent.
+
+### 4.1 Behavioral co-occurrence mining
+
+Behavioral co-occurrence mining finds queries used by overlapping users in related situations. If many users search for A and then B, or click or purchase the same items after searching A and B, the two queries may be behaviorally related.
+
+The first stage mines associations between an original query, denoted Q, and candidate queries.
+
+Signals include consecutive searches by the same user within a short interval; queries associated with clicks, saves, cart additions, or purchases; searches following content consumption; searches leading to the same product, content, or merchant; and queries followed by transactions or high-quality consumption.
+
+For each query, collect search PV, click-through rate, order rate, indirect GPM (G), indirect OPM (O), effective post-search consumption time, and subsequent cart or transaction events. The business must specify exposure denominators, attribution windows, and indirect-conversion definitions for GPM and OPM, and keep these definitions consistent across candidates.
+
+Suppose Q1 and Q2 satisfy these relationships:
+
+- Under this sample-labeling rule, Q1 being a non-identical prefix of Q2 counts as expansion; Q1 being a non-prefix substring of Q2 counts as rewriting. These are string-based definitions: they neither cover all synonymous rewrites nor establish semantic consistency.
+- G2 / G1 above threshold T counts as a GPM increase; below 1 / T counts as a decrease. Apply the same rule to OPM.
+
+T can start at 1.2 and be adjusted through offline evaluation and online experiments. Ratios require positive denominators. When baseline GPM or OPM is zero, use a separate bucket or a validated smoothing estimator instead of direct division. A minimum exposure count is also needed to prevent unstable low-frequency ratios.
+
+The combinations produce eight sample categories:
+
+| String relationship | GPM labels | OPM labels |
+| --- | --- | --- |
+| Expansion | Increase, decrease | Increase, decrease |
+| Rewriting | Increase, decrease | Increase, decrease |
+
+These eight labels are not mutually exclusive: one pair may have both a GPM increase and an OPM decrease. Values within the threshold interval should not be forced into either label.
+
+For example:
+
+```text
+Original query: KFC
+Candidates:
+KFC egg tarts
+KFC meal group-buy deals
+KFC burgers
+KFC new coffee products
+```
+
+Behavior mining introduces actual preferences and transaction feedback, but raw pairs are not final labels. Co-occurrence establishes behavioral association, not semantic equivalence.
+
+Filter accidental associations caused by trending events, same-name entities, short-lived promotional anomalies, low-exposure metric fluctuations, geographically non-transferable results, related queries with different core needs, and high-value candidates that depart from the user's intent. Retain some GPM- or OPM-decreasing samples as negatives so the model can learn which apparently related expansions should not be produced.
+
+### 4.2 Teacher-model cleaning of behavioral candidates
+
+The second stage uses a larger Qwen model to clean behavioral pairs. The teacher checks semantic consistency; removes same-name entity errors and abnormal co-occurrences; identifies brands, categories, products, locations, and additional needs; normalizes rare expressions; performs high-confidence spelling correction; selects candidates balancing relevance and business value; generalizes conservatively when candidates are sparse; and emits rewrite types, reasons, and confidence scores.
+
+Example cleaned labels:
+
+| Original query | Behavioral candidates | Cleaning result |
+| --- | --- | --- |
+| Zijin Mountain | Zijin Mountain cableway, night hiking, other attractions with the same name, ticket packages | Zijin Mountain cableway, night hiking, travel guide, ticket packages |
+| Nanjing | Nanjing accommodation, ferry, an actor's Nanjing performance, Nanjing seaside | Nanjing accommodation, travel guide, ferry, seaside |
+| Meishan Dragon Palace | Few candidates | Meishan Dragon Palace guide, tickets, recommended attractions |
+
+These examples need further scrutiny. “Zijin Mountain night hiking” and “KFC meal group-buy deals” narrow the need; they are appropriate incremental candidates only when context or behavioral evidence supports them. They must not replace the original request. “Nanjing seaside” is retained from the source example, but Nanjing is not a coastal city. The phrase might be a local nickname, a content title, or an error. Without a verifiable entity and context, reject it rather than treating it as a successful cleaning label. “Nanjing ferry” also requires geographic and service-entity checks. Narrowing a category to a specific product needs separate validation even when the terms are related.
+
+A complete reconstructed cleaning prompt follows:
+
+```text
+# Role
+You are a semantic-understanding specialist for e-commerce and content-community search. The user supplies a search query. Use behavioral candidates to generate searchable rewrites while preserving the core need.
+
+# Objective
+Improve recall coverage for quality content and high-intent products, with relevance taking priority over business value. Do not introduce entities, intent, or hard constraints unsupported by the original query and reliable context merely to increase potential conversion.
+
+# Query elements
+Identify:
+- POI: attractions, malls, schools, office buildings, stores, and other places.
+- Brand: explicitly mentioned brands and reliable abbreviations or aliases.
+- Category: food, accommodation, beauty, appliances, apparel, and other parent categories.
+- Product or service: specific products, specifications, packages, or services.
+- Geography: country, province, city, district, street, commercial area, or nearby location.
+- Additional needs: nearby, group-buy deals, value for money, opening hours, party size, budget, guides, and other constraints.
+- Person or IP: public figures, works, characters, or entities sharing a brand name.
+
+# Rewriting strategy
+1. Usually retain well-known, uniquely identified POIs. For overly generic names, use only reliable synonym normalization.
+2. Brands may be mapped between official names, Chinese names, English names, and common abbreviations.
+3. Do not append a category to a suspected brand when its category cannot be established.
+4. Normalize category synonyms; use broader or narrower category terms only when they preserve the intended need.
+5. Preserve the core product or service. Add high-confidence specifications, uses, or service types supported by candidates.
+6. Add location only when the user asks for nearby results or the need is strongly location-dependent.
+7. Prefer geographic specificity in this order: exact POI → district → city → province.
+8. Preserve hard constraints such as price, party size, time, and location.
+9. Convert rare or colloquial phrases into common search expressions, such as “a place that fixes cars” → “car repair.”
+10. Correct spelling only when the error is clear and the correction is unique.
+11. Use no more than 4 core elements per result; avoid long sentences and questions.
+12. Do not add unsupported locations to multi-location chain brands.
+
+# Hard constraints
+1. Every rewrite must preserve the original query's primary need.
+2. Do not introduce specific facts unsupported by the input.
+3. High business value does not justify sacrificing relevance.
+4. Use conservative rewrites when candidates contain same-name entities or ambiguity.
+5. Return an empty list when no suitable result exists; do not force generation.
+
+# Input
+Original query: {{query}}
+Expansion candidates with GPM increase: {{expand_gpm_up}}
+Expansion candidates with OPM increase: {{expand_opm_up}}
+Rewrite candidates with GPM increase: {{rewrite_gpm_up}}
+Rewrite candidates with OPM increase: {{rewrite_opm_up}}
+Negative candidates: {{negative_candidates}}
+Available location context: {{location_context}}
+
+# Output
+Return valid JSON only:
+{
+  "rewrites": [
+    {
+      "query": "rewritten query",
+      "reason": "Explain what was preserved and what changed",
+      "rewrite_type": "normalize|expand|generalize|correct",
+      "confidence": 0.95
+    }
+  ]
+}
+
+Return at most 5 results, ordered by quality from highest to lowest.
+```
+
+### 4.3 SFT distillation and small-model generalization
+
+The third stage distills the teacher's semantic understanding and cleaning behavior into a 1.5B-class model for real-time query rewriting.
+
+Training data includes teacher-cleaned positives; negatives with lower behavioral value or semantic drift; unchanged outputs for queries requiring no rewrite; empty lists when no valid rewrite exists; difficult same-name brands, places, categories, and products; spelling correction, alias normalization, and colloquial normalization; and long-query compression with counterexamples of excessive expansion.
+
+Recommended training practices:
+
+1. Candidate truncation: retain at most 10 candidates per list to control input length and serving cost. Sample using behavioral score, freshness, and diversity rather than retaining only the most popular homogeneous queries.
+2. Output limits: emit at most 5 rewrites, each containing no more than 4 core elements, to reduce generation and downstream retrieval load.
+3. Random masking: hide some behavioral candidates during training so the model learns brand and category relationships and expression normalization instead of only copying the input lists.
+
+The same sample can have several versions:
+
+> Version 1: all four candidate groups.  
+> Version 2: GPM expansion candidates hidden.  
+> Version 3: only a small random subset of candidates.  
+> Version 4: all candidates hidden, leaving only the original query.
+
+These variants help assess dependence on candidate copying. Improved long-tail generalization still requires comparison with a no-mask baseline on unseen queries or entity clusters; several versions of one example are insufficient evidence.
+
+4. Hard-example training: continuously add observed errors, including unsupported locations on chain brands; people mistaken for brands; parent categories expanded into specific products; lost budget, time, or party-size constraints; content searches converted into shopping intent; invented categories for unclear entities; and overly long natural-language questions.
+5. Data splitting: split training and test sets by original query or entity cluster. Near-duplicates across both sets inflate offline accuracy.
+6. Subsequent preference optimization: after SFT stabilizes, use human rankings, online clicks, and conversion feedback to construct preferences. DPO can optimize preference, while GRPO requires a computable reward for the generation policy. If output is an ordered candidate list, labels or rewards must also reflect ordering quality. Relevance, safety, and intent preservation remain hard constraints; transaction value alone is insufficient.
+
+Multi-turn contextual rewriting is a completion step before retrieval-oriented rewriting. Use recent relevant dialogue for reference resolution, object inheritance, and time replacement. For example, “Now show the last 30 days” becomes “Show transaction value over the last 30 days.” Preserve the input when history is empty, the query is already complete, or the topic has changed. Clarify rather than guess when a reference cannot be uniquely resolved.
+
+A simplified prompt:
+
+```text
+You are a conversational query rewriter for an e-commerce Agent. Use history to recover references, omitted objects, time intervals, and comparison conditions in the latest input.
+Use only information explicitly present in history; do not add facts. Preserve the meaning when history is empty, the input is already complete, or the user has changed topics. If several references remain plausible, retain the original input and list the ambiguity in ambiguities for clarification.
+
+Input:
+Latest query: {{current_query}}
+History: {{history_messages}}
+
+Return valid JSON only:
+{
+  "rewrite_text": "standalone query",
+  "changed": true,
+  "ambiguities": []
+}
+```
+
+### 4.4 Generating multi-hop questions from evidence dependencies
+
+I previously built a Query Planner data pipeline for policy question answering. One reusable trick is to establish evidence and step dependencies before generating questions and reference plans around them. Simply asking a large model for a “complex question” often produces several independent questions joined together, or paraphrases of the same question. Neither necessarily requires multi-hop retrieval.
+
+Data preparation can start from two directions. QReCC dialogue and standalone-question pairs support reference resolution, constraint preservation, and no-op behavior. MuSiQue supplies 2-, 3-, and 4-hop questions, explicit decompositions, per-hop answers, and supporting paragraphs that can be converted into dependency-aware plans. For policy-domain generation, start from locatable ConditionalQA evidence. Each source serves a different purpose; keep policy and auxiliary multi-hop knowledge bases in separate namespaces.
+
+For domain generation, map evidence to knowledge-base chunks and select at least two distinct, directly supporting fragments. Then ask the teacher to generate a new scenario, question, and plan requiring 2 to 4 searches. At least one later query must depend on an earlier answer, and each step needs its own evidence. Distinct chunks are only a structural check, not proof of dependency. If the second step can be fully executed without the first result, a `depends_on` field alone does not make it dependency-based multi-hop retrieval.
+
+The following teaching example uses a fictional policy collection; it is not a real administrative rule:
+
+| Evidence location | Fact in the teaching material |
+| --- | --- |
+| `demo_policy_01#c1` | In Hailan City, training-subsidy applications from people holding a skills-training completion certificate are handled by the Employment Service Center. |
+| `demo_policy_02#c4` | Hailan City's Employment Service Center requires a completion certificate and proof of payment for training-subsidy applications. |
+
+User question: “I live in Hailan City and have a skills-training completion certificate. Which agency handles my training-subsidy application, and what documents must I submit?” A reference plan is:
+
+```json
+{
+  "queries": [
+    {
+      "id": "q1",
+      "query": "Hailan City skills-training completion certificate training subsidy responsible agency",
+      "depends_on": []
+    },
+    {
+      "id": "q2",
+      "query": "Hailan City {{q1.answer}} training subsidy application documents",
+      "depends_on": ["q1"]
+    }
+  ]
+}
+```
+
+The executor searches q1, obtains “Employment Service Center” from evidence, and substitutes it into q2. This is a dependency in query construction. Still check whether one document directly covers both parts of the question: if one retrieval already obtains all necessary evidence, forcing a decomposition just to satisfy a multi-hop label is unnecessary.
+
+On the teacher side, retain `hop_answers`, per-hop evidence indices, gold document IDs, and `reference_answer` separately. Here the hop answers are “Employment Service Center” and “completion certificate and proof of payment.” These fields support supervision checks or later reward computation; they are not part of the planner's question input. The reference plan can serve as an SFT output label, but it must retain placeholders such as `{{q1.answer}}` instead of inserting answers that have not yet been retrieved. Even when the teacher sees all evidence, answer-only facts must not leak into the user scenario.
+
+The training stages can connect as follows:
+
+| Stage | Data and objective | Failure to avoid |
+| --- | --- | --- |
+| Single-hop SFT | Conversational rewriting, domain constraints, no-op examples | Rewriting every question or inventing constraints during completion |
+| Multi-hop SFT | Questions mapped to dependency-aware reference plans | Learning to emit several queries without learning when dependence or decomposition is necessary |
+| DPO | Correct plans paired with negatives containing one primary error | Breaking only JSON teaches format, not planning; include missing steps, broken dependencies, redundant steps, overly broad queries, and omitted relations |
+| Later GRPO | Questions, searchable corpora, per-hop and final answers as evaluation metadata | Confusing prepared data with completed training; reward must be defined around actual execution, not step count alone |
+
+This experience concerns data construction, not completed training or measured gains. Acceptance checks should verify that dependencies reference earlier steps, every hop has supporting evidence, removing a step does not leave the task equally solvable, and inputs do not leak answers. Separate training and evaluation by source record and near-duplicate question; official development and test sets must not enter generation requests. Evaluate per-hop evidence retrieval, Joint Recall of all required evidence, and final-answer EM/F1. Producing more queries is not progress by itself.
+
+## 5. Real-time deployment
+
+Offline query labels cannot refresh quickly enough for new products, content, trends, and immediate user interests. The distilled model can therefore be integrated into the live path:
+
+User search event → business-intent filter → query-cache lookup → behavioral-candidate lookup → small-model inference → relevance filter → cache write → user-interest queue update → downstream retrieval
+
+Implementation details:
+
+1. Signal ingestion: consume search-exposure or search-submission events and extract user ID, original query, timestamp, geography, and available context.
+2. Intent filtering: process only target business queries. Navigation terms, sensitive terms, general questions, and non-business queries follow other strategies to avoid unnecessary inference.
+3. Query caching: use normalized original query, model version, and prompt version as a base cache key. When outputs depend on geography, conversation objects, tenant, or permissions, add the relevant context fingerprint and isolation dimensions. Never share context-dependent results across users using query text alone. Reuse popular results only under equivalent context; infer on cache misses.
+4. Real-time inference: fetch behavioral candidates and generate TopK rewrites. Validate JSON, entity consistency, sensitive content, and relevance.
+5. Two-sided storage: on the query side, retain original-to-rewrite mappings. On the user side, add rewrite labels from recent searches to an interest queue. FIFO, fixed capacity, or time decay can keep old interests from persisting indefinitely.
+6. Fallback: on timeouts, parse failures, or empty filtered output, try valid context-matched historical cache → high-confidence behavioral pair → rule-based normalization → original query.
+7. Freshness: stable brand aliases and spelling corrections may use longer TTLs; campaigns, store opening information, and trending products require shorter TTLs.
+
+## 6. Retrieval, filtering, and reranking
+
+Original and rewritten queries enter retrieval together. Rewrite-based retrieval is an incremental channel and must not completely replace the original query.
+
+### 6.1 Retrieval
+
+Q2I means Query to Item: a mapping from search expressions to products or content. An Item is usually a product in e-commerce, but may be a post, video, store, product, or another retrievable object in a content community.
+
+Combine original-query exact retrieval, rewrite-based Q2I inverted-index retrieval, query-embedding retrieval, brand/category/product/geography entity retrieval, recent user-interest tags, and trending or time-sensitive content. A Q2I index uses queries as keys and product or content IDs as values, with metadata such as:
+
+```json
+{
+  "item_id": "item_10001",
+  "query_item_relevance": 0.93,
+  "click_score": 0.71,
+  "conversion_score": 0.64,
+  "freshness": 0.82
+}
+```
+
+Limit each rewrite's retrieval quota so one popular broad term cannot dominate all results.
+
+### 6.2 Filtering
+
+Check whether an Item exists and is visible, whether a product has been removed, whether content meets quality standards, whether geography and delivery coverage match, and whether user hard constraints are satisfied. Also check entity consistency with the original and rewritten queries, sensitive or prohibited content, low confidence, duplicates, expiration, and incorrectly expanded same-name entities. Preserve query provenance to distinguish results retrieved by the original query from those retrieved by each rewrite.
+
+### 6.3 Reranking
+
+Reranking combines relevance, rewrite confidence, behavioral value, and content quality:
+
+```text
+score =
+a × query_item_relevance
++ b × rewrite_confidence
++ c × behavior_value
++ d × item_quality
++ e × freshness
++ f × user_interest
+- g × risk_penalty
+```
+
+Here `query_item_relevance` measures semantic relevance between query and Item; `rewrite_confidence` is the rewriting model's confidence; `behavior_value` represents clicks, orders, or indirect transaction feedback; `item_quality` measures product or content quality; `freshness` measures timeliness; `user_interest` represents recent-interest matching; and `risk_penalty` captures entity drift, excessive generalization, or low-quality risk.
+
+Reserve a baseline quota for original-query results so commercial scores on rewrites cannot crowd out precise matches.
+
+## 7. Evaluation and rollout
+
+Intent-recognition evaluation includes intent classification accuracy, Skill routing accuracy, entity recognition accuracy, required-parameter extraction accuracy, time-range parsing accuracy, read/write classification accuracy, and high-risk operation recall.
+
+Clarification evaluation includes clarification precision and recall, excessive-clarification rate, completion and abandonment rates, and erroneous write-execution rate.
+
+Human evaluation of rewrites checks preservation of the primary need; drift in brands, products, geography, or people; preservation of hard constraints; spelling-correction accuracy; appropriate broader or narrower term expansion; concise expressions; excessive commercial expansion; search and retrieval usefulness; and correct empty output when rewriting is unsuitable.
+
+Offline rewriting metrics include Top1 accuracy, Top5 usability, intent-preservation rate, entity consistency, long-tail coverage, rewrite diversity, empty-result accuracy, and valid-JSON rate.
+
+Retrieval metrics include Recall@K, Precision@K, NDCG@K, original-query recall coverage, incremental recall from rewrites, no-result rate, same-name entity false retrieval, geographic error rate, low-quality content share, and overlap between original-query and rewrite results.
+
+Online metrics include search click-through rate, effective consumption rate, cart and transaction rates, value per thousand exposures, Agent task completion, first-attempt routing success, average conversation turns, tool-call failure rate, user negative feedback, and search penetration and subsequent behavior after rewriting.
+
+Engineering metrics include end-to-end mean and P95 latency, small-model inference success, cache hit rate, rewrite coverage, JSON parse failures, empty-output rate, fallback rate, per-request compute cost, and cache invalidation rate after model-version changes.
+
+Roll out with original-query retrieval protection, limited rewrite-side exposure, gradual expansion, and fast rollback. Maintain three boundaries: context completion must not invent facts, retrieval rewriting must preserve the primary need, and consequential writes must not bypass user confirmation.
+
+## Appendix A: Example reranking weights and thresholds
+
+Assuming all features are normalized to 0–1, the following starting weights illustrate the calculation. They are not a validated optimum:
+
+```text
+score =
+0.35 × query_item_relevance
++ 0.15 × rewrite_confidence
++ 0.15 × behavior_value
++ 0.10 × item_quality
++ 0.05 × freshness
++ 0.20 × user_interest
+- 0.30 × risk_penalty
+```
+
+Positive weights sum to 1. Relevance receives the largest weight to reduce diversion by business value or user interests; risk receives a relatively large penalty coefficient.
+
+Example features:
+
+```text
+query_item_relevance = 0.90
+rewrite_confidence    = 0.80
+behavior_value        = 0.70
+item_quality          = 0.75
+freshness             = 0.60
+user_interest         = 0.85
+risk_penalty          = 0.10
+```
+
+The resulting score is:
+
+```text
+score =
+0.35 × 0.90
++ 0.15 × 0.80
++ 0.15 × 0.70
++ 0.10 × 0.75
++ 0.05 × 0.60
++ 0.20 × 0.85
+- 0.30 × 0.10
+
+= 0.785
+```
+
+Illustrative initial filtering thresholds:
+
+```text
+score ≥ 0.70: admit to final results
+0.50 ≤ score < 0.70: use as supplementary retrieval
+score < 0.50: filter out
+```
+
+Additional hard rules:
+
+```text
+query_item_relevance < 0.60 → filter out
+rewrite_confidence < 0.65 → do not use this rewritten query
+risk_penalty > 0.70 → filter out
+```
+
+These values are only initial experimental settings. Adjust them using labeled data, Learning to Rank, or A/B tests. Because the score includes a negative risk term, it may be below zero; positive weights summing to 1 do not guarantee a final range of 0–1.
+
+## Appendix B: Calculating retrieval metrics
+
+### Recall@K
+
+Recall@K measures the fraction of all relevant Items retrieved in the top K:
+
+$$
+\mathrm{Recall}@K = \frac{\text{Relevant Items in the top K}}{\text{All relevant Items}}
+$$
+
+If the evaluation set contains 10 relevant products and the top 5 include 4 of them:
+
+Recall@5 = 4 ÷ 10 = 0.4
+
+Higher recall means fewer relevant results are missed.
+
+### Precision@K
+
+Precision@K measures how many of the top K results are relevant:
+
+$$
+\mathrm{Precision}@K = \frac{\text{Relevant Items in the top K}}{K}
+$$
+
+If 4 of 5 returned results are relevant:
+
+Precision@5 = 4 ÷ 5 = 0.8
+
+Higher precision means fewer incorrect or irrelevant results.
+
+The distinction is:
+
+```text
+Recall@K: Of the results we should find, how many did we find?
+Precision@K: Of the results returned, how many are correct?
+```
+
+### NDCG@K
+
+NDCG@K measures ranking quality, accounting for whether highly relevant results occur near the top.
+
+Suppose five results have these relevance grades:
+
+Result A: 3, highly relevant  
+Result B: 0, irrelevant  
+Result C: 2, fairly relevant  
+Result D: 1, weakly relevant  
+Result E: 0, irrelevant
+
+A common DCG definition is:
+
+$$
+\mathrm{DCG}@K = \sum_{i=1}^{K} \frac{2^{r_i} - 1}{\log_2(i + 1)}
+$$
+
+Here $r_i$ is the relevance grade at rank $i$. Later ranks receive a larger discount.
+
+Normalize the current ranking's DCG by the ideal ranking's DCG:
+
+$$
+\mathrm{NDCG}@K = \frac{\mathrm{DCG}@K}{\mathrm{IDCG}@K}
+$$
+
+IDCG@K is the DCG obtained by placing the most relevant results first.
+
+NDCG@K normally ranges from 0 to 1. Values closer to 1 indicate a ranking closer to the ideal order; values closer to 0 indicate worse placement of highly relevant results.
+
+The three metrics address completeness, precision, and ordering respectively. In query rewriting and Q2I retrieval, track them together: additional rewrites may increase Recall@K while adding irrelevant results that reduce Precision@K and NDCG@K.
+
+Fix edge-case conventions before computing metrics. $K$ must be positive. When there are no relevant Items, Recall has a zero denominator; report these cases separately or exclude them according to the evaluation protocol rather than silently assigning full credit. NDCG also needs an explicit convention when IDCG is zero; a common implementation returns zero. If fewer than K results are returned, Precision@K in this note still divides by K and treats missing positions as irrelevant. Use the same conventions when comparing systems.
+
+## 8. Rewriting responsibilities in Agents and the distinction from AIGC
+
+For an Agent with state management and tool use, I consider a separate, one-shot query-rewriting front end increasingly outdated. Memory and the Agent Core are better placed to coordinate reference resolution, constraint completion, and retrieval planning: preserve the original request, treat search expressions as derived results, and update them incrementally from tool feedback. Here, Agent Core means the runtime responsible for state, planning, and execution scheduling. Memory retains sourced facts, constraints, and intermediate results; tools read and verify external information. Connecting these components does not automatically provide a correct update policy.
+
+Losing the original query is not an inevitable consequence of rewriting. It results from overwriting the input with the rewrite, which is why the earlier architecture preserves both. My judgment concerns module responsibilities and state management. Expression normalization, low-latency recall expansion, and query generation for specific retrievers remain useful, but need not be separate entry steps executed on every conversation turn. Iteration should update derived queries and sourced memory rather than alter the user's original constraints.
+
+Friends working on AIGC algorithms have reminded me that recaptioning is particularly important for image and video generation. I take this as an emphasis on the correspondence between visual content and text descriptions. Training-data recaptioning and inference-time prompt expansion must be distinguished: the former improves the alignment of visual content and textual supervision; the latter organizes user intent into generation conditions.
+
+The DALL·E 3 report describes using a specially trained captioner to generate new descriptions for training images. The Sora report extends the method to video and also describes expanding short prompts into detailed descriptions at inference time. These mechanisms affect training supervision and inference input respectively; they are not interchangeable with conversational completion or retrieval planning in Agents. See the [DALL·E 3 report](https://cdn.openai.com/papers/dall-e-3.pdf) and the [Sora report](https://openai.com/index/video-generation-models-as-world-simulators/).
+
+I would judge the two systems separately. Agents should preserve the original need and its evolution while adapting searches to feedback. Image and video generation require careful alignment of descriptions with visual content. Whether rewriting deserves a separate module depends on the task objective and runtime responsibilities.
