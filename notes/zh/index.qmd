@@ -198,7 +198,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/query-understanding-and-rewriting.html">
-  <span class="category-count">创建 2026-09-07 · 更新 2026-09-07</span>
+  <span class="category-count">创建 2026-09-07 · 更新 2026-09-08</span>
   <h3>Query 识别与改写：训练、检索与 Agent 架构边界</h3>
   <p>梳理意图识别、澄清、行为驱动改写、蒸馏与检索评测，补充基于证据依赖的多跳训练数据构造，并讨论 Agent 状态管理与 AIGC recaption 的边界。</p>
   <div class="note-tags">

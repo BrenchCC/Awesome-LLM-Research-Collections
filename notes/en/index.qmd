@@ -198,7 +198,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/query-understanding-and-rewriting.html">
-  <span class="category-count">Created 2026-09-07 · Updated 2026-09-07</span>
+  <span class="category-count">Created 2026-09-07 · Updated 2026-09-08</span>
   <h3>Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries</h3>
   <p>Intent recognition, clarification, behavior-driven rewriting, distillation, and retrieval evaluation, with evidence-dependent multi-hop training data and a discussion of Agent state management versus AIGC recaptioning.</p>
   <div class="note-tags">

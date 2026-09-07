@@ -1096,7 +1096,7 @@
 
 ## Technical Reflections
 
-- **Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries** (Created: 2026-09-07; Updated: 2026-09-07) \
+- **Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries** (Created: 2026-09-07; Updated: 2026-09-08) \
   **Description**: Intent recognition, clarification, behavior-driven rewriting, distillation, and retrieval evaluation, with evidence-dependent multi-hop training data and a discussion of Agent state management versus AIGC recaptioning. \
   [[Note](notes/en/agents/query-understanding-and-rewriting.qmd)]
   [[中文](notes/zh/agents/query-understanding-and-rewriting.qmd)]
