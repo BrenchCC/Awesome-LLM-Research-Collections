@@ -294,7 +294,7 @@ reason 说明保留的实体、约束及改动依据；confidence 为 0 到 1 �
 
 负样本在 SFT 中应作为待筛选候选或纠错输入，目标输出仍是正确结果或空列表；不能直接把错误改写作为生成标签。GPM、OPM 下降也不必然意味着语义错误，需要结合相关性和曝光口径判断。后续构造偏好对时，再将经过核验的较差结果作为 rejected。
 
-上述行为挖掘、千问清洗与 1.5B 蒸馏方案可参见 [Query 识别与改写](https://github.com/BrenchCC/Query-Recognition-and-Rewriting)。
+三个阶段通过训练数据衔接：行为挖掘提供候选及点击、成交等反馈，千问模型筛选候选并生成改写标签，1.5B 小模型通过 SFT 学习这套筛选与生成规则。在线推理时，小模型结合原 Query 和可用候选输出改写；候选不足时能否泛化，需要通过候选 Mask 和长尾测试集单独验证。
 
 训练过程中建议采用以下策略：
 
@@ -463,15 +463,27 @@ Query 改写完成后，原始 Query 与改写 Query 共同进入检索链路。
 
 ### 6.3 重排
 
-重排需要同时考虑检索相关性、改写可信度、行为价值和内容质量。以下函数计算线性分数，附录 A 给出可按顺序执行的权重、特征和筛选示例。
+重排分数由六个正向特征的加权和减去风险惩罚组成。`features` 保存当前候选的特征值，字段含义如下：
+
+| `features` 中的键 | 含义 | 计分方式 |
+| --- | --- | --- |
+| `query_item_relevance` | Query 与 Item 的语义相关性 | 正向加权 |
+| `rewrite_confidence` | 改写模型对该 Query 的置信度 | 正向加权 |
+| `behavior_value` | 点击、订单或间接交易反馈 | 正向加权 |
+| `item_quality` | 商品或内容质量 | 正向加权 |
+| `freshness` | 商品或内容的时效性 | 正向加权 |
+| `user_interest` | 与用户近期兴趣的匹配度 | 正向加权 |
+| `risk_penalty` | 实体漂移、过度泛化或低质量风险 | 扣分 |
+
+`weights` 只包含表中前六个键，各键对应一个正向权重。函数遍历这些键，将权重与 `features` 中的同名值相乘并求和；`risk_penalty` 不放入 `weights`，而由独立参数 `risk_weight` 控制扣分幅度。
 
 ```python
 def score_item(features, weights, risk_weight):
     """Compute a linear reranking score.
 
     Args:
-        features: Normalized relevance, quality, behavior, and risk features.
-        weights: Positive feature names mapped to their coefficients.
+        features: Values for the six positive features and risk_penalty.
+        weights: The six positive feature keys mapped to coefficients; excludes risk_penalty.
         risk_weight: Coefficient applied to the risk penalty.
     """
     # 正向加权后扣除风险项。 Subtract risk from the weighted positive score.
@@ -479,7 +491,7 @@ def score_item(features, weights, risk_weight):
     return positive_score - risk_weight * features["risk_penalty"]
 ```
 
-其中 query_item_relevance 表示 Query 与 Item 的语义相关性、rewrite_confidence 表示改写模型对该 Query 的置信度、behavior_value 表示点击、订单或间接交易反馈、item_quality 表示商品或内容质量、freshness 表示时效性、user_interest 表示用户近期兴趣匹配度、risk_penalty 表示实体漂移、过度泛化或低质量风险。
+例如，循环中的一项为 `weights["query_item_relevance"] * features["query_item_relevance"]`。六项求和得到 `positive_score`，再减去 `risk_weight * features["risk_penalty"]`，得到最终分数。附录 A 沿用该函数，依次给出权重、特征值、数值计算和筛选逻辑。
 
 应对原始 Query 召回设置基础保护配额，避免改写词因商业分数较高而完全挤占精准结果。
 

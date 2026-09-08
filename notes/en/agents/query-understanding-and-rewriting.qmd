@@ -303,7 +303,7 @@ Training data covers seven sample types, addressing generation content, rejectio
 
 In SFT, negatives should appear as candidates to filter or inputs to correct. The output target remains a correct result or an empty list; incorrect rewrites must not be used directly as generation targets. A decrease in GPM or OPM does not necessarily imply a semantic error, so relevance and exposure definitions still need checking. For later preference pairs, use a verified inferior result as the rejected response.
 
-For the behavioral-mining, Qwen-cleaning, and 1.5B-distillation design, see [Query Recognition and Rewriting](https://github.com/BrenchCC/Query-Recognition-and-Rewriting).
+Training data connects the three stages: behavioral mining supplies candidates and feedback such as clicks and transactions; Qwen filters candidates and produces rewrite labels; the 1.5B model learns the selection and generation rules through SFT. At inference time, the small model uses the original query and available candidates to produce rewrites. Generalization with sparse candidates requires separate validation through candidate masking and long-tail test sets.
 
 Recommended training practices:
 
@@ -474,15 +474,27 @@ Check whether an Item exists and is visible, whether a product has been removed,
 
 ### 6.3 Reranking
 
-Reranking combines relevance, rewrite confidence, behavioral value, and content quality. The function below computes a linear score; Appendix A supplies weights, features, and filtering examples that can be executed in order:
+The reranking score is the weighted sum of six positive features minus a risk penalty. `features` stores the current candidate's values:
+
+| Key in `features` | Meaning | Contribution |
+| --- | --- | --- |
+| `query_item_relevance` | Semantic relevance between query and Item | Positive weighted term |
+| `rewrite_confidence` | The rewriting model's confidence in this query | Positive weighted term |
+| `behavior_value` | Click, order, or indirect transaction feedback | Positive weighted term |
+| `item_quality` | Product or content quality | Positive weighted term |
+| `freshness` | Product or content timeliness | Positive weighted term |
+| `user_interest` | Match with the user's recent interests | Positive weighted term |
+| `risk_penalty` | Entity drift, excessive generalization, or low-quality risk | Deduction |
+
+`weights` contains only the first six keys in the table, each mapped to a positive coefficient. The function iterates over these keys, multiplies each weight by the matching value in `features`, and sums the contributions. `risk_penalty` is excluded from `weights`; the separate `risk_weight` parameter controls its deduction.
 
 ```python
 def score_item(features, weights, risk_weight):
     """Compute a linear reranking score.
 
     Args:
-        features: Normalized relevance, quality, behavior, and risk features.
-        weights: Positive feature names mapped to their coefficients.
+        features: Values for the six positive features and risk_penalty.
+        weights: The six positive feature keys mapped to coefficients; excludes risk_penalty.
         risk_weight: Coefficient applied to the risk penalty.
     """
     # 正向加权后扣除风险项。 Subtract risk from the weighted positive score.
@@ -490,7 +502,7 @@ def score_item(features, weights, risk_weight):
     return positive_score - risk_weight * features["risk_penalty"]
 ```
 
-Here `query_item_relevance` measures semantic relevance between query and Item; `rewrite_confidence` is the rewriting model's confidence; `behavior_value` represents clicks, orders, or indirect transaction feedback; `item_quality` measures product or content quality; `freshness` measures timeliness; `user_interest` represents recent-interest matching; and `risk_penalty` captures entity drift, excessive generalization, or low-quality risk.
+For example, one loop term is `weights["query_item_relevance"] * features["query_item_relevance"]`. Summing the six terms produces `positive_score`; subtracting `risk_weight * features["risk_penalty"]` yields the final score. Appendix A reuses this function and provides weights, feature values, numerical evaluation, and filtering logic in order.
 
 Reserve a baseline quota for original-query results so commercial scores on rewrites cannot crowd out precise matches.
 
