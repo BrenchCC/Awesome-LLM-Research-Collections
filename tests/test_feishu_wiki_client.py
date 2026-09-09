@@ -12,10 +12,72 @@ sys.path.append(str(Path.cwd() / "scripts"))
 
 from feishu_wiki_sync.client import CREDENTIAL_ENV_KEYS  # noqa: E402
 from feishu_wiki_sync.client import LarkCliExecutor  # noqa: E402
+from feishu_wiki_sync.models import LarkCliError  # noqa: E402
 
 
 class LarkCliClientTests(unittest.TestCase):
     """Verify the extracted lark-cli adapter behavior."""
+
+    def test_tat_transient_failure_is_retried(self):
+        """Verify the reported TAT failure recovers or stops at the retry limit.
+
+        Parameters:
+            self: Current test case.
+        """
+        message = 'API call failed: TAT endpoint transient failure (HTTP 503, code=2200, error=""): '
+        failure = subprocess.CompletedProcess(
+            args = ["lark-cli"],
+            returncode = 1,
+            stdout = json.dumps({"ok": False, "error": {"message": message}}),
+            stderr = ""
+        )
+        success = subprocess.CompletedProcess(
+            args = ["lark-cli"],
+            returncode = 0,
+            stdout = json.dumps({"ok": True, "data": {"document": {"revision_id": 7}}}),
+            stderr = ""
+        )
+        for recovers in [True, False]:
+            with self.subTest(recovers = recovers):
+                delays = []
+                executor = LarkCliExecutor(sleep = delays.append)
+                responses = [failure] * 3 + [success if recovers else failure]
+                with patch(
+                    "feishu_wiki_sync.client.subprocess.run",
+                    side_effect = responses
+                ) as mocked_run:
+                    if recovers:
+                        self.assertEqual(executor.fetch_document_revision("doc-token"), 7)
+                    else:
+                        with self.assertRaisesRegex(LarkCliError, "TAT endpoint transient failure"):
+                            executor.fetch_document_revision("doc-token")
+                self.assertEqual(mocked_run.call_count, 4)
+                self.assertEqual(delays, [1, 2, 4])
+
+    def test_permanent_error_is_not_retried(self):
+        """Verify an API error code alone does not cause transient retries.
+
+        Parameters:
+            self: Current test case.
+        """
+        failure = subprocess.CompletedProcess(
+            args = ["lark-cli"],
+            returncode = 1,
+            stdout = json.dumps(
+                {"ok": False, "error": {"code": 2200, "message": "Permission denied"}}
+            ),
+            stderr = ""
+        )
+        delays = []
+        executor = LarkCliExecutor(sleep = delays.append)
+        with patch(
+            "feishu_wiki_sync.client.subprocess.run",
+            return_value = failure
+        ) as mocked_run:
+            with self.assertRaisesRegex(LarkCliError, "Permission denied"):
+                executor.fetch_document_revision("doc-token")
+        self.assertEqual(mocked_run.call_count, 1)
+        self.assertEqual(delays, [])
 
     def test_rate_limit_is_retried_with_bounded_backoff(self):
         """Verify a rate-limit response is retried and then succeeds.

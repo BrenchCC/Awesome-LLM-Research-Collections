@@ -28,6 +28,7 @@ TRANSIENT_TEXT = (
     "too many requests",
     "bad gateway",
     "service unavailable",
+    "tat endpoint transient failure",
 )
 CREDENTIAL_ENV_KEYS = [
     "LARKSUITE_CLI_APP_ID",
