@@ -696,6 +696,11 @@
 
 ## 智能体强化学习
 
+- **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
+  **描述**: SafeEvolve 利用当前策略生成的智能体轨迹中的安全证据，让运行时安全提示、分层技能与策略共同演化。它将有界、可审计的 harness 更新与学习使用 harness 的 SFT、采用验证器分解奖励的 harness 增强 RL 相结合，在多步交互中改善安全性与任务效用的平衡。 \
+  <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MaoPopovich/SafeEvolve"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents** (2026.08) \
   **描述**: 该论文提出 DART-SD，一种拓扑感知的自蒸馏框架，将多轮工具执行表示为交互状态转移图（ISTG），保留由无序子目标产生的菱形替代路径。它在失败的学生轨迹中识别关键拓扑断点（CTB），仅对检索得到的恢复步骤施加监督，从而保护有效前缀并逐步提升工具使用能力。 \
   <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
