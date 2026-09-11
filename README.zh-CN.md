@@ -712,6 +712,12 @@
   <a href="https://github.com/Tencent/ContextPilot"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/collections/panzs19/contextpilot"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **EnvHarness: Awakening Static Worlds for Agent Learning** (2026.08) \
+  **描述**: EnvHarness 用可组合的插件组件封装静态智能体环境，在保留原有逻辑与验证器的同时重塑环境行为。其自动化 EnvRigger 从轨迹中诊断策略弱点并合成针对性环境，为强化学习提供更强的学习信号，并支持策略与环境持续协同演化。 \
+  <a href="https://arxiv.org/abs/2608.19880"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://envharness.com/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/google-research/envharness"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
   **描述**: 该论文提出 Skill Self-Play，一个由提议器、求解器和动态技能控制器通过技能条件任务生成、能力边界探索及反馈驱动的技能库更新共同演化的强化学习框架。它兼顾技能特定验证的可靠性与开放式任务的多样性，在多种 LLM 骨干上提升工具使用和推理能力。 \
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -713,6 +713,12 @@
   <a href="https://github.com/Tencent/ContextPilot"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/panzs19/contextpilot"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **EnvHarness: Awakening Static Worlds for Agent Learning** (2026.08) \
+  **Description**: EnvHarness wraps static agent environments with composable plug-in components that reshape their behavior while preserving the original logic and verifiers. Its automated EnvRigger diagnoses policy weaknesses from trajectories and synthesizes targeted environments, providing stronger learning signals for reinforcement learning and continuous policy-environment co-evolution. \
+  <a href="https://arxiv.org/abs/2608.19880"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://envharness.com/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/google-research/envharness"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Skill Self-Play: Pushing the Frontier of LLM Capability with Co-Evolving Skills** (2026.07) \
   **Description**: This paper introduces Skill Self-Play, a reinforcement learning framework in which a proposer, solver, and dynamic skill controller co-evolve through skill-conditioned task generation, frontier exploration, and feedback-driven skill-library updates. It combines reliable skill-specific verification with open-ended task diversity to improve tool use and reasoning across diverse LLM backbones. \
   <a href="https://arxiv.org/abs/2607.22529"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
