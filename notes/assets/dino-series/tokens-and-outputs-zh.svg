@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+<title id="title">输入 token 与可用输出</title><desc id="desc">以带 Registers 的 ViT 为例；序列位置以实现为准。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#52677b"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif} .body{font-size:25px} .small{font-size:22px;fill:#52677b}</style>
+<rect width="1200" height="820" rx="24" fill="#f7f9fc"/>
+<rect x="40" y="36" width="7" height="74" rx="3" fill="#087f82"/>
+<text x="65" y="66" font-size="34" fill="#183047" text-anchor="start" font-weight="650">输入 token 与可用输出</text>
+<text x="65" y="104" font-size="22" fill="#52677b" text-anchor="start">以带 Registers 的 ViT 为例；序列位置以实现为准。</text>
+<text x="45" y="798" font-size="16" fill="#52677b" text-anchor="start">DINO SERIES  /  BRENCH</text>
+<rect x="45" y="155" width="330" height="140" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="45" y="173" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="67" y="197" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">图像 → patch 嵌入</text>
+<text x="67" y="237" font-size="23" fill="#183047" text-anchor="start">B × 3 × H × W</text>
+<text x="67" y="271" font-size="23" fill="#183047" text-anchor="start">N = (H / p) × (W / p)</text>
+<path d="M380,225 L435,225" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="445" y="155" width="710" height="140" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="445" y="173" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="467" y="197" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">序列：CLS → Registers → patches</text>
+<text x="467" y="237" font-size="23" fill="#183047" text-anchor="start">CLS：1 个   ·   Registers：R 个   ·   patches：N 个</text>
+<text x="467" y="271" font-size="23" fill="#183047" text-anchor="start">B × (1 + R + N) × D</text>
+<path d="M800,295 L800,340" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="445" y="348" width="710" height="120" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="445" y="366" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="467" y="390" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">Transformer blocks + normalization</text>
+<text x="467" y="430" font-size="23" fill="#183047" text-anchor="start">位置编码作用于相应 token；全序列参与信息交换</text>
+<path d="M800,468 L800,505 L210,505 L210,540" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M800,468 L800,505 L600,505 L600,540" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M800,468 L800,505 L990,505 L990,540" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="45" y="548" width="330" height="155" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="45" y="566" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="67" y="590" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">CLS · B × D</text>
+<text x="67" y="630" font-size="23" fill="#183047" text-anchor="start">DINO head → 训练目标</text>
+<text x="67" y="664" font-size="23" fill="#183047" text-anchor="start">检索 / 分类 → 下游任务</text>
+<rect x="435" y="548" width="330" height="155" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="435" y="566" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="457" y="590" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">patch · B × N × D</text>
+<text x="457" y="630" font-size="23" fill="#183047" text-anchor="start">iBOT head → 局部训练</text>
+<text x="457" y="664" font-size="23" fill="#183047" text-anchor="start">分割 / 深度 / 对应关系</text>
+<rect x="825" y="548" width="330" height="155" rx="17" fill="#f3eef9" stroke="#7954ab" stroke-width="1.6"/>
+<rect x="825" y="566" width="5" height="31" rx="2" fill="#7954ab"/>
+<text x="847" y="590" font-size="27" fill="#7954ab" text-anchor="start" font-weight="650">register · B × R × D</text>
+<text x="847" y="630" font-size="23" fill="#183047" text-anchor="start">骨干前向时仍参与计算</text>
+<text x="847" y="664" font-size="23" fill="#183047" text-anchor="start">通常不交给下游任务头</text>
+<text x="65" y="760" font-size="23" fill="#183047" text-anchor="start">训练 head 的 prototype 维度 K，不等于骨干的特征维度 D。</text>
+</svg>

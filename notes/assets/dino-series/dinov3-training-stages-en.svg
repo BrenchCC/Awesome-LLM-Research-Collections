@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">DINOv3: pretrain, refine, adapt, distill</title><desc id="desc">Large-teacher training and small-model distillation use different teacher rules.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#52677b"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif} .body{font-size:25px} .small{font-size:22px;fill:#52677b}</style>
+<rect width="1200" height="900" rx="24" fill="#f7f9fc"/>
+<rect x="40" y="36" width="7" height="74" rx="3" fill="#087f82"/>
+<text x="65" y="66" font-size="34" fill="#183047" text-anchor="start" font-weight="650">DINOv3: pretrain, refine, adapt, distill</text>
+<text x="65" y="104" font-size="22" fill="#52677b" text-anchor="start">Large-teacher training and small-model distillation use different teacher rules.</text>
+<text x="45" y="878" font-size="16" fill="#52677b" text-anchor="start">DINO SERIES  /  BRENCH</text>
+<text x="62" y="206" font-size="36" fill="#3466ae" text-anchor="start" font-weight="650">01</text>
+<rect x="130" y="150" width="385" height="138" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="130" y="168" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="152" y="192" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">Base pretraining</text>
+<text x="152" y="232" font-size="23" fill="#183047" text-anchor="start">1M steps</text>
+<rect x="550" y="150" width="605" height="138" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="550" y="168" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="572" y="192" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">Training behavior</text>
+<text x="572" y="232" font-size="23" fill="#183047" text-anchor="start">DINO + iBOT + 0.1 × DKoLeo</text>
+<text x="572" y="266" font-size="23" fill="#183047" text-anchor="start">EMA teacher; global/local = 256/112</text>
+<path d="M87,226 L87,338" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="62" y="371" font-size="36" fill="#087f82" text-anchor="start" font-weight="650">02</text>
+<rect x="130" y="315" width="385" height="138" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="130" y="333" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="152" y="357" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">Gram refinement</text>
+<text x="152" y="397" font-size="23" fill="#183047" text-anchor="start">Early Gram-teacher snapshot</text>
+<rect x="550" y="315" width="605" height="138" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="550" y="333" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="572" y="357" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">Training behavior</text>
+<text x="572" y="397" font-size="23" fill="#183047" text-anchor="start">Add Gram loss on global crops</text>
+<text x="572" y="431" font-size="23" fill="#183047" text-anchor="start">Periodically copy EMA → Gram teacher</text>
+<path d="M87,391 L87,503" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="62" y="536" font-size="36" fill="#7954ab" text-anchor="start" font-weight="650">03</text>
+<rect x="130" y="480" width="385" height="138" rx="17" fill="#f3eef9" stroke="#7954ab" stroke-width="1.6"/>
+<rect x="130" y="498" width="5" height="31" rx="2" fill="#7954ab"/>
+<text x="152" y="522" font-size="27" fill="#7954ab" text-anchor="start" font-weight="650">Resolution adaptation</text>
+<text x="152" y="562" font-size="23" fill="#183047" text-anchor="start">10k steps</text>
+<rect x="550" y="480" width="605" height="138" rx="17" fill="#f3eef9" stroke="#7954ab" stroke-width="1.6"/>
+<rect x="550" y="498" width="5" height="31" rx="2" fill="#7954ab"/>
+<text x="572" y="522" font-size="27" fill="#7954ab" text-anchor="start" font-weight="650">Training behavior</text>
+<text x="572" y="562" font-size="23" fill="#183047" text-anchor="start">Mix crop sizes and retain Gram loss</text>
+<text x="572" y="596" font-size="23" fill="#183047" text-anchor="start">Stabilize high-resolution patch features</text>
+<path d="M87,556 L87,668" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="62" y="701" font-size="36" fill="#ad6b14" text-anchor="start" font-weight="650">04</text>
+<rect x="130" y="645" width="385" height="138" rx="17" fill="#fff5e4" stroke="#ad6b14" stroke-width="1.6"/>
+<rect x="130" y="663" width="5" height="31" rx="2" fill="#ad6b14"/>
+<text x="152" y="687" font-size="27" fill="#ad6b14" text-anchor="start" font-weight="650">Smaller-model distillation</text>
+<text x="152" y="727" font-size="23" fill="#183047" text-anchor="start">Fixed large teacher</text>
+<rect x="550" y="645" width="605" height="138" rx="17" fill="#fff5e4" stroke="#ad6b14" stroke-width="1.6"/>
+<rect x="550" y="663" width="5" height="31" rx="2" fill="#ad6b14"/>
+<text x="572" y="687" font-size="27" fill="#ad6b14" text-anchor="start" font-weight="650">Training behavior</text>
+<text x="572" y="727" font-size="23" fill="#183047" text-anchor="start">Fixed 7B → students; keep student EMA</text>
+<text x="572" y="761" font-size="23" fill="#183047" text-anchor="start">No Gram anchoring</text>
+<text x="65" y="845" font-size="22" fill="#183047" text-anchor="start">Durations follow the paper; the diagram does not imply a shared learning rate.</text>
+</svg>

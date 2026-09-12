@@ -1055,6 +1055,11 @@
 
 ## Paper Readings
 
+- **The DINO Series: Architecture, Training, and Task Adaptation** (Created: 2026-09-12; Updated: 2026-09-12) \
+  **Description**: A practical account of DINO, DINOv2, and DINOv3: self-distillation, local features, training steps, and losses, with a DINOv2 + SimCLR retrieval case study. \
+  [[Note](notes/en/vision/dino-series.qmd)]
+  [[中文](notes/zh/vision/dino-series.qmd)]
+
 - **Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution** (Created: 2026-08-17; Updated: 2026-08-22) \
   **Description**: A structured reading of how coding agents evolve their frameworks, memory, skills and tools, models, and collaboration structures, organized by evolution object, timing, and software evidence, with an extension on validation, versioning, and rollback for trustworthy evolution. \
   [[Note](notes/en/agents/self-evolving-coding-agents.qmd)]

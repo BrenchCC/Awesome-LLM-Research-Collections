@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>29</strong><span>Notes</span></div>
-    <div><strong>7</strong><span>Topics</span></div>
-    <div><strong>2026-09-07</strong><span>Latest creation</span></div>
+    <div><strong>30</strong><span>Notes</span></div>
+    <div><strong>8</strong><span>Topics</span></div>
+    <div><strong>2026-09-12</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -25,6 +25,22 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="vision/dino-series.html">
+  <span class="category-count">Created 2026-09-12 · Updated 2026-09-12</span>
+  <h3>The DINO Series: Architecture, Training, and Task Adaptation</h3>
+  <p>A practical account of DINO, DINOv2, and DINOv3: self-distillation, local features, training steps, and losses, with a DINOv2 + SimCLR retrieval case study.</p>
+  <div class="note-tags">
+    <span class="note-tag">DINO</span>
+    <span class="note-tag">Self-Supervised Learning</span>
+    <span class="note-tag">Vision Transformer</span>
+    <span class="note-tag">Knowledge Distillation</span>
+    <span class="note-tag">Image Retrieval</span>
+  </div>
+  <div class="category-foot">
+    <span>VISION</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
 <a class="category-card" href="agents/self-evolving-coding-agents.html">
   <span class="category-count">Created 2026-08-17 · Updated 2026-08-22</span>
   <h3>Self-Evolving Coding Agents: Taxonomy, Feedback Loops, and Trustworthy Evolution</h3>

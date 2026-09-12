@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+<title id="title">DINO: one image, two parameter update paths</title><desc id="desc">Solid arrows: data flow. Dashed arrow: a detached teacher target.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#52677b"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif} .body{font-size:25px} .small{font-size:22px;fill:#52677b}</style>
+<rect width="1200" height="870" rx="24" fill="#f7f9fc"/>
+<rect x="40" y="36" width="7" height="74" rx="3" fill="#087f82"/>
+<text x="65" y="66" font-size="34" fill="#183047" text-anchor="start" font-weight="650">DINO: one image, two parameter update paths</text>
+<text x="65" y="104" font-size="22" fill="#52677b" text-anchor="start">Solid arrows: data flow. Dashed arrow: a detached teacher target.</text>
+<text x="45" y="848" font-size="16" fill="#52677b" text-anchor="start">DINO SERIES  /  BRENCH</text>
+<rect x="60" y="150" width="440" height="120" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="60" y="168" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="82" y="192" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">Teacher inputs</text>
+<text x="82" y="232" font-size="23" fill="#183047" text-anchor="start">2 global crops</text>
+<rect x="700" y="150" width="440" height="120" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="700" y="168" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="722" y="192" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">Student inputs</text>
+<text x="722" y="232" font-size="23" fill="#183047" text-anchor="start">2 global + L local crops</text>
+<path d="M280,270 L280,303" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M920,270 L920,303" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="60" y="310" width="440" height="130" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="60" y="328" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="82" y="352" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">teacher backbone + head</text>
+<text x="82" y="392" font-size="23" fill="#183047" text-anchor="start">No backpropagation</text>
+<text x="82" y="426" font-size="23" fill="#183047" text-anchor="start">Parameters track student EMA</text>
+<rect x="700" y="310" width="440" height="130" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="700" y="328" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="722" y="352" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">student backbone + head</text>
+<text x="722" y="392" font-size="23" fill="#183047" text-anchor="start">Receives training gradients</text>
+<text x="722" y="426" font-size="23" fill="#183047" text-anchor="start">Updated by the optimizer</text>
+<path d="M700,370 L505,370" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="600" y="347" font-size="24" fill="#7954ab" text-anchor="middle" font-weight="650">EMA</text>
+<path d="M280,440 L280,473" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M920,440 L920,473" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="60" y="480" width="440" height="130" rx="17" fill="#f3eef9" stroke="#7954ab" stroke-width="1.6"/>
+<rect x="60" y="498" width="5" height="31" rx="2" fill="#7954ab"/>
+<text x="82" y="522" font-size="27" fill="#7954ab" text-anchor="start" font-weight="650">Teacher target q</text>
+<text x="82" y="562" font-size="23" fill="#183047" text-anchor="start">Centering + sharp softmax</text>
+<text x="82" y="596" font-size="23" fill="#183047" text-anchor="start">Stop-gradient</text>
+<rect x="700" y="480" width="440" height="130" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="700" y="498" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="722" y="522" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">Student prediction p</text>
+<text x="722" y="562" font-size="23" fill="#183047" text-anchor="start">Temperature softmax</text>
+<text x="722" y="596" font-size="23" fill="#183047" text-anchor="start">Cross-view pairs, same image</text>
+<path d="M280,610 L280,651 L440,651" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path d="M920,610 L920,651 L765,651" fill="none" stroke="#52677b" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="448" y="620" width="310" height="105" rx="17" fill="#fff5e4" stroke="#ad6b14" stroke-width="1.6"/>
+<rect x="448" y="638" width="5" height="31" rx="2" fill="#ad6b14"/>
+<text x="470" y="662" font-size="27" fill="#ad6b14" text-anchor="start" font-weight="650">CE(q, p)</text>
+<text x="470" y="702" font-size="23" fill="#183047" text-anchor="start">Skip same-global pairs</text>
+<rect x="45" y="762" width="1110" height="59" rx="14" fill="#e8edf4"/>
+<text x="65" y="795" font-size="23" fill="#183047" text-anchor="start">Update the student, then its EMA teacher; maintain centering statistics separately.</text>
+</svg>

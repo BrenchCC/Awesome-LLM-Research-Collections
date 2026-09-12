@@ -1054,6 +1054,11 @@
 
 ## 论文解读
 
+- **DINO 系列：架构、训练原理与任务适配** (创建: 2026-09-12; 更新: 2026-09-12) \
+  **描述**: 沿 DINO、DINOv2、DINOv3 解释自蒸馏、局部表征、训练步骤与损失设计，并结合 DINOv2 + SimCLR 项目讨论图像检索和领域适配。 \
+  [[笔记](notes/zh/vision/dino-series.qmd)]
+  [[English](notes/en/vision/dino-series.qmd)]
+
 - **Self-Evolving Coding Agents：分类体系、反馈闭环与可信演化** (创建: 2026-08-17; 更新: 2026-08-22) \
   **描述**: 基于演化对象、演化时机与软件证据三条主线，梳理自进化编码智能体如何更新框架、记忆、技能工具、模型与协作结构，并讨论可信演化所需的验证、版本化和回滚机制。 \
   [[笔记](notes/zh/agents/self-evolving-coding-agents.qmd)]

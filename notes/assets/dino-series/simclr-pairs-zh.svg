@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+<title id="title">SimCLR：把一个正样本放到交叉熵的第 0 列</title><desc id="desc">教学批次 B = 2，顺序为 [A₁, B₁, A₂, B₂]；不是业务类别。</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#52677b"/></marker></defs>
+<style>text{font-family:"PingFang SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif} .body{font-size:25px} .small{font-size:22px;fill:#52677b}</style>
+<rect width="1200" height="870" rx="24" fill="#f7f9fc"/>
+<rect x="40" y="36" width="7" height="74" rx="3" fill="#087f82"/>
+<text x="65" y="66" font-size="34" fill="#183047" text-anchor="start" font-weight="650">SimCLR：把一个正样本放到交叉熵的第 0 列</text>
+<text x="65" y="104" font-size="22" fill="#52677b" text-anchor="start">教学批次 B = 2，顺序为 [A₁, B₁, A₂, B₂]；不是业务类别。</text>
+<text x="45" y="848" font-size="16" fill="#52677b" text-anchor="start">DINO SERIES  /  BRENCH</text>
+<rect x="45" y="150" width="510" height="135" rx="17" fill="#edf3fc" stroke="#3466ae" stroke-width="1.6"/>
+<rect x="45" y="168" width="5" height="31" rx="2" fill="#3466ae"/>
+<text x="67" y="192" font-size="27" fill="#3466ae" text-anchor="start" font-weight="650">同图两种增强</text>
+<text x="67" y="232" font-size="23" fill="#183047" text-anchor="start">A → A₁, A₂     B → B₁, B₂</text>
+<text x="67" y="266" font-size="23" fill="#183047" text-anchor="start">同图另一视图是正样本</text>
+<rect x="645" y="150" width="510" height="135" rx="17" fill="#e9f7f4" stroke="#087f82" stroke-width="1.6"/>
+<rect x="645" y="168" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="667" y="192" font-size="27" fill="#087f82" text-anchor="start" font-weight="650">冻结骨干 + 可训练投影</text>
+<text x="667" y="232" font-size="23" fill="#183047" text-anchor="start">1536 → 1536 → 128</text>
+<text x="667" y="266" font-size="23" fill="#183047" text-anchor="start">MLP 输出经过 L2 归一化</text>
+<text x="85" y="340" font-size="27" fill="#183047" text-anchor="start" font-weight="650">相似度矩阵与正样本位置</text>
+<text x="197" y="385" font-size="25" fill="#183047" text-anchor="middle">A₁</text>
+<text x="111" y="435" font-size="25" fill="#183047" text-anchor="middle">A₁</text>
+<rect x="162" y="407" width="68" height="59" rx="8" fill="#e4e8ef"/>
+<text x="196" y="445" font-size="29" fill="#183047" text-anchor="middle">×</text>
+<rect x="239" y="407" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="273" y="445" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="316" y="407" width="68" height="59" rx="8" fill="#d4eee6"/>
+<text x="350" y="445" font-size="29" fill="#183047" text-anchor="middle">+</text>
+<rect x="393" y="407" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="427" y="445" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<text x="274" y="385" font-size="25" fill="#183047" text-anchor="middle">B₁</text>
+<text x="111" y="505" font-size="25" fill="#183047" text-anchor="middle">B₁</text>
+<rect x="162" y="477" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="196" y="515" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="239" y="477" width="68" height="59" rx="8" fill="#e4e8ef"/>
+<text x="273" y="515" font-size="29" fill="#183047" text-anchor="middle">×</text>
+<rect x="316" y="477" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="350" y="515" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="393" y="477" width="68" height="59" rx="8" fill="#d4eee6"/>
+<text x="427" y="515" font-size="29" fill="#183047" text-anchor="middle">+</text>
+<text x="351" y="385" font-size="25" fill="#183047" text-anchor="middle">A₂</text>
+<text x="111" y="575" font-size="25" fill="#183047" text-anchor="middle">A₂</text>
+<rect x="162" y="547" width="68" height="59" rx="8" fill="#d4eee6"/>
+<text x="196" y="585" font-size="29" fill="#183047" text-anchor="middle">+</text>
+<rect x="239" y="547" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="273" y="585" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="316" y="547" width="68" height="59" rx="8" fill="#e4e8ef"/>
+<text x="350" y="585" font-size="29" fill="#183047" text-anchor="middle">×</text>
+<rect x="393" y="547" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="427" y="585" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<text x="428" y="385" font-size="25" fill="#183047" text-anchor="middle">B₂</text>
+<text x="111" y="645" font-size="25" fill="#183047" text-anchor="middle">B₂</text>
+<rect x="162" y="617" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="196" y="655" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="239" y="617" width="68" height="59" rx="8" fill="#d4eee6"/>
+<text x="273" y="655" font-size="29" fill="#183047" text-anchor="middle">+</text>
+<rect x="316" y="617" width="68" height="59" rx="8" fill="#f6e9d9"/>
+<text x="350" y="655" font-size="29" fill="#183047" text-anchor="middle">−</text>
+<rect x="393" y="617" width="68" height="59" rx="8" fill="#e4e8ef"/>
+<text x="427" y="655" font-size="29" fill="#183047" text-anchor="middle">×</text>
+<rect x="640" y="360" width="515" height="185" rx="17" fill="#f3eef9" stroke="#7954ab" stroke-width="1.6"/>
+<rect x="640" y="378" width="5" height="31" rx="2" fill="#7954ab"/>
+<text x="662" y="402" font-size="27" fill="#7954ab" text-anchor="start" font-weight="650">以 A₁ 为 anchor</text>
+<text x="662" y="442" font-size="23" fill="#183047" text-anchor="start">logits = [sim(A₁,A₂),</text>
+<text x="662" y="476" font-size="23" fill="#183047" text-anchor="start">             sim(A₁,B₁), sim(A₁,B₂)] / τ</text>
+<text x="662" y="510" font-size="23" fill="#183047" text-anchor="start">target = 0</text>
+<rect x="640" y="582" width="515" height="128" rx="17" fill="#fff5e4" stroke="#ad6b14" stroke-width="1.6"/>
+<rect x="640" y="600" width="5" height="31" rx="2" fill="#ad6b14"/>
+<text x="662" y="624" font-size="27" fill="#ad6b14" text-anchor="start" font-weight="650">每一行都参与训练</text>
+<text x="662" y="664" font-size="23" fill="#183047" text-anchor="start">1 个正样本 + 2B − 2 个负样本</text>
+<text x="662" y="698" font-size="23" fill="#183047" text-anchor="start">自身匹配从分母移除</text>
+<rect x="45" y="751" width="1110" height="59" rx="14" fill="#e8edf4"/>
+<text x="65" y="784" font-size="23" fill="#183047" text-anchor="start">真实默认 B = 256：512 × 128 → 512 × 512 → 512 × 511 logits。</text>
+</svg>
