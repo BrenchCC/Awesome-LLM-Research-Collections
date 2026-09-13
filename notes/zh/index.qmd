@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>30</strong><span>笔记</span></div>
+    <div><strong>31</strong><span>笔记</span></div>
     <div><strong>8</strong><span>主题</span></div>
-    <div><strong>2026-09-12</strong><span>最近创建</span></div>
+    <div><strong>2026-09-14</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -213,6 +213,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/rsi-guide.html">
+  <span class="category-count">创建 2026-09-14 · 更新 2026-09-14</span>
+  <h3>万字长文带你读懂 RSI（自进化，Self-Evolving）</h3>
+  <p>从进化对象、版本结构、更新者、更新时机和反馈维度整理 Recursive Self-Improvement（RSI）方法。</p>
+  <div class="note-tags">
+    <span class="note-tag">RSI</span>
+    <span class="note-tag">Self-Evolving Agents</span>
+    <span class="note-tag">Agent Harness</span>
+    <span class="note-tag">Agent Memory</span>
+    <span class="note-tag">Skill Evolution</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/query-understanding-and-rewriting.html">
   <span class="category-count">创建 2026-09-07 · 更新 2026-09-08</span>
   <h3>Query 识别与改写：训练、检索与 Agent 架构边界</h3>

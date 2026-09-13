@@ -1111,6 +1111,11 @@
 
 ## 技术思考
 
+- **万字长文带你读懂 RSI（自进化，Self-Evolving）** (创建: 2026-09-14; 更新: 2026-09-14) \
+  **描述**: 从进化对象、版本结构、更新者、更新时机和反馈维度整理 Recursive Self-Improvement（RSI）方法。 \
+  [[笔记](notes/zh/agents/rsi-guide.qmd)]
+  [[English](notes/en/agents/rsi-guide.qmd)]
+
 - **Query 识别与改写：训练、检索与 Agent 架构边界** (创建: 2026-09-07; 更新: 2026-09-08) \
   **描述**: 梳理意图识别、澄清、行为驱动改写、蒸馏与检索评测，补充基于证据依赖的多跳训练数据构造，并讨论 Agent 状态管理与 AIGC recaption 的边界。 \
   [[笔记](notes/zh/agents/query-understanding-and-rewriting.qmd)]

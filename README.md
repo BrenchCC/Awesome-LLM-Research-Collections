@@ -1112,6 +1112,11 @@
 
 ## Technical Reflections
 
+- **A Comprehensive Guide to RSI (Self-Evolution, Self-Evolving Agents)** (Created: 2026-09-14; Updated: 2026-09-14) \
+  **Description**: A taxonomy of Recursive Self-Improvement (RSI) across improvement targets, evolution structures, update roles, timing, and feedback. \
+  [[Note](notes/en/agents/rsi-guide.qmd)]
+  [[中文](notes/zh/agents/rsi-guide.qmd)]
+
 - **Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries** (Created: 2026-09-07; Updated: 2026-09-08) \
   **Description**: Intent recognition, clarification, behavior-driven rewriting, distillation, and retrieval evaluation, with evidence-dependent multi-hop training data and a discussion of Agent state management versus AIGC recaptioning. \
   [[Note](notes/en/agents/query-understanding-and-rewriting.qmd)]

@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>30</strong><span>Notes</span></div>
+    <div><strong>31</strong><span>Notes</span></div>
     <div><strong>8</strong><span>Topics</span></div>
-    <div><strong>2026-09-12</strong><span>Latest creation</span></div>
+    <div><strong>2026-09-14</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -213,6 +213,22 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="agents/rsi-guide.html">
+  <span class="category-count">Created 2026-09-14 · Updated 2026-09-14</span>
+  <h3>A Comprehensive Guide to RSI (Self-Evolution, Self-Evolving Agents)</h3>
+  <p>A taxonomy of Recursive Self-Improvement (RSI) across improvement targets, evolution structures, update roles, timing, and feedback.</p>
+  <div class="note-tags">
+    <span class="note-tag">RSI</span>
+    <span class="note-tag">Self-Evolving Agents</span>
+    <span class="note-tag">Agent Harness</span>
+    <span class="note-tag">Agent Memory</span>
+    <span class="note-tag">Skill Evolution</span>
+  </div>
+  <div class="category-foot">
+    <span>AGENTS</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
 <a class="category-card" href="agents/query-understanding-and-rewriting.html">
   <span class="category-count">Created 2026-09-07 · Updated 2026-09-08</span>
   <h3>Query Understanding and Rewriting: Training, Retrieval, and Agent Architecture Boundaries</h3>
