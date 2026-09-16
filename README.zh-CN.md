@@ -444,6 +444,11 @@
 
 ## 蒸馏
 
+- **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
+  **描述**: 该论文在数据最小化场景下研究在策略蒸馏，发现仅使用一个查询进行训练，也能在不同任务领域和模型族上恢复完整数据 OPD 的大部分增益。论文从状态覆盖率和学生—教师对齐速度解释这一现象，并表明 16 个语义多样的查询即可达到完整数据训练的效果，说明 OPD 更像是数据过量而算法吸收效率不足。 \
+  <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
   **描述**: 该论文揭示了在策略蒸馏中的低 KL 一致性陷阱：教师模型会局部顺应学生模型已损坏的 rollout，因而几乎无法提供纠错监督。论文提出自适应在线终止规则 KAT，过滤这些无信息后缀，在提升数学推理准确率的同时将平均 rollout 长度减少 59.73%。 \
   <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

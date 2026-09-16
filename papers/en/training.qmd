@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>9</strong><span>Papers</span></div>
-    <div><strong>19</strong><span>Resource links</span></div>
-    <div><strong>2026.08</strong><span>Latest month</span></div>
+    <div><strong>10</strong><span>Papers</span></div>
+    <div><strong>21</strong><span>Resource links</span></div>
+    <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#data-preparation">Data Preparation</a>
@@ -90,10 +90,22 @@ toc: false
 </section>
 <section class="paper-section" id="distillation">
   <div class="section-heading compact">
-    <p class="eyebrow">5 papers</p>
+    <p class="eyebrow">6 papers</p>
     <h2>Distillation</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Distillation</span>
+  </div>
+  <h3>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</h3>
+  <p>This paper studies on-policy distillation at the data-minimal limit and finds that training on a single query recovers most of the gain from full-data OPD across domains and model families. It explains this through state coverage and student-teacher alignment, showing that 16 semantically distinct queries can match full-data training while OPD is data-overfed but algorithm-starved.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.04172" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/Thinking-Space/One-Shot-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
 <article class="paper-card" id="escaping-the-kl-agreement-trap-in-on-policy-distillation">
   <div class="paper-meta">
     <span>2026.06</span>

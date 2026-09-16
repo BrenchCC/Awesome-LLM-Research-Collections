@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>169</strong><span>Papers</span></div>
+    <div><strong>170</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>407</strong><span>Resource links</span></div>
+    <div><strong>409</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -69,11 +69,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">9 papers</span>
+  <span class="category-count">10 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="category-foot">
-    <span>2026.08</span>
+    <span>2026.09</span>
     <span>Data Preparation, Distillation, Optimization</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
+  <span>2026.09</span>
+  <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
+  <em>Training</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#safeevolve-harness-policy-co-evolution-from-agent-experience-for-safety-alignment">
   <span>2026.09</span>
   <strong>SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.08</span>
   <strong>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</strong>
   <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="training.html#bigbang-pursuing-open-ended-intelligence-through-self-evolving-synthesis-of-verifiable-frontier-tasks">
-  <span>2026.08</span>
-  <strong>BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks</strong>
-  <em>Training</em>
 </a>
   </div>
 </section>

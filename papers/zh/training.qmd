@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>9</strong><span>论文</span></div>
-    <div><strong>19</strong><span>资源链接</span></div>
-    <div><strong>2026.08</strong><span>最新月份</span></div>
+    <div><strong>10</strong><span>论文</span></div>
+    <div><strong>21</strong><span>资源链接</span></div>
+    <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#data-preparation">数据准备</a>
@@ -90,10 +90,22 @@ toc: false
 </section>
 <section class="paper-section" id="distillation">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>蒸馏</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>蒸馏</span>
+  </div>
+  <h3>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</h3>
+  <p>该论文在数据最小化场景下研究在策略蒸馏，发现仅使用一个查询进行训练，也能在不同任务领域和模型族上恢复完整数据 OPD 的大部分增益。论文从状态覆盖率和学生—教师对齐速度解释这一现象，并表明 16 个语义多样的查询即可达到完整数据训练的效果，说明 OPD 更像是数据过量而算法吸收效率不足。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.04172" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/Thinking-Space/One-Shot-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="escaping-the-kl-agreement-trap-in-on-policy-distillation">
   <div class="paper-meta">
     <span>2026.06</span>

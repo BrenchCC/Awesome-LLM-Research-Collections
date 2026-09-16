@@ -445,6 +445,11 @@
 
 ## Distillation
 
+- **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
+  **Description**: This paper studies on-policy distillation at the data-minimal limit and finds that training on a single query recovers most of the gain from full-data OPD across domains and model families. It explains this through state coverage and student-teacher alignment, showing that 16 semantically distinct queries can match full-data training while OPD is data-overfed but algorithm-starved. \
+  <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
   **Description**: This paper identifies a low-KL agreement trap in on-policy distillation, where a teacher locally agrees with a student's corrupted rollout and provides little corrective supervision. It proposes KAT, an adaptive online termination rule that filters these uninformative suffixes, improving mathematical reasoning accuracy while reducing average rollout length by 59.73%. \
   <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
