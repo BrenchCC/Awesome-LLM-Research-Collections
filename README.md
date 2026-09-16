@@ -834,6 +834,11 @@
 
 ## AI Research
 
+- **Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills** (2026.09) \
+  **Description**: This paper identifies operational knowledge as the missing layer in autonomous ML research agents and presents DisCo, a skill-powered agent that distills repository knowledge into compact, verified, reusable skills. Its AREX-Skill Library contains over 5,000 skills distilled from 1,000 repositories, and the skill-equipped agent substantially improves performance across four autonomous research benchmarks under a fixed backbone, harness, and execution budget. \
+  <a href="https://arxiv.org/abs/2609.02749"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/VectorSpaceLab/AREX-Skill"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities** (2026.08) \
   **Description**: This survey defines agentic artifact creation as stateful construction in which an AI system materially builds or revises a deliverable, with intermediate observations redirecting later work. It reviews 230 systems and 29 benchmarks across six artifact families, analyzes construction and evaluation challenges, and proposes principles for explicit responsibility, targeted repair, and post-change revalidation. \
   <a href="https://arxiv.org/abs/2608.28122"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

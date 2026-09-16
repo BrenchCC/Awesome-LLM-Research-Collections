@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>170</strong><span>论文</span></div>
+    <div><strong>171</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>409</strong><span>资源链接</span></div>
+    <div><strong>411</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -87,11 +87,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">40 篇论文</span>
+  <span class="category-count">41 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
-    <span>2026.08</span>
+    <span>2026.09</span>
     <span>AI 研究、工具调用、数据智能体、智能体开发、智能体技能、智能体评测、网络智能体、计算机使用、记忆</span>
   </div>
 </a>
@@ -132,6 +132,11 @@ toc: false
   <strong>SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="agents-application.html#repo-to-skill-distilling-github-repositories-into-ai4ai-skills">
+  <span>2026.09</span>
+  <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
   <span>2026.08</span>
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
   <span>2026.08</span>
   <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#qwen-drive-1-0-an-initial-step-towards-a-vision-language-foundation-model-for-autonomous-driving">
-  <span>2026.08</span>
-  <strong>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</strong>
   <em>多模态大模型</em>
 </a>
   </div>

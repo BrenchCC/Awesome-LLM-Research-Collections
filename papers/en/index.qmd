@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>170</strong><span>Papers</span></div>
+    <div><strong>171</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>409</strong><span>Resource links</span></div>
+    <div><strong>411</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,11 +87,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">40 papers</span>
+  <span class="category-count">41 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
-    <span>2026.08</span>
+    <span>2026.09</span>
     <span>AI Research, Agent Development, Agent Evaluation, Agent Skills, Computer Use, Data Agents, Memory, Tool Use, Web Agents</span>
   </div>
 </a>
@@ -132,6 +132,11 @@ toc: false
   <strong>SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="agents-application.html#repo-to-skill-distilling-github-repositories-into-ai4ai-skills">
+  <span>2026.09</span>
+  <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
   <span>2026.08</span>
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
   <span>2026.08</span>
   <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#qwen-drive-1-0-an-initial-step-towards-a-vision-language-foundation-model-for-autonomous-driving">
-  <span>2026.08</span>
-  <strong>Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>

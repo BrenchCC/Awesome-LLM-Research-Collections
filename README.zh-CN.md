@@ -833,6 +833,11 @@
 
 ## AI 研究
 
+- **Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills** (2026.09) \
+  **描述**: 该论文指出，自主机器学习科研智能体缺少连接模型能力与实际落地经验的“操作知识”层，并提出 DisCo，将 GitHub 仓库中的知识蒸馏为紧凑、经过验证且可复用的技能。其 AREX-Skill Library 已从 1,000 个仓库中蒸馏出 5,000 多项技能，在固定模型骨干、研究 harness 和执行预算的条件下，显著提升智能体在四项自主科研基准上的表现。 \
+  <a href="https://arxiv.org/abs/2609.02749"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/VectorSpaceLab/AREX-Skill"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities** (2026.08) \
   **描述**: 该综述将智能体产物创作定义为一种有状态的构建过程：AI 系统实质性地创建或修改交付物，并根据中间观察结果调整后续工作。论文梳理了六类产物中的 230 个系统和 29 个基准，分析构建与评测挑战，并提出明确责任、针对性修复和变更后重新验证等原则。 \
   <a href="https://arxiv.org/abs/2608.28122"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
