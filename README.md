@@ -130,6 +130,12 @@
   <a href="https://arxiv.org/abs/2604.02029"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/YU-deep/Awesome-Latent-Space"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence** (2026.04) \
+  **Description**: DeepSeek-V4 introduces 1.6T-parameter Pro and 284B-parameter Flash MoE language models, both supporting one-million-token contexts. Its hybrid Compressed Sparse Attention and Heavily Compressed Attention, Manifold-Constrained Hyper-Connections, and Muon optimizer improve long-context efficiency, with Pro using 27% of DeepSeek-V3.2's single-token inference FLOPs and 10% of its KV cache in the one-million-token setting. \
+  <a href="https://arxiv.org/abs/2606.19348"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://deepseek.com/en/news/v4-preview/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://huggingface.co/collections/deepseek-ai/deepseek-v4"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GLM-5: from Vibe Coding to Agentic Engineering** (2026.02) \
   **Description**: GLM-5 is a next-generation foundation model targeting long-horizon agentic engineering, with reduced training and inference cost and preserved long-context capability. It introduces asynchronous RL infrastructure and agent RL algorithms to improve post-training efficiency and real-world coding performance. \
   <a href="https://arxiv.org/abs/2602.15763"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
@@ -1064,6 +1070,11 @@
 # Notes
 
 ## Paper Readings
+
+- **DeepSeek-V4 Hybrid Attention: From Compressed Memory to Million-Token Context** (Created: 2026-09-18; Updated: 2026-09-18) \
+  **Description**: A derivation-first reading of DeepSeek-V4's CSA, Lightning Indexer, HCA, and mHC residual paths, grounded in the technical report and a pinned official inference implementation. \
+  [[Note](notes/en/llms/deepseek-v4-hybrid-attention.qmd)]
+  [[中文](notes/zh/llms/deepseek-v4-hybrid-attention.qmd)]
 
 - **The DINO Series: Architecture, Training, and Task Adaptation** (Created: 2026-09-12; Updated: 2026-09-12) \
   **Description**: A practical account of DINO, DINOv2, and DINOv3: self-distillation, local features, training steps, and losses, with a DINOv2 + SimCLR retrieval case study. \

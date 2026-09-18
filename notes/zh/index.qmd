@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>31</strong><span>笔记</span></div>
+    <div><strong>32</strong><span>笔记</span></div>
     <div><strong>8</strong><span>主题</span></div>
-    <div><strong>2026-09-14</strong><span>最近创建</span></div>
+    <div><strong>2026-09-18</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -25,6 +25,23 @@ toc: false
     <h2>论文解读</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="llms/deepseek-v4-hybrid-attention.html">
+  <span class="category-count">创建 2026-09-18 · 更新 2026-09-18</span>
+  <h3>DeepSeek-V4 混合注意力：从压缩记忆到百万上下文</h3>
+  <p>围绕 CSA、Lightning Indexer 与 HCA，推导 DeepSeek-V4 的混合注意力、mHC 残差路径，并结合固定版本官方推理代码解释张量形状与调用链。</p>
+  <div class="note-tags">
+    <span class="note-tag">DeepSeek-V4</span>
+    <span class="note-tag">Compressed Sparse Attention</span>
+    <span class="note-tag">Heavily Compressed Attention</span>
+    <span class="note-tag">Long Context</span>
+    <span class="note-tag">mHC</span>
+    <span class="note-tag">Mixture of Experts</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
+    <span>论文解读</span>
+  </div>
+</a>
 <a class="category-card" href="vision/dino-series.html">
   <span class="category-count">创建 2026-09-12 · 更新 2026-09-12</span>
   <h3>DINO 系列：架构、训练原理与任务适配</h3>

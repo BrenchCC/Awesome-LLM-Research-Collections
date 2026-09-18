@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>31</strong><span>Notes</span></div>
+    <div><strong>32</strong><span>Notes</span></div>
     <div><strong>8</strong><span>Topics</span></div>
-    <div><strong>2026-09-14</strong><span>Latest creation</span></div>
+    <div><strong>2026-09-18</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -25,6 +25,23 @@ toc: false
     <h2>Paper Readings</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="llms/deepseek-v4-hybrid-attention.html">
+  <span class="category-count">Created 2026-09-18 · Updated 2026-09-18</span>
+  <h3>DeepSeek-V4 Hybrid Attention: From Compressed Memory to Million-Token Context</h3>
+  <p>A derivation-first reading of DeepSeek-V4&#x27;s CSA, Lightning Indexer, HCA, and mHC residual paths, grounded in the technical report and a pinned official inference implementation.</p>
+  <div class="note-tags">
+    <span class="note-tag">DeepSeek-V4</span>
+    <span class="note-tag">Compressed Sparse Attention</span>
+    <span class="note-tag">Heavily Compressed Attention</span>
+    <span class="note-tag">Long Context</span>
+    <span class="note-tag">mHC</span>
+    <span class="note-tag">Mixture of Experts</span>
+  </div>
+  <div class="category-foot">
+    <span>LLMS</span>
+    <span>Paper Readings</span>
+  </div>
+</a>
 <a class="category-card" href="vision/dino-series.html">
   <span class="category-count">Created 2026-09-12 · Updated 2026-09-12</span>
   <h3>The DINO Series: Architecture, Training, and Task Adaptation</h3>

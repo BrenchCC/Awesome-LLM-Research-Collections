@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>24</strong><span>论文</span></div>
-    <div><strong>73</strong><span>资源链接</span></div>
+    <div><strong>25</strong><span>论文</span></div>
+    <div><strong>76</strong><span>资源链接</span></div>
     <div><strong>2026.08</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="foundation-models">
   <div class="section-heading compact">
-    <p class="eyebrow">18 篇论文</p>
+    <p class="eyebrow">19 篇论文</p>
     <h2>基础模型</h2>
   </div>
   <div class="paper-grid">
@@ -92,6 +92,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2604.02029" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/YU-deep/Awesome-Latent-Space" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="deepseek-v4-towards-highly-efficient-million-token-context-intelligence">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>基础模型</span>
+  </div>
+  <h3>DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence</h3>
+  <p>DeepSeek-V4 提出支持 100 万 token 上下文的 1.6T 参数 Pro 和 284B 参数 Flash 两个 MoE 语言模型。其结合 Compressed Sparse Attention、Heavily Compressed Attention、Manifold-Constrained Hyper-Connections 和 Muon 优化器提升长上下文效率；在 100 万 token 场景下，Pro 的单 token 推理 FLOPs 仅为 DeepSeek-V3.2 的 27%，KV 缓存仅为其 10%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2606.19348" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://deepseek.com/en/news/v4-preview/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://huggingface.co/collections/deepseek-ai/deepseek-v4" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="glm-5-from-vibe-coding-to-agentic-engineering">

@@ -129,6 +129,12 @@
   <a href="https://arxiv.org/abs/2604.02029"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/YU-deep/Awesome-Latent-Space"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence** (2026.04) \
+  **描述**: DeepSeek-V4 提出支持 100 万 token 上下文的 1.6T 参数 Pro 和 284B 参数 Flash 两个 MoE 语言模型。其结合 Compressed Sparse Attention、Heavily Compressed Attention、Manifold-Constrained Hyper-Connections 和 Muon 优化器提升长上下文效率；在 100 万 token 场景下，Pro 的单 token 推理 FLOPs 仅为 DeepSeek-V3.2 的 27%，KV 缓存仅为其 10%。 \
+  <a href="https://arxiv.org/abs/2606.19348"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://deepseek.com/en/news/v4-preview/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://huggingface.co/collections/deepseek-ai/deepseek-v4"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GLM-5: from Vibe Coding to Agentic Engineering** (2026.02) \
   **描述**: GLM-5 是面向长程智能体工程的新一代基础模型，在降低训练与推理成本的同时保持长上下文能力。它引入异步 RL 基础设施和智能体 RL 算法，以提升后训练效率和真实编码表现。 \
   <a href="https://arxiv.org/abs/2602.15763"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
@@ -1063,6 +1069,11 @@
 # 笔记
 
 ## 论文解读
+
+- **DeepSeek-V4 混合注意力：从压缩记忆到百万上下文** (创建: 2026-09-18; 更新: 2026-09-18) \
+  **描述**: 围绕 CSA、Lightning Indexer 与 HCA，推导 DeepSeek-V4 的混合注意力、mHC 残差路径，并结合固定版本官方推理代码解释张量形状与调用链。 \
+  [[笔记](notes/zh/llms/deepseek-v4-hybrid-attention.qmd)]
+  [[English](notes/en/llms/deepseek-v4-hybrid-attention.qmd)]
 
 - **DINO 系列：架构、训练原理与任务适配** (创建: 2026-09-12; 更新: 2026-09-12) \
   **描述**: 沿 DINO、DINOv2、DINOv3 解释自蒸馏、局部表征、训练步骤与损失设计，并结合 DINOv2 + SimCLR 项目讨论图像检索和领域适配。 \
