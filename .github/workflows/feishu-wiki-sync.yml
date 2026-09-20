@@ -66,13 +66,15 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install pinned lark-cli and SVG converter
+      - name: Install pinned lark-cli, SVG converter, and CJK fonts
         run: |
           npm install --global @larksuite/cli@1.0.86
           sudo apt-get update
-          sudo apt-get install --yes librsvg2-bin
+          sudo apt-get install --yes fontconfig fonts-noto-cjk librsvg2-bin
+          fc-cache --force
           lark-cli --version
           rsvg-convert --version
+          fc-match --format='%{family}\n' 'Noto Sans CJK SC' | grep --fixed-strings 'Noto Sans CJK SC'
 
       - name: Initialize ephemeral lark-cli bot profile
         env:

@@ -7,6 +7,7 @@ import shutil
 import logging
 import argparse
 import subprocess
+from pathlib import Path
 
 # Add project root to Python path
 sys.path.append(os.getcwd())
@@ -18,6 +19,53 @@ from feishu_wiki_sync.models import SyncError
 from feishu_wiki_sync.planner import build_sync_plan, load_remote_state
 
 logger = logging.getLogger(__name__)
+
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+LOCAL_CREDENTIAL_ALIASES = {
+    "FEISHU_APP_ID": "LARKSUITE_CLI_APP_ID",
+    "FEISHU_APP_SECRET": "LARKSUITE_CLI_APP_SECRET",
+}
+
+
+def load_local_environment(path = None):
+    """Load supported local credentials from a repository .env file.
+
+    Parameters:
+        path: Optional .env path used by tests or alternate launchers.
+    """
+    env_path = Path(path) if path is not None else REPOSITORY_ROOT / ".env"
+    if env_path.is_file():
+        for line_number, raw_line in enumerate(
+            env_path.read_text(encoding = "utf-8").splitlines(),
+            start = 1
+        ):
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.startswith("export "):
+                line = line[len("export "):].strip()
+            name, separator, raw_value = line.partition("=")
+            name = name.strip()
+            if name not in LOCAL_CREDENTIAL_ALIASES:
+                continue
+            if not separator:
+                raise SyncError(
+                    f"Invalid {name} entry in {env_path} at line {line_number}"
+                )
+            value = raw_value.strip()
+            if value.startswith(("'", '"')):
+                quote = value[0]
+                if len(value) < 2 or not value.endswith(quote):
+                    raise SyncError(
+                        f"Unterminated {name} value in {env_path} at line {line_number}"
+                    )
+                value = value[1:-1]
+            os.environ.setdefault(name, value)
+
+    for alias, official_name in LOCAL_CREDENTIAL_ALIASES.items():
+        alias_value = os.environ.get(alias, "").strip()
+        if alias_value:
+            os.environ.setdefault(official_name, alias_value)
 
 
 def parse_args():
@@ -221,6 +269,7 @@ def main():
         logger.info("Total runtime: %.2fs", time.monotonic() - total_start)
         return
 
+    load_local_environment()
     space_id = require_remote_environment()
     commit = get_git_commit()
     executor = LarkCliExecutor()

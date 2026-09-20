@@ -31,6 +31,8 @@ TRANSIENT_TEXT = (
     "tat endpoint transient failure",
 )
 CREDENTIAL_ENV_KEYS = [
+    "FEISHU_APP_ID",
+    "FEISHU_APP_SECRET",
     "LARKSUITE_CLI_APP_ID",
     "LARKSUITE_CLI_APP_SECRET",
     "LARKSUITE_CLI_BRAND",

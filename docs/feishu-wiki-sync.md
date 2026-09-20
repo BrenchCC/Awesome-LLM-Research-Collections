@@ -70,17 +70,28 @@ gh variable set FEISHU_WIKI_SPACE_ID
 
 ## 本地检查和手动同步
 
-本地需要 lark-cli `1.0.86` 和 `rsvg-convert`。先只验证本地内容：
+本地需要 lark-cli `1.0.86`、`rsvg-convert`，以及 SVG 所用字体。中文 SVG 在 Linux 上建议安装 `fonts-noto-cjk`；否则转换命令虽然可能成功，生成的 PNG 仍会把中文显示为缺字方框。先只验证本地内容：
 
 ```bash
 python scripts/sync_feishu_wiki.py --check
 ```
 
-远端预览和应用使用以下环境变量：
+本地可以从示例创建不会被 Git 跟踪的 `.env`：
 
 ```bash
-export LARKSUITE_CLI_APP_ID="<APP_ID>"
-export LARKSUITE_CLI_APP_SECRET="<APP_SECRET>"
+cp .env.example .env
+```
+
+在 `.env` 中填写应用凭据：
+
+```dotenv
+FEISHU_APP_ID=<APP_ID>
+FEISHU_APP_SECRET=<APP_SECRET>
+```
+
+同步器会自动读取仓库根目录的 `.env`，并将这两个本地别名映射为 lark-cli 使用的 `LARKSUITE_CLI_APP_ID` 和 `LARKSUITE_CLI_APP_SECRET`。进程中已经显式设置的官方变量优先，不会被 `.env` 覆盖。目标空间仍通过环境变量指定：
+
+```bash
 export LARKSUITE_CLI_BRAND="feishu"
 export LARKSUITE_CLI_STRICT_MODE="bot"
 export FEISHU_WIKI_SPACE_ID="<SPACE_ID>"
