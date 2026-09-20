@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>10</strong><span>Papers</span></div>
-    <div><strong>21</strong><span>Resource links</span></div>
+    <div><strong>11</strong><span>Papers</span></div>
+    <div><strong>24</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -90,7 +90,7 @@ toc: false
 </section>
 <section class="paper-section" id="distillation">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Distillation</h2>
   </div>
   <div class="paper-grid">
@@ -104,6 +104,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2609.04172" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/Thinking-Space/One-Shot-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="simple-opd-demystifying-warm-up-for-on-policy-distillation">
+  <div class="paper-meta">
+    <span>2026.08</span>
+    <span>Distillation</span>
+  </div>
+  <h3>Simple-OPD: Demystifying Warm-up for On-policy Distillation</h3>
+  <p>This paper shows that effective warm-up for on-policy distillation depends on teacher-compatible chain-of-thought supervision rather than answer correctness alone. It proposes Simple-OPD, a plug-and-play initialization recipe that uses near-saturation LoRA warm-up on teacher-generated reasoning traces to balance in-domain adaptation and out-of-distribution generalization.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2608.06802" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://wangjunjie-ai.github.io/publication/2026-08-07-simple-opd" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/Utaotao/Simple-OPD" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="escaping-the-kl-agreement-trap-in-on-policy-distillation">

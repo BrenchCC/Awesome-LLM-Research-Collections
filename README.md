@@ -456,6 +456,12 @@
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Simple-OPD: Demystifying Warm-up for On-policy Distillation** (2026.08) \
+  **Description**: This paper shows that effective warm-up for on-policy distillation depends on teacher-compatible chain-of-thought supervision rather than answer correctness alone. It proposes Simple-OPD, a plug-and-play initialization recipe that uses near-saturation LoRA warm-up on teacher-generated reasoning traces to balance in-domain adaptation and out-of-distribution generalization. \
+  <a href="https://arxiv.org/abs/2608.06802"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://wangjunjie-ai.github.io/publication/2026-08-07-simple-opd"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Utaotao/Simple-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
   **Description**: This paper identifies a low-KL agreement trap in on-policy distillation, where a teacher locally agrees with a student's corrupted rollout and provides little corrective supervision. It proposes KAT, an adaptive online termination rule that filters these uninformative suffixes, improving mathematical reasoning accuracy while reducing average rollout length by 59.73%. \
   <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

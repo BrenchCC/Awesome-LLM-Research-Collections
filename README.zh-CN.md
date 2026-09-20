@@ -455,6 +455,12 @@
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Simple-OPD: Demystifying Warm-up for On-policy Distillation** (2026.08) \
+  **描述**: 该论文表明，在策略蒸馏的有效预热更依赖与教师兼容的思维链监督，而非仅依赖答案正确性。论文提出 Simple-OPD，以教师生成的推理轨迹进行接近饱和的 LoRA 预热，在域内适应与域外泛化之间取得平衡，并作为可插拔初始化方案接入后续 OPD。 \
+  <a href="https://arxiv.org/abs/2608.06802"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://wangjunjie-ai.github.io/publication/2026-08-07-simple-opd"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Utaotao/Simple-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Escaping the KL Agreement Trap in On-Policy Distillation** (2026.06) \
   **描述**: 该论文揭示了在策略蒸馏中的低 KL 一致性陷阱：教师模型会局部顺应学生模型已损坏的 rollout，因而几乎无法提供纠错监督。论文提出自适应在线终止规则 KAT，过滤这些无信息后缀，在提升数学推理准确率的同时将平均 rollout 长度减少 59.73%。 \
   <a href="https://arxiv.org/abs/2606.09471"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
