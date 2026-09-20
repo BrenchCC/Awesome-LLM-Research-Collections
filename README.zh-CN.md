@@ -1138,6 +1138,11 @@
 
 ## 技术思考
 
+- **KDA 与 Gated DeltaNet：线性注意力怎样读写有限状态** (创建: 2026-09-20; 更新: 2026-09-20) \
+  **描述**: 从 Delta Rule、遗忘门粒度、混合层配置和公开源码出发，对照 Kimi KDA 与 Qwen Gated DeltaNet。 \
+  [[笔记](notes/zh/attention/kda-vs-gated-deltanet.qmd)]
+  [[English](notes/en/attention/kda-vs-gated-deltanet.qmd)]
+
 - **万字长文带你读懂 RSI（自进化，Self-Evolving）** (创建: 2026-09-14; 更新: 2026-09-14) \
   **描述**: 从进化对象、版本结构、更新者、更新时机和反馈维度整理 Recursive Self-Improvement（RSI）方法。 \
   [[笔记](notes/zh/agents/rsi-guide.qmd)]

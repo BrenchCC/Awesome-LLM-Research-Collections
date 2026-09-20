@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="980" viewBox="0 0 1800 980" role="img" aria-labelledby="title desc">
+  <title id="title">Qwen3-Next and Kimi Linear hybrid attention stacks</title>
+  <desc id="desc">Both architectures repeat three recurrent linear-attention layers and one token-addressable attention layer, while using different recurrent and global attention operators.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 42px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .head{font:700 30px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0f172a}
+      .body{font:23px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#334155}
+      .small{font:20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#475569}
+      .label{font:700 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#fff}
+      .mono{font:21px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#172554}
+    </style>
+  </defs>
+  <rect width="1800" height="980" fill="#f8fafc"/>
+  <text x="900" y="68" text-anchor="middle" class="title">Hybrid attention: compressed state plus periodic token access</text>
+
+  <g transform="translate(80 125)">
+    <rect width="780" height="680" rx="34" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
+    <text x="390" y="60" text-anchor="middle" class="head">Qwen3-Next</text>
+    <text x="390" y="98" text-anchor="middle" class="mono">full_attention_interval = 4</text>
+    <g transform="translate(125 140)">
+      <rect width="530" height="92" rx="24" fill="#0ea5e9"/>
+      <text x="265" y="56" text-anchor="middle" class="label">Gated DeltaNet</text>
+      <path d="M265 96V130" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="140" width="530" height="92" rx="24" fill="#0ea5e9"/>
+      <text x="265" y="196" text-anchor="middle" class="label">Gated DeltaNet</text>
+      <path d="M265 236V270" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="280" width="530" height="92" rx="24" fill="#0ea5e9"/>
+      <text x="265" y="336" text-anchor="middle" class="label">Gated DeltaNet</text>
+      <path d="M265 376V410" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="420" width="530" height="92" rx="24" fill="#f59e0b"/>
+      <text x="265" y="476" text-anchor="middle" class="label">Gated Attention</text>
+    </g>
+    <text x="390" y="670" text-anchor="middle" class="small">scalar decay state · explicit KV every fourth layer</text>
+  </g>
+
+  <g transform="translate(940 125)">
+    <rect width="780" height="680" rx="34" fill="#fff" stroke="#4f46e5" stroke-width="4"/>
+    <text x="390" y="60" text-anchor="middle" class="head">Kimi Linear</text>
+    <text x="390" y="98" text-anchor="middle" class="mono">20 KDA + 7 MLA layers</text>
+    <g transform="translate(125 140)">
+      <rect width="530" height="92" rx="24" fill="#4f46e5"/>
+      <text x="265" y="56" text-anchor="middle" class="label">Kimi Delta Attention</text>
+      <path d="M265 96V130" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="140" width="530" height="92" rx="24" fill="#4f46e5"/>
+      <text x="265" y="196" text-anchor="middle" class="label">Kimi Delta Attention</text>
+      <path d="M265 236V270" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="280" width="530" height="92" rx="24" fill="#4f46e5"/>
+      <text x="265" y="336" text-anchor="middle" class="label">Kimi Delta Attention</text>
+      <path d="M265 376V410" stroke="#475569" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect y="420" width="530" height="92" rx="24" fill="#f59e0b"/>
+      <text x="265" y="476" text-anchor="middle" class="label">Multi-head Latent Attention</text>
+    </g>
+    <text x="390" y="670" text-anchor="middle" class="small">channel-wise decay state · final layer is also MLA</text>
+  </g>
+
+  <rect x="250" y="850" width="1300" height="78" rx="25" fill="#0f172a"/>
+  <text x="900" y="884" text-anchor="middle" class="body" style="fill:#fff">Recurrent layers bound sequence memory; attention layers restore content-addressable access.</text>
+  <text x="900" y="914" text-anchor="middle" class="small" style="fill:#cbd5e1">The shared 3:1 pattern is an engineering choice, not a proof that one ratio is universally optimal.</text>
+</svg>

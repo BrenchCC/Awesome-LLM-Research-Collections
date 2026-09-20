@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">Research notes</p>
   <p class="category-summary">Bilingual notes for paper readings and technical reflections around LLM research and engineering.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>Notes</span></div>
+    <div><strong>33</strong><span>Notes</span></div>
     <div><strong>8</strong><span>Topics</span></div>
-    <div><strong>2026-09-18</strong><span>Latest creation</span></div>
+    <div><strong>2026-09-20</strong><span>Latest creation</span></div>
   </div>
   <nav class="section-nav" aria-label="Browse">
     <a href="#paper-readings">Paper Readings</a>
@@ -230,6 +230,22 @@ toc: false
     <h2>Technical Reflections</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="attention/kda-vs-gated-deltanet.html">
+  <span class="category-count">Created 2026-09-20 · Updated 2026-09-20</span>
+  <h3>KDA and Gated DeltaNet: How Linear Attention Reads and Writes Finite State</h3>
+  <p>A concise comparison of Kimi KDA and Qwen Gated DeltaNet through the delta rule, decay granularity, hybrid stacks, and public code.</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi Delta Attention</span>
+    <span class="note-tag">Gated DeltaNet</span>
+    <span class="note-tag">Linear Attention</span>
+    <span class="note-tag">Hybrid Attention</span>
+    <span class="note-tag">Delta Rule</span>
+  </div>
+  <div class="category-foot">
+    <span>ATTENTION</span>
+    <span>Technical Reflections</span>
+  </div>
+</a>
 <a class="category-card" href="agents/rsi-guide.html">
   <span class="category-count">Created 2026-09-14 · Updated 2026-09-14</span>
   <h3>A Comprehensive Guide to RSI (Self-Evolution, Self-Evolving Agents)</h3>

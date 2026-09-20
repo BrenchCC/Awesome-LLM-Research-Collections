@@ -1139,6 +1139,11 @@
 
 ## Technical Reflections
 
+- **KDA and Gated DeltaNet: How Linear Attention Reads and Writes Finite State** (Created: 2026-09-20; Updated: 2026-09-20) \
+  **Description**: A concise comparison of Kimi KDA and Qwen Gated DeltaNet through the delta rule, decay granularity, hybrid stacks, and public code. \
+  [[Note](notes/en/attention/kda-vs-gated-deltanet.qmd)]
+  [[中文](notes/zh/attention/kda-vs-gated-deltanet.qmd)]
+
 - **A Comprehensive Guide to RSI (Self-Evolution, Self-Evolving Agents)** (Created: 2026-09-14; Updated: 2026-09-14) \
   **Description**: A taxonomy of Recursive Self-Improvement (RSI) across improvement targets, evolution structures, update roles, timing, and feedback. \
   [[Note](notes/en/agents/rsi-guide.qmd)]

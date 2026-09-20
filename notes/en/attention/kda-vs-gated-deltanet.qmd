@@ -1,0 +1,146 @@
+---
+author: Brench
+date: 2026-09-20
+date-modified: 2026-09-20
+title: "KDA and Gated DeltaNet: How Linear Attention Reads and Writes Finite State"
+description: "A concise comparison of Kimi KDA and Qwen Gated DeltaNet through the delta rule, decay granularity, hybrid stacks, and public code."
+order: 1
+note_type: technical-reflection
+topic: attention
+tags:
+  - Kimi Delta Attention
+  - Gated DeltaNet
+  - Linear Attention
+  - Hybrid Attention
+  - Delta Rule
+---
+
+## Core assessment
+
+Qwen's Gated DeltaNet (GDN) and Kimi Delta Attention (KDA) become easier to understand before considering their kernels. Both compress history into a fixed-shape associative-memory matrix $S_t$. At each token, they test what the current key retrieves and write back the prediction error. Their main difference is narrow: GDN uses one scalar forget gate per head, whereas KDA assigns a decay coefficient to every key channel.
+
+This change improves the granularity of finite-state memory management; it does not make the state unlimited. Qwen3-Next and Kimi Linear therefore retain Softmax attention in roughly one out of four layers. Recurrent layers carry most long-sequence processing, while full-attention layers periodically restore token-addressable access. Saying that these layers preserve an explicit route back to historical positions is more accurate than claiming that “global semantics cannot be lost.”
+
+This note covers the mechanism, model configurations, and public inference paths. The supplied conversation JSON determined the question order but is not factual evidence. See [Kimi Linear and KDA](kimi-linear-kda.qmd) for the full experimental and kernel discussion, and [From Qwen to Qwen3.6](../llms/from-qwen-to-qwen3-6.qmd) for the broader model lineage.
+
+## 1. The shared starting point: the delta rule as online correction
+
+Let $k_t,q_t\in\mathbb{R}^{d_k}$, $v_t\in\mathbb{R}^{d_v}$, and $S_t\in\mathbb{R}^{d_k\times d_v}$. Basic linear attention accumulates each key-value outer product:
+
+$$
+S_t=S_{t-1}+k_tv_t^{\top},
+\qquad
+o_t=S_t^{\top}q_t.
+$$
+
+Similar keys repeatedly write into the same direction. DeltaNet instead reads the old prediction at the current key and writes only the residual:
+
+$$
+\hat v_t=S_{t-1}^{\top}k_t,
+\qquad
+S_t=S_{t-1}+\beta_tk_t\left(v_t-\hat v_t\right)^{\top}.
+$$
+
+$\beta_t$ acts like an online learning rate. The update edits the mapping addressed by $k_t$ rather than blindly adding another $k_tv_t^{\top}$. The delta rule explains how to overwrite, but not which long-unused content should decay. GDN and KDA both add forgetting before correction.
+
+![The predict-correct delta update and the difference between GDN scalar decay and KDA channel-wise decay.](../../assets/kda-vs-gated-deltanet/state-update-comparison.svg){width="95%" fig-align="center" fig-alt="Original state-update comparison: Gated DeltaNet applies one alpha to a whole head, while KDA applies an independent alpha to every key channel"}
+
+*Original diagram. Equations follow [Gated DeltaNet](https://arxiv.org/abs/2412.06464), Section 3, and [Kimi Linear](https://arxiv.org/abs/2510.26692), Sections 2–3.*
+
+## 2. GDN versus KDA: the forget gate has a different shape
+
+Gated DeltaNet first decays the entire head state with a scalar $\alpha_t\in(0,1)$, then applies the delta rule:
+
+$$
+\widetilde S_t=\alpha_tS_{t-1},
+\qquad
+S_t=\widetilde S_t+\beta_tk_t
+\left(v_t-\widetilde S_t^{\top}k_t\right)^{\top}.
+$$
+
+All key channels within a head share one time scale. A small gate clears obsolete content but may damage associations that still matter; a gate near one preserves long-term content but allows more collisions. The Gated DeltaNet S-NIAH comparison exposes this trade-off. Ungated DeltaNet retains a simple pass key for longer, while gated models are stronger when number or UUID retrieval requires filtering distracting context.
+
+![Zero-shot results on the three S-NIAH settings in the Gated DeltaNet paper.](../../assets/kda-vs-gated-deltanet/gdn-table-2-sniah.png){width="95%" fig-align="center" fig-alt="Gated DeltaNet paper Table 2 comparing DeltaNet, Mamba2, and Gated DeltaNet on pass-key, number, and UUID needle-in-a-haystack tasks"}
+
+*Source: [Gated DeltaNet](https://arxiv.org/abs/2412.06464), Table 2, page 5. These are paper-reported results for 1.3B models, not an independent reproduction.*
+
+KDA replaces the scalar with $\alpha_t\in(0,1)^{d_k}$ and decays the state row by row along its key dimension:
+
+$$
+\widetilde S_t=\mathrm{Diag}(\alpha_t)S_{t-1},
+\qquad
+S_t=\left(I-\beta_tk_tk_t^{\top}\right)\widetilde S_t
++\beta_tk_tv_t^{\top}.
+$$
+
+One head can therefore forget some address directions quickly and preserve others. KDA increases forgetting resolution; it does not increase the rank or shape of the state matrix. When many correlated keys compete for the same subspace, channel-wise gating can allocate capacity more precisely but cannot eliminate compression interference.
+
+Kimi Linear's small-model study reports faster convergence for KDA than GDN on Palindrome, MQAR, and Stack, with higher accuracy at longer tested sequences. This supports the claim that fine-grained decay is easier to learn in controlled memory tasks. It does not establish lossless compression of arbitrary long text.
+
+![KDA, GDN, and Mamba2 length and convergence curves on three synthetic memory tasks.](../../assets/kda-vs-gated-deltanet/kimi-figure-4-synthetic-tasks.png){width="95%" fig-align="center" fig-alt="Kimi Linear paper Figure 4 comparing KDA, GDN, and Mamba2 accuracy and convergence on Palindrome, MQAR, and Stack"}
+
+*Source: [Kimi Linear](https://arxiv.org/abs/2510.26692), Figure 4, page 7. The controlled models use two layers, two heads, and head dimension 128.*
+
+## 3. Why both models retain full attention
+
+During decoding, a recurrent state avoids storing a sequence-growing KV cache in every linear-attention layer. The trade-off is direct: the shape of $S_t$ remains fixed, so history must be compressed online. Full attention preserves token-wise keys and values. A new query can revisit a specific old position, but computation and cache grow with sequence length.
+
+![Three recurrent-attention layers followed by one full-attention layer in Qwen3-Next and Kimi Linear.](../../assets/kda-vs-gated-deltanet/hybrid-stack-comparison.svg){width="95%" fig-align="center" fig-alt="Original hybrid-stack comparison: Qwen3-Next repeats three Gated DeltaNet layers and one Gated Attention layer, while Kimi Linear primarily repeats three KDA layers and one MLA layer"}
+
+*Original diagram based on fixed official model configurations.*
+
+The [Qwen3-Next-80B-A3B-Instruct configuration](https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct/blob/9c7f2fbe84465e40164a94cc16cd30b6999b0cc7/config.json) contains 48 layers and `full_attention_interval = 4`. Transformers expands this into a cycle of three `linear_attention` layers and one `full_attention` layer: 36 GDN layers and 12 Gated Attention layers. Gated Attention remains token-to-token Softmax attention with an additional output gate.
+
+The [Kimi-Linear-48B-A3B-Instruct configuration](https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct/blob/e1df551a447157d4658b573f9a695d57658590e9/config.json) explicitly lists 20 KDA layers and seven MLA layers. MLA appears at layers 4, 8, 12, 16, 20, 24, and 27. The first 24 layers follow a 3:1 cycle and the final layer is MLA, making the exact count 20:7. Both designs use full attention as a content-addressing path rather than claiming that recurrent state has replaced all history.
+
+![The hybrid architecture and GDN block from the Gated DeltaNet paper.](../../assets/kda-vs-gated-deltanet/gdn-figure-1-architecture.png){width="92%" fig-align="center" fig-alt="Gated DeltaNet paper Figure 1 showing hybrid GDN and sliding-window-attention stacks and a GDN block with q, k, v, alpha, beta, and output-gate paths"}
+
+*Source: [Gated DeltaNet](https://arxiv.org/abs/2412.06464), Figure 1, page 7. The paper's original hybrid uses SWA; Qwen3-Next later adopts a three-to-one GDN/Gated Attention cycle.*
+
+![The KDA/MLA hybrid backbone, MoE, and KDA block from the Kimi Linear paper.](../../assets/kda-vs-gated-deltanet/kimi-figure-3-architecture.png){width="90%" fig-align="center" fig-alt="Kimi Linear paper Figure 3 showing a three-KDA-to-one-MLA hybrid backbone, MoE, and the KDA block"}
+
+*Source: [Kimi Linear](https://arxiv.org/abs/2510.26692), Figure 3, page 6.*
+
+## 4. Mapping the equations to public code
+
+The public implementations reduce conceptually to the following pseudocode. The broadcast shape of `decay` determines whether the operation is GDN or KDA:
+
+```python
+decayed_state = exp(decay_t) * state
+prediction = key_t @ decayed_state
+delta = beta_t * (value_t - prediction)
+state = decayed_state + outer(key_t, delta)
+output_t = query_t @ state
+```
+
+In the [Transformers Qwen3-Next implementation](https://github.com/huggingface/transformers/blob/c587bc884db2c2e31fc2b8102314656b17aa07b1/src/transformers/models/qwen3_next/modeling_qwen3_next.py#L377-L574), GDN `decay` enters as `[batch, sequence, heads]`, is transposed to `[batch, heads, sequence]`, and then broadcasts over the final two state dimensions. The recurrent path executes the update token by token; the chunk path builds an intra-chunk triangular system and passes state between chunks. The [configuration implementation](https://github.com/huggingface/transformers/blob/c587bc884db2c2e31fc2b8102314656b17aa07b1/src/transformers/models/qwen3_next/configuration_qwen3_next.py#L123-L138) generates the 3:1 layer pattern.
+
+FLA's [GatedDeltaNet layer](https://github.com/fla-org/flash-linear-attention/blob/864a87f6ce5be8828bef81eb22baafd41937cdf2/fla/layers/gated_deltanet.py) likewise selects a chunk kernel for training and a fused recurrent kernel for short inference steps. It also includes ShortConv, Q/K L2 normalization, $\beta_t$, and an output gate; the recurrence is not the whole block.
+
+FLA's [KimiDeltaAttention layer](https://github.com/fla-org/flash-linear-attention/blob/864a87f6ce5be8828bef81eb22baafd41937cdf2/fla/layers/kda.py) sets the gate width to `num_value_heads * head_k_dim`, corresponding to channel-wise log decay with shape `[batch, sequence, heads, d_k]`. Its chunk and recurrent execution paths resemble GDN, while gate generation, broadcasting, and the specialized KDA kernel differ. Source code establishes tensor shapes and execution flow; it does not prove training quality or reproduce official throughput on other hardware.
+
+## 5. Quality and performance boundaries
+
+The two designs share four limitations.
+
+First, fixed state has finite capacity. It works naturally for accumulated semantics, recent dependencies, and compressible statistics, but exact copying, many similar keys, old UUIDs, and code identifiers can collide. Mixing in full attention adds a retrieval route; it does not guarantee that every piece of information will be recovered by later layers.
+
+Second, $O(T)$ does not imply low latency. Training requires chunkwise algorithms and specialized kernels to occupy a GPU efficiently. At short lengths, mature FlashAttention can beat a recurrent block that also performs convolution, gating, normalization, and state updates. MoE, communication, batch size, and scheduling constrain the complete model.
+
+Third, a hybrid model does not eliminate KV cache. Qwen Gated Attention and Kimi MLA layers still keep length-dependent caches; fewer layers require them. The shared 3:1 pattern is an engineering point validated by these models, not a universal optimum for linear attention.
+
+Fourth, forgetting is a real trade-off. GDN's scalar gate is cheaper but forces a head to share one time scale. KDA's channel gate is more flexible and also adds projection, bandwidth, and optimization cost. Its benefit should be supported by controlled comparisons rather than inferred directly from a larger gate tensor.
+
+## Conclusion
+
+GDN and KDA can both be read as small online regressors operating during inference. The state is repeatedly corrected by the prediction error at the current key. GDN gives each head one forgetting clock; KDA gives each key channel its own clock. The latter uses finite capacity more selectively without removing the capacity limit.
+
+The transferable choice in Qwen3-Next and Kimi Linear is their acknowledgment of this boundary. Most layers use recurrent state to control long-context cost, while a minority retain explicit historical access. Evaluating such a design requires considering state capacity, full-attention ratio, kernel maturity, and serving batch together—not only comparing $O(T)$ with $O(T^2)$.
+
+## References
+
+- Yang et al. [Gated DeltaNet: Improving Mamba2 with Delta Rule](https://arxiv.org/abs/2412.06464), 2024.
+- Kimi Team. [Kimi Linear: An Expressive, Efficient Attention Architecture](https://arxiv.org/abs/2510.26692), 2025.
+- Qwen Team. [Qwen3-Next: Towards Ultimate Training & Inference Efficiency](https://qwen.ai/blog?from=research.latest-&id=4074cca80393150c248e508aa62983f9cb7d27cd).
+- [Hugging Face Transformers Qwen3-Next implementation](https://github.com/huggingface/transformers/tree/c587bc884db2c2e31fc2b8102314656b17aa07b1/src/transformers/models/qwen3_next).
+- [Flash Linear Attention Gated DeltaNet and KDA layers](https://github.com/fla-org/flash-linear-attention/tree/864a87f6ce5be8828bef81eb22baafd41937cdf2/fla/layers).

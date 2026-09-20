@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>32</strong><span>笔记</span></div>
+    <div><strong>33</strong><span>笔记</span></div>
     <div><strong>8</strong><span>主题</span></div>
-    <div><strong>2026-09-18</strong><span>最近创建</span></div>
+    <div><strong>2026-09-20</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -230,6 +230,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="attention/kda-vs-gated-deltanet.html">
+  <span class="category-count">创建 2026-09-20 · 更新 2026-09-20</span>
+  <h3>KDA 与 Gated DeltaNet：线性注意力怎样读写有限状态</h3>
+  <p>从 Delta Rule、遗忘门粒度、混合层配置和公开源码出发，对照 Kimi KDA 与 Qwen Gated DeltaNet。</p>
+  <div class="note-tags">
+    <span class="note-tag">Kimi Delta Attention</span>
+    <span class="note-tag">Gated DeltaNet</span>
+    <span class="note-tag">Linear Attention</span>
+    <span class="note-tag">Hybrid Attention</span>
+    <span class="note-tag">Delta Rule</span>
+  </div>
+  <div class="category-foot">
+    <span>ATTENTION</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/rsi-guide.html">
   <span class="category-count">创建 2026-09-14 · 更新 2026-09-14</span>
   <h3>万字长文带你读懂 RSI（自进化，Self-Evolving）</h3>
