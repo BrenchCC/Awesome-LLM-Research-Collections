@@ -349,6 +349,13 @@
 
 ## Multimodal Reasoning
 
+- **Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking** (2026.09) \
+  **Description**: This paper characterizes rare-entity failures in multilingual multimodal entity linking using 15 metrics spanning popularity, documentation, knowledge-graph structure, and cross-lingual coverage. It introduces a training-free vision-language framework that iteratively retrieves and reasons over Wikipedia evidence, improving accuracy overall and especially on rare-entity slices, and releases the MERLIN-Rare benchmark. \
+  <a href="https://arxiv.org/abs/2609.10745"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://neulab.github.io/think-before-you-link/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/neulab/think-before-you-link"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/neulab/merlin-rare"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey** (2025.03) \
   **Description**: This survey addresses the lack of an up-to-date review of multimodal Chain-of-Thought reasoning in MLLMs across image, video, speech, audio, 3D, and structured data. It introduces foundational definitions, a comprehensive taxonomy, methodological analysis across applications, and open challenges for future multimodal reasoning research. \
   <a href="https://arxiv.org/abs/2503.12605"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

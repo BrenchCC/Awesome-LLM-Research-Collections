@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>173</strong><span>Papers</span></div>
+    <div><strong>174</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>417</strong><span>Resource links</span></div>
+    <div><strong>421</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">20 papers</span>
+  <span class="category-count">21 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
-    <span>2026.08</span>
+    <span>2026.09</span>
     <span>Multimodal Reasoning, VLA, Vision-Language</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="multimodal-llms.html#think-before-you-link-rarity-reasoning-and-retrieval-in-multilingual-entity-linking">
+  <span>2026.09</span>
+  <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
   <span>2026.09</span>
   <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.08</span>
   <strong>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</strong>
   <em>LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
-  <span>2026.08</span>
-  <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
-  <em>Multimodal LLMs</em>
 </a>
   </div>
 </section>

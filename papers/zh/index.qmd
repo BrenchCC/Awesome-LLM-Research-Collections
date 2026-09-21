@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>173</strong><span>论文</span></div>
+    <div><strong>174</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>417</strong><span>资源链接</span></div>
+    <div><strong>421</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">20 篇论文</span>
+  <span class="category-count">21 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
-    <span>2026.08</span>
+    <span>2026.09</span>
     <span>多模态推理、视觉-语言-动作、视觉语言</span>
   </div>
 </a>
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="multimodal-llms.html#think-before-you-link-rarity-reasoning-and-retrieval-in-multilingual-entity-linking">
+  <span>2026.09</span>
+  <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
+  <em>多模态大模型</em>
+</a>
 <a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
   <span>2026.09</span>
   <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.08</span>
   <strong>AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses</strong>
   <em>大语言模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#intern-s2-preview-scientific-agentic-foundation-model">
-  <span>2026.08</span>
-  <strong>Intern-S2-Preview: Scientific Agentic Foundation Model</strong>
-  <em>多模态大模型</em>
 </a>
   </div>
 </section>

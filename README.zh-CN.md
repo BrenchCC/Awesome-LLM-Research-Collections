@@ -348,6 +348,13 @@
 
 ## 多模态推理
 
+- **Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking** (2026.09) \
+  **描述**: 该论文使用覆盖流行度、文档完整性、知识图谱结构和跨语言覆盖的 15 项指标，系统刻画多语言多模态实体链接中的稀有实体失效问题。它提出无需训练的视觉语言框架，通过迭代检索并推理 Wikipedia 证据提升整体准确率，尤其改善稀有实体切片表现，同时发布 MERLIN-Rare 基准。 \
+  <a href="https://arxiv.org/abs/2609.10745"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://neulab.github.io/think-before-you-link/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/neulab/think-before-you-link"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/neulab/merlin-rare"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Multimodal Chain-of-Thought Reasoning: A Comprehensive Survey** (2025.03) \
   **描述**: 这篇综述弥补了多模态大模型中多模态 Chain-of-Thought 推理缺少最新系统综述的问题，覆盖图像、视频、语音、音频、3D 和结构化数据。它给出基础定义、完整 taxonomy、跨应用方法分析，并总结未来多模态推理研究的开放挑战。 \
   <a href="https://arxiv.org/abs/2503.12605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

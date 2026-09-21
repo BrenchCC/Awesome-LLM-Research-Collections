@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>20</strong><span>Papers</span></div>
-    <div><strong>61</strong><span>Resource links</span></div>
-    <div><strong>2026.08</strong><span>Latest month</span></div>
+    <div><strong>21</strong><span>Papers</span></div>
+    <div><strong>65</strong><span>Resource links</span></div>
+    <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#vision-language">Vision-Language</a>
@@ -226,10 +226,24 @@ toc: false
 </section>
 <section class="paper-section" id="multimodal-reasoning">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Multimodal Reasoning</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="think-before-you-link-rarity-reasoning-and-retrieval-in-multilingual-entity-linking">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Multimodal Reasoning</span>
+  </div>
+  <h3>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</h3>
+  <p>This paper characterizes rare-entity failures in multilingual multimodal entity linking using 15 metrics spanning popularity, documentation, knowledge-graph structure, and cross-lingual coverage. It introduces a training-free vision-language framework that iteratively retrieves and reasons over Wikipedia evidence, improving accuracy overall and especially on rare-entity slices, and releases the MERLIN-Rare benchmark.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.10745" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://neulab.github.io/think-before-you-link/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/neulab/think-before-you-link" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/neulab/merlin-rare" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="multimodal-chain-of-thought-reasoning-a-comprehensive-survey">
   <div class="paper-meta">
     <span>2025.03</span>
