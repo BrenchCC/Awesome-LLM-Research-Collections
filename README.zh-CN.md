@@ -1145,6 +1145,11 @@
 
 ## 技术思考
 
+- **一文快速读懂 Jev：从 System One 决策模型到交互式 Agent** (创建: 2026-09-22; 更新: 2026-09-22) \
+  **描述**: 从公开接口、概率校准与工程边界出发，解释 Jev 为什么放弃文本生成，以及它如何进入 Agent、视频剪辑和互动叙事的决策回路。 \
+  [[笔记](notes/zh/agents/jev-system-one-decision-model.qmd)]
+  [[English](notes/en/agents/jev-system-one-decision-model.qmd)]
+
 - **KDA 与 Gated DeltaNet：线性注意力怎样读写有限状态** (创建: 2026-09-20; 更新: 2026-09-20) \
   **描述**: 从 Delta Rule、遗忘门粒度、混合层配置和公开源码出发，对照 Kimi KDA 与 Qwen Gated DeltaNet。 \
   [[笔记](notes/zh/attention/kda-vs-gated-deltanet.qmd)]

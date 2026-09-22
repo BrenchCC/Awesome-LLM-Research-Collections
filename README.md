@@ -1146,6 +1146,11 @@
 
 ## Technical Reflections
 
+- **Jev in One Reading: From a System One Decision Model to Interactive Agents** (Created: 2026-09-22; Updated: 2026-09-22) \
+  **Description**: A source-bounded explanation of why Jev gives up text generation, how its probabilistic interface works, and where it fits in agents, video editing, and interactive narratives. \
+  [[Note](notes/en/agents/jev-system-one-decision-model.qmd)]
+  [[中文](notes/zh/agents/jev-system-one-decision-model.qmd)]
+
 - **KDA and Gated DeltaNet: How Linear Attention Reads and Writes Finite State** (Created: 2026-09-20; Updated: 2026-09-20) \
   **Description**: A concise comparison of Kimi KDA and Qwen Gated DeltaNet through the delta rule, decay granularity, hybrid stacks, and public code. \
   [[Note](notes/en/attention/kda-vs-gated-deltanet.qmd)]
