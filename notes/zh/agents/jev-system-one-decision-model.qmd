@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-09-22
-date-modified: 2026-09-22
+date-modified: 2026-09-23
 title: "一文快速读懂 Jev：从 System One 决策模型到交互式 Agent"
 description: "从公开接口、概率校准与工程边界出发，解释 Jev 为什么放弃文本生成，以及它如何进入 Agent、视频剪辑和互动叙事的决策回路。"
 order: 1
@@ -173,7 +173,62 @@ _图 7：本文自制解释图。感知模型负责把音视频和游戏环境�
 
 这样的系统不会让 Jev 接管创作。它把 Jev 放在「候选已经形成、规则无法轻易排序、调用又足够频繁」的位置。
 
-## 7. 已知失败模式决定工程边界
+## 7. 如何训练一个 Jev-like 决策模型：公开案例给出的两条路线
+
+先说结论：**外部开发者目前不能复现或微调官方 Jev**。TypeSafe 只披露了新架构、parallel sampler 与 Reinforcement Learning for Calibrated Decisions（RLCD）这几个名称，没有发布权重、训练代码、数据构成、目标函数或 RLCD 细节。因此，「怎么训练 Jev」现阶段只能拆成两个问题：怎样训练一个遵守 System One 接口的通用决策模型；或者怎样把某条固定决策链蒸馏成更小的专用模型。
+
+两个公开项目恰好代表这两条路线。以下数字均来自项目作者在固定代码版本中的报告，本文没有重新训练，也不能据此推断 Jev 的内部实现。
+
+- **[Kev](https://github.com/jaredpalmer/kev/tree/bf07f0ac7beb0e92db1d8372785ebbc4e23ba552)：通用路线。** 它在调用时接收新的 state、问题和候选项；训练冻结 Qwen3.5 主干，联合更新 rank-16 LoRA 与 pointer head，使用硬标签交叉熵并在训练后做温度缩放。这条路线适合保留 Choice、Score、Noul 的通用接口并继续做领域微调，但它是社区重建，不代表 Jev 权重、RLCD 或官方架构。
+- **[open-jev](https://github.com/Shalimov04/open-jev/tree/5b2c475c9dd588bd6297b6aaa3e6faa8c0e27e61)：专用路线。** 它固定一个问题与标签集，让大模型教师输出受约束字母 token 的 log-probability，再用约 140M 的 mmBERT-small 学习软标签 KL 并单独校准。这适合长期稳定的路由或风控任务；代价是每个 student 只服务一个已训练任务，不能在运行时任意换选项。
+
+### 7.1 案例一：Kev 如何保留「运行时定义问题」
+
+Kev 把 state 和问题编码进同一套输入格式。每个选项末尾的隐藏状态与问题末尾的 `<decide>` 隐藏状态经过 pointer head 得到 logits，再由 softmax 变成候选概率。训练时冻结基础模型权重，只更新 LoRA adapter 与这个读出头。对第 $i$ 个问题，最小的硬标签目标仍是普通交叉熵：
+
+$$
+\mathcal{L}_{\mathrm{hard}}
+= -\sum_{k=1}^{K_i} y_{ik}\log p_\theta(k \mid s, q_i, \mathcal{A}_i).
+$$
+
+Kev 当前公开的 `decision-v7` 配方包含 10,000 条来自十个公开数据集的样本、896 条生成的策略样本，以及来自 60 种生成规则结构的 1,680 条样本。0.8B、4B、9B 三个版本均训练两轮，LoRA rank 为 16；0.8B 学习率为 `1e-4`，4B 与 9B 为 `5e-5`。作者还加入「证据被移除」的不可判断样本，并把目标设为均匀分布，抑制模型在信息不足时仍给出尖锐概率。
+
+这条路线的关键不在参数表，而在数据单元必须与线上契约一致：一条记录同时保存 state、typed question、criteria 与 label。Choice 标签是选项名，Noul 是布尔值，Score 是有序档位。来自同一原始任务、模板或实体的样本应按 group 切分，避免改写版本跨入训练集和评测集。若业务只有几百条标注，Kev 的建议是从已发布 adapter 与 pointer head 继续微调，而不是从基础 Qwen 重新开始；这是项目经验，不是适用于所有领域的定律。
+
+### 7.2 案例二：open-jev 如何把一条决策蒸馏成专用模型
+
+open-jev 选择了更窄的目标。开发者先用 YAML 固定问题、选项和数据源；教师 LLM 每条样本只输出一个受约束的字母 token，系统读取各字母的 log-probability 并归一化成软标签。student 不学习教师的解释文字，而是最小化概率分布之间的 KL：
+
+$$
+\mathcal{L}_{\mathrm{soft}}
+= T^2\,D_{\mathrm{KL}}\!\left(
+p_{\mathrm{teacher}}^{(T)} \;\|\; p_\theta^{(T)}
+\right).
+$$
+
+训练结束后，项目在独立的 500 条校准集上拟合 `logits / T + b`，再到评测集报告准确率、F1、ECE、Brier score 和延迟。其 AG News 案例使用 4,000 条训练样本；作者报告 student 准确率为 0.888，ECE 从 0.075 降至 0.030。这个结果说明蒸馏加校准能够形成可部署基线，但只是该仓库、该数据和该教师上的测量，不能外推成 Jev 的训练效果。
+
+两条路线的取舍很直接：问题和候选会在运行时变化，使用 Kev 式通用读出；问题长期固定且调用量极大，使用 open-jev 式任务蒸馏。后者本质上更接近一批由自然语言配置的专用分类器，不能靠一个 student 同时接管所有 Agent 决策。
+
+![训练 Jev-like 决策模型的可复现流程](../../assets/jev-system-one-decision-model/training-pipeline-zh.svg){width="96%" fig-align="center"}
+
+_图 8：本文自制解释图。上路是 Kev 公开的通用决策模型路线，下路是 open-jev 的单任务蒸馏路线；两者都需要把校准集与训练集分离，并用业务阈值决定自动化范围。它们是社区案例，不是 TypeSafe 的 RLCD 实现。_
+
+### 7.3 面向 Agent、剪辑与互动叙事的训练清单
+
+如果要为自己的业务训练，顺序应从决策契约开始，而不是先下载模型：
+
+1. **固定责任边界。** 写清 state 里有哪些可验证字段、每个问题允许哪些答案、错误由谁承担，以及低置信度流向哪里。开放式生成任务不应伪装成分类数据。
+2. **从真实轨迹构造 group-disjoint 数据。** Agent 可取工具调用、检索 passage 和人工升级记录；剪辑可取候选镜头与编辑最终选择；互动短剧可取合法分支、编剧审核和玩家后续反馈。按剧集、用户、事件或来源分组切分，避免相邻片段泄漏。
+3. **同时收集困难反例。** 除普通正确标签外，还要有候选缺失、证据不足、选项换序、否定改写、无关长上下文和注入文本。对于没有足够证据的样本，应增加 `unknown` / 人工升级选项，或训练成接近均匀的目标分布；不要强迫模型猜一个看似完整的标签。
+4. **选择硬标签微调或软标签蒸馏。** 人工标签可靠且问题可动态变化时，可用 Kev 式交叉熵；标签昂贵、任务固定时，可让强模型产生软标签再人工抽检。教师概率会把教师偏差带进 student，不能用「蒸馏」替代标签审计。
+5. **单独做概率校准。** 温度缩放或 Platt scaling 只能在未参与梯度更新的校准集上拟合。它能调整概率尖锐程度，不能改变 argmax，也修不好错误的类别边界。
+6. **按自动化风险验收。** 除 accuracy / F1，还要看 NLL、Brier、ECE、置信错误率，以及 risk–coverage 曲线：在允许 1% 或 5% 错误时，到底能自动处理多少请求。再分别测试问题隔离、选项换序、域外数据和缺证据样本。
+7. **影子上线后再开阈值。** 先只记录模型判断，不触发工具、剪辑时间线或剧情分支；用线上人工结果重新校准。权限、预算和不可逆动作始终由代码与审批控制。
+
+训练一个决策模型最难的部分通常不是把 loss 降下来，而是定义「无法判断」与「必须交给人」。如果训练集只包含可回答样本，模型会学会在每次请求上下注；这恰好违背概率接口用于选择性自动化的价值。
+
+## 8. 已知失败模式决定工程边界
 
 TypeSafe 主动列出的 [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-jaggedness/jev-1.13) 比发布口号更值得细读：
 
@@ -187,9 +242,9 @@ TypeSafe 主动列出的 [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-ja
 
 ![代码、Jev、生成模型与人工的适用边界](../../assets/jev-system-one-decision-model/fit-boundary-zh.svg){width="92%" fig-align="center"}
 
-_图 8：本文自制解释图。Jev 适合答案空间封闭但语义判断难以手写的区域；精确规则交给代码，开放生成交给生成模型，高风险与责任不可转移的判断保留人工审批。_
+_图 9：本文自制解释图。Jev 适合答案空间封闭但语义判断难以手写的区域；精确规则交给代码，开放生成交给生成模型，高风险与责任不可转移的判断保留人工审批。_
 
-## 8. 我的判断：Jev 的价值在接口纪律，不在神秘架构
+## 9. 我的判断：Jev 的价值在接口纪律，不在神秘架构
 
 目前没有足够公开材料讨论 Jev 的 attention、参数规模或训练配方。把它称作「BERT 回归」或「非自回归 LLM」都缺少一手证据。能够确认的是产品接口做了强约束：问题必须原子化，答案空间必须声明，概率必须暴露，组合逻辑必须回到代码。这种纪律本身就能改善 Agent 工程，因为它迫使团队把模糊需求拆成可测试的判断与可审计的策略。
 
@@ -203,3 +258,5 @@ Jev 是否会形成新的模型类别，要看三个更朴素的问题。第一�
 - TypeSafe AI Docs, [Introduction](https://docs.typesafe.ai/introduction), [Primitives](https://docs.typesafe.ai/primitives), [Confidence](https://docs.typesafe.ai/confidence), [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-jaggedness/jev-1.13).
 - TypeSafe AI, [Python SDK at fixed revision `0ffd094`](https://github.com/typesafe-ai/typesafe-sdk-python/tree/0ffd094c72ed9445223060b24ffd7a56aa781fb4).
 - Amir Rafe and Subasish Das, [Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)](https://arxiv.org/abs/2609.24052), 2026.
+- Jared Palmer, [Kev at fixed revision `bf07f0a`](https://github.com/jaredpalmer/kev/tree/bf07f0ac7beb0e92db1d8372785ebbc4e23ba552), 2026.
+- Sergey Shalimov, [open-jev at fixed revision `5b2c475`](https://github.com/Shalimov04/open-jev/tree/5b2c475c9dd588bd6297b6aaa3e6faa8c0e27e61), 2026.

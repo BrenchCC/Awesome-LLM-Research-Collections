@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <title>训练 Jev-like 决策模型的两条公开路线</title>
+  <desc>本文自制解释图：Kev 训练可动态接收问题的通用决策模型，open-jev 把固定任务蒸馏成专用分类器，两者均独立校准并按风险覆盖率验收。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.11"/></filter>
+  </defs>
+  <rect width="1440" height="900" rx="32" fill="#f8fafc"/>
+  <text x="70" y="68" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="34" font-weight="700" fill="#0f172a">如何训练 Jev-like 决策模型：先选能力边界，再选训练路线</text>
+  <text x="70" y="106" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="18" fill="#64748b">TypeSafe 未公开 Jev 训练配方；下面是两个社区项目可核查的实现，不是 RLCD 复现。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="1300" height="270" rx="26" fill="#ffffff" stroke="#818cf8" stroke-width="2"/>
+    <rect x="70" y="150" width="190" height="270" rx="26" fill="#312e81"/>
+    <text x="106" y="205" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="30" font-weight="700" fill="#ffffff">路线 A</text>
+    <text x="106" y="246" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="25" font-weight="700" fill="#e0e7ff">Kev</text>
+    <text x="106" y="281" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="17" fill="#c7d2fe">通用决策模型</text>
+    <text x="106" y="316" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#c7d2fe">运行时可换问题</text>
+    <text x="106" y="344" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#c7d2fe">与候选项</text>
+
+    <rect x="300" y="198" width="220" height="144" rx="18" fill="#eef2ff" stroke="#818cf8"/>
+    <text x="326" y="234" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#312e81">训练记录</text>
+    <text x="326" y="270" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">state + typed question</text>
+    <text x="326" y="300" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">criteria + hard label</text>
+    <text x="326" y="328" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="15" fill="#64748b">含缺证据与换序样本</text>
+    <path d="M520 270H570" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="590" y="198" width="260" height="144" rx="18" fill="#ede9fe" stroke="#8b5cf6"/>
+    <text x="616" y="234" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#5b21b6">参数更新</text>
+    <text x="616" y="270" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">冻结 Qwen3.5 主干</text>
+    <text x="616" y="300" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">LoRA r=16 + pointer head</text>
+    <text x="616" y="328" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="15" fill="#64748b">交叉熵 · 2 epochs</text>
+    <path d="M850 270H900" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="920" y="198" width="190" height="144" rx="18" fill="#ecfeff" stroke="#0891b2"/>
+    <text x="946" y="234" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#155e75">独立校准集</text>
+    <text x="946" y="270" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">拟合温度 T</text>
+    <text x="946" y="300" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">不改变 argmax</text>
+    <path d="M1110 270H1160" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1180" y="198" width="150" height="144" rx="18" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="1206" y="234" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#166534">部署</text>
+    <text x="1206" y="270" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">动态问题</text>
+    <text x="1206" y="300" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">多类型输出</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="460" width="1300" height="270" rx="26" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+    <rect x="70" y="460" width="190" height="270" rx="26" fill="#14532d"/>
+    <text x="106" y="515" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="30" font-weight="700" fill="#ffffff">路线 B</text>
+    <text x="106" y="556" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="25" font-weight="700" fill="#dcfce7">open-jev</text>
+    <text x="106" y="591" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="17" fill="#bbf7d0">单任务蒸馏</text>
+    <text x="106" y="626" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#bbf7d0">固定问题</text>
+    <text x="106" y="654" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#bbf7d0">固定标签集</text>
+
+    <rect x="300" y="508" width="220" height="144" rx="18" fill="#f0fdf4" stroke="#22c55e"/>
+    <text x="326" y="544" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#166534">教师软标签</text>
+    <text x="326" y="580" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">受约束字母 token</text>
+    <text x="326" y="610" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">读取 log-probability</text>
+    <text x="326" y="638" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="15" fill="#64748b">抽检教师偏差</text>
+    <path d="M520 580H570" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="590" y="508" width="260" height="144" rx="18" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="616" y="544" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#047857">学生模型</text>
+    <text x="616" y="580" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">mmBERT-small ≈ 140M</text>
+    <text x="616" y="610" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">KL(teacher ‖ student)</text>
+    <text x="616" y="638" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="15" fill="#64748b">每个任务一个 student</text>
+    <path d="M850 580H900" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="920" y="508" width="190" height="144" rx="18" fill="#ecfeff" stroke="#0891b2"/>
+    <text x="946" y="544" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#155e75">500 条校准集</text>
+    <text x="946" y="580" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">logits / T + b</text>
+    <text x="946" y="610" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">评估 ECE / Brier</text>
+    <path d="M1110 580H1160" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="1180" y="508" width="150" height="144" rx="18" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="1206" y="544" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="19" font-weight="700" fill="#166534">部署</text>
+    <text x="1206" y="580" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">固定任务</text>
+    <text x="1206" y="610" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#475569">低延迟分类</text>
+  </g>
+
+  <rect x="70" y="778" width="1300" height="66" rx="18" fill="#fff7ed" stroke="#f97316"/>
+  <text x="102" y="808" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="18" font-weight="700" fill="#9a3412">共同验收门槛</text>
+  <text x="102" y="833" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="16" fill="#7c2d12">域外准确率 · NLL / Brier / ECE · 置信错误率 · risk–coverage · 缺证据样本 · 影子上线</text>
+  <text x="70" y="880" font-family="Noto Sans CJK SC, PingFang SC, sans-serif" font-size="14" fill="#64748b">本文自制解释图 · 基于 Kev bf07f0a 与 open-jev 5b2c475 的公开代码和说明</text>
+</svg>

@@ -231,7 +231,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="agents/jev-system-one-decision-model.html">
-  <span class="category-count">创建 2026-09-22 · 更新 2026-09-22</span>
+  <span class="category-count">创建 2026-09-22 · 更新 2026-09-23</span>
   <h3>一文快速读懂 Jev：从 System One 决策模型到交互式 Agent</h3>
   <p>从公开接口、概率校准与工程边界出发，解释 Jev 为什么放弃文本生成，以及它如何进入 Agent、视频剪辑和互动叙事的决策回路。</p>
   <div class="note-tags">

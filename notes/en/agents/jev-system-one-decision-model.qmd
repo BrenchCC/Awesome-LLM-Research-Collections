@@ -1,7 +1,7 @@
 ---
 author: Brench
 date: 2026-09-22
-date-modified: 2026-09-22
+date-modified: 2026-09-23
 title: "Jev in One Reading: From a System One Decision Model to Interactive Agents"
 description: "A source-bounded explanation of why Jev gives up text generation, how its probabilistic interface works, and where it fits in agents, video editing, and interactive narratives."
 order: 1
@@ -173,7 +173,62 @@ A more concrete interactive-drama loop can divide work as follows:
 
 This design does not put Jev in charge of creation. It uses Jev where candidates already exist, rules cannot rank them easily, and the judgment recurs often enough for latency to matter.
 
-## 7. Known failure modes define the engineering boundary
+## 7. How to train a Jev-like decision model: two public routes
+
+The short answer is that **an external developer cannot currently reproduce or fine-tune the official Jev**. TypeSafe has named a new architecture, a parallel sampler, and Reinforcement Learning for Calibrated Decisions (RLCD), but it has not released weights, training code, data composition, objectives, or the RLCD algorithm. “How to train Jev” therefore splits into two tractable questions: how to train a general decision model that implements the System One contract, and how to distill one stable decision into a smaller specialist.
+
+Two open projects illustrate those routes. Every number below is an author-reported result from a fixed code revision. This note did not retrain either model, and neither project reveals Jev's internal implementation.
+
+- **[Kev](https://github.com/jaredpalmer/kev/tree/bf07f0ac7beb0e92db1d8372785ebbc4e23ba552): the general route.** It accepts new state, questions, and options at request time. Training freezes a Qwen3.5 backbone, jointly updates rank-16 LoRA and a pointer head with hard-label cross-entropy, then applies temperature scaling. This preserves a general Choice, Score, and Noul interface for later domain adaptation. It remains a community reconstruction, not Jev weights, RLCD, or an official architecture.
+- **[open-jev](https://github.com/Shalimov04/open-jev/tree/5b2c475c9dd588bd6297b6aaa3e6faa8c0e27e61): the specialist route.** It fixes one question and label set. An LLM teacher supplies constrained letter-token log-probabilities; a roughly 140M mmBERT-small student learns the soft labels with KL and is calibrated separately. This suits a stable, high-volume route or risk gate, but each student serves one trained task and cannot accept arbitrary options at runtime.
+
+### 7.1 Case one: how Kev retains runtime-defined questions
+
+Kev encodes state and questions in one request format. A pointer head compares the hidden state at each option's end with the hidden state at the question's final `<decide>` token. Softmax turns those logits into candidate probabilities. The base weights remain frozen while the LoRA adapter and readout head are updated. For question $i$, the smallest hard-label objective is ordinary cross-entropy:
+
+$$
+\mathcal{L}_{\mathrm{hard}}
+= -\sum_{k=1}^{K_i} y_{ik}\log p_\theta(k \mid s, q_i, \mathcal{A}_i).
+$$
+
+Kev's current public `decision-v7` recipe contains 10,000 examples from ten public datasets, 896 generated policy examples, and 1,680 examples from 60 generated rule structures. Its 0.8B, 4B, and 9B variants train for two epochs with LoRA rank 16. The 0.8B run uses a `1e-4` learning rate; the 4B and 9B runs use `5e-5`. The authors also add “unknowable” records with the deciding evidence removed and train them toward a uniform distribution, discouraging sharp probabilities when evidence is absent.
+
+The essential part is not the hyperparameter table. Each training unit must match the serving contract and store state, typed question, criteria, and label together. A Choice label is an option name, a Noul label is Boolean, and a Score label is an ordered level. Records derived from the same source task, template, or entity should stay in one split so paraphrases do not leak across train and evaluation. For a domain with only a few hundred labels, Kev recommends continuing from its released adapter and pointer head instead of restarting from base Qwen. That is project experience, not a universal rule.
+
+### 7.2 Case two: how open-jev distills one decision into a specialist
+
+open-jev narrows the target. A YAML file fixes the question, options, and data source. For each example, the teacher LLM emits one constrained letter token; the pipeline reads the letters' log-probabilities and normalizes them into a soft target. The student does not imitate explanatory prose. It minimizes divergence between probability distributions:
+
+$$
+\mathcal{L}_{\mathrm{soft}}
+= T^2\,D_{\mathrm{KL}}\!\left(
+p_{\mathrm{teacher}}^{(T)} \;\|\; p_\theta^{(T)}
+\right).
+$$
+
+After training, the project fits `logits / T + b` on a separate 500-row calibration set, then reports accuracy, F1, ECE, Brier score, and latency on evaluation data. Its AG News case uses 4,000 training examples; the authors report student accuracy of 0.888 and ECE moving from 0.075 to 0.030. This shows that distillation plus calibration can produce a deployable baseline for that repository, dataset, and teacher. It is not evidence about Jev's own training results.
+
+The choice between the routes is direct. Use a Kev-style general readout when questions and candidates change at runtime. Use open-jev-style task distillation when the question is stable and call volume is large. The latter is closer to a collection of natural-language-configured specialist classifiers; one student cannot take over every agent decision.
+
+![Reproducible routes for training a Jev-like decision model](../../assets/jev-system-one-decision-model/training-pipeline-en.svg){width="96%" fig-align="center"}
+
+_Figure 8: Original explanatory diagram. The upper route summarizes Kev's public general decision-model recipe; the lower route summarizes open-jev's single-task distillation pipeline. Both keep calibration data outside gradient training and use business thresholds to define automation coverage. They are community cases, not TypeSafe's RLCD implementation._
+
+### 7.3 A training checklist for agents, editing, and interactive narrative
+
+For a business-specific model, start from the decision contract rather than a model download:
+
+1. **Fix the responsibility boundary.** State which verifiable fields enter state, which answers each question permits, who owns an error, and where low confidence goes. An open generation task should not be disguised as classification data.
+2. **Build group-disjoint data from real traces.** Agents can contribute tool calls, retrieved passages, and escalation outcomes; editing can contribute candidate shots and an editor's final pick; interactive drama can contribute legal branches, writer review, and later player response. Split by episode, user, incident, or source to keep adjacent material from leaking.
+3. **Collect hard counterexamples.** Include missing candidates, absent evidence, option permutations, negated paraphrases, irrelevant long context, and injected instructions. When evidence is insufficient, add an `unknown` or human-escalation answer, or use a near-uniform target. Do not force a plausible-looking class onto an unknowable record.
+4. **Choose hard-label fine-tuning or soft-label distillation.** Reliable human labels and dynamic questions favor Kev-style cross-entropy. Expensive labels and a fixed task may justify teacher probabilities followed by human spot checks. Distillation carries teacher bias into the student; it is not a substitute for label audit.
+5. **Calibrate separately.** Fit temperature scaling or Platt scaling only on data that did not update model weights. Calibration can change sharpness, not argmax, and cannot repair the wrong decision boundary.
+6. **Accept by automation risk.** In addition to accuracy and F1, inspect NLL, Brier, ECE, confident-error rate, and the risk–coverage curve: at a 1% or 5% error allowance, what share can actually run automatically? Test question isolation, option order, out-of-domain inputs, and missing-evidence cases separately.
+7. **Shadow before opening thresholds.** Record decisions without firing tools, changing an editing timeline, or advancing the plot. Recalibrate against online human outcomes. Code and approval still own permissions, budgets, and irreversible actions.
+
+The difficult part of training a decision model is usually not reducing loss. It is defining “cannot tell” and “must go to a person.” A dataset containing only answerable examples teaches a model to bet on every request, which defeats selective automation through a probability interface.
+
+## 8. Known failure modes define the engineering boundary
 
 TypeSafe's own [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-jaggedness/jev-1.13) is more useful than the launch slogans:
 
@@ -187,9 +242,9 @@ TypeSafe's own [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-jaggedness/j
 
 ![Boundaries among code, Jev, generative models, and people](../../assets/jev-system-one-decision-model/fit-boundary-en.svg){width="92%" fig-align="center"}
 
-_Figure 8: Original explanatory diagram. Jev fits closed answer spaces whose semantic judgment is hard to hand-code. Exact rules belong in code, open creation belongs in a generative model, and high-risk decisions with retained duty remain under human approval._
+_Figure 9: Original explanatory diagram. Jev fits closed answer spaces whose semantic judgment is hard to hand-code. Exact rules belong in code, open creation belongs in a generative model, and high-risk decisions with retained duty remain under human approval._
 
-## 8. My assessment: the value is interface discipline, not a mysterious architecture
+## 9. My assessment: the value is interface discipline, not a mysterious architecture
 
 There is not enough public evidence to discuss Jev's attention design, parameter scale, or training recipe. Calling it a BERT regressor or a non-autoregressive LLM would go beyond the primary sources. What is established is the strict product contract: questions must be atomic, answer spaces declared, probabilities exposed, and composition returned to code. That discipline alone can improve agent engineering because it forces a team to turn vague requirements into testable judgments and auditable policy.
 
@@ -203,3 +258,5 @@ I would use Jev, but only where the candidate set and fallback are explicit. A p
 - TypeSafe AI Docs, [Introduction](https://docs.typesafe.ai/introduction), [Primitives](https://docs.typesafe.ai/primitives), [Confidence](https://docs.typesafe.ai/confidence), and [Jev 1.13 jaggedness](https://docs.typesafe.ai/model-jaggedness/jev-1.13).
 - TypeSafe AI, [Python SDK at fixed revision `0ffd094`](https://github.com/typesafe-ai/typesafe-sdk-python/tree/0ffd094c72ed9445223060b24ffd7a56aa781fb4).
 - Amir Rafe and Subasish Das, [Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)](https://arxiv.org/abs/2609.24052), 2026.
+- Jared Palmer, [Kev at fixed revision `bf07f0a`](https://github.com/jaredpalmer/kev/tree/bf07f0ac7beb0e92db1d8372785ebbc4e23ba552), 2026.
+- Sergey Shalimov, [open-jev at fixed revision `5b2c475`](https://github.com/Shalimov04/open-jev/tree/5b2c475c9dd588bd6297b6aaa3e6faa8c0e27e61), 2026.

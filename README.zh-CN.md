@@ -1145,7 +1145,7 @@
 
 ## 技术思考
 
-- **一文快速读懂 Jev：从 System One 决策模型到交互式 Agent** (创建: 2026-09-22; 更新: 2026-09-22) \
+- **一文快速读懂 Jev：从 System One 决策模型到交互式 Agent** (创建: 2026-09-22; 更新: 2026-09-23) \
   **描述**: 从公开接口、概率校准与工程边界出发，解释 Jev 为什么放弃文本生成，以及它如何进入 Agent、视频剪辑和互动叙事的决策回路。 \
   [[笔记](notes/zh/agents/jev-system-one-decision-model.qmd)]
   [[English](notes/en/agents/jev-system-one-decision-model.qmd)]

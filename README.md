@@ -1146,7 +1146,7 @@
 
 ## Technical Reflections
 
-- **Jev in One Reading: From a System One Decision Model to Interactive Agents** (Created: 2026-09-22; Updated: 2026-09-22) \
+- **Jev in One Reading: From a System One Decision Model to Interactive Agents** (Created: 2026-09-22; Updated: 2026-09-23) \
   **Description**: A source-bounded explanation of why Jev gives up text generation, how its probabilistic interface works, and where it fits in agents, video editing, and interactive narratives. \
   [[Note](notes/en/agents/jev-system-one-decision-model.qmd)]
   [[中文](notes/zh/agents/jev-system-one-decision-model.qmd)]
