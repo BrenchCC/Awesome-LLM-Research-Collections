@@ -497,6 +497,10 @@
 
 ## Policy Optimization
 
+- **Bellman Policy Optimization** (2026.09) \
+  **Description**: This paper introduces Bellman Policy Optimization (BPO), a critic-free RLVR method that uses the Bellman equations to reformulate Policy Mirror Descent as a trajectory-level objective with the same unique optimum, avoiding intermediate state-value estimation. Its practical loss replaces GRPO's importance-sampling ratio with a mismatch-correction weight based on smoothed complementary token probabilities. \
+  <a href="https://arxiv.org/abs/2609.15987"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
   **Description**: This paper introduces layer contribution to measure how much of full-parameter RL improvement can be recovered by training each transformer layer independently. Across multiple models, RL algorithms, and tasks, it finds that gains consistently concentrate in a few middle layers and that single-layer training can match or surpass full-parameter training. \
   <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

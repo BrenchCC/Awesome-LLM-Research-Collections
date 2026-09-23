@@ -496,6 +496,10 @@
 
 ## 策略优化
 
+- **Bellman Policy Optimization** (2026.09) \
+  **描述**: 该论文提出 Bellman Policy Optimization (BPO)，一种无需评论器的 RLVR 方法，利用贝尔曼方程将 Policy Mirror Descent 重写为具有相同唯一最优解的轨迹级目标，从而避免估计中间状态价值。其实用损失以基于平滑互补 token 概率的失配修正权重替代 GRPO 的重要性采样比率。 \
+  <a href="https://arxiv.org/abs/2609.15987"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
   **描述**: 该论文提出层贡献度指标，用于衡量单独训练每个 Transformer 层能够恢复多少全参数强化学习增益。跨多种模型、强化学习算法和任务的实验表明，强化学习增益稳定集中在少数中间层，且单层训练可以达到甚至超过全参数训练。 \
   <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
