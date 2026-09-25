@@ -9,9 +9,9 @@ toc: false
   <p class="eyebrow">研究笔记</p>
   <p class="category-summary">围绕 LLM 研究与工程实践整理的双语论文解读和技术思考。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>34</strong><span>笔记</span></div>
+    <div><strong>35</strong><span>笔记</span></div>
     <div><strong>8</strong><span>主题</span></div>
-    <div><strong>2026-09-22</strong><span>最近创建</span></div>
+    <div><strong>2026-09-24</strong><span>最近创建</span></div>
   </div>
   <nav class="section-nav" aria-label="浏览">
     <a href="#论文解读">论文解读</a>
@@ -230,6 +230,22 @@ toc: false
     <h2>技术思考</h2>
   </div>
   <div class="category-grid">
+<a class="category-card" href="reinforcement-learning/reasoning-effort-training.html">
+  <span class="category-count">创建 2026-09-24 · 更新 2026-09-25</span>
+  <h3>大模型的思考档位：条件训练、预算奖励与推理时控制</h3>
+  <p>从 gpt-oss、BudgetThinker、s1 与 Qwen3 的公开证据，解释思考档位如何通过条件训练、奖励设计和运行时控制形成。</p>
+  <div class="note-tags">
+    <span class="note-tag">Reasoning Effort</span>
+    <span class="note-tag">Budget-Aware Reasoning</span>
+    <span class="note-tag">SFT</span>
+    <span class="note-tag">GRPO</span>
+    <span class="note-tag">Test-Time Scaling</span>
+  </div>
+  <div class="category-foot">
+    <span>REINFORCEMENT-LEARNING</span>
+    <span>技术思考</span>
+  </div>
+</a>
 <a class="category-card" href="agents/jev-system-one-decision-model.html">
   <span class="category-count">创建 2026-09-22 · 更新 2026-09-23</span>
   <h3>一文快速读懂 Jev：从 System One 决策模型到交互式 Agent</h3>

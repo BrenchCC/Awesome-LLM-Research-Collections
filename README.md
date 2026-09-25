@@ -1150,6 +1150,11 @@
 
 ## Technical Reflections
 
+- **How Reasoning Effort Is Trained: Conditioning, Budget Rewards, and Inference Control** (Created: 2026-09-24; Updated: 2026-09-25) \
+  **Description**: Use public evidence from gpt-oss, BudgetThinker, s1, and Qwen3 to explain how conditional training, reward design, and runtime controls produce reasoning effort settings. \
+  [[Note](notes/en/reinforcement-learning/reasoning-effort-training.qmd)]
+  [[中文](notes/zh/reinforcement-learning/reasoning-effort-training.qmd)]
+
 - **Jev in One Reading: From a System One Decision Model to Interactive Agents** (Created: 2026-09-22; Updated: 2026-09-23) \
   **Description**: A source-bounded explanation of why Jev gives up text generation, how its probabilistic interface works, and where it fits in agents, video editing, and interactive narratives. \
   [[Note](notes/en/agents/jev-system-one-decision-model.qmd)]

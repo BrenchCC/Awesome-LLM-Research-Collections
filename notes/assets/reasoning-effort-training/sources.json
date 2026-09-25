@@ -1,0 +1,51 @@
+{
+  "checked_on": "2026-09-24",
+  "assets": [
+    {
+      "file": "gpt-oss-effort.png",
+      "source": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf",
+      "version": "2025-08-05 release PDF",
+      "pdf_page": 8,
+      "section": "2.5.2"
+    },
+    {
+      "file": "gpt-oss-scaling.png",
+      "source": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf",
+      "version": "2025-08-05 release PDF",
+      "pdf_page": 8,
+      "figure": "3"
+    },
+    {
+      "file": "budgetthinker-control.png",
+      "source": "https://arxiv.org/pdf/2508.17196v2",
+      "version": "v2",
+      "pdf_page": 2,
+      "figure": "1"
+    },
+    {
+      "file": "s1-budget-forcing.png",
+      "source": "https://arxiv.org/pdf/2501.19393v3",
+      "version": "v3",
+      "pdf_page": 4,
+      "figure": "3"
+    }
+  ],
+  "source_pdf_sha256": {
+    "gpt-oss": "b1f834906a2cc51417ebca7828b139118edd0a449f55da1c951dbe96539c89c8",
+    "budgetthinker": "86ba716b573970e18f32895cb3acc4575a0e3a2947a5eafd0849dc8a6e1e7968",
+    "s1": "598932c9f96849cd52495d8b3e12ba4d224e41d5588d2278a78f76c744d8a3bc"
+  },
+  "original_diagrams": [
+    "effort-control",
+    "conditional-training",
+    "budget-rewards"
+  ],
+  "diagram_languages": [
+    "zh",
+    "en"
+  ],
+  "code_revisions": {
+    "MobileLLM/BudgetThinker": "481da9045f761ba34899271db846d659110b7065",
+    "openai/gpt-oss": "7b583341fe16729127f6d5b94a7b09ccae97e1a1"
+  }
+}

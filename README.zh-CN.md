@@ -1149,6 +1149,11 @@
 
 ## 技术思考
 
+- **大模型的思考档位：条件训练、预算奖励与推理时控制** (创建: 2026-09-24; 更新: 2026-09-25) \
+  **描述**: 从 gpt-oss、BudgetThinker、s1 与 Qwen3 的公开证据，解释思考档位如何通过条件训练、奖励设计和运行时控制形成。 \
+  [[笔记](notes/zh/reinforcement-learning/reasoning-effort-training.qmd)]
+  [[English](notes/en/reinforcement-learning/reasoning-effort-training.qmd)]
+
 - **一文快速读懂 Jev：从 System One 决策模型到交互式 Agent** (创建: 2026-09-22; 更新: 2026-09-23) \
   **描述**: 从公开接口、概率校准与工程边界出发，解释 Jev 为什么放弃文本生成，以及它如何进入 Agent、视频剪辑和互动叙事的决策回路。 \
   [[笔记](notes/zh/agents/jev-system-one-decision-model.qmd)]
