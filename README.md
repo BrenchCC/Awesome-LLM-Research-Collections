@@ -619,6 +619,11 @@
 
 ## Reward Modeling
 
+- **RULER: Instance-aware Rubric Rewards for SVG Generation** (2026.09) \
+  **Description**: RULER addresses unreliable evaluation and reward hacking in text-to-SVG generation by deriving six instruction-specific rubric items across semantic, visual, and stylistic dimensions. A vision-language judge scores rendered outputs item by item, and their weighted scores provide GRPO rewards without paired SVG ground truth or human preference labels. \
+  <a href="https://arxiv.org/abs/2609.25270"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://hangyuran.github.io/RULER/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **The Verification Horizon: No Silver Bullet for Coding Agent Rewards** (2026.06) \
   **Description**: This paper frames reliable verification as the emerging bottleneck for coding agents and evaluates reward signals by scalability, faithfulness, and robustness. Through test, rubric, user-feedback, and automated-agent verifiers, it shows that targeted designs can curb reward hacking and argues that verification must co-evolve with increasingly capable generators. \
   <a href="https://arxiv.org/abs/2606.26300"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

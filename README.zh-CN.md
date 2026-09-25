@@ -618,6 +618,11 @@
 
 ## 奖励建模
 
+- **RULER: Instance-aware Rubric Rewards for SVG Generation** (2026.09) \
+  **描述**: RULER 针对文本生成 SVG 中评估信号不可靠和奖励投机的问题，为每条指令构造覆盖语义、视觉与风格三个维度的六项评分准则。视觉语言评判模型对渲染结果逐项打分，将加权评分作为 GRPO 奖励，无需配对 SVG 真值或人类偏好标签。 \
+  <a href="https://arxiv.org/abs/2609.25270"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://hangyuran.github.io/RULER/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **The Verification Horizon: No Silver Bullet for Coding Agent Rewards** (2026.06) \
   **描述**: 该论文将可靠验证视为编码智能体面临的新瓶颈，并从可扩展性、忠实性和鲁棒性三个维度评估奖励信号。通过测试、规则、用户反馈和自动化智能体验证器，论文表明针对性的验证设计能够抑制奖励劫持，并指出验证机制必须与能力不断增强的生成器协同演化。 \
   <a href="https://arxiv.org/abs/2606.26300"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

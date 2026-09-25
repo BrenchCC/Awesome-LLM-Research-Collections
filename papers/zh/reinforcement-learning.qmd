@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>59</strong><span>论文</span></div>
-    <div><strong>122</strong><span>资源链接</span></div>
+    <div><strong>60</strong><span>论文</span></div>
+    <div><strong>124</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -324,10 +324,22 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">7 篇论文</p>
+    <p class="eyebrow">8 篇论文</p>
     <h2>奖励建模</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="ruler-instance-aware-rubric-rewards-for-svg-generation">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>奖励建模</span>
+  </div>
+  <h3>RULER: Instance-aware Rubric Rewards for SVG Generation</h3>
+  <p>RULER 针对文本生成 SVG 中评估信号不可靠和奖励投机的问题，为每条指令构造覆盖语义、视觉与风格三个维度的六项评分准则。视觉语言评判模型对渲染结果逐项打分，将加权评分作为 GRPO 奖励，无需配对 SVG 真值或人类偏好标签。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.25270" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://hangyuran.github.io/RULER/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
 <article class="paper-card" id="the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
   <div class="paper-meta">
     <span>2026.06</span>

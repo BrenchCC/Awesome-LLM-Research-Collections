@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>59</strong><span>Papers</span></div>
-    <div><strong>122</strong><span>Resource links</span></div>
+    <div><strong>60</strong><span>Papers</span></div>
+    <div><strong>124</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -324,10 +324,22 @@ toc: false
 </section>
 <section class="paper-section" id="reward-modeling">
   <div class="section-heading compact">
-    <p class="eyebrow">7 papers</p>
+    <p class="eyebrow">8 papers</p>
     <h2>Reward Modeling</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="ruler-instance-aware-rubric-rewards-for-svg-generation">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Reward Modeling</span>
+  </div>
+  <h3>RULER: Instance-aware Rubric Rewards for SVG Generation</h3>
+  <p>RULER addresses unreliable evaluation and reward hacking in text-to-SVG generation by deriving six instruction-specific rubric items across semantic, visual, and stylistic dimensions. A vision-language judge scores rendered outputs item by item, and their weighted scores provide GRPO rewards without paired SVG ground truth or human preference labels.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.25270" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://hangyuran.github.io/RULER/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
 <article class="paper-card" id="the-verification-horizon-no-silver-bullet-for-coding-agent-rewards">
   <div class="paper-meta">
     <span>2026.06</span>
