@@ -43,6 +43,7 @@
   - [记忆](#记忆)
 - [视觉](#视觉)
   - [目标检测](#目标检测)
+  - [OCR](#ocr)
   - [语义对应](#语义对应)
 - [自动提示](#自动提示)
   - [提示优化](#提示优化)
@@ -1059,6 +1060,14 @@
   **描述**: DINO 通过对比去噪训练、用于锚点初始化的混合 query 选择，以及 look-forward-twice 框预测方案改进 DETR 类目标检测器。它在显著降低模型和数据需求的同时，在 COCO 上取得当时最优结果。 \
   <a href="https://arxiv.org/abs/2203.03605"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/IDEA-Research/DINO"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+## OCR
+
+- **All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts** (2026.09) \
+  **描述**: 该论文提出多语言场景文本识别模型 ScriptMoE，共用一个视觉编码器，将每张图像路由至两个与文字系统对应的解码器专家，并结合共享专家建模跨文字系统的共性。论文还构建覆盖 10 种文字系统、229 种语言的合成数据集 TextMuSS-10M，缓解训练数据稀缺问题，在避免大型视觉语言模型高成本的同时提升多语言识别能力。 \
+  <a href="https://arxiv.org/abs/2609.24058"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/YesianRohn/ScriptMoE"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/Yesianrohn/TextMuSS-10M"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 语义对应
 

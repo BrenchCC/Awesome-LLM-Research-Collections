@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>176</strong><span>论文</span></div>
+    <div><strong>177</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>424</strong><span>资源链接</span></div>
+    <div><strong>427</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -96,12 +96,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="vision.html">
-  <span class="category-count">2 篇论文</span>
+  <span class="category-count">3 篇论文</span>
   <h3>视觉</h3>
   <p>对现代多模态系统有参考价值的计算机视觉方法。</p>
   <div class="category-foot">
-    <span>2026.05</span>
-    <span>目标检测、语义对应</span>
+    <span>2026.09</span>
+    <span>OCR、目标检测、语义对应</span>
   </div>
 </a>
 <a class="category-card" href="auto-prompt.html">
@@ -152,14 +152,14 @@ toc: false
   <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
   <em>智能体应用</em>
 </a>
+<a class="recent-row" href="vision.html#all-in-one-multilingual-scene-text-recognition-with-script-aware-mixture-of-experts">
+  <span>2026.09</span>
+  <strong>All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</strong>
+  <em>视觉</em>
+</a>
 <a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
   <span>2026.08</span>
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="llms.html#on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
-  <span>2026.08</span>
-  <strong>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</strong>
   <em>大语言模型</em>
 </a>
   </div>

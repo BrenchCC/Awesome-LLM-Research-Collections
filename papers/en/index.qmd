@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>176</strong><span>Papers</span></div>
+    <div><strong>177</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>424</strong><span>Resource links</span></div>
+    <div><strong>427</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -96,12 +96,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="vision.html">
-  <span class="category-count">2 papers</span>
+  <span class="category-count">3 papers</span>
   <h3>Vision</h3>
   <p>Computer vision methods that are useful background for modern multimodal systems.</p>
   <div class="category-foot">
-    <span>2026.05</span>
-    <span>Object Detection, Semantic Correspondence</span>
+    <span>2026.09</span>
+    <span>OCR, Object Detection, Semantic Correspondence</span>
   </div>
 </a>
 <a class="category-card" href="auto-prompt.html">
@@ -152,14 +152,14 @@ toc: false
   <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
   <em>Agents Application</em>
 </a>
+<a class="recent-row" href="vision.html#all-in-one-multilingual-scene-text-recognition-with-script-aware-mixture-of-experts">
+  <span>2026.09</span>
+  <strong>All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</strong>
+  <em>Vision</em>
+</a>
 <a class="recent-row" href="llms.html#bdh-cq-in-context-learning-with-recurrent-latent-reasoning">
   <span>2026.08</span>
   <strong>BDH-CQ: In-Context Learning with Recurrent Latent Reasoning</strong>
-  <em>LLMs</em>
-</a>
-<a class="recent-row" href="llms.html#on-the-design-of-qwen3-8-next-architecture-evaluation-efficiency-and-training-stability">
-  <span>2026.08</span>
-  <strong>On the Design of Qwen3.8-Next Architecture: Evaluation, Efficiency, and Training Stability</strong>
   <em>LLMs</em>
 </a>
   </div>

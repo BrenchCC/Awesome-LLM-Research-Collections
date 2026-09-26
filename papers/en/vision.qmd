@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Computer vision methods that are useful background for modern multimodal systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>Papers</span></div>
-    <div><strong>6</strong><span>Resource links</span></div>
-    <div><strong>2026.05</strong><span>Latest month</span></div>
+    <div><strong>3</strong><span>Papers</span></div>
+    <div><strong>9</strong><span>Resource links</span></div>
+    <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#object-detection">Object Detection</a>
+<a href="#ocr">OCR</a>
 <a href="#semantic-correspondence">Semantic Correspondence</a>
   </nav>
 </section>
@@ -37,6 +38,27 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2203.03605" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/IDEA-Research/DINO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="ocr">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>OCR</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="all-in-one-multilingual-scene-text-recognition-with-script-aware-mixture-of-experts">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>OCR</span>
+  </div>
+  <h3>All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</h3>
+  <p>This paper introduces ScriptMoE, a multilingual scene text recognizer that shares a visual encoder and routes each image to two script-aligned decoder experts alongside a shared expert. It also builds TextMuSS-10M, a synthetic dataset covering 10 scripts and 229 languages, to address scarce training data and improve multilingual recognition without the cost of large vision-language models.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.24058" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/YesianRohn/ScriptMoE" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Yesianrohn/TextMuSS-10M" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

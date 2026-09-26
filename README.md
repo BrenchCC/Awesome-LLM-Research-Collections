@@ -44,6 +44,7 @@
   - [Memory](#memory)
 - [Vision](#vision)
   - [Object Detection](#object-detection)
+  - [OCR](#ocr)
   - [Semantic Correspondence](#semantic-correspondence)
 - [Auto-Prompt](#auto-prompt)
   - [Prompt Optimization](#prompt-optimization)
@@ -1060,6 +1061,14 @@
   **Description**: DINO improves DETR-like object detectors by introducing contrastive denoising training, mixed query selection for anchor initialization, and a look-forward-twice box prediction scheme, achieving state-of-the-art results on COCO with significantly reduced model and data requirements. \
   <a href="https://arxiv.org/abs/2203.03605"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/IDEA-Research/DINO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+## OCR
+
+- **All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts** (2026.09) \
+  **Description**: This paper introduces ScriptMoE, a multilingual scene text recognizer that shares a visual encoder and routes each image to two script-aligned decoder experts alongside a shared expert. It also builds TextMuSS-10M, a synthetic dataset covering 10 scripts and 229 languages, to address scarce training data and improve multilingual recognition without the cost of large vision-language models. \
+  <a href="https://arxiv.org/abs/2609.24058"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/YesianRohn/ScriptMoE"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/Yesianrohn/TextMuSS-10M"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Semantic Correspondence
 

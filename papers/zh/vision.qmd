@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">对现代多模态系统有参考价值的计算机视觉方法。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>2</strong><span>论文</span></div>
-    <div><strong>6</strong><span>资源链接</span></div>
-    <div><strong>2026.05</strong><span>最新月份</span></div>
+    <div><strong>3</strong><span>论文</span></div>
+    <div><strong>9</strong><span>资源链接</span></div>
+    <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#object-detection">目标检测</a>
+<a href="#ocr">OCR</a>
 <a href="#semantic-correspondence">语义对应</a>
   </nav>
 </section>
@@ -37,6 +38,27 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2203.03605" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/IDEA-Research/DINO" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="ocr">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>OCR</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="all-in-one-multilingual-scene-text-recognition-with-script-aware-mixture-of-experts">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>OCR</span>
+  </div>
+  <h3>All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</h3>
+  <p>该论文提出多语言场景文本识别模型 ScriptMoE，共用一个视觉编码器，将每张图像路由至两个与文字系统对应的解码器专家，并结合共享专家建模跨文字系统的共性。论文还构建覆盖 10 种文字系统、229 种语言的合成数据集 TextMuSS-10M，缓解训练数据稀缺问题，在避免大型视觉语言模型高成本的同时提升多语言识别能力。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.24058" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/YesianRohn/ScriptMoE" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/Yesianrohn/TextMuSS-10M" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>
