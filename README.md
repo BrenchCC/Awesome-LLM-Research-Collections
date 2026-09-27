@@ -925,6 +925,11 @@
 
 ## Agent Development
 
+- **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
+  **Description**: Qwen-Planner-Agent links agent-driven task and trajectory generation, supervised and reinforcement learning for a mobile planner, and evidence-guided harness refinement in a closed development loop. Its competence-aware reward design reduces reasoning and tool-use costs while preserving task performance. \
+  <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://tongyi-mai.github.io/Qwen-Planner-Agent/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **Description**: LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks. \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

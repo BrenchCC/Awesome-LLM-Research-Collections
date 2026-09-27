@@ -924,6 +924,11 @@
 
 ## 智能体开发
 
+- **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
+  **描述**: Qwen-Planner-Agent 将智能体驱动的任务与轨迹生成、移动端规划模型的监督学习和强化学习，以及基于执行证据的 harness 改进连接为闭环开发流程。其能力感知奖励设计在保持任务表现的同时降低推理与工具调用成本。 \
+  <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://tongyi-mai.github.io/Qwen-Planner-Agent/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

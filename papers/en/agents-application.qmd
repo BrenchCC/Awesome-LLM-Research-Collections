@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>41</strong><span>Papers</span></div>
-    <div><strong>94</strong><span>Resource links</span></div>
+    <div><strong>42</strong><span>Papers</span></div>
+    <div><strong>96</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -297,10 +297,22 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">11 papers</p>
+    <p class="eyebrow">12 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="qwen-planner-agent-a-closed-loop-ai-for-ai-framework-for-real-world-mobile-planner-agents">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents</h3>
+  <p>Qwen-Planner-Agent links agent-driven task and trajectory generation, supervised and reinforcement learning for a mobile planner, and evidence-guided harness refinement in a closed development loop. Its competence-aware reward design reduces reasoning and tool-use costs while preserving task performance.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.29892" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://tongyi-mai.github.io/Qwen-Planner-Agent/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
 <article class="paper-card" id="longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <div class="paper-meta">
     <span>2026.08</span>

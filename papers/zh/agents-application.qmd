@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>41</strong><span>论文</span></div>
-    <div><strong>94</strong><span>资源链接</span></div>
+    <div><strong>42</strong><span>论文</span></div>
+    <div><strong>96</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -297,10 +297,22 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">11 篇论文</p>
+    <p class="eyebrow">12 篇论文</p>
     <h2>智能体开发</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="qwen-planner-agent-a-closed-loop-ai-for-ai-framework-for-real-world-mobile-planner-agents">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents</h3>
+  <p>Qwen-Planner-Agent 将智能体驱动的任务与轨迹生成、移动端规划模型的监督学习和强化学习，以及基于执行证据的 harness 改进连接为闭环开发流程。其能力感知奖励设计在保持任务表现的同时降低推理与工具调用成本。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.29892" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://tongyi-mai.github.io/Qwen-Planner-Agent/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
 <article class="paper-card" id="longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
   <div class="paper-meta">
     <span>2026.08</span>
