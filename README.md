@@ -11,6 +11,7 @@
 - [LLMs](#llms)
   - [Foundation Models](#foundation-models)
   - [Inference](#inference)
+  - [Interpretability](#interpretability)
   - [Detection](#detection)
 - [Multimodal LLMs](#multimodal-llms)
   - [Vision-Language](#vision-language)
@@ -247,6 +248,12 @@
   <a href="https://mbzuai-nlp.github.io/finchain/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/mbzuai-nlp/finchain"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/spaces/Usmansafder/finchain-space"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+## Interpretability
+
+- **Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs** (2026.09) \
+  **Description**: This paper presents evidence that mixing embeddings from distinct text streams preserves a superposition of their next-token distributions, a property that weakens during pretraining and can be restored through lightweight fine-tuning. It also introduces guided decoding to recover two coherent continuations from a single mixed forward pass. \
+  <a href="https://arxiv.org/abs/2609.29845"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 ## Detection
 

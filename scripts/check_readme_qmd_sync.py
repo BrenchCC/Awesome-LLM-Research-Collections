@@ -38,6 +38,8 @@ CATEGORY_SLUGS = {
     "基础模型": "foundation-models",
     "Inference": "inference",
     "推理": "inference",
+    "Interpretability": "interpretability",
+    "可解释性": "interpretability",
     "Detection": "detection",
     "检测": "detection",
     "Vision-Language": "vision-language",

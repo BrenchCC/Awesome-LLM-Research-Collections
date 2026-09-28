@@ -10,6 +10,7 @@
 - [大语言模型](#大语言模型)
   - [基础模型](#基础模型)
   - [推理](#推理)
+  - [可解释性](#可解释性)
   - [检测](#检测)
 - [多模态大模型](#多模态大模型)
   - [视觉语言](#视觉语言)
@@ -246,6 +247,12 @@
   <a href="https://mbzuai-nlp.github.io/finchain/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/mbzuai-nlp/finchain"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/spaces/Usmansafder/finchain-space"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+## 可解释性
+
+- **Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs** (2026.09) \
+  **描述**: 该论文提供证据表明，不同文本流的嵌入混合后，模型输出仍保留各自下一 token 分布的叠加；这一性质随预训练减弱，但可通过轻量微调恢复。论文还提出引导解码方法，从一次混合输入的前向计算中恢复两条连贯的续写。 \
+  <a href="https://arxiv.org/abs/2609.29845"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 ## 检测
 

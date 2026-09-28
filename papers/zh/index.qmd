@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>178</strong><span>论文</span></div>
+    <div><strong>179</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>429</strong><span>资源链接</span></div>
+    <div><strong>430</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,12 +33,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">25 篇论文</span>
+  <span class="category-count">26 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
-    <span>2026.08</span>
-    <span>基础模型、推理、检测</span>
+    <span>2026.09</span>
+    <span>可解释性、基础模型、推理、检测</span>
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
@@ -122,6 +122,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="llms.html#your-transformer-can-hold-two-thoughts-at-once-evidence-of-linear-superposition-in-llms">
+  <span>2026.09</span>
+  <strong>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#think-before-you-link-rarity-reasoning-and-retrieval-in-multilingual-entity-linking">
   <span>2026.09</span>
   <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
@@ -156,11 +161,6 @@ toc: false
   <span>2026.09</span>
   <strong>Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents</strong>
   <em>智能体应用</em>
-</a>
-<a class="recent-row" href="vision.html#all-in-one-multilingual-scene-text-recognition-with-script-aware-mixture-of-experts">
-  <span>2026.09</span>
-  <strong>All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts</strong>
-  <em>视觉</em>
 </a>
   </div>
 </section>

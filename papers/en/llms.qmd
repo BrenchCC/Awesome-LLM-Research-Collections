@@ -11,13 +11,14 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>25</strong><span>Papers</span></div>
-    <div><strong>76</strong><span>Resource links</span></div>
-    <div><strong>2026.08</strong><span>Latest month</span></div>
+    <div><strong>26</strong><span>Papers</span></div>
+    <div><strong>77</strong><span>Resource links</span></div>
+    <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#foundation-models">Foundation Models</a>
 <a href="#inference">Inference</a>
+<a href="#interpretability">Interpretability</a>
 <a href="#detection">Detection</a>
   </nav>
 </section>
@@ -348,6 +349,25 @@ toc: false
 <a class="resource-link" href="https://mbzuai-nlp.github.io/finchain/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/mbzuai-nlp/finchain" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/spaces/Usmansafder/finchain-space" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="interpretability">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Interpretability</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="your-transformer-can-hold-two-thoughts-at-once-evidence-of-linear-superposition-in-llms">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Interpretability</span>
+  </div>
+  <h3>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</h3>
+  <p>This paper presents evidence that mixing embeddings from distinct text streams preserves a superposition of their next-token distributions, a property that weakens during pretraining and can be restored through lightweight fine-tuning. It also introduces guided decoding to recover two coherent continuations from a single mixed forward pass.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.29845" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
   </div>
 </article>
   </div>
