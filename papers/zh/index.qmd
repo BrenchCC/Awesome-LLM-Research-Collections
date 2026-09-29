@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>179</strong><span>论文</span></div>
+    <div><strong>180</strong><span>论文</span></div>
     <div><strong>10</strong><span>分类</span></div>
-    <div><strong>430</strong><span>资源链接</span></div>
+    <div><strong>432</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">60 篇论文</span>
+  <span class="category-count">61 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>Bellman Policy Optimization</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#score-centering-stabilizes-off-policy-reinforcement-learning">
+  <span>2026.09</span>
+  <strong>Score Centering Stabilizes Off-policy Reinforcement Learning</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#ruler-instance-aware-rubric-rewards-for-svg-generation">
   <span>2026.09</span>
   <strong>RULER: Instance-aware Rubric Rewards for SVG Generation</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#repo-to-skill-distilling-github-repositories-into-ai4ai-skills">
   <span>2026.09</span>
   <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="agents-application.html#qwen-planner-agent-a-closed-loop-ai-for-ai-framework-for-real-world-mobile-planner-agents">
-  <span>2026.09</span>
-  <strong>Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents</strong>
   <em>智能体应用</em>
 </a>
   </div>

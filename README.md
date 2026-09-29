@@ -509,6 +509,11 @@
   **Description**: This paper introduces Bellman Policy Optimization (BPO), a critic-free RLVR method that uses the Bellman equations to reformulate Policy Mirror Descent as a trajectory-level objective with the same unique optimum, avoiding intermediate state-value estimation. Its practical loss replaces GRPO's importance-sampling ratio with a mismatch-correction weight based on smoothed complementary token probabilities. \
   <a href="https://arxiv.org/abs/2609.15987"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Score Centering Stabilizes Off-policy Reinforcement Learning** (2026.09) \
+  **Description**: This paper identifies accumulating gradient drift as a primary cause of LLM reinforcement learning instability under training-inference mismatch and introduces an additive score-centering correction to cancel it. Across 0.6B–30B models, score centering matches or outperforms importance-sampling methods under quantization and combines with them to improve robustness to stale rollouts. \
+  <a href="https://arxiv.org/abs/2609.20807"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/martin-marek/score-centering"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Is One Layer Enough? Training A Single Transformer Layer Can Match Full-Parameter RL Training** (2026.07) \
   **Description**: This paper introduces layer contribution to measure how much of full-parameter RL improvement can be recovered by training each transformer layer independently. Across multiple models, RL algorithms, and tasks, it finds that gains consistently concentrate in a few middle layers and that single-layer training can match or surpass full-parameter training. \
   <a href="https://arxiv.org/abs/2607.01232"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

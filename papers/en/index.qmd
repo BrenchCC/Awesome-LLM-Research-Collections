@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>179</strong><span>Papers</span></div>
+    <div><strong>180</strong><span>Papers</span></div>
     <div><strong>10</strong><span>Categories</span></div>
-    <div><strong>430</strong><span>Resource links</span></div>
+    <div><strong>432</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">60 papers</span>
+  <span class="category-count">61 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -142,6 +142,11 @@ toc: false
   <strong>Bellman Policy Optimization</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#score-centering-stabilizes-off-policy-reinforcement-learning">
+  <span>2026.09</span>
+  <strong>Score Centering Stabilizes Off-policy Reinforcement Learning</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#ruler-instance-aware-rubric-rewards-for-svg-generation">
   <span>2026.09</span>
   <strong>RULER: Instance-aware Rubric Rewards for SVG Generation</strong>
@@ -155,11 +160,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#repo-to-skill-distilling-github-repositories-into-ai4ai-skills">
   <span>2026.09</span>
   <strong>Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills</strong>
-  <em>Agents Application</em>
-</a>
-<a class="recent-row" href="agents-application.html#qwen-planner-agent-a-closed-loop-ai-for-ai-framework-for-real-world-mobile-planner-agents">
-  <span>2026.09</span>
-  <strong>Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents</strong>
   <em>Agents Application</em>
 </a>
   </div>
