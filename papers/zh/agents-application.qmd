@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>42</strong><span>论文</span></div>
-    <div><strong>96</strong><span>资源链接</span></div>
+    <div><strong>43</strong><span>论文</span></div>
+    <div><strong>99</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -297,7 +297,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">12 篇论文</p>
+    <p class="eyebrow">13 篇论文</p>
     <h2>智能体开发</h2>
   </div>
   <div class="paper-grid">
@@ -311,6 +311,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2609.29892" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://tongyi-mai.github.io/Qwen-Planner-Agent/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="the-last-ai-built-by-humans-toward-genuine-recursive-self-improvement">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement</h3>
+  <p>该论文以 Headroom-Closed Index 分析现有大语言模型的局限，并提出递归自我改进的五阶段路线图，从执行人类指定的改进逐步走向改进机制本身的递归演化。论文还梳理了科学发现、具身智能和软件工程等场景的不同要求与关键挑战。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.11873" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://theseus-labs-rsi.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/theseus-labs-rsi/awesome-rsi" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">

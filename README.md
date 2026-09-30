@@ -942,6 +942,12 @@
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://tongyi-mai.github.io/Qwen-Planner-Agent/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement** (2026.09) \
+  **Description**: This paper uses the Headroom-Closed Index to examine current LLM limitations and proposes a five-stage roadmap for recursive self-improvement, from executing human-directed changes to improving the improvement process itself. It surveys requirements and challenges across scientific discovery, embodied intelligence, and software engineering. \
+  <a href="https://arxiv.org/abs/2609.11873"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://theseus-labs-rsi.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/theseus-labs-rsi/awesome-rsi"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **Description**: LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks. \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

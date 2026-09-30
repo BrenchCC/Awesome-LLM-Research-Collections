@@ -941,6 +941,12 @@
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://tongyi-mai.github.io/Qwen-Planner-Agent/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement** (2026.09) \
+  **描述**: 该论文以 Headroom-Closed Index 分析现有大语言模型的局限，并提出递归自我改进的五阶段路线图，从执行人类指定的改进逐步走向改进机制本身的递归演化。论文还梳理了科学发现、具身智能和软件工程等场景的不同要求与关键挑战。 \
+  <a href="https://arxiv.org/abs/2609.11873"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://theseus-labs-rsi.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/theseus-labs-rsi/awesome-rsi"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

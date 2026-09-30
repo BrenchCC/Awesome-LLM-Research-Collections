@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>42</strong><span>Papers</span></div>
-    <div><strong>96</strong><span>Resource links</span></div>
+    <div><strong>43</strong><span>Papers</span></div>
+    <div><strong>99</strong><span>Resource links</span></div>
     <div><strong>2026.09</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -297,7 +297,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">12 papers</p>
+    <p class="eyebrow">13 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
@@ -311,6 +311,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2609.29892" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://tongyi-mai.github.io/Qwen-Planner-Agent/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
+<article class="paper-card" id="the-last-ai-built-by-humans-toward-genuine-recursive-self-improvement">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>The Last AI Built by Humans: Toward Genuine Recursive Self-Improvement</h3>
+  <p>This paper uses the Headroom-Closed Index to examine current LLM limitations and proposes a five-stage roadmap for recursive self-improvement, from executing human-directed changes to improving the improvement process itself. It surveys requirements and challenges across scientific discovery, embodied intelligence, and software engineering.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.11873" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://theseus-labs-rsi.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/theseus-labs-rsi/awesome-rsi" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="longhorizon-harness-advancing-long-horizon-agents-for-real-world-tasks">
