@@ -17,6 +17,7 @@
   - [多模态推理](#多模态推理)
   - [视觉-语言-动作](#视觉-语言-动作)
 - [嵌入模型](#嵌入模型)
+- [结构化数据](#结构化数据)
 - [监督微调](#监督微调)
   - [监督微调方法](#监督微调方法)
 - [训练](#训练)
@@ -411,6 +412,15 @@
   <a href="https://arxiv.org/abs/2506.11066"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/TRUMANCFY/CoQuIR"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/CoQuIR"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+# 结构化数据
+
+- **LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence** (2026.09) \
+  **描述**: LimiX-2 采用上下文机制网络和上下文条件掩码建模，从合成因果数据中学习表格数据的联合结构。它在三个表格基准上提升了预测表现，其特征注意力还可用于恢复因果骨架。 \
+  <a href="https://arxiv.org/abs/2609.17488"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.limix.ai/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/limix-ldm-ai/LimiX"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/stable-ai/LimiX-2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 监督微调
 

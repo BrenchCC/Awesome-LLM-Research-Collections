@@ -38,6 +38,8 @@ website:
             text: Multimodal LLMs
           - href: papers/en/embeddings.qmd
             text: Embeddings
+          - href: papers/en/structured-data.qmd
+            text: Structured Data
           - href: papers/en/sft.qmd
             text: SFT
           - href: papers/en/training.qmd

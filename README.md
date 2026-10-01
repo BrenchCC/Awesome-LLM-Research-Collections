@@ -18,6 +18,7 @@
   - [Multimodal Reasoning](#multimodal-reasoning)
   - [VLA](#vla)
 - [Embeddings](#embeddings)
+- [Structured Data](#structured-data)
 - [SFT](#sft)
   - [SFT Methods](#sft-methods)
 - [Training](#training)
@@ -412,6 +413,15 @@
   <a href="https://arxiv.org/abs/2506.11066"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/TRUMANCFY/CoQuIR"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/CoQuIR"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
+# Structured Data
+
+- **LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence** (2026.09) \
+  **Description**: LimiX-2 uses Contextual Mechanism Networks and context-conditional masked modeling to learn the joint structure of tabular data from synthetic causal datasets. It improves prediction across three tabular benchmarks and its feature attention supports causal skeleton recovery. \
+  <a href="https://arxiv.org/abs/2609.17488"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.limix.ai/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/limix-ldm-ai/LimiX"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/stable-ai/LimiX-2"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # SFT
 

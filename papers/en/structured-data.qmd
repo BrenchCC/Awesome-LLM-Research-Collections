@@ -1,0 +1,45 @@
+---
+title: "Structured Data"
+description: "Foundation models and methods for tabular and other structured data."
+page-layout: full
+toc: false
+---
+
+```{=html}
+<section class="category-hero">
+  <div class="language-switch"><a href="../zh/structured-data.html">中文</a></div>
+  <p class="eyebrow">Research category</p>
+  <p class="category-summary">Foundation models and methods for tabular and other structured data.</p>
+  <div class="stat-strip compact-strip">
+    <div><strong>1</strong><span>Papers</span></div>
+    <div><strong>4</strong><span>Resource links</span></div>
+    <div><strong>2026.09</strong><span>Latest month</span></div>
+  </div>
+  <nav class="section-nav" aria-label="Subcategories">
+    <a href="#featured">Featured</a>
+  </nav>
+</section>
+
+<section class="paper-section" id="featured">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Featured</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="limix-2-a-contextual-mechanism-network-towards-general-structured-data-intelligence">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>Structured Data</span>
+  </div>
+  <h3>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</h3>
+  <p>LimiX-2 uses Contextual Mechanism Networks and context-conditional masked modeling to learn the joint structure of tabular data from synthetic causal datasets. It improves prediction across three tabular benchmarks and its feature attention supports causal skeleton recovery.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.17488" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.limix.ai/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/limix-ldm-ai/LimiX" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/stable-ai/LimiX-2" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
+```
