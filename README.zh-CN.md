@@ -957,6 +957,12 @@
   <a href="https://theseus-labs-rsi.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/theseus-labs-rsi/awesome-rsi"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Raven: The Harness of Harnesses for Composable Agentic Intelligence** (2026.09) \
+  **描述**: Raven 为特定模型和领域自动构建、演化模块化 harness，再由 Host Agent 分解目标、协调专门智能体执行并整合结果。其档案与 EverOS 保存任务经验，使经验可转化为复用技能并用于后续协作。 \
+  <a href="https://arxiv.org/abs/2609.33439"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://raven.evermind.ai/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/EverMind-AI/Raven"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
