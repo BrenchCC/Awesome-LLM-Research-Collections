@@ -487,6 +487,10 @@
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics** (2026.09) \
+  **Description**: This controlled study separates rollout policy, token-level KL direction, and learning rate in strong-to-weak distillation. Forward KL is robust to rollout source, reverse KL favors student-generated rollouts, and learning rate has a stronger effect on forgetting and update sparsity than rollout policy. \
+  <a href="https://arxiv.org/abs/2609.35259"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Simple-OPD: Demystifying Warm-up for On-policy Distillation** (2026.08) \
   **Description**: This paper shows that effective warm-up for on-policy distillation depends on teacher-compatible chain-of-thought supervision rather than answer correctness alone. It proposes Simple-OPD, a plug-and-play initialization recipe that uses near-saturation LoRA warm-up on teacher-generated reasoning traces to balance in-domain adaptation and out-of-distribution generalization. \
   <a href="https://arxiv.org/abs/2608.06802"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

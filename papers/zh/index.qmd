@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>184</strong><span>论文</span></div>
+    <div><strong>185</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>445</strong><span>资源链接</span></div>
+    <div><strong>446</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">11 篇论文</span>
+  <span class="category-count">12 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
@@ -156,6 +156,11 @@ toc: false
   <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
   <em>训练</em>
 </a>
+<a class="recent-row" href="training.html#on-policy-or-off-policy-learning-a-systematic-study-of-distillation-dynamics">
+  <span>2026.09</span>
+  <strong>On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics</strong>
+  <em>训练</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#bellman-policy-optimization">
   <span>2026.09</span>
   <strong>Bellman Policy Optimization</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#score-centering-stabilizes-off-policy-reinforcement-learning">
   <span>2026.09</span>
   <strong>Score Centering Stabilizes Off-policy Reinforcement Learning</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#ruler-instance-aware-rubric-rewards-for-svg-generation">
-  <span>2026.09</span>
-  <strong>RULER: Instance-aware Rubric Rewards for SVG Generation</strong>
   <em>强化学习</em>
 </a>
   </div>

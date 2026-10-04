@@ -486,6 +486,10 @@
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/Thinking-Space/One-Shot-OPD"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics** (2026.09) \
+  **描述**: 该论文在强到弱蒸馏中分别控制 rollout 策略、token 级 KL 方向与学习率。前向 KL 对 rollout 来源较稳健，反向 KL 更偏好学生生成的轨迹，而遗忘和参数更新稀疏性主要受学习率影响。 \
+  <a href="https://arxiv.org/abs/2609.35259"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Simple-OPD: Demystifying Warm-up for On-policy Distillation** (2026.08) \
   **描述**: 该论文表明，在策略蒸馏的有效预热更依赖与教师兼容的思维链监督，而非仅依赖答案正确性。论文提出 Simple-OPD，以教师生成的推理轨迹进行接近饱和的 LoRA 预热，在域内适应与域外泛化之间取得平衡，并作为可插拔初始化方案接入后续 OPD。 \
   <a href="https://arxiv.org/abs/2608.06802"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
