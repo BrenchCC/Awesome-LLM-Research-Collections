@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>183</strong><span>论文</span></div>
+    <div><strong>184</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>442</strong><span>资源链接</span></div>
+    <div><strong>445</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -69,11 +69,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="sft.html">
-  <span class="category-count">4 篇论文</span>
+  <span class="category-count">5 篇论文</span>
   <h3>监督微调</h3>
   <p>监督微调方法、数据配方、token 加权和推理泛化研究。</p>
   <div class="category-foot">
-    <span>2026.05</span>
+    <span>2026.09</span>
     <span>监督微调方法</span>
   </div>
 </a>
@@ -146,6 +146,11 @@ toc: false
   <strong>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</strong>
   <em>结构化数据</em>
 </a>
+<a class="recent-row" href="sft.html#studentsim-training-llm-based-student-simulators">
+  <span>2026.09</span>
+  <strong>StudentSim: Training LLM-based Student Simulators</strong>
+  <em>监督微调</em>
+</a>
 <a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
   <span>2026.09</span>
   <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#ruler-instance-aware-rubric-rewards-for-svg-generation">
   <span>2026.09</span>
   <strong>RULER: Instance-aware Rubric Rewards for SVG Generation</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#safeevolve-harness-policy-co-evolution-from-agent-experience-for-safety-alignment">
-  <span>2026.09</span>
-  <strong>SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment</strong>
   <em>强化学习</em>
 </a>
   </div>

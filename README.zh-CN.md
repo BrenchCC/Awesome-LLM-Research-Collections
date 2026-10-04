@@ -426,6 +426,12 @@
 
 ## 监督微调方法
 
+- **StudentSim: Training LLM-based Student Simulators** (2026.09) \
+  **描述**: StudentSim 先用多名学生的记录联合训练，再针对个体继续微调，将稀疏学习记录转化为个性化 LLM 学生模拟器。StudentSimEval 在国际象棋、英语写作和数学任务中评估模拟器能否复现学生作答并响应导师指导。 \
+  <a href="https://arxiv.org/abs/2609.01591"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://microsoft.github.io/StudentSim/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/microsoft/StudentSim"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning** (2026.05) \
   **描述**: 该论文系统研究监督微调中的基于难度的数据选择，指出不存在普适最优的数据难度。论文用分布内泛化与外推之间的权衡解释数据规模相关的最优难度，并发现随着数据预算增加，最优训练样本会逐渐转向更难样本。 \
   <a href="https://arxiv.org/abs/2605.12906"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

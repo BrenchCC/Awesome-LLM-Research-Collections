@@ -427,6 +427,12 @@
 
 ## SFT Methods
 
+- **StudentSim: Training LLM-based Student Simulators** (2026.09) \
+  **Description**: StudentSim turns sparse records for individual learners into personalized LLM simulators through pooled training followed by per-student specialization. StudentSimEval measures whether they match each learner's responses and react to tutor guidance across chess, English writing, and mathematics. \
+  <a href="https://arxiv.org/abs/2609.01591"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://microsoft.github.io/StudentSim/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/microsoft/StudentSim"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning** (2026.05) \
   **Description**: This paper systematically studies difficulty-based data selection for supervised fine-tuning and shows that no single difficulty level is universally optimal. It explains the data-size-dependent optimum through a tradeoff between in-distribution generalization and extrapolation, with the best difficulty shifting toward harder examples as the data budget grows. \
   <a href="https://arxiv.org/abs/2605.12906"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
