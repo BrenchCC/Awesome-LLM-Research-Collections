@@ -1069,6 +1069,12 @@
 
 ## Memory
 
+- **Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States** (2026.10) \
+  **Description**: PoS maintains an explicit belief about the current world and unresolved task requirements as an agent's decision context. It validates belief updates, detects stalled progress, and applies targeted recovery to improve long-horizon task execution and diagnosis. \
+  <a href="https://arxiv.org/abs/2610.01415"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://luoyu100.github.io/projects/progression-of-states/project/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/luoyu100/PoS"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
   **Description**: MemTrapBench evaluates memory-induced cognitive traps in which faithful, relevant retrieved memories distort LLM reasoning or beliefs, covering Reasoning Fixation and Belief Distortion. Across memory frameworks, it finds performance below a no-memory baseline and introduces AdaptiveMem, an inference-time prompting method that mitigates these failures while preserving standard memory-benchmark performance. \
   <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -10,10 +10,10 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>185</strong><span>论文</span></div>
+    <div><strong>186</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>446</strong><span>资源链接</span></div>
-    <div><strong>2026.09</strong><span>最新月份</span></div>
+    <div><strong>449</strong><span>资源链接</span></div>
+    <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
 
@@ -96,11 +96,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">44 篇论文</span>
+  <span class="category-count">45 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>AI 研究、工具调用、数据智能体、智能体开发、智能体技能、智能体评测、网络智能体、计算机使用、记忆</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="agents-application.html#beyond-memory-harnessing-long-horizon-agents-with-explicit-belief-states">
+  <span>2026.10</span>
+  <strong>Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="llms.html#your-transformer-can-hold-two-thoughts-at-once-evidence-of-linear-superposition-in-llms">
   <span>2026.09</span>
   <strong>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#bellman-policy-optimization">
   <span>2026.09</span>
   <strong>Bellman Policy Optimization</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#score-centering-stabilizes-off-policy-reinforcement-learning">
-  <span>2026.09</span>
-  <strong>Score Centering Stabilizes Off-policy Reinforcement Learning</strong>
   <em>强化学习</em>
 </a>
   </div>

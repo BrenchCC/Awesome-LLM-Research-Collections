@@ -1068,6 +1068,12 @@
 
 ## 记忆
 
+- **Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States** (2026.10) \
+  **描述**: PoS 将当前世界状态与尚未解决的任务要求表示为显式信念，持续用作智能体的决策上下文。它校验信念更新的一致性，检测任务进展停滞，并实施针对性恢复，以改进长程任务执行与故障诊断。 \
+  <a href="https://arxiv.org/abs/2610.01415"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://luoyu100.github.io/projects/progression-of-states/project/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/luoyu100/PoS"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
   **描述**: MemTrapBench 评测记忆诱发的认知陷阱：即使忠实且语义相关的检索记忆，也可能扭曲 LLM 的推理或信念；基准覆盖推理固化与信念扭曲两类失效模式。论文发现各类记忆框架均低于无记忆基线，并提出推理时提示方法 AdaptiveMem，在缓解这些问题的同时保持标准记忆基准性能。 \
   <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -10,10 +10,10 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>185</strong><span>Papers</span></div>
+    <div><strong>186</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>446</strong><span>Resource links</span></div>
-    <div><strong>2026.09</strong><span>Latest month</span></div>
+    <div><strong>449</strong><span>Resource links</span></div>
+    <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
 
@@ -96,11 +96,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">44 papers</span>
+  <span class="category-count">45 papers</span>
   <h3>Agents Application</h3>
   <p>Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>AI Research, Agent Development, Agent Evaluation, Agent Skills, Computer Use, Data Agents, Memory, Tool Use, Web Agents</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="agents-application.html#beyond-memory-harnessing-long-horizon-agents-with-explicit-belief-states">
+  <span>2026.10</span>
+  <strong>Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States</strong>
+  <em>Agents Application</em>
+</a>
 <a class="recent-row" href="llms.html#your-transformer-can-hold-two-thoughts-at-once-evidence-of-linear-superposition-in-llms">
   <span>2026.09</span>
   <strong>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#bellman-policy-optimization">
   <span>2026.09</span>
   <strong>Bellman Policy Optimization</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#score-centering-stabilizes-off-policy-reinforcement-learning">
-  <span>2026.09</span>
-  <strong>Score Centering Stabilizes Off-policy Reinforcement Learning</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>
