@@ -698,6 +698,10 @@
 
 ## Multimodal RL
 
+- **Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL** (2026.09) \
+  **Description**: Adaptive Reward Routing improves reinforcement learning for joint audio-video diffusion by using cross-attention responses to direct reward-driven updates and reward-gradient interactions to adjust competing objectives. It improves modality quality, semantic alignment, and audio-video synchronization over RL baselines. \
+  <a href="https://arxiv.org/abs/2609.37200"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
   **Description**: This paper introduces CapRL, the first RLVR framework for open-ended image captioning, which rewards captions by whether a vision-free language model can answer image questions using only the generated description. The resulting CapRL-3B model produces more informative and diverse captions, while its generated caption data improves large vision-language model pretraining across 12 benchmarks. \
   <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

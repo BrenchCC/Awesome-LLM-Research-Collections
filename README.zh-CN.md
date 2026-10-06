@@ -697,6 +697,10 @@
 
 ## 多模态强化学习
 
+- **Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL** (2026.09) \
+  **描述**: Adaptive Reward Routing 面向音视频联合扩散模型的强化学习，利用跨注意力响应动态定位奖励驱动的更新，并依据奖励梯度交互协调相互竞争的目标。相比强化学习基线，该方法提升了单模态质量、跨模态语义对齐和音视频同步效果。 \
+  <a href="https://arxiv.org/abs/2609.37200"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
   **描述**: 该论文提出 CapRL，首次将 RLVR 应用于开放式图像描述，通过检验无视觉语言模型能否仅依据生成描述回答图像问题来构造奖励。训练得到的 CapRL-3B 能生成信息更丰富且更多样的描述，其生成的描述数据还在 12 个基准上提升了大视觉语言模型的预训练效果。 \
   <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

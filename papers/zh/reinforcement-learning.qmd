@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>61</strong><span>论文</span></div>
-    <div><strong>126</strong><span>资源链接</span></div>
+    <div><strong>62</strong><span>论文</span></div>
+    <div><strong>127</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -457,10 +457,21 @@ toc: false
 </section>
 <section class="paper-section" id="multimodal-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>多模态强化学习</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="adaptive-reward-routing-dynamic-multi-reward-optimization-for-joint-audio-video-diffusion-via-forward-process-rl">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>多模态强化学习</span>
+  </div>
+  <h3>Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL</h3>
+  <p>Adaptive Reward Routing 面向音视频联合扩散模型的强化学习，利用跨注意力响应动态定位奖励驱动的更新，并依据奖励梯度交互协调相互竞争的目标。相比强化学习基线，该方法提升了单模态质量、跨模态语义对齐和音视频同步效果。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.37200" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="caprl-stimulating-dense-image-caption-capabilities-via-reinforcement-learning">
   <div class="paper-meta">
     <span>2025.09</span>
