@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>187</strong><span>Papers</span></div>
+    <div><strong>188</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>450</strong><span>Resource links</span></div>
+    <div><strong>453</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,11 +87,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">62 papers</span>
+  <span class="category-count">63 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>Agentic RL, Multimodal RL, OPD, Policy Optimization, Reasoning RL, Reward Modeling, VLA RL, Video Generation RL</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="reinforcement-learning.html#sharpening-tax-in-post-training">
+  <span>2026.10</span>
+  <strong>Sharpening Tax in Post-Training</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="agents-application.html#beyond-memory-harnessing-long-horizon-agents-with-explicit-belief-states">
   <span>2026.10</span>
   <strong>Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics</strong>
   <em>Training</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#bellman-policy-optimization">
-  <span>2026.09</span>
-  <strong>Bellman Policy Optimization</strong>
-  <em>Reinforcement Learning</em>
 </a>
   </div>
 </section>

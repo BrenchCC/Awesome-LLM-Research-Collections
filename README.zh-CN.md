@@ -766,6 +766,12 @@
 
 ## 智能体强化学习
 
+- **Sharpening Tax in Post-Training** (2026.10) \
+  **描述**: 该论文发现 RL 后训练往往提高智能体的单次成功率，却缩小多次尝试能够覆盖的任务范围，并提出 Sharpening Tax 衡量测试时扩展能力的损失。Posterior-tempered group sampling 在 RL 训练中按任务难度调整采样温度，同时提升单次准确率与解题覆盖率。 \
+  <a href="https://arxiv.org/abs/2610.01509"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://changdaeoh.github.io/sharpening-tax/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/changdaeoh/sharpening-tax"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
   **描述**: SafeEvolve 利用当前策略生成的智能体轨迹中的安全证据，让运行时安全提示、分层技能与策略共同演化。它将有界、可审计的 harness 更新与学习使用 harness 的 SFT、采用验证器分解奖励的 harness 增强 RL 相结合，在多步交互中改善安全性与任务效用的平衡。 \
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
