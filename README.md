@@ -984,6 +984,13 @@
   <a href="https://raven.evermind.ai/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/EverMind-AI/Raven"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Agent Priors-guided Policy Learning** (2026.09) \
+  **Description**: APPL uses each skill policy's structural prior as an interface between learning from a few demonstrations and agent-based skill composition. A construction agent trains and verifies prior-specific policies, while a runtime agent selects and combines them for new tasks and scenes. \
+  <a href="https://arxiv.org/abs/2609.35690"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://agentics-robotics.github.io/APPL/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Agentics-robotics/Agent-Priors-guided-Policy-Learning"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/papers/2609.35690"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **Description**: LongHorizon-Harness reframes long-horizon execution as explicit task-state management, updating external state only with facts independently verified from the environment. Its Manage-Execute-Audit loop separates planning, fresh-context execution, and read-only verification, improving reliability across computer-use and terminal benchmarks. \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

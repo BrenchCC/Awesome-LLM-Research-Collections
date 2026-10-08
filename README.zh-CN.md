@@ -983,6 +983,13 @@
   <a href="https://raven.evermind.ai/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/EverMind-AI/Raven"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Agent Priors-guided Policy Learning** (2026.09) \
+  **描述**: APPL 将每项技能策略的结构先验作为少量示范学习与智能体技能组合之间的接口。构建智能体训练并验证针对不同先验的策略，运行时智能体则依据这些接口选择、组合策略，以应对新任务和新场景。 \
+  <a href="https://arxiv.org/abs/2609.35690"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://agentics-robotics.github.io/APPL/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Agentics-robotics/Agent-Priors-guided-Policy-Learning"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/papers/2609.35690"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LongHorizon-Harness: Advancing Long-Horizon Agents for Real-World Tasks** (2026.08) \
   **描述**: LongHorizon-Harness 将长程执行重构为显式任务状态管理，仅使用从环境中独立验证的事实更新外部状态。其 Manage-Execute-Audit 循环将规划、全新上下文执行与只读验证分离，在计算机使用和终端任务基准上提升智能体可靠性。 \
   <a href="https://arxiv.org/abs/2608.01964"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
