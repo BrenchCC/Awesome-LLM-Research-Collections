@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>189</strong><span>Papers</span></div>
+    <div><strong>190</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>457</strong><span>Resource links</span></div>
+    <div><strong>459</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">12 papers</span>
+  <span class="category-count">13 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="category-foot">
@@ -161,14 +161,14 @@ toc: false
   <strong>StudentSim: Training LLM-based Student Simulators</strong>
   <em>SFT</em>
 </a>
+<a class="recent-row" href="training.html#graphforge-training-working-agents-with-graph-anchored-workspace-synthesis">
+  <span>2026.09</span>
+  <strong>GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis</strong>
+  <em>Training</em>
+</a>
 <a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
   <span>2026.09</span>
   <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
-  <em>Training</em>
-</a>
-<a class="recent-row" href="training.html#on-policy-or-off-policy-learning-a-systematic-study-of-distillation-dynamics">
-  <span>2026.09</span>
-  <strong>On-Policy or Off-Policy Learning? A Systematic Study of Distillation Dynamics</strong>
   <em>Training</em>
 </a>
   </div>

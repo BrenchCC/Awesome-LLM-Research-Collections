@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>12</strong><span>论文</span></div>
-    <div><strong>25</strong><span>资源链接</span></div>
+    <div><strong>13</strong><span>论文</span></div>
+    <div><strong>27</strong><span>资源链接</span></div>
     <div><strong>2026.09</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,10 +24,22 @@ toc: false
 
 <section class="paper-section" id="data-preparation">
   <div class="section-heading compact">
-    <p class="eyebrow">2 篇论文</p>
+    <p class="eyebrow">3 篇论文</p>
     <h2>数据准备</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="graphforge-training-working-agents-with-graph-anchored-workspace-synthesis">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>数据准备</span>
+  </div>
+  <h3>GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis</h3>
+  <p>GraphForge 从真实文件组成的工作空间合成工作型智能体训练任务，并用证据图将任务要求与验收标准共同锚定到文件证据。它先检验任务可执行性并修订任务，再收集轨迹用于微调，从而提升智能体在下游任务上的表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.38923" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://huggingface.co/collections/groundhogLLM/graphforge" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="bigbang-pursuing-open-ended-intelligence-through-self-evolving-synthesis-of-verifiable-frontier-tasks">
   <div class="paper-meta">
     <span>2026.08</span>

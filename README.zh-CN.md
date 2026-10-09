@@ -455,6 +455,11 @@
 
 ## 数据准备
 
+- **GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis** (2026.09) \
+  **描述**: GraphForge 从真实文件组成的工作空间合成工作型智能体训练任务，并用证据图将任务要求与验收标准共同锚定到文件证据。它先检验任务可执行性并修订任务，再收集轨迹用于微调，从而提升智能体在下游任务上的表现。 \
+  <a href="https://arxiv.org/abs/2609.38923"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://huggingface.co/collections/groundhogLLM/graphforge"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **BigBang: Pursuing Open-Ended Intelligence through Self-Evolving Synthesis of Verifiable Frontier Tasks** (2026.08) \
   **描述**: BigBang 是一个通用 35B-A3B 模型，通过对抗式、自演化的生成器—评判器框架合成可验证前沿任务并进行后训练。该管线利用留出的真实研究任务进行校准，迭代提升任务难度与评估质量，从而在科学研究、推理、编程和工具调用上取得广泛增益。 \
   <a href="https://endlessfrontier.tech/assets/paper.pdf"><img src="assets/icons/paper.svg" alt="论文" width="20"></a>
