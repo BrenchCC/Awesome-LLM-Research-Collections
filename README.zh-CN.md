@@ -782,6 +782,13 @@
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/MaoPopovich/SafeEvolve"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization** (2026.09) \
+  **描述**: X-Tree 无需调用大语言模型，即可从智能体轨迹中挖掘可复用的动作层级，将频繁复现且关联成功结果的子过程合并为经验树。其节点分别作为离线强化学习的训练实例、在线 RLVR 的自适应技能奖励，以及在策略自蒸馏中教师模型的特权上下文。 \
+  <a href="https://arxiv.org/abs/2609.32993"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://sitaocheng.github.io/xtree/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/sitaocheng/X-Tree"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/papers/2609.32993"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents** (2026.08) \
   **描述**: 该论文提出 DART-SD，一种拓扑感知的自蒸馏框架，将多轮工具执行表示为交互状态转移图（ISTG），保留由无序子目标产生的菱形替代路径。它在失败的学生轨迹中识别关键拓扑断点（CTB），仅对检索得到的恢复步骤施加监督，从而保护有效前缀并逐步提升工具使用能力。 \
   <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

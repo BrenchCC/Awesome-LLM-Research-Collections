@@ -783,6 +783,13 @@
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/MaoPopovich/SafeEvolve"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization** (2026.09) \
+  **Description**: X-Tree mines reusable hierarchies of action spans from agent trajectories without LLM calls, merging frequently reused and successful subprocedures into an experience tree. Its nodes guide offline RL as training instances, online RLVR through adaptive skill bonuses, and on-policy self-distillation as privileged teacher context. \
+  <a href="https://arxiv.org/abs/2609.32993"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://sitaocheng.github.io/xtree/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/sitaocheng/X-Tree"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/papers/2609.32993"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents** (2026.08) \
   **Description**: This paper proposes DART-SD, a topology-aware self-distillation framework that represents multi-turn tool execution as an Interaction-State Transition Graph (ISTG), preserving the diamond-shaped alternatives induced by order-independent sub-goals. It identifies the Critical Topological Breakpoint (CTB) in failed student rollouts and applies supervision only to retrieved recovery steps, protecting valid prefixes while progressively improving tool-use behavior. \
   <a href="https://arxiv.org/abs/2608.18524"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

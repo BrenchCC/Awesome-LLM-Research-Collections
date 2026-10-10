@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>63</strong><span>论文</span></div>
-    <div><strong>130</strong><span>资源链接</span></div>
+    <div><strong>64</strong><span>论文</span></div>
+    <div><strong>134</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -629,7 +629,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">16 篇论文</p>
+    <p class="eyebrow">17 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -656,6 +656,20 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2609.02786" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/MaoPopovich/SafeEvolve" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="x-tree-tokenizing-reusable-experience-for-efficient-agent-generalization">
+  <div class="paper-meta">
+    <span>2026.09</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization</h3>
+  <p>X-Tree 无需调用大语言模型，即可从智能体轨迹中挖掘可复用的动作层级，将频繁复现且关联成功结果的子过程合并为经验树。其节点分别作为离线强化学习的训练实例、在线 RLVR 的自适应技能奖励，以及在策略自蒸馏中教师模型的特权上下文。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2609.32993" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://sitaocheng.github.io/xtree/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/sitaocheng/X-Tree" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/papers/2609.32993" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="dart-sd-diamond-topology-aware-retrieval-and-tuning-for-self-distillation-of-multi-turn-tool-calling-agents">
