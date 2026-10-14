@@ -979,6 +979,12 @@
 
 ## Agent Development
 
+- **Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens** (2026.10) \
+  **Description**: PyRUA-Lean lets robot agents compose action primitives and VLA policies in executable Python cells with conditional checks, local retries, and selective visual feedback. Across 700 simulated tasks, it raises success from 63.1% to 71.7% under equal LLM-call budgets; on tasks both agents solve, it uses 49% fewer calls and 65% fewer input tokens. \
+  <a href="https://arxiv.org/abs/2610.01939"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://dagroup-pku.github.io/PyRUA-Lean/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/DAGroup-PKU/PyRUA-Lean"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
   **Description**: Qwen-Planner-Agent links agent-driven task and trajectory generation, supervised and reinforcement learning for a mobile planner, and evidence-guided harness refinement in a closed development loop. Its competence-aware reward design reduces reasoning and tool-use costs while preserving task performance. \
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

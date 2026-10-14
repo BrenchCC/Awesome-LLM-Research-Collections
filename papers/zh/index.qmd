@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>191</strong><span>论文</span></div>
+    <div><strong>192</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>463</strong><span>资源链接</span></div>
+    <div><strong>466</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -96,7 +96,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">46 篇论文</span>
+  <span class="category-count">47 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
@@ -136,6 +136,11 @@ toc: false
   <strong>Sharpening Tax in Post-Training</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="agents-application.html#fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokens">
+  <span>2026.10</span>
+  <strong>Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="agents-application.html#beyond-memory-harnessing-long-horizon-agents-with-explicit-belief-states">
   <span>2026.10</span>
   <strong>Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="training.html#graphforge-training-working-agents-with-graph-anchored-workspace-synthesis">
   <span>2026.09</span>
   <strong>GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis</strong>
-  <em>训练</em>
-</a>
-<a class="recent-row" href="training.html#rethinking-on-policy-distillation-of-large-language-models-ii-one-training-example">
-  <span>2026.09</span>
-  <strong>Rethinking On-Policy Distillation of Large Language Models II: One Training Example</strong>
   <em>训练</em>
 </a>
   </div>
