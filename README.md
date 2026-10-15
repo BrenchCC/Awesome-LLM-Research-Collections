@@ -605,6 +605,11 @@
 
 ## OPD
 
+- **The Teacher Is a Direction, Not a Destination: Extrapolating RL-Induced Representation Residuals in On-Policy Distillation** (2026.09) \
+  **Description**: RIDE performs on-policy distillation by extrapolating the layerwise representation shift from a base model to its RL-trained teacher and regressing the student's hidden states toward those targets on student-generated trajectories. Across four model pairs, it approaches or exceeds the teachers and outperforms output-space reward extrapolation. \
+  <a href="https://arxiv.org/abs/2609.36484"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/xixixixixxxx/RIDE"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement** (2026.08) \
   **Description**: This paper finds that noisy teacher supervision is not the main source of on-policy distillation gains: suppressing student-sampled low-probability tokens with a fixed negative advantage achieves comparable performance. It introduces On-Policy Self-Adaptation (OPSA), a teacher- and reward-free method that scales negative advantages by token entropy to improve reasoning and generalization. \
   <a href="https://arxiv.org/abs/2608.31046"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

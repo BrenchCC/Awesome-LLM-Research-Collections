@@ -604,6 +604,11 @@
 
 ## OPD
 
+- **The Teacher Is a Direction, Not a Destination: Extrapolating RL-Induced Representation Residuals in On-Policy Distillation** (2026.09) \
+  **描述**: RIDE 在学生自行生成的轨迹上，将基座模型到强化学习教师模型的逐层表征变化向教师之外外推，并以此作为学生隐状态的回归目标。在四组模型上，该方法达到或超过教师模型的表现，且优于输出空间的奖励外推。 \
+  <a href="https://arxiv.org/abs/2609.36484"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/xixixixixxxx/RIDE"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **Does On-Policy Distillation Really Distill? From Noisy Teacher to Self-Improvement** (2026.08) \
   **描述**: 该论文发现，教师监督中的噪声并非 on-policy distillation 性能提升的主要来源：仅对学生采样的低概率 token 施加固定负优势，即可达到相近效果。论文进一步提出无需教师和奖励的 On-Policy Self-Adaptation（OPSA），按 token 熵缩放负优势，以提升推理能力与泛化表现。 \
   <a href="https://arxiv.org/abs/2608.31046"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
