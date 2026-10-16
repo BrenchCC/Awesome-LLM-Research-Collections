@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>193</strong><span>论文</span></div>
+    <div><strong>194</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>468</strong><span>资源链接</span></div>
+    <div><strong>472</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">21 篇论文</span>
+  <span class="category-count">22 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>多模态推理、视觉-语言-动作、视觉语言</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
+  <span>2026.10</span>
+  <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
+  <em>多模态大模型</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#sharpening-tax-in-post-training">
   <span>2026.10</span>
   <strong>Sharpening Tax in Post-Training</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>StudentSim: Training LLM-based Student Simulators</strong>
   <em>监督微调</em>
-</a>
-<a class="recent-row" href="training.html#graphforge-training-working-agents-with-graph-anchored-workspace-synthesis">
-  <span>2026.09</span>
-  <strong>GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis</strong>
-  <em>训练</em>
 </a>
   </div>
 </section>

@@ -266,6 +266,13 @@
 
 ## 视觉语言
 
+- **OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding** (2026.10) \
+  **描述**: OmniCompass 通过视觉与音视频联合两条评测轨道，在纯文本及文本加图像的配对目标描述下，结合时间定位、空间定位和问答任务评估视频理解能力。对 50 个多模态大模型的评测揭示了精确定位、音视频理解及不同目标描述下预测一致性方面的持续挑战。 \
+  <a href="https://arxiv.org/abs/2610.18829"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://omnicompass.netlify.app/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/PolyU-VCLab/OmniCompass"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **描述**: Intern-S2-Preview 是一系列科学智能体基础模型，通过科学多模态预训练、统一监督微调、多任务与智能体强化学习以及 on-policy 蒸馏，支持科学理解、推理、生成和长程任务。其 397B 模型进一步加入时间序列预测，并以独立的 Memory Decoder 路径实现快速科学领域适配，在科学、多模态、智能体及通用基准上取得有竞争力或领先的结果。 \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

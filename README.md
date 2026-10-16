@@ -267,6 +267,13 @@
 
 ## Vision-Language
 
+- **OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding** (2026.10) \
+  **Description**: OmniCompass evaluates video understanding through visual and joint audio-visual tracks, combining temporal grounding, spatial grounding, and question answering under paired text-only and text+image target specifications. Evaluation of 50 MLLMs reveals persistent difficulties in precise grounding, audio-visual understanding, and consistency across target specifications. \
+  <a href="https://arxiv.org/abs/2610.18829"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://omnicompass.netlify.app/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/PolyU-VCLab/OmniCompass"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **Description**: Intern-S2-Preview is a series of scientific agentic foundation models that combines multimodal scientific pre-training with unified supervised fine-tuning, multi-task and agentic reinforcement learning, and on-policy distillation for scientific understanding, reasoning, generation, and long-horizon tasks. Its 397B model adds time-series forecasting and a separate Memory Decoder path for rapid scientific specialization, achieving competitive or leading results across scientific, multimodal, agentic, and general-purpose benchmarks. \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
