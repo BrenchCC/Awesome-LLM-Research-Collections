@@ -789,6 +789,12 @@
   <a href="https://changdaeoh.github.io/sharpening-tax/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/changdaeoh/sharpening-tax"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement** (2026.10) \
+  **描述**: MiMo-V2.6 通过异步大批量训练、多样化环境与智能体运行框架，以及为长程任务提供更细致奖励信号的组内智能体评分，扩展智能体强化学习。冻结 MoE 路由器、多层奖励投机防御和统一的混合任务 rollout 基础设施，支持在代码、通用、视觉与网络安全任务上稳定扩大训练规模。 \
+  <a href="https://arxiv.org/abs/2610.11959"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://mimo.xiaomi.com/rl/mimo-v26/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
   **描述**: SafeEvolve 利用当前策略生成的智能体轨迹中的安全证据，让运行时安全提示、分层技能与策略共同演化。它将有界、可审计的 harness 更新与学习使用 harness 的 SFT、采用验证器分解奖励的 harness 增强 RL 相结合，在多步交互中改善安全性与任务效用的平衡。 \
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

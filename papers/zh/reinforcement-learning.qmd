@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>65</strong><span>论文</span></div>
-    <div><strong>136</strong><span>资源链接</span></div>
+    <div><strong>66</strong><span>论文</span></div>
+    <div><strong>139</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -641,7 +641,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">17 篇论文</p>
+    <p class="eyebrow">18 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -656,6 +656,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.01509" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://changdaeoh.github.io/sharpening-tax/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/changdaeoh/sharpening-tax" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="mimo-v2-6-scaling-reinforcement-learning-towards-self-improvement">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</h3>
+  <p>MiMo-V2.6 通过异步大批量训练、多样化环境与智能体运行框架，以及为长程任务提供更细致奖励信号的组内智能体评分，扩展智能体强化学习。冻结 MoE 路由器、多层奖励投机防御和统一的混合任务 rollout 基础设施，支持在代码、通用、视觉与网络安全任务上稳定扩大训练规模。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.11959" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://mimo.xiaomi.com/rl/mimo-v26/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="safeevolve-harness-policy-co-evolution-from-agent-experience-for-safety-alignment">

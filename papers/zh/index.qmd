@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>194</strong><span>论文</span></div>
+    <div><strong>195</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>472</strong><span>资源链接</span></div>
+    <div><strong>475</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">65 篇论文</span>
+  <span class="category-count">66 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>Sharpening Tax in Post-Training</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#mimo-v2-6-scaling-reinforcement-learning-towards-self-improvement">
+  <span>2026.10</span>
+  <strong>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="agents-application.html#fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokens">
   <span>2026.10</span>
   <strong>Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</strong>
   <em>结构化数据</em>
-</a>
-<a class="recent-row" href="sft.html#studentsim-training-llm-based-student-simulators">
-  <span>2026.09</span>
-  <strong>StudentSim: Training LLM-based Student Simulators</strong>
-  <em>监督微调</em>
 </a>
   </div>
 </section>
