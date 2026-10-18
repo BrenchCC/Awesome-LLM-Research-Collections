@@ -223,6 +223,13 @@
 
 ## Inference
 
+- **Thinking Inertia: LLMs Keep Thinking When Told Not To** (2026.10) \
+  **Description**: This paper evaluates no-thinking behavior by separating visible pre-answer text from final answers and measuring answer-only compliance, question relevance, and explicit inference. Across six LLMs and six prompting interventions, explicit inference persists under no-thinking controls, becoming more prevalent as answer spaces open and exposing a compliance–accuracy trade-off on open-ended tasks. \
+  <a href="https://arxiv.org/abs/2610.11765"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://thinking-inertia.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/thinking-inertia/code"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/thinking-inertia/llm-nothinking-trajectories"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers** (2026.08) \
   **Description**: LLMRouter formulates LLM routing as a sequential decision process spanning single-turn, multi-turn, and personalized settings, and provides modular infrastructure with an automated pipeline for joint quality-cost evaluation. Its xRouteBench benchmark covers five routing scenarios, while experiments across more than 16 representative routers show that learned routers achieve a 14.6% relative improvement over the strongest fixed-model baseline. \
   <a href="https://arxiv.org/abs/2608.06867"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

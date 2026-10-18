@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>26</strong><span>论文</span></div>
-    <div><strong>77</strong><span>资源链接</span></div>
-    <div><strong>2026.09</strong><span>最新月份</span></div>
+    <div><strong>27</strong><span>论文</span></div>
+    <div><strong>81</strong><span>资源链接</span></div>
+    <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#foundation-models">基础模型</a>
@@ -285,10 +285,24 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>推理</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="thinking-inertia-llms-keep-thinking-when-told-not-to">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>推理</span>
+  </div>
+  <h3>Thinking Inertia: LLMs Keep Thinking When Told Not To</h3>
+  <p>该论文将可见的答案前文本与最终答案分离，从仅输出答案的遵从率、问题相关性和显式推理三个层面评估不思考行为。对六个大语言模型和六种提示干预的评测发现，不思考控制下仍会出现显式推理，且答案空间越开放越普遍；开放式任务还呈现仅输出答案的遵从率与准确率之间的权衡。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.11765" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://thinking-inertia.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/thinking-inertia/code" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/thinking-inertia/llm-nothinking-trajectories" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
   <div class="paper-meta">
     <span>2026.08</span>

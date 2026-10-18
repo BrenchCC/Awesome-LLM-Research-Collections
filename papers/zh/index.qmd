@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>195</strong><span>论文</span></div>
+    <div><strong>196</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>475</strong><span>资源链接</span></div>
+    <div><strong>479</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,11 +33,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">26 篇论文</span>
+  <span class="category-count">27 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>可解释性、基础模型、推理、检测</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="llms.html#thinking-inertia-llms-keep-thinking-when-told-not-to">
+  <span>2026.10</span>
+  <strong>Thinking Inertia: LLMs Keep Thinking When Told Not To</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
   <span>2026.10</span>
   <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
   <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="structured-data.html#limix-2-a-contextual-mechanism-network-towards-general-structured-data-intelligence">
-  <span>2026.09</span>
-  <strong>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</strong>
-  <em>结构化数据</em>
 </a>
   </div>
 </section>

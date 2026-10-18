@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>195</strong><span>Papers</span></div>
+    <div><strong>196</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>475</strong><span>Resource links</span></div>
+    <div><strong>479</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,11 +33,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">26 papers</span>
+  <span class="category-count">27 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>Detection, Foundation Models, Inference, Interpretability</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="llms.html#thinking-inertia-llms-keep-thinking-when-told-not-to">
+  <span>2026.10</span>
+  <strong>Thinking Inertia: LLMs Keep Thinking When Told Not To</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
   <span>2026.10</span>
   <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
   <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="structured-data.html#limix-2-a-contextual-mechanism-network-towards-general-structured-data-intelligence">
-  <span>2026.09</span>
-  <strong>LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence</strong>
-  <em>Structured Data</em>
 </a>
   </div>
 </section>
