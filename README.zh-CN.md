@@ -802,6 +802,12 @@
   <a href="https://mimo.xiaomi.com/rl/mimo-v26/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Agent-Reflex: Teaching Language Agents to Act Reflectively** (2026.10) \
+  **描述**: Agent-Reflex 挖掘可复用的反思技能并将其转为反思式监督微调数据，训练工具调用智能体主动反思，从带噪声的工具反馈和用户纠正中恢复。其 On-Policy Reflective Policy Optimization 将噪声交互下的智能体强化学习与反思引导的在策略蒸馏结合，提升长程工具使用能力和噪声鲁棒性。 \
+  <a href="https://arxiv.org/abs/2610.17953"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/RUC-NLPIR/Agent-Reflex"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/collections/dongguanting/agent-reflex"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
   **描述**: SafeEvolve 利用当前策略生成的智能体轨迹中的安全证据，让运行时安全提示、分层技能与策略共同演化。它将有界、可审计的 harness 更新与学习使用 harness 的 SFT、采用验证器分解奖励的 harness 增强 RL 相结合，在多步交互中改善安全性与任务效用的平衡。 \
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

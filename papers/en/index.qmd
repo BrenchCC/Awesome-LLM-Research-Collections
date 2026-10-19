@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>196</strong><span>Papers</span></div>
+    <div><strong>197</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>479</strong><span>Resource links</span></div>
+    <div><strong>482</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">66 papers</span>
+  <span class="category-count">67 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -151,6 +151,11 @@ toc: false
   <strong>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#agent-reflex-teaching-language-agents-to-act-reflectively">
+  <span>2026.10</span>
+  <strong>Agent-Reflex: Teaching Language Agents to Act Reflectively</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="agents-application.html#fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokens">
   <span>2026.10</span>
   <strong>Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.09</span>
   <strong>Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs</strong>
   <em>LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#think-before-you-link-rarity-reasoning-and-retrieval-in-multilingual-entity-linking">
-  <span>2026.09</span>
-  <strong>Think Before You Link: Rarity, Reasoning, and Retrieval in Multilingual Entity Linking</strong>
-  <em>Multimodal LLMs</em>
 </a>
   </div>
 </section>

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>66</strong><span>Papers</span></div>
-    <div><strong>139</strong><span>Resource links</span></div>
+    <div><strong>67</strong><span>Papers</span></div>
+    <div><strong>142</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -641,7 +641,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">18 papers</p>
+    <p class="eyebrow">19 papers</p>
     <h2>Agentic RL</h2>
   </div>
   <div class="paper-grid">
@@ -669,6 +669,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.11959" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://mimo.xiaomi.com/rl/mimo-v26/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="agent-reflex-teaching-language-agents-to-act-reflectively">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>Agentic RL</span>
+  </div>
+  <h3>Agent-Reflex: Teaching Language Agents to Act Reflectively</h3>
+  <p>Agent-Reflex trains tool-using agents to reflect proactively and recover from noisy tool feedback and user corrections by mining reusable reflection skills and converting them into reflective supervised fine-tuning data. Its On-Policy Reflective Policy Optimization combines agentic RL under noisy interactions with reflection-guided on-policy distillation, improving long-horizon tool use and robustness to noise.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.17953" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/RUC-NLPIR/Agent-Reflex" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/collections/dongguanting/agent-reflex" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="safeevolve-harness-policy-co-evolution-from-agent-experience-for-safety-alignment">
