@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>27</strong><span>Papers</span></div>
-    <div><strong>81</strong><span>Resource links</span></div>
+    <div><strong>28</strong><span>Papers</span></div>
+    <div><strong>83</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -285,7 +285,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Inference</h2>
   </div>
   <div class="paper-grid">
@@ -338,6 +338,18 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2604.24927" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/LinesHogan/tLLM" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+<article class="paper-card" id="procedural-knowledge-at-scale-improves-reasoning">
+  <div class="paper-meta">
+    <span>2026.04</span>
+    <span>Inference</span>
+  </div>
+  <h3>Procedural Knowledge at Scale Improves Reasoning</h3>
+  <p>Reasoning Memory decomposes existing reasoning trajectories into 32 million self-contained subquestion–subroutine pairs, then retrieves relevant subroutines within the model&#x27;s reasoning trace as procedural priors. Across six math, science, and coding benchmarks, it outperforms document-, trajectory-, and template-based RAG as well as a compute-matched test-time scaling baseline.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2604.01348" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/facebookresearch/reasoning-memory" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="caterpillar-of-thoughts-the-optimal-test-time-algorithm-for-large-language-models">

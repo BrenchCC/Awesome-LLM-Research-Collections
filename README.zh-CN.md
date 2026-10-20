@@ -245,6 +245,11 @@
   <a href="https://arxiv.org/abs/2604.24927"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/LinesHogan/tLLM"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Procedural Knowledge at Scale Improves Reasoning** (2026.04) \
+  **描述**: Reasoning Memory 将已有推理轨迹分解为 3200 万条自包含的子问题—子程序对，并在模型推理过程中检索相关子程序作为程序性先验。在六个数学、科学和代码基准上，该方法优于基于文档、完整轨迹和模板的 RAG，以及计算预算匹配的测试时扩展基线。 \
+  <a href="https://arxiv.org/abs/2604.01348"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/facebookresearch/reasoning-memory"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Caterpillar of Thoughts: The Optimal Test-Time Algorithm for Large Language Models** (2026.03) \
   **描述**: 该论文为 LLM 的最优测试时计算提出理论框架，证明最优算法总会生成一种“毛毛虫树”结构，并提出 CaT。该方法相比 Tree-of-Thoughts 用更少 token 生成取得更高成功率。 \
   <a href="https://arxiv.org/abs/2603.22784"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
