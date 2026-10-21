@@ -917,6 +917,13 @@
 
 ## Tool Use
 
+- **OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory** (2026.10) \
+  **Description**: OpenVLHarness combines task-level tool interfaces and evidence rendering with persistent multimodal memory, retaining images, structured data, and web references as addressable artifacts. A coding interface composes evidence across tools, enabling iterative visual reasoning and improving performance across 22 benchmarks with eight open and proprietary backbones. \
+  <a href="https://arxiv.org/abs/2610.26860"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://openvlharness.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/uclanlp/OpenVLHarness"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/uclanlp/OpenVLHarness-Evaluation-Datasets"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
   **Description**: This paper empirically studies how retrieval strategy, agent harness design, and tool-result delivery interact in agentic search. Across LongMemEval experiments with Chronos and provider CLI harnesses, grep often outperforms vector retrieval, while overall performance remains strongly shaped by the harness and tool-calling style. \
   <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

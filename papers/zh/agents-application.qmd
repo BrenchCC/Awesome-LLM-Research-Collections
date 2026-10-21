@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>47</strong><span>论文</span></div>
-    <div><strong>112</strong><span>资源链接</span></div>
+    <div><strong>48</strong><span>论文</span></div>
+    <div><strong>116</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -50,10 +50,24 @@ toc: false
 </section>
 <section class="paper-section" id="tool-use">
   <div class="section-heading compact">
-    <p class="eyebrow">3 篇论文</p>
+    <p class="eyebrow">4 篇论文</p>
     <h2>工具调用</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="openvlharness-real-world-visual-agentic-tool-use-with-multimodal-memory">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>工具调用</span>
+  </div>
+  <h3>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</h3>
+  <p>OpenVLHarness 将任务级工具接口与证据呈现结合，并通过持久多模态记忆将图像、结构化数据和网页引用保存为可寻址的资源。代码执行接口支持跨工具组合证据，实现迭代式视觉推理，并在八个开源及闭源骨干模型、22 个基准上提升表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.26860" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://openvlharness.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/uclanlp/OpenVLHarness" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/uclanlp/OpenVLHarness-Evaluation-Datasets" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="is-grep-all-you-need-how-agent-harnesses-reshape-agentic-search">
   <div class="paper-meta">
     <span>2026.05</span>

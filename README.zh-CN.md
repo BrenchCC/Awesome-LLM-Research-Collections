@@ -916,6 +916,13 @@
 
 ## 工具调用
 
+- **OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory** (2026.10) \
+  **描述**: OpenVLHarness 将任务级工具接口与证据呈现结合，并通过持久多模态记忆将图像、结构化数据和网页引用保存为可寻址的资源。代码执行接口支持跨工具组合证据，实现迭代式视觉推理，并在八个开源及闭源骨干模型、22 个基准上提升表现。 \
+  <a href="https://arxiv.org/abs/2610.26860"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://openvlharness.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/uclanlp/OpenVLHarness"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/uclanlp/OpenVLHarness-Evaluation-Datasets"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Is Grep All You Need? How Agent Harnesses Reshape Agentic Search** (2026.05) \
   **描述**: 该论文实证研究检索策略、智能体 harness 设计与工具结果呈现方式在 agentic search 中如何相互影响。在基于 LongMemEval、Chronos 和厂商 CLI harness 的实验中，grep 往往优于向量检索，但整体性能仍强烈受 harness 与工具调用风格影响。 \
   <a href="https://arxiv.org/abs/2605.15184"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
