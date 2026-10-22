@@ -1027,6 +1027,11 @@
   <a href="https://dagroup-pku.github.io/PyRUA-Lean/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/DAGroup-PKU/PyRUA-Lean"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Self-Evolving Agent Harness** (2026.10) \
+  **描述**: 该论文形式化固定模型权重下由反馈驱动的 harness 自演化过程，将提示、记忆、工作流、工具和运行时代码等持久更新对象，与修改提议及准入机制分开。论文在明确假设下分析演化搜索与持续 PAC 学习保证，并讨论评测、应用及部署问责问题。 \
+  <a href="https://arxiv.org/abs/2610.18813"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://zgcagi.github.io/Harness-RSI/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
   **描述**: Qwen-Planner-Agent 将智能体驱动的任务与轨迹生成、移动端规划模型的监督学习和强化学习，以及基于执行证据的 harness 改进连接为闭环开发流程。其能力感知奖励设计在保持任务表现的同时降低推理与工具调用成本。 \
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
