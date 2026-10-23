@@ -286,6 +286,12 @@
   <a href="https://github.com/PolyU-VCLab/OmniCompass"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **MJev-Spatial: System One Spatial Intelligence via Native Attention Matching** (2026.10) \
+  **Description**: MJev-Spatial unifies spatial choice, numerical prediction, and pointing as candidate classification, reusing pretrained query and key projections without adding parameters or generating answer tokens. Coarse-to-fine classification handles scalar and point outputs, while joint teacher-forced supervision and balanced batching improve training efficiency; the Qwen3.5-4B-based model outperforms its autoregressive base on all twelve evaluated benchmarks. \
+  <a href="https://arxiv.org/abs/2610.22276"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/Fr0zenCrane/MJev-Spatial"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/mindlab-research/MJev-Spatial-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **Description**: Intern-S2-Preview is a series of scientific agentic foundation models that combines multimodal scientific pre-training with unified supervised fine-tuning, multi-task and agentic reinforcement learning, and on-policy distillation for scientific understanding, reasoning, generation, and long-horizon tasks. Its 397B model adds time-series forecasting and a separate Memory Decoder path for rapid scientific specialization, achieving competitive or leading results across scientific, multimodal, agentic, and general-purpose benchmarks. \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

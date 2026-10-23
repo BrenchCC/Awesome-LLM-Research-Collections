@@ -285,6 +285,12 @@
   <a href="https://github.com/PolyU-VCLab/OmniCompass"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **MJev-Spatial: System One Spatial Intelligence via Native Attention Matching** (2026.10) \
+  **描述**: MJev-Spatial 将空间选择题、数值预测和点定位统一为候选分类，复用预训练的 query/key 投影，无需新增参数或生成答案 token。它通过由粗到细的分类处理数值与坐标输出，以联合教师强制监督和负载均衡批处理提升训练效率；基于 Qwen3.5-4B 的模型在全部十二个评测基准上优于其自回归基座。 \
+  <a href="https://arxiv.org/abs/2610.22276"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/Fr0zenCrane/MJev-Spatial"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/mindlab-research/MJev-Spatial-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **描述**: Intern-S2-Preview 是一系列科学智能体基础模型，通过科学多模态预训练、统一监督微调、多任务与智能体强化学习以及 on-policy 蒸馏，支持科学理解、推理、生成和长程任务。其 397B 模型进一步加入时间序列预测，并以独立的 Memory Decoder 路径实现快速科学领域适配，在科学、多模态、智能体及通用基准上取得有竞争力或领先的结果。 \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

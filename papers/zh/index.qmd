@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>200</strong><span>论文</span></div>
+    <div><strong>201</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>490</strong><span>资源链接</span></div>
+    <div><strong>493</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">22 篇论文</span>
+  <span class="category-count">23 篇论文</span>
   <h3>多模态大模型</h3>
   <p>连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
   <em>多模态大模型</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#mjev-spatial-system-one-spatial-intelligence-via-native-attention-matching">
+  <span>2026.10</span>
+  <strong>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</strong>
+  <em>多模态大模型</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#sharpening-tax-in-post-training">
   <span>2026.10</span>
   <strong>Sharpening Tax in Post-Training</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="agents-application.html#fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokens">
   <span>2026.10</span>
   <strong>Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens</strong>
-  <em>智能体应用</em>
-</a>
-<a class="recent-row" href="agents-application.html#self-evolving-agent-harness">
-  <span>2026.10</span>
-  <strong>Self-Evolving Agent Harness</strong>
   <em>智能体应用</em>
 </a>
   </div>

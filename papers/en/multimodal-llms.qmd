@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>Papers</span></div>
-    <div><strong>69</strong><span>Resource links</span></div>
+    <div><strong>23</strong><span>Papers</span></div>
+    <div><strong>72</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">16 papers</p>
+    <p class="eyebrow">17 papers</p>
     <h2>Vision-Language</h2>
   </div>
   <div class="paper-grid">
@@ -40,6 +40,19 @@ toc: false
 <a class="resource-link" href="https://omnicompass.netlify.app/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
 <a class="resource-link" href="https://github.com/PolyU-VCLab/OmniCompass" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="mjev-spatial-system-one-spatial-intelligence-via-native-attention-matching">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>Vision-Language</span>
+  </div>
+  <h3>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</h3>
+  <p>MJev-Spatial unifies spatial choice, numerical prediction, and pointing as candidate classification, reusing pretrained query and key projections without adding parameters or generating answer tokens. Coarse-to-fine classification handles scalar and point outputs, while joint teacher-forced supervision and balanced batching improve training efficiency; the Qwen3.5-4B-based model outperforms its autoregressive base on all twelve evaluated benchmarks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.22276" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/Fr0zenCrane/MJev-Spatial" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/mindlab-research/MJev-Spatial-4B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="intern-s2-preview-scientific-agentic-foundation-model">

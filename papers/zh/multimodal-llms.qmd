@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>22</strong><span>论文</span></div>
-    <div><strong>69</strong><span>资源链接</span></div>
+    <div><strong>23</strong><span>论文</span></div>
+    <div><strong>72</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -24,7 +24,7 @@ toc: false
 
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">16 篇论文</p>
+    <p class="eyebrow">17 篇论文</p>
     <h2>视觉语言</h2>
   </div>
   <div class="paper-grid">
@@ -40,6 +40,19 @@ toc: false
 <a class="resource-link" href="https://omnicompass.netlify.app/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/PolyU-VCLab/OmniCompass" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/datasets/VCLab-PolyU/OmniCompass" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="mjev-spatial-system-one-spatial-intelligence-via-native-attention-matching">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</h3>
+  <p>MJev-Spatial 将空间选择题、数值预测和点定位统一为候选分类，复用预训练的 query/key 投影，无需新增参数或生成答案 token。它通过由粗到细的分类处理数值与坐标输出，以联合教师强制监督和负载均衡批处理提升训练效率；基于 Qwen3.5-4B 的模型在全部十二个评测基准上优于其自回归基座。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.22276" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/Fr0zenCrane/MJev-Spatial" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/mindlab-research/MJev-Spatial-4B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="intern-s2-preview-scientific-agentic-foundation-model">
