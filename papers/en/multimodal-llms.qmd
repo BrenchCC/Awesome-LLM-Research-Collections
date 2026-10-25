@@ -11,17 +11,40 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>23</strong><span>Papers</span></div>
-    <div><strong>72</strong><span>Resource links</span></div>
+    <div><strong>24</strong><span>Papers</span></div>
+    <div><strong>76</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#vision-language">Vision-Language</a>
+    <a href="#video-generation">Video Generation</a>
+<a href="#vision-language">Vision-Language</a>
 <a href="#multimodal-reasoning">Multimodal Reasoning</a>
 <a href="#vla">VLA</a>
   </nav>
 </section>
 
+<section class="paper-section" id="video-generation">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Video Generation</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="streameval-evaluating-interactive-streaming-video-generation-models">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>Video Generation</span>
+  </div>
+  <h3>StreamEval: Evaluating Interactive Streaming Video Generation Models</h3>
+  <p>StreamEval is a benchmark for interactive streaming video generation across avatar dialogue and performance, world generation, and video editing. Its 300 scripted cases span 15–300-second sessions and use ten metrics to assess task execution, state consistency, visual fidelity, and audio-visual coordination.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.28402" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://streameval.ai/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/StreamEval/StreamEval" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/StreamEval/StreamEval" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
     <p class="eyebrow">17 papers</p>

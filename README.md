@@ -14,6 +14,7 @@
   - [Interpretability](#interpretability)
   - [Detection](#detection)
 - [Multimodal LLMs](#multimodal-llms)
+  - [Video Generation](#video-generation)
   - [Vision-Language](#vision-language)
   - [Multimodal Reasoning](#multimodal-reasoning)
   - [VLA](#vla)
@@ -276,6 +277,15 @@
   <a href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
 # Multimodal LLMs
+
+## Video Generation
+
+- **StreamEval: Evaluating Interactive Streaming Video Generation Models** (2026.10) \
+  **Description**: StreamEval is a benchmark for interactive streaming video generation across avatar dialogue and performance, world generation, and video editing. Its 300 scripted cases span 15–300-second sessions and use ten metrics to assess task execution, state consistency, visual fidelity, and audio-visual coordination. \
+  <a href="https://arxiv.org/abs/2610.28402"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://streameval.ai/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/StreamEval/StreamEval"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/StreamEval/StreamEval"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Vision-Language
 

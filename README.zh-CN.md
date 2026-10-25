@@ -13,6 +13,7 @@
   - [可解释性](#可解释性)
   - [检测](#检测)
 - [多模态大模型](#多模态大模型)
+  - [视频生成](#视频生成)
   - [视觉语言](#视觉语言)
   - [多模态推理](#多模态推理)
   - [视觉-语言-动作](#视觉-语言-动作)
@@ -275,6 +276,15 @@
   <a href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
 # 多模态大模型
+
+## 视频生成
+
+- **StreamEval: Evaluating Interactive Streaming Video Generation Models** (2026.10) \
+  **描述**: StreamEval 是一个交互式流式视频生成基准，涵盖数字人对话与表演、世界生成和视频编辑五类任务。它包含 300 个时长为 15–300 秒的脚本化案例，并通过十项指标评估任务执行、状态一致性、视觉保真度和音视频协调。 \
+  <a href="https://arxiv.org/abs/2610.28402"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://streameval.ai/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/StreamEval/StreamEval"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/StreamEval/StreamEval"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 视觉语言
 
