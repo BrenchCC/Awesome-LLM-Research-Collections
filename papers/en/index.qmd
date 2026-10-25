@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>202</strong><span>Papers</span></div>
+    <div><strong>203</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>497</strong><span>Resource links</span></div>
+    <div><strong>501</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">24 papers</span>
+  <span class="category-count">25 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>StreamEval: Evaluating Interactive Streaming Video Generation Models</strong>
   <em>Multimodal LLMs</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#wevisone-vl-unified-visual-perception-from-objects-to-pixels">
+  <span>2026.10</span>
+  <strong>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
   <span>2026.10</span>
   <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.10</span>
   <strong>Agent-Reflex: Teaching Language Agents to Act Reflectively</strong>
   <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="agents-application.html#openvlharness-real-world-visual-agentic-tool-use-with-multimodal-memory">
-  <span>2026.10</span>
-  <strong>OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory</strong>
-  <em>Agents Application</em>
 </a>
   </div>
 </section>

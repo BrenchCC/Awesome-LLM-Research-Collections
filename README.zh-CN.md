@@ -288,6 +288,13 @@
 
 ## 视觉语言
 
+- **WeVisOne-VL: Unified Visual Perception from Objects to Pixels** (2026.10) \
+  **描述**: WeVisOne-VL 将目标级与像素级视觉感知统一于一个视觉语言模型中，通过结构化 token 预测和轻量级像素解码器支持检测、定位、计数、指点、OCR、分割与抠图。模型采用分阶段监督微调和混合任务强化学习，在 30 多个基准上取得领先结果。 \
+  <a href="https://arxiv.org/abs/2610.31329"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://tencent.github.io/WeVisOne-VL/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Tencent/WeVisOne-VL"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/tencent/WeVisOne-VL-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding** (2026.10) \
   **描述**: OmniCompass 通过视觉与音视频联合两条评测轨道，在纯文本及文本加图像的配对目标描述下，结合时间定位、空间定位和问答任务评估视频理解能力。对 50 个多模态大模型的评测揭示了精确定位、音视频理解及不同目标描述下预测一致性方面的持续挑战。 \
   <a href="https://arxiv.org/abs/2610.18829"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

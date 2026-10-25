@@ -289,6 +289,13 @@
 
 ## Vision-Language
 
+- **WeVisOne-VL: Unified Visual Perception from Objects to Pixels** (2026.10) \
+  **Description**: WeVisOne-VL unifies object-level and pixel-level visual perception in a vision-language model, supporting detection, localization, counting, pointing, OCR, segmentation, and matting through structured token prediction and a lightweight pixel decoder. Trained with staged supervised fine-tuning followed by mixed-task reinforcement learning, it reports leading results across more than 30 benchmarks. \
+  <a href="https://arxiv.org/abs/2610.31329"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://tencent.github.io/WeVisOne-VL/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Tencent/WeVisOne-VL"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/tencent/WeVisOne-VL-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding** (2026.10) \
   **Description**: OmniCompass evaluates video understanding through visual and joint audio-visual tracks, combining temporal grounding, spatial grounding, and question answering under paired text-only and text+image target specifications. Evaluation of 50 MLLMs reveals persistent difficulties in precise grounding, audio-visual understanding, and consistency across target specifications. \
   <a href="https://arxiv.org/abs/2610.18829"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
