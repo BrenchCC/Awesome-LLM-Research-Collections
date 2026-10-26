@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>49</strong><span>论文</span></div>
-    <div><strong>118</strong><span>资源链接</span></div>
+    <div><strong>50</strong><span>论文</span></div>
+    <div><strong>121</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -535,10 +535,23 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">5 篇论文</p>
+    <p class="eyebrow">6 篇论文</p>
     <h2>智能体评测</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="userarena-benchmarking-interactive-user-simulation-for-long-horizon-shopping-agents">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents</h3>
+  <p>UserArena 基于 64,729 条真实电商会话构建长程购物智能体的用户模拟基准，结合交互环境与五级评测体系，并通过生产环境 A/B 测试结果验证离线评估。论文还提出 On-Policy Trajectory Distillation，利用轨迹级意图监督学生模型生成的轨迹，以提高模拟保真度。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.30932" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://recgpt-team.github.io/UserArena-Page/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/RecGPT-Team/UserArena" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="swe-bench-promax-benchmarking-agents-on-large-scale-multilingual-code-refactoring">
   <div class="paper-meta">
     <span>2026.08</span>

@@ -1144,6 +1144,12 @@
 
 ## Agent Evaluation
 
+- **UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents** (2026.10) \
+  **Description**: UserArena benchmarks long-horizon shopping-agent user simulation with 64,729 real e-commerce sessions, an interactive environment, and five levels of evaluation validated against production A/B outcomes. It also introduces On-Policy Trajectory Distillation, which uses trajectory-level intent to supervise student-generated rollouts and improve simulation fidelity. \
+  <a href="https://arxiv.org/abs/2610.30932"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://recgpt-team.github.io/UserArena-Page/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/RecGPT-Team/UserArena"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \
   **Description**: SWE-Bench ProMax is an expert-curated benchmark of 170 large-scale code-refactoring tasks drawn from real commits across seven programming languages, with rewritten specifications and manually reviewed tests. Its cross-file tasks average 11.4 modified files and 261.6 changed lines, while the best evaluated frontier model resolves only 41.2%. \
   <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

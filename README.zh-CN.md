@@ -1143,6 +1143,12 @@
 
 ## 智能体评测
 
+- **UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents** (2026.10) \
+  **描述**: UserArena 基于 64,729 条真实电商会话构建长程购物智能体的用户模拟基准，结合交互环境与五级评测体系，并通过生产环境 A/B 测试结果验证离线评估。论文还提出 On-Policy Trajectory Distillation，利用轨迹级意图监督学生模型生成的轨迹，以提高模拟保真度。 \
+  <a href="https://arxiv.org/abs/2610.30932"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://recgpt-team.github.io/UserArena-Page/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/RecGPT-Team/UserArena"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring** (2026.08) \
   **描述**: SWE-Bench ProMax 是一个经专家策划的多语言大规模代码重构基准，包含来自七种编程语言真实提交的 170 个任务，并采用重写的明确任务描述与人工审查的测试。其跨文件任务平均修改 11.4 个文件和 261.6 行代码，而受测最佳前沿模型的解决率仅为 41.2%。 \
   <a href="https://arxiv.org/abs/2608.09802"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
