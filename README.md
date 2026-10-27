@@ -1056,6 +1056,12 @@
   <a href="https://arxiv.org/abs/2610.18813"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://zgcagi.github.io/Harness-RSI/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **RSIHub: A Composable Framework for Agent-Evolution Methods** (2026.10) \
+  **Description**: RSIHub provides shared infrastructure for agent-evolution methods, combining reusable operators and recipes with controlled mutable resources, fixed evaluation, recovery, and traceable candidate histories. It implements AHE, Hyperagents, A-Evolve, and GEPA without changing the framework core, enabling comparisons under consistent evaluation conditions. \
+  <a href="https://arxiv.org/abs/2610.32253"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://simpleagentlab.com/rsihub/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/simple-agent-lab/RSIHub"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
   **Description**: Qwen-Planner-Agent links agent-driven task and trajectory generation, supervised and reinforcement learning for a mobile planner, and evidence-guided harness refinement in a closed development loop. Its competence-aware reward design reduces reasoning and tool-use costs while preserving task performance. \
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -1055,6 +1055,12 @@
   <a href="https://arxiv.org/abs/2610.18813"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://zgcagi.github.io/Harness-RSI/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **RSIHub: A Composable Framework for Agent-Evolution Methods** (2026.10) \
+  **描述**: RSIHub 为智能体演化方法提供共享实验基础设施，通过可复用算子和配方组合受控的修改范围、固定评测、故障恢复与可追溯的候选历史。它无需修改框架核心即可实现 AHE、Hyperagents、A-Evolve 和 GEPA，使不同方法能在一致的评测条件下比较。 \
+  <a href="https://arxiv.org/abs/2610.32253"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://simpleagentlab.com/rsihub/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/simple-agent-lab/RSIHub"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents** (2026.09) \
   **描述**: Qwen-Planner-Agent 将智能体驱动的任务与轨迹生成、移动端规划模型的监督学习和强化学习，以及基于执行证据的 harness 改进连接为闭环开发流程。其能力感知奖励设计在保持任务表现的同时降低推理与工具调用成本。 \
   <a href="https://arxiv.org/abs/2609.29892"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

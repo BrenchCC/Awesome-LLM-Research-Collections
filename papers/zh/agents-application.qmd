@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>50</strong><span>论文</span></div>
-    <div><strong>121</strong><span>资源链接</span></div>
+    <div><strong>51</strong><span>论文</span></div>
+    <div><strong>124</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -311,7 +311,7 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">17 篇论文</p>
+    <p class="eyebrow">18 篇论文</p>
     <h2>智能体开发</h2>
   </div>
   <div class="paper-grid">
@@ -338,6 +338,19 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2610.18813" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://zgcagi.github.io/Harness-RSI/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
+<article class="paper-card" id="rsihub-a-composable-framework-for-agent-evolution-methods">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>智能体开发</span>
+  </div>
+  <h3>RSIHub: A Composable Framework for Agent-Evolution Methods</h3>
+  <p>RSIHub 为智能体演化方法提供共享实验基础设施，通过可复用算子和配方组合受控的修改范围、固定评测、故障恢复与可追溯的候选历史。它无需修改框架核心即可实现 AHE、Hyperagents、A-Evolve 和 GEPA，使不同方法能在一致的评测条件下比较。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.32253" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://simpleagentlab.com/rsihub/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/simple-agent-lab/RSIHub" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="qwen-planner-agent-a-closed-loop-ai-for-ai-framework-for-real-world-mobile-planner-agents">
