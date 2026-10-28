@@ -497,6 +497,13 @@
 
 ## 数据准备
 
+- **Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents** (2026.10) \
+  **描述**: Trajectory2Gym 构造可执行的工具调用交互，覆盖训练数据中不足的多步依赖，并仅对能由智能体可见历史支持的决策提供监督。结合结构支持度选择和按原始交互归一化的 SFT，五种 Qwen3 模型规模在 Tau1、Tau2 和 BFCL 上的平均得分提高了 16.9–29.8 个百分点。 \
+  <a href="https://arxiv.org/abs/2610.33568"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://yihaohu0118.github.io/Trajectory2Gym-page/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/yihaohu0118/Trajectory2Gym"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/mis2/Trajectory2gym"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis** (2026.09) \
   **描述**: GraphForge 从真实文件组成的工作空间合成工作型智能体训练任务，并用证据图将任务要求与验收标准共同锚定到文件证据。它先检验任务可执行性并修订任务，再收集轨迹用于微调，从而提升智能体在下游任务上的表现。 \
   <a href="https://arxiv.org/abs/2609.38923"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

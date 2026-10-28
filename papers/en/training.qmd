@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>13</strong><span>Papers</span></div>
-    <div><strong>27</strong><span>Resource links</span></div>
-    <div><strong>2026.09</strong><span>Latest month</span></div>
+    <div><strong>14</strong><span>Papers</span></div>
+    <div><strong>31</strong><span>Resource links</span></div>
+    <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#data-preparation">Data Preparation</a>
@@ -24,10 +24,24 @@ toc: false
 
 <section class="paper-section" id="data-preparation">
   <div class="section-heading compact">
-    <p class="eyebrow">3 papers</p>
+    <p class="eyebrow">4 papers</p>
     <h2>Data Preparation</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="trajectory2gym-decision-grounded-compositional-interaction-synthesis-for-tool-use-agents">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>Data Preparation</span>
+  </div>
+  <h3>Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents</h3>
+  <p>Trajectory2Gym constructs executable tool-use interactions to cover underrepresented multi-step dependencies and supervises only decisions justified by the agent&#x27;s visible history. Structural-support selection and parent-normalized SFT improve the mean score across Tau1, Tau2, and BFCL by 16.9–29.8 percentage points across five Qwen3 scales.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.33568" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://yihaohu0118.github.io/Trajectory2Gym-page/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/yihaohu0118/Trajectory2Gym" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/datasets/mis2/Trajectory2gym" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="graphforge-training-working-agents-with-graph-anchored-workspace-synthesis">
   <div class="paper-meta">
     <span>2026.09</span>

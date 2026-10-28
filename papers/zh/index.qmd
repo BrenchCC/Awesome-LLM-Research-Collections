@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>205</strong><span>论文</span></div>
+    <div><strong>206</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>507</strong><span>资源链接</span></div>
+    <div><strong>511</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,11 +78,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">13 篇论文</span>
+  <span class="category-count">14 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
-    <span>2026.09</span>
+    <span>2026.10</span>
     <span>优化、数据准备、蒸馏</span>
   </div>
 </a>
@@ -156,6 +156,11 @@ toc: false
   <strong>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</strong>
   <em>多模态大模型</em>
 </a>
+<a class="recent-row" href="training.html#trajectory2gym-decision-grounded-compositional-interaction-synthesis-for-tool-use-agents">
+  <span>2026.10</span>
+  <strong>Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents</strong>
+  <em>训练</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#sharpening-tax-in-post-training">
   <span>2026.10</span>
   <strong>Sharpening Tax in Post-Training</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#mimo-v2-6-scaling-reinforcement-learning-towards-self-improvement">
   <span>2026.10</span>
   <strong>MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement</strong>
-  <em>强化学习</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#agent-reflex-teaching-language-agents-to-act-reflectively">
-  <span>2026.10</span>
-  <strong>Agent-Reflex: Teaching Language Agents to Act Reflectively</strong>
   <em>强化学习</em>
 </a>
   </div>
