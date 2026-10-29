@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>51</strong><span>论文</span></div>
-    <div><strong>124</strong><span>资源链接</span></div>
+    <div><strong>52</strong><span>论文</span></div>
+    <div><strong>128</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -633,7 +633,7 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">8 篇论文</p>
+    <p class="eyebrow">9 篇论文</p>
     <h2>记忆</h2>
   </div>
   <div class="paper-grid">
@@ -648,6 +648,20 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.01415" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://luoyu100.github.io/projects/progression-of-states/project/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/luoyu100/PoS" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
+<article class="paper-card" id="memory-tax-dissecting-the-net-value-of-agent-memory">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>记忆</span>
+  </div>
+  <h3>Memory Tax: Dissecting the Net Value of Agent Memory</h3>
+  <p>论文将专门构建的智能体记忆与直接检索原始历史比较，发现许多记忆系统不及朴素 RAG，并以“记忆收益”和“记忆税”区分其增益与损失。研究指出，记忆处理可能删除、遮蔽或使证据更难检索，因此评估记忆系统应关注相对直接检索的净价值。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.34073" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://hexuan21.github.io/MemoryTax/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/hexuan21/MemoryTax" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+<a class="resource-link" href="https://huggingface.co/datasets/hexuan21/MemoryTax-Res" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
 <article class="paper-card" id="memtrapbench-benchmarking-cognitive-traps-in-llm-memory-use">

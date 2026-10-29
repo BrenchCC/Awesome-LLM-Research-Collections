@@ -1200,6 +1200,13 @@
   <a href="https://luoyu100.github.io/projects/progression-of-states/project/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
   <a href="https://github.com/luoyu100/PoS"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
 
+- **Memory Tax: Dissecting the Net Value of Agent Memory** (2026.10) \
+  **Description**: Comparing dedicated agent-memory systems with retrieval from raw history, this study finds that many underperform naive RAG and separates memory's gains from its losses as memory benefit and memory tax. It traces the tax to memory processing that removes, obscures, or makes evidence harder to access, motivating evaluations of memory's net value. \
+  <a href="https://arxiv.org/abs/2610.34073"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://hexuan21.github.io/MemoryTax/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/hexuan21/MemoryTax"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/datasets/hexuan21/MemoryTax-Res"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
   **Description**: MemTrapBench evaluates memory-induced cognitive traps in which faithful, relevant retrieved memories distort LLM reasoning or beliefs, covering Reasoning Fixation and Belief Distortion. Across memory frameworks, it finds performance below a no-memory baseline and introduces AdaptiveMem, an inference-time prompting method that mitigates these failures while preserving standard memory-benchmark performance. \
   <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

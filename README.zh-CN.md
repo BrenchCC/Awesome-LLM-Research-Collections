@@ -1199,6 +1199,13 @@
   <a href="https://luoyu100.github.io/projects/progression-of-states/project/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
   <a href="https://github.com/luoyu100/PoS"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
 
+- **Memory Tax: Dissecting the Net Value of Agent Memory** (2026.10) \
+  **描述**: 论文将专门构建的智能体记忆与直接检索原始历史比较，发现许多记忆系统不及朴素 RAG，并以“记忆收益”和“记忆税”区分其增益与损失。研究指出，记忆处理可能删除、遮蔽或使证据更难检索，因此评估记忆系统应关注相对直接检索的净价值。 \
+  <a href="https://arxiv.org/abs/2610.34073"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://hexuan21.github.io/MemoryTax/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/hexuan21/MemoryTax"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/datasets/hexuan21/MemoryTax-Res"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use** (2026.08) \
   **描述**: MemTrapBench 评测记忆诱发的认知陷阱：即使忠实且语义相关的检索记忆，也可能扭曲 LLM 的推理或信念；基准覆盖推理固化与信念扭曲两类失效模式。论文发现各类记忆框架均低于无记忆基线，并提出推理时提示方法 AdaptiveMem，在缓解这些问题的同时保持标准记忆基准性能。 \
   <a href="https://arxiv.org/abs/2608.20202"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
