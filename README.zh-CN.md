@@ -843,6 +843,11 @@
   <a href="https://github.com/RUC-NLPIR/Agent-Reflex"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/collections/dongguanting/agent-reflex"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Multiscale Policy Optimization for Long-Horizon LLM Agents** (2026.10) \
+  **描述**: Multiscale Policy Optimization 针对长程智能体的价值主要在交互轮次之间变化这一特点，结合多尺度优势估计与轮次级重要性采样，在轮次尺度更新策略，并细化轮次内的 token 贡献分配。该方法在搜索、工具调用和自动化任务上优于强化学习基线。 \
+  <a href="https://arxiv.org/abs/2610.35013"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/IQuestLab/Multiscale-Policy-Optimization"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
   **描述**: SafeEvolve 利用当前策略生成的智能体轨迹中的安全证据，让运行时安全提示、分层技能与策略共同演化。它将有界、可审计的 harness 更新与学习使用 harness 的 SFT、采用验证器分解奖励的 harness 增强 RL 相结合，在多步交互中改善安全性与任务效用的平衡。 \
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

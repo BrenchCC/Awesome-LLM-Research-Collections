@@ -844,6 +844,11 @@
   <a href="https://github.com/RUC-NLPIR/Agent-Reflex"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/collections/dongguanting/agent-reflex"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Multiscale Policy Optimization for Long-Horizon LLM Agents** (2026.10) \
+  **Description**: Multiscale Policy Optimization aligns long-horizon agent training with turn-level value changes by combining multiscale advantage estimation for token-level credit assignment with turn-level importance sampling for policy updates. It improves performance over RL baselines on search, tool-use, and automation tasks. \
+  <a href="https://arxiv.org/abs/2610.35013"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/IQuestLab/Multiscale-Policy-Optimization"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment** (2026.09) \
   **Description**: SafeEvolve uses safety evidence from on-policy agent trajectories to co-evolve runtime safety prompts, hierarchical skills, and the policy. It combines bounded, auditable harness updates with harness-use SFT and harness-augmented RL using verifier-decomposed rewards, improving the balance between safety and task utility during multi-step interactions. \
   <a href="https://arxiv.org/abs/2609.02786"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

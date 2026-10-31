@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>67</strong><span>论文</span></div>
-    <div><strong>142</strong><span>资源链接</span></div>
+    <div><strong>68</strong><span>论文</span></div>
+    <div><strong>144</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -641,7 +641,7 @@ toc: false
 </section>
 <section class="paper-section" id="agentic-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">19 篇论文</p>
+    <p class="eyebrow">20 篇论文</p>
     <h2>智能体强化学习</h2>
   </div>
   <div class="paper-grid">
@@ -682,6 +682,18 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.17953" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/RUC-NLPIR/Agent-Reflex" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/collections/dongguanting/agent-reflex" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="multiscale-policy-optimization-for-long-horizon-llm-agents">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>智能体强化学习</span>
+  </div>
+  <h3>Multiscale Policy Optimization for Long-Horizon LLM Agents</h3>
+  <p>Multiscale Policy Optimization 针对长程智能体的价值主要在交互轮次之间变化这一特点，结合多尺度优势估计与轮次级重要性采样，在轮次尺度更新策略，并细化轮次内的 token 贡献分配。该方法在搜索、工具调用和自动化任务上优于强化学习基线。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.35013" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://github.com/IQuestLab/Multiscale-Policy-Optimization" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="safeevolve-harness-policy-co-evolution-from-agent-experience-for-safety-alignment">
