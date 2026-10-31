@@ -231,6 +231,10 @@
   <a href="https://github.com/thinking-inertia/code"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/thinking-inertia/llm-nothinking-trajectories"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving** (2026.10) \
+  **Description**: TAO jointly schedules agent sessions across GPU nodes by combining predicted tool-return readiness, time-decayed node-specific cache credit, and token footprint in a dynamic program. Across 12 reported settings, it reduces latency and time to first token while improving decode throughput against the evaluated baselines. \
+  <a href="https://arxiv.org/abs/2610.37230"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers** (2026.08) \
   **Description**: LLMRouter formulates LLM routing as a sequential decision process spanning single-turn, multi-turn, and personalized settings, and provides modular infrastructure with an automated pipeline for joint quality-cost evaluation. Its xRouteBench benchmark covers five routing scenarios, while experiments across more than 16 representative routers show that learned routers achieve a 14.6% relative improvement over the strongest fixed-model baseline. \
   <a href="https://arxiv.org/abs/2608.06867"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

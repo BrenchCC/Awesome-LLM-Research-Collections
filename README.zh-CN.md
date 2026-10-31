@@ -230,6 +230,10 @@
   <a href="https://github.com/thinking-inertia/code"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/thinking-inertia/llm-nothinking-trajectories"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving** (2026.10) \
+  **描述**: TAO 将工具返回就绪时间预测、随时间衰减的节点级缓存收益和 token 占用纳入动态规划，联合决定智能体会话的 GPU 节点准入与放置。在论文报告的 12 组设置中，该方法相对所评估的基线降低延迟和首 token 时间，并提高解码吞吐量。 \
+  <a href="https://arxiv.org/abs/2610.37230"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **LLMRouter: Unified Infrastructure for Developing, Evaluating, and Deploying LLM Routers** (2026.08) \
   **描述**: LLMRouter 将大模型路由统一表述为覆盖单轮、多轮和个性化场景的序列决策过程，并提供模块化基础设施与联合评估回答质量和推理成本的自动化管线。其 xRouteBench 覆盖五类路由场景；在超过 16 种代表性路由器上的实验表明，学习型路由相对最强固定模型基线提升 14.6%。 \
   <a href="https://arxiv.org/abs/2608.06867"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

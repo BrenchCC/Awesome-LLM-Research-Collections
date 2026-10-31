@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>28</strong><span>论文</span></div>
-    <div><strong>83</strong><span>资源链接</span></div>
+    <div><strong>29</strong><span>论文</span></div>
+    <div><strong>84</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -285,7 +285,7 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">7 篇论文</p>
+    <p class="eyebrow">8 篇论文</p>
     <h2>推理</h2>
   </div>
   <div class="paper-grid">
@@ -301,6 +301,17 @@ toc: false
 <a class="resource-link" href="https://thinking-inertia.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
 <a class="resource-link" href="https://github.com/thinking-inertia/code" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/datasets/thinking-inertia/llm-nothinking-trajectories" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="tao-tool-aware-joint-scheduling-for-llm-based-agentic-serving">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>推理</span>
+  </div>
+  <h3>TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving</h3>
+  <p>TAO 将工具返回就绪时间预测、随时间衰减的节点级缓存收益和 token 占用纳入动态规划，联合决定智能体会话的 GPU 节点准入与放置。在论文报告的 12 组设置中，该方法相对所评估的基线降低延迟和首 token 时间，并提高解码吞吐量。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.37230" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
 <article class="paper-card" id="llmrouter-unified-infrastructure-for-developing-evaluating-and-deploying-llm-routers">
