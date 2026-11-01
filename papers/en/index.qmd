@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>209</strong><span>Papers</span></div>
+    <div><strong>210</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>518</strong><span>Resource links</span></div>
+    <div><strong>520</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">14 papers</span>
+  <span class="category-count">15 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="category-foot">
@@ -166,10 +166,10 @@ toc: false
   <strong>Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents</strong>
   <em>Training</em>
 </a>
-<a class="recent-row" href="reinforcement-learning.html#sharpening-tax-in-post-training">
+<a class="recent-row" href="training.html#a-rsi-adaptive-task-refresh-for-zero-data-multimodal-self-improvement">
   <span>2026.10</span>
-  <strong>Sharpening Tax in Post-Training</strong>
-  <em>Reinforcement Learning</em>
+  <strong>A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</strong>
+  <em>Training</em>
 </a>
   </div>
 </section>

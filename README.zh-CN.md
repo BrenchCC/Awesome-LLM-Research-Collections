@@ -508,6 +508,11 @@
   <a href="https://github.com/yihaohu0118/Trajectory2Gym"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/datasets/mis2/Trajectory2gym"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement** (2026.10) \
+  **描述**: A-RSI 监测训练日志中的奖励差异和准确率，在多模态任务池的学习信号减弱时引入新任务。模型编写的程序生成问题及可独立核验的答案，无需外部训练样本或人工答案标签；加入 800 个新任务后，11 项基准的平均得分从 57.77 提升至 61.05。 \
+  <a href="https://arxiv.org/abs/2610.38568"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://seerray-lab.github.io/A-RSI/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis** (2026.09) \
   **描述**: GraphForge 从真实文件组成的工作空间合成工作型智能体训练任务，并用证据图将任务要求与验收标准共同锚定到文件证据。它先检验任务可执行性并修订任务，再收集轨迹用于微调，从而提升智能体在下游任务上的表现。 \
   <a href="https://arxiv.org/abs/2609.38923"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

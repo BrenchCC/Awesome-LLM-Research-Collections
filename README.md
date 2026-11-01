@@ -509,6 +509,11 @@
   <a href="https://github.com/yihaohu0118/Trajectory2Gym"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/datasets/mis2/Trajectory2gym"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement** (2026.10) \
+  **Description**: A-RSI monitors reward variation and accuracy in training logs to refresh a multimodal task pool when its learning signal declines. Model-authored programs generate questions with independently checkable answers without external training examples or human-written labels, raising the average score across eleven benchmarks from 57.77 to 61.05 with 800 fresh tasks. \
+  <a href="https://arxiv.org/abs/2610.38568"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://seerray-lab.github.io/A-RSI/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis** (2026.09) \
   **Description**: GraphForge synthesizes training tasks for working agents from real-file workspaces, using an evidence graph to ground both task requirements and verification rubrics. It checks executability and revises tasks before collecting trajectories, improving downstream agent performance through fine-tuning. \
   <a href="https://arxiv.org/abs/2609.38923"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
