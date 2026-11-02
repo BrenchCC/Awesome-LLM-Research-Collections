@@ -313,6 +313,12 @@
   <a href="https://github.com/Fr0zenCrane/MJev-Spatial"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
   <a href="https://huggingface.co/mindlab-research/MJev-Spatial-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs** (2026.10) \
+  **Description**: LOWN avoids repeatedly processing an image during diffusion VLM decoding by reusing the last image-conditioned prediction when it agrees with a text-only prediction, and adapts the number of tokens unmasked at each step. Without additional training, it retains 99.6% of LLaDA-V's score across ten benchmarks using 35.3% of the decoding FLOPs on average. \
+  <a href="https://arxiv.org/abs/2610.36671"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://hyeon9698.github.io/LOWN/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/hyeon9698/LOWN"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **Description**: Intern-S2-Preview is a series of scientific agentic foundation models that combines multimodal scientific pre-training with unified supervised fine-tuning, multi-task and agentic reinforcement learning, and on-policy distillation for scientific understanding, reasoning, generation, and long-horizon tasks. Its 397B model adds time-series forecasting and a separate Memory Decoder path for rapid scientific specialization, achieving competitive or leading results across scientific, multimodal, agentic, and general-purpose benchmarks. \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

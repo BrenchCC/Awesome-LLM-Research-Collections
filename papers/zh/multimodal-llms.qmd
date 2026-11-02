@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>25</strong><span>论文</span></div>
-    <div><strong>80</strong><span>资源链接</span></div>
+    <div><strong>26</strong><span>论文</span></div>
+    <div><strong>83</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -47,7 +47,7 @@ toc: false
 </section>
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">18 篇论文</p>
+    <p class="eyebrow">19 篇论文</p>
     <h2>视觉语言</h2>
   </div>
   <div class="paper-grid">
@@ -90,6 +90,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.22276" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
 <a class="resource-link" href="https://github.com/Fr0zenCrane/MJev-Spatial" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
 <a class="resource-link" href="https://huggingface.co/mindlab-research/MJev-Spatial-4B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="look-only-when-needed-certificate-guided-visual-routing-for-efficient-diffusion-vlms">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>视觉语言</span>
+  </div>
+  <h3>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</h3>
+  <p>LOWN 在扩散视觉语言模型解码时，比较纯文本预测与上一次图像条件预测；两者一致便复用结果，避免每一步都重新处理图像，并动态决定该步解掩码的 token 数量。无需额外训练，它在十项基准上以平均 35.3% 的解码 FLOPs 保留 LLaDA-V 99.6% 的得分。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.36671" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://hyeon9698.github.io/LOWN/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/hyeon9698/LOWN" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
   </div>
 </article>
 <article class="paper-card" id="intern-s2-preview-scientific-agentic-foundation-model">

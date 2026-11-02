@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>25</strong><span>Papers</span></div>
-    <div><strong>80</strong><span>Resource links</span></div>
+    <div><strong>26</strong><span>Papers</span></div>
+    <div><strong>83</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -47,7 +47,7 @@ toc: false
 </section>
 <section class="paper-section" id="vision-language">
   <div class="section-heading compact">
-    <p class="eyebrow">18 papers</p>
+    <p class="eyebrow">19 papers</p>
     <h2>Vision-Language</h2>
   </div>
   <div class="paper-grid">
@@ -90,6 +90,19 @@ toc: false
 <a class="resource-link" href="https://arxiv.org/abs/2610.22276" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/Fr0zenCrane/MJev-Spatial" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
 <a class="resource-link" href="https://huggingface.co/mindlab-research/MJev-Spatial-4B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+<article class="paper-card" id="look-only-when-needed-certificate-guided-visual-routing-for-efficient-diffusion-vlms">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>Vision-Language</span>
+  </div>
+  <h3>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</h3>
+  <p>LOWN avoids repeatedly processing an image during diffusion VLM decoding by reusing the last image-conditioned prediction when it agrees with a text-only prediction, and adapts the number of tokens unmasked at each step. Without additional training, it retains 99.6% of LLaDA-V&#x27;s score across ten benchmarks using 35.3% of the decoding FLOPs on average.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.36671" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://hyeon9698.github.io/LOWN/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/hyeon9698/LOWN" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
   </div>
 </article>
 <article class="paper-card" id="intern-s2-preview-scientific-agentic-foundation-model">

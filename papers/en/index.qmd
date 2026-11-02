@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>210</strong><span>Papers</span></div>
+    <div><strong>211</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>520</strong><span>Resource links</span></div>
+    <div><strong>523</strong><span>Resource links</span></div>
     <div><strong>2026.10</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">25 papers</span>
+  <span class="category-count">26 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
@@ -161,14 +161,14 @@ toc: false
   <strong>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</strong>
   <em>Multimodal LLMs</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#look-only-when-needed-certificate-guided-visual-routing-for-efficient-diffusion-vlms">
+  <span>2026.10</span>
+  <strong>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="training.html#trajectory2gym-decision-grounded-compositional-interaction-synthesis-for-tool-use-agents">
   <span>2026.10</span>
   <strong>Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents</strong>
-  <em>Training</em>
-</a>
-<a class="recent-row" href="training.html#a-rsi-adaptive-task-refresh-for-zero-data-multimodal-self-improvement">
-  <span>2026.10</span>
-  <strong>A-RSI: Adaptive Task Refresh for Zero-Data Multimodal Self-Improvement</strong>
   <em>Training</em>
 </a>
   </div>

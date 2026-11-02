@@ -312,6 +312,12 @@
   <a href="https://github.com/Fr0zenCrane/MJev-Spatial"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
   <a href="https://huggingface.co/mindlab-research/MJev-Spatial-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
+- **Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs** (2026.10) \
+  **描述**: LOWN 在扩散视觉语言模型解码时，比较纯文本预测与上一次图像条件预测；两者一致便复用结果，避免每一步都重新处理图像，并动态决定该步解掩码的 token 数量。无需额外训练，它在十项基准上以平均 35.3% 的解码 FLOPs 保留 LLaDA-V 99.6% 的得分。 \
+  <a href="https://arxiv.org/abs/2610.36671"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://hyeon9698.github.io/LOWN/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/hyeon9698/LOWN"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Intern-S2-Preview: Scientific Agentic Foundation Model** (2026.08) \
   **描述**: Intern-S2-Preview 是一系列科学智能体基础模型，通过科学多模态预训练、统一监督微调、多任务与智能体强化学习以及 on-policy 蒸馏，支持科学理解、推理、生成和长程任务。其 397B 模型进一步加入时间序列预测，并以独立的 Memory Decoder 路径实现快速科学领域适配，在科学、多模态、智能体及通用基准上取得有竞争力或领先的结果。 \
   <a href="https://arxiv.org/abs/2608.13505"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
