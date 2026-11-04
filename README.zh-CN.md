@@ -547,6 +547,12 @@
 
 ## 优化
 
+- **Think Less, Locally: Local Preference Learning for Reasoning Compression** (2026.11) \
+  **描述**: LoCo 从模型自行生成的推理轨迹中定位过度思考状态，固定相同前缀后重新生成更短且经验证的续写，再用局部偏好对进行 DPO 训练，让模型学会何时结束推理。仅使用数学数据训练后，数学任务的生成长度缩短 41.7–45.4%，代码任务缩短 23.4–36.3%，同时保持或提高准确率。 \
+  <a href="https://arxiv.org/abs/2611.04814"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/MuyaoYuan/LoCo"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/MuyaoYuan/LoCo-7B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **PowLU: An Activation Function for Stable Pre-Training of LLMs** (2026.05) \
   **描述**: 该论文指出 SwiGLU 在大正输入下接近二次放大会扩大输出范围并加剧 outlier，从而在低精度大规模 LLM 预训练中带来数值不稳定。论文提出 Power Linear Unit (PowLU)，用有理幂函数在保持自适应非线性的同时稳定 spike 区域，并通过 scaling law 与 Ling 模型实验展示竞争性效果和更好的训练可扩展性。 \
   <a href="https://arxiv.org/abs/2605.25704"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

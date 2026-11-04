@@ -10,10 +10,10 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>212</strong><span>Papers</span></div>
+    <div><strong>213</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>524</strong><span>Resource links</span></div>
-    <div><strong>2026.10</strong><span>Latest month</span></div>
+    <div><strong>527</strong><span>Resource links</span></div>
+    <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
 
@@ -78,11 +78,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">15 papers</span>
+  <span class="category-count">16 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>Data Preparation, Distillation, Optimization</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
+  <span>2026.11</span>
+  <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
+  <em>Training</em>
+</a>
 <a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
   <span>2026.10</span>
   <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#mjev-spatial-system-one-spatial-intelligence-via-native-attention-matching">
   <span>2026.10</span>
   <strong>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#look-only-when-needed-certificate-guided-visual-routing-for-efficient-diffusion-vlms">
-  <span>2026.10</span>
-  <strong>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>
