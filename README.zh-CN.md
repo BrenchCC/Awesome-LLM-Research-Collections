@@ -7,6 +7,7 @@
 # 目录
 - [注意力机制](#注意力机制)
   - [注意力架构](#注意力架构)
+  - [检索头](#检索头)
 - [大语言模型](#大语言模型)
   - [基础模型](#基础模型)
   - [推理](#推理)
@@ -97,6 +98,12 @@
 - **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
   **描述**: 该论文提出 multi-query attention，在不同注意力头之间共享 keys 和 values，以降低 Transformer 增量解码中的内存带宽开销。该变体显著提升解码速度，同时相较多头注意力基线仅带来轻微质量下降。 \
   <a href="https://arxiv.org/abs/1911.02150"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
+## 检索头
+
+- **A Broader Look into MLLM's Retrieval Heads** (2026.10) \
+  **描述**: 论文分析 18 个语言、视觉语言及全模态模型，发现少量检索注意力头在不同模态间高度共用，并在模态适配后得以保留；消融这些头会显著损害音视频证据检索。通过排序目标优化这些注意力头，Qwen3-VL-8B 在 MMDocIR 上的页面 Recall@1 提升 6.03 个百分点。 \
+  <a href="https://arxiv.org/abs/2610.32411"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
 
 # 大语言模型
 

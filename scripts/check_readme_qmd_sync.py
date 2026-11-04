@@ -36,6 +36,8 @@ CATEGORY_SLUGS = {
     "自动提示": "auto-prompt",
     "Attention Architecture": "attention-architecture",
     "注意力架构": "attention-architecture",
+    "Retrieval Heads": "retrieval-heads",
+    "检索头": "retrieval-heads",
     "Foundation Models": "foundation-models",
     "基础模型": "foundation-models",
     "Inference": "inference",

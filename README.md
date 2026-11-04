@@ -8,6 +8,7 @@
 
 - [Attention](#attention)
   - [Attention Architecture](#attention-architecture)
+  - [Retrieval Heads](#retrieval-heads)
 - [LLMs](#llms)
   - [Foundation Models](#foundation-models)
   - [Inference](#inference)
@@ -98,6 +99,12 @@
 - **Fast Transformer Decoding: One Write-Head is All You Need** (2019.11) \
   **Description**: This paper introduces multi-query attention, sharing keys and values across attention heads to reduce the memory-bandwidth cost of incremental Transformer decoding. The variant speeds up decoding substantially while incurring only minor quality degradation relative to multi-head attention baselines. \
   <a href="https://arxiv.org/abs/1911.02150"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
+## Retrieval Heads
+
+- **A Broader Look into MLLM's Retrieval Heads** (2026.10) \
+  **Description**: Across 18 language, vision-language, and omni-modal checkpoints, this paper finds that a sparse set of retrieval attention heads is largely shared across modalities and retained during modality adaptation; ablating these heads sharply impairs audio-visual retrieval. Training their attention with a ranking objective improves Qwen3-VL-8B's page Recall@1 on MMDocIR by 6.03 points. \
+  <a href="https://arxiv.org/abs/2610.32411"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
 # LLMs
 

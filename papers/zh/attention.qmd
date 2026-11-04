@@ -11,12 +11,13 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>7</strong><span>论文</span></div>
-    <div><strong>17</strong><span>资源链接</span></div>
-    <div><strong>2026.06</strong><span>最新月份</span></div>
+    <div><strong>8</strong><span>论文</span></div>
+    <div><strong>18</strong><span>资源链接</span></div>
+    <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#attention-architecture">注意力架构</a>
+<a href="#retrieval-heads">检索头</a>
   </nav>
 </section>
 
@@ -111,6 +112,25 @@ toc: false
   <p>该论文提出 multi-query attention，在不同注意力头之间共享 keys 和 values，以降低 Transformer 增量解码中的内存带宽开销。该变体显著提升解码速度，同时相较多头注意力基线仅带来轻微质量下降。</p>
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/1911.02150" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="retrieval-heads">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 篇论文</p>
+    <h2>检索头</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="a-broader-look-into-mllm-s-retrieval-heads">
+  <div class="paper-meta">
+    <span>2026.10</span>
+    <span>检索头</span>
+  </div>
+  <h3>A Broader Look into MLLM&#x27;s Retrieval Heads</h3>
+  <p>论文分析 18 个语言、视觉语言及全模态模型，发现少量检索注意力头在不同模态间高度共用，并在模态适配后得以保留；消融这些头会显著损害音视频证据检索。通过排序目标优化这些注意力头，Qwen3-VL-8B 在 MMDocIR 上的页面 Recall@1 提升 6.03 个百分点。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2610.32411" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
   </div>
 </article>
   </div>

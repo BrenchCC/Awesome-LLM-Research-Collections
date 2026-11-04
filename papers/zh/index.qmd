@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>211</strong><span>论文</span></div>
+    <div><strong>212</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>523</strong><span>资源链接</span></div>
+    <div><strong>524</strong><span>资源链接</span></div>
     <div><strong>2026.10</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -24,12 +24,12 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">7 篇论文</span>
+  <span class="category-count">8 篇论文</span>
   <h3>注意力机制</h3>
   <p>围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="category-foot">
-    <span>2026.06</span>
-    <span>注意力架构</span>
+    <span>2026.10</span>
+    <span>检索头、注意力架构</span>
   </div>
 </a>
 <a class="category-card" href="llms.html">
@@ -131,6 +131,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
+  <span>2026.10</span>
+  <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
+  <em>注意力机制</em>
+</a>
 <a class="recent-row" href="llms.html#thinking-inertia-llms-keep-thinking-when-told-not-to">
   <span>2026.10</span>
   <strong>Thinking Inertia: LLMs Keep Thinking When Told Not To</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.10</span>
   <strong>Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs</strong>
   <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="training.html#trajectory2gym-decision-grounded-compositional-interaction-synthesis-for-tool-use-agents">
-  <span>2026.10</span>
-  <strong>Trajectory2Gym: Decision-Grounded Compositional Interaction Synthesis for Tool-Use Agents</strong>
-  <em>训练</em>
 </a>
   </div>
 </section>
