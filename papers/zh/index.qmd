@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>213</strong><span>论文</span></div>
+    <div><strong>214</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>527</strong><span>资源链接</span></div>
+    <div><strong>530</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -87,11 +87,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">68 篇论文</span>
+  <span class="category-count">69 篇论文</span>
   <h3>强化学习</h3>
   <p>奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>OPD、多模态强化学习、奖励建模、推理强化学习、智能体强化学习、策略优化、视觉-语言-动作强化学习、视频生成强化学习</span>
   </div>
 </a>
@@ -136,6 +136,11 @@ toc: false
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
   <em>训练</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#turns-matter-advancing-streaming-video-rl-via-turn-level-credit">
+  <span>2026.11</span>
+  <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
+  <em>强化学习</em>
+</a>
 <a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
   <span>2026.10</span>
   <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
   <span>2026.10</span>
   <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#mjev-spatial-system-one-spatial-intelligence-via-native-attention-matching">
-  <span>2026.10</span>
-  <strong>MJev-Spatial: System One Spatial Intelligence via Native Attention Matching</strong>
   <em>多模态大模型</em>
 </a>
   </div>

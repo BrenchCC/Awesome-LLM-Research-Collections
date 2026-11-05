@@ -784,6 +784,12 @@
 
 ## 多模态强化学习
 
+- **Turns Matter: Advancing Streaming Video RL via Turn-Level Credit** (2026.11) \
+  **描述**: TurnWise 将 GRPO 用于流式视频理解，通过为后续轮次补入静默动作来评分前缀，为每次“回复或等待”决策构造独立的组相对优势。它先在轮次内平均 token 损失，再跨轮次平均，使简短的等待决策获得同等权重；无需额外 rollout 或学习型 critic 即可提升流式交互表现。 \
+  <a href="https://arxiv.org/abs/2611.06728"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/XD111ds/turn-wise-rl"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/shuai22/turns-matter-rl-ckpt"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Adaptive Reward Routing: Dynamic Multi-Reward Optimization for Joint Audio-Video Diffusion via Forward-Process RL** (2026.09) \
   **描述**: Adaptive Reward Routing 面向音视频联合扩散模型的强化学习，利用跨注意力响应动态定位奖励驱动的更新，并依据奖励梯度交互协调相互竞争的目标。相比强化学习基线，该方法提升了单模态质量、跨模态语义对齐和音视频同步效果。 \
   <a href="https://arxiv.org/abs/2609.37200"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
