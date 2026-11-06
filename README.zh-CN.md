@@ -279,6 +279,13 @@
 
 ## 可解释性
 
+- **SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization** (2026.11) \
+  **描述**: 论文在 MoE 层输出上训练稀疏自编码器，并将每个潜在特征的预激活精确分解为各专家的贡献，揭示仅靠路由频率无法观察到的分工。在 Qwen3-30B-A3B 中，大多数特征主要由一两个专家驱动，且专家的可解释功能将粗粒度领域进一步细分。 \
+  <a href="https://arxiv.org/abs/2611.08089"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://bytedance-seed.github.io/SAE-interprets-MoE/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/Bytedance-Seed/SAE-Interprets-MoE"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/ByteDance-Seed/Qwen3-30B-A3B-MoE-SAE"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs** (2026.09) \
   **描述**: 该论文提供证据表明，不同文本流的嵌入混合后，模型输出仍保留各自下一 token 分布的叠加；这一性质随预训练减弱，但可通过轻量微调恢复。论文还提出引导解码方法，从一次混合输入的前向计算中恢复两条连贯的续写。 \
   <a href="https://arxiv.org/abs/2609.29845"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>218</strong><span>论文</span></div>
+    <div><strong>219</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>536</strong><span>资源链接</span></div>
+    <div><strong>540</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -33,11 +33,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">29 篇论文</span>
+  <span class="category-count">30 篇论文</span>
   <h3>大语言模型</h3>
   <p>基础模型报告、推理方法、长上下文语言建模、代码与推理系统研究。</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>可解释性、基础模型、推理、检测</span>
   </div>
 </a>
@@ -136,6 +136,11 @@ toc: false
   <strong>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</strong>
   <em>注意力机制</em>
 </a>
+<a class="recent-row" href="llms.html#sae-interprets-moe-sparse-autoencoders-reveal-that-moe-experts-exhibit-human-interpretable-fine-grained-specialization">
+  <span>2026.11</span>
+  <strong>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</strong>
+  <em>大语言模型</em>
+</a>
 <a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
   <span>2026.11</span>
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.10</span>
   <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
   <em>注意力机制</em>
-</a>
-<a class="recent-row" href="llms.html#thinking-inertia-llms-keep-thinking-when-told-not-to">
-  <span>2026.10</span>
-  <strong>Thinking Inertia: LLMs Keep Thinking When Told Not To</strong>
-  <em>大语言模型</em>
 </a>
   </div>
 </section>

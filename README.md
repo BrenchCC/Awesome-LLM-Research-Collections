@@ -280,6 +280,13 @@
 
 ## Interpretability
 
+- **SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization** (2026.11) \
+  **Description**: This paper trains sparse autoencoders on MoE layer outputs and decomposes each latent's pre-activation into expert contributions, revealing specialization that routing frequency misses. In Qwen3-30B-A3B, most latents are dominated by one or two experts whose interpretable roles divide broad domains into finer tasks. \
+  <a href="https://arxiv.org/abs/2611.08089"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://bytedance-seed.github.io/SAE-interprets-MoE/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/Bytedance-Seed/SAE-Interprets-MoE"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/ByteDance-Seed/Qwen3-30B-A3B-MoE-SAE"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs** (2026.09) \
   **Description**: This paper presents evidence that mixing embeddings from distinct text streams preserves a superposition of their next-token distributions, a property that weakens during pretraining and can be restored through lightweight fine-tuning. It also introduces guided decoding to recover two coherent continuations from a single mixed forward pass. \
   <a href="https://arxiv.org/abs/2609.29845"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

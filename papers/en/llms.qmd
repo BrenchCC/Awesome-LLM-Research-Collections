@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>29</strong><span>Papers</span></div>
-    <div><strong>84</strong><span>Resource links</span></div>
-    <div><strong>2026.10</strong><span>Latest month</span></div>
+    <div><strong>30</strong><span>Papers</span></div>
+    <div><strong>88</strong><span>Resource links</span></div>
+    <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#foundation-models">Foundation Models</a>
@@ -392,10 +392,24 @@ toc: false
 </section>
 <section class="paper-section" id="interpretability">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Interpretability</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="sae-interprets-moe-sparse-autoencoders-reveal-that-moe-experts-exhibit-human-interpretable-fine-grained-specialization">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Interpretability</span>
+  </div>
+  <h3>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</h3>
+  <p>This paper trains sparse autoencoders on MoE layer outputs and decomposes each latent&#x27;s pre-activation into expert contributions, revealing specialization that routing frequency misses. In Qwen3-30B-A3B, most latents are dominated by one or two experts whose interpretable roles divide broad domains into finer tasks.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.08089" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://bytedance-seed.github.io/SAE-interprets-MoE/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/Bytedance-Seed/SAE-Interprets-MoE" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/ByteDance-Seed/Qwen3-30B-A3B-MoE-SAE" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="your-transformer-can-hold-two-thoughts-at-once-evidence-of-linear-superposition-in-llms">
   <div class="paper-meta">
     <span>2026.09</span>
