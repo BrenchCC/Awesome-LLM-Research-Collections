@@ -61,6 +61,10 @@
 
 ## 注意力架构
 
+- **Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout** (2026.11) \
+  **描述**: Muir 根据状态更新的敏感度，为擦除门分配较低秩的参数容量，并通过匹配滤波读出减轻状态干扰，同时设计稳定的并行更新算法。相较 Gated DeltaNet-2，它在保持相近吞吐量的同时改善了语言建模和长上下文检索表现。 \
+  <a href="https://arxiv.org/abs/2611.08376"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention** (2026.06) \
   **描述**: 该论文提出 Lookahead Sparse Attention，使用独立训练的神经记忆索引器预测未来上下文需求，仅在 GPU 上保留查询关键的 KV 分块。FlashMemory 将物理 KV 缓存占用平均压缩至完整上下文注意力的 13.5%，同时保持或略微提升长上下文准确率。 \
   <a href="https://arxiv.org/abs/2606.09079"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

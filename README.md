@@ -62,6 +62,10 @@
 
 ## Attention Architecture
 
+- **Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout** (2026.11) \
+  **Description**: Muir improves gated delta-rule linear attention by allocating lower-rank capacity to less sensitive erase gates, using matched-filter readout to reduce state interference, and introducing a stable parallel update. It improves language modeling and long-context recall over Gated DeltaNet-2 while matching its throughput. \
+  <a href="https://arxiv.org/abs/2611.08376"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention** (2026.06) \
   **Description**: This paper proposes Lookahead Sparse Attention, which uses a separately trained neural memory indexer to predict future context needs and retain only query-critical KV chunks on GPU. FlashMemory reduces the physical KV cache footprint to 13.5% of full-context attention on average while preserving or slightly improving long-context accuracy. \
   <a href="https://arxiv.org/abs/2606.09079"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

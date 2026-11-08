@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>214</strong><span>Papers</span></div>
+    <div><strong>215</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>530</strong><span>Resource links</span></div>
+    <div><strong>531</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -24,11 +24,11 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">8 papers</span>
+  <span class="category-count">9 papers</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>Attention Architecture, Retrieval Heads</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>Recent Papers</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="attention.html#muir-linear-attention-with-sensitivity-allocated-gating-and-matched-filter-readout">
+  <span>2026.11</span>
+  <strong>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</strong>
+  <em>Attention</em>
+</a>
 <a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
   <span>2026.11</span>
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#wevisone-vl-unified-visual-perception-from-objects-to-pixels">
   <span>2026.10</span>
   <strong>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
-  <span>2026.10</span>
-  <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>

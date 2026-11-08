@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>214</strong><span>论文</span></div>
+    <div><strong>215</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>530</strong><span>资源链接</span></div>
+    <div><strong>531</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -24,11 +24,11 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">8 篇论文</span>
+  <span class="category-count">9 篇论文</span>
   <h3>注意力机制</h3>
   <p>围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>检索头、注意力架构</span>
   </div>
 </a>
@@ -131,6 +131,11 @@ toc: false
     <h2>近期论文</h2>
   </div>
   <div class="recent-list">
+<a class="recent-row" href="attention.html#muir-linear-attention-with-sensitivity-allocated-gating-and-matched-filter-readout">
+  <span>2026.11</span>
+  <strong>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</strong>
+  <em>注意力机制</em>
+</a>
 <a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
   <span>2026.11</span>
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#wevisone-vl-unified-visual-perception-from-objects-to-pixels">
   <span>2026.10</span>
   <strong>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#omnicompass-a-holistic-benchmark-for-omni-modal-video-grounding-and-understanding">
-  <span>2026.10</span>
-  <strong>OmniCompass: A Holistic Benchmark for Omni-Modal Video Grounding and Understanding</strong>
   <em>多模态大模型</em>
 </a>
   </div>

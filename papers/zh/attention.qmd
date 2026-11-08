@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>8</strong><span>论文</span></div>
-    <div><strong>18</strong><span>资源链接</span></div>
-    <div><strong>2026.10</strong><span>最新月份</span></div>
+    <div><strong>9</strong><span>论文</span></div>
+    <div><strong>19</strong><span>资源链接</span></div>
+    <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#attention-architecture">注意力架构</a>
@@ -23,10 +23,21 @@ toc: false
 
 <section class="paper-section" id="attention-architecture">
   <div class="section-heading compact">
-    <p class="eyebrow">7 篇论文</p>
+    <p class="eyebrow">8 篇论文</p>
     <h2>注意力架构</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="muir-linear-attention-with-sensitivity-allocated-gating-and-matched-filter-readout">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>注意力架构</span>
+  </div>
+  <h3>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</h3>
+  <p>Muir 根据状态更新的敏感度，为擦除门分配较低秩的参数容量，并通过匹配滤波读出减轻状态干扰，同时设计稳定的并行更新算法。相较 Gated DeltaNet-2，它在保持相近吞吐量的同时改善了语言建模和长上下文检索表现。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.08376" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="flashmemory-deepseek-v4-lightning-index-ultra-long-context-via-lookahead-sparse-attention">
   <div class="paper-meta">
     <span>2026.06</span>
