@@ -567,6 +567,11 @@
 
 ## 蒸馏
 
+- **P²-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors** (2026.11) \
+  **描述**: P²-MOPD 将专家模型的任务向量用作参数先验，在多教师在策略蒸馏目标下联合优化混合系数与学生模型权重。相比标准 MOPD，它能更快、更均衡地恢复各领域能力，并在一半训练步数内超过后者的最终平均恢复率。 \
+  <a href="https://arxiv.org/abs/2611.03953"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/SinuoWang/P2-MOPD"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
   **描述**: 该论文在数据最小化场景下研究在策略蒸馏，发现仅使用一个查询进行训练，也能在不同任务领域和模型族上恢复完整数据 OPD 的大部分增益。论文从状态覆盖率和学生—教师对齐速度解释这一现象，并表明 16 个语义多样的查询即可达到完整数据训练的效果，说明 OPD 更像是数据过量而算法吸收效率不足。 \
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

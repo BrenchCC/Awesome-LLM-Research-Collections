@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>215</strong><span>论文</span></div>
+    <div><strong>216</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>531</strong><span>资源链接</span></div>
+    <div><strong>533</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">16 篇论文</span>
+  <span class="category-count">17 篇论文</span>
   <h3>训练</h3>
   <p>可复用训练配方、监督微调、数据选择、蒸馏和优化实践。</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
   <em>训练</em>
 </a>
+<a class="recent-row" href="training.html#p-mopd-accelerating-multi-teacher-on-policy-distillation-via-parameter-priors">
+  <span>2026.11</span>
+  <strong>P²-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors</strong>
+  <em>训练</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#turns-matter-advancing-streaming-video-rl-via-turn-level-credit">
   <span>2026.11</span>
   <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#streameval-evaluating-interactive-streaming-video-generation-models">
   <span>2026.10</span>
   <strong>StreamEval: Evaluating Interactive Streaming Video Generation Models</strong>
-  <em>多模态大模型</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#wevisone-vl-unified-visual-perception-from-objects-to-pixels">
-  <span>2026.10</span>
-  <strong>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</strong>
   <em>多模态大模型</em>
 </a>
   </div>

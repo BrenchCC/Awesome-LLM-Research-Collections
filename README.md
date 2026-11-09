@@ -568,6 +568,11 @@
 
 ## Distillation
 
+- **P²-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors** (2026.11) \
+  **Description**: P²-MOPD treats expert task vectors as parameter priors and jointly trains their mixing coefficients with the student's weights under a multi-teacher on-policy distillation objective. It recovers expert capabilities faster and more evenly across domains than standard MOPD, exceeding its final average recovery in half the training steps. \
+  <a href="https://arxiv.org/abs/2611.03953"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/SinuoWang/P2-MOPD"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
   **Description**: This paper studies on-policy distillation at the data-minimal limit and finds that training on a single query recovers most of the gain from full-data OPD across domains and model families. It explains this through state coverage and student-teacher alignment, showing that 16 semantically distinct queries can match full-data training while OPD is data-overfed but algorithm-starved. \
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

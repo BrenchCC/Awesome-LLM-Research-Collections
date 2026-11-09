@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>215</strong><span>Papers</span></div>
+    <div><strong>216</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>531</strong><span>Resource links</span></div>
+    <div><strong>533</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -78,7 +78,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="training.html">
-  <span class="category-count">16 papers</span>
+  <span class="category-count">17 papers</span>
   <h3>Training</h3>
   <p>Reusable training recipes, SFT methods, data selection, distillation, and optimization practice.</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
   <em>Training</em>
 </a>
+<a class="recent-row" href="training.html#p-mopd-accelerating-multi-teacher-on-policy-distillation-via-parameter-priors">
+  <span>2026.11</span>
+  <strong>P²-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors</strong>
+  <em>Training</em>
+</a>
 <a class="recent-row" href="reinforcement-learning.html#turns-matter-advancing-streaming-video-rl-via-turn-level-credit">
   <span>2026.11</span>
   <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="multimodal-llms.html#streameval-evaluating-interactive-streaming-video-generation-models">
   <span>2026.10</span>
   <strong>StreamEval: Evaluating Interactive Streaming Video Generation Models</strong>
-  <em>Multimodal LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#wevisone-vl-unified-visual-perception-from-objects-to-pixels">
-  <span>2026.10</span>
-  <strong>WeVisOne-VL: Unified Visual Perception from Objects to Pixels</strong>
   <em>Multimodal LLMs</em>
 </a>
   </div>
