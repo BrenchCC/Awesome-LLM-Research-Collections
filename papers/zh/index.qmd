@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>217</strong><span>论文</span></div>
+    <div><strong>218</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>534</strong><span>资源链接</span></div>
+    <div><strong>536</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -96,11 +96,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="agents-application.html">
-  <span class="category-count">52 篇论文</span>
+  <span class="category-count">53 篇论文</span>
   <h3>智能体应用</h3>
   <p>智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>AI 研究、工具调用、数据智能体、智能体开发、智能体技能、智能体评测、网络智能体、计算机使用、记忆</span>
   </div>
 </a>
@@ -156,6 +156,11 @@ toc: false
   <strong>Are Dense Rewards Worth Their Tokens in GRPO?</strong>
   <em>强化学习</em>
 </a>
+<a class="recent-row" href="agents-application.html#don-t-just-trust-your-memory-evidence-linked-memory-reduces-memory-induced-degradation-in-llm-agents">
+  <span>2026.11</span>
+  <strong>Don&#x27;t Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</strong>
+  <em>智能体应用</em>
+</a>
 <a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
   <span>2026.10</span>
   <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="llms.html#thinking-inertia-llms-keep-thinking-when-told-not-to">
   <span>2026.10</span>
   <strong>Thinking Inertia: LLMs Keep Thinking When Told Not To</strong>
-  <em>大语言模型</em>
-</a>
-<a class="recent-row" href="llms.html#tao-tool-aware-joint-scheduling-for-llm-based-agentic-serving">
-  <span>2026.10</span>
-  <strong>TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving</strong>
   <em>大语言模型</em>
 </a>
   </div>

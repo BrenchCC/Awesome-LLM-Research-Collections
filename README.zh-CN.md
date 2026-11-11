@@ -1245,6 +1245,11 @@
 
 ## 记忆
 
+- **Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents** (2026.11) \
+  **描述**: WikiTrace 将每条智能体记忆经验与来源任务的摘要及原始轨迹关联，使智能体在经验含糊、相互冲突或来自失败任务时能够检查证据。它在五个智能体基准上优于现有记忆方法，同时减少了记忆导致的性能退化。 \
+  <a href="https://arxiv.org/abs/2611.14320"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/yukyeongleee/wikitrace"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States** (2026.10) \
   **描述**: PoS 将当前世界状态与尚未解决的任务要求表示为显式信念，持续用作智能体的决策上下文。它校验信念更新的一致性，检测任务进展停滞，并实施针对性恢复，以改进长程任务执行与故障诊断。 \
   <a href="https://arxiv.org/abs/2610.01415"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

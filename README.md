@@ -1246,6 +1246,11 @@
 
 ## Memory
 
+- **Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents** (2026.11) \
+  **Description**: WikiTrace links each agent memory insight to a summary and the raw trajectory of its source task, letting agents inspect evidence when a lesson is unclear, conflicting, or derived from failure. Across five agentic benchmarks, it improves on existing memory methods while reducing memory-induced degradation. \
+  <a href="https://arxiv.org/abs/2611.14320"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/yukyeongleee/wikitrace"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Beyond Memory: Harnessing Long-Horizon Agents with Explicit Belief States** (2026.10) \
   **Description**: PoS maintains an explicit belief about the current world and unresolved task requirements as an agent's decision context. It validates belief updates, detects stalled progress, and applies targeted recovery to improve long-horizon task execution and diagnosis. \
   <a href="https://arxiv.org/abs/2610.01415"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
