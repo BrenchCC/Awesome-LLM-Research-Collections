@@ -816,6 +816,10 @@
 
 ## 推理强化学习
 
+- **Are Dense Rewards Worth Their Tokens in GRPO?** (2026.11) \
+  **描述**: 论文以生成 token 数和训练时间为统一算力预算，在 1,668 次实验中比较密集过程奖励与标准 GRPO；密集奖励虽然按更新步数看似更优，但在等算力条件下未能超过 GRPO。按预测成功率接近二分之一来选择训练题目，则取得幅度较小且可复现的提升。 \
+  <a href="https://arxiv.org/abs/2611.13560"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
   **描述**: 该论文通过结合裁剪重要性采样、训练与推理比率校正及混合精度控制的稳定训练管线，将基于可验证奖励的强化学习从基础模型扩展至万亿参数规模。所得模型在提升样本效率与推理质量的同时，自发形成结构化、自验证和自适应推理行为。 \
   <a href="https://arxiv.org/abs/2607.12395"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

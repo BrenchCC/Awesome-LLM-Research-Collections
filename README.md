@@ -817,6 +817,10 @@
 
 ## Reasoning RL
 
+- **Are Dense Rewards Worth Their Tokens in GRPO?** (2026.11) \
+  **Description**: Using a matched-compute protocol across 1,668 runs, this study finds that dense process rewards do not outperform standard GRPO once generated tokens and training time are counted, despite apparent gains per update. Selecting prompts with predicted success near one-half yields small, reproducible improvements at equal compute. \
+  <a href="https://arxiv.org/abs/2611.13560"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning** (2026.07) \
   **Description**: This paper scales reinforcement learning with verifiable rewards from a base model to one trillion parameters through a stable pipeline combining clipped importance sampling, training-inference ratio correction, and mixed-precision control. The resulting model improves sample efficiency and reasoning quality while spontaneously developing structured, self-verifying, and adaptive reasoning behaviors. \
   <a href="https://arxiv.org/abs/2607.12395"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

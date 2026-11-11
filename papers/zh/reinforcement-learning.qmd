@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">奖励建模、RLHF 类优化、推理强化学习、智能体强化学习和 VLA 策略学习。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>69</strong><span>论文</span></div>
-    <div><strong>147</strong><span>资源链接</span></div>
+    <div><strong>70</strong><span>论文</span></div>
+    <div><strong>148</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -526,10 +526,21 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">10 篇论文</p>
+    <p class="eyebrow">11 篇论文</p>
     <h2>推理强化学习</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="are-dense-rewards-worth-their-tokens-in-grpo">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>推理强化学习</span>
+  </div>
+  <h3>Are Dense Rewards Worth Their Tokens in GRPO?</h3>
+  <p>论文以生成 token 数和训练时间为统一算力预算，在 1,668 次实验中比较密集过程奖励与标准 GRPO；密集奖励虽然按更新步数看似更优，但在等算力条件下未能超过 GRPO。按预测成功率接近二分之一来选择训练题目，则取得幅度较小且可复现的提升。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.13560" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
   <div class="paper-meta">
     <span>2026.07</span>

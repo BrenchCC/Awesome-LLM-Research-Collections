@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>69</strong><span>Papers</span></div>
-    <div><strong>147</strong><span>Resource links</span></div>
+    <div><strong>70</strong><span>Papers</span></div>
+    <div><strong>148</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -526,10 +526,21 @@ toc: false
 </section>
 <section class="paper-section" id="reasoning-rl">
   <div class="section-heading compact">
-    <p class="eyebrow">10 papers</p>
+    <p class="eyebrow">11 papers</p>
     <h2>Reasoning RL</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="are-dense-rewards-worth-their-tokens-in-grpo">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Reasoning RL</span>
+  </div>
+  <h3>Are Dense Rewards Worth Their Tokens in GRPO?</h3>
+  <p>Using a matched-compute protocol across 1,668 runs, this study finds that dense process rewards do not outperform standard GRPO once generated tokens and training time are counted, despite apparent gains per update. Selecting prompts with predicted success near one-half yields small, reproducible improvements at equal compute.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.13560" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="ring-zero-scaling-zero-rl-to-a-trillion-parameters-for-emergent-reasoning">
   <div class="paper-meta">
     <span>2026.07</span>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>216</strong><span>Papers</span></div>
+    <div><strong>217</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>533</strong><span>Resource links</span></div>
+    <div><strong>534</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="reinforcement-learning.html">
-  <span class="category-count">69 papers</span>
+  <span class="category-count">70 papers</span>
   <h3>Reinforcement Learning</h3>
   <p>Reward modeling, RLHF-style optimization, reasoning RL, agent RL, and VLA policy learning.</p>
   <div class="category-foot">
@@ -151,6 +151,11 @@ toc: false
   <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
   <em>Reinforcement Learning</em>
 </a>
+<a class="recent-row" href="reinforcement-learning.html#are-dense-rewards-worth-their-tokens-in-grpo">
+  <span>2026.11</span>
+  <strong>Are Dense Rewards Worth Their Tokens in GRPO?</strong>
+  <em>Reinforcement Learning</em>
+</a>
 <a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
   <span>2026.10</span>
   <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.10</span>
   <strong>TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving</strong>
   <em>LLMs</em>
-</a>
-<a class="recent-row" href="multimodal-llms.html#streameval-evaluating-interactive-streaming-video-generation-models">
-  <span>2026.10</span>
-  <strong>StreamEval: Evaluating Interactive Streaming Video Generation Models</strong>
-  <em>Multimodal LLMs</em>
 </a>
   </div>
 </section>
