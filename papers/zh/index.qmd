@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>219</strong><span>论文</span></div>
+    <div><strong>220</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>540</strong><span>资源链接</span></div>
+    <div><strong>542</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -24,7 +24,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">9 篇论文</span>
+  <span class="category-count">10 篇论文</span>
   <h3>注意力机制</h3>
   <p>围绕 Transformer 内部机制、注意力变体、KV 缓存行为和跨层信息流的研究。</p>
   <div class="category-foot">
@@ -136,6 +136,11 @@ toc: false
   <strong>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</strong>
   <em>注意力机制</em>
 </a>
+<a class="recent-row" href="attention.html#depthgraft-structural-regularization-through-hierarchical-cross-layer-kv-reconstruction">
+  <span>2026.11</span>
+  <strong>DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction</strong>
+  <em>注意力机制</em>
+</a>
 <a class="recent-row" href="llms.html#sae-interprets-moe-sparse-autoencoders-reveal-that-moe-experts-exhibit-human-interpretable-fine-grained-specialization">
   <span>2026.11</span>
   <strong>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.11</span>
   <strong>Don&#x27;t Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</strong>
   <em>智能体应用</em>
-</a>
-<a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
-  <span>2026.10</span>
-  <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
-  <em>注意力机制</em>
 </a>
   </div>
 </section>

@@ -66,6 +66,11 @@
   **Description**: Muir improves gated delta-rule linear attention by allocating lower-rank capacity to less sensitive erase gates, using matched-filter readout to reduce state interference, and introducing a stable parallel update. It improves language modeling and long-context recall over Gated DeltaNet-2 while matching its throughput. \
   <a href="https://arxiv.org/abs/2611.08376"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction** (2026.11) \
+  **Description**: DepthGraft reconstructs deep-layer keys and values from stride-aligned shallow and middle layers, using cross-layer KV reuse to distribute gradients and regularize KV representations. Across dense and MoE models, it improves downstream performance while reducing KV-cache storage by roughly one third and enabling earlier prefill completion. \
+  <a href="https://arxiv.org/abs/2611.03142"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/jianke0604/DepthGraft"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **FlashMemory-DeepSeek-V4: Lightning Index Ultra-Long Context via Lookahead Sparse Attention** (2026.06) \
   **Description**: This paper proposes Lookahead Sparse Attention, which uses a separately trained neural memory indexer to predict future context needs and retain only query-critical KV chunks on GPU. FlashMemory reduces the physical KV cache footprint to 13.5% of full-context attention on average while preserving or slightly improving long-context accuracy. \
   <a href="https://arxiv.org/abs/2606.09079"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>219</strong><span>Papers</span></div>
+    <div><strong>220</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>540</strong><span>Resource links</span></div>
+    <div><strong>542</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -24,7 +24,7 @@ toc: false
   </div>
   <div class="category-grid">
 <a class="category-card" href="attention.html">
-  <span class="category-count">9 papers</span>
+  <span class="category-count">10 papers</span>
   <h3>Attention</h3>
   <p>Transformer internals, attention variants, KV/cache behavior, and depth-wise information flow.</p>
   <div class="category-foot">
@@ -136,6 +136,11 @@ toc: false
   <strong>Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="attention.html#depthgraft-structural-regularization-through-hierarchical-cross-layer-kv-reconstruction">
+  <span>2026.11</span>
+  <strong>DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction</strong>
+  <em>Attention</em>
+</a>
 <a class="recent-row" href="llms.html#sae-interprets-moe-sparse-autoencoders-reveal-that-moe-experts-exhibit-human-interpretable-fine-grained-specialization">
   <span>2026.11</span>
   <strong>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.11</span>
   <strong>Don&#x27;t Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents</strong>
   <em>Agents Application</em>
-</a>
-<a class="recent-row" href="attention.html#a-broader-look-into-mllm-s-retrieval-heads">
-  <span>2026.10</span>
-  <strong>A Broader Look into MLLM&#x27;s Retrieval Heads</strong>
-  <em>Attention</em>
 </a>
   </div>
 </section>
