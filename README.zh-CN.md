@@ -584,6 +584,12 @@
   <a href="https://arxiv.org/abs/2611.03953"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/SinuoWang/P2-MOPD"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
+- **SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering** (2026.11) \
+  **描述**: SteerDistill 利用全精度教师和执行反馈，引导量化智能体修正失败回合，再将经验证的修正蒸馏给学生模型，使其推理时无需教师协助。在五个智能体基准上，该方法提升了 W4A16 量化模型相对基线的表现，并将其平均得分保持在 BF16 教师模型的一个百分点以内。 \
+  <a href="https://arxiv.org/abs/2611.13410"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://air-embodied-brain.github.io/SteerDistill/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/air-embodied-brain/SteerDistill"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
   **描述**: 该论文在数据最小化场景下研究在策略蒸馏，发现仅使用一个查询进行训练，也能在不同任务领域和模型族上恢复完整数据 OPD 的大部分增益。论文从状态覆盖率和学生—教师对齐速度解释这一现象，并表明 16 个语义多样的查询即可达到完整数据训练的效果，说明 OPD 更像是数据过量而算法吸收效率不足。 \
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

@@ -585,6 +585,12 @@
   <a href="https://arxiv.org/abs/2611.03953"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/SinuoWang/P2-MOPD"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
+- **SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering** (2026.11) \
+  **Description**: SteerDistill uses a full-precision teacher and execution feedback to steer a quantized agent through failed turns, then distills the verified corrections into the student for unassisted inference. Across five agentic benchmarks, it improves W4A16 performance over quantized baselines and stays within one point of the BF16 teacher. \
+  <a href="https://arxiv.org/abs/2611.13410"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://air-embodied-brain.github.io/SteerDistill/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/air-embodied-brain/SteerDistill"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **Rethinking On-Policy Distillation of Large Language Models II: One Training Example** (2026.09) \
   **Description**: This paper studies on-policy distillation at the data-minimal limit and finds that training on a single query recovers most of the gain from full-data OPD across domains and model families. It explains this through state coverage and student-teacher alignment, showing that 16 semantically distinct queries can match full-data training while OPD is data-overfed but algorithm-starved. \
   <a href="https://arxiv.org/abs/2609.04172"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
