@@ -11,17 +11,40 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Computer vision methods that are useful background for modern multimodal systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>3</strong><span>Papers</span></div>
-    <div><strong>9</strong><span>Resource links</span></div>
-    <div><strong>2026.09</strong><span>Latest month</span></div>
+    <div><strong>4</strong><span>Papers</span></div>
+    <div><strong>13</strong><span>Resource links</span></div>
+    <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
-    <a href="#object-detection">Object Detection</a>
+    <a href="#generative-visual-perception">Generative Visual Perception</a>
+<a href="#object-detection">Object Detection</a>
 <a href="#ocr">OCR</a>
 <a href="#semantic-correspondence">Semantic Correspondence</a>
   </nav>
 </section>
 
+<section class="paper-section" id="generative-visual-perception">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Generative Visual Perception</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="open-vision-banana-a-fully-open-recipe-for-generative-visual-perception">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Generative Visual Perception</span>
+  </div>
+  <h3>Open Vision Banana: A Fully Open Recipe for Generative Visual Perception</h3>
+  <p>Open Vision Banana adapts open image generators into a shared model for segmentation, depth, and surface-normal prediction using public training data and RGB outputs. It also introduces legend ensembling, which votes across color assignments to improve segmentation without retraining.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.15844" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://openvisionbanana.github.io/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/OpenVisionBanana/OpenVisionBanana" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/FunAILab/Open-Vision-Banana" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
+  </div>
+</section>
 <section class="paper-section" id="object-detection">
   <div class="section-heading compact">
     <p class="eyebrow">1 paper</p>

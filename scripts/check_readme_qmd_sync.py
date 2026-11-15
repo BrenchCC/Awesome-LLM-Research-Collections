@@ -96,6 +96,8 @@ CATEGORY_SLUGS = {
     "智能体评测": "agent-evaluation",
     "Memory": "memory",
     "记忆": "memory",
+    "Generative Visual Perception": "generative-visual-perception",
+    "生成式视觉感知": "generative-visual-perception",
     "Object Detection": "object-detection",
     "目标检测": "object-detection",
     "Semantic Correspondence": "semantic-correspondence",

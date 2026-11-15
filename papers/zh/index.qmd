@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">研究图谱</p>
   <p class="category-summary">按研究分类浏览论文目录，或快速查看近期收录条目。</p>
   <div class="stat-strip">
-    <div><strong>221</strong><span>论文</span></div>
+    <div><strong>222</strong><span>论文</span></div>
     <div><strong>11</strong><span>分类</span></div>
-    <div><strong>545</strong><span>资源链接</span></div>
+    <div><strong>549</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
 </section>
@@ -105,12 +105,12 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="vision.html">
-  <span class="category-count">3 篇论文</span>
+  <span class="category-count">4 篇论文</span>
   <h3>视觉</h3>
   <p>对现代多模态系统有参考价值的计算机视觉方法。</p>
   <div class="category-foot">
-    <span>2026.09</span>
-    <span>OCR、目标检测、语义对应</span>
+    <span>2026.11</span>
+    <span>OCR、生成式视觉感知、目标检测、语义对应</span>
   </div>
 </a>
 <a class="category-card" href="auto-prompt.html">

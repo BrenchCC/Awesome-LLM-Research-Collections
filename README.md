@@ -47,6 +47,7 @@
   - [Agent Evaluation](#agent-evaluation)
   - [Memory](#memory)
 - [Vision](#vision)
+  - [Generative Visual Perception](#generative-visual-perception)
   - [Object Detection](#object-detection)
   - [OCR](#ocr)
   - [Semantic Correspondence](#semantic-correspondence)
@@ -1316,6 +1317,15 @@
   <a href="https://memagent-sialab.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
 
 # Vision
+
+## Generative Visual Perception
+
+- **Open Vision Banana: A Fully Open Recipe for Generative Visual Perception** (2026.11) \
+  **Description**: Open Vision Banana adapts open image generators into a shared model for segmentation, depth, and surface-normal prediction using public training data and RGB outputs. It also introduces legend ensembling, which votes across color assignments to improve segmentation without retraining. \
+  <a href="https://arxiv.org/abs/2611.15844"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://openvisionbanana.github.io/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/OpenVisionBanana/OpenVisionBanana"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/FunAILab/Open-Vision-Banana"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## Object Detection
 

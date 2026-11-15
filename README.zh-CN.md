@@ -46,6 +46,7 @@
   - [智能体评测](#智能体评测)
   - [记忆](#记忆)
 - [视觉](#视觉)
+  - [生成式视觉感知](#生成式视觉感知)
   - [目标检测](#目标检测)
   - [OCR](#ocr)
   - [语义对应](#语义对应)
@@ -1315,6 +1316,15 @@
   <a href="https://memagent-sialab.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
 
 # 视觉
+
+## 生成式视觉感知
+
+- **Open Vision Banana: A Fully Open Recipe for Generative Visual Perception** (2026.11) \
+  **描述**: Open Vision Banana 利用公开数据，将开放图像生成模型适配为统一的分割、深度和表面法线预测模型，以 RGB 图像表达各项任务的结果。它还提出图例集成，通过对不同颜色映射下的预测投票，在无需重新训练的情况下提升分割效果。 \
+  <a href="https://arxiv.org/abs/2611.15844"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://openvisionbanana.github.io/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/OpenVisionBanana/OpenVisionBanana"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/FunAILab/Open-Vision-Banana"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 ## 目标检测
 
