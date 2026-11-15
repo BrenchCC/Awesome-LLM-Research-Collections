@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>222</strong><span>Papers</span></div>
+    <div><strong>223</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>549</strong><span>Resource links</span></div>
+    <div><strong>552</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -33,7 +33,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="llms.html">
-  <span class="category-count">30 papers</span>
+  <span class="category-count">31 papers</span>
   <h3>LLMs</h3>
   <p>Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="category-foot">
@@ -141,6 +141,11 @@ toc: false
   <strong>DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction</strong>
   <em>Attention</em>
 </a>
+<a class="recent-row" href="llms.html#the-value-of-thinking-learning-when-to-reason-in-hybrid-decision-models">
+  <span>2026.11</span>
+  <strong>The Value of Thinking: Learning When to Reason in Hybrid Decision Models</strong>
+  <em>LLMs</em>
+</a>
 <a class="recent-row" href="llms.html#sae-interprets-moe-sparse-autoencoders-reveal-that-moe-experts-exhibit-human-interpretable-fine-grained-specialization">
   <span>2026.11</span>
   <strong>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="reinforcement-learning.html#turns-matter-advancing-streaming-video-rl-via-turn-level-credit">
   <span>2026.11</span>
   <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
-  <em>Reinforcement Learning</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#are-dense-rewards-worth-their-tokens-in-grpo">
-  <span>2026.11</span>
-  <strong>Are Dense Rewards Worth Their Tokens in GRPO?</strong>
   <em>Reinforcement Learning</em>
 </a>
   </div>

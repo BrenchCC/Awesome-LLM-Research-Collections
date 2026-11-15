@@ -241,6 +241,12 @@
 
 ## Inference
 
+- **The Value of Thinking: Learning When to Reason in Hybrid Decision Models** (2026.11) \
+  **Description**: This paper introduces a hybrid decision model that routes each request between a zero-token answer from one forward pass and full autoregressive reasoning according to the estimated value of thinking. Its calibrated decision policy optimisation trains the router from episode-level returns when per-decision labels are unavailable. \
+  <a href="https://arxiv.org/abs/2611.16961"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://github.com/zhengxuyu/HDM-code"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/fredreick/HDM-blocks"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Thinking Inertia: LLMs Keep Thinking When Told Not To** (2026.10) \
   **Description**: This paper evaluates no-thinking behavior by separating visible pre-answer text from final answers and measuring answer-only compliance, question relevance, and explicit inference. Across six LLMs and six prompting interventions, explicit inference persists under no-thinking controls, becoming more prevalent as answer spaces open and exposing a compliance–accuracy trade-off on open-ended tasks. \
   <a href="https://arxiv.org/abs/2610.11765"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

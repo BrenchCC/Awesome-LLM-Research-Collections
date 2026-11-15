@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>30</strong><span>Papers</span></div>
-    <div><strong>88</strong><span>Resource links</span></div>
+    <div><strong>31</strong><span>Papers</span></div>
+    <div><strong>91</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -285,10 +285,23 @@ toc: false
 </section>
 <section class="paper-section" id="inference">
   <div class="section-heading compact">
-    <p class="eyebrow">8 papers</p>
+    <p class="eyebrow">9 papers</p>
     <h2>Inference</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="the-value-of-thinking-learning-when-to-reason-in-hybrid-decision-models">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Inference</span>
+  </div>
+  <h3>The Value of Thinking: Learning When to Reason in Hybrid Decision Models</h3>
+  <p>This paper introduces a hybrid decision model that routes each request between a zero-token answer from one forward pass and full autoregressive reasoning according to the estimated value of thinking. Its calibrated decision policy optimisation trains the router from episode-level returns when per-decision labels are unavailable.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.16961" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://github.com/zhengxuyu/HDM-code" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/fredreick/HDM-blocks" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="thinking-inertia-llms-keep-thinking-when-told-not-to">
   <div class="paper-meta">
     <span>2026.10</span>

@@ -240,6 +240,12 @@
 
 ## 推理
 
+- **The Value of Thinking: Learning When to Reason in Hybrid Decision Models** (2026.11) \
+  **描述**: 该论文提出混合决策模型，根据预估的思考收益，为每个请求选择单次前向传播、无需生成 token 的快速回答，或完整的自回归推理。当缺少逐决策标签时，其校准决策策略优化方法利用回合级回报训练路由模块。 \
+  <a href="https://arxiv.org/abs/2611.16961"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://github.com/zhengxuyu/HDM-code"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/fredreick/HDM-blocks"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Thinking Inertia: LLMs Keep Thinking When Told Not To** (2026.10) \
   **描述**: 该论文将可见的答案前文本与最终答案分离，从仅输出答案的遵从率、问题相关性和显式推理三个层面评估不思考行为。对六个大语言模型和六种提示干预的评测发现，不思考控制下仍会出现显式推理，且答案空间越开放越普遍；开放式任务还呈现仅输出答案的遵从率与准确率之间的权衡。 \
   <a href="https://arxiv.org/abs/2610.11765"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
