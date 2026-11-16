@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">连接视觉、视频、动作与语言推理的多模态理解和生成研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>26</strong><span>论文</span></div>
-    <div><strong>83</strong><span>资源链接</span></div>
-    <div><strong>2026.10</strong><span>最新月份</span></div>
+    <div><strong>27</strong><span>论文</span></div>
+    <div><strong>86</strong><span>资源链接</span></div>
+    <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#video-generation">视频生成</a>
@@ -25,10 +25,23 @@ toc: false
 
 <section class="paper-section" id="video-generation">
   <div class="section-heading compact">
-    <p class="eyebrow">1 篇论文</p>
+    <p class="eyebrow">2 篇论文</p>
     <h2>视频生成</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="jvt-just-video-transformer-makes-pixel-space-video-diffusion-simple">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>视频生成</span>
+  </div>
+  <h3>JVT: Just Video Transformer makes pixel-space video diffusion simple</h3>
+  <p>JVT 使用大 patch 扩散 Transformer 直接在像素空间生成视频，无需预训练自编码器或专门的多阶段架构。它还能在相机轨迹条件下联合生成 RGB 视频与视差，在改善相机跟随效果的同时提供显式场景几何信息。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.18549" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://zhoutimemachine.github.io/JVT/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://github.com/ZhouTimeMachine/JVT" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />代码</a>
+  </div>
+</article>
 <article class="paper-card" id="streameval-evaluating-interactive-streaming-video-generation-models">
   <div class="paper-meta">
     <span>2026.10</span>

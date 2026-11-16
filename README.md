@@ -314,6 +314,12 @@
 
 ## Video Generation
 
+- **JVT: Just Video Transformer makes pixel-space video diffusion simple** (2026.11) \
+  **Description**: JVT uses a large-patch diffusion transformer to generate videos directly in pixel space without a pretrained autoencoder or specialized multi-stage architecture. It also jointly generates camera-conditioned RGB video and disparity, improving camera following while providing explicit scene geometry. \
+  <a href="https://arxiv.org/abs/2611.18549"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://zhoutimemachine.github.io/JVT/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/ZhouTimeMachine/JVT"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **StreamEval: Evaluating Interactive Streaming Video Generation Models** (2026.10) \
   **Description**: StreamEval is a benchmark for interactive streaming video generation across avatar dialogue and performance, world generation, and video editing. Its 300 scripted cases span 15–300-second sessions and use ten metrics to assess task execution, state consistency, visual fidelity, and audio-visual coordination. \
   <a href="https://arxiv.org/abs/2610.28402"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

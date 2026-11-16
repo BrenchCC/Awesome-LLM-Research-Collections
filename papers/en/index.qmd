@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>223</strong><span>Papers</span></div>
+    <div><strong>224</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>552</strong><span>Resource links</span></div>
+    <div><strong>555</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,11 +42,11 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">26 papers</span>
+  <span class="category-count">27 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
-    <span>2026.10</span>
+    <span>2026.11</span>
     <span>Multimodal Reasoning, VLA, Video Generation, Vision-Language</span>
   </div>
 </a>
@@ -151,6 +151,11 @@ toc: false
   <strong>SAE Interprets MoE: Sparse AutoEncoders Reveal That MoE Experts Exhibit Human-Interpretable Fine-Grained Specialization</strong>
   <em>LLMs</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#jvt-just-video-transformer-makes-pixel-space-video-diffusion-simple">
+  <span>2026.11</span>
+  <strong>JVT: Just Video Transformer makes pixel-space video diffusion simple</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
   <span>2026.11</span>
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
@@ -165,11 +170,6 @@ toc: false
   <span>2026.11</span>
   <strong>SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering</strong>
   <em>Training</em>
-</a>
-<a class="recent-row" href="reinforcement-learning.html#turns-matter-advancing-streaming-video-rl-via-turn-level-credit">
-  <span>2026.11</span>
-  <strong>Turns Matter: Advancing Streaming Video RL via Turn-Level Credit</strong>
-  <em>Reinforcement Learning</em>
 </a>
   </div>
 </section>

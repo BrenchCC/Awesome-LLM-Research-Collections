@@ -313,6 +313,12 @@
 
 ## 视频生成
 
+- **JVT: Just Video Transformer makes pixel-space video diffusion simple** (2026.11) \
+  **描述**: JVT 使用大 patch 扩散 Transformer 直接在像素空间生成视频，无需预训练自编码器或专门的多阶段架构。它还能在相机轨迹条件下联合生成 RGB 视频与视差，在改善相机跟随效果的同时提供显式场景几何信息。 \
+  <a href="https://arxiv.org/abs/2611.18549"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://zhoutimemachine.github.io/JVT/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/ZhouTimeMachine/JVT"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
 - **StreamEval: Evaluating Interactive Streaming Video Generation Models** (2026.10) \
   **描述**: StreamEval 是一个交互式流式视频生成基准，涵盖数字人对话与表演、世界生成和视频编辑五类任务。它包含 300 个时长为 15–300 秒的脚本化案例，并通过十项指标评估任务执行、状态一致性、视觉保真度和音视频协调。 \
   <a href="https://arxiv.org/abs/2610.28402"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
