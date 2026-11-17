@@ -835,6 +835,12 @@
   **Description**: Adaptive Reward Routing improves reinforcement learning for joint audio-video diffusion by using cross-attention responses to direct reward-driven updates and reward-gradient interactions to adjust competing objectives. It improves modality quality, semantic alignment, and audio-video synchronization over RL baselines. \
   <a href="https://arxiv.org/abs/2609.37200"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
 
+- **Reflection Anchors for Propagation-Aware Visual Retention in Long-Chain Multimodal Reasoning** (2026.05) \
+  **Description**: RAPO addresses visual information fading during long vision-language reasoning with a GRPO-based policy optimization method. It selects high-entropy reflection anchors and uses a chain-masked KL objective to strengthen the image's influence on later reasoning steps. \
+  <a href="https://arxiv.org/abs/2605.09614"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://coder-gx.github.io/RAPO/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/coder-gx/RAPO"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
 - **CapRL: Stimulating Dense Image Caption Capabilities via Reinforcement Learning** (2025.09) \
   **Description**: This paper introduces CapRL, the first RLVR framework for open-ended image captioning, which rewards captions by whether a vision-free language model can answer image questions using only the generated description. The resulting CapRL-3B model produces more informative and diverse captions, while its generated caption data improves large vision-language model pretraining across 12 benchmarks. \
   <a href="https://arxiv.org/abs/2509.22647"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
