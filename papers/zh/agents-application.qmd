@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>53</strong><span>论文</span></div>
-    <div><strong>130</strong><span>资源链接</span></div>
+    <div><strong>54</strong><span>论文</span></div>
+    <div><strong>132</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -633,10 +633,22 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">10 篇论文</p>
+    <p class="eyebrow">11 篇论文</p>
     <h2>记忆</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="self-improvement-memory-enables-continual-recursive-self-improvement">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>记忆</span>
+  </div>
+  <h3>Self-Improvement Memory Enables Continual Recursive Self-Improvement</h3>
+  <p>Self-Improvement Memory 记录 harness 修改的理由、预期与实际结果及评测背景，帮助优化器在基准或策略模型变化后决定保留或修订哪些修改。论文在四类任务中发现，相比只继承 harness 或根因记录，该方法能提升后续优化的最终成绩。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.18856" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://lucasxinyu.github.io/sim/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+  </div>
+</article>
 <article class="paper-card" id="don-t-just-trust-your-memory-evidence-linked-memory-reduces-memory-induced-degradation-in-llm-agents">
   <div class="paper-meta">
     <span>2026.11</span>

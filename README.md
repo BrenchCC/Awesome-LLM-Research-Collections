@@ -1283,6 +1283,11 @@
 
 ## Memory
 
+- **Self-Improvement Memory Enables Continual Recursive Self-Improvement** (2026.11) \
+  **Description**: Self-Improvement Memory records the rationale, expected and observed outcomes, and evaluation context of harness edits so an optimizer can reuse or revise them when benchmarks or policy models change. Across four domains, it improves continued harness optimization over carrying forward the harness alone or only root-cause notes. \
+  <a href="https://arxiv.org/abs/2611.18856"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://lucasxinyu.github.io/sim/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+
 - **Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents** (2026.11) \
   **Description**: WikiTrace links each agent memory insight to a summary and the raw trajectory of its source task, letting agents inspect evidence when a lesson is unclear, conflicting, or derived from failure. Across five agentic benchmarks, it improves on existing memory methods while reducing memory-induced degradation. \
   <a href="https://arxiv.org/abs/2611.14320"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

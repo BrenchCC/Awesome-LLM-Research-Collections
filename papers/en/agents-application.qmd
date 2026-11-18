@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>53</strong><span>Papers</span></div>
-    <div><strong>130</strong><span>Resource links</span></div>
+    <div><strong>54</strong><span>Papers</span></div>
+    <div><strong>132</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -633,10 +633,22 @@ toc: false
 </section>
 <section class="paper-section" id="memory">
   <div class="section-heading compact">
-    <p class="eyebrow">10 papers</p>
+    <p class="eyebrow">11 papers</p>
     <h2>Memory</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="self-improvement-memory-enables-continual-recursive-self-improvement">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Memory</span>
+  </div>
+  <h3>Self-Improvement Memory Enables Continual Recursive Self-Improvement</h3>
+  <p>Self-Improvement Memory records the rationale, expected and observed outcomes, and evaluation context of harness edits so an optimizer can reuse or revise them when benchmarks or policy models change. Across four domains, it improves continued harness optimization over carrying forward the harness alone or only root-cause notes.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.18856" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://lucasxinyu.github.io/sim/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+  </div>
+</article>
 <article class="paper-card" id="don-t-just-trust-your-memory-evidence-linked-memory-reduces-memory-induced-degradation-in-llm-agents">
   <div class="paper-meta">
     <span>2026.11</span>

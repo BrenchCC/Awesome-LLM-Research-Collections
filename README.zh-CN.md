@@ -1282,6 +1282,11 @@
 
 ## 记忆
 
+- **Self-Improvement Memory Enables Continual Recursive Self-Improvement** (2026.11) \
+  **描述**: Self-Improvement Memory 记录 harness 修改的理由、预期与实际结果及评测背景，帮助优化器在基准或策略模型变化后决定保留或修订哪些修改。论文在四类任务中发现，相比只继承 harness 或根因记录，该方法能提升后续优化的最终成绩。 \
+  <a href="https://arxiv.org/abs/2611.18856"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://lucasxinyu.github.io/sim/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+
 - **Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation in LLM Agents** (2026.11) \
   **描述**: WikiTrace 将每条智能体记忆经验与来源任务的摘要及原始轨迹关联，使智能体在经验含糊、相互冲突或来自失败任务时能够检查证据。它在五个智能体基准上优于现有记忆方法，同时减少了记忆导致的性能退化。 \
   <a href="https://arxiv.org/abs/2611.14320"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
