@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>54</strong><span>Papers</span></div>
-    <div><strong>132</strong><span>Resource links</span></div>
+    <div><strong>55</strong><span>Papers</span></div>
+    <div><strong>136</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -311,10 +311,24 @@ toc: false
 </section>
 <section class="paper-section" id="agent-development">
   <div class="section-heading compact">
-    <p class="eyebrow">18 papers</p>
+    <p class="eyebrow">19 papers</p>
     <h2>Agent Development</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="thinking-fast-anywhere-one-system-1-for-the-decision-points-of-any-agent-workflow">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Agent Development</span>
+  </div>
+  <h3>Thinking Fast, Anywhere: One System-1 for the Decision Points of Any Agent Workflow</h3>
+  <p>AnyS1 compiles enumerable decisions from procedural agent skills and trains one calibrated 4B System-1 on execution-grounded states to handle routine choices across unseen workflows. At run time, it defers uncertain decisions to System-2 while preserving task success and reducing episode cost and model-call time.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.23751" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://middle-chunjie.github.io/AnyS1/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://github.com/middle-chunjie/AnyS1" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+<a class="resource-link" href="https://huggingface.co/smSquirrel/AnyS1-4B" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="fewer-tokens-better-action-gpt-6-astra-robot-agents-with-14-higher-success-rate-but-65-fewer-tokens">
   <div class="paper-meta">
     <span>2026.10</span>

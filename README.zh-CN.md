@@ -1140,6 +1140,13 @@
 
 ## 智能体开发
 
+- **Thinking Fast, Anywhere: One System-1 for the Decision Points of Any Agent Workflow** (2026.11) \
+  **描述**: AnyS1 从过程型智能体技能中编译可枚举的决策点，并利用执行轨迹中的状态训练一个经过置信度校准的 4B System-1，使其处理未见工作流中的常规选择。运行时，系统将低置信度决策交给 System-2，在保持任务成功率的同时降低每轮任务成本和模型调用时间。 \
+  <a href="https://arxiv.org/abs/2611.23751"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://middle-chunjie.github.io/AnyS1/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/middle-chunjie/AnyS1"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/smSquirrel/AnyS1-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens** (2026.10) \
   **描述**: PyRUA-Lean 让机器人智能体在可执行的 Python 单元中组合动作原语与 VLA 策略，完成条件检查和局部重试，并按需返回视觉反馈。在 700 个仿真任务中，相同 LLM 调用预算下的成功率由 63.1% 提升至 71.7%；在双方均成功的任务上，调用次数减少 49%，输入 token 减少 65%。 \
   <a href="https://arxiv.org/abs/2610.01939"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

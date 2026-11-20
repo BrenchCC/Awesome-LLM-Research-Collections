@@ -1141,6 +1141,13 @@
 
 ## Agent Development
 
+- **Thinking Fast, Anywhere: One System-1 for the Decision Points of Any Agent Workflow** (2026.11) \
+  **Description**: AnyS1 compiles enumerable decisions from procedural agent skills and trains one calibrated 4B System-1 on execution-grounded states to handle routine choices across unseen workflows. At run time, it defers uncertain decisions to System-2 while preserving task success and reducing episode cost and model-call time. \
+  <a href="https://arxiv.org/abs/2611.23751"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://middle-chunjie.github.io/AnyS1/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/middle-chunjie/AnyS1"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/smSquirrel/AnyS1-4B"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens** (2026.10) \
   **Description**: PyRUA-Lean lets robot agents compose action primitives and VLA policies in executable Python cells with conditional checks, local retries, and selective visual feedback. Across 700 simulated tasks, it raises success from 63.1% to 71.7% under equal LLM-call budgets; on tasks both agents solve, it uses 49% fewer calls and 65% fewer input tokens. \
   <a href="https://arxiv.org/abs/2610.01939"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
