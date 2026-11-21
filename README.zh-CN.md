@@ -328,6 +328,13 @@
 
 ## 视觉语言
 
+- **HiUni: Harmonizing Understanding and Generation in Shared Visual Space** (2026.11) \
+  **描述**: HiUni 扩展预训练视觉语言模型，让图像理解、生成与编辑共用同一个语言对齐的 ViT 和稠密 Transformer 主干。其 Pixel Diffusion Head 与轻量 HiGate 通路支持像素空间合成，同时基本保持原模型的图像理解表现。 \
+  <a href="https://arxiv.org/abs/2611.26107"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://ernie-research.github.io/HiUni/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://github.com/ernie-research/HiUni"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+  <a href="https://huggingface.co/ernie-research/HiUni"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **WeVisOne-VL: Unified Visual Perception from Objects to Pixels** (2026.10) \
   **描述**: WeVisOne-VL 将目标级与像素级视觉感知统一于一个视觉语言模型中，通过结构化 token 预测和轻量级像素解码器支持检测、定位、计数、指点、OCR、分割与抠图。模型采用分阶段监督微调和混合任务强化学习，在 30 多个基准上取得领先结果。 \
   <a href="https://arxiv.org/abs/2610.31329"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

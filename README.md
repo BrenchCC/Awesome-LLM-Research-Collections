@@ -329,6 +329,13 @@
 
 ## Vision-Language
 
+- **HiUni: Harmonizing Understanding and Generation in Shared Visual Space** (2026.11) \
+  **Description**: HiUni extends a pretrained vision-language model to share one language-aligned ViT and dense Transformer backbone across image understanding, generation, and editing. A Pixel Diffusion Head and lightweight HiGate pathway enable pixel-space synthesis while retaining the base model's understanding performance. \
+  <a href="https://arxiv.org/abs/2611.26107"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://ernie-research.github.io/HiUni/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://github.com/ernie-research/HiUni"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+  <a href="https://huggingface.co/ernie-research/HiUni"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **WeVisOne-VL: Unified Visual Perception from Objects to Pixels** (2026.10) \
   **Description**: WeVisOne-VL unifies object-level and pixel-level visual perception in a vision-language model, supporting detection, localization, counting, pointing, OCR, segmentation, and matting through structured token prediction and a lightweight pixel decoder. Trained with staged supervised fine-tuning followed by mixed-task reinforcement learning, it reports leading results across more than 30 benchmarks. \
   <a href="https://arxiv.org/abs/2610.31329"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

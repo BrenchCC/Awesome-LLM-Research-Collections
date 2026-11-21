@@ -10,9 +10,9 @@ toc: false
   <p class="eyebrow">Research atlas</p>
   <p class="category-summary">Browse the paper catalog by research category or jump into the newest curated entries.</p>
   <div class="stat-strip">
-    <div><strong>227</strong><span>Papers</span></div>
+    <div><strong>228</strong><span>Papers</span></div>
     <div><strong>11</strong><span>Categories</span></div>
-    <div><strong>564</strong><span>Resource links</span></div>
+    <div><strong>568</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
 </section>
@@ -42,7 +42,7 @@ toc: false
   </div>
 </a>
 <a class="category-card" href="multimodal-llms.html">
-  <span class="category-count">27 papers</span>
+  <span class="category-count">28 papers</span>
   <h3>Multimodal LLMs</h3>
   <p>Vision-language, video-language, and VLA research that connects perception with language reasoning.</p>
   <div class="category-foot">
@@ -156,6 +156,11 @@ toc: false
   <strong>JVT: Just Video Transformer makes pixel-space video diffusion simple</strong>
   <em>Multimodal LLMs</em>
 </a>
+<a class="recent-row" href="multimodal-llms.html#hiuni-harmonizing-understanding-and-generation-in-shared-visual-space">
+  <span>2026.11</span>
+  <strong>HiUni: Harmonizing Understanding and Generation in Shared Visual Space</strong>
+  <em>Multimodal LLMs</em>
+</a>
 <a class="recent-row" href="training.html#think-less-locally-local-preference-learning-for-reasoning-compression">
   <span>2026.11</span>
   <strong>Think Less, Locally: Local Preference Learning for Reasoning Compression</strong>
@@ -164,11 +169,6 @@ toc: false
 <a class="recent-row" href="training.html#p-mopd-accelerating-multi-teacher-on-policy-distillation-via-parameter-priors">
   <span>2026.11</span>
   <strong>P²-MOPD: Accelerating Multi-Teacher On-Policy Distillation via Parameter Priors</strong>
-  <em>Training</em>
-</a>
-<a class="recent-row" href="training.html#steerdistill-quantizing-llm-agents-via-closed-loop-teacher-steering">
-  <span>2026.11</span>
-  <strong>SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering</strong>
   <em>Training</em>
 </a>
   </div>
