@@ -14,6 +14,7 @@
   - [Inference](#inference)
   - [Interpretability](#interpretability)
   - [Detection](#detection)
+  - [Evaluation](#evaluation)
 - [Multimodal LLMs](#multimodal-llms)
   - [Video Generation](#video-generation)
   - [Vision-Language](#vision-language)
@@ -309,6 +310,13 @@
   **Description**: This paper finds that commercial AI-text detectors often label base-model outputs as more human than outputs from instruction-tuned counterparts, suggesting they track tuning artifacts and local context rather than invariant machine-text signals. It proposes Humanization by Iterative Paraphrasing (HIP), a detector-agnostic fine-tuning and iterative paraphrasing pipeline that improves semantic preservation while evading detectors. \
   <a href="https://arxiv.org/abs/2605.19516"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
   <a href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing"><img src="assets/icons/github.svg" alt="Code" width="20"></a>
+
+## Evaluation
+
+- **AltRA-Test: An Alternative Annotator Test for LLM Judges Without Shared Annotators** (2026.11) \
+  **Description**: AltRA-Test uses bootstrap resampling to compare inter-annotator agreement between all-human panels and panels with one human annotation replaced by an LLM judgment, even when items have different human annotators. Across 20 text, image, audio, and video datasets, it tests when replacing a human annotator with an LLM is statistically justified. \
+  <a href="https://arxiv.org/abs/2611.26073"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://huggingface.co/datasets/naghamo/altra-test"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # Multimodal LLMs
 

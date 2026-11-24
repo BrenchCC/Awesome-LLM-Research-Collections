@@ -13,6 +13,7 @@
   - [推理](#推理)
   - [可解释性](#可解释性)
   - [检测](#检测)
+  - [评测](#评测)
 - [多模态大模型](#多模态大模型)
   - [视频生成](#视频生成)
   - [视觉语言](#视觉语言)
@@ -308,6 +309,13 @@
   **描述**: 该论文发现，商业 AI 文本检测器常把基础模型输出判为比指令微调模型输出更像人类文本，说明检测器可能更多捕捉指令微调痕迹和局部上下文，而非稳定的机器生成文本信号。论文提出 Humanization by Iterative Paraphrasing (HIP)，通过检测器无关的微调与迭代改写管线，在保持语义的同时提升检测规避效果。 \
   <a href="https://arxiv.org/abs/2605.19516"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
   <a href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing"><img src="assets/icons/github.svg" alt="代码" width="20"></a>
+
+## 评测
+
+- **AltRA-Test: An Alternative Annotator Test for LLM Judges Without Shared Annotators** (2026.11) \
+  **描述**: AltRA-Test 通过 bootstrap 重采样，比较纯人工标注小组与一名人工标注员被 LLM 替换后的小组之间的标注一致性，即使不同样本由不同标注员标注也适用。论文在涵盖文本、图像、音频和视频的 20 个数据集上，检验何时可以有统计依据地用 LLM 替代人工标注员。 \
+  <a href="https://arxiv.org/abs/2611.26073"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://huggingface.co/datasets/naghamo/altra-test"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
 
 # 多模态大模型
 

@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation model reports, inference methods, long-context language modeling, coding, and reasoning systems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>31</strong><span>Papers</span></div>
-    <div><strong>91</strong><span>Resource links</span></div>
+    <div><strong>32</strong><span>Papers</span></div>
+    <div><strong>93</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -20,6 +20,7 @@ toc: false
 <a href="#inference">Inference</a>
 <a href="#interpretability">Interpretability</a>
 <a href="#detection">Detection</a>
+<a href="#evaluation">Evaluation</a>
   </nav>
 </section>
 
@@ -452,6 +453,26 @@ toc: false
   <div class="paper-links">
 <a class="resource-link" href="https://arxiv.org/abs/2605.19516" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
 <a class="resource-link" href="https://github.com/YixuanEvenXu/humanization-by-iterative-paraphrasing" target="_blank" rel="noopener"><img src="../../assets/icons/github.svg" alt="" aria-hidden="true" />Code</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="paper-section" id="evaluation">
+  <div class="section-heading compact">
+    <p class="eyebrow">1 paper</p>
+    <h2>Evaluation</h2>
+  </div>
+  <div class="paper-grid">
+<article class="paper-card" id="altra-test-an-alternative-annotator-test-for-llm-judges-without-shared-annotators">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Evaluation</span>
+  </div>
+  <h3>AltRA-Test: An Alternative Annotator Test for LLM Judges Without Shared Annotators</h3>
+  <p>AltRA-Test uses bootstrap resampling to compare inter-annotator agreement between all-human panels and panels with one human annotation replaced by an LLM judgment, even when items have different human annotators. Across 20 text, image, audio, and video datasets, it tests when replacing a human annotator with an LLM is statistically justified.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.26073" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://huggingface.co/datasets/naghamo/altra-test" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
   </div>
 </article>
   </div>

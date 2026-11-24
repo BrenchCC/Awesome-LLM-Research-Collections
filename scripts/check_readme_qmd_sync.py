@@ -46,6 +46,8 @@ CATEGORY_SLUGS = {
     "可解释性": "interpretability",
     "Detection": "detection",
     "检测": "detection",
+    "Evaluation": "evaluation",
+    "评测": "evaluation",
     "Vision-Language": "vision-language",
     "视觉语言": "vision-language",
     "Video Generation": "video-generation",
