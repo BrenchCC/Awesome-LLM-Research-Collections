@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Foundation models and methods for tabular and other structured data.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>Papers</span></div>
-    <div><strong>4</strong><span>Resource links</span></div>
-    <div><strong>2026.09</strong><span>Latest month</span></div>
+    <div><strong>2</strong><span>Papers</span></div>
+    <div><strong>7</strong><span>Resource links</span></div>
+    <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
     <a href="#featured">Featured</a>
@@ -22,10 +22,23 @@ toc: false
 
 <section class="paper-section" id="featured">
   <div class="section-heading compact">
-    <p class="eyebrow">1 paper</p>
+    <p class="eyebrow">2 papers</p>
     <h2>Featured</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="antom-3-in-1-transformer-a-payment-foundation-model">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Structured Data</span>
+  </div>
+  <h3>Antom 3-in-1 Transformer: A Payment Foundation Model</h3>
+  <p>Antom 3-in-1 Transformer combines sequence, tabular, and graph representations to pretrain a payment risk model with about 7B parameters, of which roughly 1.7B are active per task route. In a four-month online experiment, it reduced the overall loss rate by 37.88% relative to XGB-Online.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.25403" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+<a class="resource-link" href="https://www.ant-intl.com/en/news/detail/ant-international-launches-full-stack-ai-native-solutions-for-payment-account-fx-treasury-and-growth-operations-for-global-businesses/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />Project</a>
+<a class="resource-link" href="https://huggingface.co/ant-intl/Antom-3-in-1-Transformer" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="limix-2-a-contextual-mechanism-network-towards-general-structured-data-intelligence">
   <div class="paper-meta">
     <span>2026.09</span>

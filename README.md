@@ -519,6 +519,12 @@
 
 # Structured Data
 
+- **Antom 3-in-1 Transformer: A Payment Foundation Model** (2026.11) \
+  **Description**: Antom 3-in-1 Transformer combines sequence, tabular, and graph representations to pretrain a payment risk model with about 7B parameters, of which roughly 1.7B are active per task route. In a four-month online experiment, it reduced the overall loss rate by 37.88% relative to XGB-Online. \
+  <a href="https://arxiv.org/abs/2611.25403"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+  <a href="https://www.ant-intl.com/en/news/detail/ant-international-launches-full-stack-ai-native-solutions-for-payment-account-fx-treasury-and-growth-operations-for-global-businesses/"><img src="assets/icons/project.svg" alt="Project" width="20"></a>
+  <a href="https://huggingface.co/ant-intl/Antom-3-in-1-Transformer"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence** (2026.09) \
   **Description**: LimiX-2 uses Contextual Mechanism Networks and context-conditional masked modeling to learn the joint structure of tabular data from synthetic causal datasets. It improves prediction across three tabular benchmarks and its feature attention supports causal skeleton recovery. \
   <a href="https://arxiv.org/abs/2609.17488"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>

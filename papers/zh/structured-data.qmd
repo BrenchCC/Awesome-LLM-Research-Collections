@@ -11,9 +11,9 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">面向表格等结构化数据的基础模型与方法研究。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>1</strong><span>论文</span></div>
-    <div><strong>4</strong><span>资源链接</span></div>
-    <div><strong>2026.09</strong><span>最新月份</span></div>
+    <div><strong>2</strong><span>论文</span></div>
+    <div><strong>7</strong><span>资源链接</span></div>
+    <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
     <a href="#featured">精选</a>
@@ -22,10 +22,23 @@ toc: false
 
 <section class="paper-section" id="featured">
   <div class="section-heading compact">
-    <p class="eyebrow">1 篇论文</p>
+    <p class="eyebrow">2 篇论文</p>
     <h2>精选</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="antom-3-in-1-transformer-a-payment-foundation-model">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>结构化数据</span>
+  </div>
+  <h3>Antom 3-in-1 Transformer: A Payment Foundation Model</h3>
+  <p>Antom 3-in-1 Transformer 结合序列、表格和图表示，预训练用于支付风控的模型；其总参数量约为 7B，每条任务路由激活约 1.7B 参数。在为期四个月的线上实验中，相比 XGB-Online，它将整体损失率降低了 37.88%。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.25403" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+<a class="resource-link" href="https://www.ant-intl.com/en/news/detail/ant-international-launches-full-stack-ai-native-solutions-for-payment-account-fx-treasury-and-growth-operations-for-global-businesses/" target="_blank" rel="noopener"><img src="../../assets/icons/project.svg" alt="" aria-hidden="true" />项目</a>
+<a class="resource-link" href="https://huggingface.co/ant-intl/Antom-3-in-1-Transformer" target="_blank" rel="noopener"><img src="../../assets/icons/huggingface.svg" alt="" aria-hidden="true" />Hugging Face</a>
+  </div>
+</article>
 <article class="paper-card" id="limix-2-a-contextual-mechanism-network-towards-general-structured-data-intelligence">
   <div class="paper-meta">
     <span>2026.09</span>

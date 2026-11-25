@@ -518,6 +518,12 @@
 
 # 结构化数据
 
+- **Antom 3-in-1 Transformer: A Payment Foundation Model** (2026.11) \
+  **描述**: Antom 3-in-1 Transformer 结合序列、表格和图表示，预训练用于支付风控的模型；其总参数量约为 7B，每条任务路由激活约 1.7B 参数。在为期四个月的线上实验中，相比 XGB-Online，它将整体损失率降低了 37.88%。 \
+  <a href="https://arxiv.org/abs/2611.25403"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+  <a href="https://www.ant-intl.com/en/news/detail/ant-international-launches-full-stack-ai-native-solutions-for-payment-account-fx-treasury-and-growth-operations-for-global-businesses/"><img src="assets/icons/project.svg" alt="项目" width="20"></a>
+  <a href="https://huggingface.co/ant-intl/Antom-3-in-1-Transformer"><img src="assets/icons/huggingface.svg" alt="Hugging Face" width="20"></a>
+
 - **LimiX-2: A Contextual Mechanism Network Towards General Structured-Data Intelligence** (2026.09) \
   **描述**: LimiX-2 采用上下文机制网络和上下文条件掩码建模，从合成因果数据中学习表格数据的联合结构。它在三个表格基准上提升了预测表现，其特征注意力还可用于恢复因果骨架。 \
   <a href="https://arxiv.org/abs/2609.17488"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
