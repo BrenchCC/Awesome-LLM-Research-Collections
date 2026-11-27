@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">Research category</p>
   <p class="category-summary">Agent systems, tool use, memory, AI research workflows, and reusable skill ecosystems.</p>
   <div class="stat-strip compact-strip">
-    <div><strong>55</strong><span>Papers</span></div>
-    <div><strong>136</strong><span>Resource links</span></div>
+    <div><strong>56</strong><span>Papers</span></div>
+    <div><strong>137</strong><span>Resource links</span></div>
     <div><strong>2026.11</strong><span>Latest month</span></div>
   </div>
   <nav class="section-nav" aria-label="Subcategories">
@@ -562,10 +562,21 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">6 papers</p>
+    <p class="eyebrow">7 papers</p>
     <h2>Agent Evaluation</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="self-evolving-evaluation-environments-for-computer-use-agents">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>Agent Evaluation</span>
+  </div>
+  <h3>Self-Evolving Evaluation Environments for Computer-Use Agents</h3>
+  <p>CUA-SEE is a closed-loop evaluation environment that co-evolves tasks and executable verifiers from computer-use agent rollouts. It expands benchmark difficulty and coverage, probes agent-specific capability boundaries, and validates state-grounded checkpoints to improve evaluation precision.</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.30962" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />Paper</a>
+  </div>
+</article>
 <article class="paper-card" id="userarena-benchmarking-interactive-user-simulation-for-long-horizon-shopping-agents">
   <div class="paper-meta">
     <span>2026.10</span>

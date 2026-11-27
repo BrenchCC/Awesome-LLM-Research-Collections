@@ -11,8 +11,8 @@ toc: false
   <p class="eyebrow">研究分类</p>
   <p class="category-summary">智能体系统、工具调用、记忆、AI 研究工作流和可复用技能生态。</p>
   <div class="stat-strip compact-strip">
-    <div><strong>55</strong><span>论文</span></div>
-    <div><strong>136</strong><span>资源链接</span></div>
+    <div><strong>56</strong><span>论文</span></div>
+    <div><strong>137</strong><span>资源链接</span></div>
     <div><strong>2026.11</strong><span>最新月份</span></div>
   </div>
   <nav class="section-nav" aria-label="子分类">
@@ -562,10 +562,21 @@ toc: false
 </section>
 <section class="paper-section" id="agent-evaluation">
   <div class="section-heading compact">
-    <p class="eyebrow">6 篇论文</p>
+    <p class="eyebrow">7 篇论文</p>
     <h2>智能体评测</h2>
   </div>
   <div class="paper-grid">
+<article class="paper-card" id="self-evolving-evaluation-environments-for-computer-use-agents">
+  <div class="paper-meta">
+    <span>2026.11</span>
+    <span>智能体评测</span>
+  </div>
+  <h3>Self-Evolving Evaluation Environments for Computer-Use Agents</h3>
+  <p>CUA-SEE 是一个闭环评测环境，根据计算机使用智能体的执行轨迹共同演化任务与可执行验证器。它扩展基准的难度和覆盖范围，探测特定智能体的能力边界，并验证基于环境状态的检查点，以提高评测精度。</p>
+  <div class="paper-links">
+<a class="resource-link" href="https://arxiv.org/abs/2611.30962" target="_blank" rel="noopener"><img src="../../assets/icons/arxiv.svg" alt="" aria-hidden="true" />论文</a>
+  </div>
+</article>
 <article class="paper-card" id="userarena-benchmarking-interactive-user-simulation-for-long-horizon-shopping-agents">
   <div class="paper-meta">
     <span>2026.10</span>

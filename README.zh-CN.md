@@ -1273,6 +1273,10 @@
 
 ## 智能体评测
 
+- **Self-Evolving Evaluation Environments for Computer-Use Agents** (2026.11) \
+  **描述**: CUA-SEE 是一个闭环评测环境，根据计算机使用智能体的执行轨迹共同演化任务与可执行验证器。它扩展基准的难度和覆盖范围，探测特定智能体的能力边界，并验证基于环境状态的检查点，以提高评测精度。 \
+  <a href="https://arxiv.org/abs/2611.30962"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>
+
 - **UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents** (2026.10) \
   **描述**: UserArena 基于 64,729 条真实电商会话构建长程购物智能体的用户模拟基准，结合交互环境与五级评测体系，并通过生产环境 A/B 测试结果验证离线评估。论文还提出 On-Policy Trajectory Distillation，利用轨迹级意图监督学生模型生成的轨迹，以提高模拟保真度。 \
   <a href="https://arxiv.org/abs/2610.30932"><img src="assets/icons/arxiv.svg" alt="论文" width="20"></a>

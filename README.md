@@ -1274,6 +1274,10 @@
 
 ## Agent Evaluation
 
+- **Self-Evolving Evaluation Environments for Computer-Use Agents** (2026.11) \
+  **Description**: CUA-SEE is a closed-loop evaluation environment that co-evolves tasks and executable verifiers from computer-use agent rollouts. It expands benchmark difficulty and coverage, probes agent-specific capability boundaries, and validates state-grounded checkpoints to improve evaluation precision. \
+  <a href="https://arxiv.org/abs/2611.30962"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
+
 - **UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents** (2026.10) \
   **Description**: UserArena benchmarks long-horizon shopping-agent user simulation with 64,729 real e-commerce sessions, an interactive environment, and five levels of evaluation validated against production A/B outcomes. It also introduces On-Policy Trajectory Distillation, which uses trajectory-level intent to supervise student-generated rollouts and improve simulation fidelity. \
   <a href="https://arxiv.org/abs/2610.30932"><img src="assets/icons/arxiv.svg" alt="Paper" width="20"></a>
